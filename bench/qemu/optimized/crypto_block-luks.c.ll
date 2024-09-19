@@ -360,8 +360,8 @@ if.then35.i:                                      ; preds = %if.end31.i
   br label %fail
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i, %if.end72.i
-  %exitcond.not.i = icmp eq i64 %add73.i, 8
-  br i1 %exitcond.not.i, label %if.end21, label %for.body.i, !llvm.loop !8
+  %exitcond87.not.i = icmp eq i64 %add73.i, 8
+  br i1 %exitcond87.not.i, label %if.end21, label %for.body.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %for.cond.preheader.i
   %i.073.i = phi i64 [ 0, %for.cond.preheader.i ], [ %add73.i, %for.cond.loopexit.i ]
@@ -453,8 +453,8 @@ if.then91.i:                                      ; preds = %for.body77.i
 
 for.inc.i:                                        ; preds = %for.body77.i
   %inc.i = add nuw nsw i64 %j.072.i, 1
-  %cmp75.i = icmp ult i64 %j.072.i, 7
-  br i1 %cmp75.i, label %for.body77.i, label %for.cond.loopexit.i, !llvm.loop !9
+  %exitcond.not.i = icmp eq i64 %inc.i, 8
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body77.i, !llvm.loop !9
 
 if.end21:                                         ; preds = %for.cond.loopexit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)

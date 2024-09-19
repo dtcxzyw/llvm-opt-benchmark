@@ -48820,7 +48820,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vect
   %8 = ptrtoint ptr %.0.val to i64
   %9 = sub i64 %7, %8
   %10 = lshr exact i64 %9, 2
-  br i1 %6, label %44, label %.preheader9
+  br i1 %6, label %48, label %.preheader9
 
 .preheader9:                                      ; preds = %2
   %11 = trunc i64 %10 to i32
@@ -48832,14 +48832,12 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vect
   %wide.trip.count = and i64 %10, 2147483647
   br label %14
 
-14:                                               ; preds = %.lr.ph, %38
-  %indvars.iv27 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next28, %38 ]
-  %indvars.iv24 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next25, %38 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
+14:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %15 = getelementptr inbounds i32, ptr %.0.val, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %13
-  br i1 %17, label %.preheader, label %38
+  br i1 %17, label %.preheader, label %42
 
 .preheader:                                       ; preds = %14
   %18 = ptrtoint ptr %5 to i64
@@ -48852,69 +48850,61 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_16Parser16compile_widthdefERKSt6vect
   br i1 %23, label %.lr.ph17.preheader, label %._crit_edge18
 
 .lr.ph17.preheader:                               ; preds = %.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv24, i32 %11)
-  %25 = add i32 %smax, %indvars.iv27
-  %wide.trip.count31 = zext i32 %25 to i64
-  %wide.trip.count33 = and i64 %21, 2147483647
-  %invariant.gep = getelementptr inbounds i32, ptr %.0.val, i64 %24
+  %25 = and i64 %10, 2147483647
+  %wide.trip.count25 = and i64 %21, 2147483647
   br label %.lr.ph17
 
-.lr.ph17:                                         ; preds = %.lr.ph17.preheader, %36
-  %indvars.iv22 = phi i64 [ 0, %.lr.ph17.preheader ], [ %indvars.iv.next23, %36 ]
-  %exitcond32.not = icmp eq i64 %indvars.iv22, %wide.trip.count31
-  br i1 %exitcond32.not, label %split, label %26
+.lr.ph17:                                         ; preds = %.lr.ph17.preheader, %40
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph17.preheader ], [ %indvars.iv.next23, %40 ]
+  %26 = add nuw nsw i64 %indvars.iv22, %24
+  %.not = icmp ult i64 %26, %25
+  br i1 %.not, label %27, label %32
 
-26:                                               ; preds = %.lr.ph17
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv22
-  %27 = load i32, ptr %gep, align 4
-  %28 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv22
+27:                                               ; preds = %.lr.ph17
+  %28 = getelementptr inbounds i32, ptr %.0.val, i64 %26
   %29 = load i32, ptr %28, align 4
-  %.not18 = icmp eq i32 %27, %29
-  br i1 %.not18, label %36, label %._crit_edge35
+  %30 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv22
+  %31 = load i32, ptr %30, align 4
+  %.not18 = icmp eq i32 %29, %31
+  br i1 %.not18, label %40, label %32
 
-._crit_edge35:                                    ; preds = %26
-  %.pre36 = and i64 %indvars.iv22, 4294967295
-  br label %split
-
-split:                                            ; preds = %.lr.ph17, %._crit_edge35
-  %.pre-phi37 = phi i64 [ %.pre36, %._crit_edge35 ], [ %wide.trip.count31, %.lr.ph17 ]
-  %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
-  %31 = getelementptr inbounds i8, ptr %0, i64 552
-  %32 = load i32, ptr %31, align 8
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %.pre-phi37
-  %35 = load i32, ptr %34, align 4
-  tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.132, ptr noundef %30, i32 noundef %32, i32 noundef %35) #26
+32:                                               ; preds = %27, %.lr.ph17
+  %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  %34 = getelementptr inbounds i8, ptr %0, i64 552
+  %35 = load i32, ptr %34, align 8
+  %36 = and i64 %indvars.iv22, 4294967295
+  %37 = load ptr, ptr %1, align 8
+  %38 = getelementptr inbounds i32, ptr %37, i64 %36
+  %39 = load i32, ptr %38, align 4
+  tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.132, ptr noundef %33, i32 noundef %35, i32 noundef %39) #26
   unreachable
 
-36:                                               ; preds = %26
+40:                                               ; preds = %27
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !290
+  %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
+  br i1 %exitcond26.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !290
 
-._crit_edge18:                                    ; preds = %36, %.preheader
-  %37 = add nuw i64 %indvars.iv, %21
-  br label %44
+._crit_edge18:                                    ; preds = %40, %.preheader
+  %41 = add nuw i64 %indvars.iv, %21
+  br label %48
 
-38:                                               ; preds = %14
+42:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %indvars.iv.next25 = add nuw nsw i32 %indvars.iv24, 1
-  %indvars.iv.next28 = add nsw i32 %indvars.iv27, -1
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !291
 
-._crit_edge:                                      ; preds = %38, %.preheader9
-  %39 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
-  %40 = getelementptr inbounds i8, ptr %0, i64 552
-  %41 = load i32, ptr %40, align 8
-  %42 = load ptr, ptr %1, align 8
-  %43 = load i32, ptr %42, align 4
-  tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.133, ptr noundef %39, i32 noundef %41, i32 noundef %43) #26
+._crit_edge:                                      ; preds = %42, %.preheader9
+  %43 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
+  %44 = getelementptr inbounds i8, ptr %0, i64 552
+  %45 = load i32, ptr %44, align 8
+  %46 = load ptr, ptr %1, align 8
+  %47 = load i32, ptr %46, align 4
+  tail call void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.133, ptr noundef %43, i32 noundef %45, i32 noundef %47) #26
   unreachable
 
-44:                                               ; preds = %2, %._crit_edge18
+48:                                               ; preds = %2, %._crit_edge18
   %.sroa.0.0 = phi i64 [ %24, %._crit_edge18 ], [ 0, %2 ]
-  %.sroa.3.0.in = phi i64 [ %37, %._crit_edge18 ], [ %10, %2 ]
+  %.sroa.3.0.in = phi i64 [ %41, %._crit_edge18 ], [ %10, %2 ]
   %.sroa.3.0 = shl i64 %.sroa.3.0.in, 32
   %.sroa.3.0.insert.ext = add i64 %.sroa.3.0, -4294967296
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.ext, %.sroa.0.0
@@ -50837,9 +50827,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

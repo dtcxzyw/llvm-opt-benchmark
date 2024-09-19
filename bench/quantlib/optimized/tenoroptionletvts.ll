@@ -5773,11 +5773,11 @@ for.cond.cleanup:                                 ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 for.cond.cleanup.thread:                          ; preds = %entry
-  %sub.ptr.lhs.cast.i103 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i104 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i105 = sub i64 %sub.ptr.lhs.cast.i103, %sub.ptr.rhs.cast.i104
-  %cmp.i.i106 = icmp ugt i64 %sub.ptr.sub.i105, 9223372036854775800
-  br i1 %cmp.i.i106, label %if.then.i.i, label %invoke.cont
+  %sub.ptr.lhs.cast.i104 = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i105 = ptrtoint ptr %0 to i64
+  %sub.ptr.sub.i106 = sub i64 %sub.ptr.lhs.cast.i104, %sub.ptr.rhs.cast.i105
+  %cmp.i.i107 = icmp ugt i64 %sub.ptr.sub.i106, 9223372036854775800
+  br i1 %cmp.i.i107, label %if.then.i.i, label %invoke.cont
 
 if.then.i.i:                                      ; preds = %for.cond.cleanup.thread, %for.cond.cleanup
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #29
@@ -5806,7 +5806,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 invoke.cont:                                      ; preds = %for.cond.cleanup.thread, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %sum_v.0.lcssa107111 = phi double [ %add, %if.then.i.i.i.i.i ], [ %add, %if.end.i.i.i.i.i.i.i ], [ 0.000000e+00, %for.cond.cleanup.thread ]
+  %sum_v.0.lcssa108112 = phi double [ %add, %if.then.i.i.i.i.i ], [ %add, %if.end.i.i.i.i.i.i.i ], [ 0.000000e+00, %for.cond.cleanup.thread ]
   %volBase.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i26, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i26, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   %volBase.sroa.18.0 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
@@ -5820,7 +5820,7 @@ invoke.cont:                                      ; preds = %for.cond.cleanup.th
 for.body13.lr.ph:                                 ; preds = %invoke.cont
   %fraRateTarg_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %baseSmileSection_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %neg = fneg double %sum_v.0.lcssa107111
+  %neg = fneg double %sum_v.0.lcssa108112
   br label %for.body13
 
 for.cond25.preheader:                             ; preds = %invoke.cont20, %invoke.cont
@@ -5862,7 +5862,7 @@ invoke.cont18:                                    ; preds = %.noexc33, %for.body
   %11 = phi ptr [ %10, %for.body13 ], [ %.pre.i, %.noexc33 ]
   %12 = tail call double @llvm.fmuladd.f64(double %neg, double %8, double %7)
   %sub = fsub double %strike, %12
-  %div = fdiv double %sub, %sum_v.0.lcssa107111
+  %div = fdiv double %sub, %sum_v.0.lcssa108112
   %call21 = invoke noundef double @_ZNK8QuantLib12SmileSection10volatilityEdNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(72) %11, double noundef %div, i32 noundef 1, double noundef 0.000000e+00)
           to label %invoke.cont20 unwind label %lpad17
 
@@ -5887,11 +5887,11 @@ lpad17:                                           ; preds = %cond.false.i, %invo
 for.cond25.loopexit:                              ; preds = %invoke.cont50, %for.body29
   %16 = phi ptr [ %17, %for.body29 ], [ %25, %invoke.cont50 ]
   %var.1.lcssa = phi double [ %20, %for.body29 ], [ %30, %invoke.cont50 ]
-  %exitcond.not = icmp eq i64 %add38, %umax
-  br i1 %exitcond.not, label %for.cond.cleanup28.thread, label %for.body29, !llvm.loop !125
+  %exitcond102.not = icmp eq i64 %add38, %umax
+  br i1 %exitcond102.not, label %for.cond.cleanup28.thread, label %for.body29, !llvm.loop !125
 
 for.cond.cleanup28.thread:                        ; preds = %for.cond25.loopexit
-  %call69113 = tail call double @sqrt(double noundef %var.1.lcssa) #27, !tbaa !126
+  %call69114 = tail call double @sqrt(double noundef %var.1.lcssa) #27, !tbaa !126
   br label %if.then.i.i.i
 
 for.cond.cleanup28:                               ; preds = %for.cond25.preheader
@@ -5899,15 +5899,15 @@ for.cond.cleanup28:                               ; preds = %for.cond25.preheade
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.cond.cleanup28.thread, %for.cond.cleanup28
-  %call69115 = phi double [ %call69113, %for.cond.cleanup28.thread ], [ 0.000000e+00, %for.cond.cleanup28 ]
+  %call69116 = phi double [ %call69114, %for.cond.cleanup28.thread ], [ 0.000000e+00, %for.cond.cleanup28 ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %volBase.sroa.18.0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i37
   tail call void @_ZdlPvm(ptr noundef nonnull %volBase.sroa.0.0, i64 noundef %sub.ptr.sub.i.i) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup28, %if.then.i.i.i
-  %call69116 = phi double [ 0.000000e+00, %for.cond.cleanup28 ], [ %call69115, %if.then.i.i.i ]
-  ret double %call69116
+  %call69117 = phi double [ 0.000000e+00, %for.cond.cleanup28 ], [ %call69116, %if.then.i.i.i ]
+  ret double %call69117
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond25.loopexit
   %17 = phi ptr [ %.pre, %for.body29.lr.ph ], [ %16, %for.cond25.loopexit ]
@@ -5963,9 +5963,9 @@ invoke.cont50:                                    ; preds = %invoke.cont45
   %add.ptr.i58 = getelementptr inbounds nuw double, ptr %volBase.sroa.0.0, i64 %j.095
   %29 = load double, ptr %add.ptr.i58, align 8, !tbaa !110
   %30 = tail call double @llvm.fmuladd.f64(double %mul60, double %29, double %var.194)
-  %inc64 = add nuw i64 %j.095, 1
-  %cmp41 = icmp ult i64 %inc64, %sub.ptr.div.i39
-  br i1 %cmp41, label %for.body43, label %for.cond25.loopexit, !llvm.loop !127
+  %inc64 = add i64 %j.095, 1
+  %exitcond.not = icmp eq i64 %inc64, %sub.ptr.div.i39
+  br i1 %exitcond.not, label %for.cond25.loopexit, label %for.body43, !llvm.loop !127
 
 lpad44:                                           ; preds = %cond.false.i50, %invoke.cont45
   %31 = landingpad { ptr, i32 }

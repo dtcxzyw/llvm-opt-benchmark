@@ -64,40 +64,46 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 define dso_local i32 @itostr(ptr nocapture noundef %buffer, i32 noundef %i, i32 noundef %radix, i32 noundef %pad) local_unnamed_addr #4 {
 entry:
   %spec.select = tail call i32 @llvm.abs.i32(i32 %i, i1 true)
+  %0 = add i32 %pad, -2
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
+  %indvars.iv42 = phi i32 [ %indvars.iv.next43, %do.body ], [ %0, %entry ]
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %do.body ], [ 2, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 0, %entry ]
   %i.addr.1 = phi i32 [ %div, %do.body ], [ %spec.select, %entry ]
   %rem = urem i32 %i.addr.1, %radix
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [16 x i8], ptr @__const.itostr.digits, i64 0, i64 %idxprom
-  %0 = load i8, ptr %arrayidx, align 1
+  %1 = load i8, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx2 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv
-  store i8 %0, ptr %arrayidx2, align 1
+  store i8 %1, ptr %arrayidx2, align 1
   %div = udiv i32 %i.addr.1, %radix
   %tobool.not = icmp ugt i32 %radix, %i.addr.1
+  %indvars.iv.next41 = add i64 %indvars.iv40, 1
+  %indvars.iv.next43 = add i32 %indvars.iv42, -1
   br i1 %tobool.not, label %while.cond.preheader, label %do.body, !llvm.loop !5
 
 while.cond.preheader:                             ; preds = %do.body
   %cmp = icmp slt i32 %i, 0
-  %1 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp331 = icmp sgt i32 %pad, %1
+  %2 = trunc nuw i64 %indvars.iv.next to i32
+  %cmp331 = icmp sgt i32 %pad, %2
   br i1 %cmp331, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
   %scevgep = getelementptr i8, ptr %buffer, i64 %indvars.iv.next
-  %2 = add i32 %pad, -2
   %3 = trunc i64 %indvars.iv to i32
-  %4 = sub i32 %2, %3
+  %4 = sub i32 %0, %3
   %5 = zext i32 %4 to i64
   %6 = add nuw nsw i64 %5, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %6, i1 false)
+  %7 = trunc i64 %indvars.iv40 to i32
+  %8 = add i32 %indvars.iv42, %7
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %while.cond.preheader
-  %length.1.lcssa = phi i32 [ %1, %while.cond.preheader ], [ %pad, %while.body.preheader ]
+  %length.1.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %8, %while.body.preheader ]
   br i1 %cmp, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %while.end
@@ -124,25 +130,25 @@ if.end17:                                         ; preds = %if.then14, %if.end1
   br i1 %cmp2033, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end17
-  %div194647 = lshr i32 %cond, 1
-  %wide.trip.count44 = zext nneg i32 %div194647 to i64
+  %div194950 = lshr i32 %cond, 1
+  %wide.trip.count48 = zext nneg i32 %div194950 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv41 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next42, %for.body ]
-  %7 = trunc i64 %indvars.iv41 to i32
-  %8 = xor i32 %7, -1
-  %sub22 = add i32 %length.2, %8
+  %indvars.iv45 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next46, %for.body ]
+  %9 = trunc i64 %indvars.iv45 to i32
+  %10 = xor i32 %9, -1
+  %sub22 = add i32 %length.2, %10
   %idxprom23 = sext i32 %sub22 to i64
   %arrayidx24 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom23
-  %9 = load i8, ptr %arrayidx24, align 1
-  %arrayidx26 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv41
-  %10 = load i8, ptr %arrayidx26, align 1
-  store i8 %10, ptr %arrayidx24, align 1
-  store i8 %9, ptr %arrayidx26, align 1
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %for.end, label %for.body, !llvm.loop !7
+  %11 = load i8, ptr %arrayidx24, align 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv45
+  %12 = load i8, ptr %arrayidx26, align 1
+  store i8 %12, ptr %arrayidx24, align 1
+  store i8 %11, ptr %arrayidx26, align 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end17
   ret i32 %length.2

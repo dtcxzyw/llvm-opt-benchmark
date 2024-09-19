@@ -3833,9 +3833,9 @@ for.inc284.i:                                     ; preds = %if.else.i, %land.lh
   %p_memsz275.i = getelementptr inbounds i8, ptr %add.ptr.i425.i, i64 40
   %x.0.copyload.i431.i = load i64, ptr %p_memsz275.i, align 1, !noalias !4
   %add277.i = add i64 %x.0.copyload.i431.i, %x.0.copyload.i428.sink604.i
-  %i225.1.i = add nuw nsw i64 %i225.1557.i, 1
-  %cmp250.i = icmp ult i64 %i225.1.i, %sub.ptr.div.i412.i
-  br i1 %cmp250.i, label %land.rhs251.i, label %if.end290.i, !llvm.loop !18
+  %i225.1.i = add i64 %i225.1557.i, 1
+  %exitcond.not = icmp eq i64 %i225.1.i, %sub.ptr.div.i412.i
+  br i1 %exitcond.not, label %if.end290.i, label %land.rhs251.i, !llvm.loop !18
 
 for.inc287.i:                                     ; preds = %for.body229.i
   %inc288.i = add nuw i64 %i225.0548.i, 1

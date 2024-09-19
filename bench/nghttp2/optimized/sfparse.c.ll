@@ -1591,8 +1591,8 @@ for.body49:                                       ; preds = %for.body49.preheade
   br i1 %switch41, label %sw.bb52, label %for.end68
 
 sw.bb52:                                          ; preds = %for.body49
-  %cmp54 = icmp ugt i64 %len.179, 14
-  br i1 %cmp54, label %return, label %if.end57
+  %exitcond95 = icmp eq i64 %len.179, 15
+  br i1 %exitcond95, label %return, label %if.end57
 
 if.end57:                                         ; preds = %sw.bb52
   %inc53 = add nuw nsw i64 %len.179, 1
@@ -1637,9 +1637,9 @@ switch.lookup:                                    ; preds = %if.then78
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %switch.lookup, %if.then34
-  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
+  %.sink107 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
   %.sink = phi i64 [ %mul36, %if.then34 ], [ %switch.load, %switch.lookup ]
-  %denom88 = getelementptr inbounds i8, ptr %dest, i64 %.sink106
+  %denom88 = getelementptr inbounds i8, ptr %dest, i64 %.sink107
   store i64 %.sink, ptr %denom88, align 8
   br label %return
 

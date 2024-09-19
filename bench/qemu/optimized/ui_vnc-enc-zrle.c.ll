@@ -369,12 +369,14 @@ while.body53.i.us.i:                              ; preds = %while.cond50.prehea
   br label %while.cond55.i.us.i
 
 while.cond55.i.us.i:                              ; preds = %while.cond55.i.us.i, %while.body53.i.us.i
-  %ptr.3.pn.i.us.i = phi ptr [ %ptr.3131.i.us.i, %while.body53.i.us.i ], [ %ptr.4.i.us.i, %while.cond55.i.us.i ]
+  %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %while.cond55.i.us.i ], [ -255, %while.body53.i.us.i ]
+  %ptr.3.pn.i.us.i = phi ptr [ %ptr.4.i.us.i, %while.cond55.i.us.i ], [ %ptr.3131.i.us.i, %while.body53.i.us.i ]
   %ptr.4.i.us.i = getelementptr i8, ptr %ptr.3.pn.i.us.i, i64 1
   %30 = load i8, ptr %ptr.4.i.us.i, align 1
   %cmp58.i.us.i = icmp eq i8 %30, %29
   %cmp60.i.us.i = icmp ult ptr %ptr.4.i.us.i, %add.ptr.i.us.i
   %31 = and i1 %cmp58.i.us.i, %cmp60.i.us.i
+  %indvars.iv.next.i = add i32 %indvars.iv.i, 1
   br i1 %31, label %while.cond55.i.us.i, label %while.end64.i.us.i, !llvm.loop !11
 
 while.end64.i.us.i:                               ; preds = %while.cond55.i.us.i
@@ -407,10 +409,14 @@ while.body92.i.us.i:                              ; preds = %if.end88.i.us.i, %w
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93.i.us.i = add nsw i32 %len.0128.i.us.i, -255
   %cmp90.i.us.i = icmp ugt i32 %len.0128.i.us.i, 509
-  br i1 %cmp90.i.us.i, label %while.body92.i.us.i, label %while.end94.i.us.i, !llvm.loop !12
+  br i1 %cmp90.i.us.i, label %while.body92.i.us.i, label %while.end94.i.us.loopexit.i, !llvm.loop !12
 
-while.end94.i.us.i:                               ; preds = %while.body92.i.us.i, %if.end88.i.us.i
-  %len.0.lcssa.i.us.i = phi i32 [ %sub.i.us.i, %if.end88.i.us.i ], [ %sub93.i.us.i, %while.body92.i.us.i ]
+while.end94.i.us.loopexit.i:                      ; preds = %while.body92.i.us.i
+  %33 = urem i32 %indvars.iv.i, 255
+  br label %while.end94.i.us.i
+
+while.end94.i.us.i:                               ; preds = %while.end94.i.us.loopexit.i, %if.end88.i.us.i
+  %len.0.lcssa.i.us.i = phi i32 [ %sub.i.us.i, %if.end88.i.us.i ], [ %33, %while.end94.i.us.loopexit.i ]
   %conv95.i.us.i = trunc i32 %len.0.lcssa.i.us.i to i8
   br label %while.cond50.backedge.i.us.i
 
@@ -452,8 +458,8 @@ if.else104.i.i:                                   ; preds = %if.then99.i.us.i
 
 sw.bb32:                                          ; preds = %if.end30
   %gmax = getelementptr inbounds i8, ptr %vs, i64 49441
-  %33 = load i8, ptr %gmax, align 1
-  %cmp35 = icmp ugt i8 %33, 31
+  %34 = load i8, ptr %gmax, align 1
+  %cmp35 = icmp ugt i8 %34, 31
   %add.i111 = add i32 %h, %y
   %cmp22.i = icmp slt i32 %y, %add.i111
   br i1 %cmp35, label %if.then37, label %if.else42
@@ -481,29 +487,29 @@ for.body6.us.i120:                                ; preds = %for.body6.us.i120, 
   %sub8.us.i121 = sub i32 %add4.i113, %tx.021.us.i
   %cond14.us.i122 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i121, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i110)
-  %34 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i123 = getelementptr inbounds i8, ptr %34, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i123) #9
   %35 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i124 = getelementptr inbounds i8, ptr %35, i64 8
+  %fb.i.us.i123 = getelementptr inbounds i8, ptr %35, i64 8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i123) #9
+  %36 = load ptr, ptr %zrle, align 8
+  %fb2.i.us.i124 = getelementptr inbounds i8, ptr %36, i64 8
   %mul313.i.us.i125 = mul i32 %mul.i.us.i119, %cond14.us.i122
   %add.i.us.i126 = add i32 %mul313.i.us.i125, 16
   %conv.i.us.i127 = sext i32 %add.i.us.i126 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i124, i64 noundef %conv.i.us.i127) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i110, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
-  %36 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i128 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load ptr, ptr %zrle, align 8
+  %fb6.i.us.i128 = getelementptr inbounds i8, ptr %37, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i128, i64 40, i1 false)
   %call.i.us.i129 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i, i32 noundef %ty.023.us.i, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118) #9
-  %37 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i130 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load ptr, ptr %zrle, align 8
+  %fb8.i.us.i130 = getelementptr inbounds i8, ptr %38, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i130, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i110, i64 40, i1 false)
-  %38 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i131 = getelementptr inbounds i8, ptr %38, i64 40
-  %39 = load ptr, ptr %buffer.i.us.i131, align 8
+  %39 = load ptr, ptr %zrle, align 8
+  %buffer.i.us.i131 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = load ptr, ptr %buffer.i.us.i131, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i110)
-  tail call fastcc void @zrle_encode_tile16be(ptr noundef nonnull %vs, ptr noundef %39, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile16be(ptr noundef nonnull %vs, ptr noundef %40, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118, i32 noundef %zywrle_level.0)
   %add15.us.i132 = add i32 %tx.021.us.i, 64
   %cmp5.us.i133 = icmp slt i32 %add15.us.i132, %add4.i113
   br i1 %cmp5.us.i133, label %for.body6.us.i120, label %for.cond3.for.inc16_crit_edge.us.i134, !llvm.loop !16
@@ -533,29 +539,29 @@ for.body6.us.i150:                                ; preds = %for.body6.us.i150, 
   %sub8.us.i152 = sub i32 %add4.i141, %tx.021.us.i151
   %cond14.us.i153 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i152, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i137)
-  %40 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i154 = getelementptr inbounds i8, ptr %40, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i154) #9
   %41 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i155 = getelementptr inbounds i8, ptr %41, i64 8
+  %fb.i.us.i154 = getelementptr inbounds i8, ptr %41, i64 8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i154) #9
+  %42 = load ptr, ptr %zrle, align 8
+  %fb2.i.us.i155 = getelementptr inbounds i8, ptr %42, i64 8
   %mul313.i.us.i156 = mul i32 %mul.i.us.i149, %cond14.us.i153
   %add.i.us.i157 = add i32 %mul313.i.us.i156, 16
   %conv.i.us.i158 = sext i32 %add.i.us.i157 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i155, i64 noundef %conv.i.us.i158) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i137, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
-  %42 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i159 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = load ptr, ptr %zrle, align 8
+  %fb6.i.us.i159 = getelementptr inbounds i8, ptr %43, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i159, i64 40, i1 false)
   %call.i.us.i160 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i151, i32 noundef %ty.023.us.i146, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148) #9
-  %43 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i161 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = load ptr, ptr %zrle, align 8
+  %fb8.i.us.i161 = getelementptr inbounds i8, ptr %44, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i161, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i137, i64 40, i1 false)
-  %44 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i162 = getelementptr inbounds i8, ptr %44, i64 40
-  %45 = load ptr, ptr %buffer.i.us.i162, align 8
+  %45 = load ptr, ptr %zrle, align 8
+  %buffer.i.us.i162 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = load ptr, ptr %buffer.i.us.i162, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i137)
-  tail call fastcc void @zrle_encode_tile16le(ptr noundef nonnull %vs, ptr noundef %45, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile16le(ptr noundef nonnull %vs, ptr noundef %46, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148, i32 noundef %zywrle_level.0)
   %add15.us.i163 = add i32 %tx.021.us.i151, 64
   %cmp5.us.i164 = icmp slt i32 %add15.us.i163, %add4.i141
   br i1 %cmp5.us.i164, label %for.body6.us.i150, label %for.cond3.for.inc16_crit_edge.us.i165, !llvm.loop !18
@@ -588,29 +594,29 @@ for.body6.us.i181:                                ; preds = %for.body6.us.i181, 
   %sub8.us.i183 = sub i32 %add4.i172, %tx.021.us.i182
   %cond14.us.i184 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i183, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i168)
-  %46 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i185 = getelementptr inbounds i8, ptr %46, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i185) #9
   %47 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i186 = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = mul i32 %mul.i.us.i180, %cond14.us.i184
-  %add.i.us.i187 = add i32 %48, 15
+  %fb.i.us.i185 = getelementptr inbounds i8, ptr %47, i64 8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i185) #9
+  %48 = load ptr, ptr %zrle, align 8
+  %fb2.i.us.i186 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = mul i32 %mul.i.us.i180, %cond14.us.i184
+  %add.i.us.i187 = add i32 %49, 15
   %conv.i.us.i188 = sext i32 %add.i.us.i187 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i186, i64 noundef %conv.i.us.i188) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i168, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
-  %49 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i189 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load ptr, ptr %zrle, align 8
+  %fb6.i.us.i189 = getelementptr inbounds i8, ptr %50, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i189, i64 40, i1 false)
   %call.i.us.i190 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i182, i32 noundef %ty.023.us.i177, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179) #9
-  %50 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i191 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = load ptr, ptr %zrle, align 8
+  %fb8.i.us.i191 = getelementptr inbounds i8, ptr %51, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i191, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i168, i64 40, i1 false)
-  %51 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i192 = getelementptr inbounds i8, ptr %51, i64 40
-  %52 = load ptr, ptr %buffer.i.us.i192, align 8
+  %52 = load ptr, ptr %zrle, align 8
+  %buffer.i.us.i192 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = load ptr, ptr %buffer.i.us.i192, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i168)
-  tail call fastcc void @zrle_encode_tile15be(ptr noundef nonnull %vs, ptr noundef %52, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile15be(ptr noundef nonnull %vs, ptr noundef %53, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179, i32 noundef %zywrle_level.0)
   %add15.us.i193 = add i32 %tx.021.us.i182, 64
   %cmp5.us.i194 = icmp slt i32 %add15.us.i193, %add4.i172
   br i1 %cmp5.us.i194, label %for.body6.us.i181, label %for.cond3.for.inc16_crit_edge.us.i195, !llvm.loop !20
@@ -640,29 +646,29 @@ for.body6.us.i211:                                ; preds = %for.body6.us.i211, 
   %sub8.us.i213 = sub i32 %add4.i202, %tx.021.us.i212
   %cond14.us.i214 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i213, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i198)
-  %53 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i215 = getelementptr inbounds i8, ptr %53, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i215) #9
   %54 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i216 = getelementptr inbounds i8, ptr %54, i64 8
-  %55 = mul i32 %mul.i.us.i210, %cond14.us.i214
-  %add.i.us.i217 = add i32 %55, 15
+  %fb.i.us.i215 = getelementptr inbounds i8, ptr %54, i64 8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i215) #9
+  %55 = load ptr, ptr %zrle, align 8
+  %fb2.i.us.i216 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = mul i32 %mul.i.us.i210, %cond14.us.i214
+  %add.i.us.i217 = add i32 %56, 15
   %conv.i.us.i218 = sext i32 %add.i.us.i217 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i216, i64 noundef %conv.i.us.i218) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i198, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
-  %56 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i219 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = load ptr, ptr %zrle, align 8
+  %fb6.i.us.i219 = getelementptr inbounds i8, ptr %57, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i219, i64 40, i1 false)
   %call.i.us.i220 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i212, i32 noundef %ty.023.us.i207, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209) #9
-  %57 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i221 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = load ptr, ptr %zrle, align 8
+  %fb8.i.us.i221 = getelementptr inbounds i8, ptr %58, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i221, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i198, i64 40, i1 false)
-  %58 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i222 = getelementptr inbounds i8, ptr %58, i64 40
-  %59 = load ptr, ptr %buffer.i.us.i222, align 8
+  %59 = load ptr, ptr %zrle, align 8
+  %buffer.i.us.i222 = getelementptr inbounds i8, ptr %59, i64 40
+  %60 = load ptr, ptr %buffer.i.us.i222, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i198)
-  tail call fastcc void @zrle_encode_tile15le(ptr noundef nonnull %vs, ptr noundef %59, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile15le(ptr noundef nonnull %vs, ptr noundef %60, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209, i32 noundef %zywrle_level.0)
   %add15.us.i223 = add i32 %tx.021.us.i212, 64
   %cmp5.us.i224 = icmp slt i32 %add15.us.i223, %add4.i202
   br i1 %cmp5.us.i224, label %for.body6.us.i211, label %for.cond3.for.inc16_crit_edge.us.i225, !llvm.loop !22
@@ -674,52 +680,52 @@ for.cond3.for.inc16_crit_edge.us.i225:            ; preds = %for.body6.us.i211
 
 sw.bb48:                                          ; preds = %if.end30
   %rmax = getelementptr inbounds i8, ptr %vs, i64 49440
-  %60 = load i8, ptr %rmax, align 8
-  %conv50 = zext i8 %60 to i32
+  %61 = load i8, ptr %rmax, align 8
+  %conv50 = zext i8 %61 to i32
   %rshift = getelementptr inbounds i8, ptr %vs, i64 49436
-  %61 = load i8, ptr %rshift, align 4
-  %conv52 = zext nneg i8 %61 to i32
+  %62 = load i8, ptr %rshift, align 4
+  %conv52 = zext nneg i8 %62 to i32
   %shl = shl i32 %conv50, %conv52
   %cmp53 = icmp slt i32 %shl, 16777216
   br i1 %cmp53, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %sw.bb48
   %gmax56 = getelementptr inbounds i8, ptr %vs, i64 49441
-  %62 = load i8, ptr %gmax56, align 1
-  %conv57 = zext i8 %62 to i32
+  %63 = load i8, ptr %gmax56, align 1
+  %conv57 = zext i8 %63 to i32
   %gshift = getelementptr inbounds i8, ptr %vs, i64 49437
-  %63 = load i8, ptr %gshift, align 1
-  %conv59 = zext nneg i8 %63 to i32
+  %64 = load i8, ptr %gshift, align 1
+  %conv59 = zext nneg i8 %64 to i32
   %shl60 = shl i32 %conv57, %conv59
   %cmp61 = icmp slt i32 %shl60, 16777216
   br i1 %cmp61, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
   %bmax = getelementptr inbounds i8, ptr %vs, i64 49442
-  %64 = load i8, ptr %bmax, align 2
-  %conv64 = zext i8 %64 to i32
+  %65 = load i8, ptr %bmax, align 2
+  %conv64 = zext i8 %65 to i32
   %bshift = getelementptr inbounds i8, ptr %vs, i64 49438
-  %65 = load i8, ptr %bshift, align 2
-  %conv66 = zext nneg i8 %65 to i32
+  %66 = load i8, ptr %bshift, align 2
+  %conv66 = zext nneg i8 %66 to i32
   %shl67 = shl i32 %conv64, %conv66
   %cmp68 = icmp sgt i32 %shl67, 16777215
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %sw.bb48
   %.not = phi i1 [ true, %land.lhs.true ], [ true, %sw.bb48 ], [ %cmp68, %land.rhs ]
-  %cmp74 = icmp ugt i8 %61, 7
+  %cmp74 = icmp ugt i8 %62, 7
   br i1 %cmp74, label %land.lhs.true76, label %land.end88
 
 land.lhs.true76:                                  ; preds = %land.end
   %gshift78 = getelementptr inbounds i8, ptr %vs, i64 49437
-  %66 = load i8, ptr %gshift78, align 1
-  %cmp80 = icmp ugt i8 %66, 7
+  %67 = load i8, ptr %gshift78, align 1
+  %cmp80 = icmp ugt i8 %67, 7
   br i1 %cmp80, label %land.rhs82, label %land.end88
 
 land.rhs82:                                       ; preds = %land.lhs.true76
   %bshift84 = getelementptr inbounds i8, ptr %vs, i64 49438
-  %67 = load i8, ptr %bshift84, align 2
-  %cmp86 = icmp ult i8 %67, 8
+  %68 = load i8, ptr %bshift84, align 2
+  %cmp86 = icmp ult i8 %68, 8
   br label %land.end88
 
 land.end88:                                       ; preds = %land.rhs82, %land.lhs.true76, %land.end
@@ -757,29 +763,29 @@ for.body6.us.i241:                                ; preds = %for.body6.us.i241, 
   %sub8.us.i243 = sub i32 %add4.i232, %tx.021.us.i242
   %cond14.us.i244 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i243, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i228)
-  %68 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i245 = getelementptr inbounds i8, ptr %68, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i245) #9
   %69 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i246 = getelementptr inbounds i8, ptr %69, i64 8
+  %fb.i.us.i245 = getelementptr inbounds i8, ptr %69, i64 8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i245) #9
+  %70 = load ptr, ptr %zrle, align 8
+  %fb2.i.us.i246 = getelementptr inbounds i8, ptr %70, i64 8
   %mul313.i.us.i247 = mul i32 %mul.i.us.i240, %cond14.us.i244
   %add.i.us.i248 = add i32 %mul313.i.us.i247, 32
   %conv.i.us.i249 = sext i32 %add.i.us.i248 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i246, i64 noundef %conv.i.us.i249) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i228, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
-  %70 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i250 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = load ptr, ptr %zrle, align 8
+  %fb6.i.us.i250 = getelementptr inbounds i8, ptr %71, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i250, i64 40, i1 false)
   %call.i.us.i251 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i242, i32 noundef %ty.023.us.i237, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239) #9
-  %71 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i252 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = load ptr, ptr %zrle, align 8
+  %fb8.i.us.i252 = getelementptr inbounds i8, ptr %72, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i252, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i228, i64 40, i1 false)
-  %72 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i253 = getelementptr inbounds i8, ptr %72, i64 40
-  %73 = load ptr, ptr %buffer.i.us.i253, align 8
+  %73 = load ptr, ptr %zrle, align 8
+  %buffer.i.us.i253 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = load ptr, ptr %buffer.i.us.i253, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i228)
-  tail call fastcc void @zrle_encode_tile24abe(ptr noundef nonnull %vs, ptr noundef %73, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile24abe(ptr noundef nonnull %vs, ptr noundef %74, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239, i32 noundef %zywrle_level.0)
   %add15.us.i254 = add i32 %tx.021.us.i242, 64
   %cmp5.us.i255 = icmp slt i32 %add15.us.i254, %add4.i232
   br i1 %cmp5.us.i255, label %for.body6.us.i241, label %for.cond3.for.inc16_crit_edge.us.i256, !llvm.loop !24
@@ -809,29 +815,29 @@ for.body6.us.i272:                                ; preds = %for.body6.us.i272, 
   %sub8.us.i274 = sub i32 %add4.i263, %tx.021.us.i273
   %cond14.us.i275 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i274, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i259)
-  %74 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i276 = getelementptr inbounds i8, ptr %74, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i276) #9
   %75 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i277 = getelementptr inbounds i8, ptr %75, i64 8
+  %fb.i.us.i276 = getelementptr inbounds i8, ptr %75, i64 8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i276) #9
+  %76 = load ptr, ptr %zrle, align 8
+  %fb2.i.us.i277 = getelementptr inbounds i8, ptr %76, i64 8
   %mul313.i.us.i278 = mul i32 %mul.i.us.i271, %cond14.us.i275
   %add.i.us.i279 = add i32 %mul313.i.us.i278, 32
   %conv.i.us.i280 = sext i32 %add.i.us.i279 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i277, i64 noundef %conv.i.us.i280) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i259, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
-  %76 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i281 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = load ptr, ptr %zrle, align 8
+  %fb6.i.us.i281 = getelementptr inbounds i8, ptr %77, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i281, i64 40, i1 false)
   %call.i.us.i282 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i273, i32 noundef %ty.023.us.i268, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270) #9
-  %77 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i283 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = load ptr, ptr %zrle, align 8
+  %fb8.i.us.i283 = getelementptr inbounds i8, ptr %78, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i283, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i259, i64 40, i1 false)
-  %78 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i284 = getelementptr inbounds i8, ptr %78, i64 40
-  %79 = load ptr, ptr %buffer.i.us.i284, align 8
+  %79 = load ptr, ptr %zrle, align 8
+  %buffer.i.us.i284 = getelementptr inbounds i8, ptr %79, i64 40
+  %80 = load ptr, ptr %buffer.i.us.i284, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i259)
-  tail call fastcc void @zrle_encode_tile24ale(ptr noundef nonnull %vs, ptr noundef %79, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270, i32 noundef %zywrle_level.0)
+  tail call fastcc void @zrle_encode_tile24ale(ptr noundef nonnull %vs, ptr noundef %80, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270, i32 noundef %zywrle_level.0)
   %add15.us.i285 = add i32 %tx.021.us.i273, 64
   %cmp5.us.i286 = icmp slt i32 %add15.us.i285, %add4.i263
   br i1 %cmp5.us.i286, label %for.body6.us.i272, label %for.cond3.for.inc16_crit_edge.us.i287, !llvm.loop !26
@@ -870,32 +876,32 @@ if.else124:                                       ; preds = %if.else121
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.cond3.for.inc16_crit_edge.us.i287, %for.cond3.for.inc16_crit_edge.us.i256, %for.cond3.for.inc16_crit_edge.us.i225, %for.cond3.for.inc16_crit_edge.us.i195, %for.cond3.for.inc16_crit_edge.us.i165, %for.cond3.for.inc16_crit_edge.us.i134, %for.cond3.for.inc16_crit_edge.us.i, %for.body.lr.ph.i262, %if.else103, %for.body.lr.ph.i231, %if.then102, %for.body.lr.ph.i201, %if.else45, %for.body.lr.ph.i171, %if.then44, %for.body.lr.ph.i140, %if.else40, %for.body.lr.ph.i112, %if.then39, %for.body.lr.ph.i, %sw.bb, %if.then123, %if.else124, %if.then118, %if.else119, %if.end30
-  %80 = load ptr, ptr %zrle, align 8
-  %zrle1.i291 = getelementptr inbounds i8, ptr %80, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zrle1.i291, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %81 = load ptr, ptr %zrle, align 8
-  %tmp.i293 = getelementptr inbounds i8, ptr %81, i64 88
+  %zrle1.i291 = getelementptr inbounds i8, ptr %81, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zrle1.i291, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
+  %82 = load ptr, ptr %zrle, align 8
+  %tmp.i293 = getelementptr inbounds i8, ptr %82, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i293, i64 40, i1 false)
-  %stream.i = getelementptr inbounds i8, ptr %81, i64 168
-  %zlib.i = getelementptr inbounds i8, ptr %81, i64 128
+  %stream.i = getelementptr inbounds i8, ptr %82, i64 168
+  %zlib.i = getelementptr inbounds i8, ptr %82, i64 128
   call void @buffer_reset(ptr noundef nonnull %zlib.i) #9
-  %opaque.i = getelementptr inbounds i8, ptr %81, i64 248
-  %82 = load ptr, ptr %opaque.i, align 8
-  %cmp.not.i = icmp eq ptr %82, %vs
+  %opaque.i = getelementptr inbounds i8, ptr %82, i64 248
+  %83 = load ptr, ptr %opaque.i, align 8
+  %cmp.not.i = icmp eq ptr %83, %vs
   br i1 %cmp.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  %zalloc.i = getelementptr inbounds i8, ptr %81, i64 232
+  %zalloc.i = getelementptr inbounds i8, ptr %82, i64 232
   store ptr @vnc_zlib_zalloc, ptr %zalloc.i, align 8
-  %zfree.i = getelementptr inbounds i8, ptr %81, i64 240
+  %zfree.i = getelementptr inbounds i8, ptr %82, i64 240
   store ptr @vnc_zlib_zfree, ptr %zfree.i, align 8
   %call.i = call i32 @deflateInit2_(ptr noundef nonnull %stream.i, i32 noundef -1, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef 112) #9
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %83 = load ptr, ptr @stderr, align 8
-  %84 = call i64 @fwrite(ptr nonnull @.str.4, i64 29, i64 1, ptr %83) #11
+  %84 = load ptr, ptr @stderr, align 8
+  %85 = call i64 @fwrite(ptr nonnull @.str.4, i64 29, i64 1, ptr %84) #11
   br label %zrle_compress_data.exit
 
 if.end.i:                                         ; preds = %if.then.i
@@ -903,71 +909,71 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i, %sw.epilog
-  %85 = load ptr, ptr %zrle, align 8
-  %zlib8.i = getelementptr inbounds i8, ptr %85, i64 128
-  %offset.i = getelementptr inbounds i8, ptr %85, i64 64
-  %86 = load i64, ptr %offset.i, align 8
-  %add.i295 = add i64 %86, 64
+  %86 = load ptr, ptr %zrle, align 8
+  %zlib8.i = getelementptr inbounds i8, ptr %86, i64 128
+  %offset.i = getelementptr inbounds i8, ptr %86, i64 64
+  %87 = load i64, ptr %offset.i, align 8
+  %add.i295 = add i64 %87, 64
   call void @buffer_reserve(ptr noundef nonnull %zlib8.i, i64 noundef %add.i295) #9
-  %87 = load ptr, ptr %zrle, align 8
-  %buffer.i = getelementptr inbounds i8, ptr %87, i64 80
-  %88 = load ptr, ptr %buffer.i, align 8
-  store ptr %88, ptr %stream.i, align 8
-  %89 = load ptr, ptr %zrle, align 8
-  %offset15.i = getelementptr inbounds i8, ptr %89, i64 64
-  %90 = load i64, ptr %offset15.i, align 8
-  %conv.i = trunc i64 %90 to i32
-  %avail_in.i = getelementptr inbounds i8, ptr %81, i64 176
+  %88 = load ptr, ptr %zrle, align 8
+  %buffer.i = getelementptr inbounds i8, ptr %88, i64 80
+  %89 = load ptr, ptr %buffer.i, align 8
+  store ptr %89, ptr %stream.i, align 8
+  %90 = load ptr, ptr %zrle, align 8
+  %offset15.i = getelementptr inbounds i8, ptr %90, i64 64
+  %91 = load i64, ptr %offset15.i, align 8
+  %conv.i = trunc i64 %91 to i32
+  %avail_in.i = getelementptr inbounds i8, ptr %82, i64 176
   store i32 %conv.i, ptr %avail_in.i, align 8
-  %91 = load ptr, ptr %zrle, align 8
-  %buffer18.i = getelementptr inbounds i8, ptr %91, i64 160
-  %92 = load ptr, ptr %buffer18.i, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %81, i64 192
-  store ptr %92, ptr %next_out.i, align 8
-  %93 = load ptr, ptr %zrle, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %93, i64 136
-  %94 = load i64, ptr %capacity.i, align 8
-  %conv21.i = trunc i64 %94 to i32
-  %avail_out.i = getelementptr inbounds i8, ptr %81, i64 200
+  %92 = load ptr, ptr %zrle, align 8
+  %buffer18.i = getelementptr inbounds i8, ptr %92, i64 160
+  %93 = load ptr, ptr %buffer18.i, align 8
+  %next_out.i = getelementptr inbounds i8, ptr %82, i64 192
+  store ptr %93, ptr %next_out.i, align 8
+  %94 = load ptr, ptr %zrle, align 8
+  %capacity.i = getelementptr inbounds i8, ptr %94, i64 136
+  %95 = load i64, ptr %capacity.i, align 8
+  %conv21.i = trunc i64 %95 to i32
+  %avail_out.i = getelementptr inbounds i8, ptr %82, i64 200
   store i32 %conv21.i, ptr %avail_out.i, align 8
-  %data_type.i = getelementptr inbounds i8, ptr %81, i64 256
+  %data_type.i = getelementptr inbounds i8, ptr %82, i64 256
   store i32 0, ptr %data_type.i, align 8
   %call22.i = call i32 @deflate(ptr noundef nonnull %stream.i, i32 noundef 2) #9
   %cmp23.not.i = icmp eq i32 %call22.i, 0
   br i1 %cmp23.not.i, label %if.end27.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end6.i
-  %95 = load ptr, ptr @stderr, align 8
-  %96 = call i64 @fwrite(ptr nonnull @.str.5, i64 35, i64 1, ptr %95) #11
+  %96 = load ptr, ptr @stderr, align 8
+  %97 = call i64 @fwrite(ptr nonnull @.str.5, i64 35, i64 1, ptr %96) #11
   br label %zrle_compress_data.exit
 
 if.end27.i:                                       ; preds = %if.end6.i
-  %97 = load ptr, ptr %zrle, align 8
-  %capacity30.i = getelementptr inbounds i8, ptr %97, i64 136
-  %98 = load i64, ptr %capacity30.i, align 8
-  %99 = load i32, ptr %avail_out.i, align 8
-  %conv32.i = zext i32 %99 to i64
-  %sub.i = sub i64 %98, %conv32.i
-  %offset35.i = getelementptr inbounds i8, ptr %97, i64 144
+  %98 = load ptr, ptr %zrle, align 8
+  %capacity30.i = getelementptr inbounds i8, ptr %98, i64 136
+  %99 = load i64, ptr %capacity30.i, align 8
+  %100 = load i32, ptr %avail_out.i, align 8
+  %conv32.i = zext i32 %100 to i64
+  %sub.i = sub i64 %99, %conv32.i
+  %offset35.i = getelementptr inbounds i8, ptr %98, i64 144
   store i64 %sub.i, ptr %offset35.i, align 8
-  %100 = load ptr, ptr %zrle, align 8
-  %offset38.i = getelementptr inbounds i8, ptr %100, i64 144
-  %101 = load i64, ptr %offset38.i, align 8
-  %conv39.i = trunc i64 %101 to i32
+  %101 = load ptr, ptr %zrle, align 8
+  %offset38.i = getelementptr inbounds i8, ptr %101, i64 144
+  %102 = load i64, ptr %offset38.i, align 8
+  %conv39.i = trunc i64 %102 to i32
   br label %zrle_compress_data.exit
 
 zrle_compress_data.exit:                          ; preds = %if.then3.i, %if.then25.i, %if.end27.i
   %retval.0.i = phi i32 [ -1, %if.then3.i ], [ -1, %if.then25.i ], [ %conv39.i, %if.end27.i ]
-  %102 = load ptr, ptr %zrle, align 8
-  %103 = load i32, ptr %102, align 8
-  call void @vnc_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %103) #9
+  %103 = load ptr, ptr %zrle, align 8
+  %104 = load i32, ptr %103, align 8
+  call void @vnc_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %104) #9
   call void @vnc_write_u32(ptr noundef nonnull %vs, i32 noundef %retval.0.i) #9
-  %104 = load ptr, ptr %zrle, align 8
-  %buffer = getelementptr inbounds i8, ptr %104, i64 160
-  %105 = load ptr, ptr %buffer, align 8
-  %offset = getelementptr inbounds i8, ptr %104, i64 144
-  %106 = load i64, ptr %offset, align 8
-  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %105, i64 noundef %106) #9
+  %105 = load ptr, ptr %zrle, align 8
+  %buffer = getelementptr inbounds i8, ptr %105, i64 160
+  %106 = load ptr, ptr %buffer, align 8
+  %offset = getelementptr inbounds i8, ptr %105, i64 144
+  %107 = load i64, ptr %offset, align 8
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %106, i64 noundef %107) #9
   ret void
 }
 

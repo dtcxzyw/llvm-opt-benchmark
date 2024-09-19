@@ -1358,8 +1358,8 @@ for.body51:                                       ; preds = %for.cond48.preheade
   %add.ptr.i34 = getelementptr inbounds %"class.ue2::CharReach", ptr %19, i64 %indvars.iv84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i34, i8 -1, i64 32, i1 false)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %cmp50 = icmp ult i64 %indvars.iv84, 15
-  br i1 %cmp50, label %for.body51, label %for.inc70
+  %exitcond.not = icmp eq i64 %indvars.iv.next85, 16
+  br i1 %exitcond.not, label %for.inc70, label %for.body51
 
 lpad23:                                           ; preds = %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i
   %20 = landingpad { ptr, i32 }
@@ -1405,14 +1405,14 @@ cond.end.i.i:                                     ; preds = %if.then.i.i.i.i
   br i1 %cmp.not.i.i, label %if.then.i.i, label %while.body.i.i.backedge
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.i, %cond.end.i.i.thread
-  %__x.034.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i.i93, %cond.end.i.i.thread ]
+  %__x.034.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i.i94, %cond.end.i.i.thread ]
   br label %while.body.i.i, !llvm.loop !25
 
 cond.end.i.i.thread:                              ; preds = %while.body.i.i, %if.then.i.i.i.i
-  %_M_right.i.i.i92 = getelementptr inbounds i8, ptr %__x.034.i.i, i64 24
-  %__x.0.i.i93 = load ptr, ptr %_M_right.i.i.i92, align 8
-  %cmp.not.i.i94 = icmp eq ptr %__x.0.i.i93, null
-  br i1 %cmp.not.i.i94, label %if.end12.i.i, label %while.body.i.i.backedge
+  %_M_right.i.i.i93 = getelementptr inbounds i8, ptr %__x.034.i.i, i64 24
+  %__x.0.i.i94 = load ptr, ptr %_M_right.i.i.i93, align 8
+  %cmp.not.i.i95 = icmp eq ptr %__x.0.i.i94, null
+  br i1 %cmp.not.i.i95, label %if.end12.i.i, label %while.body.i.i.backedge
 
 if.then.i.i:                                      ; preds = %cond.end.i.i, %if.then60
   %__y.0.lcssa41.i.i = phi ptr [ %2, %if.then60 ], [ %__x.034.i.i, %cond.end.i.i ]
@@ -1583,8 +1583,8 @@ terminate.lpad.i.i43:                             ; preds = %_ZSt4swapIN3ue212gr
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit44: ; preds = %_ZSt4swapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEvRSt3setIT_T0_T1_ESH_.exit
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next88, 16
-  br i1 %exitcond.not, label %for.end75, label %for.body13, !llvm.loop !26
+  %exitcond90.not = icmp eq i64 %indvars.iv.next88, 16
+  br i1 %exitcond90.not, label %for.end75, label %for.body13, !llvm.loop !26
 
 for.end75:                                        ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit44
   %49 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

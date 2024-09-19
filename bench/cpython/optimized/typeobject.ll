@@ -20560,8 +20560,8 @@ _Py_NewRef.exit50:                                ; preds = %for.body27, %if.end
   br i1 %exitcond102.not, label %return, label %for.body27, !llvm.loop !63
 
 for.cond.loopexit.i:                              ; preds = %for.cond1.i, %for.body.i
-  %exitcond.not.i = icmp eq i64 %add.i, %call4.val
-  br i1 %exitcond.not.i, label %if.end39, label %for.body.i, !llvm.loop !64
+  %exitcond24.not.i = icmp eq i64 %add.i, %call4.val
+  br i1 %exitcond24.not.i, label %if.end39, label %for.body.i, !llvm.loop !64
 
 for.body.i:                                       ; preds = %for.end, %for.cond.loopexit.i
   %i.022.i = phi i64 [ %add.i, %for.cond.loopexit.i ], [ 0, %for.end ]
@@ -20572,9 +20572,9 @@ for.body.i:                                       ; preds = %for.end, %for.cond.
   br i1 %cmp219.i, label %for.body3.i, label %for.cond.loopexit.i
 
 for.cond1.i:                                      ; preds = %for.body3.i
-  %inc.i = add nuw nsw i64 %j.020.i, 1
-  %cmp2.i = icmp slt i64 %inc.i, %call4.val
-  br i1 %cmp2.i, label %for.body3.i, label %for.cond.loopexit.i, !llvm.loop !65
+  %inc.i = add nuw i64 %j.020.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, %call4.val
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body3.i, !llvm.loop !65
 
 for.body3.i:                                      ; preds = %for.body.i, %for.cond1.i
   %j.020.i = phi i64 [ %inc.i, %for.cond1.i ], [ %add.i, %for.body.i ]

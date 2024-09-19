@@ -189,8 +189,8 @@ for.body8:                                        ; preds = %for.body4, %for.bod
   br i1 %exitcond.not, label %for.body.i, label %for.body8, !llvm.loop !8
 
 for.cond.loopexit.i:                              ; preds = %for.body7.i, %for.body.i
-  %exitcond.not.i = icmp eq i64 %add.i, %b.0
-  br i1 %exitcond.not.i, label %squaretrans.exit, label %for.body.i, !llvm.loop !9
+  %exitcond26.not.i = icmp eq i64 %add.i, %b.0
+  br i1 %exitcond26.not.i, label %squaretrans.exit, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.body8, %for.cond.loopexit.i
   %r.025.i = phi i64 [ %add.i, %for.cond.loopexit.i ], [ 0, %for.body8 ]
@@ -218,8 +218,8 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %add11.i = add nuw nsw i64 %isrc.022.i, 1
   %add12.i = add nuw nsw i64 %idest.021.i, %b.0
   %inc.i = add nuw nsw i64 %c.023.i, 1
-  %cmp6.i = icmp ult i64 %inc.i, %b.0
-  br i1 %cmp6.i, label %for.body7.i, label %for.cond.loopexit.i, !llvm.loop !10
+  %exitcond.not.i = icmp eq i64 %inc.i, %b.0
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body7.i, !llvm.loop !10
 
 squaretrans.exit:                                 ; preds = %for.cond.loopexit.i
   %cmp13 = icmp eq i64 %r.0125, %c.0123
@@ -253,8 +253,8 @@ for.body33:                                       ; preds = %for.body33.preheade
   br i1 %exitcond127.not, label %for.body.i80, label %for.body33, !llvm.loop !12
 
 for.cond.loopexit.i84:                            ; preds = %for.body7.i91, %for.body.i80
-  %exitcond.not.i85 = icmp eq i64 %add.i82, %b.0
-  br i1 %exitcond.not.i85, label %for.body47, label %for.body.i80, !llvm.loop !9
+  %exitcond26.not.i85 = icmp eq i64 %add.i82, %b.0
+  br i1 %exitcond26.not.i85, label %for.body47, label %for.body.i80, !llvm.loop !9
 
 for.body.i80:                                     ; preds = %for.body33, %for.cond.loopexit.i84
   %r.025.i81 = phi i64 [ %add.i82, %for.cond.loopexit.i84 ], [ 0, %for.body33 ]
@@ -282,8 +282,8 @@ for.body7.i91:                                    ; preds = %for.body7.i91, %for
   %add11.i97 = add nuw nsw i64 %isrc.022.i93, 1
   %add12.i98 = add nuw nsw i64 %idest.021.i94, %b.0
   %inc.i99 = add nuw nsw i64 %c.023.i92, 1
-  %cmp6.i100 = icmp ult i64 %inc.i99, %b.0
-  br i1 %cmp6.i100, label %for.body7.i91, label %for.cond.loopexit.i84, !llvm.loop !10
+  %exitcond.not.i100 = icmp eq i64 %inc.i99, %b.0
+  br i1 %exitcond.not.i100, label %for.cond.loopexit.i84, label %for.body7.i91, !llvm.loop !10
 
 for.body47:                                       ; preds = %for.cond.loopexit.i84, %for.body47
   %i.3114 = phi i64 [ %inc52, %for.body47 ], [ 0, %for.cond.loopexit.i84 ]

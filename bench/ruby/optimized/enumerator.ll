@@ -2607,7 +2607,7 @@ define internal i64 @lazy_zip(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 5:                                                ; preds = %3
   %6 = tail call i64 @rb_call_super(i32 noundef %0, ptr noundef %1) #17
-  br label %33
+  br label %32
 
 7:                                                ; preds = %3
   %8 = sext i32 %0 to i64
@@ -2615,17 +2615,17 @@ define internal i64 @lazy_zip(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
   %10 = icmp sgt i32 %0, 0
   br i1 %10, label %.lr.ph, label %.split27
 
-.split27:                                         ; preds = %30, %7
+.split27:                                         ; preds = %29, %7
   %11 = tail call fastcc i64 @lazy_add_method(i64 noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %9, i64 noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @lazy_zip_funcs, i64 24))
-  br label %33
+  br label %32
 
-.lr.ph:                                           ; preds = %7, %30
-  %.02430 = phi i64 [ %32, %30 ], [ 0, %7 ]
+.lr.ph:                                           ; preds = %7, %29
+  %.02430 = phi i64 [ %31, %29 ], [ 0, %7 ]
   %12 = getelementptr i64, ptr %1, i64 %.02430
   %13 = load i64, ptr %12, align 8
   %14 = tail call i64 @rb_check_array_type(i64 noundef %13) #17
   %15 = icmp eq i64 %14, 4
-  br i1 %15, label %.preheader, label %30
+  br i1 %15, label %.preheader, label %29
 
 .preheader:                                       ; preds = %.lr.ph
   %16 = icmp slt i64 %.02430, %8
@@ -2649,22 +2649,22 @@ define internal i64 @lazy_zip(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 25:                                               ; preds = %.lr.ph32
   %26 = add nuw nsw i64 %.131, 1
-  %27 = icmp slt i64 %26, %8
-  br i1 %27, label %.lr.ph32, label %.split, !llvm.loop !10
+  %exitcond35.not = icmp eq i64 %26, %8
+  br i1 %exitcond35.not, label %.split, label %.lr.ph32, !llvm.loop !10
 
 .split:                                           ; preds = %25, %.preheader
-  %28 = tail call i64 @rb_ary_new_from_values(i64 noundef %8, ptr noundef nonnull %1) #17
-  %29 = tail call fastcc i64 @lazy_add_method(i64 noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %28, i64 noundef %28, ptr noundef nonnull @lazy_zip_funcs)
-  br label %33
+  %27 = tail call i64 @rb_ary_new_from_values(i64 noundef %8, ptr noundef nonnull %1) #17
+  %28 = tail call fastcc i64 @lazy_add_method(i64 noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %27, i64 noundef %27, ptr noundef nonnull @lazy_zip_funcs)
+  br label %32
 
-30:                                               ; preds = %.lr.ph
-  %31 = tail call i64 @rb_ary_push(i64 noundef %9, i64 noundef %14) #17
-  %32 = add nuw nsw i64 %.02430, 1
-  %exitcond.not = icmp eq i64 %32, %8
+29:                                               ; preds = %.lr.ph
+  %30 = tail call i64 @rb_ary_push(i64 noundef %9, i64 noundef %14) #17
+  %31 = add nuw nsw i64 %.02430, 1
+  %exitcond.not = icmp eq i64 %31, %8
   br i1 %exitcond.not, label %.split27, label %.lr.ph, !llvm.loop !11
 
-33:                                               ; preds = %.split, %.split27, %5
-  %.025 = phi i64 [ %6, %5 ], [ %29, %.split ], [ %11, %.split27 ]
+32:                                               ; preds = %.split, %.split27, %5
+  %.025 = phi i64 [ %6, %5 ], [ %28, %.split ], [ %11, %.split27 ]
   ret i64 %.025
 }
 

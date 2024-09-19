@@ -17445,8 +17445,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h6ba8df170bb43731
 20:                                               ; preds = %.lr.ph, %18
   %.sroa.11.1 = phi i64 [ %19, %18 ], [ %.sroa.11.027, %.lr.ph ]
   %.sroa.5.0 = add nuw i64 %.sroa.5.028, 1
-  %21 = icmp ult i64 %.sroa.5.0, %3
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  %exitcond.not = icmp eq i64 %.sroa.5.0, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

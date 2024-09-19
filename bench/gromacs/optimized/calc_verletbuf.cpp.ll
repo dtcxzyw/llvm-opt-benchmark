@@ -3385,7 +3385,7 @@ define internal fastcc noundef float @_ZL11energyDriftN3gmx8ArrayRefIK17Verletbu
 
 40:                                               ; preds = %.lr.ph102, %._crit_edge
   %.075101 = phi double [ 0.000000e+00, %.lr.ph102 ], [ %223, %._crit_edge ]
-  %.076100 = phi i64 [ 0, %.lr.ph102 ], [ %226, %._crit_edge ]
+  %.076100 = phi i64 [ 0, %.lr.ph102 ], [ %225, %._crit_edge ]
   %41 = getelementptr inbounds %struct.VerletbufAtomtype, ptr %0, i64 %.076100
   %42 = getelementptr inbounds i8, ptr %41, i64 10
   %43 = load i16, ptr %42, align 2
@@ -3610,20 +3610,20 @@ _ZL15get_atom_sigma2fRK33AtomNonbondedAndKineticPropertiesPfS2_.exit82: ; preds 
   %222 = fpext float %221 to double
   %223 = fadd double %.199, %222
   %224 = add nuw nsw i64 %.07798, 1
-  %225 = icmp slt i64 %224, %19
-  br i1 %225, label %85, label %._crit_edge, !llvm.loop !30
+  %exitcond.not = icmp eq i64 %224, %19
+  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %209
-  %226 = add nuw nsw i64 %.076100, 1
-  %exitcond.not = icmp eq i64 %226, %19
-  br i1 %exitcond.not, label %._crit_edge103.loopexit, label %40, !llvm.loop !31
+  %225 = add nuw nsw i64 %.076100, 1
+  %exitcond105.not = icmp eq i64 %225, %19
+  br i1 %exitcond105.not, label %._crit_edge103.loopexit, label %40, !llvm.loop !31
 
 ._crit_edge103.loopexit:                          ; preds = %._crit_edge
-  %227 = fptrunc double %223 to float
+  %226 = fptrunc double %223 to float
   br label %._crit_edge103
 
 ._crit_edge103:                                   ; preds = %.preheader, %._crit_edge103.loopexit, %12
-  %.074 = phi float [ 0.000000e+00, %12 ], [ 0.000000e+00, %.preheader ], [ %227, %._crit_edge103.loopexit ]
+  %.074 = phi float [ 0.000000e+00, %12 ], [ 0.000000e+00, %.preheader ], [ %226, %._crit_edge103.loopexit ]
   ret float %.074
 }
 

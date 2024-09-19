@@ -141602,7 +141602,7 @@ sqlite3DbFree.exit:                               ; preds = %.lr.ph.i, %32, %36,
   %.not.i138 = icmp eq ptr %66, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not.i138, label %._crit_edge221, label %.preheader.i
+  br i1 %.not.i138, label %._crit_edge223, label %.preheader.i
 
 .preheader.i:                                     ; preds = %61, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %61 ]
@@ -141615,9 +141615,9 @@ sqlite3DbFree.exit:                               ; preds = %.lr.ph.i, %32, %36,
 .loopexit.loopexit.i:                             ; preds = %.preheader.i
   %sext = shl i64 %indvars.iv.i, 32
   %70 = ashr exact i64 %sext, 32
-  br label %._crit_edge221
+  br label %._crit_edge223
 
-._crit_edge221:                                   ; preds = %61, %.loopexit.loopexit.i
+._crit_edge223:                                   ; preds = %61, %.loopexit.loopexit.i
   %.0.i139 = phi i64 [ %70, %.loopexit.loopexit.i ], [ -32768, %61 ]
   %71 = getelementptr inbounds %struct.Db, ptr %.pre, i64 %.0.i139
   %72 = load ptr, ptr %71, align 8
@@ -141646,14 +141646,14 @@ sqlite3DbFree.exit:                               ; preds = %.lr.ph.i, %32, %36,
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %92
 
-89:                                               ; preds = %._crit_edge221
+89:                                               ; preds = %._crit_edge223
   %90 = load i32, ptr %79, align 4
   %91 = add i32 %90, -1
   store i32 %91, ptr %79, align 4
   %.not5.i = icmp eq i32 %91, 0
   br i1 %.not5.i, label %92, label %sqlite3DeleteTable.exit
 
-92:                                               ; preds = %89, %._crit_edge221
+92:                                               ; preds = %89, %._crit_edge223
   call fastcc void @deleteTable(ptr noundef nonnull %0, ptr noundef %1)
   br label %sqlite3DeleteTable.exit
 
@@ -141828,10 +141828,10 @@ sqlite3DbFree.exit154:                            ; preds = %sqlite3_mutex_leave
 
 169:                                              ; preds = %.lr.ph192, %242
   %170 = phi i16 [ %165, %.lr.ph192 ], [ %243, %242 ]
-  %indvars.iv219 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next220, %242 ]
+  %indvars.iv221 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next222, %242 ]
   %.0116190 = phi i16 [ 0, %.lr.ph192 ], [ %.1, %242 ]
   %171 = load ptr, ptr %167, align 8
-  %172 = getelementptr inbounds %struct.Column, ptr %171, i64 %indvars.iv219
+  %172 = getelementptr inbounds %struct.Column, ptr %171, i64 %indvars.iv221
   %173 = getelementptr inbounds i8, ptr %172, i64 14
   %174 = load i16, ptr %173, align 2
   %175 = and i16 %174, 4
@@ -141931,26 +141931,26 @@ sqlite3_strnicmp.exit.thread170:                  ; preds = %195, %212, %208
   br i1 %.not133184, label %._crit_edge188, label %.lr.ph187
 
 .lr.ph187:                                        ; preds = %215
-  %invariant.op = add nuw nsw i32 %217, 1
   %219 = zext nneg i32 %217 to i64
   %220 = add nuw i64 %indvars.iv204, %219
-  %221 = zext nneg i32 %invariant.op to i64
-  br label %222
+  %221 = add nuw nsw i32 %193, 1
+  %222 = sub nuw nsw i32 %221, %217
+  %wide.trip.count219 = zext nneg i32 %222 to i64
+  br label %223
 
-222:                                              ; preds = %.lr.ph187, %222
-  %indvars.iv213 = phi i64 [ %indvars.iv204, %.lr.ph187 ], [ %indvars.iv.next214, %222 ]
-  %indvars.iv211 = phi i64 [ %220, %.lr.ph187 ], [ %indvars.iv.next212, %222 ]
-  %223 = getelementptr inbounds i8, ptr %.0.i156167, i64 %indvars.iv211
-  %224 = load i8, ptr %223, align 1
-  %225 = getelementptr inbounds i8, ptr %.0.i156167, i64 %indvars.iv213
-  store i8 %224, ptr %225, align 1
+223:                                              ; preds = %.lr.ph187, %223
+  %indvars.iv213 = phi i64 [ %indvars.iv204, %.lr.ph187 ], [ %indvars.iv.next214, %223 ]
+  %indvars.iv211 = phi i64 [ %220, %.lr.ph187 ], [ %indvars.iv.next212, %223 ]
+  %224 = getelementptr inbounds i8, ptr %.0.i156167, i64 %indvars.iv211
+  %225 = load i8, ptr %224, align 1
+  %226 = getelementptr inbounds i8, ptr %.0.i156167, i64 %indvars.iv213
+  store i8 %225, ptr %226, align 1
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %226 = add nuw i64 %indvars.iv213, %221
-  %.not133 = icmp ugt i64 %226, %wide.trip.count
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  br i1 %.not133, label %._crit_edge188, label %222, !llvm.loop !595
+  %exitcond220 = icmp eq i64 %indvars.iv.next214, %wide.trip.count219
+  br i1 %exitcond220, label %._crit_edge188, label %223, !llvm.loop !595
 
-._crit_edge188:                                   ; preds = %222, %215
+._crit_edge188:                                   ; preds = %223, %215
   %227 = load i8, ptr %194, align 1
   %228 = icmp eq i8 %227, 0
   %229 = icmp ne i64 %indvars.iv204, 0
@@ -141964,14 +141964,14 @@ sqlite3_strnicmp.exit.thread170:                  ; preds = %195, %212, %208
 
 232:                                              ; preds = %230, %._crit_edge188
   %233 = load ptr, ptr %167, align 8
-  %234 = getelementptr inbounds %struct.Column, ptr %233, i64 %indvars.iv219, i32 6
+  %234 = getelementptr inbounds %struct.Column, ptr %233, i64 %indvars.iv221, i32 6
   %235 = load i16, ptr %234, align 2
   %236 = or i16 %235, 2
   store i16 %236, ptr %234, align 2
   %237 = load i32, ptr %168, align 8
   %238 = or i32 %237, 2
   store i32 %238, ptr %168, align 8
-  %.pre223 = load i16, ptr %164, align 2
+  %.pre225 = load i16, ptr %164, align 2
   br label %242
 
 .critedge:                                        ; preds = %sqlite3_strnicmp.exit.thread170, %sqlite3ColumnType.exit, %sqlite3Strlen30.exit
@@ -141982,11 +141982,11 @@ sqlite3_strnicmp.exit.thread170:                  ; preds = %195, %212, %208
   br label %242
 
 242:                                              ; preds = %232, %.critedge
-  %243 = phi i16 [ %.pre223, %232 ], [ %170, %.critedge ]
+  %243 = phi i16 [ %.pre225, %232 ], [ %170, %.critedge ]
   %.1 = phi i16 [ 1024, %232 ], [ %.0116190, %.critedge ]
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
+  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %244 = sext i16 %243 to i64
-  %245 = icmp slt i64 %indvars.iv.next220, %244
+  %245 = icmp slt i64 %indvars.iv.next222, %244
   br i1 %245, label %169, label %sqlite3DbFree.exit162, !llvm.loop !596
 
 sqlite3DbFree.exit162:                            ; preds = %242, %160, %147, %158, %sqlite3DbFree.exit154

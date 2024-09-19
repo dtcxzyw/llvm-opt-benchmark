@@ -3913,9 +3913,9 @@ if.else.i:                                        ; preds = %land.lhs.true270.i,
 for.inc294.i:                                     ; preds = %if.else.i, %if.then277.i
   %addr.1.i = phi i64 [ %conv285.i, %if.then277.i ], [ %add292.i, %if.else.i ]
   %in_sync.1.i = phi i1 [ true, %if.then277.i ], [ false, %if.else.i ]
-  %i227.1.i = add nuw nsw i64 %i227.1558.i, 1
-  %cmp255.i = icmp ult i64 %i227.1.i, %sub.ptr.div.i409.i
-  br i1 %cmp255.i, label %land.rhs256.i, label %if.end300.i, !llvm.loop !18
+  %i227.1.i = add i64 %i227.1558.i, 1
+  %exitcond.not = icmp eq i64 %i227.1.i, %sub.ptr.div.i409.i
+  br i1 %exitcond.not, label %if.end300.i, label %land.rhs256.i, !llvm.loop !18
 
 for.inc297.i:                                     ; preds = %for.body231.i
   %inc298.i = add nuw i64 %i227.0549.i, 1

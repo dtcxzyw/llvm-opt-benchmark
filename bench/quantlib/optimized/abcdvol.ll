@@ -1908,8 +1908,8 @@ for.body400.lr.ph:                                ; preds = %while.end
   br label %for.body400
 
 for.cond396.loopexit:                             ; preds = %invoke.cont411, %for.body400
-  %exitcond778.not = icmp eq i64 %add, %.lcssa729
-  br i1 %exitcond778.not, label %for.cond.cleanup399, label %for.body400, !llvm.loop !68
+  %exitcond779.not = icmp eq i64 %add, %.lcssa729
+  br i1 %exitcond779.not, label %for.cond.cleanup399, label %for.body400, !llvm.loop !68
 
 for.cond.cleanup399:                              ; preds = %for.cond396.loopexit, %while.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp422) #18
@@ -1936,8 +1936,8 @@ invoke.cont411:                                   ; preds = %invoke.cont411.lr.p
   %gep = getelementptr double, ptr %invariant.gep, i64 %mul.i.i442
   store double %236, ptr %gep, align 8, !tbaa !59
   %inc415 = add nuw i64 %j401.0759, 1
-  %cmp404 = icmp ult i64 %inc415, %.lcssa729
-  br i1 %cmp404, label %invoke.cont411, label %for.cond396.loopexit, !llvm.loop !69
+  %exitcond778.not = icmp eq i64 %inc415, %.lcssa729
+  br i1 %exitcond778.not, label %for.cond396.loopexit, label %invoke.cont411, !llvm.loop !69
 
 invoke.cont424:                                   ; preds = %for.cond.cleanup399
   %237 = load ptr, ptr %pseudoRoots_, align 8, !tbaa !54

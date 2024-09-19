@@ -201,7 +201,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 18:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %12
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %58
 
 20:                                               ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit, %9, %3
   %21 = getelementptr inbounds i8, ptr %0, i64 8
@@ -232,7 +232,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   br i1 %or.cond.i, label %.preheader.us.i, label %._crit_edge37.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph.i, %._crit_edge.us.i
-  %.sroa.020.036.us.i = phi ptr [ %48, %._crit_edge.us.i ], [ %30, %.lr.ph.i ]
+  %.sroa.020.036.us.i = phi ptr [ %47, %._crit_edge.us.i ], [ %30, %.lr.ph.i ]
   %34 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 4
   br label %35
 
@@ -254,62 +254,62 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %.sroa.016.031.us.i = phi ptr [ %37, %.lr.ph.us.i ], [ %41, %40 ]
   %43 = getelementptr inbounds i8, ptr %.sroa.016.031.us.i, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %47, %44
+  %45 = icmp eq i32 %46, %44
   br i1 %45, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit, label %40
 
 .loopexit.us.i:                                   ; preds = %40, %35
   %.014.us.i = add nuw i64 %.01433.us.i, 1
-  %46 = icmp ult i64 %.014.us.i, %28
-  br i1 %46, label %35, label %._crit_edge.us.i, !llvm.loop !4
+  %exitcond.not.i = icmp eq i64 %.014.us.i, %28
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %35, !llvm.loop !4
 
 .lr.ph.us.i:                                      ; preds = %35
-  %47 = load i32, ptr %34, align 4
+  %46 = load i32, ptr %34, align 4
   br label %42
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
-  %48 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 8
-  %.not.us.i = icmp eq ptr %48, %32
+  %47 = getelementptr inbounds i8, ptr %.sroa.020.036.us.i, i64 8
+  %.not.us.i = icmp eq ptr %47, %32
   br i1 %.not.us.i, label %._crit_edge37.i, label %.preheader.us.i
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph.i
-  %exitcond.not.i = icmp eq i64 %.pre.i, %umax.i
-  br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i, !llvm.loop !6
+  %exitcond42.not.i = icmp eq i64 %.pre.i, %umax.i
+  br i1 %exitcond42.not.i, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 _ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit: ; preds = %42
-  %49 = load ptr, ptr %1, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %51
+  %48 = load ptr, ptr %1, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread, label %50
 
-51:                                               ; preds = %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit
+50:                                               ; preds = %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  %52 = getelementptr inbounds i8, ptr %5, i64 32
-  store i8 1, ptr %52, align 8
-  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.1)
-          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7 unwind label %57
+  %51 = getelementptr inbounds i8, ptr %5, i64 32
+  store i8 1, ptr %51, align 8
+  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.1)
+          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7 unwind label %56
 
-_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7:    ; preds = %51
-  %54 = load ptr, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  invoke void %56(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(33) %5)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8 unwind label %57
+_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7:    ; preds = %50
+  %53 = load ptr, ptr %48, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(33) %5)
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8 unwind label %56
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   br label %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread
 
-57:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7, %51
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit7, %50
+  %57 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %58
 
 _ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit.thread: ; preds = %._crit_edge37.i, %20, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit8, %_ZN3gmx12_GLOBAL__N_126isAnyGpuSharedBetweenRanksENS_8ArrayRefIKSt6vectorINS_14GpuTaskMappingESaIS3_EEEE.exit
   ret void
 
-59:                                               ; preds = %57, %18
-  %.sink = phi ptr [ %5, %57 ], [ %4, %18 ]
-  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %19, %18 ]
+58:                                               ; preds = %56, %18
+  %.sink = phi ptr [ %5, %56 ], [ %4, %18 ]
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %19, %18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
   resume { ptr, i32 } %.pn
 }

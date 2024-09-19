@@ -1404,7 +1404,7 @@ for.inc:                                          ; preds = %if.then8, %if.else,
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !12
 
 for.cond18.preheader:                             ; preds = %for.cond18.preheader.lr.ph, %for.end44
-  %indvars.iv91 = phi i64 [ %2, %for.cond18.preheader.lr.ph ], [ %indvars.iv.next92, %for.end44 ]
+  %indvars.iv93 = phi i64 [ %2, %for.cond18.preheader.lr.ph ], [ %indvars.iv.next94, %for.end44 ]
   %15 = load ptr, ptr %m_nodes21, align 8
   br label %for.body20
 
@@ -1413,8 +1413,8 @@ for.cond18.loopexit:                              ; preds = %for.body28, %for.bo
   %iMin.1.lcssa = phi i32 [ %iMin.078, %for.body20 ], [ %iMin.2, %for.body28 ]
   %minCost.1.lcssa = phi float [ %minCost.079, %for.body20 ], [ %minCost.2, %for.body28 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next89, %indvars.iv91
-  br i1 %exitcond.not, label %for.end44, label %for.body20, !llvm.loop !13
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %indvars.iv93
+  br i1 %exitcond92.not, label %for.end44, label %for.body20, !llvm.loop !13
 
 for.body20:                                       ; preds = %for.cond18.preheader, %for.cond18.loopexit
   %indvars.iv88 = phi i64 [ 0, %for.cond18.preheader ], [ %indvars.iv.next89, %for.cond18.loopexit ]
@@ -1434,7 +1434,7 @@ for.body20:                                       ; preds = %for.cond18.preheade
   %aabbi.sroa.4.0.arrayidx25.sroa_idx = getelementptr inbounds i8, ptr %arrayidx25, i64 12
   %aabbi.sroa.4.0.copyload = load float, ptr %aabbi.sroa.4.0.arrayidx25.sroa_idx, align 4
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %cmp2768 = icmp slt i64 %indvars.iv.next89, %indvars.iv91
+  %cmp2768 = icmp slt i64 %indvars.iv.next89, %indvars.iv93
   br i1 %cmp2768, label %for.body28.preheader, label %for.cond18.loopexit
 
 for.body28.preheader:                             ; preds = %for.body20
@@ -1475,84 +1475,82 @@ for.body28:                                       ; preds = %for.body28.preheade
   %iMin.2 = select i1 %cmp36, i32 %17, i32 %iMin.171
   %minCost.2 = select i1 %cmp36, float %mul.i, float %minCost.172
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %sext = shl i64 %indvars.iv.next86, 32
-  %20 = ashr exact i64 %sext, 32
-  %cmp27 = icmp slt i64 %20, %indvars.iv91
-  br i1 %cmp27, label %for.body28, label %for.cond18.loopexit, !llvm.loop !14
+  %exitcond.not = icmp eq i64 %indvars.iv.next86, %indvars.iv93
+  br i1 %exitcond.not, label %for.cond18.loopexit, label %for.body28, !llvm.loop !14
 
 for.end44:                                        ; preds = %for.cond18.loopexit
   %idxprom45 = sext i32 %iMin.1.lcssa to i64
   %arrayidx46 = getelementptr inbounds i32, ptr %call.i, i64 %idxprom45
-  %21 = load i32, ptr %arrayidx46, align 4
+  %20 = load i32, ptr %arrayidx46, align 4
   %idxprom47 = sext i32 %jMin.1.lcssa to i64
   %arrayidx48 = getelementptr inbounds i32, ptr %call.i, i64 %idxprom47
-  %22 = load i32, ptr %arrayidx48, align 4
-  %idx.ext = sext i32 %21 to i64
+  %21 = load i32, ptr %arrayidx48, align 4
+  %idx.ext = sext i32 %20 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idx.ext
-  %idx.ext51 = sext i32 %22 to i64
+  %idx.ext51 = sext i32 %21 to i64
   %add.ptr52 = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idx.ext51
   %call53 = tail call noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %23 = load ptr, ptr %m_nodes21, align 8
+  %22 = load ptr, ptr %m_nodes21, align 8
   %idx.ext55 = sext i32 %call53 to i64
-  %add.ptr56 = getelementptr inbounds %struct.b2TreeNode, ptr %23, i64 %idx.ext55
+  %add.ptr56 = getelementptr inbounds %struct.b2TreeNode, ptr %22, i64 %idx.ext55
   %child157 = getelementptr inbounds i8, ptr %add.ptr56, i64 28
-  store i32 %21, ptr %child157, align 4
+  store i32 %20, ptr %child157, align 4
   %child258 = getelementptr inbounds i8, ptr %add.ptr56, i64 32
-  store i32 %22, ptr %child258, align 8
+  store i32 %21, ptr %child258, align 8
   %height59 = getelementptr inbounds i8, ptr %add.ptr, i64 36
-  %24 = load i32, ptr %height59, align 4
+  %23 = load i32, ptr %height59, align 4
   %height60 = getelementptr inbounds i8, ptr %add.ptr52, i64 36
-  %25 = load i32, ptr %height60, align 4
-  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %24, i32 %25)
+  %24 = load i32, ptr %height60, align 4
+  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %23, i32 %24)
   %add62 = add nsw i32 %cond.i, 1
   %height63 = getelementptr inbounds i8, ptr %add.ptr56, i64 36
   store i32 %add62, ptr %height63, align 4
-  %26 = load float, ptr %add.ptr, align 4
-  %27 = load float, ptr %add.ptr52, align 4
-  %cmp.i.i.i46 = fcmp olt float %26, %27
-  %cond.i.i.i47 = select i1 %cmp.i.i.i46, float %26, float %27
+  %25 = load float, ptr %add.ptr, align 4
+  %26 = load float, ptr %add.ptr52, align 4
+  %cmp.i.i.i46 = fcmp olt float %25, %26
+  %cond.i.i.i47 = select i1 %cmp.i.i.i46, float %25, float %26
   %y.i.i48 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %28 = load float, ptr %y.i.i48, align 4
+  %27 = load float, ptr %y.i.i48, align 4
   %y2.i.i49 = getelementptr inbounds i8, ptr %add.ptr52, i64 4
-  %29 = load float, ptr %y2.i.i49, align 4
-  %cmp.i3.i.i50 = fcmp olt float %28, %29
-  %cond.i4.i.i51 = select i1 %cmp.i3.i.i50, float %28, float %29
+  %28 = load float, ptr %y2.i.i49, align 4
+  %cmp.i3.i.i50 = fcmp olt float %27, %28
+  %cond.i4.i.i51 = select i1 %cmp.i3.i.i50, float %27, float %28
   %retval.sroa.0.0.vec.insert.i.i52 = insertelement <2 x float> poison, float %cond.i.i.i47, i64 0
   %retval.sroa.0.4.vec.insert.i.i53 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i52, float %cond.i4.i.i51, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i53, ptr %add.ptr56, align 4
   %upperBound.i54 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %upperBound5.i55 = getelementptr inbounds i8, ptr %add.ptr52, i64 8
-  %30 = load float, ptr %upperBound.i54, align 4
-  %31 = load float, ptr %upperBound5.i55, align 4
-  %cmp.i.i3.i56 = fcmp ogt float %30, %31
-  %cond.i.i4.i57 = select i1 %cmp.i.i3.i56, float %30, float %31
+  %29 = load float, ptr %upperBound.i54, align 4
+  %30 = load float, ptr %upperBound5.i55, align 4
+  %cmp.i.i3.i56 = fcmp ogt float %29, %30
+  %cond.i.i4.i57 = select i1 %cmp.i.i3.i56, float %29, float %30
   %y.i5.i58 = getelementptr inbounds i8, ptr %add.ptr, i64 12
-  %32 = load float, ptr %y.i5.i58, align 4
+  %31 = load float, ptr %y.i5.i58, align 4
   %y2.i6.i59 = getelementptr inbounds i8, ptr %add.ptr52, i64 12
-  %33 = load float, ptr %y2.i6.i59, align 4
-  %cmp.i3.i7.i60 = fcmp ogt float %32, %33
-  %cond.i4.i8.i61 = select i1 %cmp.i3.i7.i60, float %32, float %33
+  %32 = load float, ptr %y2.i6.i59, align 4
+  %cmp.i3.i7.i60 = fcmp ogt float %31, %32
+  %cond.i4.i8.i61 = select i1 %cmp.i3.i7.i60, float %31, float %32
   %retval.sroa.0.0.vec.insert.i9.i62 = insertelement <2 x float> poison, float %cond.i.i4.i57, i64 0
   %retval.sroa.0.4.vec.insert.i10.i63 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i62, float %cond.i4.i8.i61, i64 1
   %upperBound7.i64 = getelementptr inbounds i8, ptr %add.ptr56, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i10.i63, ptr %upperBound7.i64, align 4
-  %34 = getelementptr inbounds i8, ptr %add.ptr56, i64 24
-  store i32 -1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %33 = getelementptr inbounds i8, ptr %add.ptr56, i64 24
+  store i32 -1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  store i32 %call53, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %add.ptr52, i64 24
   store i32 %call53, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %add.ptr52, i64 24
-  store i32 %call53, ptr %36, align 8
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv91
-  %37 = load i32, ptr %gep, align 4
-  store i32 %37, ptr %arrayidx48, align 4
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv93
+  %36 = load i32, ptr %gep, align 4
+  store i32 %36, ptr %arrayidx48, align 4
   store i32 %call53, ptr %arrayidx46, align 4
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
-  %cmp16 = icmp sgt i64 %indvars.iv91, 2
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
+  %cmp16 = icmp sgt i64 %indvars.iv93, 2
   br i1 %cmp16, label %for.cond18.preheader, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %for.end44, %entry, %while.cond.preheader
-  %38 = load i32, ptr %call.i, align 4
-  store i32 %38, ptr %this, align 8
+  %37 = load i32, ptr %call.i, align 4
+  store i32 %37, ptr %this, align 8
   tail call void @_Z14b2Free_DefaultPv(ptr noundef nonnull %call.i)
   ret void
 }

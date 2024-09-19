@@ -3936,13 +3936,13 @@ for.inc64:                                        ; preds = %for.body52, %if.the
   br i1 %cmp51.not, label %for.end66.loopexit, label %for.body52, !llvm.loop !42
 
 for.end66.loopexit:                               ; preds = %for.inc64
-  %.pre202 = load ptr, ptr %m_data.i, align 8
-  %add.ptr.i148.phi.trans.insert = getelementptr inbounds float, ptr %.pre202, i64 %c.0195
-  %.pre203 = load float, ptr %add.ptr.i148.phi.trans.insert, align 4
+  %.pre203 = load ptr, ptr %m_data.i, align 8
+  %add.ptr.i148.phi.trans.insert = getelementptr inbounds float, ptr %.pre203, i64 %c.0195
+  %.pre204 = load float, ptr %add.ptr.i148.phi.trans.insert, align 4
   br label %for.end66
 
 for.end66:                                        ; preds = %for.end66.loopexit, %if.else42
-  %16 = phi float [ %.pre203, %for.end66.loopexit ], [ %12, %if.else42 ]
+  %16 = phi float [ %.pre204, %for.end66.loopexit ], [ %12, %if.else42 ]
   %add70 = add i64 %c.0195, 98304
   %cmp75.not177 = icmp ugt i64 %add70, 193536
   br i1 %cmp75.not177, label %if.end91, label %for.body76
@@ -3999,8 +3999,8 @@ while.end:                                        ; preds = %while.cond, %land.r
 
 while.cond107:                                    ; preds = %land.rhs109, %while.end
   %startDomain.0 = phi i64 [ 0, %while.end ], [ %add110, %land.rhs109 ]
-  %exitcond200.not = icmp eq i64 %startDomain.0, %endDomain.0
-  br i1 %exitcond200.not, label %for.inc202, label %land.rhs109
+  %exitcond201.not = icmp eq i64 %startDomain.0, %endDomain.0
+  br i1 %exitcond201.not, label %for.inc202, label %land.rhs109
 
 land.rhs109:                                      ; preds = %while.cond107
   %add110 = add i64 %startDomain.0, 1
@@ -4077,8 +4077,8 @@ while.end179:                                     ; preds = %while.cond168, %lan
 
 while.cond183:                                    ; preds = %land.rhs185, %while.end179
   %negStartDomain.0 = phi i64 [ 32768, %while.end179 ], [ %add186, %land.rhs185 ]
-  %cmp184 = icmp ult i64 %negStartDomain.0, %negEndDomain.0.lcssa
-  br i1 %cmp184, label %land.rhs185, label %for.inc202
+  %exitcond199.not = icmp eq i64 %negStartDomain.0, %negEndDomain.0
+  br i1 %exitcond199.not, label %for.inc202, label %land.rhs185
 
 land.rhs185:                                      ; preds = %while.cond183
   %add186 = add nuw nsw i64 %negStartDomain.0, 1
@@ -4089,17 +4089,17 @@ land.rhs185:                                      ; preds = %while.cond183
   br i1 %cmp190, label %while.cond183, label %for.inc202, !llvm.loop !49
 
 for.inc202:                                       ; preds = %land.rhs185, %while.cond183, %land.rhs109, %while.cond107
-  %.sink207 = phi i64 [ 8, %while.cond107 ], [ 8, %land.rhs109 ], [ 24, %while.cond183 ], [ 24, %land.rhs185 ]
+  %.sink208 = phi i64 [ 8, %while.cond107 ], [ 8, %land.rhs109 ], [ 24, %while.cond183 ], [ 24, %land.rhs185 ]
   %startDomain.0.lcssa.sink = phi i64 [ %startDomain.0, %land.rhs109 ], [ %endDomain.0, %while.cond107 ], [ %negStartDomain.0, %land.rhs185 ], [ %negEndDomain.0, %while.cond183 ]
   %.sink = phi i64 [ 16, %while.cond107 ], [ 16, %land.rhs109 ], [ 32, %while.cond183 ], [ 32, %land.rhs185 ]
   %endDomain.0.lcssa.sink = phi i64 [ %endDomain.0, %while.cond107 ], [ %endDomain.0, %land.rhs109 ], [ %negEndDomain.0.lcssa, %while.cond183 ], [ %negEndDomain.0.lcssa, %land.rhs185 ]
-  %startDomain120 = getelementptr inbounds i8, ptr %arrayidx, i64 %.sink207
+  %startDomain120 = getelementptr inbounds i8, ptr %arrayidx, i64 %.sink208
   store i64 %startDomain.0.lcssa.sink, ptr %startDomain120, align 8
   %endDomain123 = getelementptr inbounds i8, ptr %arrayidx, i64 %.sink
   store i64 %endDomain.0.lcssa.sink, ptr %endDomain123, align 8
   %inc203 = add nuw i64 %c.0195, 1
-  %exitcond201.not = icmp eq i64 %inc203, %call8
-  br i1 %exitcond201.not, label %for.end204, label %for.body, !llvm.loop !50
+  %exitcond202.not = icmp eq i64 %inc203, %call8
+  br i1 %exitcond202.not, label %for.end204, label %for.body, !llvm.loop !50
 
 for.end204:                                       ; preds = %for.inc202
   %cmp205 = icmp eq i64 %call8, 1

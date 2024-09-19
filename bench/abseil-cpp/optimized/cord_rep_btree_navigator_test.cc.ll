@@ -11909,13 +11909,13 @@ _ZN7testing15AssertionResultD2Ev.exit270:         ; preds = %cleanup297, %_ZNKSt
 
 for.inc304:                                       ; preds = %for.cond92
   %inc305 = add nuw i64 %index2.0274, 1
-  %cmp89 = icmp ult i64 %inc305, %0
-  br i1 %cmp89, label %for.cond92.preheader, label %for.inc307, !llvm.loop !117
+  %exitcond279.not = icmp eq i64 %inc305, %0
+  br i1 %exitcond279.not, label %for.inc307, label %for.cond92.preheader, !llvm.loop !117
 
 for.inc307:                                       ; preds = %for.inc304
   %inc308 = add nuw i64 %index1.0276, 1
-  %exitcond279.not = icmp eq i64 %inc308, %0
-  br i1 %exitcond279.not, label %for.end309, label %for.cond88.preheader, !llvm.loop !118
+  %exitcond280.not = icmp eq i64 %inc308, %0
+  br i1 %exitcond280.not, label %for.end309, label %for.cond88.preheader, !llvm.loop !118
 
 for.end309:                                       ; preds = %for.inc307, %_ZN7testing15AssertionResultD2Ev.exit270, %_ZN7testing15AssertionResultD2Ev.exit249, %_ZN7testing15AssertionResultD2Ev.exit223, %_ZN7testing15AssertionResultD2Ev.exit201, %_ZN7testing15AssertionResultD2Ev.exit180, %_ZN7testing15AssertionResultD2Ev.exit154, %for.cond85.preheader
   ret void

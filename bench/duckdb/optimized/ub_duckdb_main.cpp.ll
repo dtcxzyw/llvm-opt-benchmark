@@ -47488,9 +47488,9 @@ land.rhs:                                         ; preds = %while.cond51.prehea
   ]
 
 while.body58:                                     ; preds = %land.rhs
-  %inc59 = add nuw i64 %idx.3396, 1
-  %cmp53 = icmp ult i64 %inc59, %28
-  br i1 %cmp53, label %land.rhs, label %while.end60, !llvm.loop !1133
+  %inc59 = add i64 %idx.3396, 1
+  %exitcond.not = icmp eq i64 %inc59, %28
+  br i1 %exitcond.not, label %while.end60, label %land.rhs, !llvm.loop !1133
 
 while.end60:                                      ; preds = %while.body58, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %while.cond51.preheader
   %idx.3.lcssa = phi i64 [ %idx.2, %while.cond51.preheader ], [ %28, %while.body58 ], [ %idx.3396, %land.rhs ], [ %idx.3396, %land.rhs ], [ %idx.3396, %land.rhs ], [ %idx.3396, %land.rhs ], [ %idx.3396, %land.rhs ], [ %idx.3396, %land.rhs ]

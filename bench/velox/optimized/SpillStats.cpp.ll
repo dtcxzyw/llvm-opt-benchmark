@@ -10258,7 +10258,6 @@ for.end23:                                        ; preds = %for.inc
 
 for.body26.lr.ph:                                 ; preds = %for.end23
   %3 = zext i32 %slot.addr.4 to i64
-  %4 = zext i32 %cond.i to i64
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.inc35
@@ -10267,23 +10266,24 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %mul.i46 = shl i64 %indvars.iv, 2
   %idxprom.i47 = and i64 %mul.i46, 4294967292
   %arrayidx.i48 = getelementptr inbounds [2048 x %"struct.std::atomic.140"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i47
-  %5 = load atomic i64, ptr %arrayidx.i48 acquire, align 32
-  %and.i49 = and i64 %5, -2
+  %4 = load atomic i64, ptr %arrayidx.i48 acquire, align 32
+  %and.i49 = and i64 %4, -2
   %cmp.i50 = icmp eq i64 %and.i49, %1
   br i1 %cmp.i50, label %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, label %for.inc35
 
 _ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit: ; preds = %for.body26
-  %6 = cmpxchg ptr %arrayidx.i48, i64 %5, i64 0 seq_cst seq_cst, align 8
-  %7 = extractvalue { i64, i1 } %6, 1
-  %inc33 = zext i1 %7 to i32
+  %5 = cmpxchg ptr %arrayidx.i48, i64 %4, i64 0 seq_cst seq_cst, align 8
+  %6 = extractvalue { i64, i1 } %5, 1
+  %inc33 = zext i1 %6 to i32
   %spec.select = add i32 %movedSlotCount.059, %inc33
   br label %for.inc35
 
 for.inc35:                                        ; preds = %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit, %for.body26
   %movedSlotCount.1 = phi i32 [ %movedSlotCount.059, %for.body26 ], [ %spec.select, %_ZNSt13__atomic_baseImE23compare_exchange_strongERmmSt12memory_orderS2_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp25 = icmp ult i64 %indvars.iv.next, %4
-  br i1 %cmp25, label %for.body26, label %for.end37, !llvm.loop !256
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond64.not = icmp eq i32 %cond.i, %lftr.wideiv
+  br i1 %exitcond64.not, label %for.end37, label %for.body26, !llvm.loop !256
 
 for.end37:                                        ; preds = %for.inc35
   %cmp38.not = icmp eq i32 %movedSlotCount.1, 0
@@ -10291,9 +10291,9 @@ for.end37:                                        ; preds = %for.inc35
 
 if.then39:                                        ; preds = %for.end37
   %mul = shl i32 %movedSlotCount.1, 11
-  %8 = atomicrmw add ptr %this, i32 %mul seq_cst, align 4
-  %9 = add i32 %8, %mul
-  store i32 %9, ptr %state, align 4
+  %7 = atomicrmw add ptr %this, i32 %mul seq_cst, align 4
+  %8 = add i32 %7, %mul
+  store i32 %8, ptr %state, align 4
   br label %if.end41
 
 if.end41:                                         ; preds = %while.body, %for.end23, %if.then39, %for.end37

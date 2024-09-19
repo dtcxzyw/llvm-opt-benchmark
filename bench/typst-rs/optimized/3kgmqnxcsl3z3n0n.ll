@@ -89398,8 +89398,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h703827e50cf54e32
 20:                                               ; preds = %.lr.ph, %18
   %.sroa.11.1 = phi i64 [ %19, %18 ], [ %.sroa.11.027, %.lr.ph ]
   %.sroa.5.0 = add nuw i64 %.sroa.5.028, 1
-  %21 = icmp ult i64 %.sroa.5.0, %3
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  %exitcond.not = icmp eq i64 %.sroa.5.0, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -89547,8 +89547,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17he9fec5380969807f
 47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h2855dc4156ad220eE.exit19", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h2855dc4156ad220eE.exit19.thread"
   %.sroa.11.1 = phi i64 [ %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h2855dc4156ad220eE.exit19.thread" ], [ %.sroa.11.042, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h2855dc4156ad220eE.exit19" ]
   %.sroa.5.0 = add nuw i64 %.sroa.5.043, 1
-  %48 = icmp ult i64 %.sroa.5.0, %5
-  br i1 %48, label %.lr.ph, label %._crit_edge
+  %exitcond.not = icmp eq i64 %.sroa.5.0, %5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

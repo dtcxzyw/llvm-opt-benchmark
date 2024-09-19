@@ -33852,8 +33852,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit257:         ; preds = %if.end205, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i256
   store ptr null, ptr %message_.i.i238, align 8
   %storemerge8 = add nuw nsw i64 %storemerge8345, 1
-  %cmp94 = icmp ult i64 %storemerge8345, 36
-  br i1 %cmp94, label %invoke.cont98, label %for.inc210, !llvm.loop !865
+  %exitcond351.not = icmp eq i64 %storemerge8, 37
+  br i1 %exitcond351.not, label %for.inc210, label %invoke.cont98, !llvm.loop !865
 
 ehcleanup206:                                     ; preds = %_ZN7testing7MessageD2Ev.exit253, %lpad194
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %_ZN7testing7MessageD2Ev.exit253 ], [ %107, %lpad194 ]
@@ -33861,8 +33861,8 @@ ehcleanup206:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup239
 
 for.inc210:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit257, %_ZN7testing15AssertionResultD2Ev.exit111
-  %exitcond351.not = icmp eq i64 %storemerge8343, 37
-  br i1 %exitcond351.not, label %invoke.cont215, label %for.body65, !llvm.loop !866
+  %exitcond352.not = icmp eq i64 %storemerge8343, 37
+  br i1 %exitcond352.not, label %invoke.cont215, label %for.body65, !llvm.loop !866
 
 invoke.cont215:                                   ; preds = %for.inc210
   %t.val37 = load i64, ptr %0, align 8
@@ -64917,9 +64917,9 @@ if.else.i.i88:                                    ; preds = %invoke.cont30
           to label %for.inc34 unwind label %lpad2.loopexit
 
 for.inc34:                                        ; preds = %if.then.i.i85, %if.else.i.i88
-  %inc35 = add nuw nsw i64 %i.0114, 1
-  %cmp7 = icmp ult i64 %i.0114, 999999
-  br i1 %cmp7, label %for.body8, label %cleanup37, !llvm.loop !2686
+  %inc35 = add i64 %i.0114, 1
+  %exitcond.not = icmp eq i64 %inc35, 1000000
+  br i1 %exitcond.not, label %cleanup37, label %for.body8, !llvm.loop !2686
 
 ehcleanup28:                                      ; preds = %_ZN7testing7MessageD2Ev.exit18, %lpad19
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit18 ], [ %28, %lpad19 ]
@@ -142609,13 +142609,13 @@ for.inc84:                                        ; preds = %_ZN7testing15Assert
 
 for.inc86:                                        ; preds = %for.inc84
   %inc87 = add nuw nsw i64 %target_size.0175, 1
-  %cmp3 = icmp ult i64 %target_size.0175, 31
-  br i1 %cmp3, label %for.body4, label %for.inc89, !llvm.loop !5532
+  %exitcond179.not = icmp eq i64 %inc87, 32
+  br i1 %exitcond179.not, label %for.inc89, label %for.body4, !llvm.loop !5532
 
 for.inc89:                                        ; preds = %for.inc86
   %inc90 = add nuw nsw i64 %source_size.0176, 1
-  %exitcond179.not = icmp eq i64 %inc90, 32
-  br i1 %exitcond179.not, label %for.end91, label %for.cond2.preheader, !llvm.loop !5533
+  %exitcond180.not = icmp eq i64 %inc90, 32
+  br i1 %exitcond180.not, label %for.end91, label %for.cond2.preheader, !llvm.loop !5533
 
 for.end91:                                        ; preds = %for.inc89
   %this.val.i.i.i = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8
@@ -143542,13 +143542,13 @@ for.inc84:                                        ; preds = %_ZN7testing15Assert
 
 for.inc86:                                        ; preds = %for.inc84
   %inc87 = add nuw nsw i64 %target_size.0276, 1
-  %cmp3 = icmp ult i64 %target_size.0276, 31
-  br i1 %cmp3, label %for.body4, label %for.inc89, !llvm.loop !5555
+  %exitcond280.not = icmp eq i64 %inc87, 32
+  br i1 %exitcond280.not, label %for.inc89, label %for.body4, !llvm.loop !5555
 
 for.inc89:                                        ; preds = %for.inc86
   %inc90 = add nuw nsw i64 %source_size.0277, 1
-  %exitcond280.not = icmp eq i64 %inc90, 32
-  br i1 %exitcond280.not, label %for.end91, label %for.cond2.preheader, !llvm.loop !5556
+  %exitcond281.not = icmp eq i64 %inc90, 32
+  br i1 %exitcond281.not, label %for.end91, label %for.cond2.preheader, !llvm.loop !5556
 
 for.end91:                                        ; preds = %for.inc89
   %this.val.i.i.i = load i64, ptr %capacity_.i.i.i138, align 8

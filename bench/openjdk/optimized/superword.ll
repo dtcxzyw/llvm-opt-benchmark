@@ -5017,12 +5017,13 @@ _ZN7PairSet8add_pairEP4NodeS1_.exit:              ; preds = %88, %112
 
 _ZNK9SuperWord15same_origin_idxEP4NodeS1_.exit.thread: ; preds = %66, %_ZN7PairSet8add_pairEP4NodeS1_.exit, %86, %_ZNK9SuperWord15same_origin_idxEP4NodeS1_.exit, %51
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, 1
-  %125 = icmp slt i64 %indvars.iv.next39, %41
-  br i1 %125, label %51, label %._crit_edge, !llvm.loop !55
+  %lftr.wideiv = trunc i64 %indvars.iv.next39 to i32
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %61, %_ZNK9SuperWord15same_origin_idxEP4NodeS1_.exit.thread, %42
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %41
-  br i1 %exitcond.not, label %._crit_edge37, label %42, !llvm.loop !56
+  %exitcond44.not = icmp eq i64 %indvars.iv.next42, %41
+  br i1 %exitcond44.not, label %._crit_edge37, label %42, !llvm.loop !56
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %4
   ret void

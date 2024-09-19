@@ -19699,275 +19699,275 @@ GC_init_explicit_typing.exit:                     ; preds = %76
 
 .critedge:                                        ; preds = %.lr.ph
   %99 = add nuw nsw i64 %.03551, 1
-  %100 = icmp slt i64 %99, %.036
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  %exitcond.not = icmp eq i64 %99, %indvars.iv
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.critedge, %.lr.ph
   %.035.lcssa = phi i64 [ %indvars.iv, %.critedge ], [ %.03551, %.lr.ph ]
-  %101 = icmp eq i64 %.035.lcssa, %.036
-  br i1 %101, label %._crit_edge.thread, label %103
+  %100 = icmp eq i64 %.035.lcssa, %.036
+  br i1 %100, label %._crit_edge.thread, label %102
 
 ._crit_edge.thread:                               ; preds = %.critedge.preheader, %._crit_edge
-  %102 = shl i64 %.036.in, 3
+  %101 = shl i64 %.036.in, 3
   br label %.critedge.thread
 
-103:                                              ; preds = %._crit_edge
-  %104 = icmp slt i64 %.036.in, 63
-  br i1 %104, label %.lr.ph56, label %116
+102:                                              ; preds = %._crit_edge
+  %103 = icmp slt i64 %.036.in, 63
+  br i1 %103, label %.lr.ph56, label %115
 
-.lr.ph56:                                         ; preds = %103
-  %105 = add nsw i64 %.036.in, -2
-  %106 = load i64, ptr %0, align 8
-  br label %107
+.lr.ph56:                                         ; preds = %102
+  %104 = add nsw i64 %.036.in, -2
+  %105 = load i64, ptr %0, align 8
+  br label %106
 
-107:                                              ; preds = %.lr.ph56, %107
-  %.03454 = phi i64 [ %105, %.lr.ph56 ], [ %113, %107 ]
-  %.03753 = phi i64 [ -9223372036854775808, %.lr.ph56 ], [ %spec.select, %107 ]
-  %108 = lshr i64 %.03753, 1
-  %109 = and i64 %.03454, 63
-  %110 = shl nuw i64 1, %109
-  %111 = and i64 %106, %110
-  %.not44 = icmp eq i64 %111, 0
-  %112 = or disjoint i64 %108, -9223372036854775808
-  %spec.select = select i1 %.not44, i64 %108, i64 %112
-  %113 = add nsw i64 %.03454, -1
-  %114 = icmp sgt i64 %.03454, 0
-  br i1 %114, label %107, label %._crit_edge57.loopexit, !llvm.loop !101
+106:                                              ; preds = %.lr.ph56, %106
+  %.03454 = phi i64 [ %104, %.lr.ph56 ], [ %112, %106 ]
+  %.03753 = phi i64 [ -9223372036854775808, %.lr.ph56 ], [ %spec.select, %106 ]
+  %107 = lshr i64 %.03753, 1
+  %108 = and i64 %.03454, 63
+  %109 = shl nuw i64 1, %108
+  %110 = and i64 %105, %109
+  %.not44 = icmp eq i64 %110, 0
+  %111 = or disjoint i64 %107, -9223372036854775808
+  %spec.select = select i1 %.not44, i64 %107, i64 %111
+  %112 = add nsw i64 %.03454, -1
+  %113 = icmp sgt i64 %.03454, 0
+  br i1 %113, label %106, label %._crit_edge57.loopexit, !llvm.loop !101
 
-._crit_edge57.loopexit:                           ; preds = %107
-  %115 = or i64 %spec.select, 1
+._crit_edge57.loopexit:                           ; preds = %106
+  %114 = or i64 %spec.select, 1
   br label %.critedge.thread
 
-116:                                              ; preds = %103
-  %117 = add nuw i64 %.036.in, 63
-  %118 = lshr i64 %117, 6
+115:                                              ; preds = %102
+  %116 = add nuw i64 %.036.in, 63
+  %117 = lshr i64 %116, 6
   %.b39.i = load i1, ptr @GC_need_to_lock, align 4
-  br i1 %.b39.i, label %119, label %GC_lock.exit.i
+  br i1 %.b39.i, label %118, label %GC_lock.exit.i
 
-119:                                              ; preds = %116
-  %120 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
-  %.not.i46 = icmp eq i32 %120, 0
-  br i1 %.not.i46, label %GC_lock.exit.i, label %121
+118:                                              ; preds = %115
+  %119 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
+  %.not.i46 = icmp eq i32 %119, 0
+  br i1 %.not.i46, label %GC_lock.exit.i, label %120
 
-121:                                              ; preds = %119
-  %122 = load i32, ptr @GC_nprocs, align 4
-  %123 = icmp eq i32 %122, 1
-  br i1 %123, label %GC_generic_lock.exit.sink.split.i.i, label %124
+120:                                              ; preds = %118
+  %121 = load i32, ptr @GC_nprocs, align 4
+  %122 = icmp eq i32 %121, 1
+  br i1 %122, label %GC_generic_lock.exit.sink.split.i.i, label %123
 
-124:                                              ; preds = %121
-  %125 = load atomic volatile i8, ptr @GC_collecting monotonic, align 1
-  %.not.i.i = icmp eq i8 %125, 0
-  br i1 %.not.i.i, label %126, label %GC_generic_lock.exit.sink.split.i.i
+123:                                              ; preds = %120
+  %124 = load atomic volatile i8, ptr @GC_collecting monotonic, align 1
+  %.not.i.i = icmp eq i8 %124, 0
+  br i1 %.not.i.i, label %125, label %GC_generic_lock.exit.sink.split.i.i
 
-126:                                              ; preds = %124
-  %127 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %GC_lock.exit.i, label %.preheader.i.i.i
+125:                                              ; preds = %123
+  %126 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %GC_lock.exit.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %126, %132
-  %.079.i.i.i = phi i32 [ %133, %132 ], [ 1, %126 ]
+.preheader.i.i.i:                                 ; preds = %125, %131
+  %.079.i.i.i = phi i32 [ %132, %131 ], [ 1, %125 ]
   fence syncscope("singlethread") seq_cst
-  %129 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
-  switch i32 %129, label %130 [
+  %128 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
+  switch i32 %128, label %129 [
     i32 0, label %GC_lock.exit.i
-    i32 16, label %132
+    i32 16, label %131
   ]
 
-130:                                              ; preds = %.preheader.i.i.i
-  %131 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %131(ptr noundef nonnull @.str.340) #41
+129:                                              ; preds = %.preheader.i.i.i
+  %130 = load ptr, ptr @GC_on_abort, align 8
+  tail call void %130(ptr noundef nonnull @.str.340) #41
   tail call void @abort() #47
   unreachable
 
-132:                                              ; preds = %.preheader.i.i.i
-  %133 = shl nuw nsw i32 %.079.i.i.i, 1
-  %134 = icmp ult i32 %.079.i.i.i, 65
-  br i1 %134, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
+131:                                              ; preds = %.preheader.i.i.i
+  %132 = shl nuw nsw i32 %.079.i.i.i, 1
+  %133 = icmp ult i32 %.079.i.i.i, 65
+  br i1 %133, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
-GC_generic_lock.exit.sink.split.i.i:              ; preds = %132, %124, %121
-  %135 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #41
+GC_generic_lock.exit.sink.split.i.i:              ; preds = %131, %123, %120
+  %134 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #41
   br label %GC_lock.exit.i
 
-GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %GC_generic_lock.exit.sink.split.i.i, %126, %119, %116
-  %136 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
-  %137 = add i64 %136, %118
-  %138 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 424), align 8
-  %.not4050.i = icmp ult i64 %137, %138
+GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %GC_generic_lock.exit.sink.split.i.i, %125, %118, %115
+  %135 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
+  %136 = add i64 %135, %117
+  %137 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 424), align 8
+  %.not4050.i = icmp ult i64 %136, %137
   br i1 %.not4050.i, label %.preheader.i, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %180, %GC_lock.exit.i
-  %.lcssa.i = phi i64 [ %136, %GC_lock.exit.i ], [ %.pre.i, %180 ]
-  %139 = add nsw i64 %118, -1
-  %.not54.i = icmp eq i64 %139, 0
+.preheader.i:                                     ; preds = %179, %GC_lock.exit.i
+  %.lcssa.i = phi i64 [ %135, %GC_lock.exit.i ], [ %.pre.i, %179 ]
+  %138 = add nsw i64 %117, -1
+  %.not54.i = icmp eq i64 %138, 0
   br i1 %.not54.i, label %._crit_edge.i, label %.lr.ph52.i
 
-.lr.ph.i:                                         ; preds = %GC_lock.exit.i, %180
-  %140 = phi i64 [ %181, %180 ], [ %138, %GC_lock.exit.i ]
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %142, label %145
+.lr.ph.i:                                         ; preds = %GC_lock.exit.i, %179
+  %139 = phi i64 [ %180, %179 ], [ %137, %GC_lock.exit.i ]
+  %140 = icmp eq i64 %139, 0
+  br i1 %140, label %141, label %144
 
-142:                                              ; preds = %.lr.ph.i
+141:                                              ; preds = %.lr.ph.i
   store ptr @GC_push_typed_structures_proc, ptr @GC_push_typed_structures, align 8
   %.b38.i = load i1, ptr @GC_need_to_lock, align 4
-  br i1 %.b38.i, label %143, label %151
+  br i1 %.b38.i, label %142, label %150
 
-143:                                              ; preds = %142
-  %144 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
-  br label %151
+142:                                              ; preds = %141
+  %143 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
+  br label %150
 
-145:                                              ; preds = %.lr.ph.i
+144:                                              ; preds = %.lr.ph.i
   %.b37.i = load i1, ptr @GC_need_to_lock, align 4
-  br i1 %.b37.i, label %146, label %148
+  br i1 %.b37.i, label %145, label %147
 
-146:                                              ; preds = %145
-  %147 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
-  br label %148
+145:                                              ; preds = %144
+  %146 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
+  br label %147
 
-148:                                              ; preds = %146, %145
-  %149 = shl i64 %140, 1
-  %150 = icmp ugt i64 %149, 72057594037927935
-  br i1 %150, label %GC_add_ext_descriptor.exit.thread, label %151
+147:                                              ; preds = %145, %144
+  %148 = shl i64 %139, 1
+  %149 = icmp ugt i64 %148, 72057594037927935
+  br i1 %149, label %GC_add_ext_descriptor.exit.thread, label %150
 
-151:                                              ; preds = %148, %143, %142
-  %.030.i = phi i64 [ %149, %148 ], [ 100, %142 ], [ 100, %143 ]
-  %152 = shl nuw nsw i64 %.030.i, 4
-  %153 = tail call noalias ptr @GC_malloc_kind(i64 noundef %152, i32 noundef 0) #51
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %GC_add_ext_descriptor.exit.thread, label %155
+150:                                              ; preds = %147, %142, %141
+  %.030.i = phi i64 [ %148, %147 ], [ 100, %141 ], [ 100, %142 ]
+  %151 = shl nuw nsw i64 %.030.i, 4
+  %152 = tail call noalias ptr @GC_malloc_kind(i64 noundef %151, i32 noundef 0) #51
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %GC_add_ext_descriptor.exit.thread, label %154
 
-155:                                              ; preds = %151
+154:                                              ; preds = %150
   %.b36.i = load i1, ptr @GC_need_to_lock, align 4
-  br i1 %.b36.i, label %156, label %GC_lock.exit47.i
+  br i1 %.b36.i, label %155, label %GC_lock.exit47.i
 
-156:                                              ; preds = %155
-  %157 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
-  %.not41.i = icmp eq i32 %157, 0
-  br i1 %.not41.i, label %GC_lock.exit47.i, label %158
+155:                                              ; preds = %154
+  %156 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
+  %.not41.i = icmp eq i32 %156, 0
+  br i1 %.not41.i, label %GC_lock.exit47.i, label %157
 
-158:                                              ; preds = %156
-  %159 = load i32, ptr @GC_nprocs, align 4
-  %160 = icmp eq i32 %159, 1
-  br i1 %160, label %GC_generic_lock.exit.sink.split.i44.i, label %161
+157:                                              ; preds = %155
+  %158 = load i32, ptr @GC_nprocs, align 4
+  %159 = icmp eq i32 %158, 1
+  br i1 %159, label %GC_generic_lock.exit.sink.split.i44.i, label %160
 
-161:                                              ; preds = %158
-  %162 = load atomic volatile i8, ptr @GC_collecting monotonic, align 1
-  %.not.i43.i = icmp eq i8 %162, 0
-  br i1 %.not.i43.i, label %163, label %GC_generic_lock.exit.sink.split.i44.i
+160:                                              ; preds = %157
+  %161 = load atomic volatile i8, ptr @GC_collecting monotonic, align 1
+  %.not.i43.i = icmp eq i8 %161, 0
+  br i1 %.not.i43.i, label %162, label %GC_generic_lock.exit.sink.split.i44.i
 
-163:                                              ; preds = %161
-  %164 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %GC_lock.exit47.i, label %.preheader.i.i45.i
+162:                                              ; preds = %160
+  %163 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %GC_lock.exit47.i, label %.preheader.i.i45.i
 
-.preheader.i.i45.i:                               ; preds = %163, %169
-  %.079.i.i46.i = phi i32 [ %170, %169 ], [ 1, %163 ]
+.preheader.i.i45.i:                               ; preds = %162, %168
+  %.079.i.i46.i = phi i32 [ %169, %168 ], [ 1, %162 ]
   fence syncscope("singlethread") seq_cst
-  %166 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
-  switch i32 %166, label %167 [
+  %165 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #41
+  switch i32 %165, label %166 [
     i32 0, label %GC_lock.exit47.i
-    i32 16, label %169
+    i32 16, label %168
   ]
 
-167:                                              ; preds = %.preheader.i.i45.i
-  %168 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %168(ptr noundef nonnull @.str.340) #41
+166:                                              ; preds = %.preheader.i.i45.i
+  %167 = load ptr, ptr @GC_on_abort, align 8
+  tail call void %167(ptr noundef nonnull @.str.340) #41
   tail call void @abort() #47
   unreachable
 
-169:                                              ; preds = %.preheader.i.i45.i
-  %170 = shl nuw nsw i32 %.079.i.i46.i, 1
-  %171 = icmp ult i32 %.079.i.i46.i, 65
-  br i1 %171, label %.preheader.i.i45.i, label %GC_generic_lock.exit.sink.split.i44.i, !llvm.loop !4
+168:                                              ; preds = %.preheader.i.i45.i
+  %169 = shl nuw nsw i32 %.079.i.i46.i, 1
+  %170 = icmp ult i32 %.079.i.i46.i, 65
+  br i1 %170, label %.preheader.i.i45.i, label %GC_generic_lock.exit.sink.split.i44.i, !llvm.loop !4
 
-GC_generic_lock.exit.sink.split.i44.i:            ; preds = %169, %161, %158
-  %172 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #41
+GC_generic_lock.exit.sink.split.i44.i:            ; preds = %168, %160, %157
+  %171 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #41
   br label %GC_lock.exit47.i
 
-GC_lock.exit47.i:                                 ; preds = %.preheader.i.i45.i, %GC_generic_lock.exit.sink.split.i44.i, %163, %156, %155
-  %173 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 424), align 8
-  %174 = icmp eq i64 %140, %173
+GC_lock.exit47.i:                                 ; preds = %.preheader.i.i45.i, %GC_generic_lock.exit.sink.split.i44.i, %162, %155, %154
+  %172 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 424), align 8
+  %173 = icmp eq i64 %139, %172
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
-  br i1 %174, label %175, label %180
+  br i1 %173, label %174, label %179
 
-175:                                              ; preds = %GC_lock.exit47.i
+174:                                              ; preds = %GC_lock.exit47.i
   %.not42.i = icmp eq i64 %.pre.i, 0
-  br i1 %.not42.i, label %179, label %176
+  br i1 %.not42.i, label %178, label %175
 
-176:                                              ; preds = %175
-  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
-  %178 = shl i64 %.pre.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %153, ptr align 8 %177, i64 %178, i1 false)
+175:                                              ; preds = %174
+  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
+  %177 = shl i64 %.pre.i, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %152, ptr align 8 %176, i64 %177, i1 false)
+  br label %178
+
+178:                                              ; preds = %175, %174
+  store i64 %.030.i, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 424), align 8
+  store ptr %152, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
   br label %179
 
-179:                                              ; preds = %176, %175
-  store i64 %.030.i, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 424), align 8
-  store ptr %153, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
-  br label %180
-
-180:                                              ; preds = %179, %GC_lock.exit47.i
-  %181 = phi i64 [ %.030.i, %179 ], [ %173, %GC_lock.exit47.i ]
-  %182 = add i64 %.pre.i, %118
-  %.not40.i = icmp ult i64 %182, %181
+179:                                              ; preds = %178, %GC_lock.exit47.i
+  %180 = phi i64 [ %.030.i, %178 ], [ %172, %GC_lock.exit47.i ]
+  %181 = add i64 %.pre.i, %117
+  %.not40.i = icmp ult i64 %181, %180
   br i1 %.not40.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !102
 
 .lr.ph52.i:                                       ; preds = %.preheader.i, %.lr.ph52.i
-  %.03151.i = phi i64 [ %190, %.lr.ph52.i ], [ 0, %.preheader.i ]
-  %183 = getelementptr inbounds i64, ptr %0, i64 %.03151.i
-  %184 = load i64, ptr %183, align 8
-  %185 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
-  %186 = add i64 %.03151.i, %.lcssa.i
-  %187 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %185, i64 %186
-  store i64 %184, ptr %187, align 8
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
-  %189 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %188, i64 %186, i32 1
-  store i32 1, ptr %189, align 8
-  %190 = add nuw nsw i64 %.03151.i, 1
-  %exitcond.not.i45 = icmp eq i64 %190, %139
+  %.03151.i = phi i64 [ %189, %.lr.ph52.i ], [ 0, %.preheader.i ]
+  %182 = getelementptr inbounds i64, ptr %0, i64 %.03151.i
+  %183 = load i64, ptr %182, align 8
+  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
+  %185 = add i64 %.03151.i, %.lcssa.i
+  %186 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %184, i64 %185
+  store i64 %183, ptr %186, align 8
+  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
+  %188 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %187, i64 %185, i32 1
+  store i32 1, ptr %188, align 8
+  %189 = add nuw nsw i64 %.03151.i, 1
+  %exitcond.not.i45 = icmp eq i64 %189, %138
   br i1 %exitcond.not.i45, label %._crit_edge.i, label %.lr.ph52.i, !llvm.loop !103
 
 ._crit_edge.i:                                    ; preds = %.lr.ph52.i, %.preheader.i
-  %191 = getelementptr inbounds i64, ptr %0, i64 %139
-  %192 = load i64, ptr %191, align 8
-  %193 = and i64 %117, -64
-  %194 = sub i64 %193, %.036.in
-  %195 = lshr i64 -1, %194
-  %196 = and i64 %192, %195
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
-  %198 = add i64 %.lcssa.i, %139
-  %199 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %197, i64 %198
-  store i64 %196, ptr %199, align 8
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
-  %201 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %200, i64 %198, i32 1
-  store i32 0, ptr %201, align 8
-  %202 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
-  %203 = add i64 %202, %118
-  store i64 %203, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
+  %190 = getelementptr inbounds i64, ptr %0, i64 %138
+  %191 = load i64, ptr %190, align 8
+  %192 = and i64 %116, -64
+  %193 = sub i64 %192, %.036.in
+  %194 = lshr i64 -1, %193
+  %195 = and i64 %191, %194
+  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
+  %197 = add i64 %.lcssa.i, %138
+  %198 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %196, i64 %197
+  store i64 %195, ptr %198, align 8
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 440), align 8
+  %200 = getelementptr inbounds %struct.typed_ext_descr_t, ptr %199, i64 %197, i32 1
+  store i32 0, ptr %200, align 8
+  %201 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
+  %202 = add i64 %201, %117
+  store i64 %202, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 432), align 8
   %.b.i = load i1, ptr @GC_need_to_lock, align 4
-  br i1 %.b.i, label %204, label %GC_add_ext_descriptor.exit
+  br i1 %.b.i, label %203, label %GC_add_ext_descriptor.exit
 
-204:                                              ; preds = %._crit_edge.i
-  %205 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
+203:                                              ; preds = %._crit_edge.i
+  %204 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #41
   br label %GC_add_ext_descriptor.exit
 
-GC_add_ext_descriptor.exit:                       ; preds = %._crit_edge.i, %204
-  %206 = icmp eq i64 %.lcssa.i, -1
-  br i1 %206, label %GC_add_ext_descriptor.exit.thread, label %208
+GC_add_ext_descriptor.exit:                       ; preds = %._crit_edge.i, %203
+  %205 = icmp eq i64 %.lcssa.i, -1
+  br i1 %205, label %GC_add_ext_descriptor.exit.thread, label %207
 
-GC_add_ext_descriptor.exit.thread:                ; preds = %151, %148, %GC_add_ext_descriptor.exit
-  %207 = shl i64 %.036.in, 3
+GC_add_ext_descriptor.exit.thread:                ; preds = %150, %147, %GC_add_ext_descriptor.exit
+  %206 = shl i64 %.036.in, 3
   br label %.critedge.thread
 
-208:                                              ; preds = %GC_add_ext_descriptor.exit
-  %209 = load i32, ptr @GC_typed_mark_proc_index, align 4
-  %210 = zext nneg i32 %209 to i64
-  %211 = shl i64 %.lcssa.i, 8
-  %212 = shl nuw nsw i64 %210, 2
-  %213 = or i64 %211, %212
-  %214 = or disjoint i64 %213, 2
+207:                                              ; preds = %GC_add_ext_descriptor.exit
+  %208 = load i32, ptr @GC_typed_mark_proc_index, align 4
+  %209 = zext nneg i32 %208 to i64
+  %210 = shl i64 %.lcssa.i, 8
+  %211 = shl nuw nsw i64 %209, 2
+  %212 = or i64 %210, %211
+  %213 = or disjoint i64 %212, 2
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %84, %._crit_edge57.loopexit, %208, %GC_add_ext_descriptor.exit.thread, %._crit_edge.thread
-  %.0 = phi i64 [ %102, %._crit_edge.thread ], [ %207, %GC_add_ext_descriptor.exit.thread ], [ %214, %208 ], [ %115, %._crit_edge57.loopexit ], [ 0, %84 ]
+.critedge.thread:                                 ; preds = %84, %._crit_edge57.loopexit, %207, %GC_add_ext_descriptor.exit.thread, %._crit_edge.thread
+  %.0 = phi i64 [ %101, %._crit_edge.thread ], [ %206, %GC_add_ext_descriptor.exit.thread ], [ %213, %207 ], [ %114, %._crit_edge57.loopexit ], [ 0, %84 ]
   ret i64 %.0
 }
 

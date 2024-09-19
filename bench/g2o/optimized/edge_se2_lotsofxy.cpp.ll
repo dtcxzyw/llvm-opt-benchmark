@@ -7186,28 +7186,28 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %22 = getelementptr inbounds double, ptr %1, i64 %.9203.us
   store double %20, ptr %22, align 8
   %23 = add nuw nsw i64 %.0204.us, 1
-  %exitcond238.not = icmp eq i64 %23, %3
-  br i1 %exitcond238.not, label %._crit_edge206.us, label %14, !llvm.loop !223
+  %exitcond239.not = icmp eq i64 %23, %3
+  br i1 %exitcond239.not, label %._crit_edge206.us, label %14, !llvm.loop !223
 
 ._crit_edge206.us:                                ; preds = %14
   %24 = add nsw i64 %.2148208.us, 1
-  %exitcond239.not = icmp eq i64 %24, %4
-  br i1 %exitcond239.not, label %._crit_edge210, label %.preheader.us, !llvm.loop !224
+  %exitcond240.not = icmp eq i64 %24, %4
+  br i1 %exitcond240.not, label %._crit_edge210, label %.preheader.us, !llvm.loop !224
 
 25:                                               ; preds = %7, %._crit_edge
-  %indvars.iv235 = phi i64 [ 4, %7 ], [ %indvars.iv.next236, %._crit_edge ]
+  %indvars.iv228 = phi i64 [ 4, %7 ], [ %indvars.iv.next229, %._crit_edge ]
   %.0145202 = phi i64 [ 0, %7 ], [ %.1.lcssa, %._crit_edge ]
   %.0146201 = phi i64 [ 0, %7 ], [ %.1147.lcssa, %._crit_edge ]
   %26 = sub i64 %4, %.0146201
-  %27 = srem i64 %26, %indvars.iv235
+  %27 = srem i64 %26, %indvars.iv228
   %28 = sub i64 %4, %27
   %29 = icmp slt i64 %.0146201, %28
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %25
-  %30 = shl nuw nsw i64 %indvars.iv235, 1
-  %31 = icmp ugt i64 %indvars.iv235, 3
-  %32 = and i64 %indvars.iv235, 2
+  %30 = shl nuw nsw i64 %indvars.iv228, 1
+  %31 = icmp ugt i64 %indvars.iv228, 3
+  %32 = and i64 %indvars.iv228, 2
   %.not.not = icmp eq i64 %32, 0
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -7217,12 +7217,12 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   br i1 %10, label %.preheader164.us.preheader, label %.preheader165.us
 
 .preheader164.us.preheader:                       ; preds = %.lr.ph.split.us
-  %invariant.op283 = add i64 %.1147191.us, 1
+  %invariant.op284 = add i64 %.1147191.us, 1
   br label %.preheader164.us
 
 ._crit_edge183.split.us.us:                       ; preds = %.loopexit.us.us, %.preheader165.us
   %.4.lcssa.us = phi i64 [ %.3.lcssa.us, %.preheader165.us ], [ %60, %.loopexit.us.us ]
-  %33 = add i64 %.1147191.us, %indvars.iv235
+  %33 = add i64 %.1147191.us, %indvars.iv228
   %34 = icmp slt i64 %33, %28
   br i1 %34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !225
 
@@ -7241,18 +7241,18 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %43 = mul nsw i64 %41, %39
   %44 = getelementptr double, ptr %42, i64 %43
   %45 = load <2 x double>, ptr %44, align 1
-  %.reass284 = add i64 %.0153168.us, %invariant.op283
-  %46 = mul nsw i64 %41, %.reass284
+  %.reass285 = add i64 %.0153168.us, %invariant.op284
+  %46 = mul nsw i64 %41, %.reass285
   %47 = getelementptr double, ptr %42, i64 %46
   %48 = load <2 x double>, ptr %47, align 1
   %49 = shufflevector <2 x double> %45, <2 x double> %48, <2 x i32> <i32 1, i32 3>
   %50 = shufflevector <2 x double> %45, <2 x double> %48, <2 x i32> <i32 0, i32 2>
   %51 = getelementptr inbounds double, ptr %55, i64 %.0153168.us
   store <2 x double> %50, ptr %51, align 16
-  %52 = getelementptr inbounds double, ptr %51, i64 %indvars.iv235
+  %52 = getelementptr inbounds double, ptr %51, i64 %indvars.iv228
   store <2 x double> %49, ptr %52, align 16
   %53 = add nuw nsw i64 %.0153168.us, 2
-  %54 = icmp ult i64 %53, %indvars.iv235
+  %54 = icmp ult i64 %53, %indvars.iv228
   br i1 %54, label %.preheader161.us, label %35, !llvm.loop !227
 
 .preheader164.us:                                 ; preds = %.preheader164.us.preheader, %35
@@ -7301,12 +7301,12 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %79 = getelementptr i8, ptr %76, i64 24
   store double %75, ptr %79, align 8
   %80 = add nuw nsw i64 %.2152180.us.us, 1
-  %exitcond234.not = icmp eq i64 %80, %3
-  br i1 %exitcond234.not, label %._crit_edge183.split.us.us, label %.loopexit.us.us, !llvm.loop !228
+  %exitcond237.not = icmp eq i64 %80, %3
+  br i1 %exitcond237.not, label %._crit_edge183.split.us.us, label %.loopexit.us.us, !llvm.loop !228
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %._crit_edge183.split
   %.1194 = phi i64 [ %.4.lcssa, %._crit_edge183.split ], [ %.0145202, %.lr.ph ]
-  %.1147191 = phi i64 [ %116, %._crit_edge183.split ], [ %.0146201, %.lr.ph ]
+  %.1147191 = phi i64 [ %115, %._crit_edge183.split ], [ %.0146201, %.lr.ph ]
   br i1 %10, label %.preheader164.preheader, label %.preheader165
 
 .preheader164.preheader:                          ; preds = %.lr.ph.split
@@ -7343,10 +7343,10 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %94 = shufflevector <2 x double> %89, <2 x double> %92, <2 x i32> <i32 0, i32 2>
   %95 = getelementptr inbounds double, ptr %82, i64 %.0153168
   store <2 x double> %94, ptr %95, align 16
-  %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv235
+  %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv228
   store <2 x double> %93, ptr %96, align 16
   %97 = add nuw nsw i64 %.0153168, 2
-  %98 = icmp ult i64 %97, %indvars.iv235
+  %98 = icmp ult i64 %97, %indvars.iv228
   br i1 %98, label %.preheader161, label %99, !llvm.loop !227
 
 99:                                               ; preds = %.preheader161
@@ -7357,7 +7357,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
 
 .preheader163:                                    ; preds = %.preheader165, %..loopexit_crit_edge
   %.4182 = phi i64 [ %111, %..loopexit_crit_edge ], [ %.3.lcssa, %.preheader165 ]
-  %.2152180 = phi i64 [ %115, %..loopexit_crit_edge ], [ %.1151.lcssa, %.preheader165 ]
+  %.2152180 = phi i64 [ %114, %..loopexit_crit_edge ], [ %.1151.lcssa, %.preheader165 ]
   br label %103
 
 103:                                              ; preds = %.preheader163, %103
@@ -7374,25 +7374,25 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_d
   %112 = getelementptr inbounds double, ptr %1, i64 %.6177
   store double %110, ptr %112, align 8
   %113 = add nuw nsw i64 %.1155176, 1
-  %114 = icmp ult i64 %113, %indvars.iv235
-  br i1 %114, label %103, label %..loopexit_crit_edge, !llvm.loop !229
+  %exitcond.not = icmp eq i64 %113, %indvars.iv228
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %103, !llvm.loop !229
 
 ..loopexit_crit_edge:                             ; preds = %103
-  %115 = add nuw nsw i64 %.2152180, 1
-  %exitcond.not = icmp eq i64 %115, %3
-  br i1 %exitcond.not, label %._crit_edge183.split, label %.preheader163, !llvm.loop !228
+  %114 = add nuw nsw i64 %.2152180, 1
+  %exitcond230.not = icmp eq i64 %114, %3
+  br i1 %exitcond230.not, label %._crit_edge183.split, label %.preheader163, !llvm.loop !228
 
 ._crit_edge183.split:                             ; preds = %..loopexit_crit_edge, %.preheader165
   %.4.lcssa = phi i64 [ %.3.lcssa, %.preheader165 ], [ %111, %..loopexit_crit_edge ]
-  %116 = add i64 %.1147191, %indvars.iv235
-  %117 = icmp slt i64 %116, %28
-  br i1 %117, label %.lr.ph.split, label %._crit_edge, !llvm.loop !225
+  %115 = add i64 %.1147191, %indvars.iv228
+  %116 = icmp slt i64 %115, %28
+  br i1 %116, label %.lr.ph.split, label %._crit_edge, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %._crit_edge183.split, %._crit_edge183.split.us.us, %25
-  %.1147.lcssa = phi i64 [ %.0146201, %25 ], [ %33, %._crit_edge183.split.us.us ], [ %116, %._crit_edge183.split ]
+  %.1147.lcssa = phi i64 [ %.0146201, %25 ], [ %33, %._crit_edge183.split.us.us ], [ %115, %._crit_edge183.split ]
   %.1.lcssa = phi i64 [ %.0145202, %25 ], [ %.4.lcssa.us, %._crit_edge183.split.us.us ], [ %.4.lcssa, %._crit_edge183.split ]
-  %indvars.iv.next236 = add nsw i64 %indvars.iv235, -2
-  %.not = icmp eq i64 %indvars.iv.next236, 0
+  %indvars.iv.next229 = add nsw i64 %indvars.iv228, -2
+  %.not = icmp eq i64 %indvars.iv.next229, 0
   br i1 %.not, label %.preheader160, label %25, !llvm.loop !230
 
 ._crit_edge210:                                   ; preds = %._crit_edge206.us, %.preheader160

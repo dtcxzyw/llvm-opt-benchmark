@@ -7673,192 +7673,197 @@ define range(i32 0, 2) i32 @Str_MuxTryOnce(ptr noundef %0, ptr nocapture readnon
 
 .lr.ph70:                                         ; preds = %17
   %19 = getelementptr inbounds i8, ptr %2, i64 12
-  %20 = zext nneg i32 %.pre to i64
-  %wide.trip.count82 = zext nneg i32 %.pre to i64
-  %invariant.op = add nsw i64 %20, -2
-  br label %21
+  %20 = add nsw i32 %.pre, -2
+  %21 = zext nneg i32 %.pre to i64
+  %wide.trip.count84 = zext nneg i32 %.pre to i64
+  %invariant.op = add nsw i64 %21, -2
+  br label %22
 
-21:                                               ; preds = %.lr.ph70, %._crit_edge
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next80.pre-phi, %._crit_edge ]
+22:                                               ; preds = %.lr.ph70, %._crit_edge
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next82.pre-phi, %._crit_edge ]
+  %indvars.iv77 = phi i32 [ %20, %.lr.ph70 ], [ %indvars.iv.next78, %._crit_edge ]
   %indvars.iv = phi i64 [ 2, %.lr.ph70 ], [ %indvars.iv.next, %._crit_edge ]
   %.05068 = phi i32 [ 0, %.lr.ph70 ], [ %.1.lcssa, %._crit_edge ]
   %.05167 = phi i32 [ -1, %.lr.ph70 ], [ %.152.lcssa, %._crit_edge ]
   %.05565 = phi i32 [ %10, %.lr.ph70 ], [ %.156.lcssa, %._crit_edge ]
-  %22 = icmp slt i64 %indvars.iv79, %invariant.op
-  br i1 %22, label %.lr.ph, label %.._crit_edge_crit_edge
+  %23 = icmp slt i64 %indvars.iv81, %invariant.op
+  br i1 %23, label %.lr.ph, label %.._crit_edge_crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %21
-  %.pre84 = add nuw nsw i64 %indvars.iv79, 1
+.._crit_edge_crit_edge:                           ; preds = %22
+  %.pre86 = add nuw nsw i64 %indvars.iv81, 1
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %21
-  %23 = getelementptr i32, ptr %8, i64 %indvars.iv79
-  %24 = getelementptr i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = ashr i32 %25, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %27
-  %29 = load i32, ptr %23, align 4
-  %30 = ashr i32 %29, 1
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %31
-  %33 = add nuw nsw i64 %indvars.iv79, 1
-  %34 = and i32 %25, 1
-  %35 = and i32 %29, 1
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
-  %37 = xor i32 %35, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %36, i64 0, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 12
-  %43 = zext nneg i32 %34 to i64
-  %44 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %27, i32 4, i64 %43
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 12
-  %48 = getelementptr inbounds i8, ptr %32, i64 56
-  %49 = trunc nuw nsw i64 %indvars.iv79 to i32
-  %50 = shl i32 %49, 16
+.lr.ph:                                           ; preds = %22
+  %24 = getelementptr i32, ptr %8, i64 %indvars.iv81
+  %25 = getelementptr i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = ashr i32 %26, 1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %28
+  %30 = load i32, ptr %24, align 4
+  %31 = ashr i32 %30, 1
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %32
+  %34 = add nuw nsw i64 %indvars.iv81, 1
+  %35 = and i32 %26, 1
+  %36 = and i32 %30, 1
+  %37 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = xor i32 %36, 1
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %37, i64 0, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 12
+  %44 = zext nneg i32 %35 to i64
+  %45 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %28, i32 4, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds i8, ptr %45, i64 12
+  %49 = getelementptr inbounds i8, ptr %33, i64 56
+  %50 = trunc nuw nsw i64 %indvars.iv81 to i32
+  %51 = shl i32 %50, 16
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph, %102
-  %indvars.iv75 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next76, %102 ]
-  %.162 = phi i32 [ %.05068, %.lr.ph ], [ %103, %102 ]
-  %.15261 = phi i32 [ %.05167, %.lr.ph ], [ %.2, %102 ]
-  %.15659 = phi i32 [ %.05565, %.lr.ph ], [ %.257, %102 ]
-  %51 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv75
-  %52 = load i32, ptr %51, align 4
-  %53 = ashr i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(64) %55, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 4 dereferenceable(64) %28, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(64) %32, i64 64, i1 false)
-  %56 = and i32 %52, 1
-  %57 = icmp ult i64 %33, %indvars.iv75
-  %58 = load i32, ptr %39, align 4
+._crit_edge.i:                                    ; preds = %.lr.ph, %103
+  %indvars.iv75 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next76, %103 ]
+  %.15261 = phi i32 [ %.05167, %.lr.ph ], [ %.2, %103 ]
+  %.15659 = phi i32 [ %.05565, %.lr.ph ], [ %.257, %103 ]
+  %52 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv75
+  %53 = load i32, ptr %52, align 4
+  %54 = ashr i32 %53, 1
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(64) %56, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 4 dereferenceable(64) %29, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(64) %33, i64 64, i1 false)
+  %57 = and i32 %53, 1
+  %58 = icmp ult i64 %34, %indvars.iv75
   %59 = load i32, ptr %40, align 4
   %60 = load i32, ptr %41, align 4
   %61 = load i32, ptr %42, align 4
-  %62 = zext nneg i32 %56 to i64
-  %63 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %54, i32 4, i64 %62
-  %64 = load i32, ptr %63, align 4
-  store i32 %64, ptr %39, align 4
-  store i32 0, ptr %40, align 4
-  %65 = load i32, ptr %32, align 4
-  store i32 %65, ptr %63, align 4
-  store i32 %58, ptr %44, align 4
-  %66 = load i32, ptr %45, align 4
-  %67 = xor i32 %66, %59
-  store i32 %67, ptr %45, align 4
-  store i32 %60, ptr %46, align 4
+  %62 = load i32, ptr %43, align 4
+  %63 = zext nneg i32 %57 to i64
+  %64 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %55, i32 4, i64 %63
+  %65 = load i32, ptr %64, align 4
+  store i32 %65, ptr %40, align 4
+  store i32 0, ptr %41, align 4
+  %66 = load i32, ptr %33, align 4
+  store i32 %66, ptr %64, align 4
+  store i32 %59, ptr %45, align 4
+  %67 = load i32, ptr %46, align 4
+  %68 = xor i32 %67, %60
+  store i32 %68, ptr %46, align 4
   store i32 %61, ptr %47, align 4
-  br i1 %57, label %.lr.ph110.i, label %Str_MuxChangeOnce.exit
+  store i32 %62, ptr %48, align 4
+  br i1 %58, label %.lr.ph110.i, label %Str_MuxChangeOnce.exit
 
 .lr.ph110.i:                                      ; preds = %._crit_edge.i
-  %68 = load i32, ptr %19, align 4
-  %.promoted.i = load i32, ptr %48, align 4
-  br label %69
+  %69 = load i32, ptr %19, align 4
+  %.promoted.i = load i32, ptr %49, align 4
+  br label %70
 
-69:                                               ; preds = %69, %.lr.ph110.i
-  %indvars.iv119.i = phi i64 [ %33, %.lr.ph110.i ], [ %indvars.iv.next120.i, %69 ]
-  %70 = phi i32 [ %.promoted.i, %.lr.ph110.i ], [ %88, %69 ]
-  %71 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv119.i
-  %72 = load i32, ptr %71, align 4
-  %73 = ashr i32 %72, 1
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %74, i32 4, i64 2, i32 2
-  %76 = load i32, ptr %75, align 4
-  %77 = ashr i32 %70, 4
-  %78 = ashr i32 %76, 4
-  %79 = tail call noundef i32 @llvm.smax.i32(i32 %77, i32 %78)
-  %.not.i.i = icmp slt i32 %77, %78
-  %80 = and i32 %70, 15
-  %81 = select i1 %.not.i.i, i32 1, i32 %80
-  %.not13.i.i = icmp slt i32 %78, %77
-  %82 = and i32 %76, 15
-  %83 = select i1 %.not13.i.i, i32 1, i32 %82
-  %84 = add nuw nsw i32 %81, %83
-  %85 = shl nsw i32 %79, 4
-  %86 = icmp sgt i32 %84, %68
-  %87 = select i1 %86, i32 18, i32 %84
-  %88 = add nsw i32 %87, %85
-  store i32 %88, ptr %48, align 4
+70:                                               ; preds = %70, %.lr.ph110.i
+  %indvars.iv119.i = phi i64 [ %34, %.lr.ph110.i ], [ %indvars.iv.next120.i, %70 ]
+  %71 = phi i32 [ %.promoted.i, %.lr.ph110.i ], [ %89, %70 ]
+  %72 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv119.i
+  %73 = load i32, ptr %72, align 4
+  %74 = ashr i32 %73, 1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %75, i32 4, i64 2, i32 2
+  %77 = load i32, ptr %76, align 4
+  %78 = ashr i32 %71, 4
+  %79 = ashr i32 %77, 4
+  %80 = tail call noundef i32 @llvm.smax.i32(i32 %78, i32 %79)
+  %.not.i.i = icmp slt i32 %78, %79
+  %81 = and i32 %71, 15
+  %82 = select i1 %.not.i.i, i32 1, i32 %81
+  %.not13.i.i = icmp slt i32 %79, %78
+  %83 = and i32 %77, 15
+  %84 = select i1 %.not13.i.i, i32 1, i32 %83
+  %85 = add nuw nsw i32 %82, %84
+  %86 = shl nsw i32 %80, 4
+  %87 = icmp sgt i32 %85, %69
+  %88 = select i1 %87, i32 18, i32 %85
+  %89 = add nsw i32 %88, %86
+  store i32 %89, ptr %49, align 4
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
-  %89 = and i64 %indvars.iv.next120.i, 4294967295
-  %exitcond = icmp eq i64 %89, %indvars.iv75
-  br i1 %exitcond, label %Str_MuxChangeOnce.exit, label %69, !llvm.loop !63
+  %90 = and i64 %indvars.iv.next120.i, 4294967295
+  %exitcond = icmp eq i64 %90, %indvars.iv75
+  br i1 %exitcond, label %Str_MuxChangeOnce.exit, label %70, !llvm.loop !63
 
-Str_MuxChangeOnce.exit:                           ; preds = %69, %._crit_edge.i
-  %90 = tail call i32 @Str_MuxDelayEdge_rec(ptr noundef %3, i32 noundef %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %55, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %28, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.2, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %32, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.4, i64 64, i1 false)
-  %91 = icmp sgt i32 %.15659, %90
-  br i1 %91, label %95, label %92
+Str_MuxChangeOnce.exit:                           ; preds = %70, %._crit_edge.i
+  %91 = tail call i32 @Str_MuxDelayEdge_rec(ptr noundef %3, i32 noundef %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %56, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %29, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %33, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.4, i64 64, i1 false)
+  %92 = icmp sgt i32 %.15659, %91
+  br i1 %92, label %96, label %93
 
-92:                                               ; preds = %Str_MuxChangeOnce.exit
-  %93 = icmp sgt i32 %.15261, 0
-  %94 = icmp eq i32 %.15659, %90
-  %or.cond = select i1 %93, i1 %94, i1 false
-  br i1 %or.cond, label %95, label %98
+93:                                               ; preds = %Str_MuxChangeOnce.exit
+  %94 = icmp sgt i32 %.15261, 0
+  %95 = icmp eq i32 %.15659, %91
+  %or.cond = select i1 %94, i1 %95, i1 false
+  br i1 %or.cond, label %96, label %99
 
-95:                                               ; preds = %92, %Str_MuxChangeOnce.exit
-  %96 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %97 = or i32 %50, %96
-  br label %98
+96:                                               ; preds = %93, %Str_MuxChangeOnce.exit
+  %97 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %98 = or i32 %51, %97
+  br label %99
 
-98:                                               ; preds = %95, %92
-  %.257 = phi i32 [ %90, %95 ], [ %.15659, %92 ]
-  %.2 = phi i32 [ %97, %95 ], [ %.15261, %92 ]
-  br i1 %.not, label %102, label %99
+99:                                               ; preds = %96, %93
+  %.257 = phi i32 [ %91, %96 ], [ %.15659, %93 ]
+  %.2 = phi i32 [ %98, %96 ], [ %.15261, %93 ]
+  br i1 %.not, label %103, label %100
 
-99:                                               ; preds = %98
-  %100 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %49, i32 noundef %100, i32 noundef %90, i32 noundef %.257)
-  br label %102
+100:                                              ; preds = %99
+  %101 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %102 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %50, i32 noundef %101, i32 noundef %91, i32 noundef %.257)
+  br label %103
 
-102:                                              ; preds = %99, %98
-  %103 = add nsw i32 %.162, 1
+103:                                              ; preds = %100, %99
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count82
-  br i1 %exitcond78.not, label %._crit_edge, label %._crit_edge.i, !llvm.loop !66
+  %exitcond80.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count84
+  br i1 %exitcond80.not, label %._crit_edge.loopexit, label %._crit_edge.i, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %102, %.._crit_edge_crit_edge
-  %indvars.iv.next80.pre-phi = phi i64 [ %.pre84, %.._crit_edge_crit_edge ], [ %33, %102 ]
-  %.156.lcssa = phi i32 [ %.05565, %.._crit_edge_crit_edge ], [ %.257, %102 ]
-  %.152.lcssa = phi i32 [ %.05167, %.._crit_edge_crit_edge ], [ %.2, %102 ]
-  %.1.lcssa = phi i32 [ %.05068, %.._crit_edge_crit_edge ], [ %103, %102 ]
+._crit_edge.loopexit:                             ; preds = %103
+  %104 = add i32 %.05068, %indvars.iv77
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
+  %indvars.iv.next82.pre-phi = phi i64 [ %.pre86, %.._crit_edge_crit_edge ], [ %34, %._crit_edge.loopexit ]
+  %.156.lcssa = phi i32 [ %.05565, %.._crit_edge_crit_edge ], [ %.257, %._crit_edge.loopexit ]
+  %.152.lcssa = phi i32 [ %.05167, %.._crit_edge_crit_edge ], [ %.2, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.05068, %.._crit_edge_crit_edge ], [ %104, %._crit_edge.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80.pre-phi, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge71, label %21, !llvm.loop !67
+  %indvars.iv.next78 = add i32 %indvars.iv77, -1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82.pre-phi, %wide.trip.count84
+  br i1 %exitcond85.not, label %._crit_edge71, label %22, !llvm.loop !67
 
 ._crit_edge71:                                    ; preds = %._crit_edge
-  %104 = icmp eq i32 %.152.lcssa, -1
-  br i1 %104, label %._crit_edge71.thread, label %106
+  %105 = icmp eq i32 %.152.lcssa, -1
+  br i1 %105, label %._crit_edge71.thread, label %107
 
 ._crit_edge71.thread:                             ; preds = %17, %._crit_edge71
-  br i1 %.not, label %.critedge, label %105
+  br i1 %.not, label %.critedge, label %106
 
-105:                                              ; preds = %._crit_edge71.thread
+106:                                              ; preds = %._crit_edge71.thread
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.critedge
 
-106:                                              ; preds = %._crit_edge71
-  %107 = ashr i32 %.152.lcssa, 16
-  %108 = and i32 %.152.lcssa, 65535
-  call void @Str_MuxChangeOnce(ptr noundef %2, ptr noundef nonnull %8, i32 noundef %107, i32 noundef %108, ptr noundef null, ptr noundef %0, ptr noundef %5)
-  br i1 %.not, label %.critedge, label %109
+107:                                              ; preds = %._crit_edge71
+  %108 = ashr i32 %.152.lcssa, 16
+  %109 = and i32 %.152.lcssa, 65535
+  call void @Str_MuxChangeOnce(ptr noundef %2, ptr noundef nonnull %8, i32 noundef %108, i32 noundef %109, ptr noundef null, ptr noundef %0, ptr noundef %5)
+  br i1 %.not, label %.critedge, label %110
 
-109:                                              ; preds = %106
-  %110 = load i32, ptr %3, align 4
-  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %110, i32 noundef %107, i32 noundef %108, i32 noundef %.1.lcssa, i32 noundef %10, i32 noundef %.156.lcssa)
+110:                                              ; preds = %107
+  %111 = load i32, ptr %3, align 4
+  %112 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %111, i32 noundef %108, i32 noundef %109, i32 noundef %.1.lcssa, i32 noundef %10, i32 noundef %.156.lcssa)
   %putchar = tail call i32 @putchar(i32 10)
   br label %.critedge
 
-.critedge:                                        ; preds = %109, %106, %._crit_edge71.thread, %105, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %105 ], [ 0, %._crit_edge71.thread ], [ 1, %106 ], [ 1, %109 ]
+.critedge:                                        ; preds = %110, %107, %._crit_edge71.thread, %106, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %106 ], [ 0, %._crit_edge71.thread ], [ 1, %107 ], [ 1, %110 ]
   ret i32 %.0
 }
 

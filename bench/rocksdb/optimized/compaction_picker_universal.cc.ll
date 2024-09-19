@@ -856,14 +856,14 @@ cond.end.i:                                       ; preds = %land.lhs.true5.i.i,
 if.end.i63:                                       ; preds = %cond.end.i
   %size.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %66 = load i64, ptr %size.i, align 8
-  %cmp.not112.i = icmp eq i64 %sub5.i, 0
-  br i1 %cmp.not112.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSizeAmpEv.exit.thread, label %while.body.i
+  %cmp.not113.i = icmp eq i64 %sub5.i, 0
+  br i1 %cmp.not113.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSizeAmpEv.exit.thread, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i63, %if.end20.i
-  %num_l0_files.0115.i = phi i64 [ %add23.i, %if.end20.i ], [ 0, %if.end.i63 ]
-  %candidate_size.0114.i = phi i64 [ %add.i66, %if.end20.i ], [ 0, %if.end.i63 ]
-  %start_index.0113.i = phi i64 [ %sub11.i64, %if.end20.i ], [ %sub5.i, %if.end.i63 ]
-  %sub11.i64 = add i64 %start_index.0113.i, -1
+  %num_l0_files.0116.i = phi i64 [ %add23.i, %if.end20.i ], [ 0, %if.end.i63 ]
+  %candidate_size.0115.i = phi i64 [ %add.i66, %if.end20.i ], [ 0, %if.end.i63 ]
+  %start_index.0114.i = phi i64 [ %sub11.i64, %if.end20.i ], [ %sub5.i, %if.end.i63 ]
+  %sub11.i64 = add i64 %start_index.0114.i, -1
   %add.ptr.i26.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %sorted_runs_.val21, i64 %sub11.i64
   %being_compacted13.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 32
   %67 = load i8, ptr %being_compacted13.i, align 8
@@ -908,23 +908,23 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.
 if.end20.i:                                       ; preds = %while.body.i
   %compensated_file_size.i65 = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 24
   %72 = load i64, ptr %compensated_file_size.i65, align 8
-  %add.i66 = add i64 %72, %candidate_size.0114.i
+  %add.i66 = add i64 %72, %candidate_size.0115.i
   %73 = load i32, ptr %add.ptr.i26.i, align 8
   %cmp21.i = icmp eq i32 %73, 0
   %conv.i = zext i1 %cmp21.i to i64
-  %add23.i = add i64 %num_l0_files.0115.i, %conv.i
+  %add23.i = add i64 %num_l0_files.0116.i, %conv.i
   %cmp.not.i67 = icmp eq i64 %sub11.i64, 0
   br i1 %cmp.not.i67, label %while.end.i68, label %while.body.i, !llvm.loop !22
 
 while.end.i68:                                    ; preds = %if.end20.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i
-  %start_index.0110.i = phi i64 [ %start_index.0113.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i ], [ 0, %if.end20.i ]
-  %candidate_size.0108.i = phi i64 [ %candidate_size.0114.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i ], [ %add.i66, %if.end20.i ]
-  %num_l0_files.0106.i = phi i64 [ %num_l0_files.0115.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i ], [ %add23.i, %if.end20.i ]
-  %cmp24.i = icmp eq i64 %start_index.0110.i, %sub5.i
+  %start_index.0111.i = phi i64 [ %start_index.0114.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i ], [ 0, %if.end20.i ]
+  %candidate_size.0109.i = phi i64 [ %candidate_size.0115.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i ], [ %add.i66, %if.end20.i ]
+  %num_l0_files.0107.i = phi i64 [ %num_l0_files.0116.i, %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRun4DumpEPcmb.exit.i ], [ %add23.i, %if.end20.i ]
+  %cmp24.i = icmp eq i64 %start_index.0111.i, %sub5.i
   br i1 %cmp24.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSizeAmpEv.exit.thread, label %if.end26.i
 
 if.end26.i:                                       ; preds = %while.end.i68
-  %cmp.i27.i = icmp eq i64 %num_l0_files.0106.i, 0
+  %cmp.i27.i = icmp eq i64 %num_l0_files.0107.i, 0
   br i1 %cmp.i27.i, label %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder35MightExcludeNewL0sToReduceWriteStopEmmRmS2_.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end26.i
@@ -939,12 +939,12 @@ if.end.i.i:                                       ; preds = %if.end26.i
   %77 = load i32, ptr %min_merge_width8.i.i, align 4
   %conv9.i.i = zext i32 %77 to i64
   %sorted_runs_.val.i29.i = load ptr, ptr %sorted_runs_, align 8
-  %sub.i30.i = add i64 %num_l0_files.0106.i, -1
-  %78 = xor i64 %start_index.0110.i, -1
+  %sub.i30.i = add i64 %num_l0_files.0107.i, -1
+  %78 = xor i64 %start_index.0111.i, -1
   %sub16.i.i = add i64 %sub5.i, %78
   %.sroa.speculated51.i.i = call i64 @llvm.umin.i64(i64 %sub16.i.i, i64 %sub.i30.i)
   %sub19.i.i = add nsw i64 %sub5.i, 1
-  %add.i.i69 = sub i64 %sub19.i.i, %start_index.0110.i
+  %add.i.i69 = sub i64 %sub19.i.i, %start_index.0111.i
   %sub21.i.i = call i64 @llvm.usub.sat.i64(i64 %conv.i.i, i64 %add.i.i69)
   %sub24.i.i = call i64 @llvm.usub.sat.i64(i64 %conv5.i.i, i64 %sub21.i.i)
   %.sroa.speculated34.i.i = call i64 @llvm.umin.i64(i64 %.sroa.speculated51.i.i, i64 %sub24.i.i)
@@ -965,7 +965,7 @@ for.cond31.preheader.lr.ph.i.i:                   ; preds = %if.end.i.i
   %sub.ptr.sub.i.i.i.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i70, %sub.ptr.rhs.cast.i.i.i.i.i71
   %sub.ptr.div.i.i.i.i.i73 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i72, 40
   %mul38.i.i = mul i64 %79, %conv13.i.i
-  %mul40.i.i = mul i64 %candidate_size.0108.i, 9
+  %mul40.i.i = mul i64 %candidate_size.0109.i, 9
   %div.i.i = udiv i64 %mul40.i.i, 10
   br label %for.cond31.preheader.i.i
 
@@ -976,7 +976,7 @@ for.cond.i.i:                                     ; preds = %for.end.i.i
 
 for.cond31.preheader.i.i:                         ; preds = %for.cond.i.i, %for.cond31.preheader.lr.ph.i.i
   %possible_num_l0_to_exclude.072.i.i = phi i64 [ %.sroa.speculated.i.i, %for.cond31.preheader.lr.ph.i.i ], [ %inc45.i.i, %for.cond.i.i ]
-  %candidate_size_post_exclusion.071.i.i = phi i64 [ %candidate_size.0108.i, %for.cond31.preheader.lr.ph.i.i ], [ %current_candidate_size.0.lcssa.i.i, %for.cond.i.i ]
+  %candidate_size_post_exclusion.071.i.i = phi i64 [ %candidate_size.0109.i, %for.cond31.preheader.lr.ph.i.i ], [ %current_candidate_size.0.lcssa.i.i, %for.cond.i.i ]
   %num_l0_to_exclude.070.i.i = phi i64 [ 0, %for.cond31.preheader.lr.ph.i.i ], [ %possible_num_l0_to_exclude.072.i.i, %for.cond.i.i ]
   %cmp3266.i.i = icmp ult i64 %num_l0_to_exclude.070.i.i, %possible_num_l0_to_exclude.072.i.i
   br i1 %cmp3266.i.i, label %for.body33.i.i, label %for.end.i.i
@@ -984,7 +984,7 @@ for.cond31.preheader.i.i:                         ; preds = %for.cond.i.i, %for.
 for.body33.i.i:                                   ; preds = %for.cond31.preheader.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i
   %j.068.i.i = phi i64 [ %inc.i.i92, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ], [ %num_l0_to_exclude.070.i.i, %for.cond31.preheader.i.i ]
   %current_candidate_size.067.i.i = phi i64 [ %sub37.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ], [ %candidate_size_post_exclusion.071.i.i, %for.cond31.preheader.i.i ]
-  %add35.i.i = add i64 %j.068.i.i, %start_index.0110.i
+  %add35.i.i = add i64 %j.068.i.i, %start_index.0111.i
   %cmp.not.i.i.i.i90 = icmp ult i64 %add35.i.i, %sub.ptr.div.i.i.i.i.i73
   br i1 %cmp.not.i.i.i.i90, label %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i, label %if.then.i.i.i.i91
 
@@ -996,9 +996,9 @@ _ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS
   %compensated_file_size.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %sorted_runs_.val.i29.i, i64 %add35.i.i, i32 4
   %81 = load i64, ptr %compensated_file_size.i.i, align 8
   %sub37.i.i = sub i64 %current_candidate_size.067.i.i, %81
-  %inc.i.i92 = add nuw i64 %j.068.i.i, 1
-  %cmp32.i.i = icmp ult i64 %inc.i.i92, %possible_num_l0_to_exclude.072.i.i
-  br i1 %cmp32.i.i, label %for.body33.i.i, label %for.end.i.i, !llvm.loop !24
+  %inc.i.i92 = add i64 %j.068.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i92, %possible_num_l0_to_exclude.072.i.i
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body33.i.i, !llvm.loop !24
 
 for.end.i.i:                                      ; preds = %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i, %for.cond31.preheader.i.i
   %current_candidate_size.0.lcssa.i.i = phi i64 [ %candidate_size_post_exclusion.071.i.i, %for.cond31.preheader.i.i ], [ %sub37.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE2atEm.exit.i.i ]
@@ -1010,13 +1010,13 @@ for.end.i.i:                                      ; preds = %_ZNKSt6vectorIN7roc
 
 for.end46.i.i:                                    ; preds = %for.end.i.i, %for.cond.i.i, %if.end.i.i
   %num_l0_to_exclude.0.lcssa.i.i = phi i64 [ 0, %if.end.i.i ], [ %num_l0_to_exclude.070.i.i, %for.end.i.i ], [ %possible_num_l0_to_exclude.072.i.i, %for.cond.i.i ]
-  %candidate_size_post_exclusion.0.lcssa.i.i = phi i64 [ %candidate_size.0108.i, %if.end.i.i ], [ %candidate_size_post_exclusion.071.i.i, %for.end.i.i ], [ %current_candidate_size.0.lcssa.i.i, %for.cond.i.i ]
-  %add47.i.i = add i64 %num_l0_to_exclude.0.lcssa.i.i, %start_index.0110.i
+  %candidate_size_post_exclusion.0.lcssa.i.i = phi i64 [ %candidate_size.0109.i, %if.end.i.i ], [ %candidate_size_post_exclusion.071.i.i, %for.end.i.i ], [ %current_candidate_size.0.lcssa.i.i, %for.cond.i.i ]
+  %add47.i.i = add i64 %num_l0_to_exclude.0.lcssa.i.i, %start_index.0111.i
   br label %_ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder35MightExcludeNewL0sToReduceWriteStopEmmRmS2_.exit.i
 
 _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder35MightExcludeNewL0sToReduceWriteStopEmmRmS2_.exit.i: ; preds = %for.end46.i.i, %if.end26.i
-  %start_index.1.i = phi i64 [ %start_index.0110.i, %if.end26.i ], [ %add47.i.i, %for.end46.i.i ]
-  %candidate_size.1.i = phi i64 [ %candidate_size.0108.i, %if.end26.i ], [ %candidate_size_post_exclusion.0.lcssa.i.i, %for.end46.i.i ]
+  %start_index.1.i = phi i64 [ %start_index.0111.i, %if.end26.i ], [ %add47.i.i, %for.end46.i.i ]
+  %candidate_size.1.i = phi i64 [ %candidate_size.0109.i, %if.end26.i ], [ %candidate_size_post_exclusion.0.lcssa.i.i, %for.end46.i.i ]
   %retval.0.i.i = phi i64 [ 0, %if.end26.i ], [ %num_l0_to_exclude.0.lcssa.i.i, %for.end46.i.i ]
   %82 = load ptr, ptr %log_buffer_20, align 8
   %83 = load ptr, ptr %cf_name_22, align 8
@@ -1182,13 +1182,13 @@ while.end.thread.i.i:                             ; preds = %for.body.i.i
 land.rhs.lr.ph.i.i:                               ; preds = %for.body.i.i
   %smallest.i.i = getelementptr inbounds i8, ptr %113, i64 40
   %117 = sext i32 %bottom_end_idx.0487.i.i to i64
-  br label %land.rhs.i62.i
+  br label %land.rhs.i63.i
 
-land.rhs.i62.i:                                   ; preds = %if.end24.i.i, %land.rhs.lr.ph.i.i
+land.rhs.i63.i:                                   ; preds = %if.end24.i.i, %land.rhs.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %117, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next.i.i, %if.end24.i.i ]
   %118 = phi ptr [ %115, %land.rhs.lr.ph.i.i ], [ %.pre.i.i, %if.end24.i.i ]
   %num_skipped.0431.i.i = phi i32 [ 0, %land.rhs.lr.ph.i.i ], [ %inc25.i.i, %if.end24.i.i ]
-  %bottom_end_idx.1430.i.i = phi i32 [ %bottom_end_idx.0487.i.i, %land.rhs.lr.ph.i.i ], [ %inc.i64.i, %if.end24.i.i ]
+  %bottom_end_idx.1430.i.i = phi i32 [ %bottom_end_idx.0487.i.i, %land.rhs.lr.ph.i.i ], [ %inc.i65.i, %if.end24.i.i ]
   %end_bottom_size_counted.1429.i.i = phi i8 [ %end_bottom_size_counted.0484.i.i, %land.rhs.lr.ph.i.i ], [ 0, %if.end24.i.i ]
   %bottom_size.1428.i.i = phi i64 [ %bottom_size.0483.i.i, %land.rhs.lr.ph.i.i ], [ %bottom_size.2.i.i, %if.end24.i.i ]
   %119 = load ptr, ptr %icmp_.i.i, align 8
@@ -1210,11 +1210,11 @@ land.rhs.i62.i:                                   ; preds = %if.end24.i.i, %land
   store i64 %sub.i9.i.i.i.i, ptr %103, align 8
   br i1 %.not.i.i.i.i.i.i, label %_ZTWN7rocksdb10perf_levelE.exit.i.i.i.i.i, label %121
 
-121:                                              ; preds = %land.rhs.i62.i
+121:                                              ; preds = %land.rhs.i63.i
   call void @_ZTHN7rocksdb10perf_levelE()
   br label %_ZTWN7rocksdb10perf_levelE.exit.i.i.i.i.i
 
-_ZTWN7rocksdb10perf_levelE.exit.i.i.i.i.i:        ; preds = %121, %land.rhs.i62.i
+_ZTWN7rocksdb10perf_levelE.exit.i.i.i.i.i:        ; preds = %121, %land.rhs.i63.i
   %122 = load i8, ptr %104, align 1
   %cmp.i.i.i.i.i86 = icmp ugt i8 %122, 1
   br i1 %cmp.i.i.i.i.i86, label %if.then.i.i.i.i.i89, label %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i
@@ -1240,9 +1240,9 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i: ; pred
   %126 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i5.i.i.i = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i)
   %cmp.i.i.i.i87 = icmp eq i32 %call.i.i5.i.i.i, 0
-  br i1 %cmp.i.i.i.i87, label %if.then.i.i.i65.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.i.i
+  br i1 %cmp.i.i.i.i87, label %if.then.i.i.i66.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.i.i
 
-if.then.i.i.i65.i:                                ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i
+if.then.i.i.i66.i:                                ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i
   %add.ptr.i.i110.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 %call2.i.i.i.i.i
   %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i110.i.i, i64 -8
   %result.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr7.i.i.i.i, align 1
@@ -1252,12 +1252,12 @@ if.then.i.i.i65.i:                                ; preds = %_ZNK7rocksdb21UserC
   %cmp14.i.i.i.i = icmp ugt i64 %result.0.copyload.i.i.i.i.i, %result.0.copyload.i13.i.i.i.i
   br i1 %cmp14.i.i.i.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i
 
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i: ; preds = %if.then.i.i.i65.i
+_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i: ; preds = %if.then.i.i.i66.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
   br label %while.body.i.i
 
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i: ; preds = %if.then.i.i.i65.i
+_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i: ; preds = %if.then.i.i.i66.i
   %127 = trunc nsw i64 %indvars.iv.i.i to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i)
@@ -1279,13 +1279,13 @@ if.then21.i.i:                                    ; preds = %while.body.i.i
   %128 = load ptr, ptr %add.ptr.i111.i.i, align 8
   %file_size.i.i88 = getelementptr inbounds i8, ptr %128, i64 16
   %129 = load i64, ptr %file_size.i.i88, align 8
-  %add.i63.i = add i64 %129, %bottom_size.1428.i.i
+  %add.i64.i = add i64 %129, %bottom_size.1428.i.i
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.then21.i.i, %while.body.i.i
-  %bottom_size.2.i.i = phi i64 [ %bottom_size.1428.i.i, %while.body.i.i ], [ %add.i63.i, %if.then21.i.i ]
+  %bottom_size.2.i.i = phi i64 [ %bottom_size.1428.i.i, %while.body.i.i ], [ %add.i64.i, %if.then21.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %inc.i64.i = add nsw i32 %bottom_end_idx.1430.i.i, 1
+  %inc.i65.i = add nsw i32 %bottom_end_idx.1430.i.i, 1
   %inc25.i.i = add nuw nsw i32 %num_skipped.0431.i.i, 1
   %130 = load ptr, ptr %_M_finish.i104.i.i, align 8
   %sub.ptr.lhs.cast.i105.i.i = ptrtoint ptr %130 to i64
@@ -1294,7 +1294,7 @@ if.end24.i.i:                                     ; preds = %if.then21.i.i, %whi
   %sext.i.i = shl i64 %sub.ptr.sub.i107.i.i, 29
   %131 = ashr i64 %sext.i.i, 32
   %cmp16.i.i = icmp slt i64 %indvars.iv.next.i.i, %131
-  br i1 %cmp16.i.i, label %land.rhs.i62.i, label %while.end.i.i, !llvm.loop !25
+  br i1 %cmp16.i.i, label %land.rhs.i63.i, label %while.end.i.i, !llvm.loop !25
 
 while.end.loopexit.split.loop.exit563.i.i:        ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.i.i
   %132 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -1303,7 +1303,7 @@ while.end.loopexit.split.loop.exit563.i.i:        ; preds = %_ZNK7rocksdb21Inter
 while.end.i.i:                                    ; preds = %if.end24.i.i, %while.end.loopexit.split.loop.exit563.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i
   %bottom_size.1414.i.i = phi i64 [ %bottom_size.1428.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %bottom_size.1428.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ %bottom_size.2.i.i, %if.end24.i.i ]
   %end_bottom_size_counted.1412.i.i = phi i8 [ %end_bottom_size_counted.1429.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %end_bottom_size_counted.1429.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ 0, %if.end24.i.i ]
-  %bottom_end_idx.1410.i.i = phi i32 [ %127, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %132, %while.end.loopexit.split.loop.exit563.i.i ], [ %inc.i64.i, %if.end24.i.i ]
+  %bottom_end_idx.1410.i.i = phi i32 [ %127, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %132, %while.end.loopexit.split.loop.exit563.i.i ], [ %inc.i65.i, %if.end24.i.i ]
   %num_skipped.0408.i.i = phi i32 [ %num_skipped.0431.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %num_skipped.0431.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ %inc25.i.i, %if.end24.i.i ]
   %num_skipped.0408.fr.i.i = freeze i32 %num_skipped.0408.i.i
   %cmp26.i.i = icmp ugt i32 %num_skipped.0408.fr.i.i, 1
@@ -1550,7 +1550,7 @@ while.end67.i.i:                                  ; preds = %if.end65.i.i, %whil
   %end_bottom_size_counted.4.i.i = phi i8 [ %end_bottom_size_counted.3446.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %end_bottom_size_counted.2.i.i, %if.end31.i.i ], [ %end_bottom_size_counted.5.i.i, %while.end67.loopexit.split.loop.exit568.i.i ], [ %end_bottom_size_counted.3446.i.i, %while.end67.loopexit.split.loop.exit572.i.i ], [ 0, %if.end65.i.i ]
   %add68.i.i = add i64 %bottom_size.5.i.i, %add34.i.i
   %cmp69.i.i = icmp ugt i64 %add68.i.i, %div80.i.i
-  br i1 %cmp69.i.i, label %land.lhs.true.i61.i, label %lor.lhs.false.i.i
+  br i1 %cmp69.i.i, label %land.lhs.true.i62.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.end67.i.i
   %165 = load ptr, ptr %_M_finish.i.i.i76, align 8
@@ -1566,11 +1566,11 @@ lor.lhs.false.i.i:                                ; preds = %while.end67.i.i
   %or.cond.i60.i = select i1 %cmp73.i.i, i1 %cmp74.i.i, i1 false
   br i1 %or.cond.i60.i, label %if.then75.i.i, label %for.inc.i.i
 
-land.lhs.true.i61.i:                              ; preds = %while.end67.i.i
+land.lhs.true.i62.i:                              ; preds = %while.end67.i.i
   %cmp74.old.not.i.i = icmp eq i64 %add34.i.i, 0
   br i1 %cmp74.old.not.i.i, label %for.inc.i.i, label %if.then75.i.i
 
-if.then75.i.i:                                    ; preds = %land.lhs.true.i61.i, %lor.lhs.false.i.i
+if.then75.i.i:                                    ; preds = %land.lhs.true.i62.i, %lor.lhs.false.i.i
   %conv76.i.i = uitofp i64 %bottom_size.5.i.i to double
   %conv77.i.i = uitofp i64 %add34.i.i to double
   %div78.i.i = fdiv double %conv76.i.i, %conv77.i.i
@@ -1710,8 +1710,8 @@ while.body112.i.i:                                ; preds = %_ZNK7rocksdb21Inter
   %192 = load i64, ptr %file_size116.i.i, align 8
   %sub117.i.i = sub i64 %bottom_size.9459.i.i, %192
   %indvars.iv.next518.i.i = add nsw i64 %indvars.iv517.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv517.i.i, %170
-  br i1 %exitcond.not.i.i, label %if.end120.i.i, label %land.rhs101.i.i, !llvm.loop !27
+  %exitcond.not.i61.i = icmp eq i64 %indvars.iv517.i.i, %170
+  br i1 %exitcond.not.i61.i, label %if.end120.i.i, label %land.rhs101.i.i, !llvm.loop !27
 
 if.end120.loopexit.split.loop.exit.i.i:           ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit237.i.i
   %193 = trunc nsw i64 %indvars.iv517.i.i to i32
@@ -1730,14 +1730,14 @@ for.inc.loopexit.i.i:                             ; preds = %if.end120.i.i
   %195 = trunc nsw i64 %indvars.iv.next521.i.i to i32
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %for.inc.loopexit.i.i, %if.then75.i.i, %land.lhs.true.i61.i, %lor.lhs.false.i.i
-  %bottom_start_idx.5.i.i = phi i32 [ %bottom_start_idx.1.i.i, %land.lhs.true.i61.i ], [ %bottom_start_idx.1.i.i, %lor.lhs.false.i.i ], [ %bottom_start_idx.1.i.i, %if.then75.i.i ], [ %bottom_start_idx.3.i.i, %for.inc.loopexit.i.i ]
-  %non_bottom_size.3.i.i = phi i64 [ 0, %land.lhs.true.i61.i ], [ %add34.i.i, %lor.lhs.false.i.i ], [ %add34.i.i, %if.then75.i.i ], [ %sub93.i.i, %for.inc.loopexit.i.i ]
-  %bottom_size.10.i.i = phi i64 [ %bottom_size.5.i.i, %land.lhs.true.i61.i ], [ %bottom_size.5.i.i, %lor.lhs.false.i.i ], [ %bottom_size.5.i.i, %if.then75.i.i ], [ %bottom_size.8.i.i, %for.inc.loopexit.i.i ]
-  %start_idx.3.i.i = phi i32 [ %136, %land.lhs.true.i61.i ], [ %136, %lor.lhs.false.i.i ], [ %136, %if.then75.i.i ], [ %195, %for.inc.loopexit.i.i ]
-  %picked_fanout.2.i.i = phi double [ %picked_fanout.0489.i.i, %land.lhs.true.i61.i ], [ %picked_fanout.0489.i.i, %lor.lhs.false.i.i ], [ %picked_fanout.1.i.i, %if.then75.i.i ], [ %picked_fanout.1.i.i, %for.inc.loopexit.i.i ]
-  %picked_end_idx.2.i.i = phi i32 [ %picked_end_idx.0490.i.i, %land.lhs.true.i61.i ], [ %picked_end_idx.0490.i.i, %lor.lhs.false.i.i ], [ %picked_end_idx.1.i.i, %if.then75.i.i ], [ %picked_end_idx.1.i.i, %for.inc.loopexit.i.i ]
-  %picked_start_idx.2.i.i = phi i32 [ %picked_start_idx.0491.i.i, %land.lhs.true.i61.i ], [ %picked_start_idx.0491.i.i, %lor.lhs.false.i.i ], [ %picked_start_idx.1.i.i, %if.then75.i.i ], [ %picked_start_idx.1.i.i, %for.inc.loopexit.i.i ]
+for.inc.i.i:                                      ; preds = %for.inc.loopexit.i.i, %if.then75.i.i, %land.lhs.true.i62.i, %lor.lhs.false.i.i
+  %bottom_start_idx.5.i.i = phi i32 [ %bottom_start_idx.1.i.i, %land.lhs.true.i62.i ], [ %bottom_start_idx.1.i.i, %lor.lhs.false.i.i ], [ %bottom_start_idx.1.i.i, %if.then75.i.i ], [ %bottom_start_idx.3.i.i, %for.inc.loopexit.i.i ]
+  %non_bottom_size.3.i.i = phi i64 [ 0, %land.lhs.true.i62.i ], [ %add34.i.i, %lor.lhs.false.i.i ], [ %add34.i.i, %if.then75.i.i ], [ %sub93.i.i, %for.inc.loopexit.i.i ]
+  %bottom_size.10.i.i = phi i64 [ %bottom_size.5.i.i, %land.lhs.true.i62.i ], [ %bottom_size.5.i.i, %lor.lhs.false.i.i ], [ %bottom_size.5.i.i, %if.then75.i.i ], [ %bottom_size.8.i.i, %for.inc.loopexit.i.i ]
+  %start_idx.3.i.i = phi i32 [ %136, %land.lhs.true.i62.i ], [ %136, %lor.lhs.false.i.i ], [ %136, %if.then75.i.i ], [ %195, %for.inc.loopexit.i.i ]
+  %picked_fanout.2.i.i = phi double [ %picked_fanout.0489.i.i, %land.lhs.true.i62.i ], [ %picked_fanout.0489.i.i, %lor.lhs.false.i.i ], [ %picked_fanout.1.i.i, %if.then75.i.i ], [ %picked_fanout.1.i.i, %for.inc.loopexit.i.i ]
+  %picked_end_idx.2.i.i = phi i32 [ %picked_end_idx.0490.i.i, %land.lhs.true.i62.i ], [ %picked_end_idx.0490.i.i, %lor.lhs.false.i.i ], [ %picked_end_idx.1.i.i, %if.then75.i.i ], [ %picked_end_idx.1.i.i, %for.inc.loopexit.i.i ]
+  %picked_start_idx.2.i.i = phi i32 [ %picked_start_idx.0491.i.i, %land.lhs.true.i62.i ], [ %picked_start_idx.0491.i.i, %lor.lhs.false.i.i ], [ %picked_start_idx.1.i.i, %if.then75.i.i ], [ %picked_start_idx.1.i.i, %for.inc.loopexit.i.i ]
   %indvars.iv.next524.i.i = add nuw nsw i64 %indvars.iv523.i.i, 1
   %196 = load ptr, ptr %_M_finish.i.i.i76, align 8
   %197 = load ptr, ptr %arrayidx.i98.i.i, align 8

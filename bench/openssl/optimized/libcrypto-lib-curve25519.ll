@@ -2709,7 +2709,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @ge_double_scalarmult_vartime(ptr nocapture noundef nonnull %r, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef nonnull readonly %A, ptr nocapture noundef readonly %b) unnamed_addr #3 {
 entry:
-  %t0.i328 = alloca [10 x i32], align 16
+  %t0.i329 = alloca [10 x i32], align 16
   %t0.i = alloca [10 x i32], align 16
   %q.i = alloca %struct.ge_p2, align 4
   %aslide = alloca [256 x i8], align 16
@@ -2737,30 +2737,36 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !20
 
 for.body9.i:                                      ; preds = %for.body.i, %for.inc92.i
-  %indvars.iv75.i = phi i64 [ %invariant.op.i, %for.inc92.i ], [ 0, %for.body.i ]
+  %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %for.inc92.i ], [ 0, %for.body.i ]
+  %indvars.iv76.i = phi i32 [ %indvars.iv.next77.i, %for.inc92.i ], [ 254, %for.body.i ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %for.inc92.i ], [ 1, %for.body.i ]
-  %arrayidx11.i = getelementptr inbounds i8, ptr %aslide, i64 %indvars.iv75.i
+  %arrayidx11.i = getelementptr inbounds i8, ptr %aslide, i64 %indvars.iv79.i
   %2 = load i8, ptr %arrayidx11.i, align 1
   %tobool.not.i = icmp ne i8 %2, 0
-  %cmp1555.i = icmp ult i64 %indvars.iv75.i, 255
+  %cmp1555.i = icmp ult i64 %indvars.iv79.i, 255
   %or.cond.i = and i1 %cmp1555.i, %tobool.not.i
-  %invariant.op.i = add nuw nsw i64 %indvars.iv75.i, 1
-  br i1 %or.cond.i, label %for.body17.i, label %for.inc92.i
+  br i1 %or.cond.i, label %for.body17.preheader.i, label %for.inc92.i
 
-for.body17.i:                                     ; preds = %for.body9.i, %for.inc88.i
-  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %for.inc88.i ], [ 1, %for.body9.i ]
-  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %for.inc88.i ], [ %indvars.iv62.i, %for.body9.i ]
+for.body17.preheader.i:                           ; preds = %for.body9.i
+  %umin.i = tail call i32 @llvm.umin.i32(i32 %indvars.iv76.i, i32 5)
+  %3 = add nuw nsw i32 %umin.i, 2
+  %wide.trip.count.i = zext nneg i32 %3 to i64
+  br label %for.body17.i
+
+for.body17.i:                                     ; preds = %for.inc88.i, %for.body17.preheader.i
+  %indvars.iv70.i = phi i64 [ 1, %for.body17.preheader.i ], [ %indvars.iv.next71.i, %for.inc88.i ]
+  %indvars.iv64.i = phi i64 [ %indvars.iv62.i, %for.body17.preheader.i ], [ %indvars.iv.next65.i, %for.inc88.i ]
   %arrayidx20.i = getelementptr inbounds i8, ptr %aslide, i64 %indvars.iv64.i
-  %3 = load i8, ptr %arrayidx20.i, align 1
-  %tobool21.not.i = icmp eq i8 %3, 0
+  %4 = load i8, ptr %arrayidx20.i, align 1
+  %tobool21.not.i = icmp eq i8 %4, 0
   br i1 %tobool21.not.i, label %for.inc88.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %for.body17.i
-  %4 = load i8, ptr %arrayidx11.i, align 1
-  %conv25.i = sext i8 %4 to i32
-  %conv29.i = sext i8 %3 to i32
-  %5 = trunc nuw nsw i64 %indvars.iv69.i to i32
-  %shl.i = shl nsw i32 %conv29.i, %5
+  %5 = load i8, ptr %arrayidx11.i, align 1
+  %conv25.i = sext i8 %5 to i32
+  %conv29.i = sext i8 %4 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv70.i to i32
+  %shl.i = shl nsw i32 %conv29.i, %6
   %add30.i = add nsw i32 %shl.i, %conv25.i
   %cmp31.i = icmp slt i32 %add30.i, 16
   br i1 %cmp31.i, label %if.then33.i, label %if.else.i
@@ -2784,8 +2790,8 @@ for.body72.preheader.i:                           ; preds = %if.else.i
 for.body72.i:                                     ; preds = %if.end.i, %for.body72.preheader.i
   %indvars.iv66.i = phi i64 [ %indvars.iv64.i, %for.body72.preheader.i ], [ %indvars.iv.next67.i, %if.end.i ]
   %arrayidx74.i = getelementptr inbounds i8, ptr %aslide, i64 %indvars.iv66.i
-  %6 = load i8, ptr %arrayidx74.i, align 1
-  %tobool75.not.i = icmp eq i8 %6, 0
+  %7 = load i8, ptr %arrayidx74.i, align 1
+  %tobool75.not.i = icmp eq i8 %7, 0
   br i1 %tobool75.not.i, label %if.then76.i, label %if.end.i
 
 if.then76.i:                                      ; preds = %for.body72.i
@@ -2795,22 +2801,21 @@ if.then76.i:                                      ; preds = %for.body72.i
 if.end.i:                                         ; preds = %for.body72.i
   store i8 0, ptr %arrayidx74.i, align 1
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %cmp70.i = icmp ult i64 %indvars.iv66.i, 255
-  br i1 %cmp70.i, label %for.body72.i, label %for.inc88.i, !llvm.loop !21
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, 256
+  br i1 %exitcond69.not.i, label %for.inc88.i, label %for.body72.i, !llvm.loop !21
 
 for.inc88.i:                                      ; preds = %if.end.i, %if.then76.i, %if.then33.i, %for.body17.i
-  %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
-  %cmp13.i = icmp ult i64 %indvars.iv69.i, 6
-  %.reass.i = add nuw nsw i64 %invariant.op.i, %indvars.iv69.i
-  %cmp15.i = icmp ult i64 %.reass.i, 256
-  %7 = select i1 %cmp13.i, i1 %cmp15.i, i1 false
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  br i1 %7, label %for.body17.i, label %for.inc92.i, !llvm.loop !22
+  %exitcond78.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count.i
+  br i1 %exitcond78.not.i, label %for.inc92.i, label %for.body17.i, !llvm.loop !22
 
 for.inc92.i:                                      ; preds = %for.inc88.i, %if.else.i, %for.body9.i
+  %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %exitcond78.not.i = icmp eq i64 %invariant.op.i, 256
-  br i1 %exitcond78.not.i, label %for.body.i17, label %for.body9.i, !llvm.loop !23
+  %indvars.iv.next77.i = add nsw i32 %indvars.iv76.i, -1
+  %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, 256
+  br i1 %exitcond82.not.i, label %for.body.i17, label %for.body9.i, !llvm.loop !23
 
 for.body.i17:                                     ; preds = %for.inc92.i, %for.body.i17
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i26, %for.body.i17 ], [ 0, %for.inc92.i ]
@@ -2828,88 +2833,93 @@ for.body.i17:                                     ; preds = %for.inc92.i, %for.b
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 256
   br i1 %exitcond.not.i27, label %for.body9.i28, label %for.body.i17, !llvm.loop !20
 
-for.body9.i28:                                    ; preds = %for.body.i17, %for.inc92.i35
-  %indvars.iv75.i29 = phi i64 [ %invariant.op.i40, %for.inc92.i35 ], [ 0, %for.body.i17 ]
-  %indvars.iv62.i30 = phi i64 [ %indvars.iv.next63.i37, %for.inc92.i35 ], [ 1, %for.body.i17 ]
-  %arrayidx11.i31 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv75.i29
-  %10 = load i8, ptr %arrayidx11.i31, align 1
-  %tobool.not.i32 = icmp ne i8 %10, 0
-  %cmp1555.i33 = icmp ult i64 %indvars.iv75.i29, 255
-  %or.cond.i34 = and i1 %cmp1555.i33, %tobool.not.i32
-  %invariant.op.i40 = add nuw nsw i64 %indvars.iv75.i29, 1
-  br i1 %or.cond.i34, label %for.body17.i41, label %for.inc92.i35
+for.body9.i28:                                    ; preds = %for.body.i17, %for.inc92.i36
+  %indvars.iv79.i29 = phi i64 [ %indvars.iv.next80.i37, %for.inc92.i36 ], [ 0, %for.body.i17 ]
+  %indvars.iv76.i30 = phi i32 [ %indvars.iv.next77.i39, %for.inc92.i36 ], [ 254, %for.body.i17 ]
+  %indvars.iv62.i31 = phi i64 [ %indvars.iv.next63.i38, %for.inc92.i36 ], [ 1, %for.body.i17 ]
+  %arrayidx11.i32 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv79.i29
+  %10 = load i8, ptr %arrayidx11.i32, align 1
+  %tobool.not.i33 = icmp ne i8 %10, 0
+  %cmp1555.i34 = icmp ult i64 %indvars.iv79.i29, 255
+  %or.cond.i35 = and i1 %cmp1555.i34, %tobool.not.i33
+  br i1 %or.cond.i35, label %for.body17.preheader.i41, label %for.inc92.i36
 
-for.body17.i41:                                   ; preds = %for.body9.i28, %for.inc88.i64
-  %indvars.iv69.i42 = phi i64 [ %indvars.iv.next70.i65, %for.inc88.i64 ], [ 1, %for.body9.i28 ]
-  %indvars.iv64.i43 = phi i64 [ %indvars.iv.next65.i69, %for.inc88.i64 ], [ %indvars.iv62.i30, %for.body9.i28 ]
-  %arrayidx20.i44 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv64.i43
-  %11 = load i8, ptr %arrayidx20.i44, align 1
-  %tobool21.not.i45 = icmp eq i8 %11, 0
-  br i1 %tobool21.not.i45, label %for.inc88.i64, label %if.then22.i46
+for.body17.preheader.i41:                         ; preds = %for.body9.i28
+  %umin.i42 = tail call i32 @llvm.umin.i32(i32 %indvars.iv76.i30, i32 5)
+  %11 = add nuw nsw i32 %umin.i42, 2
+  %wide.trip.count.i43 = zext nneg i32 %11 to i64
+  br label %for.body17.i44
 
-if.then22.i46:                                    ; preds = %for.body17.i41
-  %12 = load i8, ptr %arrayidx11.i31, align 1
-  %conv25.i47 = sext i8 %12 to i32
-  %conv29.i48 = sext i8 %11 to i32
-  %13 = trunc nuw nsw i64 %indvars.iv69.i42 to i32
-  %shl.i49 = shl nsw i32 %conv29.i48, %13
-  %add30.i50 = add nsw i32 %shl.i49, %conv25.i47
-  %cmp31.i51 = icmp slt i32 %add30.i50, 16
-  br i1 %cmp31.i51, label %if.then33.i71, label %if.else.i52
+for.body17.i44:                                   ; preds = %for.inc88.i67, %for.body17.preheader.i41
+  %indvars.iv70.i45 = phi i64 [ 1, %for.body17.preheader.i41 ], [ %indvars.iv.next71.i68, %for.inc88.i67 ]
+  %indvars.iv64.i46 = phi i64 [ %indvars.iv62.i31, %for.body17.preheader.i41 ], [ %indvars.iv.next65.i69, %for.inc88.i67 ]
+  %arrayidx20.i47 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv64.i46
+  %12 = load i8, ptr %arrayidx20.i47, align 1
+  %tobool21.not.i48 = icmp eq i8 %12, 0
+  br i1 %tobool21.not.i48, label %for.inc88.i67, label %if.then22.i49
 
-if.then33.i71:                                    ; preds = %if.then22.i46
-  %conv43.i72 = trunc i32 %add30.i50 to i8
-  store i8 %conv43.i72, ptr %arrayidx11.i31, align 1
-  store i8 0, ptr %arrayidx20.i44, align 1
-  br label %for.inc88.i64
+if.then22.i49:                                    ; preds = %for.body17.i44
+  %13 = load i8, ptr %arrayidx11.i32, align 1
+  %conv25.i50 = sext i8 %13 to i32
+  %conv29.i51 = sext i8 %12 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv70.i45 to i32
+  %shl.i52 = shl nsw i32 %conv29.i51, %14
+  %add30.i53 = add nsw i32 %shl.i52, %conv25.i50
+  %cmp31.i54 = icmp slt i32 %add30.i53, 16
+  br i1 %cmp31.i54, label %if.then33.i72, label %if.else.i55
 
-if.else.i52:                                      ; preds = %if.then22.i46
-  %sub.i53 = sub nsw i32 %conv25.i47, %shl.i49
-  %cmp55.i54 = icmp sgt i32 %sub.i53, -16
-  br i1 %cmp55.i54, label %for.body72.preheader.i55, label %for.inc92.i35
+if.then33.i72:                                    ; preds = %if.then22.i49
+  %conv43.i73 = trunc i32 %add30.i53 to i8
+  store i8 %conv43.i73, ptr %arrayidx11.i32, align 1
+  store i8 0, ptr %arrayidx20.i47, align 1
+  br label %for.inc88.i67
 
-for.body72.preheader.i55:                         ; preds = %if.else.i52
-  %conv67.i56 = trunc i32 %sub.i53 to i8
-  store i8 %conv67.i56, ptr %arrayidx11.i31, align 1
-  br label %for.body72.i57
+if.else.i55:                                      ; preds = %if.then22.i49
+  %sub.i56 = sub nsw i32 %conv25.i50, %shl.i52
+  %cmp55.i57 = icmp sgt i32 %sub.i56, -16
+  br i1 %cmp55.i57, label %for.body72.preheader.i58, label %for.inc92.i36
 
-for.body72.i57:                                   ; preds = %if.end.i61, %for.body72.preheader.i55
-  %indvars.iv66.i58 = phi i64 [ %indvars.iv64.i43, %for.body72.preheader.i55 ], [ %indvars.iv.next67.i62, %if.end.i61 ]
-  %arrayidx74.i59 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv66.i58
-  %14 = load i8, ptr %arrayidx74.i59, align 1
-  %tobool75.not.i60 = icmp eq i8 %14, 0
-  br i1 %tobool75.not.i60, label %if.then76.i70, label %if.end.i61
+for.body72.preheader.i58:                         ; preds = %if.else.i55
+  %conv67.i59 = trunc i32 %sub.i56 to i8
+  store i8 %conv67.i59, ptr %arrayidx11.i32, align 1
+  br label %for.body72.i60
 
-if.then76.i70:                                    ; preds = %for.body72.i57
-  store i8 1, ptr %arrayidx74.i59, align 1
-  br label %for.inc88.i64
+for.body72.i60:                                   ; preds = %if.end.i64, %for.body72.preheader.i58
+  %indvars.iv66.i61 = phi i64 [ %indvars.iv64.i46, %for.body72.preheader.i58 ], [ %indvars.iv.next67.i65, %if.end.i64 ]
+  %arrayidx74.i62 = getelementptr inbounds i8, ptr %bslide, i64 %indvars.iv66.i61
+  %15 = load i8, ptr %arrayidx74.i62, align 1
+  %tobool75.not.i63 = icmp eq i8 %15, 0
+  br i1 %tobool75.not.i63, label %if.then76.i71, label %if.end.i64
 
-if.end.i61:                                       ; preds = %for.body72.i57
-  store i8 0, ptr %arrayidx74.i59, align 1
-  %indvars.iv.next67.i62 = add nuw nsw i64 %indvars.iv66.i58, 1
-  %cmp70.i63 = icmp ult i64 %indvars.iv66.i58, 255
-  br i1 %cmp70.i63, label %for.body72.i57, label %for.inc88.i64, !llvm.loop !21
+if.then76.i71:                                    ; preds = %for.body72.i60
+  store i8 1, ptr %arrayidx74.i62, align 1
+  br label %for.inc88.i67
 
-for.inc88.i64:                                    ; preds = %if.end.i61, %if.then76.i70, %if.then33.i71, %for.body17.i41
-  %indvars.iv.next70.i65 = add nuw nsw i64 %indvars.iv69.i42, 1
-  %cmp13.i66 = icmp ult i64 %indvars.iv69.i42, 6
-  %.reass.i67 = add nuw nsw i64 %invariant.op.i40, %indvars.iv69.i42
-  %cmp15.i68 = icmp ult i64 %.reass.i67, 256
-  %15 = select i1 %cmp13.i66, i1 %cmp15.i68, i1 false
-  %indvars.iv.next65.i69 = add nuw nsw i64 %indvars.iv64.i43, 1
-  br i1 %15, label %for.body17.i41, label %for.inc92.i35, !llvm.loop !22
+if.end.i64:                                       ; preds = %for.body72.i60
+  store i8 0, ptr %arrayidx74.i62, align 1
+  %indvars.iv.next67.i65 = add nuw nsw i64 %indvars.iv66.i61, 1
+  %exitcond69.not.i66 = icmp eq i64 %indvars.iv.next67.i65, 256
+  br i1 %exitcond69.not.i66, label %for.inc88.i67, label %for.body72.i60, !llvm.loop !21
 
-for.inc92.i35:                                    ; preds = %for.inc88.i64, %if.else.i52, %for.body9.i28
-  %indvars.iv.next63.i37 = add nuw nsw i64 %indvars.iv62.i30, 1
-  %exitcond78.not.i38 = icmp eq i64 %invariant.op.i40, 256
-  br i1 %exitcond78.not.i38, label %slide.exit73, label %for.body9.i28, !llvm.loop !23
+for.inc88.i67:                                    ; preds = %if.end.i64, %if.then76.i71, %if.then33.i72, %for.body17.i44
+  %indvars.iv.next71.i68 = add nuw nsw i64 %indvars.iv70.i45, 1
+  %indvars.iv.next65.i69 = add nuw nsw i64 %indvars.iv64.i46, 1
+  %exitcond78.not.i70 = icmp eq i64 %indvars.iv.next71.i68, %wide.trip.count.i43
+  br i1 %exitcond78.not.i70, label %for.inc92.i36, label %for.body17.i44, !llvm.loop !22
 
-slide.exit73:                                     ; preds = %for.inc92.i35
+for.inc92.i36:                                    ; preds = %for.inc88.i67, %if.else.i55, %for.body9.i28
+  %indvars.iv.next80.i37 = add nuw nsw i64 %indvars.iv79.i29, 1
+  %indvars.iv.next63.i38 = add nuw nsw i64 %indvars.iv62.i31, 1
+  %indvars.iv.next77.i39 = add nsw i32 %indvars.iv76.i30, -1
+  %exitcond82.not.i40 = icmp eq i64 %indvars.iv.next80.i37, 256
+  br i1 %exitcond82.not.i40, label %slide.exit74, label %for.body9.i28, !llvm.loop !23
+
+slide.exit74:                                     ; preds = %for.inc92.i36
   %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %slide.exit73
-  %indvars.iv.i.i = phi i64 [ 0, %slide.exit73 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %slide.exit74
+  %indvars.iv.i.i = phi i64 [ 0, %slide.exit74 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %Y.i, i64 %indvars.iv.i.i
   %16 = load i32, ptr %arrayidx.i.i, align 4
   %arrayidx2.i.i = getelementptr inbounds i32, ptr %A, i64 %indvars.iv.i.i
@@ -2953,334 +2963,334 @@ ge_p3_to_cached.exit:                             ; preds = %for.body.i9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z9.i, i64 40, i1 false)
   call fastcc void @ge_p2_dbl(ptr noundef %t, ptr noundef %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
-  %T.i74 = getelementptr inbounds i8, ptr %t, i64 120
-  call fastcc void @fe_mul(ptr noundef %A2, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  %Y.i75 = getelementptr inbounds i8, ptr %A2, i64 40
+  %T.i75 = getelementptr inbounds i8, ptr %t, i64 120
+  call fastcc void @fe_mul(ptr noundef %A2, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  %Y.i76 = getelementptr inbounds i8, ptr %A2, i64 40
   %Y5.i = getelementptr inbounds i8, ptr %t, i64 40
-  %Z.i76 = getelementptr inbounds i8, ptr %t, i64 80
-  call fastcc void @fe_mul(ptr noundef %Y.i75, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
+  %Z.i77 = getelementptr inbounds i8, ptr %t, i64 80
+  call fastcc void @fe_mul(ptr noundef %Y.i76, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
   %Z8.i = getelementptr inbounds i8, ptr %A2, i64 80
-  call fastcc void @fe_mul(ptr noundef %Z8.i, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
+  call fastcc void @fe_mul(ptr noundef %Z8.i, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
   %T14.i = getelementptr inbounds i8, ptr %A2, i64 120
   call fastcc void @fe_mul(ptr noundef %T14.i, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %Ai)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  %Y.i78 = getelementptr inbounds i8, ptr %u, i64 40
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  %Z8.i81 = getelementptr inbounds i8, ptr %u, i64 80
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  %T14.i82 = getelementptr inbounds i8, ptr %u, i64 120
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  %Y.i79 = getelementptr inbounds i8, ptr %u, i64 40
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  %Z8.i82 = getelementptr inbounds i8, ptr %u, i64 80
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  %T14.i83 = getelementptr inbounds i8, ptr %u, i64 120
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx3 = getelementptr inbounds i8, ptr %Ai, i64 160
-  br label %for.body.i.i84
+  br label %for.body.i.i85
 
-for.body.i.i84:                                   ; preds = %for.body.i.i84, %ge_p3_to_cached.exit
-  %indvars.iv.i.i85 = phi i64 [ 0, %ge_p3_to_cached.exit ], [ %indvars.iv.next.i.i90, %for.body.i.i84 ]
-  %arrayidx.i.i86 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i85
-  %20 = load i32, ptr %arrayidx.i.i86, align 4
-  %arrayidx2.i.i87 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i85
-  %21 = load i32, ptr %arrayidx2.i.i87, align 4
-  %add.i.i88 = add nsw i32 %21, %20
-  %arrayidx4.i.i89 = getelementptr inbounds i32, ptr %arrayidx3, i64 %indvars.iv.i.i85
-  store i32 %add.i.i88, ptr %arrayidx4.i.i89, align 4
-  %indvars.iv.next.i.i90 = add nuw nsw i64 %indvars.iv.i.i85, 1
-  %exitcond.not.i.i91 = icmp eq i64 %indvars.iv.next.i.i90, 10
-  br i1 %exitcond.not.i.i91, label %fe_add.exit.i92, label %for.body.i.i84, !llvm.loop !11
+for.body.i.i85:                                   ; preds = %for.body.i.i85, %ge_p3_to_cached.exit
+  %indvars.iv.i.i86 = phi i64 [ 0, %ge_p3_to_cached.exit ], [ %indvars.iv.next.i.i91, %for.body.i.i85 ]
+  %arrayidx.i.i87 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i86
+  %20 = load i32, ptr %arrayidx.i.i87, align 4
+  %arrayidx2.i.i88 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i86
+  %21 = load i32, ptr %arrayidx2.i.i88, align 4
+  %add.i.i89 = add nsw i32 %21, %20
+  %arrayidx4.i.i90 = getelementptr inbounds i32, ptr %arrayidx3, i64 %indvars.iv.i.i86
+  store i32 %add.i.i89, ptr %arrayidx4.i.i90, align 4
+  %indvars.iv.next.i.i91 = add nuw nsw i64 %indvars.iv.i.i86, 1
+  %exitcond.not.i.i92 = icmp eq i64 %indvars.iv.next.i.i91, 10
+  br i1 %exitcond.not.i.i92, label %fe_add.exit.i93, label %for.body.i.i85, !llvm.loop !11
 
-fe_add.exit.i92:                                  ; preds = %for.body.i.i84
-  %YminusX.i93 = getelementptr inbounds i8, ptr %Ai, i64 200
-  br label %for.body.i9.i94
+fe_add.exit.i93:                                  ; preds = %for.body.i.i85
+  %YminusX.i94 = getelementptr inbounds i8, ptr %Ai, i64 200
+  br label %for.body.i9.i95
 
-for.body.i9.i94:                                  ; preds = %for.body.i9.i94, %fe_add.exit.i92
-  %indvars.iv.i10.i95 = phi i64 [ 0, %fe_add.exit.i92 ], [ %indvars.iv.next.i14.i100, %for.body.i9.i94 ]
-  %arrayidx.i11.i96 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i95
-  %22 = load i32, ptr %arrayidx.i11.i96, align 4
-  %arrayidx2.i12.i97 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i95
-  %23 = load i32, ptr %arrayidx2.i12.i97, align 4
-  %sub.i.i98 = sub nsw i32 %22, %23
-  %arrayidx4.i13.i99 = getelementptr inbounds i32, ptr %YminusX.i93, i64 %indvars.iv.i10.i95
-  store i32 %sub.i.i98, ptr %arrayidx4.i13.i99, align 4
-  %indvars.iv.next.i14.i100 = add nuw nsw i64 %indvars.iv.i10.i95, 1
-  %exitcond.not.i15.i101 = icmp eq i64 %indvars.iv.next.i14.i100, 10
-  br i1 %exitcond.not.i15.i101, label %ge_p3_to_cached.exit106, label %for.body.i9.i94, !llvm.loop !10
+for.body.i9.i95:                                  ; preds = %for.body.i9.i95, %fe_add.exit.i93
+  %indvars.iv.i10.i96 = phi i64 [ 0, %fe_add.exit.i93 ], [ %indvars.iv.next.i14.i101, %for.body.i9.i95 ]
+  %arrayidx.i11.i97 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i96
+  %22 = load i32, ptr %arrayidx.i11.i97, align 4
+  %arrayidx2.i12.i98 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i96
+  %23 = load i32, ptr %arrayidx2.i12.i98, align 4
+  %sub.i.i99 = sub nsw i32 %22, %23
+  %arrayidx4.i13.i100 = getelementptr inbounds i32, ptr %YminusX.i94, i64 %indvars.iv.i10.i96
+  store i32 %sub.i.i99, ptr %arrayidx4.i13.i100, align 4
+  %indvars.iv.next.i14.i101 = add nuw nsw i64 %indvars.iv.i10.i96, 1
+  %exitcond.not.i15.i102 = icmp eq i64 %indvars.iv.next.i14.i101, 10
+  br i1 %exitcond.not.i15.i102, label %ge_p3_to_cached.exit107, label %for.body.i9.i95, !llvm.loop !10
 
-ge_p3_to_cached.exit106:                          ; preds = %for.body.i9.i94
-  %Z.i102 = getelementptr inbounds i8, ptr %Ai, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i102, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i104 = getelementptr inbounds i8, ptr %Ai, i64 280
-  call fastcc void @fe_mul(ptr noundef %T2d.i104, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit107:                          ; preds = %for.body.i9.i95
+  %Z.i103 = getelementptr inbounds i8, ptr %Ai, i64 240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i103, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i105 = getelementptr inbounds i8, ptr %Ai, i64 280
+  call fastcc void @fe_mul(ptr noundef %T2d.i105, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %arrayidx3)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx5 = getelementptr inbounds i8, ptr %Ai, i64 320
-  br label %for.body.i.i114
+  br label %for.body.i.i115
 
-for.body.i.i114:                                  ; preds = %for.body.i.i114, %ge_p3_to_cached.exit106
-  %indvars.iv.i.i115 = phi i64 [ 0, %ge_p3_to_cached.exit106 ], [ %indvars.iv.next.i.i120, %for.body.i.i114 ]
-  %arrayidx.i.i116 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i115
-  %24 = load i32, ptr %arrayidx.i.i116, align 4
-  %arrayidx2.i.i117 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i115
-  %25 = load i32, ptr %arrayidx2.i.i117, align 4
-  %add.i.i118 = add nsw i32 %25, %24
-  %arrayidx4.i.i119 = getelementptr inbounds i32, ptr %arrayidx5, i64 %indvars.iv.i.i115
-  store i32 %add.i.i118, ptr %arrayidx4.i.i119, align 4
-  %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i115, 1
-  %exitcond.not.i.i121 = icmp eq i64 %indvars.iv.next.i.i120, 10
-  br i1 %exitcond.not.i.i121, label %fe_add.exit.i122, label %for.body.i.i114, !llvm.loop !11
+for.body.i.i115:                                  ; preds = %for.body.i.i115, %ge_p3_to_cached.exit107
+  %indvars.iv.i.i116 = phi i64 [ 0, %ge_p3_to_cached.exit107 ], [ %indvars.iv.next.i.i121, %for.body.i.i115 ]
+  %arrayidx.i.i117 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i116
+  %24 = load i32, ptr %arrayidx.i.i117, align 4
+  %arrayidx2.i.i118 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i116
+  %25 = load i32, ptr %arrayidx2.i.i118, align 4
+  %add.i.i119 = add nsw i32 %25, %24
+  %arrayidx4.i.i120 = getelementptr inbounds i32, ptr %arrayidx5, i64 %indvars.iv.i.i116
+  store i32 %add.i.i119, ptr %arrayidx4.i.i120, align 4
+  %indvars.iv.next.i.i121 = add nuw nsw i64 %indvars.iv.i.i116, 1
+  %exitcond.not.i.i122 = icmp eq i64 %indvars.iv.next.i.i121, 10
+  br i1 %exitcond.not.i.i122, label %fe_add.exit.i123, label %for.body.i.i115, !llvm.loop !11
 
-fe_add.exit.i122:                                 ; preds = %for.body.i.i114
-  %YminusX.i123 = getelementptr inbounds i8, ptr %Ai, i64 360
-  br label %for.body.i9.i124
+fe_add.exit.i123:                                 ; preds = %for.body.i.i115
+  %YminusX.i124 = getelementptr inbounds i8, ptr %Ai, i64 360
+  br label %for.body.i9.i125
 
-for.body.i9.i124:                                 ; preds = %for.body.i9.i124, %fe_add.exit.i122
-  %indvars.iv.i10.i125 = phi i64 [ 0, %fe_add.exit.i122 ], [ %indvars.iv.next.i14.i130, %for.body.i9.i124 ]
-  %arrayidx.i11.i126 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i125
-  %26 = load i32, ptr %arrayidx.i11.i126, align 4
-  %arrayidx2.i12.i127 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i125
-  %27 = load i32, ptr %arrayidx2.i12.i127, align 4
-  %sub.i.i128 = sub nsw i32 %26, %27
-  %arrayidx4.i13.i129 = getelementptr inbounds i32, ptr %YminusX.i123, i64 %indvars.iv.i10.i125
-  store i32 %sub.i.i128, ptr %arrayidx4.i13.i129, align 4
-  %indvars.iv.next.i14.i130 = add nuw nsw i64 %indvars.iv.i10.i125, 1
-  %exitcond.not.i15.i131 = icmp eq i64 %indvars.iv.next.i14.i130, 10
-  br i1 %exitcond.not.i15.i131, label %ge_p3_to_cached.exit136, label %for.body.i9.i124, !llvm.loop !10
+for.body.i9.i125:                                 ; preds = %for.body.i9.i125, %fe_add.exit.i123
+  %indvars.iv.i10.i126 = phi i64 [ 0, %fe_add.exit.i123 ], [ %indvars.iv.next.i14.i131, %for.body.i9.i125 ]
+  %arrayidx.i11.i127 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i126
+  %26 = load i32, ptr %arrayidx.i11.i127, align 4
+  %arrayidx2.i12.i128 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i126
+  %27 = load i32, ptr %arrayidx2.i12.i128, align 4
+  %sub.i.i129 = sub nsw i32 %26, %27
+  %arrayidx4.i13.i130 = getelementptr inbounds i32, ptr %YminusX.i124, i64 %indvars.iv.i10.i126
+  store i32 %sub.i.i129, ptr %arrayidx4.i13.i130, align 4
+  %indvars.iv.next.i14.i131 = add nuw nsw i64 %indvars.iv.i10.i126, 1
+  %exitcond.not.i15.i132 = icmp eq i64 %indvars.iv.next.i14.i131, 10
+  br i1 %exitcond.not.i15.i132, label %ge_p3_to_cached.exit137, label %for.body.i9.i125, !llvm.loop !10
 
-ge_p3_to_cached.exit136:                          ; preds = %for.body.i9.i124
-  %Z.i132 = getelementptr inbounds i8, ptr %Ai, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i132, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i134 = getelementptr inbounds i8, ptr %Ai, i64 440
-  call fastcc void @fe_mul(ptr noundef %T2d.i134, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit137:                          ; preds = %for.body.i9.i125
+  %Z.i133 = getelementptr inbounds i8, ptr %Ai, i64 400
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i133, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i135 = getelementptr inbounds i8, ptr %Ai, i64 440
+  call fastcc void @fe_mul(ptr noundef %T2d.i135, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %arrayidx5)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx7 = getelementptr inbounds i8, ptr %Ai, i64 480
-  br label %for.body.i.i144
+  br label %for.body.i.i145
 
-for.body.i.i144:                                  ; preds = %for.body.i.i144, %ge_p3_to_cached.exit136
-  %indvars.iv.i.i145 = phi i64 [ 0, %ge_p3_to_cached.exit136 ], [ %indvars.iv.next.i.i150, %for.body.i.i144 ]
-  %arrayidx.i.i146 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i145
-  %28 = load i32, ptr %arrayidx.i.i146, align 4
-  %arrayidx2.i.i147 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i145
-  %29 = load i32, ptr %arrayidx2.i.i147, align 4
-  %add.i.i148 = add nsw i32 %29, %28
-  %arrayidx4.i.i149 = getelementptr inbounds i32, ptr %arrayidx7, i64 %indvars.iv.i.i145
-  store i32 %add.i.i148, ptr %arrayidx4.i.i149, align 4
-  %indvars.iv.next.i.i150 = add nuw nsw i64 %indvars.iv.i.i145, 1
-  %exitcond.not.i.i151 = icmp eq i64 %indvars.iv.next.i.i150, 10
-  br i1 %exitcond.not.i.i151, label %fe_add.exit.i152, label %for.body.i.i144, !llvm.loop !11
+for.body.i.i145:                                  ; preds = %for.body.i.i145, %ge_p3_to_cached.exit137
+  %indvars.iv.i.i146 = phi i64 [ 0, %ge_p3_to_cached.exit137 ], [ %indvars.iv.next.i.i151, %for.body.i.i145 ]
+  %arrayidx.i.i147 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i146
+  %28 = load i32, ptr %arrayidx.i.i147, align 4
+  %arrayidx2.i.i148 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i146
+  %29 = load i32, ptr %arrayidx2.i.i148, align 4
+  %add.i.i149 = add nsw i32 %29, %28
+  %arrayidx4.i.i150 = getelementptr inbounds i32, ptr %arrayidx7, i64 %indvars.iv.i.i146
+  store i32 %add.i.i149, ptr %arrayidx4.i.i150, align 4
+  %indvars.iv.next.i.i151 = add nuw nsw i64 %indvars.iv.i.i146, 1
+  %exitcond.not.i.i152 = icmp eq i64 %indvars.iv.next.i.i151, 10
+  br i1 %exitcond.not.i.i152, label %fe_add.exit.i153, label %for.body.i.i145, !llvm.loop !11
 
-fe_add.exit.i152:                                 ; preds = %for.body.i.i144
-  %YminusX.i153 = getelementptr inbounds i8, ptr %Ai, i64 520
-  br label %for.body.i9.i154
+fe_add.exit.i153:                                 ; preds = %for.body.i.i145
+  %YminusX.i154 = getelementptr inbounds i8, ptr %Ai, i64 520
+  br label %for.body.i9.i155
 
-for.body.i9.i154:                                 ; preds = %for.body.i9.i154, %fe_add.exit.i152
-  %indvars.iv.i10.i155 = phi i64 [ 0, %fe_add.exit.i152 ], [ %indvars.iv.next.i14.i160, %for.body.i9.i154 ]
-  %arrayidx.i11.i156 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i155
-  %30 = load i32, ptr %arrayidx.i11.i156, align 4
-  %arrayidx2.i12.i157 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i155
-  %31 = load i32, ptr %arrayidx2.i12.i157, align 4
-  %sub.i.i158 = sub nsw i32 %30, %31
-  %arrayidx4.i13.i159 = getelementptr inbounds i32, ptr %YminusX.i153, i64 %indvars.iv.i10.i155
-  store i32 %sub.i.i158, ptr %arrayidx4.i13.i159, align 4
-  %indvars.iv.next.i14.i160 = add nuw nsw i64 %indvars.iv.i10.i155, 1
-  %exitcond.not.i15.i161 = icmp eq i64 %indvars.iv.next.i14.i160, 10
-  br i1 %exitcond.not.i15.i161, label %ge_p3_to_cached.exit166, label %for.body.i9.i154, !llvm.loop !10
+for.body.i9.i155:                                 ; preds = %for.body.i9.i155, %fe_add.exit.i153
+  %indvars.iv.i10.i156 = phi i64 [ 0, %fe_add.exit.i153 ], [ %indvars.iv.next.i14.i161, %for.body.i9.i155 ]
+  %arrayidx.i11.i157 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i156
+  %30 = load i32, ptr %arrayidx.i11.i157, align 4
+  %arrayidx2.i12.i158 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i156
+  %31 = load i32, ptr %arrayidx2.i12.i158, align 4
+  %sub.i.i159 = sub nsw i32 %30, %31
+  %arrayidx4.i13.i160 = getelementptr inbounds i32, ptr %YminusX.i154, i64 %indvars.iv.i10.i156
+  store i32 %sub.i.i159, ptr %arrayidx4.i13.i160, align 4
+  %indvars.iv.next.i14.i161 = add nuw nsw i64 %indvars.iv.i10.i156, 1
+  %exitcond.not.i15.i162 = icmp eq i64 %indvars.iv.next.i14.i161, 10
+  br i1 %exitcond.not.i15.i162, label %ge_p3_to_cached.exit167, label %for.body.i9.i155, !llvm.loop !10
 
-ge_p3_to_cached.exit166:                          ; preds = %for.body.i9.i154
-  %Z.i162 = getelementptr inbounds i8, ptr %Ai, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i162, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i164 = getelementptr inbounds i8, ptr %Ai, i64 600
-  call fastcc void @fe_mul(ptr noundef %T2d.i164, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit167:                          ; preds = %for.body.i9.i155
+  %Z.i163 = getelementptr inbounds i8, ptr %Ai, i64 560
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i163, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i165 = getelementptr inbounds i8, ptr %Ai, i64 600
+  call fastcc void @fe_mul(ptr noundef %T2d.i165, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %arrayidx7)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx9 = getelementptr inbounds i8, ptr %Ai, i64 640
-  br label %for.body.i.i174
+  br label %for.body.i.i175
 
-for.body.i.i174:                                  ; preds = %for.body.i.i174, %ge_p3_to_cached.exit166
-  %indvars.iv.i.i175 = phi i64 [ 0, %ge_p3_to_cached.exit166 ], [ %indvars.iv.next.i.i180, %for.body.i.i174 ]
-  %arrayidx.i.i176 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i175
-  %32 = load i32, ptr %arrayidx.i.i176, align 4
-  %arrayidx2.i.i177 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i175
-  %33 = load i32, ptr %arrayidx2.i.i177, align 4
-  %add.i.i178 = add nsw i32 %33, %32
-  %arrayidx4.i.i179 = getelementptr inbounds i32, ptr %arrayidx9, i64 %indvars.iv.i.i175
-  store i32 %add.i.i178, ptr %arrayidx4.i.i179, align 4
-  %indvars.iv.next.i.i180 = add nuw nsw i64 %indvars.iv.i.i175, 1
-  %exitcond.not.i.i181 = icmp eq i64 %indvars.iv.next.i.i180, 10
-  br i1 %exitcond.not.i.i181, label %fe_add.exit.i182, label %for.body.i.i174, !llvm.loop !11
+for.body.i.i175:                                  ; preds = %for.body.i.i175, %ge_p3_to_cached.exit167
+  %indvars.iv.i.i176 = phi i64 [ 0, %ge_p3_to_cached.exit167 ], [ %indvars.iv.next.i.i181, %for.body.i.i175 ]
+  %arrayidx.i.i177 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i176
+  %32 = load i32, ptr %arrayidx.i.i177, align 4
+  %arrayidx2.i.i178 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i176
+  %33 = load i32, ptr %arrayidx2.i.i178, align 4
+  %add.i.i179 = add nsw i32 %33, %32
+  %arrayidx4.i.i180 = getelementptr inbounds i32, ptr %arrayidx9, i64 %indvars.iv.i.i176
+  store i32 %add.i.i179, ptr %arrayidx4.i.i180, align 4
+  %indvars.iv.next.i.i181 = add nuw nsw i64 %indvars.iv.i.i176, 1
+  %exitcond.not.i.i182 = icmp eq i64 %indvars.iv.next.i.i181, 10
+  br i1 %exitcond.not.i.i182, label %fe_add.exit.i183, label %for.body.i.i175, !llvm.loop !11
 
-fe_add.exit.i182:                                 ; preds = %for.body.i.i174
-  %YminusX.i183 = getelementptr inbounds i8, ptr %Ai, i64 680
-  br label %for.body.i9.i184
+fe_add.exit.i183:                                 ; preds = %for.body.i.i175
+  %YminusX.i184 = getelementptr inbounds i8, ptr %Ai, i64 680
+  br label %for.body.i9.i185
 
-for.body.i9.i184:                                 ; preds = %for.body.i9.i184, %fe_add.exit.i182
-  %indvars.iv.i10.i185 = phi i64 [ 0, %fe_add.exit.i182 ], [ %indvars.iv.next.i14.i190, %for.body.i9.i184 ]
-  %arrayidx.i11.i186 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i185
-  %34 = load i32, ptr %arrayidx.i11.i186, align 4
-  %arrayidx2.i12.i187 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i185
-  %35 = load i32, ptr %arrayidx2.i12.i187, align 4
-  %sub.i.i188 = sub nsw i32 %34, %35
-  %arrayidx4.i13.i189 = getelementptr inbounds i32, ptr %YminusX.i183, i64 %indvars.iv.i10.i185
-  store i32 %sub.i.i188, ptr %arrayidx4.i13.i189, align 4
-  %indvars.iv.next.i14.i190 = add nuw nsw i64 %indvars.iv.i10.i185, 1
-  %exitcond.not.i15.i191 = icmp eq i64 %indvars.iv.next.i14.i190, 10
-  br i1 %exitcond.not.i15.i191, label %ge_p3_to_cached.exit196, label %for.body.i9.i184, !llvm.loop !10
+for.body.i9.i185:                                 ; preds = %for.body.i9.i185, %fe_add.exit.i183
+  %indvars.iv.i10.i186 = phi i64 [ 0, %fe_add.exit.i183 ], [ %indvars.iv.next.i14.i191, %for.body.i9.i185 ]
+  %arrayidx.i11.i187 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i186
+  %34 = load i32, ptr %arrayidx.i11.i187, align 4
+  %arrayidx2.i12.i188 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i186
+  %35 = load i32, ptr %arrayidx2.i12.i188, align 4
+  %sub.i.i189 = sub nsw i32 %34, %35
+  %arrayidx4.i13.i190 = getelementptr inbounds i32, ptr %YminusX.i184, i64 %indvars.iv.i10.i186
+  store i32 %sub.i.i189, ptr %arrayidx4.i13.i190, align 4
+  %indvars.iv.next.i14.i191 = add nuw nsw i64 %indvars.iv.i10.i186, 1
+  %exitcond.not.i15.i192 = icmp eq i64 %indvars.iv.next.i14.i191, 10
+  br i1 %exitcond.not.i15.i192, label %ge_p3_to_cached.exit197, label %for.body.i9.i185, !llvm.loop !10
 
-ge_p3_to_cached.exit196:                          ; preds = %for.body.i9.i184
-  %Z.i192 = getelementptr inbounds i8, ptr %Ai, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i192, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i194 = getelementptr inbounds i8, ptr %Ai, i64 760
-  call fastcc void @fe_mul(ptr noundef %T2d.i194, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit197:                          ; preds = %for.body.i9.i185
+  %Z.i193 = getelementptr inbounds i8, ptr %Ai, i64 720
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i193, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i195 = getelementptr inbounds i8, ptr %Ai, i64 760
+  call fastcc void @fe_mul(ptr noundef %T2d.i195, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %arrayidx9)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx11 = getelementptr inbounds i8, ptr %Ai, i64 800
-  br label %for.body.i.i204
+  br label %for.body.i.i205
 
-for.body.i.i204:                                  ; preds = %for.body.i.i204, %ge_p3_to_cached.exit196
-  %indvars.iv.i.i205 = phi i64 [ 0, %ge_p3_to_cached.exit196 ], [ %indvars.iv.next.i.i210, %for.body.i.i204 ]
-  %arrayidx.i.i206 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i205
-  %36 = load i32, ptr %arrayidx.i.i206, align 4
-  %arrayidx2.i.i207 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i205
-  %37 = load i32, ptr %arrayidx2.i.i207, align 4
-  %add.i.i208 = add nsw i32 %37, %36
-  %arrayidx4.i.i209 = getelementptr inbounds i32, ptr %arrayidx11, i64 %indvars.iv.i.i205
-  store i32 %add.i.i208, ptr %arrayidx4.i.i209, align 4
-  %indvars.iv.next.i.i210 = add nuw nsw i64 %indvars.iv.i.i205, 1
-  %exitcond.not.i.i211 = icmp eq i64 %indvars.iv.next.i.i210, 10
-  br i1 %exitcond.not.i.i211, label %fe_add.exit.i212, label %for.body.i.i204, !llvm.loop !11
+for.body.i.i205:                                  ; preds = %for.body.i.i205, %ge_p3_to_cached.exit197
+  %indvars.iv.i.i206 = phi i64 [ 0, %ge_p3_to_cached.exit197 ], [ %indvars.iv.next.i.i211, %for.body.i.i205 ]
+  %arrayidx.i.i207 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i206
+  %36 = load i32, ptr %arrayidx.i.i207, align 4
+  %arrayidx2.i.i208 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i206
+  %37 = load i32, ptr %arrayidx2.i.i208, align 4
+  %add.i.i209 = add nsw i32 %37, %36
+  %arrayidx4.i.i210 = getelementptr inbounds i32, ptr %arrayidx11, i64 %indvars.iv.i.i206
+  store i32 %add.i.i209, ptr %arrayidx4.i.i210, align 4
+  %indvars.iv.next.i.i211 = add nuw nsw i64 %indvars.iv.i.i206, 1
+  %exitcond.not.i.i212 = icmp eq i64 %indvars.iv.next.i.i211, 10
+  br i1 %exitcond.not.i.i212, label %fe_add.exit.i213, label %for.body.i.i205, !llvm.loop !11
 
-fe_add.exit.i212:                                 ; preds = %for.body.i.i204
-  %YminusX.i213 = getelementptr inbounds i8, ptr %Ai, i64 840
-  br label %for.body.i9.i214
+fe_add.exit.i213:                                 ; preds = %for.body.i.i205
+  %YminusX.i214 = getelementptr inbounds i8, ptr %Ai, i64 840
+  br label %for.body.i9.i215
 
-for.body.i9.i214:                                 ; preds = %for.body.i9.i214, %fe_add.exit.i212
-  %indvars.iv.i10.i215 = phi i64 [ 0, %fe_add.exit.i212 ], [ %indvars.iv.next.i14.i220, %for.body.i9.i214 ]
-  %arrayidx.i11.i216 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i215
-  %38 = load i32, ptr %arrayidx.i11.i216, align 4
-  %arrayidx2.i12.i217 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i215
-  %39 = load i32, ptr %arrayidx2.i12.i217, align 4
-  %sub.i.i218 = sub nsw i32 %38, %39
-  %arrayidx4.i13.i219 = getelementptr inbounds i32, ptr %YminusX.i213, i64 %indvars.iv.i10.i215
-  store i32 %sub.i.i218, ptr %arrayidx4.i13.i219, align 4
-  %indvars.iv.next.i14.i220 = add nuw nsw i64 %indvars.iv.i10.i215, 1
-  %exitcond.not.i15.i221 = icmp eq i64 %indvars.iv.next.i14.i220, 10
-  br i1 %exitcond.not.i15.i221, label %ge_p3_to_cached.exit226, label %for.body.i9.i214, !llvm.loop !10
+for.body.i9.i215:                                 ; preds = %for.body.i9.i215, %fe_add.exit.i213
+  %indvars.iv.i10.i216 = phi i64 [ 0, %fe_add.exit.i213 ], [ %indvars.iv.next.i14.i221, %for.body.i9.i215 ]
+  %arrayidx.i11.i217 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i216
+  %38 = load i32, ptr %arrayidx.i11.i217, align 4
+  %arrayidx2.i12.i218 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i216
+  %39 = load i32, ptr %arrayidx2.i12.i218, align 4
+  %sub.i.i219 = sub nsw i32 %38, %39
+  %arrayidx4.i13.i220 = getelementptr inbounds i32, ptr %YminusX.i214, i64 %indvars.iv.i10.i216
+  store i32 %sub.i.i219, ptr %arrayidx4.i13.i220, align 4
+  %indvars.iv.next.i14.i221 = add nuw nsw i64 %indvars.iv.i10.i216, 1
+  %exitcond.not.i15.i222 = icmp eq i64 %indvars.iv.next.i14.i221, 10
+  br i1 %exitcond.not.i15.i222, label %ge_p3_to_cached.exit227, label %for.body.i9.i215, !llvm.loop !10
 
-ge_p3_to_cached.exit226:                          ; preds = %for.body.i9.i214
-  %Z.i222 = getelementptr inbounds i8, ptr %Ai, i64 880
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i222, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i224 = getelementptr inbounds i8, ptr %Ai, i64 920
-  call fastcc void @fe_mul(ptr noundef %T2d.i224, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit227:                          ; preds = %for.body.i9.i215
+  %Z.i223 = getelementptr inbounds i8, ptr %Ai, i64 880
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i223, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i225 = getelementptr inbounds i8, ptr %Ai, i64 920
+  call fastcc void @fe_mul(ptr noundef %T2d.i225, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %arrayidx11)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx13 = getelementptr inbounds i8, ptr %Ai, i64 960
-  br label %for.body.i.i234
+  br label %for.body.i.i235
 
-for.body.i.i234:                                  ; preds = %for.body.i.i234, %ge_p3_to_cached.exit226
-  %indvars.iv.i.i235 = phi i64 [ 0, %ge_p3_to_cached.exit226 ], [ %indvars.iv.next.i.i240, %for.body.i.i234 ]
-  %arrayidx.i.i236 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i235
-  %40 = load i32, ptr %arrayidx.i.i236, align 4
-  %arrayidx2.i.i237 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i235
-  %41 = load i32, ptr %arrayidx2.i.i237, align 4
-  %add.i.i238 = add nsw i32 %41, %40
-  %arrayidx4.i.i239 = getelementptr inbounds i32, ptr %arrayidx13, i64 %indvars.iv.i.i235
-  store i32 %add.i.i238, ptr %arrayidx4.i.i239, align 4
-  %indvars.iv.next.i.i240 = add nuw nsw i64 %indvars.iv.i.i235, 1
-  %exitcond.not.i.i241 = icmp eq i64 %indvars.iv.next.i.i240, 10
-  br i1 %exitcond.not.i.i241, label %fe_add.exit.i242, label %for.body.i.i234, !llvm.loop !11
+for.body.i.i235:                                  ; preds = %for.body.i.i235, %ge_p3_to_cached.exit227
+  %indvars.iv.i.i236 = phi i64 [ 0, %ge_p3_to_cached.exit227 ], [ %indvars.iv.next.i.i241, %for.body.i.i235 ]
+  %arrayidx.i.i237 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i236
+  %40 = load i32, ptr %arrayidx.i.i237, align 4
+  %arrayidx2.i.i238 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i236
+  %41 = load i32, ptr %arrayidx2.i.i238, align 4
+  %add.i.i239 = add nsw i32 %41, %40
+  %arrayidx4.i.i240 = getelementptr inbounds i32, ptr %arrayidx13, i64 %indvars.iv.i.i236
+  store i32 %add.i.i239, ptr %arrayidx4.i.i240, align 4
+  %indvars.iv.next.i.i241 = add nuw nsw i64 %indvars.iv.i.i236, 1
+  %exitcond.not.i.i242 = icmp eq i64 %indvars.iv.next.i.i241, 10
+  br i1 %exitcond.not.i.i242, label %fe_add.exit.i243, label %for.body.i.i235, !llvm.loop !11
 
-fe_add.exit.i242:                                 ; preds = %for.body.i.i234
-  %YminusX.i243 = getelementptr inbounds i8, ptr %Ai, i64 1000
-  br label %for.body.i9.i244
+fe_add.exit.i243:                                 ; preds = %for.body.i.i235
+  %YminusX.i244 = getelementptr inbounds i8, ptr %Ai, i64 1000
+  br label %for.body.i9.i245
 
-for.body.i9.i244:                                 ; preds = %for.body.i9.i244, %fe_add.exit.i242
-  %indvars.iv.i10.i245 = phi i64 [ 0, %fe_add.exit.i242 ], [ %indvars.iv.next.i14.i250, %for.body.i9.i244 ]
-  %arrayidx.i11.i246 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i245
-  %42 = load i32, ptr %arrayidx.i11.i246, align 4
-  %arrayidx2.i12.i247 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i245
-  %43 = load i32, ptr %arrayidx2.i12.i247, align 4
-  %sub.i.i248 = sub nsw i32 %42, %43
-  %arrayidx4.i13.i249 = getelementptr inbounds i32, ptr %YminusX.i243, i64 %indvars.iv.i10.i245
-  store i32 %sub.i.i248, ptr %arrayidx4.i13.i249, align 4
-  %indvars.iv.next.i14.i250 = add nuw nsw i64 %indvars.iv.i10.i245, 1
-  %exitcond.not.i15.i251 = icmp eq i64 %indvars.iv.next.i14.i250, 10
-  br i1 %exitcond.not.i15.i251, label %ge_p3_to_cached.exit256, label %for.body.i9.i244, !llvm.loop !10
+for.body.i9.i245:                                 ; preds = %for.body.i9.i245, %fe_add.exit.i243
+  %indvars.iv.i10.i246 = phi i64 [ 0, %fe_add.exit.i243 ], [ %indvars.iv.next.i14.i251, %for.body.i9.i245 ]
+  %arrayidx.i11.i247 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i246
+  %42 = load i32, ptr %arrayidx.i11.i247, align 4
+  %arrayidx2.i12.i248 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i246
+  %43 = load i32, ptr %arrayidx2.i12.i248, align 4
+  %sub.i.i249 = sub nsw i32 %42, %43
+  %arrayidx4.i13.i250 = getelementptr inbounds i32, ptr %YminusX.i244, i64 %indvars.iv.i10.i246
+  store i32 %sub.i.i249, ptr %arrayidx4.i13.i250, align 4
+  %indvars.iv.next.i14.i251 = add nuw nsw i64 %indvars.iv.i10.i246, 1
+  %exitcond.not.i15.i252 = icmp eq i64 %indvars.iv.next.i14.i251, 10
+  br i1 %exitcond.not.i15.i252, label %ge_p3_to_cached.exit257, label %for.body.i9.i245, !llvm.loop !10
 
-ge_p3_to_cached.exit256:                          ; preds = %for.body.i9.i244
-  %Z.i252 = getelementptr inbounds i8, ptr %Ai, i64 1040
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i252, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i254 = getelementptr inbounds i8, ptr %Ai, i64 1080
-  call fastcc void @fe_mul(ptr noundef %T2d.i254, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit257:                          ; preds = %for.body.i9.i245
+  %Z.i253 = getelementptr inbounds i8, ptr %Ai, i64 1040
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i253, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i255 = getelementptr inbounds i8, ptr %Ai, i64 1080
+  call fastcc void @fe_mul(ptr noundef %T2d.i255, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   call fastcc void @ge_add(ptr noundef %t, ptr noundef %A2, ptr noundef %arrayidx13)
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %arrayidx15 = getelementptr inbounds i8, ptr %Ai, i64 1120
-  br label %for.body.i.i264
+  br label %for.body.i.i265
 
-for.body.i.i264:                                  ; preds = %for.body.i.i264, %ge_p3_to_cached.exit256
-  %indvars.iv.i.i265 = phi i64 [ 0, %ge_p3_to_cached.exit256 ], [ %indvars.iv.next.i.i270, %for.body.i.i264 ]
-  %arrayidx.i.i266 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i265
-  %44 = load i32, ptr %arrayidx.i.i266, align 4
-  %arrayidx2.i.i267 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i265
-  %45 = load i32, ptr %arrayidx2.i.i267, align 4
-  %add.i.i268 = add nsw i32 %45, %44
-  %arrayidx4.i.i269 = getelementptr inbounds i32, ptr %arrayidx15, i64 %indvars.iv.i.i265
-  store i32 %add.i.i268, ptr %arrayidx4.i.i269, align 4
-  %indvars.iv.next.i.i270 = add nuw nsw i64 %indvars.iv.i.i265, 1
-  %exitcond.not.i.i271 = icmp eq i64 %indvars.iv.next.i.i270, 10
-  br i1 %exitcond.not.i.i271, label %fe_add.exit.i272, label %for.body.i.i264, !llvm.loop !11
+for.body.i.i265:                                  ; preds = %for.body.i.i265, %ge_p3_to_cached.exit257
+  %indvars.iv.i.i266 = phi i64 [ 0, %ge_p3_to_cached.exit257 ], [ %indvars.iv.next.i.i271, %for.body.i.i265 ]
+  %arrayidx.i.i267 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i266
+  %44 = load i32, ptr %arrayidx.i.i267, align 4
+  %arrayidx2.i.i268 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i266
+  %45 = load i32, ptr %arrayidx2.i.i268, align 4
+  %add.i.i269 = add nsw i32 %45, %44
+  %arrayidx4.i.i270 = getelementptr inbounds i32, ptr %arrayidx15, i64 %indvars.iv.i.i266
+  store i32 %add.i.i269, ptr %arrayidx4.i.i270, align 4
+  %indvars.iv.next.i.i271 = add nuw nsw i64 %indvars.iv.i.i266, 1
+  %exitcond.not.i.i272 = icmp eq i64 %indvars.iv.next.i.i271, 10
+  br i1 %exitcond.not.i.i272, label %fe_add.exit.i273, label %for.body.i.i265, !llvm.loop !11
 
-fe_add.exit.i272:                                 ; preds = %for.body.i.i264
-  %YminusX.i273 = getelementptr inbounds i8, ptr %Ai, i64 1160
-  br label %for.body.i9.i274
+fe_add.exit.i273:                                 ; preds = %for.body.i.i265
+  %YminusX.i274 = getelementptr inbounds i8, ptr %Ai, i64 1160
+  br label %for.body.i9.i275
 
-for.body.i9.i274:                                 ; preds = %for.body.i9.i274, %fe_add.exit.i272
-  %indvars.iv.i10.i275 = phi i64 [ 0, %fe_add.exit.i272 ], [ %indvars.iv.next.i14.i280, %for.body.i9.i274 ]
-  %arrayidx.i11.i276 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i10.i275
-  %46 = load i32, ptr %arrayidx.i11.i276, align 4
-  %arrayidx2.i12.i277 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i275
-  %47 = load i32, ptr %arrayidx2.i12.i277, align 4
-  %sub.i.i278 = sub nsw i32 %46, %47
-  %arrayidx4.i13.i279 = getelementptr inbounds i32, ptr %YminusX.i273, i64 %indvars.iv.i10.i275
-  store i32 %sub.i.i278, ptr %arrayidx4.i13.i279, align 4
-  %indvars.iv.next.i14.i280 = add nuw nsw i64 %indvars.iv.i10.i275, 1
-  %exitcond.not.i15.i281 = icmp eq i64 %indvars.iv.next.i14.i280, 10
-  br i1 %exitcond.not.i15.i281, label %ge_p3_to_cached.exit286, label %for.body.i9.i274, !llvm.loop !10
+for.body.i9.i275:                                 ; preds = %for.body.i9.i275, %fe_add.exit.i273
+  %indvars.iv.i10.i276 = phi i64 [ 0, %fe_add.exit.i273 ], [ %indvars.iv.next.i14.i281, %for.body.i9.i275 ]
+  %arrayidx.i11.i277 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i10.i276
+  %46 = load i32, ptr %arrayidx.i11.i277, align 4
+  %arrayidx2.i12.i278 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i10.i276
+  %47 = load i32, ptr %arrayidx2.i12.i278, align 4
+  %sub.i.i279 = sub nsw i32 %46, %47
+  %arrayidx4.i13.i280 = getelementptr inbounds i32, ptr %YminusX.i274, i64 %indvars.iv.i10.i276
+  store i32 %sub.i.i279, ptr %arrayidx4.i13.i280, align 4
+  %indvars.iv.next.i14.i281 = add nuw nsw i64 %indvars.iv.i10.i276, 1
+  %exitcond.not.i15.i282 = icmp eq i64 %indvars.iv.next.i14.i281, 10
+  br i1 %exitcond.not.i15.i282, label %ge_p3_to_cached.exit287, label %for.body.i9.i275, !llvm.loop !10
 
-ge_p3_to_cached.exit286:                          ; preds = %for.body.i9.i274
-  %Z.i282 = getelementptr inbounds i8, ptr %Ai, i64 1200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i282, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i81, i64 40, i1 false)
-  %T2d.i284 = getelementptr inbounds i8, ptr %Ai, i64 1240
-  call fastcc void @fe_mul(ptr noundef %T2d.i284, ptr noundef nonnull readonly %T14.i82, ptr noundef nonnull @d2)
+ge_p3_to_cached.exit287:                          ; preds = %for.body.i9.i275
+  %Z.i283 = getelementptr inbounds i8, ptr %Ai, i64 1200
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i283, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z8.i82, i64 40, i1 false)
+  %T2d.i285 = getelementptr inbounds i8, ptr %Ai, i64 1240
+  call fastcc void @fe_mul(ptr noundef %T2d.i285, ptr noundef nonnull readonly %T14.i83, ptr noundef nonnull @d2)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %r, i8 0, i64 40, i1 false)
-  %Y.i287 = getelementptr inbounds i8, ptr %r, i64 40
+  %Y.i288 = getelementptr inbounds i8, ptr %r, i64 40
   %48 = getelementptr inbounds i8, ptr %r, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %48, i8 0, i64 36, i1 false)
-  store i32 1, ptr %Y.i287, align 4
-  %Z.i288 = getelementptr inbounds i8, ptr %r, i64 80
+  store i32 1, ptr %Y.i288, align 4
+  %Z.i289 = getelementptr inbounds i8, ptr %r, i64 80
   %49 = getelementptr inbounds i8, ptr %r, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %49, i8 0, i64 36, i1 false)
-  store i32 1, ptr %Z.i288, align 4
+  store i32 1, ptr %Z.i289, align 4
   br label %for.body
 
-for.body:                                         ; preds = %ge_p3_to_cached.exit286, %for.inc
-  %i.0355 = phi i32 [ 255, %ge_p3_to_cached.exit286 ], [ %dec, %for.inc ]
-  %idxprom = zext nneg i32 %i.0355 to i64
+for.body:                                         ; preds = %ge_p3_to_cached.exit287, %for.inc
+  %i.0356 = phi i32 [ 255, %ge_p3_to_cached.exit287 ], [ %dec, %for.inc ]
+  %idxprom = zext nneg i32 %i.0356 to i64
   %arrayidx16 = getelementptr inbounds [256 x i8], ptr %aslide, i64 0, i64 %idxprom
   %50 = load i8, ptr %arrayidx16, align 1
   %tobool.not = icmp eq i8 %50, 0
@@ -3293,16 +3303,16 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool20.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %lor.lhs.false
-  %dec = add nsw i32 %i.0355, -1
-  %cmp.not = icmp eq i32 %i.0355, 0
+  %dec = add nsw i32 %i.0356, -1
+  %cmp.not = icmp eq i32 %i.0356, 0
   br i1 %cmp.not, label %for.end80, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %lor.lhs.false
-  %cmp22356 = icmp sgt i32 %i.0355, -1
-  br i1 %cmp22356, label %for.body24.preheader, label %for.end80
+  %cmp22357 = icmp sgt i32 %i.0356, -1
+  br i1 %cmp22357, label %for.body24.preheader, label %for.end80
 
 for.body24.preheader:                             ; preds = %for.end
-  %52 = zext nneg i32 %i.0355 to i64
+  %52 = zext nneg i32 %i.0356 to i64
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.preheader, %if.end77
@@ -3314,10 +3324,10 @@ for.body24:                                       ; preds = %for.body24.preheade
   br i1 %cmp28, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %for.body24
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %54 = lshr i8 %53, 1
   %idxprom34 = zext nneg i8 %54 to i64
   %arrayidx35 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 %idxprom34
@@ -3329,51 +3339,51 @@ if.else:                                          ; preds = %for.body24
   br i1 %cmp39, label %if.then41, label %if.end49
 
 if.then41:                                        ; preds = %if.else
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
-  %.nonneg351 = sub i8 0, %53
-  %55 = lshr i8 %.nonneg351, 1
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  %.nonneg352 = sub i8 0, %53
+  %55 = lshr i8 %.nonneg352, 1
   %idxprom46 = zext nneg i8 %55 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t0.i)
-  br label %for.body.i.i302
+  br label %for.body.i.i303
 
-for.body.i.i302:                                  ; preds = %for.body.i.i302, %if.then41
-  %indvars.iv.i.i303 = phi i64 [ 0, %if.then41 ], [ %indvars.iv.next.i.i308, %for.body.i.i302 ]
-  %arrayidx.i.i304 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i303
-  %56 = load i32, ptr %arrayidx.i.i304, align 4
-  %arrayidx2.i.i305 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i303
-  %57 = load i32, ptr %arrayidx2.i.i305, align 4
-  %add.i.i306 = add nsw i32 %57, %56
-  %arrayidx4.i.i307 = getelementptr inbounds i32, ptr %t, i64 %indvars.iv.i.i303
-  store i32 %add.i.i306, ptr %arrayidx4.i.i307, align 4
-  %indvars.iv.next.i.i308 = add nuw nsw i64 %indvars.iv.i.i303, 1
-  %exitcond.not.i.i309 = icmp eq i64 %indvars.iv.next.i.i308, 10
-  br i1 %exitcond.not.i.i309, label %for.body.i28.i, label %for.body.i.i302, !llvm.loop !11
+for.body.i.i303:                                  ; preds = %for.body.i.i303, %if.then41
+  %indvars.iv.i.i304 = phi i64 [ 0, %if.then41 ], [ %indvars.iv.next.i.i309, %for.body.i.i303 ]
+  %arrayidx.i.i305 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i304
+  %56 = load i32, ptr %arrayidx.i.i305, align 4
+  %arrayidx2.i.i306 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i304
+  %57 = load i32, ptr %arrayidx2.i.i306, align 4
+  %add.i.i307 = add nsw i32 %57, %56
+  %arrayidx4.i.i308 = getelementptr inbounds i32, ptr %t, i64 %indvars.iv.i.i304
+  store i32 %add.i.i307, ptr %arrayidx4.i.i308, align 4
+  %indvars.iv.next.i.i309 = add nuw nsw i64 %indvars.iv.i.i304, 1
+  %exitcond.not.i.i310 = icmp eq i64 %indvars.iv.next.i.i309, 10
+  br i1 %exitcond.not.i.i310, label %for.body.i28.i, label %for.body.i.i303, !llvm.loop !11
 
-for.body.i28.i:                                   ; preds = %for.body.i.i302, %for.body.i28.i
-  %indvars.iv.i29.i = phi i64 [ %indvars.iv.next.i33.i, %for.body.i28.i ], [ 0, %for.body.i.i302 ]
-  %arrayidx.i30.i = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i29.i
+for.body.i28.i:                                   ; preds = %for.body.i.i303, %for.body.i28.i
+  %indvars.iv.i29.i = phi i64 [ %indvars.iv.next.i33.i, %for.body.i28.i ], [ 0, %for.body.i.i303 ]
+  %arrayidx.i30.i = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i29.i
   %58 = load i32, ptr %arrayidx.i30.i, align 4
   %arrayidx2.i31.i = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i29.i
   %59 = load i32, ptr %arrayidx2.i31.i, align 4
-  %sub.i.i311 = sub nsw i32 %58, %59
+  %sub.i.i312 = sub nsw i32 %58, %59
   %arrayidx4.i32.i = getelementptr inbounds i32, ptr %Y5.i, i64 %indvars.iv.i29.i
-  store i32 %sub.i.i311, ptr %arrayidx4.i32.i, align 4
+  store i32 %sub.i.i312, ptr %arrayidx4.i32.i, align 4
   %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i29.i, 1
   %exitcond.not.i34.i = icmp eq i64 %indvars.iv.next.i33.i, 10
   br i1 %exitcond.not.i34.i, label %fe_sub.exit.i, label %for.body.i28.i, !llvm.loop !10
 
 fe_sub.exit.i:                                    ; preds = %for.body.i28.i
   %arrayidx47 = getelementptr inbounds [8 x %struct.ge_cached], ptr %Ai, i64 0, i64 %idxprom46
-  %YminusX.i313 = getelementptr inbounds i8, ptr %arrayidx47, i64 40
-  call fastcc void @fe_mul(ptr noundef %Z.i76, ptr noundef nonnull %t, ptr noundef nonnull readonly %YminusX.i313)
+  %YminusX.i314 = getelementptr inbounds i8, ptr %arrayidx47, i64 40
+  call fastcc void @fe_mul(ptr noundef %Z.i77, ptr noundef nonnull %t, ptr noundef nonnull readonly %YminusX.i314)
   call fastcc void @fe_mul(ptr noundef %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull readonly %arrayidx47)
-  %T2d.i315 = getelementptr inbounds i8, ptr %arrayidx47, i64 120
-  call fastcc void @fe_mul(ptr noundef %T.i74, ptr noundef nonnull readonly %T2d.i315, ptr noundef nonnull readonly %T14.i82)
+  %T2d.i316 = getelementptr inbounds i8, ptr %arrayidx47, i64 120
+  call fastcc void @fe_mul(ptr noundef %T.i75, ptr noundef nonnull readonly %T2d.i316, ptr noundef nonnull readonly %T14.i83)
   %Z27.i = getelementptr inbounds i8, ptr %arrayidx47, i64 80
-  call fastcc void @fe_mul(ptr noundef %t, ptr noundef nonnull readonly %Z8.i81, ptr noundef nonnull readonly %Z27.i)
+  call fastcc void @fe_mul(ptr noundef %t, ptr noundef nonnull readonly %Z8.i82, ptr noundef nonnull readonly %Z27.i)
   br label %for.body.i35.i
 
 for.body.i35.i:                                   ; preds = %for.body.i35.i, %fe_sub.exit.i
@@ -3389,7 +3399,7 @@ for.body.i35.i:                                   ; preds = %for.body.i35.i, %fe
 
 for.body.i44.i:                                   ; preds = %for.body.i35.i, %for.body.i44.i
   %indvars.iv.i45.i = phi i64 [ %indvars.iv.next.i50.i, %for.body.i44.i ], [ 0, %for.body.i35.i ]
-  %arrayidx.i46.i = getelementptr inbounds i32, ptr %Z.i76, i64 %indvars.iv.i45.i
+  %arrayidx.i46.i = getelementptr inbounds i32, ptr %Z.i77, i64 %indvars.iv.i45.i
   %61 = load i32, ptr %arrayidx.i46.i, align 4
   %arrayidx2.i47.i = getelementptr inbounds i32, ptr %Y5.i, i64 %indvars.iv.i45.i
   %62 = load i32, ptr %arrayidx2.i47.i, align 4
@@ -3402,7 +3412,7 @@ for.body.i44.i:                                   ; preds = %for.body.i35.i, %fo
 
 for.body.i53.i:                                   ; preds = %for.body.i44.i, %for.body.i53.i
   %indvars.iv.i54.i = phi i64 [ %indvars.iv.next.i59.i, %for.body.i53.i ], [ 0, %for.body.i44.i ]
-  %arrayidx.i55.i = getelementptr inbounds i32, ptr %Z.i76, i64 %indvars.iv.i54.i
+  %arrayidx.i55.i = getelementptr inbounds i32, ptr %Z.i77, i64 %indvars.iv.i54.i
   %63 = load i32, ptr %arrayidx.i55.i, align 4
   %arrayidx2.i56.i = getelementptr inbounds i32, ptr %Y5.i, i64 %indvars.iv.i54.i
   %64 = load i32, ptr %arrayidx2.i56.i, align 4
@@ -3416,10 +3426,10 @@ for.body.i62.i:                                   ; preds = %for.body.i53.i, %fo
   %indvars.iv.i63.i = phi i64 [ %indvars.iv.next.i68.i, %for.body.i62.i ], [ 0, %for.body.i53.i ]
   %arrayidx.i64.i = getelementptr inbounds i32, ptr %t0.i, i64 %indvars.iv.i63.i
   %65 = load i32, ptr %arrayidx.i64.i, align 4
-  %arrayidx2.i65.i = getelementptr inbounds i32, ptr %T.i74, i64 %indvars.iv.i63.i
+  %arrayidx2.i65.i = getelementptr inbounds i32, ptr %T.i75, i64 %indvars.iv.i63.i
   %66 = load i32, ptr %arrayidx2.i65.i, align 4
   %sub.i66.i = sub nsw i32 %65, %66
-  %arrayidx4.i67.i = getelementptr inbounds i32, ptr %Z.i76, i64 %indvars.iv.i63.i
+  %arrayidx4.i67.i = getelementptr inbounds i32, ptr %Z.i77, i64 %indvars.iv.i63.i
   store i32 %sub.i66.i, ptr %arrayidx4.i67.i, align 4
   %indvars.iv.next.i68.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %exitcond.not.i69.i = icmp eq i64 %indvars.iv.next.i68.i, 10
@@ -3429,7 +3439,7 @@ for.body.i71.i:                                   ; preds = %for.body.i62.i, %fo
   %indvars.iv.i72.i = phi i64 [ %indvars.iv.next.i77.i, %for.body.i71.i ], [ 0, %for.body.i62.i ]
   %arrayidx.i73.i = getelementptr inbounds i32, ptr %t0.i, i64 %indvars.iv.i72.i
   %67 = load i32, ptr %arrayidx.i73.i, align 4
-  %arrayidx2.i74.i = getelementptr inbounds i32, ptr %T.i74, i64 %indvars.iv.i72.i
+  %arrayidx2.i74.i = getelementptr inbounds i32, ptr %T.i75, i64 %indvars.iv.i72.i
   %68 = load i32, ptr %arrayidx2.i74.i, align 4
   %add.i75.i = add nsw i32 %68, %67
   store i32 %add.i75.i, ptr %arrayidx2.i74.i, align 4
@@ -3448,10 +3458,10 @@ if.end49:                                         ; preds = %if.else, %ge_sub.ex
   br i1 %cmp53, label %if.then55, label %if.else62
 
 if.then55:                                        ; preds = %if.end49
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %70 = lshr i8 %69, 1
   %idxprom60 = zext nneg i8 %70 to i64
   %arrayidx61 = getelementptr inbounds [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %idxprom60
@@ -3463,57 +3473,57 @@ if.else62:                                        ; preds = %if.end49
   br i1 %cmp66, label %if.then68, label %if.end77
 
 if.then68:                                        ; preds = %if.else62
-  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i78, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z8.i81, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %T14.i82, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
+  call fastcc void @fe_mul(ptr noundef %u, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i79, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z8.i82, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %T14.i83, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %Y5.i)
   %.nonneg = sub i8 0, %69
   %71 = lshr i8 %.nonneg, 1
   %idxprom74 = zext nneg i8 %71 to i64
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t0.i328)
-  br label %for.body.i.i330
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %t0.i329)
+  br label %for.body.i.i331
 
-for.body.i.i330:                                  ; preds = %for.body.i.i330, %if.then68
-  %indvars.iv.i.i331 = phi i64 [ 0, %if.then68 ], [ %indvars.iv.next.i.i336, %for.body.i.i330 ]
-  %arrayidx.i.i332 = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i.i331
-  %72 = load i32, ptr %arrayidx.i.i332, align 4
-  %arrayidx2.i.i333 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i331
-  %73 = load i32, ptr %arrayidx2.i.i333, align 4
-  %add.i.i334 = add nsw i32 %73, %72
-  %arrayidx4.i.i335 = getelementptr inbounds i32, ptr %t, i64 %indvars.iv.i.i331
-  store i32 %add.i.i334, ptr %arrayidx4.i.i335, align 4
-  %indvars.iv.next.i.i336 = add nuw nsw i64 %indvars.iv.i.i331, 1
-  %exitcond.not.i.i337 = icmp eq i64 %indvars.iv.next.i.i336, 10
-  br i1 %exitcond.not.i.i337, label %for.body.i25.i, label %for.body.i.i330, !llvm.loop !11
+for.body.i.i331:                                  ; preds = %for.body.i.i331, %if.then68
+  %indvars.iv.i.i332 = phi i64 [ 0, %if.then68 ], [ %indvars.iv.next.i.i337, %for.body.i.i331 ]
+  %arrayidx.i.i333 = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i.i332
+  %72 = load i32, ptr %arrayidx.i.i333, align 4
+  %arrayidx2.i.i334 = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i.i332
+  %73 = load i32, ptr %arrayidx2.i.i334, align 4
+  %add.i.i335 = add nsw i32 %73, %72
+  %arrayidx4.i.i336 = getelementptr inbounds i32, ptr %t, i64 %indvars.iv.i.i332
+  store i32 %add.i.i335, ptr %arrayidx4.i.i336, align 4
+  %indvars.iv.next.i.i337 = add nuw nsw i64 %indvars.iv.i.i332, 1
+  %exitcond.not.i.i338 = icmp eq i64 %indvars.iv.next.i.i337, 10
+  br i1 %exitcond.not.i.i338, label %for.body.i25.i, label %for.body.i.i331, !llvm.loop !11
 
-for.body.i25.i:                                   ; preds = %for.body.i.i330, %for.body.i25.i
-  %indvars.iv.i26.i = phi i64 [ %indvars.iv.next.i30.i, %for.body.i25.i ], [ 0, %for.body.i.i330 ]
-  %arrayidx.i27.i = getelementptr inbounds i32, ptr %Y.i78, i64 %indvars.iv.i26.i
+for.body.i25.i:                                   ; preds = %for.body.i.i331, %for.body.i25.i
+  %indvars.iv.i26.i = phi i64 [ %indvars.iv.next.i30.i, %for.body.i25.i ], [ 0, %for.body.i.i331 ]
+  %arrayidx.i27.i = getelementptr inbounds i32, ptr %Y.i79, i64 %indvars.iv.i26.i
   %74 = load i32, ptr %arrayidx.i27.i, align 4
   %arrayidx2.i28.i = getelementptr inbounds i32, ptr %u, i64 %indvars.iv.i26.i
   %75 = load i32, ptr %arrayidx2.i28.i, align 4
-  %sub.i.i340 = sub nsw i32 %74, %75
+  %sub.i.i341 = sub nsw i32 %74, %75
   %arrayidx4.i29.i = getelementptr inbounds i32, ptr %Y5.i, i64 %indvars.iv.i26.i
-  store i32 %sub.i.i340, ptr %arrayidx4.i29.i, align 4
+  store i32 %sub.i.i341, ptr %arrayidx4.i29.i, align 4
   %indvars.iv.next.i30.i = add nuw nsw i64 %indvars.iv.i26.i, 1
   %exitcond.not.i31.i = icmp eq i64 %indvars.iv.next.i30.i, 10
-  br i1 %exitcond.not.i31.i, label %fe_sub.exit.i341, label %for.body.i25.i, !llvm.loop !10
+  br i1 %exitcond.not.i31.i, label %fe_sub.exit.i342, label %for.body.i25.i, !llvm.loop !10
 
-fe_sub.exit.i341:                                 ; preds = %for.body.i25.i
+fe_sub.exit.i342:                                 ; preds = %for.body.i25.i
   %arrayidx75 = getelementptr inbounds [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %idxprom74
   %yminusx.i = getelementptr inbounds i8, ptr %arrayidx75, i64 40
-  call fastcc void @fe_mul(ptr noundef %Z.i76, ptr noundef nonnull %t, ptr noundef nonnull readonly %yminusx.i)
+  call fastcc void @fe_mul(ptr noundef %Z.i77, ptr noundef nonnull %t, ptr noundef nonnull readonly %yminusx.i)
   call fastcc void @fe_mul(ptr noundef %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull readonly %arrayidx75)
   %xy2d.i = getelementptr inbounds i8, ptr %arrayidx75, i64 80
-  call fastcc void @fe_mul(ptr noundef %T.i74, ptr noundef nonnull readonly %xy2d.i, ptr noundef nonnull readonly %T14.i82)
+  call fastcc void @fe_mul(ptr noundef %T.i75, ptr noundef nonnull readonly %xy2d.i, ptr noundef nonnull readonly %T14.i83)
   br label %for.body.i32.i
 
-for.body.i32.i:                                   ; preds = %for.body.i32.i, %fe_sub.exit.i341
-  %indvars.iv.i33.i = phi i64 [ 0, %fe_sub.exit.i341 ], [ %indvars.iv.next.i38.i, %for.body.i32.i ]
-  %arrayidx.i34.i = getelementptr inbounds i32, ptr %Z8.i81, i64 %indvars.iv.i33.i
+for.body.i32.i:                                   ; preds = %for.body.i32.i, %fe_sub.exit.i342
+  %indvars.iv.i33.i = phi i64 [ 0, %fe_sub.exit.i342 ], [ %indvars.iv.next.i38.i, %for.body.i32.i ]
+  %arrayidx.i34.i = getelementptr inbounds i32, ptr %Z8.i82, i64 %indvars.iv.i33.i
   %76 = load i32, ptr %arrayidx.i34.i, align 4
   %add.i36.i = shl nsw i32 %76, 1
-  %arrayidx4.i37.i = getelementptr inbounds i32, ptr %t0.i328, i64 %indvars.iv.i33.i
+  %arrayidx4.i37.i = getelementptr inbounds i32, ptr %t0.i329, i64 %indvars.iv.i33.i
   store i32 %add.i36.i, ptr %arrayidx4.i37.i, align 4
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i38.i, 10
@@ -3521,7 +3531,7 @@ for.body.i32.i:                                   ; preds = %for.body.i32.i, %fe
 
 for.body.i41.i:                                   ; preds = %for.body.i32.i, %for.body.i41.i
   %indvars.iv.i42.i = phi i64 [ %indvars.iv.next.i47.i, %for.body.i41.i ], [ 0, %for.body.i32.i ]
-  %arrayidx.i43.i = getelementptr inbounds i32, ptr %Z.i76, i64 %indvars.iv.i42.i
+  %arrayidx.i43.i = getelementptr inbounds i32, ptr %Z.i77, i64 %indvars.iv.i42.i
   %77 = load i32, ptr %arrayidx.i43.i, align 4
   %arrayidx2.i44.i = getelementptr inbounds i32, ptr %Y5.i, i64 %indvars.iv.i42.i
   %78 = load i32, ptr %arrayidx2.i44.i, align 4
@@ -3534,7 +3544,7 @@ for.body.i41.i:                                   ; preds = %for.body.i32.i, %fo
 
 for.body.i50.i:                                   ; preds = %for.body.i41.i, %for.body.i50.i
   %indvars.iv.i51.i = phi i64 [ %indvars.iv.next.i56.i, %for.body.i50.i ], [ 0, %for.body.i41.i ]
-  %arrayidx.i52.i = getelementptr inbounds i32, ptr %Z.i76, i64 %indvars.iv.i51.i
+  %arrayidx.i52.i = getelementptr inbounds i32, ptr %Z.i77, i64 %indvars.iv.i51.i
   %79 = load i32, ptr %arrayidx.i52.i, align 4
   %arrayidx2.i53.i = getelementptr inbounds i32, ptr %Y5.i, i64 %indvars.iv.i51.i
   %80 = load i32, ptr %arrayidx2.i53.i, align 4
@@ -3546,12 +3556,12 @@ for.body.i50.i:                                   ; preds = %for.body.i41.i, %fo
 
 for.body.i59.i:                                   ; preds = %for.body.i50.i, %for.body.i59.i
   %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i65.i, %for.body.i59.i ], [ 0, %for.body.i50.i ]
-  %arrayidx.i61.i = getelementptr inbounds i32, ptr %t0.i328, i64 %indvars.iv.i60.i
+  %arrayidx.i61.i = getelementptr inbounds i32, ptr %t0.i329, i64 %indvars.iv.i60.i
   %81 = load i32, ptr %arrayidx.i61.i, align 4
-  %arrayidx2.i62.i = getelementptr inbounds i32, ptr %T.i74, i64 %indvars.iv.i60.i
+  %arrayidx2.i62.i = getelementptr inbounds i32, ptr %T.i75, i64 %indvars.iv.i60.i
   %82 = load i32, ptr %arrayidx2.i62.i, align 4
   %sub.i63.i = sub nsw i32 %81, %82
-  %arrayidx4.i64.i = getelementptr inbounds i32, ptr %Z.i76, i64 %indvars.iv.i60.i
+  %arrayidx4.i64.i = getelementptr inbounds i32, ptr %Z.i77, i64 %indvars.iv.i60.i
   store i32 %sub.i63.i, ptr %arrayidx4.i64.i, align 4
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %exitcond.not.i66.i = icmp eq i64 %indvars.iv.next.i65.i, 10
@@ -3559,9 +3569,9 @@ for.body.i59.i:                                   ; preds = %for.body.i50.i, %fo
 
 for.body.i68.i:                                   ; preds = %for.body.i59.i, %for.body.i68.i
   %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i74.i, %for.body.i68.i ], [ 0, %for.body.i59.i ]
-  %arrayidx.i70.i = getelementptr inbounds i32, ptr %t0.i328, i64 %indvars.iv.i69.i
+  %arrayidx.i70.i = getelementptr inbounds i32, ptr %t0.i329, i64 %indvars.iv.i69.i
   %83 = load i32, ptr %arrayidx.i70.i, align 4
-  %arrayidx2.i71.i = getelementptr inbounds i32, ptr %T.i74, i64 %indvars.iv.i69.i
+  %arrayidx2.i71.i = getelementptr inbounds i32, ptr %T.i75, i64 %indvars.iv.i69.i
   %84 = load i32, ptr %arrayidx2.i71.i, align 4
   %add.i72.i = add nsw i32 %84, %83
   store i32 %add.i72.i, ptr %arrayidx2.i71.i, align 4
@@ -3570,13 +3580,13 @@ for.body.i68.i:                                   ; preds = %for.body.i59.i, %fo
   br i1 %exitcond.not.i75.i, label %ge_msub.exit, label %for.body.i68.i, !llvm.loop !11
 
 ge_msub.exit:                                     ; preds = %for.body.i68.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t0.i328)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t0.i329)
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else62, %ge_msub.exit, %if.then55
-  call fastcc void @fe_mul(ptr noundef %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i74)
-  call fastcc void @fe_mul(ptr noundef %Y.i287, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i76)
-  call fastcc void @fe_mul(ptr noundef %Z.i288, ptr noundef nonnull readonly %Z.i76, ptr noundef nonnull readonly %T.i74)
+  call fastcc void @fe_mul(ptr noundef %r, ptr noundef nonnull readonly %t, ptr noundef nonnull readonly %T.i75)
+  call fastcc void @fe_mul(ptr noundef %Y.i288, ptr noundef nonnull readonly %Y5.i, ptr noundef nonnull readonly %Z.i77)
+  call fastcc void @fe_mul(ptr noundef %Z.i289, ptr noundef nonnull readonly %Z.i77, ptr noundef nonnull readonly %T.i75)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp22 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp22, label %for.body24, label %for.end80, !llvm.loop !25
@@ -6769,6 +6779,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

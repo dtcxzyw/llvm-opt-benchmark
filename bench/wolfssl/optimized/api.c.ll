@@ -4784,14 +4784,14 @@ ForceZero.exit:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %ForceZero.exit, %for.inc88
-  %indvars.iv54 = phi i64 [ 0, %ForceZero.exit ], [ %indvars.iv.next55, %for.inc88 ]
+  %indvars.iv57 = phi i64 [ 0, %ForceZero.exit ], [ %indvars.iv.next58, %for.inc88 ]
+  %indvars.iv54 = phi i64 [ 32, %ForceZero.exit ], [ %indvars.iv.next55, %for.inc88 ]
   %_ret.043 = phi i32 [ -7777, %ForceZero.exit ], [ %_ret.1.lcssa, %for.inc88 ]
-  %sub = sub nuw nsw i64 32, %indvars.iv54
-  %cmp539 = icmp ult i64 %indvars.iv54, 31
+  %cmp539 = icmp ult i64 %indvars.iv57, 31
   br i1 %cmp539, label %for.cond8.preheader.lr.ph, label %for.inc88
 
 for.cond8.preheader.lr.ph:                        ; preds = %for.cond2.preheader
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %indvars.iv54
+  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %indvars.iv57
   %0 = ptrtoint ptr %add.ptr to i64
   %1 = trunc i64 %0 to i32
   %2 = sub i32 0, %1
@@ -4858,13 +4858,13 @@ while.body12.i28:                                 ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i33, label %ForceZero.exit34, label %while.body12.i28, !llvm.loop !15
 
 ForceZero.exit34:                                 ; preds = %while.body12.i28, %while.cond9.preheader.i
-  %5 = add nuw nsw i64 %indvars.iv50, %indvars.iv54
+  %5 = add nuw nsw i64 %indvars.iv50, %indvars.iv57
   br label %for.body19
 
 for.body19:                                       ; preds = %ForceZero.exit34, %for.inc82
   %indvars.iv46 = phi i64 [ 0, %ForceZero.exit34 ], [ %indvars.iv.next47, %for.inc82 ]
   %_ret.237 = phi i32 [ %_ret.141, %ForceZero.exit34 ], [ %_ret.3, %for.inc82 ]
-  %cmp20 = icmp uge i64 %indvars.iv46, %indvars.iv54
+  %cmp20 = icmp uge i64 %indvars.iv46, %indvars.iv57
   %cmp23.not = icmp ult i64 %indvars.iv46, %5
   %or.cond = and i1 %cmp20, %cmp23.not
   %cmp51.not = icmp eq i32 %_ret.237, 0
@@ -4924,14 +4924,15 @@ for.inc82:                                        ; preds = %for.inc82.sink.spli
 
 for.inc85:                                        ; preds = %for.inc82
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %cmp5 = icmp ugt i64 %sub, %indvars.iv.next51
-  br i1 %cmp5, label %for.cond8.preheader, label %for.inc88, !llvm.loop !17
+  %exitcond56.not = icmp eq i64 %indvars.iv.next51, %indvars.iv54
+  br i1 %exitcond56.not, label %for.inc88, label %for.cond8.preheader, !llvm.loop !17
 
 for.inc88:                                        ; preds = %for.inc85, %for.cond2.preheader
   %_ret.1.lcssa = phi i32 [ %_ret.043, %for.cond2.preheader ], [ %_ret.3, %for.inc85 ]
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next55, 32
-  br i1 %exitcond57.not, label %for.end90, label %for.cond2.preheader, !llvm.loop !18
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next58, 32
+  br i1 %exitcond60.not, label %for.end90, label %for.cond2.preheader, !llvm.loop !18
 
 for.end90:                                        ; preds = %for.inc88
   ret i32 %_ret.1.lcssa

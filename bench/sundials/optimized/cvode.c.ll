@@ -6272,65 +6272,68 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
   %43 = getelementptr inbounds i8, ptr %0, i64 1624
   %44 = getelementptr inbounds i8, ptr %0, i64 96
   %45 = getelementptr inbounds i8, ptr %0, i64 1728
-  %46 = add nuw i32 %14, 1
-  %47 = sub i32 %46, %2
-  %wide.trip.count = zext i32 %47 to i64
+  %46 = sub nsw i32 %14, %2
+  %47 = add nuw i32 %14, 1
+  %48 = sub i32 %47, %2
+  %wide.trip.count = zext i32 %48 to i64
   %.not75.not76.not = icmp eq i32 %2, 0
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.lr.ph87, %60
-  %indvars.iv = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next, %60 ]
+49:                                               ; preds = %.lr.ph87, %60
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next92, %60 ]
+  %indvars.iv = phi i32 [ %46, %.lr.ph87 ], [ %indvars.iv.next, %60 ]
   %.06984 = phi i32 [ %14, %.lr.ph87 ], [ %65, %60 ]
-  %49 = getelementptr inbounds [13 x double], ptr %43, i64 0, i64 %indvars.iv
-  store double 1.000000e+00, ptr %49, align 8
-  %50 = sub nsw i32 %.06984, %2
+  %50 = getelementptr inbounds [13 x double], ptr %43, i64 0, i64 %indvars.iv91
+  store double 1.000000e+00, ptr %50, align 8
+  %51 = sub nsw i32 %.06984, %2
   br i1 %.not75.not76.not, label %.preheader, label %.lr.ph
 
 ..preheader_crit_edge:                            ; preds = %.lr.ph
-  store double %54, ptr %49, align 8
+  store double %55, ptr %50, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %..preheader_crit_edge, %48
-  %.promoted81 = phi double [ %54, %..preheader_crit_edge ], [ 1.000000e+00, %48 ]
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph80, label %60
+.preheader:                                       ; preds = %..preheader_crit_edge, %49
+  %.promoted81 = phi double [ %55, %..preheader_crit_edge ], [ 1.000000e+00, %49 ]
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %.lr.ph80, label %60
 
-.lr.ph:                                           ; preds = %48, %.lr.ph
-  %52 = phi double [ %54, %.lr.ph ], [ 1.000000e+00, %48 ]
-  %.07077 = phi i32 [ %55, %.lr.ph ], [ %.06984, %48 ]
-  %53 = sitofp i32 %.07077 to double
-  %54 = fmul double %52, %53
-  %55 = add nsw i32 %.07077, -1
-  %.not75.not = icmp sgt i32 %55, %50
+.lr.ph:                                           ; preds = %49, %.lr.ph
+  %53 = phi double [ %55, %.lr.ph ], [ 1.000000e+00, %49 ]
+  %.07077 = phi i32 [ %56, %.lr.ph ], [ %.06984, %49 ]
+  %54 = sitofp i32 %.07077 to double
+  %55 = fmul double %53, %54
+  %56 = add nsw i32 %.07077, -1
+  %.not75.not = icmp sgt i32 %56, %51
   br i1 %.not75.not, label %.lr.ph, label %..preheader_crit_edge
 
 .lr.ph80:                                         ; preds = %.preheader, %.lr.ph80
-  %56 = phi double [ %57, %.lr.ph80 ], [ %.promoted81, %.preheader ]
-  %.179 = phi i32 [ %58, %.lr.ph80 ], [ 0, %.preheader ]
-  %57 = fmul double %42, %56
-  %58 = add nuw nsw i32 %.179, 1
-  %59 = icmp slt i32 %58, %50
-  br i1 %59, label %.lr.ph80, label %._crit_edge
+  %57 = phi double [ %58, %.lr.ph80 ], [ %.promoted81, %.preheader ]
+  %.179 = phi i32 [ %59, %.lr.ph80 ], [ 0, %.preheader ]
+  %58 = fmul double %42, %57
+  %59 = add nuw nsw i32 %.179, 1
+  %exitcond.not = icmp eq i32 %59, %indvars.iv
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph80
 
 ._crit_edge:                                      ; preds = %.lr.ph80
-  store double %57, ptr %49, align 8
+  store double %58, ptr %50, align 8
   br label %60
 
 60:                                               ; preds = %._crit_edge, %.preheader
   %61 = zext nneg i32 %.06984 to i64
   %62 = getelementptr inbounds [13 x ptr], ptr %44, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds [13 x ptr], ptr %45, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds [13 x ptr], ptr %45, i64 0, i64 %indvars.iv91
   store ptr %63, ptr %64, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %65 = add nsw i32 %.06984, -1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge88, label %48
+  %indvars.iv.next = add i32 %indvars.iv, -1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
+  br i1 %exitcond94.not, label %._crit_edge88, label %49
 
 ._crit_edge88:                                    ; preds = %60
   %66 = getelementptr inbounds i8, ptr %0, i64 1624
   %67 = getelementptr inbounds i8, ptr %0, i64 1728
-  %68 = tail call i32 @N_VLinearCombination(i32 noundef %47, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %3) #13
+  %68 = tail call i32 @N_VLinearCombination(i32 noundef %48, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %3) #13
   %.not74 = icmp eq i32 %68, 0
   br i1 %.not74, label %69, label %75
 

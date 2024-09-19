@@ -10565,16 +10565,16 @@ define noundef ptr @zend_string_tolower_ex(ptr noundef %0, i1 noundef zeroext %1
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %56 = getelementptr inbounds [1 x i8], ptr %28, i64 0, i64 %4
   store i8 0, ptr %56, align 1
-  br label %97
+  br label %95
 
-.lr.ph431:                                        ; preds = %.preheader, %88
-  %.1409430 = phi ptr [ %89, %88 ], [ %.0408, %.preheader ]
+.lr.ph431:                                        ; preds = %.preheader, %87
+  %.1409430 = phi ptr [ %88, %87 ], [ %.0408, %.preheader ]
   %57 = load i8, ptr %.1409430, align 1
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds [256 x i8], ptr @zend_tolower_map, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %.not417 = icmp eq i8 %57, %60
-  br i1 %.not417, label %88, label %61
+  br i1 %.not417, label %87, label %61
 
 61:                                               ; preds = %.lr.ph431
   %62 = and i64 %4, -8
@@ -10621,34 +10621,34 @@ define noundef ptr @zend_string_tolower_ex(ptr noundef %0, i1 noundef zeroext %1
   %84 = load i8, ptr %83, align 1
   %85 = getelementptr inbounds i8, ptr %.0434, i64 1
   store i8 %84, ptr %.0434, align 1
-  %86 = icmp ult ptr %80, %6
-  br i1 %86, label %.lr.ph436, label %._crit_edge437
+  %exitcond445.not = icmp eq ptr %80, %6
+  br i1 %exitcond445.not, label %._crit_edge437, label %.lr.ph436
 
 ._crit_edge437:                                   ; preds = %.lr.ph436, %68
-  %87 = getelementptr inbounds [1 x i8], ptr %74, i64 0, i64 %4
-  store i8 0, ptr %87, align 1
-  br label %97
+  %86 = getelementptr inbounds [1 x i8], ptr %74, i64 0, i64 %4
+  store i8 0, ptr %86, align 1
+  br label %95
 
-88:                                               ; preds = %.lr.ph431
-  %89 = getelementptr inbounds i8, ptr %.1409430, i64 1
-  %90 = icmp ult ptr %89, %6
-  br i1 %90, label %.lr.ph431, label %._crit_edge432
+87:                                               ; preds = %.lr.ph431
+  %88 = getelementptr inbounds i8, ptr %.1409430, i64 1
+  %exitcond.not = icmp eq ptr %88, %6
+  br i1 %exitcond.not, label %._crit_edge432, label %.lr.ph431
 
-._crit_edge432:                                   ; preds = %88, %.preheader
-  %91 = getelementptr inbounds i8, ptr %0, i64 4
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, 64
-  %.not416 = icmp eq i32 %93, 0
-  br i1 %.not416, label %94, label %97
+._crit_edge432:                                   ; preds = %87, %.preheader
+  %89 = getelementptr inbounds i8, ptr %0, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, 64
+  %.not416 = icmp eq i32 %91, 0
+  br i1 %.not416, label %92, label %95
 
-94:                                               ; preds = %._crit_edge432
-  %95 = load i32, ptr %0, align 4
-  %96 = add i32 %95, 1
-  store i32 %96, ptr %0, align 4
-  br label %97
+92:                                               ; preds = %._crit_edge432
+  %93 = load i32, ptr %0, align 4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %0, align 4
+  br label %95
 
-97:                                               ; preds = %._crit_edge432, %94, %._crit_edge437, %._crit_edge
-  %.0407 = phi ptr [ %24, %._crit_edge ], [ %70, %._crit_edge437 ], [ %0, %94 ], [ %0, %._crit_edge432 ]
+95:                                               ; preds = %._crit_edge432, %92, %._crit_edge437, %._crit_edge
+  %.0407 = phi ptr [ %24, %._crit_edge ], [ %70, %._crit_edge437 ], [ %0, %92 ], [ %0, %._crit_edge432 ]
   ret ptr %.0407
 }
 
@@ -10754,16 +10754,16 @@ define noundef ptr @zend_string_toupper_ex(ptr noundef %0, i1 noundef zeroext %1
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %56 = getelementptr inbounds [1 x i8], ptr %28, i64 0, i64 %4
   store i8 0, ptr %56, align 1
-  br label %97
+  br label %95
 
-.lr.ph431:                                        ; preds = %.preheader, %88
-  %.1409430 = phi ptr [ %89, %88 ], [ %.0408, %.preheader ]
+.lr.ph431:                                        ; preds = %.preheader, %87
+  %.1409430 = phi ptr [ %88, %87 ], [ %.0408, %.preheader ]
   %57 = load i8, ptr %.1409430, align 1
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds [256 x i8], ptr @zend_toupper_map, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %.not417 = icmp eq i8 %57, %60
-  br i1 %.not417, label %88, label %61
+  br i1 %.not417, label %87, label %61
 
 61:                                               ; preds = %.lr.ph431
   %62 = and i64 %4, -8
@@ -10810,34 +10810,34 @@ define noundef ptr @zend_string_toupper_ex(ptr noundef %0, i1 noundef zeroext %1
   %84 = load i8, ptr %83, align 1
   %85 = getelementptr inbounds i8, ptr %.0434, i64 1
   store i8 %84, ptr %.0434, align 1
-  %86 = icmp ult ptr %80, %6
-  br i1 %86, label %.lr.ph436, label %._crit_edge437
+  %exitcond445.not = icmp eq ptr %80, %6
+  br i1 %exitcond445.not, label %._crit_edge437, label %.lr.ph436
 
 ._crit_edge437:                                   ; preds = %.lr.ph436, %68
-  %87 = getelementptr inbounds [1 x i8], ptr %74, i64 0, i64 %4
-  store i8 0, ptr %87, align 1
-  br label %97
+  %86 = getelementptr inbounds [1 x i8], ptr %74, i64 0, i64 %4
+  store i8 0, ptr %86, align 1
+  br label %95
 
-88:                                               ; preds = %.lr.ph431
-  %89 = getelementptr inbounds i8, ptr %.1409430, i64 1
-  %90 = icmp ult ptr %89, %6
-  br i1 %90, label %.lr.ph431, label %._crit_edge432
+87:                                               ; preds = %.lr.ph431
+  %88 = getelementptr inbounds i8, ptr %.1409430, i64 1
+  %exitcond.not = icmp eq ptr %88, %6
+  br i1 %exitcond.not, label %._crit_edge432, label %.lr.ph431
 
-._crit_edge432:                                   ; preds = %88, %.preheader
-  %91 = getelementptr inbounds i8, ptr %0, i64 4
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, 64
-  %.not416 = icmp eq i32 %93, 0
-  br i1 %.not416, label %94, label %97
+._crit_edge432:                                   ; preds = %87, %.preheader
+  %89 = getelementptr inbounds i8, ptr %0, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, 64
+  %.not416 = icmp eq i32 %91, 0
+  br i1 %.not416, label %92, label %95
 
-94:                                               ; preds = %._crit_edge432
-  %95 = load i32, ptr %0, align 4
-  %96 = add i32 %95, 1
-  store i32 %96, ptr %0, align 4
-  br label %97
+92:                                               ; preds = %._crit_edge432
+  %93 = load i32, ptr %0, align 4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %0, align 4
+  br label %95
 
-97:                                               ; preds = %._crit_edge432, %94, %._crit_edge437, %._crit_edge
-  %.0407 = phi ptr [ %24, %._crit_edge ], [ %70, %._crit_edge437 ], [ %0, %94 ], [ %0, %._crit_edge432 ]
+95:                                               ; preds = %._crit_edge432, %92, %._crit_edge437, %._crit_edge
+  %.0407 = phi ptr [ %24, %._crit_edge ], [ %70, %._crit_edge437 ], [ %0, %92 ], [ %0, %._crit_edge432 ]
   ret ptr %.0407
 }
 

@@ -216,11 +216,13 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
+  %indvars.iv141 = phi i32 [ %indvars.iv.next142, %while.cond ], [ 15, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond ], [ -1, %entry ]
   %arrayidx = getelementptr inbounds i16, ptr %symbol_lists, i64 %indvars.iv
   %0 = load i16, ptr %arrayidx, align 2
   %cmp = icmp eq i16 %0, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %indvars.iv.next142 = add i32 %indvars.iv141, -1
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond
@@ -314,7 +316,7 @@ while.end31:                                      ; preds = %while.body25, %whil
 for.body38.lr.ph:                                 ; preds = %while.end31
   %sub.ptr.rhs.cast = ptrtoint ptr %root_table to i64
   %9 = sext i32 %root_bits to i64
-  %10 = sext i32 %add to i64
+  %wide.trip.count = sext i32 %indvars.iv141 to i64
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.end78
@@ -329,22 +331,22 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %table.0110 = phi ptr [ %root_table, %for.body38.lr.ph ], [ %table.1.lcssa, %for.end78 ]
   %indvars.iv129 = add nsw i64 %indvars.iv129.in, 1
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
-  %11 = add nsw i64 %indvars.iv134, -15
+  %10 = add nsw i64 %indvars.iv134, -15
   %arrayidx42 = getelementptr inbounds i16, ptr %count, i64 %indvars.iv.next135
-  %12 = load i16, ptr %arrayidx42, align 2
-  %cmp44.not92 = icmp eq i16 %12, 0
+  %11 = load i16, ptr %arrayidx42, align 2
+  %cmp44.not92 = icmp eq i16 %11, 0
   br i1 %cmp44.not92, label %for.end78, label %for.body46.lr.ph
 
 for.body46.lr.ph:                                 ; preds = %for.body38
-  %13 = trunc i64 %indvars.iv.next135 to i32
-  %14 = sub i32 %13, %root_bits
-  %shl.i = shl nuw i32 1, %14
+  %12 = trunc i64 %indvars.iv.next135 to i32
+  %13 = sub i32 %12, %root_bits
+  %shl.i = shl nuw i32 1, %13
   %cmp.i11087 = icmp slt i64 %indvars.iv134, 14
-  %retval.i.sroa.0.0.insert.ext = and i32 %14, 255
+  %retval.i.sroa.0.0.insert.ext = and i32 %13, 255
   br i1 %cmp.i11087, label %for.body46.us.preheader, label %for.body46.lr.ph.split
 
 for.body46.us.preheader:                          ; preds = %for.body46.lr.ph
-  %15 = trunc nsw i64 %11 to i32
+  %14 = trunc nsw i64 %10 to i32
   br label %for.body46.us
 
 for.body46.us:                                    ; preds = %for.body46.us.preheader, %ReplicateValue.exit.us
@@ -352,7 +354,7 @@ for.body46.us:                                    ; preds = %for.body46.us.prehe
   %table_size.397.us = phi i32 [ %table_size.4.us, %ReplicateValue.exit.us ], [ %table_size.2118, %for.body46.us.preheader ]
   %sub_key.196.us = phi i64 [ %add73.us, %ReplicateValue.exit.us ], [ %sub_key.0113, %for.body46.us.preheader ]
   %key.395.us = phi i64 [ %key.4.us, %ReplicateValue.exit.us ], [ %key.2112, %for.body46.us.preheader ]
-  %symbol.194.us = phi i32 [ %conv65.us, %ReplicateValue.exit.us ], [ %15, %for.body46.us.preheader ]
+  %symbol.194.us = phi i32 [ %conv65.us, %ReplicateValue.exit.us ], [ %14, %for.body46.us.preheader ]
   %table.193.us = phi ptr [ %table.2.us, %ReplicateValue.exit.us ], [ %table.0110, %for.body46.us.preheader ]
   %cmp47.us = icmp eq i64 %sub_key.196.us, 256
   br i1 %cmp47.us, label %if.then49.us, label %if.end62.us
@@ -366,24 +368,25 @@ while.body.i.us:                                  ; preds = %if.then49.us, %if.e
   %indvars.iv131 = phi i64 [ %indvars.iv129, %if.then49.us ], [ %indvars.iv.next132, %if.end.i.us ]
   %left.i.088.us = phi i32 [ %shl.i, %if.then49.us ], [ %shl4.i.us, %if.end.i.us ]
   %arrayidx.i112.us = getelementptr inbounds i16, ptr %count, i64 %indvars.iv131
-  %16 = load i16, ptr %arrayidx.i112.us, align 2
-  %conv.i113.us = zext i16 %16 to i32
+  %15 = load i16, ptr %arrayidx.i112.us, align 2
+  %conv.i113.us = zext i16 %15 to i32
   %sub1.i.us = sub nsw i32 %left.i.088.us, %conv.i113.us
   %cmp2.i.us = icmp slt i32 %sub1.i.us, 1
-  br i1 %cmp2.i.us, label %NextTableBitSize.exit.us.split.loop.exit142, label %if.end.i.us
+  br i1 %cmp2.i.us, label %NextTableBitSize.exit.us.split.loop.exit145, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %while.body.i.us
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, 1
   %shl4.i.us = shl nuw i32 %sub1.i.us, 1
-  %cmp.i110.us = icmp slt i64 %indvars.iv131, 14
-  br i1 %cmp.i110.us, label %while.body.i.us, label %NextTableBitSize.exit.us, !llvm.loop !14
+  %16 = and i64 %indvars.iv.next132, 4294967295
+  %exitcond.not = icmp eq i64 %16, 15
+  br i1 %exitcond.not, label %NextTableBitSize.exit.us, label %while.body.i.us, !llvm.loop !14
 
-NextTableBitSize.exit.us.split.loop.exit142:      ; preds = %while.body.i.us
+NextTableBitSize.exit.us.split.loop.exit145:      ; preds = %while.body.i.us
   %17 = trunc nsw i64 %indvars.iv131 to i32
   br label %NextTableBitSize.exit.us
 
-NextTableBitSize.exit.us:                         ; preds = %if.end.i.us, %NextTableBitSize.exit.us.split.loop.exit142
-  %len.addr.i.0.lcssa.us = phi i32 [ %17, %NextTableBitSize.exit.us.split.loop.exit142 ], [ 15, %if.end.i.us ]
+NextTableBitSize.exit.us:                         ; preds = %if.end.i.us, %NextTableBitSize.exit.us.split.loop.exit145
+  %len.addr.i.0.lcssa.us = phi i32 [ %17, %NextTableBitSize.exit.us.split.loop.exit145 ], [ 15, %if.end.i.us ]
   %sub5.i.us = sub nsw i32 %len.addr.i.0.lcssa.us, %root_bits
   %shl51.us = shl nuw i32 1, %sub5.i.us
   %add52.us = add nsw i32 %shl51.us, %total_size.198.us
@@ -441,7 +444,7 @@ ReplicateValue.exit.us:                           ; preds = %do.body.i.us
 for.body46.lr.ph.split:                           ; preds = %for.body46.lr.ph
   %22 = trunc nuw nsw i64 %indvars.iv.next135 to i32
   %retval.i84.sroa.0.0.insert.ext = and i32 %22, 255
-  %23 = trunc nsw i64 %11 to i32
+  %23 = trunc nsw i64 %10 to i32
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.lr.ph.split, %ReplicateValue.exit
@@ -516,8 +519,8 @@ for.end78:                                        ; preds = %ReplicateValue.exit
   %total_size.1.lcssa = phi i32 [ %total_size.0119, %for.body38 ], [ %total_size.2.us, %ReplicateValue.exit.us ], [ %total_size.2, %ReplicateValue.exit ]
   %shl79 = shl i32 %step.1116, 1
   %shr80 = lshr i64 %sub_key_step.0114, 1
-  %cmp36.not.not = icmp slt i64 %indvars.iv.next135, %10
-  br i1 %cmp36.not.not, label %for.body38, label %for.end83, !llvm.loop !16
+  %exitcond143.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count
+  br i1 %exitcond143.not, label %for.end83, label %for.body38, !llvm.loop !16
 
 for.end83:                                        ; preds = %for.end78, %while.end31
   %total_size.0.lcssa = phi i32 [ %shl, %while.end31 ], [ %total_size.1.lcssa, %for.end78 ]

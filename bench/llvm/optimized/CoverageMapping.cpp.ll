@@ -18471,230 +18471,231 @@ _ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBui
   %23 = trunc i8 %2 to i1
   %24 = add i32 %3, 2
   %25 = zext i32 %24 to i64
-  %26 = and i64 %20, 4294967295
-  %27 = zext i32 %.067 to i64
+  %26 = zext i32 %.067 to i64
   br i1 %23, label %.lr.ph70.split.us, label %.lr.ph70.split
 
-.lr.ph70.split.us:                                ; preds = %.lr.ph70, %56
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %56 ], [ %27, %.lr.ph70 ]
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %56 ], [ %25, %.lr.ph70 ]
-  %.0.in68.us = phi i32 [ %57, %56 ], [ %3, %.lr.ph70 ]
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv89
-  %30 = load ptr, ptr %29, align 8
-  %31 = zext i32 %.0.in68.us to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 44
-  %35 = load i64, ptr %34, align 4
-  %.sroa.050.0.extract.trunc.us = trunc i64 %35 to i32
-  %.sroa.4.0.extract.shift.us = lshr i64 %35, 32
-  %36 = icmp eq i32 %.sroa.050.0.extract.trunc.us, %.sroa.053.0.extract.trunc
-  %37 = icmp eq i64 %.sroa.4.0.extract.shift.us, %.sroa.456.0.extract.shift
-  %38 = and i1 %36, %37
-  br i1 %38, label %._crit_edge71, label %39
+.lr.ph70.split.us:                                ; preds = %.lr.ph70, %54
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %54 ], [ %26, %.lr.ph70 ]
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %54 ], [ %25, %.lr.ph70 ]
+  %.0.in68.us = phi i32 [ %55, %54 ], [ %3, %.lr.ph70 ]
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv93
+  %29 = load ptr, ptr %28, align 8
+  %30 = zext i32 %.0.in68.us to i64
+  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 44
+  %34 = load i64, ptr %33, align 4
+  %.sroa.050.0.extract.trunc.us = trunc i64 %34 to i32
+  %.sroa.4.0.extract.shift.us = lshr i64 %34, 32
+  %35 = icmp eq i32 %.sroa.050.0.extract.trunc.us, %.sroa.053.0.extract.trunc
+  %36 = icmp eq i64 %.sroa.4.0.extract.shift.us, %.sroa.456.0.extract.shift
+  %37 = and i1 %35, %36
+  br i1 %37, label %._crit_edge71, label %38
 
-39:                                               ; preds = %.lr.ph70.split.us
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 44
-  %41 = load i64, ptr %40, align 4
-  %.sroa.048.0.extract.trunc.us = trunc i64 %41 to i32
-  %.sroa.249.0.extract.shift.us = lshr i64 %41, 32
-  %42 = icmp eq i32 %.sroa.050.0.extract.trunc.us, %.sroa.048.0.extract.trunc.us
-  %43 = icmp eq i64 %.sroa.4.0.extract.shift.us, %.sroa.249.0.extract.shift.us
-  %44 = and i1 %42, %43
-  br i1 %44, label %56, label %45
+38:                                               ; preds = %.lr.ph70.split.us
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 44
+  %40 = load i64, ptr %39, align 4
+  %.sroa.048.0.extract.trunc.us = trunc i64 %40 to i32
+  %.sroa.249.0.extract.shift.us = lshr i64 %40, 32
+  %41 = icmp eq i32 %.sroa.050.0.extract.trunc.us, %.sroa.048.0.extract.trunc.us
+  %42 = icmp eq i64 %.sroa.4.0.extract.shift.us, %.sroa.249.0.extract.shift.us
+  %43 = and i1 %41, %42
+  br i1 %43, label %54, label %44
 
-45:                                               ; preds = %39
-  %46 = add i32 %.0.in68.us, 2
-  %47 = icmp ult i32 %46, %21
-  br i1 %47, label %.lr.ph.us, label %._crit_edge.us
+44:                                               ; preds = %38
+  %45 = add i32 %.0.in68.us, 2
+  %46 = icmp ult i32 %45, %21
+  br i1 %46, label %.lr.ph.us, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.lr.ph.us, %45
-  %.034.lcssa.us = phi ptr [ %30, %45 ], [ %spec.select.us, %.lr.ph.us ]
+._crit_edge.us:                                   ; preds = %.lr.ph.us, %44
+  %.034.lcssa.us = phi ptr [ %29, %44 ], [ %spec.select.us, %.lr.ph.us ]
   %.val.us = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val.us, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa.us, i64 %35, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %56
+  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val.us, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa.us, i64 %34, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %54
 
-.lr.ph.us:                                        ; preds = %45, %.lr.ph.us
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph.us ], [ %indvars.iv84, %45 ]
-  %.03466.us = phi ptr [ %spec.select.us, %.lr.ph.us ], [ %30, %45 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.03466.us, i64 44
-  %49 = load i64, ptr %48, align 4
-  %50 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv86
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 44
-  %53 = load i64, ptr %52, align 4
-  %54 = icmp eq i64 %49, %53
-  %spec.select.us = select i1 %54, ptr %51, ptr %.03466.us
+.lr.ph.us:                                        ; preds = %44, %.lr.ph.us
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.lr.ph.us ], [ %indvars.iv86, %44 ]
+  %.03466.us = phi ptr [ %spec.select.us, %.lr.ph.us ], [ %29, %44 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.03466.us, i64 44
+  %48 = load i64, ptr %47, align 4
+  %49 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv88
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
+  %52 = load i64, ptr %51, align 4
+  %53 = icmp eq i64 %48, %52
+  %spec.select.us = select i1 %53, ptr %50, ptr %.03466.us
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %lftr.wideiv91 = trunc i64 %indvars.iv.next89 to i32
+  %exitcond92.not = icmp eq i32 %lftr.wideiv91, %21
+  br i1 %exitcond92.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !437
+
+54:                                               ; preds = %._crit_edge.us, %38
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %55 = icmp ult i64 %indvars.iv.next87, %26
-  br i1 %55, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !437
+  %55 = trunc nuw i64 %indvars.iv93 to i32
+  %lftr.wideiv96 = trunc i64 %indvars.iv.next94 to i32
+  %exitcond97.not = icmp eq i32 %lftr.wideiv96, %21
+  br i1 %exitcond97.not, label %._crit_edge71, label %.lr.ph70.split.us, !llvm.loop !438
 
-56:                                               ; preds = %._crit_edge.us, %39
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %57 = trunc nuw i64 %indvars.iv89 to i32
-  %lftr.wideiv92 = trunc i64 %indvars.iv.next90 to i32
-  %exitcond93.not = icmp eq i32 %lftr.wideiv92, %21
-  br i1 %exitcond93.not, label %._crit_edge71, label %.lr.ph70.split.us, !llvm.loop !438
-
-.lr.ph70.split:                                   ; preds = %.lr.ph70, %80
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %80 ], [ %27, %.lr.ph70 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ %25, %.lr.ph70 ]
-  %.0.in68 = phi i32 [ %81, %80 ], [ %3, %.lr.ph70 ]
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv81
-  %60 = load ptr, ptr %59, align 8
-  %61 = zext i32 %.0.in68 to i64
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 44
+.lr.ph70.split:                                   ; preds = %.lr.ph70, %77
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %77 ], [ %26, %.lr.ph70 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ %25, %.lr.ph70 ]
+  %.0.in68 = phi i32 [ %78, %77 ], [ %3, %.lr.ph70 ]
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv81
+  %58 = load ptr, ptr %57, align 8
+  %59 = zext i32 %.0.in68 to i64
+  %60 = getelementptr inbounds ptr, ptr %56, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 44
+  %63 = load i64, ptr %62, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 44
   %65 = load i64, ptr %64, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 44
-  %67 = load i64, ptr %66, align 4
-  %68 = icmp eq i64 %65, %67
-  br i1 %68, label %80, label %69
+  %66 = icmp eq i64 %63, %65
+  br i1 %66, label %77, label %67
 
-69:                                               ; preds = %.lr.ph70.split
-  %70 = add i32 %.0.in68, 2
-  %71 = icmp ult i32 %70, %21
-  br i1 %71, label %.lr.ph, label %._crit_edge
+67:                                               ; preds = %.lr.ph70.split
+  %68 = add i32 %.0.in68, 2
+  %69 = icmp ult i32 %68, %21
+  br i1 %69, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %69, %.lr.ph
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph ], [ %indvars.iv, %69 ]
-  %.03466 = phi ptr [ %spec.select, %.lr.ph ], [ %60, %69 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.03466, i64 44
-  %73 = load i64, ptr %72, align 4
-  %74 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv78
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 44
-  %77 = load i64, ptr %76, align 4
-  %78 = icmp eq i64 %73, %77
-  %spec.select = select i1 %78, ptr %75, ptr %.03466
+.lr.ph:                                           ; preds = %67, %.lr.ph
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph ], [ %indvars.iv, %67 ]
+  %.03466 = phi ptr [ %spec.select, %.lr.ph ], [ %58, %67 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.03466, i64 44
+  %71 = load i64, ptr %70, align 4
+  %72 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv78
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 44
+  %75 = load i64, ptr %74, align 4
+  %76 = icmp eq i64 %71, %75
+  %spec.select = select i1 %76, ptr %73, ptr %.03466
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %79 = icmp ult i64 %indvars.iv.next79, %26
-  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !437
+  %lftr.wideiv = trunc i64 %indvars.iv.next79 to i32
+  %exitcond.not = icmp eq i32 %lftr.wideiv, %21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !437
 
-._crit_edge:                                      ; preds = %.lr.ph, %69
-  %.034.lcssa = phi ptr [ %60, %69 ], [ %spec.select, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %67
+  %.034.lcssa = phi ptr [ %58, %67 ], [ %spec.select, %.lr.ph ]
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa, i64 %65, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %80
+  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa, i64 %63, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %77
 
-80:                                               ; preds = %.lr.ph70.split, %._crit_edge
+77:                                               ; preds = %.lr.ph70.split, %._crit_edge
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = trunc nuw i64 %indvars.iv81 to i32
-  %lftr.wideiv = trunc i64 %indvars.iv.next82 to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %21
-  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70.split, !llvm.loop !438
+  %78 = trunc nuw i64 %indvars.iv81 to i32
+  %lftr.wideiv84 = trunc i64 %indvars.iv.next82 to i32
+  %exitcond85.not = icmp eq i32 %lftr.wideiv84, %21
+  br i1 %exitcond85.not, label %._crit_edge71, label %.lr.ph70.split, !llvm.loop !438
 
-._crit_edge71:                                    ; preds = %80, %56, %.lr.ph70.split.us, %_ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EvT_SD_T0_.exit
-  %82 = load ptr, ptr %7, align 8
-  %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
-  %85 = getelementptr inbounds i8, ptr %84, i64 -8
-  %86 = load ptr, ptr %85, align 8
+._crit_edge71:                                    ; preds = %77, %54, %.lr.ph70.split.us, %_ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EvT_SD_T0_.exit
+  %79 = load ptr, ptr %7, align 8
+  %80 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
+  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 -8
+  %83 = load ptr, ptr %82, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.critedge38, label %87
+  br i1 %.not, label %.critedge38, label %84
 
-87:                                               ; preds = %._crit_edge71
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 44
-  %89 = load i64, ptr %88, align 4
-  %.sroa.042.0.extract.trunc = trunc i64 %89 to i32
-  %.sroa.243.0.extract.shift = lshr i64 %89, 32
-  %90 = icmp ne i32 %.sroa.042.0.extract.trunc, %.sroa.053.0.extract.trunc
-  %91 = icmp ne i64 %.sroa.243.0.extract.shift, %.sroa.456.0.extract.shift
-  %.not3.i = or i1 %90, %91
-  br i1 %.not3.i, label %92, label %.critedge2
+84:                                               ; preds = %._crit_edge71
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 44
+  %86 = load i64, ptr %85, align 4
+  %.sroa.042.0.extract.trunc = trunc i64 %86 to i32
+  %.sroa.243.0.extract.shift = lshr i64 %86, 32
+  %87 = icmp ne i32 %.sroa.042.0.extract.trunc, %.sroa.053.0.extract.trunc
+  %88 = icmp ne i64 %.sroa.243.0.extract.shift, %.sroa.456.0.extract.shift
+  %.not3.i = or i1 %87, %88
+  br i1 %.not3.i, label %89, label %.critedge2
 
-92:                                               ; preds = %87
-  %93 = add i32 %3, -1
-  %94 = zext i32 %93 to i64
-  %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %94
-  %97 = load ptr, ptr %96, align 8
+89:                                               ; preds = %84
+  %90 = add i32 %3, -1
+  %91 = zext i32 %90 to i64
+  %92 = load ptr, ptr %7, align 8
+  %93 = getelementptr inbounds ptr, ptr %92, i64 %91
+  %94 = load ptr, ptr %93, align 8
   %.val39 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val39, ptr noundef nonnull align 8 dereferenceable(74) %97, i64 %89, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val39, ptr noundef nonnull align 8 dereferenceable(74) %94, i64 %86, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.critedge2
 
 .critedge38:                                      ; preds = %._crit_edge71
-  %98 = trunc i8 %2 to i1
-  %99 = getelementptr inbounds nuw i8, ptr %86, i64 44
-  %100 = load i64, ptr %99, align 4
-  br i1 %98, label %101, label %.critedge4
+  %95 = trunc i8 %2 to i1
+  %96 = getelementptr inbounds nuw i8, ptr %83, i64 44
+  %97 = load i64, ptr %96, align 4
+  br i1 %95, label %98, label %.critedge4
 
-101:                                              ; preds = %.critedge38
-  %.sroa.0.0.extract.trunc = trunc i64 %100 to i32
-  %.sroa.2.0.extract.shift = lshr i64 %100, 32
-  %102 = icmp ne i32 %.sroa.053.0.extract.trunc, %.sroa.0.0.extract.trunc
-  %103 = icmp ne i64 %.sroa.456.0.extract.shift, %.sroa.2.0.extract.shift
-  %.not3.i41 = or i1 %102, %103
+98:                                               ; preds = %.critedge38
+  %.sroa.0.0.extract.trunc = trunc i64 %97 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %97, 32
+  %99 = icmp ne i32 %.sroa.053.0.extract.trunc, %.sroa.0.0.extract.trunc
+  %100 = icmp ne i64 %.sroa.456.0.extract.shift, %.sroa.2.0.extract.shift
+  %.not3.i41 = or i1 %99, %100
   br i1 %.not3.i41, label %.critedge4, label %.critedge2
 
-.critedge4:                                       ; preds = %.critedge38, %101
+.critedge4:                                       ; preds = %.critedge38, %98
   %.val40 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  store i64 %100, ptr %5, align 8
+  store i64 %97, ptr %5, align 8
   store i8 0, ptr %6, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %.val40, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %.val40, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %.not.i12.i = icmp eq ptr %105, %107
-  br i1 %.not.i12.i, label %116, label %108
+  %101 = getelementptr inbounds nuw i8, ptr %.val40, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %.val40, i64 16
+  %104 = load ptr, ptr %103, align 8
+  %.not.i12.i = icmp eq ptr %102, %104
+  br i1 %.not.i12.i, label %113, label %105
 
-108:                                              ; preds = %.critedge4
-  %109 = lshr i64 %100, 32
-  %110 = trunc nuw i64 %109 to i32
-  %111 = trunc i64 %100 to i32
-  store i32 %111, ptr %105, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 %110, ptr %112, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %113, i8 0, i64 11, i1 false)
-  %114 = load ptr, ptr %104, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 24
-  store ptr %115, ptr %104, align 8
+105:                                              ; preds = %.critedge4
+  %106 = lshr i64 %97, 32
+  %107 = trunc nuw i64 %106 to i32
+  %108 = trunc i64 %97 to i32
+  store i32 %108, ptr %102, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  store i32 %107, ptr %109, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %110, i8 0, i64 11, i1 false)
+  %111 = load ptr, ptr %101, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 24
+  store ptr %112, ptr %101, align 8
   br label %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit
 
-116:                                              ; preds = %.critedge4
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE17_M_realloc_insertIJRjS6_RbEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val40, ptr %105, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %117, ptr noundef nonnull align 1 dereferenceable(1) %6)
+113:                                              ; preds = %.critedge4
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  call void @_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE17_M_realloc_insertIJRjS6_RbEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val40, ptr %102, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %114, ptr noundef nonnull align 1 dereferenceable(1) %6)
   br label %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit
 
-_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit: ; preds = %108, %116
+_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit: ; preds = %105, %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %87, %101, %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit, %92
+.critedge2:                                       ; preds = %84, %98, %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit, %89
+  %115 = load ptr, ptr %7, align 8
+  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
+  %117 = getelementptr inbounds ptr, ptr %115, i64 %116
   %118 = load ptr, ptr %7, align 8
   %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   %120 = getelementptr inbounds ptr, ptr %118, i64 %119
-  %121 = load ptr, ptr %7, align 8
-  %122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  %123 = getelementptr inbounds ptr, ptr %121, i64 %122
-  %124 = ptrtoint ptr %123 to i64
-  %125 = ptrtoint ptr %120 to i64
-  %126 = sub i64 %124, %125
-  %.not.i.i.i.i.i.i = icmp eq ptr %123, %120
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKNS_8coverage13CountedRegionEE5eraseEPKS4_S7_.exit, label %127
+  %121 = ptrtoint ptr %120 to i64
+  %122 = ptrtoint ptr %117 to i64
+  %123 = sub i64 %121, %122
+  %.not.i.i.i.i.i.i = icmp eq ptr %120, %117
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKNS_8coverage13CountedRegionEE5eraseEPKS4_S7_.exit, label %124
 
-127:                                              ; preds = %.critedge2
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr align 8 %120, i64 %126, i1 false)
+124:                                              ; preds = %.critedge2
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr align 8 %117, i64 %123, i1 false)
   br label %_ZN4llvm15SmallVectorImplIPKNS_8coverage13CountedRegionEE5eraseEPKS4_S7_.exit
 
-_ZN4llvm15SmallVectorImplIPKNS_8coverage13CountedRegionEE5eraseEPKS4_S7_.exit: ; preds = %.critedge2, %127
-  %128 = getelementptr inbounds i8, ptr %10, i64 %126
-  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  %130 = load ptr, ptr %7, align 8
-  %131 = ptrtoint ptr %128 to i64
-  %132 = ptrtoint ptr %130 to i64
-  %133 = sub i64 %131, %132
-  %134 = ashr exact i64 %133, 3
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %134) #28
+_ZN4llvm15SmallVectorImplIPKNS_8coverage13CountedRegionEE5eraseEPKS4_S7_.exit: ; preds = %.critedge2, %124
+  %125 = getelementptr inbounds i8, ptr %10, i64 %123
+  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
+  %127 = load ptr, ptr %7, align 8
+  %128 = ptrtoint ptr %125 to i64
+  %129 = ptrtoint ptr %127 to i64
+  %130 = sub i64 %128, %129
+  %131 = ashr exact i64 %130, 3
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %131) #28
   ret void
 }
 

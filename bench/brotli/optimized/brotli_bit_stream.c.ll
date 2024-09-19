@@ -361,11 +361,11 @@ if.end33:                                         ; preds = %if.then21, %for.bod
   br i1 %cmp17.not, label %for.end.loopexit, label %for.body, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %if.end33
-  %.pre324 = ptrtoint ptr %node.1 to i64
+  %.pre325 = ptrtoint ptr %node.1 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond
-  %sub.ptr.lhs.cast.pre-phi = phi i64 [ %.pre324, %for.end.loopexit ], [ %sub.ptr.rhs.cast, %for.cond ]
+  %sub.ptr.lhs.cast.pre-phi = phi i64 [ %.pre325, %for.end.loopexit ], [ %sub.ptr.rhs.cast, %for.cond ]
   %node.0.lcssa = phi ptr [ %node.1, %for.end.loopexit ], [ %tree, %for.cond ]
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast.pre-phi, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
@@ -560,8 +560,8 @@ if.then93:                                        ; preds = %for.end90
   br label %for.body99
 
 for.cond96.loopexit:                              ; preds = %for.inc120, %for.body99
-  %exitcond323.not = icmp eq i64 %add101, %count.1
-  br i1 %exitcond323.not, label %for.end125, label %for.body99, !llvm.loop !23
+  %exitcond324.not = icmp eq i64 %add101, %count.1
+  br i1 %exitcond324.not, label %for.end125, label %for.body99, !llvm.loop !23
 
 for.body99:                                       ; preds = %if.then93, %for.cond96.loopexit
   %i94.0317 = phi i64 [ 0, %if.then93 ], [ %add101, %for.cond96.loopexit ]
@@ -594,8 +594,8 @@ if.then114:                                       ; preds = %for.body105
 for.inc120:                                       ; preds = %for.body105, %if.then114
   %33 = phi i64 [ %29, %for.body105 ], [ %30, %if.then114 ]
   %inc121 = add nuw nsw i64 %j100.0316, 1
-  %cmp103 = icmp ult i64 %inc121, %count.1
-  br i1 %cmp103, label %for.body105, label %for.cond96.loopexit, !llvm.loop !24
+  %exitcond323.not = icmp eq i64 %inc121, %count.1
+  br i1 %exitcond323.not, label %for.cond96.loopexit, label %for.body105, !llvm.loop !24
 
 for.end125:                                       ; preds = %for.cond96.loopexit
   %34 = load i64, ptr %symbols, align 16
@@ -727,11 +727,11 @@ for.body168:                                      ; preds = %land.rhs
 
 for.end172.loopexit:                              ; preds = %for.body168, %land.rhs
   %reps.0.lcssa.ph = phi i64 [ %reps.0306, %land.rhs ], [ %55, %for.body168 ]
-  %.pre325 = add i64 %reps.0.lcssa.ph, %i152.0314
+  %.pre326 = add i64 %reps.0.lcssa.ph, %i152.0314
   br label %for.end172
 
 for.end172:                                       ; preds = %for.end172.loopexit, %for.body156
-  %add173.pre-phi = phi i64 [ %.pre325, %for.end172.loopexit ], [ %k158.0304, %for.body156 ]
+  %add173.pre-phi = phi i64 [ %.pre326, %for.end172.loopexit ], [ %k158.0304, %for.body156 ]
   %reps.0.lcssa = phi i64 [ %reps.0.lcssa.ph, %for.end172.loopexit ], [ 1, %for.body156 ]
   %cmp175 = icmp eq i8 %54, 0
   br i1 %cmp175, label %if.then177, label %if.else181
@@ -813,17 +813,17 @@ if.else210:                                       ; preds = %if.end194
 
 if.end216.sink.split:                             ; preds = %if.then177, %if.else210
   %arrayidx214.sink = phi ptr [ %arrayidx214, %if.else210 ], [ %arrayidx180, %if.then177 ]
-  %.sink333 = phi i64 [ %61, %if.else210 ], [ %53, %if.then177 ]
+  %.sink334 = phi i64 [ %61, %if.else210 ], [ %53, %if.then177 ]
   %conv213.sink.in.in = phi ptr [ %arrayidx212, %if.else210 ], [ %arrayidx178, %if.then177 ]
   %previous_value.1.ph = phi i8 [ %54, %if.else210 ], [ %previous_value.0313, %if.then177 ]
   %conv213.sink.in = load i32, ptr %conv213.sink.in.in, align 4
   %conv213.sink = zext i32 %conv213.sink.in to i64
   %67 = load i64, ptr %arrayidx214.sink, align 8
-  %shr.i = lshr i64 %.sink333, 3
+  %shr.i = lshr i64 %.sink334, 3
   %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
   %68 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %68 to i64
-  %and.i = and i64 %.sink333, 7
+  %and.i = and i64 %.sink334, 7
   %shl.i = shl i64 %67, %and.i
   %or.i = or i64 %shl.i, %conv.i
   store i64 %or.i, ptr %arrayidx.i, align 1
@@ -3403,8 +3403,8 @@ if.then20:                                        ; preds = %if.end18
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i, %for.body.i
-  %exitcond.not.i = icmp eq i64 %add.i39, %count.0.lcssa
-  br i1 %exitcond.not.i, label %for.end16.i, label %for.body.i, !llvm.loop !62
+  %exitcond112.not.i = icmp eq i64 %add.i39, %count.0.lcssa
+  br i1 %exitcond112.not.i, label %for.end16.i, label %for.body.i, !llvm.loop !62
 
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %if.then20
   %i.0111.i = phi i64 [ 0, %if.then20 ], [ %add.i39, %for.cond.loopexit.i ]
@@ -3437,8 +3437,8 @@ if.then.i:                                        ; preds = %for.body3.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body3.i
   %18 = phi i64 [ %14, %for.body3.i ], [ %15, %if.then.i ]
   %inc.i = add nuw nsw i64 %j.0110.i, 1
-  %cmp2.i = icmp ult i64 %inc.i, %count.0.lcssa
-  br i1 %cmp2.i, label %for.body3.i, label %for.cond.loopexit.i, !llvm.loop !63
+  %exitcond.not.i = icmp eq i64 %inc.i, %count.0.lcssa
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body3.i, !llvm.loop !63
 
 for.end16.i:                                      ; preds = %for.cond.loopexit.i
   %19 = load i64, ptr %s4, align 16
@@ -3510,14 +3510,14 @@ if.else28.i:                                      ; preds = %for.end16.i
   br label %if.end40.sink.split.i
 
 if.end40.sink.split.i:                            ; preds = %if.else28.i, %if.then24.i
-  %add.i79.sink114.i = phi i64 [ %add.i79.i, %if.then24.i ], [ %add.i53.i, %if.else28.i ]
+  %add.i79.sink115.i = phi i64 [ %add.i79.i, %if.then24.i ], [ %add.i53.i, %if.else28.i ]
   %.sink.i = phi i64 [ %25, %if.then24.i ], [ %conv38.i, %if.else28.i ]
   %max_bits.sink.i = phi i64 [ %max_bits.0.lcssa, %if.then24.i ], [ 1, %if.else28.i ]
-  %shr.i99.i = lshr i64 %add.i79.sink114.i, 3
+  %shr.i99.i = lshr i64 %add.i79.sink115.i, 3
   %arrayidx.i100.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i99.i
   %33 = load i8, ptr %arrayidx.i100.i, align 1
   %conv.i101.i = zext i8 %33 to i64
-  %and.i102.i = and i64 %add.i79.sink114.i, 7
+  %and.i102.i = and i64 %add.i79.sink115.i, 7
   %shl.i103.i = shl i64 %.sink.i, %and.i102.i
   %or.i104.i = or i64 %shl.i103.i, %conv.i101.i
   store i64 %or.i104.i, ptr %arrayidx.i100.i, align 1

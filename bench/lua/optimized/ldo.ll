@@ -1164,14 +1164,14 @@ if.then:                                          ; preds = %sw.bb4
 if.then19:                                        ; preds = %if.then
   tail call void @luaC_step(ptr noundef nonnull %L) #12
   %.pre = load ptr, ptr %stack_last, align 8
-  %.pre65 = load ptr, ptr %stack, align 8
-  %.pre67 = ptrtoint ptr %.pre to i64
-  %.pre68 = ptrtoint ptr %.pre65 to i64
+  %.pre66 = load ptr, ptr %stack, align 8
+  %.pre68 = ptrtoint ptr %.pre to i64
+  %.pre69 = ptrtoint ptr %.pre66 to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.then19, %if.then
-  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre68, %if.then19 ], [ %sub.ptr.rhs.cast15, %if.then ]
-  %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre67, %if.then19 ], [ %sub.ptr.lhs.cast, %if.then ]
+  %sub.ptr.rhs.cast.i.pre-phi = phi i64 [ %.pre69, %if.then19 ], [ %sub.ptr.rhs.cast15, %if.then ]
+  %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre68, %if.then19 ], [ %sub.ptr.lhs.cast, %if.then ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.rhs.cast.i.pre-phi
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
   %conv.i = trunc i64 %sub.ptr.div.i to i32
@@ -1240,45 +1240,42 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body
-  %.pre66 = load ptr, ptr %ci, align 8
+  %.pre67 = load ptr, ptr %ci, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end23
-  %21 = phi ptr [ %.pre66, %for.end.loopexit ], [ %add.ptr25, %if.end23 ]
+  %21 = phi ptr [ %.pre67, %for.end.loopexit ], [ %add.ptr25, %if.end23 ]
   %cmp39.not49 = icmp sgt i32 %narg1.addr.0, %conv8
   br i1 %cmp39.not49, label %for.end47, label %for.body41.preheader
 
 for.body41.preheader:                             ; preds = %for.end
-  %22 = zext i8 %9 to i64
+  %22 = add nuw nsw i32 %conv8, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.preheader, %for.body41
   %indvars.iv62 = phi i64 [ %indvars.iv58, %for.body41.preheader ], [ %indvars.iv.next63, %for.body41 ]
   %tt_44 = getelementptr inbounds %union.StackValue, ptr %21, i64 %indvars.iv62, i32 0, i32 1
   store i8 0, ptr %tt_44, align 8
-  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
-  %cmp39.not.not = icmp slt i64 %indvars.iv62, %22
-  br i1 %cmp39.not.not, label %for.body41, label %for.end47.loopexit, !llvm.loop !15
+  %indvars.iv.next63 = add i64 %indvars.iv62, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next63 to i32
+  %exitcond65.not = icmp eq i32 %22, %lftr.wideiv
+  br i1 %exitcond65.not, label %for.end47, label %for.body41, !llvm.loop !15
 
-for.end47.loopexit:                               ; preds = %for.body41
-  %23 = trunc nsw i64 %indvars.iv.next63 to i32
-  br label %for.end47
-
-for.end47:                                        ; preds = %for.end47.loopexit, %for.end
-  %narg1.addr.1.lcssa = phi i32 [ %narg1.addr.0, %for.end ], [ %23, %for.end47.loopexit ]
+for.end47:                                        ; preds = %for.body41, %for.end
+  %narg1.addr.1.lcssa = phi i32 [ %narg1.addr.0, %for.end ], [ %22, %for.body41 ]
   %add.ptr48 = getelementptr inbounds i8, ptr %21, i64 16
   %idx.ext49 = zext i8 %8 to i64
   %add.ptr50 = getelementptr inbounds %union.StackValue, ptr %add.ptr48, i64 %idx.ext49
   %top51 = getelementptr inbounds i8, ptr %ci, i64 8
   store ptr %add.ptr50, ptr %top51, align 8
   %code = getelementptr inbounds i8, ptr %7, i64 64
-  %24 = load ptr, ptr %code, align 8
+  %23 = load ptr, ptr %code, align 8
   %u = getelementptr inbounds i8, ptr %ci, i64 32
-  store ptr %24, ptr %u, align 8
+  store ptr %23, ptr %u, align 8
   %callstatus = getelementptr inbounds i8, ptr %ci, i64 62
-  %25 = load i16, ptr %callstatus, align 2
-  %26 = or i16 %25, 32
-  store i16 %26, ptr %callstatus, align 2
+  %24 = load i16, ptr %callstatus, align 2
+  %25 = or i16 %24, 32
+  store i16 %25, ptr %callstatus, align 2
   %idx.ext54 = zext nneg i32 %narg1.addr.1.lcssa to i64
   %add.ptr55 = getelementptr inbounds %union.StackValue, ptr %21, i64 %idx.ext54
   store ptr %add.ptr55, ptr %top, align 8

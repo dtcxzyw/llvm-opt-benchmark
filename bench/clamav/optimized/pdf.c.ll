@@ -6221,7 +6221,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 19:                                               ; preds = %3
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.167) #23
-  br label %251
+  br label %250
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %1, i64 160
@@ -6241,7 +6241,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 27:                                               ; preds = %25
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.169) #23
-  br label %251
+  br label %250
 
 28:                                               ; preds = %25
   %29 = ptrtoint ptr %26 to i64
@@ -6249,7 +6249,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   %31 = sub i64 %29, %30
   %32 = sub nsw i64 %12, %31
   %33 = icmp slt i64 %32, 8
-  br i1 %33, label %251, label %34
+  br i1 %33, label %250, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %26, i64 5
@@ -6338,7 +6338,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 76:                                               ; preds = %._crit_edge269
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.175) #23
-  br label %251
+  br label %250
 
 77:                                               ; preds = %._crit_edge269
   %78 = getelementptr i8, ptr %75, i64 %73
@@ -6364,11 +6364,11 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   store i32 %87, ptr %85, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.176) #23
   %.not209 = icmp eq ptr %.0164, null
-  br i1 %.not209, label %137, label %88
+  br i1 %.not209, label %136, label %88
 
 88:                                               ; preds = %._crit_edge
   %89 = tail call i32 @cli_jsonbool(ptr noundef nonnull %.0164, ptr noundef nonnull @.str.177, i32 noundef 1) #23
-  br label %137
+  br label %136
 
 90:                                               ; preds = %.lr.ph
   %91 = getelementptr inbounds i8, ptr %.0167234, i64 -9
@@ -6393,11 +6393,11 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   store i32 %99, ptr %97, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.179) #23
   %.not208 = icmp eq ptr %.0164, null
-  br i1 %.not208, label %137, label %100
+  br i1 %.not208, label %136, label %100
 
 100:                                              ; preds = %._crit_edge238
   %101 = tail call i32 @cli_jsonbool(ptr noundef nonnull %.0164, ptr noundef nonnull @.str.180, i32 noundef 1) #23
-  br label %137
+  br label %136
 
 ._crit_edge241:                                   ; preds = %.lr.ph237
   %102 = ptrtoint ptr %75 to i64
@@ -6417,1702 +6417,1702 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 .critedge3:                                       ; preds = %.lr.ph245, %.lr.ph245, %.lr.ph245
   %106 = getelementptr inbounds i8, ptr %.2243, i64 1
-  %107 = icmp ult ptr %106, %78
-  br i1 %107, label %.lr.ph245, label %.critedge
+  %exitcond.not = icmp eq ptr %106, %78
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph245
 
 .critedge:                                        ; preds = %.critedge3, %.lr.ph245, %._crit_edge241
   %.2.lcssa = phi ptr [ %103, %._crit_edge241 ], [ %.2243, %.lr.ph245 ], [ %78, %.critedge3 ]
-  %108 = ptrtoint ptr %.2.lcssa to i64
-  %109 = sub i64 %spec.store.select, %102
-  %110 = add i64 %109, %108
-  %111 = call i32 @cli_strntol_wrap(ptr noundef nonnull %.2.lcssa, i64 noundef %110, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %5) #23
-  %.not206 = icmp eq i32 %111, 0
-  br i1 %.not206, label %116, label %112
+  %107 = ptrtoint ptr %.2.lcssa to i64
+  %108 = sub i64 %spec.store.select, %102
+  %109 = add i64 %108, %107
+  %110 = call i32 @cli_strntol_wrap(ptr noundef nonnull %.2.lcssa, i64 noundef %109, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %5) #23
+  %.not206 = icmp eq i32 %110, 0
+  br i1 %.not206, label %115, label %111
 
-112:                                              ; preds = %.critedge
+111:                                              ; preds = %.critedge
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.182) #23
-  %113 = getelementptr inbounds i8, ptr %4, i64 12
-  %114 = load i32, ptr %113, align 4
-  %115 = or i32 %114, 4
-  store i32 %115, ptr %113, align 4
-  br label %137
+  %112 = getelementptr inbounds i8, ptr %4, i64 12
+  %113 = load i32, ptr %112, align 4
+  %114 = or i32 %113, 4
+  store i32 %114, ptr %112, align 4
+  br label %136
 
-116:                                              ; preds = %.critedge
-  %117 = load i64, ptr %5, align 8
-  %118 = icmp slt i64 %117, 0
-  br i1 %118, label %119, label %123
+115:                                              ; preds = %.critedge
+  %116 = load i64, ptr %5, align 8
+  %117 = icmp slt i64 %116, 0
+  br i1 %117, label %118, label %122
 
-119:                                              ; preds = %116
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.183, i64 noundef %117) #23
-  %120 = getelementptr inbounds i8, ptr %4, i64 12
-  %121 = load i32, ptr %120, align 4
-  %122 = or i32 %121, 4
-  store i32 %122, ptr %120, align 4
-  br label %137
+118:                                              ; preds = %115
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.183, i64 noundef %116) #23
+  %119 = getelementptr inbounds i8, ptr %4, i64 12
+  %120 = load i32, ptr %119, align 4
+  %121 = or i32 %120, 4
+  store i32 %121, ptr %119, align 4
+  br label %136
 
-123:                                              ; preds = %116
-  %124 = load i64, ptr %9, align 8
-  %125 = add i64 %117, %.pre-phi
-  %126 = sub i64 %124, %125
-  %spec.store.select4 = call i64 @llvm.smin.i64(i64 %126, i64 4096)
-  %127 = load ptr, ptr %16, align 8
-  %128 = call ptr %127(ptr noundef %8, i64 noundef %125, i64 noundef %spec.store.select4, i32 noundef 0) #23
-  %.not207 = icmp eq ptr %128, null
-  br i1 %.not207, label %133, label %129
+122:                                              ; preds = %115
+  %123 = load i64, ptr %9, align 8
+  %124 = add i64 %116, %.pre-phi
+  %125 = sub i64 %123, %124
+  %spec.store.select4 = call i64 @llvm.smin.i64(i64 %125, i64 4096)
+  %126 = load ptr, ptr %16, align 8
+  %127 = call ptr %126(ptr noundef %8, i64 noundef %124, i64 noundef %spec.store.select4, i32 noundef 0) #23
+  %.not207 = icmp eq ptr %127, null
+  br i1 %.not207, label %132, label %128
 
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %128, i64 %spec.store.select4
-  %131 = call fastcc i32 @xrefCheck(ptr noundef %128, ptr noundef %130)
-  %132 = icmp eq i32 %131, -1
-  br i1 %132, label %133, label %137
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds i8, ptr %127, i64 %spec.store.select4
+  %130 = call fastcc i32 @xrefCheck(ptr noundef %127, ptr noundef %129)
+  %131 = icmp eq i32 %130, -1
+  br i1 %131, label %132, label %136
 
-133:                                              ; preds = %129, %123
+132:                                              ; preds = %128, %122
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.184) #23
-  %134 = getelementptr inbounds i8, ptr %4, i64 12
-  %135 = load i32, ptr %134, align 4
-  %136 = or i32 %135, 4
-  store i32 %136, ptr %134, align 4
-  br label %137
+  %133 = getelementptr inbounds i8, ptr %4, i64 12
+  %134 = load i32, ptr %133, align 4
+  %135 = or i32 %134, 4
+  store i32 %135, ptr %133, align 4
+  br label %136
 
-137:                                              ; preds = %100, %._crit_edge238, %119, %133, %129, %112, %._crit_edge, %88
-  %138 = sub i64 %11, %.pre-phi
-  %139 = getelementptr inbounds i8, ptr %4, i64 56
-  store i64 %138, ptr %139, align 8
-  %140 = load ptr, ptr %16, align 8
-  %141 = call ptr %140(ptr noundef %8, i64 noundef %.pre-phi, i64 noundef %138, i32 noundef 1) #23
-  %142 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr %141, ptr %142, align 8
-  %.not210 = icmp eq ptr %141, null
-  br i1 %.not210, label %143, label %144
+136:                                              ; preds = %100, %._crit_edge238, %118, %132, %128, %111, %._crit_edge, %88
+  %137 = sub i64 %11, %.pre-phi
+  %138 = getelementptr inbounds i8, ptr %4, i64 56
+  store i64 %137, ptr %138, align 8
+  %139 = load ptr, ptr %16, align 8
+  %140 = call ptr %139(ptr noundef %8, i64 noundef %.pre-phi, i64 noundef %137, i32 noundef 1) #23
+  %141 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr %140, ptr %141, align 8
+  %.not210 = icmp eq ptr %140, null
+  br i1 %.not210, label %142, label %143
 
-143:                                              ; preds = %137
+142:                                              ; preds = %136
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.185) #23
-  br label %251
+  br label %250
 
-144:                                              ; preds = %137
-  %145 = getelementptr inbounds i8, ptr %4, i64 72
-  store i64 %.pre-phi, ptr %145, align 8
-  %146 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %4, i32 noundef 4, i32 noundef -1)
-  %.not211 = icmp eq i32 %146, 0
-  br i1 %.not211, label %150, label %147
+143:                                              ; preds = %136
+  %144 = getelementptr inbounds i8, ptr %4, i64 72
+  store i64 %.pre-phi, ptr %144, align 8
+  %145 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %4, i32 noundef 4, i32 noundef -1)
+  %.not211 = icmp eq i32 %145, 0
+  br i1 %.not211, label %149, label %146
 
-147:                                              ; preds = %144
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.186, i32 noundef %146) #23
-  %148 = icmp eq i32 %146, 22
-  %149 = select i1 %148, i32 0, i32 %146
-  br label %251
+146:                                              ; preds = %143
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.186, i32 noundef %145) #23
+  %147 = icmp eq i32 %145, 22
+  %148 = select i1 %147, i32 0, i32 %145
+  br label %250
 
-150:                                              ; preds = %144
-  %151 = getelementptr inbounds i8, ptr %4, i64 8
-  %152 = load i32, ptr %151, align 8
-  %153 = load ptr, ptr %13, align 8
-  br label %154
+149:                                              ; preds = %143
+  %150 = getelementptr inbounds i8, ptr %4, i64 8
+  %151 = load i32, ptr %150, align 8
+  %152 = load ptr, ptr %13, align 8
+  br label %153
 
-154:                                              ; preds = %154, %150
-  %155 = call i32 @pdf_findobj(ptr noundef nonnull %4)
-  switch i32 %155, label %154 [
+153:                                              ; preds = %153, %149
+  %154 = call i32 @pdf_findobj(ptr noundef nonnull %4)
+  switch i32 %154, label %153 [
     i32 22, label %.preheader60.i
-    i32 20, label %157
+    i32 20, label %156
   ]
 
-.preheader60.i:                                   ; preds = %154
-  %156 = load i32, ptr %151, align 8
-  %.not.i = icmp eq i32 %156, 0
+.preheader60.i:                                   ; preds = %153
+  %155 = load i32, ptr %150, align 8
+  %.not.i = icmp eq i32 %155, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-157:                                              ; preds = %154
+156:                                              ; preds = %153
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.337) #23
   br label %pdf_find_and_extract_objs.exit
 
-.lr.ph.i:                                         ; preds = %.preheader60.i, %164
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %164 ], [ 0, %.preheader60.i ]
-  %158 = load ptr, ptr %4, align 8
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv.i
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %13, align 8
-  %162 = call i32 @cli_checktimelimit(ptr noundef %161) #23
-  %.not55.i = icmp eq i32 %162, 0
-  br i1 %.not55.i, label %164, label %163
+.lr.ph.i:                                         ; preds = %.preheader60.i, %163
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %163 ], [ 0, %.preheader60.i ]
+  %157 = load ptr, ptr %4, align 8
+  %158 = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv.i
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %13, align 8
+  %161 = call i32 @cli_checktimelimit(ptr noundef %160) #23
+  %.not55.i = icmp eq i32 %161, 0
+  br i1 %.not55.i, label %163, label %162
 
-163:                                              ; preds = %.lr.ph.i
+162:                                              ; preds = %.lr.ph.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.338) #23
   br label %pdf_find_and_extract_objs.exit
 
-164:                                              ; preds = %.lr.ph.i
-  call void @pdf_parseobj(ptr noundef nonnull %4, ptr noundef %160)
+163:                                              ; preds = %.lr.ph.i
+  call void @pdf_parseobj(ptr noundef nonnull %4, ptr noundef %159)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %165 = load i32, ptr %151, align 8
-  %166 = zext i32 %165 to i64
-  %167 = icmp ult i64 %indvars.iv.next.i, %166
-  br i1 %167, label %.lr.ph.i, label %._crit_edge.i
+  %164 = load i32, ptr %150, align 8
+  %165 = zext i32 %164 to i64
+  %166 = icmp ult i64 %indvars.iv.next.i, %165
+  br i1 %166, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %164, %.preheader60.i
+._crit_edge.i:                                    ; preds = %163, %.preheader60.i
   call void @pdf_handle_enc(ptr noundef nonnull %4)
-  %168 = getelementptr inbounds i8, ptr %4, i64 12
-  %169 = load i32, ptr %168, align 4
-  %170 = and i32 %169, 131072
-  %.not48.i = icmp eq i32 %170, 0
-  br i1 %.not48.i, label %174, label %171
+  %167 = getelementptr inbounds i8, ptr %4, i64 12
+  %168 = load i32, ptr %167, align 4
+  %169 = and i32 %168, 131072
+  %.not48.i = icmp eq i32 %169, 0
+  br i1 %.not48.i, label %173, label %170
 
-171:                                              ; preds = %._crit_edge.i
-  %172 = and i32 %169, 524288
-  %.not49.i = icmp eq i32 %172, 0
-  %173 = select i1 %.not49.i, ptr @.str.341, ptr @.str.340
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.339, ptr noundef nonnull %173) #23
-  br label %174
+170:                                              ; preds = %._crit_edge.i
+  %171 = and i32 %168, 524288
+  %.not49.i = icmp eq i32 %171, 0
+  %172 = select i1 %.not49.i, ptr @.str.341, ptr @.str.340
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.339, ptr noundef nonnull %172) #23
+  br label %173
 
-174:                                              ; preds = %171, %._crit_edge.i
-  %175 = getelementptr inbounds i8, ptr %153, i64 64
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
-  %178 = load i32, ptr %177, align 4
-  %179 = and i32 %178, 128
-  %.not50.i = icmp eq i32 %179, 0
-  br i1 %.not50.i, label %.thread.i, label %180
+173:                                              ; preds = %170, %._crit_edge.i
+  %174 = getelementptr inbounds i8, ptr %152, i64 64
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  %177 = load i32, ptr %176, align 4
+  %178 = and i32 %177, 128
+  %.not50.i = icmp eq i32 %178, 0
+  br i1 %.not50.i, label %.thread.i, label %179
 
-180:                                              ; preds = %174
-  %181 = load i32, ptr %168, align 4
-  %182 = and i32 %181, 655360
-  %or.cond56.i = icmp eq i32 %182, 131072
-  br i1 %or.cond56.i, label %183, label %.thread.i
+179:                                              ; preds = %173
+  %180 = load i32, ptr %167, align 4
+  %181 = and i32 %180, 655360
+  %or.cond56.i = icmp eq i32 %181, 131072
+  br i1 %or.cond56.i, label %182, label %.thread.i
 
-183:                                              ; preds = %180
-  %184 = load ptr, ptr %13, align 8
-  %185 = call i32 @cli_append_potentially_unwanted(ptr noundef %184, ptr noundef nonnull @.str.342) #23
-  %186 = icmp eq i32 %185, 0
-  br i1 %186, label %.thread.i, label %pdf_find_and_extract_objs.exit
+182:                                              ; preds = %179
+  %183 = load ptr, ptr %13, align 8
+  %184 = call i32 @cli_append_potentially_unwanted(ptr noundef %183, ptr noundef nonnull @.str.342) #23
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %.thread.i, label %pdf_find_and_extract_objs.exit
 
-.thread.i:                                        ; preds = %183, %180, %174
-  %187 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %4, i32 noundef 1, i32 noundef -1)
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.343, i32 noundef %187) #23
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %.preheader.i, label %pdf_find_and_extract_objs.exit
+.thread.i:                                        ; preds = %182, %179, %173
+  %186 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %4, i32 noundef 1, i32 noundef -1)
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.343, i32 noundef %186) #23
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %.preheader.i, label %pdf_find_and_extract_objs.exit
 
 .preheader.i:                                     ; preds = %.thread.i
-  %189 = getelementptr inbounds i8, ptr %4, i64 316
-  %190 = getelementptr inbounds i8, ptr %4, i64 136
-  br label %191
+  %188 = getelementptr inbounds i8, ptr %4, i64 316
+  %189 = getelementptr inbounds i8, ptr %4, i64 136
+  br label %190
 
-191:                                              ; preds = %212, %.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next69.i, %212 ]
-  %.14165.i = phi i32 [ 0, %.preheader.i ], [ %.242.i, %212 ]
-  %192 = load i32, ptr %151, align 8
-  %193 = zext i32 %192 to i64
-  %194 = icmp ult i64 %indvars.iv68.i, %193
-  br i1 %194, label %195, label %pdf_find_and_extract_objs.exit
+190:                                              ; preds = %211, %.preheader.i
+  %indvars.iv68.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next69.i, %211 ]
+  %.14165.i = phi i32 [ 0, %.preheader.i ], [ %.242.i, %211 ]
+  %191 = load i32, ptr %150, align 8
+  %192 = zext i32 %191 to i64
+  %193 = icmp ult i64 %indvars.iv68.i, %192
+  br i1 %193, label %194, label %pdf_find_and_extract_objs.exit
 
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %4, align 8
-  %197 = getelementptr inbounds ptr, ptr %196, i64 %indvars.iv68.i
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %13, align 8
-  %200 = call i32 @cli_checktimelimit(ptr noundef %199) #23
-  %.not54.i = icmp eq i32 %200, 0
-  br i1 %.not54.i, label %202, label %201
+194:                                              ; preds = %190
+  %195 = load ptr, ptr %4, align 8
+  %196 = getelementptr inbounds ptr, ptr %195, i64 %indvars.iv68.i
+  %197 = load ptr, ptr %196, align 8
+  %198 = load ptr, ptr %13, align 8
+  %199 = call i32 @cli_checktimelimit(ptr noundef %198) #23
+  %.not54.i = icmp eq i32 %199, 0
+  br i1 %.not54.i, label %201, label %200
 
-201:                                              ; preds = %195
+200:                                              ; preds = %194
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.344) #23
   br label %pdf_find_and_extract_objs.exit
 
-202:                                              ; preds = %195
-  %203 = load i32, ptr %189, align 4
-  %204 = add i32 %203, 1
-  store i32 %204, ptr %189, align 4
-  %205 = call i32 @pdf_extract_obj(ptr noundef nonnull %4, ptr noundef %198, i32 noundef 1)
-  %206 = load i32, ptr %189, align 4
-  %207 = add i32 %206, -1
-  store i32 %207, ptr %189, align 4
-  %cond.i = icmp eq i32 %205, 26
-  br i1 %cond.i, label %208, label %212
+201:                                              ; preds = %194
+  %202 = load i32, ptr %188, align 4
+  %203 = add i32 %202, 1
+  store i32 %203, ptr %188, align 4
+  %204 = call i32 @pdf_extract_obj(ptr noundef nonnull %4, ptr noundef %197, i32 noundef 1)
+  %205 = load i32, ptr %188, align 4
+  %206 = add i32 %205, -1
+  store i32 %206, ptr %188, align 4
+  %cond.i = icmp eq i32 %204, 26
+  br i1 %cond.i, label %207, label %211
 
-208:                                              ; preds = %202
+207:                                              ; preds = %201
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.345) #23
-  %209 = add i32 %.14165.i, 1
-  %210 = load i32, ptr %190, align 8
-  %211 = add nsw i32 %210, 1
-  store i32 %211, ptr %190, align 8
-  br label %212
+  %208 = add i32 %.14165.i, 1
+  %209 = load i32, ptr %189, align 8
+  %210 = add nsw i32 %209, 1
+  store i32 %210, ptr %189, align 8
+  br label %211
 
-212:                                              ; preds = %208, %202
-  %.242.i = phi i32 [ %209, %208 ], [ %.14165.i, %202 ]
-  %.4.i = phi i32 [ 0, %208 ], [ %205, %202 ]
+211:                                              ; preds = %207, %201
+  %.242.i = phi i32 [ %208, %207 ], [ %.14165.i, %201 ]
+  %.4.i = phi i32 [ 0, %207 ], [ %204, %201 ]
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %.not53.i = icmp eq i32 %.4.i, 0
-  br i1 %.not53.i, label %191, label %pdf_find_and_extract_objs.exit
+  br i1 %.not53.i, label %190, label %pdf_find_and_extract_objs.exit
 
-pdf_find_and_extract_objs.exit:                   ; preds = %191, %212, %157, %163, %183, %.thread.i, %201
-  %.040.i = phi i32 [ 0, %157 ], [ 0, %163 ], [ %.14165.i, %201 ], [ 0, %.thread.i ], [ 0, %183 ], [ %.242.i, %212 ], [ %.14165.i, %191 ]
-  %.0.i = phi i32 [ 20, %157 ], [ 21, %163 ], [ 21, %201 ], [ %187, %.thread.i ], [ %185, %183 ], [ %.4.i, %212 ], [ 0, %191 ]
-  %213 = icmp eq i32 %.0.i, 0
-  %214 = icmp ne i32 %.040.i, 0
-  %or.cond.i = select i1 %213, i1 %214, i1 false
+pdf_find_and_extract_objs.exit:                   ; preds = %190, %211, %156, %162, %182, %.thread.i, %200
+  %.040.i = phi i32 [ 0, %156 ], [ 0, %162 ], [ %.14165.i, %200 ], [ 0, %.thread.i ], [ 0, %182 ], [ %.242.i, %211 ], [ %.14165.i, %190 ]
+  %.0.i = phi i32 [ 20, %156 ], [ 21, %162 ], [ 21, %200 ], [ %186, %.thread.i ], [ %184, %182 ], [ %.4.i, %211 ], [ 0, %190 ]
+  %212 = icmp eq i32 %.0.i, 0
+  %213 = icmp ne i32 %.040.i, 0
+  %or.cond.i = select i1 %212, i1 %213, i1 false
   %spec.store.select.i = select i1 %or.cond.i, i32 26, i32 %.0.i
-  %215 = icmp eq i32 %spec.store.select.i, 20
-  br i1 %215, label %216, label %217
+  %214 = icmp eq i32 %spec.store.select.i, 20
+  br i1 %214, label %215, label %216
+
+215:                                              ; preds = %pdf_find_and_extract_objs.exit
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.187) #23
+  br label %255
 
 216:                                              ; preds = %pdf_find_and_extract_objs.exit
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.187) #23
-  br label %256
+  %217 = load i32, ptr %150, align 8
+  %.not212 = icmp ugt i32 %217, %151
+  br i1 %.not212, label %219, label %218
 
-217:                                              ; preds = %pdf_find_and_extract_objs.exit
-  %218 = load i32, ptr %151, align 8
-  %.not212 = icmp ugt i32 %218, %152
-  br i1 %.not212, label %220, label %219
-
-219:                                              ; preds = %217
+218:                                              ; preds = %216
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.188) #23
-  br label %222
+  br label %221
 
-220:                                              ; preds = %217
-  %221 = sub nuw i32 %218, %152
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.189, i32 noundef %221) #23
-  br label %222
+219:                                              ; preds = %216
+  %220 = sub nuw i32 %217, %151
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.189, i32 noundef %220) #23
+  br label %221
 
-222:                                              ; preds = %219, %220
-  %223 = getelementptr inbounds i8, ptr %4, i64 12
-  %224 = load i32, ptr %223, align 4
-  %225 = and i32 %224, 131072
-  %.not213 = icmp eq i32 %225, 0
-  br i1 %.not213, label %228, label %226
+221:                                              ; preds = %218, %219
+  %222 = getelementptr inbounds i8, ptr %4, i64 12
+  %223 = load i32, ptr %222, align 4
+  %224 = and i32 %223, 131072
+  %.not213 = icmp eq i32 %224, 0
+  br i1 %.not213, label %227, label %225
 
-226:                                              ; preds = %222
-  %227 = and i32 %224, -449
-  store i32 %227, ptr %223, align 4
-  br label %228
+225:                                              ; preds = %221
+  %226 = and i32 %223, -449
+  store i32 %226, ptr %222, align 4
+  br label %227
 
-228:                                              ; preds = %226, %222
-  %229 = phi i32 [ %227, %226 ], [ %224, %222 ]
-  %230 = icmp ne i32 %229, 0
-  %231 = icmp eq i32 %spec.store.select.i, 0
-  %or.cond6 = and i1 %231, %230
-  br i1 %or.cond6, label %232, label %251
+227:                                              ; preds = %225, %221
+  %228 = phi i32 [ %226, %225 ], [ %223, %221 ]
+  %229 = icmp ne i32 %228, 0
+  %230 = icmp eq i32 %spec.store.select.i, 0
+  %or.cond6 = and i1 %230, %229
+  br i1 %or.cond6, label %231, label %250
 
-232:                                              ; preds = %228
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.190, i32 noundef %229) #23
-  %233 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %4, i32 noundef 3, i32 noundef -1)
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %251
+231:                                              ; preds = %227
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.190, i32 noundef %228) #23
+  %232 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %4, i32 noundef 3, i32 noundef -1)
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %234, label %250
 
-235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %1, i64 64
-  %237 = load ptr, ptr %236, align 8
-  %238 = load i32, ptr %237, align 4
-  %239 = and i32 %238, 4
-  %.not214 = icmp eq i32 %239, 0
-  br i1 %.not214, label %251, label %240
+234:                                              ; preds = %231
+  %235 = getelementptr inbounds i8, ptr %1, i64 64
+  %236 = load ptr, ptr %235, align 8
+  %237 = load i32, ptr %236, align 4
+  %238 = and i32 %237, 4
+  %.not214 = icmp eq i32 %238, 0
+  br i1 %.not214, label %250, label %239
 
-240:                                              ; preds = %235
-  %241 = getelementptr inbounds i8, ptr %1, i64 120
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 24
-  %244 = load i32, ptr %243, align 4
-  %245 = and i32 %244, 256
-  %.not215 = icmp eq i32 %245, 0
-  br i1 %.not215, label %251, label %246
+239:                                              ; preds = %234
+  %240 = getelementptr inbounds i8, ptr %1, i64 120
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 24
+  %243 = load i32, ptr %242, align 4
+  %244 = and i32 %243, 256
+  %.not215 = icmp eq i32 %244, 0
+  br i1 %.not215, label %250, label %245
 
-246:                                              ; preds = %240
-  %247 = load i32, ptr %223, align 4
-  %248 = and i32 %247, 2048
-  %.not216 = icmp eq i32 %248, 0
-  br i1 %.not216, label %251, label %249
+245:                                              ; preds = %239
+  %246 = load i32, ptr %222, align 4
+  %247 = and i32 %246, 2048
+  %.not216 = icmp eq i32 %247, 0
+  br i1 %.not216, label %250, label %248
 
-249:                                              ; preds = %246
-  %250 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %1, ptr noundef nonnull @.str.191) #23
-  br label %251
+248:                                              ; preds = %245
+  %249 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %1, ptr noundef nonnull @.str.191) #23
+  br label %250
 
-251:                                              ; preds = %28, %228, %246, %249, %240, %235, %232, %147, %143, %76, %27, %19
-  %.0163 = phi i32 [ %149, %147 ], [ %250, %249 ], [ 0, %246 ], [ 0, %240 ], [ 0, %235 ], [ %233, %232 ], [ %spec.store.select.i, %228 ], [ 19, %143 ], [ 19, %76 ], [ 0, %27 ], [ 19, %19 ], [ 26, %28 ]
-  %252 = icmp eq i32 %.0163, 0
-  %253 = getelementptr inbounds i8, ptr %4, i64 136
-  %254 = load i32, ptr %253, align 8
-  %255 = icmp sgt i32 %254, 0
-  %or.cond10 = select i1 %252, i1 %255, i1 false
+250:                                              ; preds = %28, %227, %245, %248, %239, %234, %231, %146, %142, %76, %27, %19
+  %.0163 = phi i32 [ %148, %146 ], [ %249, %248 ], [ 0, %245 ], [ 0, %239 ], [ 0, %234 ], [ %232, %231 ], [ %spec.store.select.i, %227 ], [ 19, %142 ], [ 19, %76 ], [ 0, %27 ], [ 19, %19 ], [ 26, %28 ]
+  %251 = icmp eq i32 %.0163, 0
+  %252 = getelementptr inbounds i8, ptr %4, i64 136
+  %253 = load i32, ptr %252, align 8
+  %254 = icmp sgt i32 %253, 0
+  %or.cond10 = select i1 %251, i1 %254, i1 false
   %spec.store.select11 = select i1 %or.cond10, i32 26, i32 %.0163
-  br label %256
-
-256:                                              ; preds = %251, %216
-  %.1 = phi i32 [ %spec.store.select11, %251 ], [ 20, %216 ]
-  %257 = load ptr, ptr %13, align 8
-  %.not.i226 = icmp eq ptr %257, null
-  br i1 %.not.i226, label %.loopexit.i, label %258
-
-258:                                              ; preds = %256
-  %259 = getelementptr inbounds i8, ptr %257, i64 64
-  %260 = load ptr, ptr %259, align 8
-  %261 = load i32, ptr %260, align 4
-  %262 = and i32 %261, 2
-  %.not383.i = icmp eq i32 %262, 0
-  br i1 %.not383.i, label %.loopexit.i, label %263
-
-263:                                              ; preds = %258
-  %264 = getelementptr inbounds i8, ptr %257, i64 160
-  %265 = load ptr, ptr %264, align 8
-  %.not384.i = icmp eq ptr %265, null
-  br i1 %.not384.i, label %.loopexit.i, label %266
-
-266:                                              ; preds = %263
-  %267 = call ptr @cli_jsonobj(ptr noundef nonnull %265, ptr noundef nonnull @.str.94) #23
-  %.not385.i = icmp eq ptr %267, null
-  br i1 %.not385.i, label %.loopexit.i, label %268
-
-268:                                              ; preds = %266
-  %269 = getelementptr inbounds i8, ptr %4, i64 136
-  %270 = getelementptr inbounds i8, ptr %4, i64 240
-  %271 = load ptr, ptr %270, align 8
-  %.not386.i = icmp eq ptr %271, null
-  br i1 %.not386.i, label %317, label %272
-
-272:                                              ; preds = %268
-  %273 = getelementptr inbounds i8, ptr %271, i64 24
-  %274 = load i32, ptr %273, align 8
-  %.not387.i = icmp eq i32 %274, 0
-  br i1 %.not387.i, label %275, label %292
-
-275:                                              ; preds = %272
-  %276 = getelementptr inbounds i8, ptr %271, i64 8
-  %277 = getelementptr inbounds i8, ptr %271, i64 16
-  %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr %271, align 8
-  %280 = load i32, ptr %276, align 8
-  %281 = sext i32 %280 to i64
-  %282 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %278, ptr noundef %279, i64 noundef %281) #23
-  %.not388.i = icmp eq ptr %282, null
-  %.pre477.i = load ptr, ptr %270, align 8
-  br i1 %.not388.i, label %292, label %283
-
-283:                                              ; preds = %275
-  %284 = load ptr, ptr %.pre477.i, align 8
-  call void @free(ptr noundef %284) #23
-  %285 = load ptr, ptr %270, align 8
-  store ptr %282, ptr %285, align 8
-  %286 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #27
-  %287 = trunc i64 %286 to i32
-  %288 = load ptr, ptr %270, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
-  store i32 %287, ptr %289, align 8
-  %290 = load ptr, ptr %270, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 24
-  store i32 1, ptr %291, align 8
-  %.pre.i = load ptr, ptr %270, align 8
-  br label %292
-
-292:                                              ; preds = %283, %275, %272
-  %293 = phi ptr [ %.pre477.i, %275 ], [ %.pre.i, %283 ], [ %271, %272 ]
-  %294 = getelementptr inbounds i8, ptr %293, i64 24
-  %295 = load i32, ptr %294, align 8
-  %.not389.i = icmp eq i32 %295, 0
-  br i1 %.not389.i, label %304, label %296
-
-296:                                              ; preds = %292
-  %297 = getelementptr inbounds i8, ptr %293, i64 8
-  %298 = load ptr, ptr %293, align 8
-  %299 = load i32, ptr %297, align 8
-  %300 = call i32 @cli_isutf8(ptr noundef %298, i32 noundef %299) #23
-  %.not390.i = icmp eq i32 %300, 0
-  %.pre478.i = load ptr, ptr %270, align 8
-  br i1 %.not390.i, label %304, label %301
-
-301:                                              ; preds = %296
-  %302 = load ptr, ptr %.pre478.i, align 8
-  %303 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.263, ptr noundef %302) #23
-  br label %317
-
-304:                                              ; preds = %296, %292
-  %305 = phi ptr [ %.pre478.i, %296 ], [ %293, %292 ]
-  %306 = load ptr, ptr %305, align 8
-  %.not391.i = icmp eq ptr %306, null
-  br i1 %.not391.i, label %315, label %307
-
-307:                                              ; preds = %304
-  %308 = getelementptr inbounds i8, ptr %305, i64 8
-  %309 = load i32, ptr %308, align 8
-  %.not392.i = icmp eq i32 %309, 0
-  br i1 %.not392.i, label %315, label %310
-
-310:                                              ; preds = %307
-  %311 = sext i32 %309 to i64
-  %312 = call ptr @cl_base64_encode(ptr noundef nonnull %306, i64 noundef %311) #23
-  %313 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.263, ptr noundef %312) #23
-  %314 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.347, i32 noundef 1) #23
-  call void @free(ptr noundef %312) #23
-  br label %317
-
-315:                                              ; preds = %307, %304
-  %316 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.26) #23
-  br label %317
-
-317:                                              ; preds = %315, %310, %301, %268
-  %318 = getelementptr inbounds i8, ptr %4, i64 248
-  %319 = load ptr, ptr %318, align 8
-  %.not393.i = icmp eq ptr %319, null
-  br i1 %.not393.i, label %365, label %320
-
-320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %319, i64 24
-  %322 = load i32, ptr %321, align 8
-  %.not394.i = icmp eq i32 %322, 0
-  br i1 %.not394.i, label %323, label %340
-
-323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %319, i64 8
-  %325 = getelementptr inbounds i8, ptr %319, i64 16
-  %326 = load ptr, ptr %325, align 8
-  %327 = load ptr, ptr %319, align 8
-  %328 = load i32, ptr %324, align 8
-  %329 = sext i32 %328 to i64
-  %330 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %326, ptr noundef %327, i64 noundef %329) #23
-  %.not395.i = icmp eq ptr %330, null
-  %.pre480.i = load ptr, ptr %318, align 8
-  br i1 %.not395.i, label %340, label %331
-
-331:                                              ; preds = %323
-  %332 = load ptr, ptr %.pre480.i, align 8
-  call void @free(ptr noundef %332) #23
-  %333 = load ptr, ptr %318, align 8
-  store ptr %330, ptr %333, align 8
-  %334 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %330) #27
-  %335 = trunc i64 %334 to i32
-  %336 = load ptr, ptr %318, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 8
-  store i32 %335, ptr %337, align 8
-  %338 = load ptr, ptr %318, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 24
-  store i32 1, ptr %339, align 8
-  %.pre479.i = load ptr, ptr %318, align 8
-  br label %340
-
-340:                                              ; preds = %331, %323, %320
-  %341 = phi ptr [ %.pre480.i, %323 ], [ %.pre479.i, %331 ], [ %319, %320 ]
-  %342 = getelementptr inbounds i8, ptr %341, i64 24
-  %343 = load i32, ptr %342, align 8
-  %.not396.i = icmp eq i32 %343, 0
-  br i1 %.not396.i, label %352, label %344
-
-344:                                              ; preds = %340
-  %345 = getelementptr inbounds i8, ptr %341, i64 8
-  %346 = load ptr, ptr %341, align 8
-  %347 = load i32, ptr %345, align 8
-  %348 = call i32 @cli_isutf8(ptr noundef %346, i32 noundef %347) #23
-  %.not397.i = icmp eq i32 %348, 0
-  %.pre481.i = load ptr, ptr %318, align 8
-  br i1 %.not397.i, label %352, label %349
-
-349:                                              ; preds = %344
-  %350 = load ptr, ptr %.pre481.i, align 8
-  %351 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.267, ptr noundef %350) #23
-  br label %365
-
-352:                                              ; preds = %344, %340
-  %353 = phi ptr [ %.pre481.i, %344 ], [ %341, %340 ]
-  %354 = load ptr, ptr %353, align 8
-  %.not398.i = icmp eq ptr %354, null
-  br i1 %.not398.i, label %363, label %355
-
-355:                                              ; preds = %352
-  %356 = getelementptr inbounds i8, ptr %353, i64 8
-  %357 = load i32, ptr %356, align 8
-  %.not399.i = icmp eq i32 %357, 0
-  br i1 %.not399.i, label %363, label %358
-
-358:                                              ; preds = %355
-  %359 = sext i32 %357 to i64
-  %360 = call ptr @cl_base64_encode(ptr noundef nonnull %354, i64 noundef %359) #23
-  %361 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.267, ptr noundef %360) #23
-  %362 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.348, i32 noundef 1) #23
-  call void @free(ptr noundef %360) #23
-  br label %365
-
-363:                                              ; preds = %355, %352
-  %364 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.26) #23
-  br label %365
-
-365:                                              ; preds = %363, %358, %349, %317
-  %366 = getelementptr inbounds i8, ptr %4, i64 256
-  %367 = load ptr, ptr %366, align 8
-  %.not400.i = icmp eq ptr %367, null
-  br i1 %.not400.i, label %413, label %368
-
-368:                                              ; preds = %365
-  %369 = getelementptr inbounds i8, ptr %367, i64 24
-  %370 = load i32, ptr %369, align 8
-  %.not401.i = icmp eq i32 %370, 0
-  br i1 %.not401.i, label %371, label %388
-
-371:                                              ; preds = %368
-  %372 = getelementptr inbounds i8, ptr %367, i64 8
-  %373 = getelementptr inbounds i8, ptr %367, i64 16
-  %374 = load ptr, ptr %373, align 8
-  %375 = load ptr, ptr %367, align 8
-  %376 = load i32, ptr %372, align 8
-  %377 = sext i32 %376 to i64
-  %378 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %374, ptr noundef %375, i64 noundef %377) #23
-  %.not402.i = icmp eq ptr %378, null
-  %.pre483.i = load ptr, ptr %366, align 8
-  br i1 %.not402.i, label %388, label %379
-
-379:                                              ; preds = %371
-  %380 = load ptr, ptr %.pre483.i, align 8
-  call void @free(ptr noundef %380) #23
-  %381 = load ptr, ptr %366, align 8
-  store ptr %378, ptr %381, align 8
-  %382 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %378) #27
-  %383 = trunc i64 %382 to i32
-  %384 = load ptr, ptr %366, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 8
-  store i32 %383, ptr %385, align 8
-  %386 = load ptr, ptr %366, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 24
-  store i32 1, ptr %387, align 8
-  %.pre482.i = load ptr, ptr %366, align 8
-  br label %388
-
-388:                                              ; preds = %379, %371, %368
-  %389 = phi ptr [ %.pre483.i, %371 ], [ %.pre482.i, %379 ], [ %367, %368 ]
-  %390 = getelementptr inbounds i8, ptr %389, i64 24
-  %391 = load i32, ptr %390, align 8
-  %.not403.i = icmp eq i32 %391, 0
-  br i1 %.not403.i, label %400, label %392
-
-392:                                              ; preds = %388
-  %393 = getelementptr inbounds i8, ptr %389, i64 8
-  %394 = load ptr, ptr %389, align 8
-  %395 = load i32, ptr %393, align 8
-  %396 = call i32 @cli_isutf8(ptr noundef %394, i32 noundef %395) #23
-  %.not404.i = icmp eq i32 %396, 0
-  %.pre484.i = load ptr, ptr %366, align 8
-  br i1 %.not404.i, label %400, label %397
-
-397:                                              ; preds = %392
-  %398 = load ptr, ptr %.pre484.i, align 8
-  %399 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.264, ptr noundef %398) #23
-  br label %413
-
-400:                                              ; preds = %392, %388
-  %401 = phi ptr [ %.pre484.i, %392 ], [ %389, %388 ]
-  %402 = load ptr, ptr %401, align 8
-  %.not405.i = icmp eq ptr %402, null
-  br i1 %.not405.i, label %411, label %403
-
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %401, i64 8
-  %405 = load i32, ptr %404, align 8
-  %.not406.i = icmp eq i32 %405, 0
-  br i1 %.not406.i, label %411, label %406
-
-406:                                              ; preds = %403
-  %407 = sext i32 %405 to i64
-  %408 = call ptr @cl_base64_encode(ptr noundef nonnull %402, i64 noundef %407) #23
-  %409 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.264, ptr noundef %408) #23
-  %410 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.349, i32 noundef 1) #23
-  call void @free(ptr noundef %408) #23
-  br label %413
-
-411:                                              ; preds = %403, %400
-  %412 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.26) #23
-  br label %413
-
-413:                                              ; preds = %411, %406, %397, %365
-  %414 = getelementptr inbounds i8, ptr %4, i64 272
-  %415 = load ptr, ptr %414, align 8
-  %.not407.i = icmp eq ptr %415, null
-  br i1 %.not407.i, label %461, label %416
-
-416:                                              ; preds = %413
-  %417 = getelementptr inbounds i8, ptr %415, i64 24
-  %418 = load i32, ptr %417, align 8
-  %.not408.i = icmp eq i32 %418, 0
-  br i1 %.not408.i, label %419, label %436
-
-419:                                              ; preds = %416
-  %420 = getelementptr inbounds i8, ptr %415, i64 8
-  %421 = getelementptr inbounds i8, ptr %415, i64 16
-  %422 = load ptr, ptr %421, align 8
-  %423 = load ptr, ptr %415, align 8
-  %424 = load i32, ptr %420, align 8
-  %425 = sext i32 %424 to i64
-  %426 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %422, ptr noundef %423, i64 noundef %425) #23
-  %.not409.i = icmp eq ptr %426, null
-  %.pre486.i = load ptr, ptr %414, align 8
-  br i1 %.not409.i, label %436, label %427
-
-427:                                              ; preds = %419
-  %428 = load ptr, ptr %.pre486.i, align 8
-  call void @free(ptr noundef %428) #23
-  %429 = load ptr, ptr %414, align 8
-  store ptr %426, ptr %429, align 8
-  %430 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %426) #27
-  %431 = trunc i64 %430 to i32
-  %432 = load ptr, ptr %414, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 8
-  store i32 %431, ptr %433, align 8
-  %434 = load ptr, ptr %414, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 24
-  store i32 1, ptr %435, align 8
-  %.pre485.i = load ptr, ptr %414, align 8
-  br label %436
-
-436:                                              ; preds = %427, %419, %416
-  %437 = phi ptr [ %.pre486.i, %419 ], [ %.pre485.i, %427 ], [ %415, %416 ]
-  %438 = getelementptr inbounds i8, ptr %437, i64 24
-  %439 = load i32, ptr %438, align 8
-  %.not410.i = icmp eq i32 %439, 0
-  br i1 %.not410.i, label %448, label %440
-
-440:                                              ; preds = %436
-  %441 = getelementptr inbounds i8, ptr %437, i64 8
-  %442 = load ptr, ptr %437, align 8
-  %443 = load i32, ptr %441, align 8
-  %444 = call i32 @cli_isutf8(ptr noundef %442, i32 noundef %443) #23
-  %.not411.i = icmp eq i32 %444, 0
-  %.pre487.i = load ptr, ptr %414, align 8
-  br i1 %.not411.i, label %448, label %445
-
-445:                                              ; preds = %440
-  %446 = load ptr, ptr %.pre487.i, align 8
-  %447 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.350, ptr noundef %446) #23
-  br label %461
-
-448:                                              ; preds = %440, %436
-  %449 = phi ptr [ %.pre487.i, %440 ], [ %437, %436 ]
-  %450 = load ptr, ptr %449, align 8
-  %.not412.i = icmp eq ptr %450, null
-  br i1 %.not412.i, label %459, label %451
-
-451:                                              ; preds = %448
-  %452 = getelementptr inbounds i8, ptr %449, i64 8
-  %453 = load i32, ptr %452, align 8
-  %.not413.i = icmp eq i32 %453, 0
-  br i1 %.not413.i, label %459, label %454
-
-454:                                              ; preds = %451
-  %455 = sext i32 %453 to i64
-  %456 = call ptr @cl_base64_encode(ptr noundef nonnull %450, i64 noundef %455) #23
-  %457 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.350, ptr noundef %456) #23
-  %458 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.351, i32 noundef 1) #23
-  call void @free(ptr noundef %456) #23
-  br label %461
-
-459:                                              ; preds = %451, %448
-  %460 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.26) #23
-  br label %461
-
-461:                                              ; preds = %459, %454, %445, %413
-  %462 = getelementptr inbounds i8, ptr %4, i64 264
-  %463 = load ptr, ptr %462, align 8
-  %.not414.i = icmp eq ptr %463, null
-  br i1 %.not414.i, label %509, label %464
-
-464:                                              ; preds = %461
-  %465 = getelementptr inbounds i8, ptr %463, i64 24
-  %466 = load i32, ptr %465, align 8
-  %.not415.i = icmp eq i32 %466, 0
-  br i1 %.not415.i, label %467, label %484
-
-467:                                              ; preds = %464
-  %468 = getelementptr inbounds i8, ptr %463, i64 8
-  %469 = getelementptr inbounds i8, ptr %463, i64 16
-  %470 = load ptr, ptr %469, align 8
-  %471 = load ptr, ptr %463, align 8
-  %472 = load i32, ptr %468, align 8
-  %473 = sext i32 %472 to i64
-  %474 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %470, ptr noundef %471, i64 noundef %473) #23
-  %.not416.i = icmp eq ptr %474, null
-  %.pre489.i = load ptr, ptr %462, align 8
-  br i1 %.not416.i, label %484, label %475
-
-475:                                              ; preds = %467
-  %476 = load ptr, ptr %.pre489.i, align 8
-  call void @free(ptr noundef %476) #23
-  %477 = load ptr, ptr %462, align 8
-  store ptr %474, ptr %477, align 8
-  %478 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %474) #27
-  %479 = trunc i64 %478 to i32
-  %480 = load ptr, ptr %462, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 8
-  store i32 %479, ptr %481, align 8
-  %482 = load ptr, ptr %462, align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 24
-  store i32 1, ptr %483, align 8
-  %.pre488.i = load ptr, ptr %462, align 8
-  br label %484
-
-484:                                              ; preds = %475, %467, %464
-  %485 = phi ptr [ %.pre489.i, %467 ], [ %.pre488.i, %475 ], [ %463, %464 ]
-  %486 = getelementptr inbounds i8, ptr %485, i64 24
-  %487 = load i32, ptr %486, align 8
-  %.not417.i = icmp eq i32 %487, 0
-  br i1 %.not417.i, label %496, label %488
-
-488:                                              ; preds = %484
-  %489 = getelementptr inbounds i8, ptr %485, i64 8
-  %490 = load ptr, ptr %485, align 8
-  %491 = load i32, ptr %489, align 8
-  %492 = call i32 @cli_isutf8(ptr noundef %490, i32 noundef %491) #23
-  %.not418.i = icmp eq i32 %492, 0
-  %.pre490.i = load ptr, ptr %462, align 8
-  br i1 %.not418.i, label %496, label %493
-
-493:                                              ; preds = %488
-  %494 = load ptr, ptr %.pre490.i, align 8
-  %495 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.265, ptr noundef %494) #23
-  br label %509
-
-496:                                              ; preds = %488, %484
-  %497 = phi ptr [ %.pre490.i, %488 ], [ %485, %484 ]
-  %498 = load ptr, ptr %497, align 8
-  %.not419.i = icmp eq ptr %498, null
-  br i1 %.not419.i, label %507, label %499
-
-499:                                              ; preds = %496
-  %500 = getelementptr inbounds i8, ptr %497, i64 8
-  %501 = load i32, ptr %500, align 8
-  %.not420.i = icmp eq i32 %501, 0
-  br i1 %.not420.i, label %507, label %502
-
-502:                                              ; preds = %499
-  %503 = sext i32 %501 to i64
-  %504 = call ptr @cl_base64_encode(ptr noundef nonnull %498, i64 noundef %503) #23
-  %505 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.265, ptr noundef %504) #23
-  %506 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.352, i32 noundef 1) #23
-  call void @free(ptr noundef %504) #23
-  br label %509
-
-507:                                              ; preds = %499, %496
-  %508 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.26) #23
-  br label %509
-
-509:                                              ; preds = %507, %502, %493, %461
-  %510 = getelementptr inbounds i8, ptr %4, i64 280
-  %511 = load ptr, ptr %510, align 8
-  %.not421.i = icmp eq ptr %511, null
-  br i1 %.not421.i, label %557, label %512
-
-512:                                              ; preds = %509
-  %513 = getelementptr inbounds i8, ptr %511, i64 24
-  %514 = load i32, ptr %513, align 8
-  %.not422.i = icmp eq i32 %514, 0
-  br i1 %.not422.i, label %515, label %532
-
-515:                                              ; preds = %512
-  %516 = getelementptr inbounds i8, ptr %511, i64 8
-  %517 = getelementptr inbounds i8, ptr %511, i64 16
-  %518 = load ptr, ptr %517, align 8
-  %519 = load ptr, ptr %511, align 8
-  %520 = load i32, ptr %516, align 8
-  %521 = sext i32 %520 to i64
-  %522 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %518, ptr noundef %519, i64 noundef %521) #23
-  %.not423.i = icmp eq ptr %522, null
-  %.pre492.i = load ptr, ptr %510, align 8
-  br i1 %.not423.i, label %532, label %523
-
-523:                                              ; preds = %515
-  %524 = load ptr, ptr %.pre492.i, align 8
-  call void @free(ptr noundef %524) #23
-  %525 = load ptr, ptr %510, align 8
-  store ptr %522, ptr %525, align 8
-  %526 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %522) #27
-  %527 = trunc i64 %526 to i32
-  %528 = load ptr, ptr %510, align 8
-  %529 = getelementptr inbounds i8, ptr %528, i64 8
-  store i32 %527, ptr %529, align 8
-  %530 = load ptr, ptr %510, align 8
-  %531 = getelementptr inbounds i8, ptr %530, i64 24
-  store i32 1, ptr %531, align 8
-  %.pre491.i = load ptr, ptr %510, align 8
-  br label %532
-
-532:                                              ; preds = %523, %515, %512
-  %533 = phi ptr [ %.pre492.i, %515 ], [ %.pre491.i, %523 ], [ %511, %512 ]
-  %534 = getelementptr inbounds i8, ptr %533, i64 24
-  %535 = load i32, ptr %534, align 8
-  %.not424.i = icmp eq i32 %535, 0
-  br i1 %.not424.i, label %544, label %536
-
-536:                                              ; preds = %532
-  %537 = getelementptr inbounds i8, ptr %533, i64 8
-  %538 = load ptr, ptr %533, align 8
-  %539 = load i32, ptr %537, align 8
-  %540 = call i32 @cli_isutf8(ptr noundef %538, i32 noundef %539) #23
-  %.not425.i = icmp eq i32 %540, 0
-  %.pre493.i = load ptr, ptr %510, align 8
-  br i1 %.not425.i, label %544, label %541
-
-541:                                              ; preds = %536
-  %542 = load ptr, ptr %.pre493.i, align 8
-  %543 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.268, ptr noundef %542) #23
-  br label %557
-
-544:                                              ; preds = %536, %532
-  %545 = phi ptr [ %.pre493.i, %536 ], [ %533, %532 ]
-  %546 = load ptr, ptr %545, align 8
-  %.not426.i = icmp eq ptr %546, null
-  br i1 %.not426.i, label %555, label %547
-
-547:                                              ; preds = %544
-  %548 = getelementptr inbounds i8, ptr %545, i64 8
-  %549 = load i32, ptr %548, align 8
-  %.not427.i = icmp eq i32 %549, 0
-  br i1 %.not427.i, label %555, label %550
-
-550:                                              ; preds = %547
-  %551 = sext i32 %549 to i64
-  %552 = call ptr @cl_base64_encode(ptr noundef nonnull %546, i64 noundef %551) #23
-  %553 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.268, ptr noundef %552) #23
-  %554 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.353, i32 noundef 1) #23
-  call void @free(ptr noundef %552) #23
-  br label %557
-
-555:                                              ; preds = %547, %544
-  %556 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.26) #23
-  br label %557
-
-557:                                              ; preds = %555, %550, %541, %509
-  %558 = getelementptr inbounds i8, ptr %4, i64 288
-  %559 = load ptr, ptr %558, align 8
-  %.not428.i = icmp eq ptr %559, null
-  br i1 %.not428.i, label %605, label %560
-
-560:                                              ; preds = %557
-  %561 = getelementptr inbounds i8, ptr %559, i64 24
-  %562 = load i32, ptr %561, align 8
-  %.not429.i = icmp eq i32 %562, 0
-  br i1 %.not429.i, label %563, label %580
-
-563:                                              ; preds = %560
-  %564 = getelementptr inbounds i8, ptr %559, i64 8
-  %565 = getelementptr inbounds i8, ptr %559, i64 16
-  %566 = load ptr, ptr %565, align 8
-  %567 = load ptr, ptr %559, align 8
-  %568 = load i32, ptr %564, align 8
-  %569 = sext i32 %568 to i64
-  %570 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %566, ptr noundef %567, i64 noundef %569) #23
-  %.not430.i = icmp eq ptr %570, null
-  %.pre495.i = load ptr, ptr %558, align 8
-  br i1 %.not430.i, label %580, label %571
-
-571:                                              ; preds = %563
-  %572 = load ptr, ptr %.pre495.i, align 8
-  call void @free(ptr noundef %572) #23
-  %573 = load ptr, ptr %558, align 8
-  store ptr %570, ptr %573, align 8
-  %574 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %570) #27
-  %575 = trunc i64 %574 to i32
-  %576 = load ptr, ptr %558, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 8
-  store i32 %575, ptr %577, align 8
-  %578 = load ptr, ptr %558, align 8
-  %579 = getelementptr inbounds i8, ptr %578, i64 24
-  store i32 1, ptr %579, align 8
-  %.pre494.i = load ptr, ptr %558, align 8
-  br label %580
-
-580:                                              ; preds = %571, %563, %560
-  %581 = phi ptr [ %.pre495.i, %563 ], [ %.pre494.i, %571 ], [ %559, %560 ]
-  %582 = getelementptr inbounds i8, ptr %581, i64 24
-  %583 = load i32, ptr %582, align 8
-  %.not431.i = icmp eq i32 %583, 0
-  br i1 %.not431.i, label %592, label %584
-
-584:                                              ; preds = %580
-  %585 = getelementptr inbounds i8, ptr %581, i64 8
-  %586 = load ptr, ptr %581, align 8
-  %587 = load i32, ptr %585, align 8
-  %588 = call i32 @cli_isutf8(ptr noundef %586, i32 noundef %587) #23
-  %.not432.i = icmp eq i32 %588, 0
-  %.pre496.i = load ptr, ptr %558, align 8
-  br i1 %.not432.i, label %592, label %589
-
-589:                                              ; preds = %584
-  %590 = load ptr, ptr %.pre496.i, align 8
-  %591 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.270, ptr noundef %590) #23
-  br label %605
-
-592:                                              ; preds = %584, %580
-  %593 = phi ptr [ %.pre496.i, %584 ], [ %581, %580 ]
-  %594 = load ptr, ptr %593, align 8
-  %.not433.i = icmp eq ptr %594, null
-  br i1 %.not433.i, label %603, label %595
-
-595:                                              ; preds = %592
-  %596 = getelementptr inbounds i8, ptr %593, i64 8
-  %597 = load i32, ptr %596, align 8
-  %.not434.i = icmp eq i32 %597, 0
-  br i1 %.not434.i, label %603, label %598
-
-598:                                              ; preds = %595
-  %599 = sext i32 %597 to i64
-  %600 = call ptr @cl_base64_encode(ptr noundef nonnull %594, i64 noundef %599) #23
-  %601 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.270, ptr noundef %600) #23
-  %602 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.354, i32 noundef 1) #23
-  call void @free(ptr noundef %600) #23
-  br label %605
-
-603:                                              ; preds = %595, %592
-  %604 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.26) #23
-  br label %605
-
-605:                                              ; preds = %603, %598, %589, %557
-  %606 = getelementptr inbounds i8, ptr %4, i64 296
-  %607 = load ptr, ptr %606, align 8
-  %.not435.i = icmp eq ptr %607, null
-  br i1 %.not435.i, label %653, label %608
-
-608:                                              ; preds = %605
-  %609 = getelementptr inbounds i8, ptr %607, i64 24
-  %610 = load i32, ptr %609, align 8
-  %.not436.i = icmp eq i32 %610, 0
-  br i1 %.not436.i, label %611, label %628
-
-611:                                              ; preds = %608
-  %612 = getelementptr inbounds i8, ptr %607, i64 8
-  %613 = getelementptr inbounds i8, ptr %607, i64 16
-  %614 = load ptr, ptr %613, align 8
-  %615 = load ptr, ptr %607, align 8
-  %616 = load i32, ptr %612, align 8
-  %617 = sext i32 %616 to i64
-  %618 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %614, ptr noundef %615, i64 noundef %617) #23
-  %.not437.i = icmp eq ptr %618, null
-  %.pre498.i = load ptr, ptr %606, align 8
-  br i1 %.not437.i, label %628, label %619
-
-619:                                              ; preds = %611
-  %620 = load ptr, ptr %.pre498.i, align 8
-  call void @free(ptr noundef %620) #23
-  %621 = load ptr, ptr %606, align 8
-  store ptr %618, ptr %621, align 8
-  %622 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %618) #27
-  %623 = trunc i64 %622 to i32
-  %624 = load ptr, ptr %606, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 8
-  store i32 %623, ptr %625, align 8
-  %626 = load ptr, ptr %606, align 8
-  %627 = getelementptr inbounds i8, ptr %626, i64 24
-  store i32 1, ptr %627, align 8
-  %.pre497.i = load ptr, ptr %606, align 8
-  br label %628
-
-628:                                              ; preds = %619, %611, %608
-  %629 = phi ptr [ %.pre498.i, %611 ], [ %.pre497.i, %619 ], [ %607, %608 ]
-  %630 = getelementptr inbounds i8, ptr %629, i64 24
-  %631 = load i32, ptr %630, align 8
-  %.not438.i = icmp eq i32 %631, 0
-  br i1 %.not438.i, label %640, label %632
-
-632:                                              ; preds = %628
-  %633 = getelementptr inbounds i8, ptr %629, i64 8
-  %634 = load ptr, ptr %629, align 8
-  %635 = load i32, ptr %633, align 8
-  %636 = call i32 @cli_isutf8(ptr noundef %634, i32 noundef %635) #23
-  %.not439.i = icmp eq i32 %636, 0
-  %.pre499.i = load ptr, ptr %606, align 8
-  br i1 %.not439.i, label %640, label %637
-
-637:                                              ; preds = %632
-  %638 = load ptr, ptr %.pre499.i, align 8
-  %639 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.269, ptr noundef %638) #23
-  br label %653
-
-640:                                              ; preds = %632, %628
-  %641 = phi ptr [ %.pre499.i, %632 ], [ %629, %628 ]
-  %642 = load ptr, ptr %641, align 8
-  %.not440.i = icmp eq ptr %642, null
-  br i1 %.not440.i, label %651, label %643
-
-643:                                              ; preds = %640
-  %644 = getelementptr inbounds i8, ptr %641, i64 8
-  %645 = load i32, ptr %644, align 8
-  %.not441.i = icmp eq i32 %645, 0
-  br i1 %.not441.i, label %651, label %646
-
-646:                                              ; preds = %643
-  %647 = sext i32 %645 to i64
-  %648 = call ptr @cl_base64_encode(ptr noundef nonnull %642, i64 noundef %647) #23
-  %649 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.269, ptr noundef %648) #23
-  %650 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.355, i32 noundef 1) #23
-  call void @free(ptr noundef %648) #23
-  br label %653
-
-651:                                              ; preds = %643, %640
-  %652 = call i32 @cli_jsonstr(ptr noundef nonnull %267, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.26) #23
-  br label %653
-
-653:                                              ; preds = %651, %646, %637, %605
-  %654 = load i32, ptr %269, align 8
-  %.not442.i = icmp eq i32 %654, 0
-  br i1 %.not442.i, label %657, label %655
-
-655:                                              ; preds = %653
-  %656 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.356, i32 noundef %654) #23
-  br label %657
-
-657:                                              ; preds = %655, %653
-  %658 = getelementptr inbounds i8, ptr %4, i64 140
-  %659 = load i32, ptr %658, align 4
-  %.not443.i = icmp eq i32 %659, 0
-  br i1 %.not443.i, label %662, label %660
-
-660:                                              ; preds = %657
-  %661 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.357, i32 noundef %659) #23
-  br label %662
-
-662:                                              ; preds = %660, %657
-  %663 = getelementptr inbounds i8, ptr %4, i64 144
-  %664 = load i32, ptr %663, align 8
-  %.not444.i = icmp eq i32 %664, 0
-  br i1 %.not444.i, label %667, label %665
-
-665:                                              ; preds = %662
-  %666 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.358, i32 noundef %664) #23
-  br label %667
-
-667:                                              ; preds = %665, %662
-  %668 = getelementptr inbounds i8, ptr %4, i64 148
-  %669 = load i32, ptr %668, align 4
-  %.not445.i = icmp eq i32 %669, 0
-  br i1 %.not445.i, label %672, label %670
-
-670:                                              ; preds = %667
-  %671 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.359, i32 noundef %669) #23
-  br label %672
-
-672:                                              ; preds = %670, %667
-  %673 = getelementptr inbounds i8, ptr %4, i64 152
-  %674 = load i32, ptr %673, align 8
-  %.not446.i = icmp eq i32 %674, 0
-  br i1 %.not446.i, label %677, label %675
-
-675:                                              ; preds = %672
-  %676 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.360, i32 noundef %674) #23
-  br label %677
-
-677:                                              ; preds = %675, %672
-  %678 = getelementptr inbounds i8, ptr %4, i64 156
-  %679 = load i32, ptr %678, align 4
-  %.not447.i = icmp eq i32 %679, 0
-  br i1 %.not447.i, label %682, label %680
-
-680:                                              ; preds = %677
-  %681 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.361, i32 noundef %679) #23
-  br label %682
-
-682:                                              ; preds = %680, %677
-  %683 = getelementptr inbounds i8, ptr %4, i64 160
-  %684 = load i32, ptr %683, align 8
-  %.not448.i = icmp eq i32 %684, 0
-  br i1 %.not448.i, label %687, label %685
-
-685:                                              ; preds = %682
-  %686 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.362, i32 noundef %684) #23
-  br label %687
-
-687:                                              ; preds = %685, %682
-  %688 = getelementptr inbounds i8, ptr %4, i64 164
-  %689 = load i32, ptr %688, align 4
-  %.not449.i = icmp eq i32 %689, 0
-  br i1 %.not449.i, label %692, label %690
-
-690:                                              ; preds = %687
-  %691 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.363, i32 noundef %689) #23
-  br label %692
-
-692:                                              ; preds = %690, %687
-  %693 = getelementptr inbounds i8, ptr %4, i64 168
-  %694 = load i32, ptr %693, align 8
-  %.not450.i = icmp eq i32 %694, 0
-  br i1 %.not450.i, label %697, label %695
-
-695:                                              ; preds = %692
-  %696 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.364, i32 noundef %694) #23
-  br label %697
-
-697:                                              ; preds = %695, %692
-  %698 = getelementptr inbounds i8, ptr %4, i64 172
-  %699 = load i32, ptr %698, align 4
-  %.not451.i = icmp eq i32 %699, 0
-  br i1 %.not451.i, label %702, label %700
-
-700:                                              ; preds = %697
-  %701 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.365, i32 noundef %699) #23
-  br label %702
-
-702:                                              ; preds = %700, %697
-  %703 = getelementptr inbounds i8, ptr %4, i64 176
-  %704 = load i32, ptr %703, align 8
-  %.not452.i = icmp eq i32 %704, 0
-  br i1 %.not452.i, label %707, label %705
-
-705:                                              ; preds = %702
-  %706 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.366, i32 noundef %704) #23
-  br label %707
-
-707:                                              ; preds = %705, %702
-  %708 = getelementptr inbounds i8, ptr %4, i64 180
-  %709 = load i32, ptr %708, align 4
-  %.not453.i = icmp eq i32 %709, 0
-  br i1 %.not453.i, label %712, label %710
-
-710:                                              ; preds = %707
-  %711 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.367, i32 noundef %709) #23
-  br label %712
-
-712:                                              ; preds = %710, %707
-  %713 = getelementptr inbounds i8, ptr %4, i64 184
-  %714 = load i32, ptr %713, align 8
-  %.not454.i = icmp eq i32 %714, 0
-  br i1 %.not454.i, label %717, label %715
-
-715:                                              ; preds = %712
-  %716 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.368, i32 noundef %714) #23
-  br label %717
-
-717:                                              ; preds = %715, %712
-  %718 = getelementptr inbounds i8, ptr %4, i64 188
-  %719 = load i32, ptr %718, align 4
-  %.not455.i = icmp eq i32 %719, 0
-  br i1 %.not455.i, label %722, label %720
-
-720:                                              ; preds = %717
-  %721 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.369, i32 noundef %719) #23
-  br label %722
-
-722:                                              ; preds = %720, %717
-  %723 = getelementptr inbounds i8, ptr %4, i64 192
-  %724 = load i32, ptr %723, align 8
-  %.not456.i = icmp eq i32 %724, 0
-  br i1 %.not456.i, label %727, label %725
-
-725:                                              ; preds = %722
-  %726 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.370, i32 noundef %724) #23
-  br label %727
-
-727:                                              ; preds = %725, %722
-  %728 = getelementptr inbounds i8, ptr %4, i64 196
-  %729 = load i32, ptr %728, align 4
-  %.not457.i = icmp eq i32 %729, 0
-  br i1 %.not457.i, label %732, label %730
-
-730:                                              ; preds = %727
-  %731 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.371, i32 noundef %729) #23
-  br label %732
-
-732:                                              ; preds = %730, %727
-  %733 = getelementptr inbounds i8, ptr %4, i64 200
-  %734 = load i32, ptr %733, align 8
-  %.not458.i = icmp eq i32 %734, 0
-  br i1 %.not458.i, label %737, label %735
-
-735:                                              ; preds = %732
-  %736 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.372, i32 noundef %734) #23
-  br label %737
-
-737:                                              ; preds = %735, %732
-  %738 = getelementptr inbounds i8, ptr %4, i64 204
-  %739 = load i32, ptr %738, align 4
-  %.not459.i = icmp eq i32 %739, 0
-  br i1 %.not459.i, label %742, label %740
-
-740:                                              ; preds = %737
-  %741 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.373, i32 noundef %739) #23
-  br label %742
-
-742:                                              ; preds = %740, %737
-  %743 = getelementptr inbounds i8, ptr %4, i64 208
-  %744 = load i32, ptr %743, align 8
-  %.not460.i = icmp eq i32 %744, 0
-  br i1 %.not460.i, label %747, label %745
-
-745:                                              ; preds = %742
-  %746 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.374, i32 noundef %744) #23
-  br label %747
-
-747:                                              ; preds = %745, %742
-  %748 = getelementptr inbounds i8, ptr %4, i64 212
-  %749 = load i32, ptr %748, align 4
-  %.not461.i = icmp eq i32 %749, 0
-  br i1 %.not461.i, label %752, label %750
-
-750:                                              ; preds = %747
-  %751 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.375, i32 noundef %749) #23
-  br label %752
-
-752:                                              ; preds = %750, %747
-  %753 = getelementptr inbounds i8, ptr %4, i64 216
-  %754 = load i32, ptr %753, align 8
-  %.not462.i = icmp eq i32 %754, 0
-  br i1 %.not462.i, label %757, label %755
-
-755:                                              ; preds = %752
-  %756 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.376, i32 noundef %754) #23
-  br label %757
-
-757:                                              ; preds = %755, %752
-  %758 = getelementptr inbounds i8, ptr %4, i64 220
-  %759 = load i32, ptr %758, align 4
-  %.not463.i = icmp eq i32 %759, 0
-  br i1 %.not463.i, label %762, label %760
-
-760:                                              ; preds = %757
-  %761 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.377, i32 noundef %759) #23
-  br label %762
-
-762:                                              ; preds = %760, %757
-  %763 = getelementptr inbounds i8, ptr %4, i64 224
-  %764 = load i32, ptr %763, align 8
-  %.not464.i = icmp eq i32 %764, 0
-  br i1 %.not464.i, label %767, label %765
-
-765:                                              ; preds = %762
-  %766 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.378, i32 noundef %764) #23
-  br label %767
-
-767:                                              ; preds = %765, %762
-  %768 = getelementptr inbounds i8, ptr %4, i64 228
-  %769 = load i32, ptr %768, align 4
-  %.not465.i = icmp eq i32 %769, 0
-  br i1 %.not465.i, label %772, label %770
-
-770:                                              ; preds = %767
-  %771 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.379, i32 noundef %769) #23
-  br label %772
-
-772:                                              ; preds = %770, %767
-  %773 = getelementptr inbounds i8, ptr %4, i64 232
-  %774 = load i32, ptr %773, align 8
-  %.not466.i = icmp eq i32 %774, 0
-  br i1 %.not466.i, label %777, label %775
-
-775:                                              ; preds = %772
-  %776 = call i32 @cli_jsonint(ptr noundef nonnull %267, ptr noundef nonnull @.str.380, i32 noundef %774) #23
-  br label %777
-
-777:                                              ; preds = %775, %772
-  %778 = getelementptr inbounds i8, ptr %4, i64 12
-  %779 = load i32, ptr %778, align 4
-  %780 = and i32 %779, 1
-  %.not467.i = icmp eq i32 %780, 0
-  br i1 %.not467.i, label %783, label %781
-
-781:                                              ; preds = %777
-  %782 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.171, i32 noundef 1) #23
-  %.pre500.i = load i32, ptr %778, align 4
-  br label %783
-
-783:                                              ; preds = %781, %777
-  %784 = phi i32 [ %.pre500.i, %781 ], [ %779, %777 ]
-  %785 = and i32 %784, 2
-  %.not468.i = icmp eq i32 %785, 0
-  br i1 %.not468.i, label %788, label %786
-
-786:                                              ; preds = %783
-  %787 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.381, i32 noundef 1) #23
-  %.pre501.i = load i32, ptr %778, align 4
-  br label %788
-
-788:                                              ; preds = %786, %783
-  %789 = phi i32 [ %.pre501.i, %786 ], [ %784, %783 ]
-  %790 = and i32 %789, 4
-  %.not469.i = icmp eq i32 %790, 0
-  br i1 %.not469.i, label %793, label %791
-
-791:                                              ; preds = %788
-  %792 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.382, i32 noundef 1) #23
-  %.pre502.i = load i32, ptr %778, align 4
-  br label %793
-
-793:                                              ; preds = %791, %788
-  %794 = phi i32 [ %.pre502.i, %791 ], [ %789, %788 ]
-  %795 = and i32 %794, 8
-  %.not470.i = icmp eq i32 %795, 0
-  br i1 %.not470.i, label %798, label %796
-
-796:                                              ; preds = %793
-  %797 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.383, i32 noundef 1) #23
-  %.pre503.i = load i32, ptr %778, align 4
-  br label %798
-
-798:                                              ; preds = %796, %793
-  %799 = phi i32 [ %.pre503.i, %796 ], [ %794, %793 ]
-  %800 = and i32 %799, 131072
-  %.not471.i = icmp eq i32 %800, 0
-  br i1 %.not471.i, label %805, label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %798
-  %801 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.384, i32 noundef 1) #23
-  %802 = load i32, ptr %778, align 4
-  %803 = lshr i32 %802, 19
-  %.lobit.i = and i32 %803, 1
-  %804 = call i32 @cli_jsonbool(ptr noundef nonnull %267, ptr noundef nonnull @.str.385, i32 noundef %.lobit.i) #23
-  br label %805
-
-805:                                              ; preds = %.sink.split.i, %798
-  %806 = getelementptr inbounds i8, ptr %4, i64 8
-  %807 = load i32, ptr %806, align 8
-  %.not476.i = icmp eq i32 %807, 0
+  br label %255
+
+255:                                              ; preds = %250, %215
+  %.1 = phi i32 [ %spec.store.select11, %250 ], [ 20, %215 ]
+  %256 = load ptr, ptr %13, align 8
+  %.not.i226 = icmp eq ptr %256, null
+  br i1 %.not.i226, label %.loopexit.i, label %257
+
+257:                                              ; preds = %255
+  %258 = getelementptr inbounds i8, ptr %256, i64 64
+  %259 = load ptr, ptr %258, align 8
+  %260 = load i32, ptr %259, align 4
+  %261 = and i32 %260, 2
+  %.not383.i = icmp eq i32 %261, 0
+  br i1 %.not383.i, label %.loopexit.i, label %262
+
+262:                                              ; preds = %257
+  %263 = getelementptr inbounds i8, ptr %256, i64 160
+  %264 = load ptr, ptr %263, align 8
+  %.not384.i = icmp eq ptr %264, null
+  br i1 %.not384.i, label %.loopexit.i, label %265
+
+265:                                              ; preds = %262
+  %266 = call ptr @cli_jsonobj(ptr noundef nonnull %264, ptr noundef nonnull @.str.94) #23
+  %.not385.i = icmp eq ptr %266, null
+  br i1 %.not385.i, label %.loopexit.i, label %267
+
+267:                                              ; preds = %265
+  %268 = getelementptr inbounds i8, ptr %4, i64 136
+  %269 = getelementptr inbounds i8, ptr %4, i64 240
+  %270 = load ptr, ptr %269, align 8
+  %.not386.i = icmp eq ptr %270, null
+  br i1 %.not386.i, label %316, label %271
+
+271:                                              ; preds = %267
+  %272 = getelementptr inbounds i8, ptr %270, i64 24
+  %273 = load i32, ptr %272, align 8
+  %.not387.i = icmp eq i32 %273, 0
+  br i1 %.not387.i, label %274, label %291
+
+274:                                              ; preds = %271
+  %275 = getelementptr inbounds i8, ptr %270, i64 8
+  %276 = getelementptr inbounds i8, ptr %270, i64 16
+  %277 = load ptr, ptr %276, align 8
+  %278 = load ptr, ptr %270, align 8
+  %279 = load i32, ptr %275, align 8
+  %280 = sext i32 %279 to i64
+  %281 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %277, ptr noundef %278, i64 noundef %280) #23
+  %.not388.i = icmp eq ptr %281, null
+  %.pre477.i = load ptr, ptr %269, align 8
+  br i1 %.not388.i, label %291, label %282
+
+282:                                              ; preds = %274
+  %283 = load ptr, ptr %.pre477.i, align 8
+  call void @free(ptr noundef %283) #23
+  %284 = load ptr, ptr %269, align 8
+  store ptr %281, ptr %284, align 8
+  %285 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %281) #27
+  %286 = trunc i64 %285 to i32
+  %287 = load ptr, ptr %269, align 8
+  %288 = getelementptr inbounds i8, ptr %287, i64 8
+  store i32 %286, ptr %288, align 8
+  %289 = load ptr, ptr %269, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 24
+  store i32 1, ptr %290, align 8
+  %.pre.i = load ptr, ptr %269, align 8
+  br label %291
+
+291:                                              ; preds = %282, %274, %271
+  %292 = phi ptr [ %.pre477.i, %274 ], [ %.pre.i, %282 ], [ %270, %271 ]
+  %293 = getelementptr inbounds i8, ptr %292, i64 24
+  %294 = load i32, ptr %293, align 8
+  %.not389.i = icmp eq i32 %294, 0
+  br i1 %.not389.i, label %303, label %295
+
+295:                                              ; preds = %291
+  %296 = getelementptr inbounds i8, ptr %292, i64 8
+  %297 = load ptr, ptr %292, align 8
+  %298 = load i32, ptr %296, align 8
+  %299 = call i32 @cli_isutf8(ptr noundef %297, i32 noundef %298) #23
+  %.not390.i = icmp eq i32 %299, 0
+  %.pre478.i = load ptr, ptr %269, align 8
+  br i1 %.not390.i, label %303, label %300
+
+300:                                              ; preds = %295
+  %301 = load ptr, ptr %.pre478.i, align 8
+  %302 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.263, ptr noundef %301) #23
+  br label %316
+
+303:                                              ; preds = %295, %291
+  %304 = phi ptr [ %.pre478.i, %295 ], [ %292, %291 ]
+  %305 = load ptr, ptr %304, align 8
+  %.not391.i = icmp eq ptr %305, null
+  br i1 %.not391.i, label %314, label %306
+
+306:                                              ; preds = %303
+  %307 = getelementptr inbounds i8, ptr %304, i64 8
+  %308 = load i32, ptr %307, align 8
+  %.not392.i = icmp eq i32 %308, 0
+  br i1 %.not392.i, label %314, label %309
+
+309:                                              ; preds = %306
+  %310 = sext i32 %308 to i64
+  %311 = call ptr @cl_base64_encode(ptr noundef nonnull %305, i64 noundef %310) #23
+  %312 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.263, ptr noundef %311) #23
+  %313 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.347, i32 noundef 1) #23
+  call void @free(ptr noundef %311) #23
+  br label %316
+
+314:                                              ; preds = %306, %303
+  %315 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.26) #23
+  br label %316
+
+316:                                              ; preds = %314, %309, %300, %267
+  %317 = getelementptr inbounds i8, ptr %4, i64 248
+  %318 = load ptr, ptr %317, align 8
+  %.not393.i = icmp eq ptr %318, null
+  br i1 %.not393.i, label %364, label %319
+
+319:                                              ; preds = %316
+  %320 = getelementptr inbounds i8, ptr %318, i64 24
+  %321 = load i32, ptr %320, align 8
+  %.not394.i = icmp eq i32 %321, 0
+  br i1 %.not394.i, label %322, label %339
+
+322:                                              ; preds = %319
+  %323 = getelementptr inbounds i8, ptr %318, i64 8
+  %324 = getelementptr inbounds i8, ptr %318, i64 16
+  %325 = load ptr, ptr %324, align 8
+  %326 = load ptr, ptr %318, align 8
+  %327 = load i32, ptr %323, align 8
+  %328 = sext i32 %327 to i64
+  %329 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %325, ptr noundef %326, i64 noundef %328) #23
+  %.not395.i = icmp eq ptr %329, null
+  %.pre480.i = load ptr, ptr %317, align 8
+  br i1 %.not395.i, label %339, label %330
+
+330:                                              ; preds = %322
+  %331 = load ptr, ptr %.pre480.i, align 8
+  call void @free(ptr noundef %331) #23
+  %332 = load ptr, ptr %317, align 8
+  store ptr %329, ptr %332, align 8
+  %333 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %329) #27
+  %334 = trunc i64 %333 to i32
+  %335 = load ptr, ptr %317, align 8
+  %336 = getelementptr inbounds i8, ptr %335, i64 8
+  store i32 %334, ptr %336, align 8
+  %337 = load ptr, ptr %317, align 8
+  %338 = getelementptr inbounds i8, ptr %337, i64 24
+  store i32 1, ptr %338, align 8
+  %.pre479.i = load ptr, ptr %317, align 8
+  br label %339
+
+339:                                              ; preds = %330, %322, %319
+  %340 = phi ptr [ %.pre480.i, %322 ], [ %.pre479.i, %330 ], [ %318, %319 ]
+  %341 = getelementptr inbounds i8, ptr %340, i64 24
+  %342 = load i32, ptr %341, align 8
+  %.not396.i = icmp eq i32 %342, 0
+  br i1 %.not396.i, label %351, label %343
+
+343:                                              ; preds = %339
+  %344 = getelementptr inbounds i8, ptr %340, i64 8
+  %345 = load ptr, ptr %340, align 8
+  %346 = load i32, ptr %344, align 8
+  %347 = call i32 @cli_isutf8(ptr noundef %345, i32 noundef %346) #23
+  %.not397.i = icmp eq i32 %347, 0
+  %.pre481.i = load ptr, ptr %317, align 8
+  br i1 %.not397.i, label %351, label %348
+
+348:                                              ; preds = %343
+  %349 = load ptr, ptr %.pre481.i, align 8
+  %350 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.267, ptr noundef %349) #23
+  br label %364
+
+351:                                              ; preds = %343, %339
+  %352 = phi ptr [ %.pre481.i, %343 ], [ %340, %339 ]
+  %353 = load ptr, ptr %352, align 8
+  %.not398.i = icmp eq ptr %353, null
+  br i1 %.not398.i, label %362, label %354
+
+354:                                              ; preds = %351
+  %355 = getelementptr inbounds i8, ptr %352, i64 8
+  %356 = load i32, ptr %355, align 8
+  %.not399.i = icmp eq i32 %356, 0
+  br i1 %.not399.i, label %362, label %357
+
+357:                                              ; preds = %354
+  %358 = sext i32 %356 to i64
+  %359 = call ptr @cl_base64_encode(ptr noundef nonnull %353, i64 noundef %358) #23
+  %360 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.267, ptr noundef %359) #23
+  %361 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.348, i32 noundef 1) #23
+  call void @free(ptr noundef %359) #23
+  br label %364
+
+362:                                              ; preds = %354, %351
+  %363 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.26) #23
+  br label %364
+
+364:                                              ; preds = %362, %357, %348, %316
+  %365 = getelementptr inbounds i8, ptr %4, i64 256
+  %366 = load ptr, ptr %365, align 8
+  %.not400.i = icmp eq ptr %366, null
+  br i1 %.not400.i, label %412, label %367
+
+367:                                              ; preds = %364
+  %368 = getelementptr inbounds i8, ptr %366, i64 24
+  %369 = load i32, ptr %368, align 8
+  %.not401.i = icmp eq i32 %369, 0
+  br i1 %.not401.i, label %370, label %387
+
+370:                                              ; preds = %367
+  %371 = getelementptr inbounds i8, ptr %366, i64 8
+  %372 = getelementptr inbounds i8, ptr %366, i64 16
+  %373 = load ptr, ptr %372, align 8
+  %374 = load ptr, ptr %366, align 8
+  %375 = load i32, ptr %371, align 8
+  %376 = sext i32 %375 to i64
+  %377 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %373, ptr noundef %374, i64 noundef %376) #23
+  %.not402.i = icmp eq ptr %377, null
+  %.pre483.i = load ptr, ptr %365, align 8
+  br i1 %.not402.i, label %387, label %378
+
+378:                                              ; preds = %370
+  %379 = load ptr, ptr %.pre483.i, align 8
+  call void @free(ptr noundef %379) #23
+  %380 = load ptr, ptr %365, align 8
+  store ptr %377, ptr %380, align 8
+  %381 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %377) #27
+  %382 = trunc i64 %381 to i32
+  %383 = load ptr, ptr %365, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 8
+  store i32 %382, ptr %384, align 8
+  %385 = load ptr, ptr %365, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 24
+  store i32 1, ptr %386, align 8
+  %.pre482.i = load ptr, ptr %365, align 8
+  br label %387
+
+387:                                              ; preds = %378, %370, %367
+  %388 = phi ptr [ %.pre483.i, %370 ], [ %.pre482.i, %378 ], [ %366, %367 ]
+  %389 = getelementptr inbounds i8, ptr %388, i64 24
+  %390 = load i32, ptr %389, align 8
+  %.not403.i = icmp eq i32 %390, 0
+  br i1 %.not403.i, label %399, label %391
+
+391:                                              ; preds = %387
+  %392 = getelementptr inbounds i8, ptr %388, i64 8
+  %393 = load ptr, ptr %388, align 8
+  %394 = load i32, ptr %392, align 8
+  %395 = call i32 @cli_isutf8(ptr noundef %393, i32 noundef %394) #23
+  %.not404.i = icmp eq i32 %395, 0
+  %.pre484.i = load ptr, ptr %365, align 8
+  br i1 %.not404.i, label %399, label %396
+
+396:                                              ; preds = %391
+  %397 = load ptr, ptr %.pre484.i, align 8
+  %398 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.264, ptr noundef %397) #23
+  br label %412
+
+399:                                              ; preds = %391, %387
+  %400 = phi ptr [ %.pre484.i, %391 ], [ %388, %387 ]
+  %401 = load ptr, ptr %400, align 8
+  %.not405.i = icmp eq ptr %401, null
+  br i1 %.not405.i, label %410, label %402
+
+402:                                              ; preds = %399
+  %403 = getelementptr inbounds i8, ptr %400, i64 8
+  %404 = load i32, ptr %403, align 8
+  %.not406.i = icmp eq i32 %404, 0
+  br i1 %.not406.i, label %410, label %405
+
+405:                                              ; preds = %402
+  %406 = sext i32 %404 to i64
+  %407 = call ptr @cl_base64_encode(ptr noundef nonnull %401, i64 noundef %406) #23
+  %408 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.264, ptr noundef %407) #23
+  %409 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.349, i32 noundef 1) #23
+  call void @free(ptr noundef %407) #23
+  br label %412
+
+410:                                              ; preds = %402, %399
+  %411 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.26) #23
+  br label %412
+
+412:                                              ; preds = %410, %405, %396, %364
+  %413 = getelementptr inbounds i8, ptr %4, i64 272
+  %414 = load ptr, ptr %413, align 8
+  %.not407.i = icmp eq ptr %414, null
+  br i1 %.not407.i, label %460, label %415
+
+415:                                              ; preds = %412
+  %416 = getelementptr inbounds i8, ptr %414, i64 24
+  %417 = load i32, ptr %416, align 8
+  %.not408.i = icmp eq i32 %417, 0
+  br i1 %.not408.i, label %418, label %435
+
+418:                                              ; preds = %415
+  %419 = getelementptr inbounds i8, ptr %414, i64 8
+  %420 = getelementptr inbounds i8, ptr %414, i64 16
+  %421 = load ptr, ptr %420, align 8
+  %422 = load ptr, ptr %414, align 8
+  %423 = load i32, ptr %419, align 8
+  %424 = sext i32 %423 to i64
+  %425 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %421, ptr noundef %422, i64 noundef %424) #23
+  %.not409.i = icmp eq ptr %425, null
+  %.pre486.i = load ptr, ptr %413, align 8
+  br i1 %.not409.i, label %435, label %426
+
+426:                                              ; preds = %418
+  %427 = load ptr, ptr %.pre486.i, align 8
+  call void @free(ptr noundef %427) #23
+  %428 = load ptr, ptr %413, align 8
+  store ptr %425, ptr %428, align 8
+  %429 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %425) #27
+  %430 = trunc i64 %429 to i32
+  %431 = load ptr, ptr %413, align 8
+  %432 = getelementptr inbounds i8, ptr %431, i64 8
+  store i32 %430, ptr %432, align 8
+  %433 = load ptr, ptr %413, align 8
+  %434 = getelementptr inbounds i8, ptr %433, i64 24
+  store i32 1, ptr %434, align 8
+  %.pre485.i = load ptr, ptr %413, align 8
+  br label %435
+
+435:                                              ; preds = %426, %418, %415
+  %436 = phi ptr [ %.pre486.i, %418 ], [ %.pre485.i, %426 ], [ %414, %415 ]
+  %437 = getelementptr inbounds i8, ptr %436, i64 24
+  %438 = load i32, ptr %437, align 8
+  %.not410.i = icmp eq i32 %438, 0
+  br i1 %.not410.i, label %447, label %439
+
+439:                                              ; preds = %435
+  %440 = getelementptr inbounds i8, ptr %436, i64 8
+  %441 = load ptr, ptr %436, align 8
+  %442 = load i32, ptr %440, align 8
+  %443 = call i32 @cli_isutf8(ptr noundef %441, i32 noundef %442) #23
+  %.not411.i = icmp eq i32 %443, 0
+  %.pre487.i = load ptr, ptr %413, align 8
+  br i1 %.not411.i, label %447, label %444
+
+444:                                              ; preds = %439
+  %445 = load ptr, ptr %.pre487.i, align 8
+  %446 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.350, ptr noundef %445) #23
+  br label %460
+
+447:                                              ; preds = %439, %435
+  %448 = phi ptr [ %.pre487.i, %439 ], [ %436, %435 ]
+  %449 = load ptr, ptr %448, align 8
+  %.not412.i = icmp eq ptr %449, null
+  br i1 %.not412.i, label %458, label %450
+
+450:                                              ; preds = %447
+  %451 = getelementptr inbounds i8, ptr %448, i64 8
+  %452 = load i32, ptr %451, align 8
+  %.not413.i = icmp eq i32 %452, 0
+  br i1 %.not413.i, label %458, label %453
+
+453:                                              ; preds = %450
+  %454 = sext i32 %452 to i64
+  %455 = call ptr @cl_base64_encode(ptr noundef nonnull %449, i64 noundef %454) #23
+  %456 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.350, ptr noundef %455) #23
+  %457 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.351, i32 noundef 1) #23
+  call void @free(ptr noundef %455) #23
+  br label %460
+
+458:                                              ; preds = %450, %447
+  %459 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.26) #23
+  br label %460
+
+460:                                              ; preds = %458, %453, %444, %412
+  %461 = getelementptr inbounds i8, ptr %4, i64 264
+  %462 = load ptr, ptr %461, align 8
+  %.not414.i = icmp eq ptr %462, null
+  br i1 %.not414.i, label %508, label %463
+
+463:                                              ; preds = %460
+  %464 = getelementptr inbounds i8, ptr %462, i64 24
+  %465 = load i32, ptr %464, align 8
+  %.not415.i = icmp eq i32 %465, 0
+  br i1 %.not415.i, label %466, label %483
+
+466:                                              ; preds = %463
+  %467 = getelementptr inbounds i8, ptr %462, i64 8
+  %468 = getelementptr inbounds i8, ptr %462, i64 16
+  %469 = load ptr, ptr %468, align 8
+  %470 = load ptr, ptr %462, align 8
+  %471 = load i32, ptr %467, align 8
+  %472 = sext i32 %471 to i64
+  %473 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %469, ptr noundef %470, i64 noundef %472) #23
+  %.not416.i = icmp eq ptr %473, null
+  %.pre489.i = load ptr, ptr %461, align 8
+  br i1 %.not416.i, label %483, label %474
+
+474:                                              ; preds = %466
+  %475 = load ptr, ptr %.pre489.i, align 8
+  call void @free(ptr noundef %475) #23
+  %476 = load ptr, ptr %461, align 8
+  store ptr %473, ptr %476, align 8
+  %477 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %473) #27
+  %478 = trunc i64 %477 to i32
+  %479 = load ptr, ptr %461, align 8
+  %480 = getelementptr inbounds i8, ptr %479, i64 8
+  store i32 %478, ptr %480, align 8
+  %481 = load ptr, ptr %461, align 8
+  %482 = getelementptr inbounds i8, ptr %481, i64 24
+  store i32 1, ptr %482, align 8
+  %.pre488.i = load ptr, ptr %461, align 8
+  br label %483
+
+483:                                              ; preds = %474, %466, %463
+  %484 = phi ptr [ %.pre489.i, %466 ], [ %.pre488.i, %474 ], [ %462, %463 ]
+  %485 = getelementptr inbounds i8, ptr %484, i64 24
+  %486 = load i32, ptr %485, align 8
+  %.not417.i = icmp eq i32 %486, 0
+  br i1 %.not417.i, label %495, label %487
+
+487:                                              ; preds = %483
+  %488 = getelementptr inbounds i8, ptr %484, i64 8
+  %489 = load ptr, ptr %484, align 8
+  %490 = load i32, ptr %488, align 8
+  %491 = call i32 @cli_isutf8(ptr noundef %489, i32 noundef %490) #23
+  %.not418.i = icmp eq i32 %491, 0
+  %.pre490.i = load ptr, ptr %461, align 8
+  br i1 %.not418.i, label %495, label %492
+
+492:                                              ; preds = %487
+  %493 = load ptr, ptr %.pre490.i, align 8
+  %494 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.265, ptr noundef %493) #23
+  br label %508
+
+495:                                              ; preds = %487, %483
+  %496 = phi ptr [ %.pre490.i, %487 ], [ %484, %483 ]
+  %497 = load ptr, ptr %496, align 8
+  %.not419.i = icmp eq ptr %497, null
+  br i1 %.not419.i, label %506, label %498
+
+498:                                              ; preds = %495
+  %499 = getelementptr inbounds i8, ptr %496, i64 8
+  %500 = load i32, ptr %499, align 8
+  %.not420.i = icmp eq i32 %500, 0
+  br i1 %.not420.i, label %506, label %501
+
+501:                                              ; preds = %498
+  %502 = sext i32 %500 to i64
+  %503 = call ptr @cl_base64_encode(ptr noundef nonnull %497, i64 noundef %502) #23
+  %504 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.265, ptr noundef %503) #23
+  %505 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.352, i32 noundef 1) #23
+  call void @free(ptr noundef %503) #23
+  br label %508
+
+506:                                              ; preds = %498, %495
+  %507 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.26) #23
+  br label %508
+
+508:                                              ; preds = %506, %501, %492, %460
+  %509 = getelementptr inbounds i8, ptr %4, i64 280
+  %510 = load ptr, ptr %509, align 8
+  %.not421.i = icmp eq ptr %510, null
+  br i1 %.not421.i, label %556, label %511
+
+511:                                              ; preds = %508
+  %512 = getelementptr inbounds i8, ptr %510, i64 24
+  %513 = load i32, ptr %512, align 8
+  %.not422.i = icmp eq i32 %513, 0
+  br i1 %.not422.i, label %514, label %531
+
+514:                                              ; preds = %511
+  %515 = getelementptr inbounds i8, ptr %510, i64 8
+  %516 = getelementptr inbounds i8, ptr %510, i64 16
+  %517 = load ptr, ptr %516, align 8
+  %518 = load ptr, ptr %510, align 8
+  %519 = load i32, ptr %515, align 8
+  %520 = sext i32 %519 to i64
+  %521 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %517, ptr noundef %518, i64 noundef %520) #23
+  %.not423.i = icmp eq ptr %521, null
+  %.pre492.i = load ptr, ptr %509, align 8
+  br i1 %.not423.i, label %531, label %522
+
+522:                                              ; preds = %514
+  %523 = load ptr, ptr %.pre492.i, align 8
+  call void @free(ptr noundef %523) #23
+  %524 = load ptr, ptr %509, align 8
+  store ptr %521, ptr %524, align 8
+  %525 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %521) #27
+  %526 = trunc i64 %525 to i32
+  %527 = load ptr, ptr %509, align 8
+  %528 = getelementptr inbounds i8, ptr %527, i64 8
+  store i32 %526, ptr %528, align 8
+  %529 = load ptr, ptr %509, align 8
+  %530 = getelementptr inbounds i8, ptr %529, i64 24
+  store i32 1, ptr %530, align 8
+  %.pre491.i = load ptr, ptr %509, align 8
+  br label %531
+
+531:                                              ; preds = %522, %514, %511
+  %532 = phi ptr [ %.pre492.i, %514 ], [ %.pre491.i, %522 ], [ %510, %511 ]
+  %533 = getelementptr inbounds i8, ptr %532, i64 24
+  %534 = load i32, ptr %533, align 8
+  %.not424.i = icmp eq i32 %534, 0
+  br i1 %.not424.i, label %543, label %535
+
+535:                                              ; preds = %531
+  %536 = getelementptr inbounds i8, ptr %532, i64 8
+  %537 = load ptr, ptr %532, align 8
+  %538 = load i32, ptr %536, align 8
+  %539 = call i32 @cli_isutf8(ptr noundef %537, i32 noundef %538) #23
+  %.not425.i = icmp eq i32 %539, 0
+  %.pre493.i = load ptr, ptr %509, align 8
+  br i1 %.not425.i, label %543, label %540
+
+540:                                              ; preds = %535
+  %541 = load ptr, ptr %.pre493.i, align 8
+  %542 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.268, ptr noundef %541) #23
+  br label %556
+
+543:                                              ; preds = %535, %531
+  %544 = phi ptr [ %.pre493.i, %535 ], [ %532, %531 ]
+  %545 = load ptr, ptr %544, align 8
+  %.not426.i = icmp eq ptr %545, null
+  br i1 %.not426.i, label %554, label %546
+
+546:                                              ; preds = %543
+  %547 = getelementptr inbounds i8, ptr %544, i64 8
+  %548 = load i32, ptr %547, align 8
+  %.not427.i = icmp eq i32 %548, 0
+  br i1 %.not427.i, label %554, label %549
+
+549:                                              ; preds = %546
+  %550 = sext i32 %548 to i64
+  %551 = call ptr @cl_base64_encode(ptr noundef nonnull %545, i64 noundef %550) #23
+  %552 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.268, ptr noundef %551) #23
+  %553 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.353, i32 noundef 1) #23
+  call void @free(ptr noundef %551) #23
+  br label %556
+
+554:                                              ; preds = %546, %543
+  %555 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.26) #23
+  br label %556
+
+556:                                              ; preds = %554, %549, %540, %508
+  %557 = getelementptr inbounds i8, ptr %4, i64 288
+  %558 = load ptr, ptr %557, align 8
+  %.not428.i = icmp eq ptr %558, null
+  br i1 %.not428.i, label %604, label %559
+
+559:                                              ; preds = %556
+  %560 = getelementptr inbounds i8, ptr %558, i64 24
+  %561 = load i32, ptr %560, align 8
+  %.not429.i = icmp eq i32 %561, 0
+  br i1 %.not429.i, label %562, label %579
+
+562:                                              ; preds = %559
+  %563 = getelementptr inbounds i8, ptr %558, i64 8
+  %564 = getelementptr inbounds i8, ptr %558, i64 16
+  %565 = load ptr, ptr %564, align 8
+  %566 = load ptr, ptr %558, align 8
+  %567 = load i32, ptr %563, align 8
+  %568 = sext i32 %567 to i64
+  %569 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %565, ptr noundef %566, i64 noundef %568) #23
+  %.not430.i = icmp eq ptr %569, null
+  %.pre495.i = load ptr, ptr %557, align 8
+  br i1 %.not430.i, label %579, label %570
+
+570:                                              ; preds = %562
+  %571 = load ptr, ptr %.pre495.i, align 8
+  call void @free(ptr noundef %571) #23
+  %572 = load ptr, ptr %557, align 8
+  store ptr %569, ptr %572, align 8
+  %573 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %569) #27
+  %574 = trunc i64 %573 to i32
+  %575 = load ptr, ptr %557, align 8
+  %576 = getelementptr inbounds i8, ptr %575, i64 8
+  store i32 %574, ptr %576, align 8
+  %577 = load ptr, ptr %557, align 8
+  %578 = getelementptr inbounds i8, ptr %577, i64 24
+  store i32 1, ptr %578, align 8
+  %.pre494.i = load ptr, ptr %557, align 8
+  br label %579
+
+579:                                              ; preds = %570, %562, %559
+  %580 = phi ptr [ %.pre495.i, %562 ], [ %.pre494.i, %570 ], [ %558, %559 ]
+  %581 = getelementptr inbounds i8, ptr %580, i64 24
+  %582 = load i32, ptr %581, align 8
+  %.not431.i = icmp eq i32 %582, 0
+  br i1 %.not431.i, label %591, label %583
+
+583:                                              ; preds = %579
+  %584 = getelementptr inbounds i8, ptr %580, i64 8
+  %585 = load ptr, ptr %580, align 8
+  %586 = load i32, ptr %584, align 8
+  %587 = call i32 @cli_isutf8(ptr noundef %585, i32 noundef %586) #23
+  %.not432.i = icmp eq i32 %587, 0
+  %.pre496.i = load ptr, ptr %557, align 8
+  br i1 %.not432.i, label %591, label %588
+
+588:                                              ; preds = %583
+  %589 = load ptr, ptr %.pre496.i, align 8
+  %590 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.270, ptr noundef %589) #23
+  br label %604
+
+591:                                              ; preds = %583, %579
+  %592 = phi ptr [ %.pre496.i, %583 ], [ %580, %579 ]
+  %593 = load ptr, ptr %592, align 8
+  %.not433.i = icmp eq ptr %593, null
+  br i1 %.not433.i, label %602, label %594
+
+594:                                              ; preds = %591
+  %595 = getelementptr inbounds i8, ptr %592, i64 8
+  %596 = load i32, ptr %595, align 8
+  %.not434.i = icmp eq i32 %596, 0
+  br i1 %.not434.i, label %602, label %597
+
+597:                                              ; preds = %594
+  %598 = sext i32 %596 to i64
+  %599 = call ptr @cl_base64_encode(ptr noundef nonnull %593, i64 noundef %598) #23
+  %600 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.270, ptr noundef %599) #23
+  %601 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.354, i32 noundef 1) #23
+  call void @free(ptr noundef %599) #23
+  br label %604
+
+602:                                              ; preds = %594, %591
+  %603 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.26) #23
+  br label %604
+
+604:                                              ; preds = %602, %597, %588, %556
+  %605 = getelementptr inbounds i8, ptr %4, i64 296
+  %606 = load ptr, ptr %605, align 8
+  %.not435.i = icmp eq ptr %606, null
+  br i1 %.not435.i, label %652, label %607
+
+607:                                              ; preds = %604
+  %608 = getelementptr inbounds i8, ptr %606, i64 24
+  %609 = load i32, ptr %608, align 8
+  %.not436.i = icmp eq i32 %609, 0
+  br i1 %.not436.i, label %610, label %627
+
+610:                                              ; preds = %607
+  %611 = getelementptr inbounds i8, ptr %606, i64 8
+  %612 = getelementptr inbounds i8, ptr %606, i64 16
+  %613 = load ptr, ptr %612, align 8
+  %614 = load ptr, ptr %606, align 8
+  %615 = load i32, ptr %611, align 8
+  %616 = sext i32 %615 to i64
+  %617 = call ptr @pdf_finalize_string(ptr noundef nonnull %4, ptr noundef %613, ptr noundef %614, i64 noundef %616) #23
+  %.not437.i = icmp eq ptr %617, null
+  %.pre498.i = load ptr, ptr %605, align 8
+  br i1 %.not437.i, label %627, label %618
+
+618:                                              ; preds = %610
+  %619 = load ptr, ptr %.pre498.i, align 8
+  call void @free(ptr noundef %619) #23
+  %620 = load ptr, ptr %605, align 8
+  store ptr %617, ptr %620, align 8
+  %621 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %617) #27
+  %622 = trunc i64 %621 to i32
+  %623 = load ptr, ptr %605, align 8
+  %624 = getelementptr inbounds i8, ptr %623, i64 8
+  store i32 %622, ptr %624, align 8
+  %625 = load ptr, ptr %605, align 8
+  %626 = getelementptr inbounds i8, ptr %625, i64 24
+  store i32 1, ptr %626, align 8
+  %.pre497.i = load ptr, ptr %605, align 8
+  br label %627
+
+627:                                              ; preds = %618, %610, %607
+  %628 = phi ptr [ %.pre498.i, %610 ], [ %.pre497.i, %618 ], [ %606, %607 ]
+  %629 = getelementptr inbounds i8, ptr %628, i64 24
+  %630 = load i32, ptr %629, align 8
+  %.not438.i = icmp eq i32 %630, 0
+  br i1 %.not438.i, label %639, label %631
+
+631:                                              ; preds = %627
+  %632 = getelementptr inbounds i8, ptr %628, i64 8
+  %633 = load ptr, ptr %628, align 8
+  %634 = load i32, ptr %632, align 8
+  %635 = call i32 @cli_isutf8(ptr noundef %633, i32 noundef %634) #23
+  %.not439.i = icmp eq i32 %635, 0
+  %.pre499.i = load ptr, ptr %605, align 8
+  br i1 %.not439.i, label %639, label %636
+
+636:                                              ; preds = %631
+  %637 = load ptr, ptr %.pre499.i, align 8
+  %638 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.269, ptr noundef %637) #23
+  br label %652
+
+639:                                              ; preds = %631, %627
+  %640 = phi ptr [ %.pre499.i, %631 ], [ %628, %627 ]
+  %641 = load ptr, ptr %640, align 8
+  %.not440.i = icmp eq ptr %641, null
+  br i1 %.not440.i, label %650, label %642
+
+642:                                              ; preds = %639
+  %643 = getelementptr inbounds i8, ptr %640, i64 8
+  %644 = load i32, ptr %643, align 8
+  %.not441.i = icmp eq i32 %644, 0
+  br i1 %.not441.i, label %650, label %645
+
+645:                                              ; preds = %642
+  %646 = sext i32 %644 to i64
+  %647 = call ptr @cl_base64_encode(ptr noundef nonnull %641, i64 noundef %646) #23
+  %648 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.269, ptr noundef %647) #23
+  %649 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.355, i32 noundef 1) #23
+  call void @free(ptr noundef %647) #23
+  br label %652
+
+650:                                              ; preds = %642, %639
+  %651 = call i32 @cli_jsonstr(ptr noundef nonnull %266, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.26) #23
+  br label %652
+
+652:                                              ; preds = %650, %645, %636, %604
+  %653 = load i32, ptr %268, align 8
+  %.not442.i = icmp eq i32 %653, 0
+  br i1 %.not442.i, label %656, label %654
+
+654:                                              ; preds = %652
+  %655 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.356, i32 noundef %653) #23
+  br label %656
+
+656:                                              ; preds = %654, %652
+  %657 = getelementptr inbounds i8, ptr %4, i64 140
+  %658 = load i32, ptr %657, align 4
+  %.not443.i = icmp eq i32 %658, 0
+  br i1 %.not443.i, label %661, label %659
+
+659:                                              ; preds = %656
+  %660 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.357, i32 noundef %658) #23
+  br label %661
+
+661:                                              ; preds = %659, %656
+  %662 = getelementptr inbounds i8, ptr %4, i64 144
+  %663 = load i32, ptr %662, align 8
+  %.not444.i = icmp eq i32 %663, 0
+  br i1 %.not444.i, label %666, label %664
+
+664:                                              ; preds = %661
+  %665 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.358, i32 noundef %663) #23
+  br label %666
+
+666:                                              ; preds = %664, %661
+  %667 = getelementptr inbounds i8, ptr %4, i64 148
+  %668 = load i32, ptr %667, align 4
+  %.not445.i = icmp eq i32 %668, 0
+  br i1 %.not445.i, label %671, label %669
+
+669:                                              ; preds = %666
+  %670 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.359, i32 noundef %668) #23
+  br label %671
+
+671:                                              ; preds = %669, %666
+  %672 = getelementptr inbounds i8, ptr %4, i64 152
+  %673 = load i32, ptr %672, align 8
+  %.not446.i = icmp eq i32 %673, 0
+  br i1 %.not446.i, label %676, label %674
+
+674:                                              ; preds = %671
+  %675 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.360, i32 noundef %673) #23
+  br label %676
+
+676:                                              ; preds = %674, %671
+  %677 = getelementptr inbounds i8, ptr %4, i64 156
+  %678 = load i32, ptr %677, align 4
+  %.not447.i = icmp eq i32 %678, 0
+  br i1 %.not447.i, label %681, label %679
+
+679:                                              ; preds = %676
+  %680 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.361, i32 noundef %678) #23
+  br label %681
+
+681:                                              ; preds = %679, %676
+  %682 = getelementptr inbounds i8, ptr %4, i64 160
+  %683 = load i32, ptr %682, align 8
+  %.not448.i = icmp eq i32 %683, 0
+  br i1 %.not448.i, label %686, label %684
+
+684:                                              ; preds = %681
+  %685 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.362, i32 noundef %683) #23
+  br label %686
+
+686:                                              ; preds = %684, %681
+  %687 = getelementptr inbounds i8, ptr %4, i64 164
+  %688 = load i32, ptr %687, align 4
+  %.not449.i = icmp eq i32 %688, 0
+  br i1 %.not449.i, label %691, label %689
+
+689:                                              ; preds = %686
+  %690 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.363, i32 noundef %688) #23
+  br label %691
+
+691:                                              ; preds = %689, %686
+  %692 = getelementptr inbounds i8, ptr %4, i64 168
+  %693 = load i32, ptr %692, align 8
+  %.not450.i = icmp eq i32 %693, 0
+  br i1 %.not450.i, label %696, label %694
+
+694:                                              ; preds = %691
+  %695 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.364, i32 noundef %693) #23
+  br label %696
+
+696:                                              ; preds = %694, %691
+  %697 = getelementptr inbounds i8, ptr %4, i64 172
+  %698 = load i32, ptr %697, align 4
+  %.not451.i = icmp eq i32 %698, 0
+  br i1 %.not451.i, label %701, label %699
+
+699:                                              ; preds = %696
+  %700 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.365, i32 noundef %698) #23
+  br label %701
+
+701:                                              ; preds = %699, %696
+  %702 = getelementptr inbounds i8, ptr %4, i64 176
+  %703 = load i32, ptr %702, align 8
+  %.not452.i = icmp eq i32 %703, 0
+  br i1 %.not452.i, label %706, label %704
+
+704:                                              ; preds = %701
+  %705 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.366, i32 noundef %703) #23
+  br label %706
+
+706:                                              ; preds = %704, %701
+  %707 = getelementptr inbounds i8, ptr %4, i64 180
+  %708 = load i32, ptr %707, align 4
+  %.not453.i = icmp eq i32 %708, 0
+  br i1 %.not453.i, label %711, label %709
+
+709:                                              ; preds = %706
+  %710 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.367, i32 noundef %708) #23
+  br label %711
+
+711:                                              ; preds = %709, %706
+  %712 = getelementptr inbounds i8, ptr %4, i64 184
+  %713 = load i32, ptr %712, align 8
+  %.not454.i = icmp eq i32 %713, 0
+  br i1 %.not454.i, label %716, label %714
+
+714:                                              ; preds = %711
+  %715 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.368, i32 noundef %713) #23
+  br label %716
+
+716:                                              ; preds = %714, %711
+  %717 = getelementptr inbounds i8, ptr %4, i64 188
+  %718 = load i32, ptr %717, align 4
+  %.not455.i = icmp eq i32 %718, 0
+  br i1 %.not455.i, label %721, label %719
+
+719:                                              ; preds = %716
+  %720 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.369, i32 noundef %718) #23
+  br label %721
+
+721:                                              ; preds = %719, %716
+  %722 = getelementptr inbounds i8, ptr %4, i64 192
+  %723 = load i32, ptr %722, align 8
+  %.not456.i = icmp eq i32 %723, 0
+  br i1 %.not456.i, label %726, label %724
+
+724:                                              ; preds = %721
+  %725 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.370, i32 noundef %723) #23
+  br label %726
+
+726:                                              ; preds = %724, %721
+  %727 = getelementptr inbounds i8, ptr %4, i64 196
+  %728 = load i32, ptr %727, align 4
+  %.not457.i = icmp eq i32 %728, 0
+  br i1 %.not457.i, label %731, label %729
+
+729:                                              ; preds = %726
+  %730 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.371, i32 noundef %728) #23
+  br label %731
+
+731:                                              ; preds = %729, %726
+  %732 = getelementptr inbounds i8, ptr %4, i64 200
+  %733 = load i32, ptr %732, align 8
+  %.not458.i = icmp eq i32 %733, 0
+  br i1 %.not458.i, label %736, label %734
+
+734:                                              ; preds = %731
+  %735 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.372, i32 noundef %733) #23
+  br label %736
+
+736:                                              ; preds = %734, %731
+  %737 = getelementptr inbounds i8, ptr %4, i64 204
+  %738 = load i32, ptr %737, align 4
+  %.not459.i = icmp eq i32 %738, 0
+  br i1 %.not459.i, label %741, label %739
+
+739:                                              ; preds = %736
+  %740 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.373, i32 noundef %738) #23
+  br label %741
+
+741:                                              ; preds = %739, %736
+  %742 = getelementptr inbounds i8, ptr %4, i64 208
+  %743 = load i32, ptr %742, align 8
+  %.not460.i = icmp eq i32 %743, 0
+  br i1 %.not460.i, label %746, label %744
+
+744:                                              ; preds = %741
+  %745 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.374, i32 noundef %743) #23
+  br label %746
+
+746:                                              ; preds = %744, %741
+  %747 = getelementptr inbounds i8, ptr %4, i64 212
+  %748 = load i32, ptr %747, align 4
+  %.not461.i = icmp eq i32 %748, 0
+  br i1 %.not461.i, label %751, label %749
+
+749:                                              ; preds = %746
+  %750 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.375, i32 noundef %748) #23
+  br label %751
+
+751:                                              ; preds = %749, %746
+  %752 = getelementptr inbounds i8, ptr %4, i64 216
+  %753 = load i32, ptr %752, align 8
+  %.not462.i = icmp eq i32 %753, 0
+  br i1 %.not462.i, label %756, label %754
+
+754:                                              ; preds = %751
+  %755 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.376, i32 noundef %753) #23
+  br label %756
+
+756:                                              ; preds = %754, %751
+  %757 = getelementptr inbounds i8, ptr %4, i64 220
+  %758 = load i32, ptr %757, align 4
+  %.not463.i = icmp eq i32 %758, 0
+  br i1 %.not463.i, label %761, label %759
+
+759:                                              ; preds = %756
+  %760 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.377, i32 noundef %758) #23
+  br label %761
+
+761:                                              ; preds = %759, %756
+  %762 = getelementptr inbounds i8, ptr %4, i64 224
+  %763 = load i32, ptr %762, align 8
+  %.not464.i = icmp eq i32 %763, 0
+  br i1 %.not464.i, label %766, label %764
+
+764:                                              ; preds = %761
+  %765 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.378, i32 noundef %763) #23
+  br label %766
+
+766:                                              ; preds = %764, %761
+  %767 = getelementptr inbounds i8, ptr %4, i64 228
+  %768 = load i32, ptr %767, align 4
+  %.not465.i = icmp eq i32 %768, 0
+  br i1 %.not465.i, label %771, label %769
+
+769:                                              ; preds = %766
+  %770 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.379, i32 noundef %768) #23
+  br label %771
+
+771:                                              ; preds = %769, %766
+  %772 = getelementptr inbounds i8, ptr %4, i64 232
+  %773 = load i32, ptr %772, align 8
+  %.not466.i = icmp eq i32 %773, 0
+  br i1 %.not466.i, label %776, label %774
+
+774:                                              ; preds = %771
+  %775 = call i32 @cli_jsonint(ptr noundef nonnull %266, ptr noundef nonnull @.str.380, i32 noundef %773) #23
+  br label %776
+
+776:                                              ; preds = %774, %771
+  %777 = getelementptr inbounds i8, ptr %4, i64 12
+  %778 = load i32, ptr %777, align 4
+  %779 = and i32 %778, 1
+  %.not467.i = icmp eq i32 %779, 0
+  br i1 %.not467.i, label %782, label %780
+
+780:                                              ; preds = %776
+  %781 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.171, i32 noundef 1) #23
+  %.pre500.i = load i32, ptr %777, align 4
+  br label %782
+
+782:                                              ; preds = %780, %776
+  %783 = phi i32 [ %.pre500.i, %780 ], [ %778, %776 ]
+  %784 = and i32 %783, 2
+  %.not468.i = icmp eq i32 %784, 0
+  br i1 %.not468.i, label %787, label %785
+
+785:                                              ; preds = %782
+  %786 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.381, i32 noundef 1) #23
+  %.pre501.i = load i32, ptr %777, align 4
+  br label %787
+
+787:                                              ; preds = %785, %782
+  %788 = phi i32 [ %.pre501.i, %785 ], [ %783, %782 ]
+  %789 = and i32 %788, 4
+  %.not469.i = icmp eq i32 %789, 0
+  br i1 %.not469.i, label %792, label %790
+
+790:                                              ; preds = %787
+  %791 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.382, i32 noundef 1) #23
+  %.pre502.i = load i32, ptr %777, align 4
+  br label %792
+
+792:                                              ; preds = %790, %787
+  %793 = phi i32 [ %.pre502.i, %790 ], [ %788, %787 ]
+  %794 = and i32 %793, 8
+  %.not470.i = icmp eq i32 %794, 0
+  br i1 %.not470.i, label %797, label %795
+
+795:                                              ; preds = %792
+  %796 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.383, i32 noundef 1) #23
+  %.pre503.i = load i32, ptr %777, align 4
+  br label %797
+
+797:                                              ; preds = %795, %792
+  %798 = phi i32 [ %.pre503.i, %795 ], [ %793, %792 ]
+  %799 = and i32 %798, 131072
+  %.not471.i = icmp eq i32 %799, 0
+  br i1 %.not471.i, label %804, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %797
+  %800 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.384, i32 noundef 1) #23
+  %801 = load i32, ptr %777, align 4
+  %802 = lshr i32 %801, 19
+  %.lobit.i = and i32 %802, 1
+  %803 = call i32 @cli_jsonbool(ptr noundef nonnull %266, ptr noundef nonnull @.str.385, i32 noundef %.lobit.i) #23
+  br label %804
+
+804:                                              ; preds = %.sink.split.i, %797
+  %805 = getelementptr inbounds i8, ptr %4, i64 8
+  %806 = load i32, ptr %805, align 8
+  %.not476.i = icmp eq i32 %806, 0
   br i1 %.not476.i, label %.loopexit.i, label %.lr.ph.i227
 
-.lr.ph.i227:                                      ; preds = %805, %824
-  %.0475.i = phi i64 [ %825, %824 ], [ 0, %805 ]
-  %808 = load ptr, ptr %4, align 8
-  %809 = getelementptr inbounds ptr, ptr %808, i64 %.0475.i
-  %810 = load ptr, ptr %809, align 8
-  %811 = getelementptr inbounds i8, ptr %810, i64 20
-  %812 = load i32, ptr %811, align 4
-  %813 = and i32 %812, 524288
-  %.not473.i = icmp eq i32 %813, 0
-  br i1 %.not473.i, label %824, label %814
+.lr.ph.i227:                                      ; preds = %804, %823
+  %.0475.i = phi i64 [ %824, %823 ], [ 0, %804 ]
+  %807 = load ptr, ptr %4, align 8
+  %808 = getelementptr inbounds ptr, ptr %807, i64 %.0475.i
+  %809 = load ptr, ptr %808, align 8
+  %810 = getelementptr inbounds i8, ptr %809, i64 20
+  %811 = load i32, ptr %810, align 4
+  %812 = and i32 %811, 524288
+  %.not473.i = icmp eq i32 %812, 0
+  br i1 %.not473.i, label %823, label %813
 
-814:                                              ; preds = %.lr.ph.i227
-  %815 = call ptr @cli_jsonarray(ptr noundef %267, ptr noundef nonnull @.str.386) #23
-  %.not474.i = icmp eq ptr %815, null
-  br i1 %.not474.i, label %824, label %816
+813:                                              ; preds = %.lr.ph.i227
+  %814 = call ptr @cli_jsonarray(ptr noundef %266, ptr noundef nonnull @.str.386) #23
+  %.not474.i = icmp eq ptr %814, null
+  br i1 %.not474.i, label %823, label %815
 
-816:                                              ; preds = %814
-  %817 = load ptr, ptr %4, align 8
-  %818 = getelementptr inbounds ptr, ptr %817, i64 %.0475.i
-  %819 = load ptr, ptr %818, align 8
-  %820 = getelementptr inbounds i8, ptr %819, i64 16
-  %821 = load i32, ptr %820, align 8
-  %822 = lshr i32 %821, 8
-  %823 = call i32 @cli_jsonint_array(ptr noundef nonnull %815, i32 noundef %822) #23
-  br label %824
+815:                                              ; preds = %813
+  %816 = load ptr, ptr %4, align 8
+  %817 = getelementptr inbounds ptr, ptr %816, i64 %.0475.i
+  %818 = load ptr, ptr %817, align 8
+  %819 = getelementptr inbounds i8, ptr %818, i64 16
+  %820 = load i32, ptr %819, align 8
+  %821 = lshr i32 %820, 8
+  %822 = call i32 @cli_jsonint_array(ptr noundef nonnull %814, i32 noundef %821) #23
+  br label %823
 
-824:                                              ; preds = %816, %814, %.lr.ph.i227
-  %825 = add nuw nsw i64 %.0475.i, 1
-  %826 = load i32, ptr %806, align 8
-  %827 = zext i32 %826 to i64
-  %828 = icmp ult i64 %825, %827
-  br i1 %828, label %.lr.ph.i227, label %.loopexit.i
+823:                                              ; preds = %815, %813, %.lr.ph.i227
+  %824 = add nuw nsw i64 %.0475.i, 1
+  %825 = load i32, ptr %805, align 8
+  %826 = zext i32 %825 to i64
+  %827 = icmp ult i64 %824, %826
+  br i1 %827, label %.lr.ph.i227, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %824, %805, %266, %263, %258, %256
-  %829 = getelementptr inbounds i8, ptr %4, i64 240
-  %830 = load ptr, ptr %829, align 8
-  %.not.i.i = icmp eq ptr %830, null
-  br i1 %.not.i.i, label %836, label %831
+.loopexit.i:                                      ; preds = %823, %804, %265, %262, %257, %255
+  %828 = getelementptr inbounds i8, ptr %4, i64 240
+  %829 = load ptr, ptr %828, align 8
+  %.not.i.i = icmp eq ptr %829, null
+  br i1 %.not.i.i, label %835, label %830
 
-831:                                              ; preds = %.loopexit.i
-  %832 = load ptr, ptr %830, align 8
-  %.not57.i.i = icmp eq ptr %832, null
-  br i1 %.not57.i.i, label %834, label %833
+830:                                              ; preds = %.loopexit.i
+  %831 = load ptr, ptr %829, align 8
+  %.not57.i.i = icmp eq ptr %831, null
+  br i1 %.not57.i.i, label %833, label %832
 
-833:                                              ; preds = %831
-  call void @free(ptr noundef nonnull %832) #23
-  %.pre.i.i = load ptr, ptr %829, align 8
-  br label %834
+832:                                              ; preds = %830
+  call void @free(ptr noundef nonnull %831) #23
+  %.pre.i.i = load ptr, ptr %828, align 8
+  br label %833
 
-834:                                              ; preds = %833, %831
-  %835 = phi ptr [ %.pre.i.i, %833 ], [ %830, %831 ]
-  call void @free(ptr noundef %835) #23
-  store ptr null, ptr %829, align 8
-  br label %836
+833:                                              ; preds = %832, %830
+  %834 = phi ptr [ %.pre.i.i, %832 ], [ %829, %830 ]
+  call void @free(ptr noundef %834) #23
+  store ptr null, ptr %828, align 8
+  br label %835
 
-836:                                              ; preds = %834, %.loopexit.i
-  %837 = getelementptr inbounds i8, ptr %4, i64 248
-  %838 = load ptr, ptr %837, align 8
-  %.not58.i.i = icmp eq ptr %838, null
-  br i1 %.not58.i.i, label %844, label %839
+835:                                              ; preds = %833, %.loopexit.i
+  %836 = getelementptr inbounds i8, ptr %4, i64 248
+  %837 = load ptr, ptr %836, align 8
+  %.not58.i.i = icmp eq ptr %837, null
+  br i1 %.not58.i.i, label %843, label %838
 
-839:                                              ; preds = %836
-  %840 = load ptr, ptr %838, align 8
-  %.not59.i.i = icmp eq ptr %840, null
-  br i1 %.not59.i.i, label %842, label %841
+838:                                              ; preds = %835
+  %839 = load ptr, ptr %837, align 8
+  %.not59.i.i = icmp eq ptr %839, null
+  br i1 %.not59.i.i, label %841, label %840
 
-841:                                              ; preds = %839
-  call void @free(ptr noundef nonnull %840) #23
-  %.pre72.i.i = load ptr, ptr %837, align 8
-  br label %842
+840:                                              ; preds = %838
+  call void @free(ptr noundef nonnull %839) #23
+  %.pre72.i.i = load ptr, ptr %836, align 8
+  br label %841
 
-842:                                              ; preds = %841, %839
-  %843 = phi ptr [ %.pre72.i.i, %841 ], [ %838, %839 ]
-  call void @free(ptr noundef %843) #23
-  store ptr null, ptr %837, align 8
-  br label %844
+841:                                              ; preds = %840, %838
+  %842 = phi ptr [ %.pre72.i.i, %840 ], [ %837, %838 ]
+  call void @free(ptr noundef %842) #23
+  store ptr null, ptr %836, align 8
+  br label %843
 
-844:                                              ; preds = %842, %836
-  %845 = getelementptr inbounds i8, ptr %4, i64 256
-  %846 = load ptr, ptr %845, align 8
-  %.not60.i.i = icmp eq ptr %846, null
-  br i1 %.not60.i.i, label %852, label %847
+843:                                              ; preds = %841, %835
+  %844 = getelementptr inbounds i8, ptr %4, i64 256
+  %845 = load ptr, ptr %844, align 8
+  %.not60.i.i = icmp eq ptr %845, null
+  br i1 %.not60.i.i, label %851, label %846
 
-847:                                              ; preds = %844
-  %848 = load ptr, ptr %846, align 8
-  %.not61.i.i = icmp eq ptr %848, null
-  br i1 %.not61.i.i, label %850, label %849
+846:                                              ; preds = %843
+  %847 = load ptr, ptr %845, align 8
+  %.not61.i.i = icmp eq ptr %847, null
+  br i1 %.not61.i.i, label %849, label %848
 
-849:                                              ; preds = %847
-  call void @free(ptr noundef nonnull %848) #23
-  %.pre73.i.i = load ptr, ptr %845, align 8
-  br label %850
+848:                                              ; preds = %846
+  call void @free(ptr noundef nonnull %847) #23
+  %.pre73.i.i = load ptr, ptr %844, align 8
+  br label %849
 
-850:                                              ; preds = %849, %847
-  %851 = phi ptr [ %.pre73.i.i, %849 ], [ %846, %847 ]
-  call void @free(ptr noundef %851) #23
-  store ptr null, ptr %845, align 8
-  br label %852
+849:                                              ; preds = %848, %846
+  %850 = phi ptr [ %.pre73.i.i, %848 ], [ %845, %846 ]
+  call void @free(ptr noundef %850) #23
+  store ptr null, ptr %844, align 8
+  br label %851
 
-852:                                              ; preds = %850, %844
-  %853 = getelementptr inbounds i8, ptr %4, i64 272
-  %854 = load ptr, ptr %853, align 8
-  %.not62.i.i = icmp eq ptr %854, null
-  br i1 %.not62.i.i, label %860, label %855
+851:                                              ; preds = %849, %843
+  %852 = getelementptr inbounds i8, ptr %4, i64 272
+  %853 = load ptr, ptr %852, align 8
+  %.not62.i.i = icmp eq ptr %853, null
+  br i1 %.not62.i.i, label %859, label %854
 
-855:                                              ; preds = %852
-  %856 = load ptr, ptr %854, align 8
-  %.not63.i.i = icmp eq ptr %856, null
-  br i1 %.not63.i.i, label %858, label %857
+854:                                              ; preds = %851
+  %855 = load ptr, ptr %853, align 8
+  %.not63.i.i = icmp eq ptr %855, null
+  br i1 %.not63.i.i, label %857, label %856
 
-857:                                              ; preds = %855
-  call void @free(ptr noundef nonnull %856) #23
-  %.pre74.i.i = load ptr, ptr %853, align 8
-  br label %858
+856:                                              ; preds = %854
+  call void @free(ptr noundef nonnull %855) #23
+  %.pre74.i.i = load ptr, ptr %852, align 8
+  br label %857
 
-858:                                              ; preds = %857, %855
-  %859 = phi ptr [ %.pre74.i.i, %857 ], [ %854, %855 ]
-  call void @free(ptr noundef %859) #23
-  store ptr null, ptr %853, align 8
-  br label %860
+857:                                              ; preds = %856, %854
+  %858 = phi ptr [ %.pre74.i.i, %856 ], [ %853, %854 ]
+  call void @free(ptr noundef %858) #23
+  store ptr null, ptr %852, align 8
+  br label %859
 
-860:                                              ; preds = %858, %852
-  %861 = getelementptr inbounds i8, ptr %4, i64 264
-  %862 = load ptr, ptr %861, align 8
-  %.not64.i.i = icmp eq ptr %862, null
-  br i1 %.not64.i.i, label %868, label %863
+859:                                              ; preds = %857, %851
+  %860 = getelementptr inbounds i8, ptr %4, i64 264
+  %861 = load ptr, ptr %860, align 8
+  %.not64.i.i = icmp eq ptr %861, null
+  br i1 %.not64.i.i, label %867, label %862
 
-863:                                              ; preds = %860
-  %864 = load ptr, ptr %862, align 8
-  %.not65.i.i = icmp eq ptr %864, null
-  br i1 %.not65.i.i, label %866, label %865
+862:                                              ; preds = %859
+  %863 = load ptr, ptr %861, align 8
+  %.not65.i.i = icmp eq ptr %863, null
+  br i1 %.not65.i.i, label %865, label %864
 
-865:                                              ; preds = %863
-  call void @free(ptr noundef nonnull %864) #23
-  %.pre75.i.i = load ptr, ptr %861, align 8
-  br label %866
+864:                                              ; preds = %862
+  call void @free(ptr noundef nonnull %863) #23
+  %.pre75.i.i = load ptr, ptr %860, align 8
+  br label %865
 
-866:                                              ; preds = %865, %863
-  %867 = phi ptr [ %.pre75.i.i, %865 ], [ %862, %863 ]
-  call void @free(ptr noundef %867) #23
-  store ptr null, ptr %861, align 8
-  br label %868
+865:                                              ; preds = %864, %862
+  %866 = phi ptr [ %.pre75.i.i, %864 ], [ %861, %862 ]
+  call void @free(ptr noundef %866) #23
+  store ptr null, ptr %860, align 8
+  br label %867
 
-868:                                              ; preds = %866, %860
-  %869 = getelementptr inbounds i8, ptr %4, i64 280
-  %870 = load ptr, ptr %869, align 8
-  %.not66.i.i = icmp eq ptr %870, null
-  br i1 %.not66.i.i, label %876, label %871
+867:                                              ; preds = %865, %859
+  %868 = getelementptr inbounds i8, ptr %4, i64 280
+  %869 = load ptr, ptr %868, align 8
+  %.not66.i.i = icmp eq ptr %869, null
+  br i1 %.not66.i.i, label %875, label %870
 
-871:                                              ; preds = %868
-  %872 = load ptr, ptr %870, align 8
-  %.not67.i.i = icmp eq ptr %872, null
-  br i1 %.not67.i.i, label %874, label %873
+870:                                              ; preds = %867
+  %871 = load ptr, ptr %869, align 8
+  %.not67.i.i = icmp eq ptr %871, null
+  br i1 %.not67.i.i, label %873, label %872
 
-873:                                              ; preds = %871
-  call void @free(ptr noundef nonnull %872) #23
-  %.pre76.i.i = load ptr, ptr %869, align 8
-  br label %874
+872:                                              ; preds = %870
+  call void @free(ptr noundef nonnull %871) #23
+  %.pre76.i.i = load ptr, ptr %868, align 8
+  br label %873
 
-874:                                              ; preds = %873, %871
-  %875 = phi ptr [ %.pre76.i.i, %873 ], [ %870, %871 ]
-  call void @free(ptr noundef %875) #23
-  store ptr null, ptr %869, align 8
-  br label %876
+873:                                              ; preds = %872, %870
+  %874 = phi ptr [ %.pre76.i.i, %872 ], [ %869, %870 ]
+  call void @free(ptr noundef %874) #23
+  store ptr null, ptr %868, align 8
+  br label %875
 
-876:                                              ; preds = %874, %868
-  %877 = getelementptr inbounds i8, ptr %4, i64 288
-  %878 = load ptr, ptr %877, align 8
-  %.not68.i.i = icmp eq ptr %878, null
-  br i1 %.not68.i.i, label %884, label %879
+875:                                              ; preds = %873, %867
+  %876 = getelementptr inbounds i8, ptr %4, i64 288
+  %877 = load ptr, ptr %876, align 8
+  %.not68.i.i = icmp eq ptr %877, null
+  br i1 %.not68.i.i, label %883, label %878
 
-879:                                              ; preds = %876
-  %880 = load ptr, ptr %878, align 8
-  %.not69.i.i = icmp eq ptr %880, null
-  br i1 %.not69.i.i, label %882, label %881
+878:                                              ; preds = %875
+  %879 = load ptr, ptr %877, align 8
+  %.not69.i.i = icmp eq ptr %879, null
+  br i1 %.not69.i.i, label %881, label %880
 
-881:                                              ; preds = %879
-  call void @free(ptr noundef nonnull %880) #23
-  %.pre77.i.i = load ptr, ptr %877, align 8
-  br label %882
+880:                                              ; preds = %878
+  call void @free(ptr noundef nonnull %879) #23
+  %.pre77.i.i = load ptr, ptr %876, align 8
+  br label %881
 
-882:                                              ; preds = %881, %879
-  %883 = phi ptr [ %.pre77.i.i, %881 ], [ %878, %879 ]
-  call void @free(ptr noundef %883) #23
-  store ptr null, ptr %877, align 8
-  br label %884
+881:                                              ; preds = %880, %878
+  %882 = phi ptr [ %.pre77.i.i, %880 ], [ %877, %878 ]
+  call void @free(ptr noundef %882) #23
+  store ptr null, ptr %876, align 8
+  br label %883
 
-884:                                              ; preds = %882, %876
-  %885 = getelementptr inbounds i8, ptr %4, i64 296
-  %886 = load ptr, ptr %885, align 8
-  %.not70.i.i = icmp eq ptr %886, null
-  br i1 %.not70.i.i, label %pdf_export_json.exit, label %887
+883:                                              ; preds = %881, %875
+  %884 = getelementptr inbounds i8, ptr %4, i64 296
+  %885 = load ptr, ptr %884, align 8
+  %.not70.i.i = icmp eq ptr %885, null
+  br i1 %.not70.i.i, label %pdf_export_json.exit, label %886
 
-887:                                              ; preds = %884
-  %888 = load ptr, ptr %886, align 8
-  %.not71.i.i = icmp eq ptr %888, null
-  br i1 %.not71.i.i, label %890, label %889
+886:                                              ; preds = %883
+  %887 = load ptr, ptr %885, align 8
+  %.not71.i.i = icmp eq ptr %887, null
+  br i1 %.not71.i.i, label %889, label %888
 
-889:                                              ; preds = %887
-  call void @free(ptr noundef nonnull %888) #23
-  %.pre78.i.i = load ptr, ptr %885, align 8
-  br label %890
+888:                                              ; preds = %886
+  call void @free(ptr noundef nonnull %887) #23
+  %.pre78.i.i = load ptr, ptr %884, align 8
+  br label %889
 
-890:                                              ; preds = %889, %887
-  %891 = phi ptr [ %.pre78.i.i, %889 ], [ %886, %887 ]
-  call void @free(ptr noundef %891) #23
-  store ptr null, ptr %885, align 8
+889:                                              ; preds = %888, %886
+  %890 = phi ptr [ %.pre78.i.i, %888 ], [ %885, %886 ]
+  call void @free(ptr noundef %890) #23
+  store ptr null, ptr %884, align 8
   br label %pdf_export_json.exit
 
-pdf_export_json.exit:                             ; preds = %884, %890
-  %892 = getelementptr inbounds i8, ptr %4, i64 304
-  %893 = load ptr, ptr %892, align 8
-  %.not217 = icmp eq ptr %893, null
-  br i1 %.not217, label %917, label %.preheader229
+pdf_export_json.exit:                             ; preds = %883, %889
+  %891 = getelementptr inbounds i8, ptr %4, i64 304
+  %892 = load ptr, ptr %891, align 8
+  %.not217 = icmp eq ptr %892, null
+  br i1 %.not217, label %916, label %.preheader229
 
 .preheader229:                                    ; preds = %pdf_export_json.exit
-  %894 = getelementptr inbounds i8, ptr %4, i64 312
-  %895 = load i32, ptr %894, align 8
-  %.not254 = icmp eq i32 %895, 0
+  %893 = getelementptr inbounds i8, ptr %4, i64 312
+  %894 = load i32, ptr %893, align 8
+  %.not254 = icmp eq i32 %894, 0
   br i1 %.not254, label %._crit_edge250, label %.lr.ph249
 
-.lr.ph249:                                        ; preds = %.preheader229, %912
-  %896 = phi i32 [ %913, %912 ], [ %895, %.preheader229 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %912 ], [ 0, %.preheader229 ]
-  %897 = load ptr, ptr %892, align 8
-  %898 = getelementptr inbounds ptr, ptr %897, i64 %indvars.iv
-  %899 = load ptr, ptr %898, align 8
-  %.not223 = icmp eq ptr %899, null
-  br i1 %.not223, label %912, label %900
+.lr.ph249:                                        ; preds = %.preheader229, %911
+  %895 = phi i32 [ %912, %911 ], [ %894, %.preheader229 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %911 ], [ 0, %.preheader229 ]
+  %896 = load ptr, ptr %891, align 8
+  %897 = getelementptr inbounds ptr, ptr %896, i64 %indvars.iv
+  %898 = load ptr, ptr %897, align 8
+  %.not223 = icmp eq ptr %898, null
+  br i1 %.not223, label %911, label %899
 
-900:                                              ; preds = %.lr.ph249
-  %901 = getelementptr inbounds i8, ptr %899, i64 24
-  %902 = load ptr, ptr %901, align 8
-  %.not224 = icmp eq ptr %902, null
-  br i1 %.not224, label %908, label %903
+899:                                              ; preds = %.lr.ph249
+  %900 = getelementptr inbounds i8, ptr %898, i64 24
+  %901 = load ptr, ptr %900, align 8
+  %.not224 = icmp eq ptr %901, null
+  br i1 %.not224, label %907, label %902
 
-903:                                              ; preds = %900
-  call void @free(ptr noundef nonnull %902) #23
-  %904 = load ptr, ptr %892, align 8
-  %905 = getelementptr inbounds ptr, ptr %904, i64 %indvars.iv
-  %906 = load ptr, ptr %905, align 8
-  %907 = getelementptr inbounds i8, ptr %906, i64 24
-  store ptr null, ptr %907, align 8
-  %.pre = load ptr, ptr %892, align 8
+902:                                              ; preds = %899
+  call void @free(ptr noundef nonnull %901) #23
+  %903 = load ptr, ptr %891, align 8
+  %904 = getelementptr inbounds ptr, ptr %903, i64 %indvars.iv
+  %905 = load ptr, ptr %904, align 8
+  %906 = getelementptr inbounds i8, ptr %905, i64 24
+  store ptr null, ptr %906, align 8
+  %.pre = load ptr, ptr %891, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
   %.pre263 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %908
+  br label %907
 
-908:                                              ; preds = %903, %900
-  %909 = phi ptr [ %.pre263, %903 ], [ %899, %900 ]
-  call void @free(ptr noundef %909) #23
-  %910 = load ptr, ptr %892, align 8
-  %911 = getelementptr inbounds ptr, ptr %910, i64 %indvars.iv
-  store ptr null, ptr %911, align 8
-  %.pre264 = load i32, ptr %894, align 8
-  br label %912
+907:                                              ; preds = %902, %899
+  %908 = phi ptr [ %.pre263, %902 ], [ %898, %899 ]
+  call void @free(ptr noundef %908) #23
+  %909 = load ptr, ptr %891, align 8
+  %910 = getelementptr inbounds ptr, ptr %909, i64 %indvars.iv
+  store ptr null, ptr %910, align 8
+  %.pre264 = load i32, ptr %893, align 8
+  br label %911
 
-912:                                              ; preds = %.lr.ph249, %908
-  %913 = phi i32 [ %896, %.lr.ph249 ], [ %.pre264, %908 ]
+911:                                              ; preds = %.lr.ph249, %907
+  %912 = phi i32 [ %895, %.lr.ph249 ], [ %.pre264, %907 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %914 = zext i32 %913 to i64
-  %915 = icmp ult i64 %indvars.iv.next, %914
-  br i1 %915, label %.lr.ph249, label %._crit_edge250.loopexit
+  %913 = zext i32 %912 to i64
+  %914 = icmp ult i64 %indvars.iv.next, %913
+  br i1 %914, label %.lr.ph249, label %._crit_edge250.loopexit
 
-._crit_edge250.loopexit:                          ; preds = %912
-  %.pre265 = load ptr, ptr %892, align 8
+._crit_edge250.loopexit:                          ; preds = %911
+  %.pre265 = load ptr, ptr %891, align 8
   br label %._crit_edge250
 
 ._crit_edge250:                                   ; preds = %._crit_edge250.loopexit, %.preheader229
-  %916 = phi ptr [ %.pre265, %._crit_edge250.loopexit ], [ %893, %.preheader229 ]
-  call void @free(ptr noundef %916) #23
-  store ptr null, ptr %892, align 8
-  br label %917
+  %915 = phi ptr [ %.pre265, %._crit_edge250.loopexit ], [ %892, %.preheader229 ]
+  call void @free(ptr noundef %915) #23
+  store ptr null, ptr %891, align 8
+  br label %916
 
-917:                                              ; preds = %._crit_edge250, %pdf_export_json.exit
-  %918 = load ptr, ptr %4, align 8
-  %.not218 = icmp eq ptr %918, null
-  br i1 %.not218, label %942, label %.preheader
+916:                                              ; preds = %._crit_edge250, %pdf_export_json.exit
+  %917 = load ptr, ptr %4, align 8
+  %.not218 = icmp eq ptr %917, null
+  br i1 %.not218, label %941, label %.preheader
 
-.preheader:                                       ; preds = %917
-  %919 = getelementptr inbounds i8, ptr %4, i64 8
-  %920 = load i32, ptr %919, align 8
-  %.not255 = icmp eq i32 %920, 0
+.preheader:                                       ; preds = %916
+  %918 = getelementptr inbounds i8, ptr %4, i64 8
+  %919 = load i32, ptr %918, align 8
+  %.not255 = icmp eq i32 %919, 0
   br i1 %.not255, label %._crit_edge253, label %.lr.ph252
 
-.lr.ph252:                                        ; preds = %.preheader, %937
-  %921 = phi i32 [ %938, %937 ], [ %920, %.preheader ]
-  %indvars.iv260 = phi i64 [ %indvars.iv.next261, %937 ], [ 0, %.preheader ]
-  %922 = load ptr, ptr %4, align 8
-  %923 = getelementptr inbounds ptr, ptr %922, i64 %indvars.iv260
-  %924 = load ptr, ptr %923, align 8
-  %.not221 = icmp eq ptr %924, null
-  br i1 %.not221, label %937, label %925
+.lr.ph252:                                        ; preds = %.preheader, %936
+  %920 = phi i32 [ %937, %936 ], [ %919, %.preheader ]
+  %indvars.iv260 = phi i64 [ %indvars.iv.next261, %936 ], [ 0, %.preheader ]
+  %921 = load ptr, ptr %4, align 8
+  %922 = getelementptr inbounds ptr, ptr %921, i64 %indvars.iv260
+  %923 = load ptr, ptr %922, align 8
+  %.not221 = icmp eq ptr %923, null
+  br i1 %.not221, label %936, label %924
 
-925:                                              ; preds = %.lr.ph252
-  %926 = getelementptr inbounds i8, ptr %924, i64 312
-  %927 = load ptr, ptr %926, align 8
-  %.not222 = icmp eq ptr %927, null
-  br i1 %.not222, label %933, label %928
+924:                                              ; preds = %.lr.ph252
+  %925 = getelementptr inbounds i8, ptr %923, i64 312
+  %926 = load ptr, ptr %925, align 8
+  %.not222 = icmp eq ptr %926, null
+  br i1 %.not222, label %932, label %927
 
-928:                                              ; preds = %925
-  call void @free(ptr noundef nonnull %927) #23
-  %929 = load ptr, ptr %4, align 8
-  %930 = getelementptr inbounds ptr, ptr %929, i64 %indvars.iv260
-  %931 = load ptr, ptr %930, align 8
-  %932 = getelementptr inbounds i8, ptr %931, i64 312
-  store ptr null, ptr %932, align 8
-  %.pre266 = load ptr, ptr %930, align 8
-  br label %933
+927:                                              ; preds = %924
+  call void @free(ptr noundef nonnull %926) #23
+  %928 = load ptr, ptr %4, align 8
+  %929 = getelementptr inbounds ptr, ptr %928, i64 %indvars.iv260
+  %930 = load ptr, ptr %929, align 8
+  %931 = getelementptr inbounds i8, ptr %930, i64 312
+  store ptr null, ptr %931, align 8
+  %.pre266 = load ptr, ptr %929, align 8
+  br label %932
 
-933:                                              ; preds = %928, %925
-  %934 = phi ptr [ %.pre266, %928 ], [ %924, %925 ]
-  call void @free(ptr noundef %934) #23
-  %935 = load ptr, ptr %4, align 8
-  %936 = getelementptr inbounds ptr, ptr %935, i64 %indvars.iv260
-  store ptr null, ptr %936, align 8
-  %.pre267 = load i32, ptr %919, align 8
-  br label %937
+932:                                              ; preds = %927, %924
+  %933 = phi ptr [ %.pre266, %927 ], [ %923, %924 ]
+  call void @free(ptr noundef %933) #23
+  %934 = load ptr, ptr %4, align 8
+  %935 = getelementptr inbounds ptr, ptr %934, i64 %indvars.iv260
+  store ptr null, ptr %935, align 8
+  %.pre267 = load i32, ptr %918, align 8
+  br label %936
 
-937:                                              ; preds = %.lr.ph252, %933
-  %938 = phi i32 [ %921, %.lr.ph252 ], [ %.pre267, %933 ]
+936:                                              ; preds = %.lr.ph252, %932
+  %937 = phi i32 [ %920, %.lr.ph252 ], [ %.pre267, %932 ]
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %939 = zext i32 %938 to i64
-  %940 = icmp ult i64 %indvars.iv.next261, %939
-  br i1 %940, label %.lr.ph252, label %._crit_edge253.loopexit
+  %938 = zext i32 %937 to i64
+  %939 = icmp ult i64 %indvars.iv.next261, %938
+  br i1 %939, label %.lr.ph252, label %._crit_edge253.loopexit
 
-._crit_edge253.loopexit:                          ; preds = %937
+._crit_edge253.loopexit:                          ; preds = %936
   %.pre268 = load ptr, ptr %4, align 8
   br label %._crit_edge253
 
 ._crit_edge253:                                   ; preds = %._crit_edge253.loopexit, %.preheader
-  %941 = phi ptr [ %.pre268, %._crit_edge253.loopexit ], [ %918, %.preheader ]
-  call void @free(ptr noundef %941) #23
+  %940 = phi ptr [ %.pre268, %._crit_edge253.loopexit ], [ %917, %.preheader ]
+  call void @free(ptr noundef %940) #23
   store ptr null, ptr %4, align 8
-  br label %942
+  br label %941
 
-942:                                              ; preds = %._crit_edge253, %917
-  %943 = getelementptr inbounds i8, ptr %4, i64 104
-  %944 = load ptr, ptr %943, align 8
-  %.not219 = icmp eq ptr %944, null
-  br i1 %.not219, label %946, label %945
+941:                                              ; preds = %._crit_edge253, %916
+  %942 = getelementptr inbounds i8, ptr %4, i64 104
+  %943 = load ptr, ptr %942, align 8
+  %.not219 = icmp eq ptr %943, null
+  br i1 %.not219, label %945, label %944
 
-945:                                              ; preds = %942
-  call void @free(ptr noundef nonnull %944) #23
-  store ptr null, ptr %943, align 8
-  br label %946
+944:                                              ; preds = %941
+  call void @free(ptr noundef nonnull %943) #23
+  store ptr null, ptr %942, align 8
+  br label %945
 
-946:                                              ; preds = %945, %942
-  %947 = getelementptr inbounds i8, ptr %4, i64 120
-  %948 = load ptr, ptr %947, align 8
-  %.not220 = icmp eq ptr %948, null
-  br i1 %.not220, label %950, label %949
+945:                                              ; preds = %944, %941
+  %946 = getelementptr inbounds i8, ptr %4, i64 120
+  %947 = load ptr, ptr %946, align 8
+  %.not220 = icmp eq ptr %947, null
+  br i1 %.not220, label %949, label %948
 
-949:                                              ; preds = %946
-  call void @free(ptr noundef nonnull %948) #23
-  store ptr null, ptr %947, align 8
-  br label %950
+948:                                              ; preds = %945
+  call void @free(ptr noundef nonnull %947) #23
+  store ptr null, ptr %946, align 8
+  br label %949
 
-950:                                              ; preds = %949, %946
-  %951 = icmp eq i32 %.1, 22
-  %952 = select i1 %951, i32 0, i32 %.1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.192, i32 noundef %952) #23
-  ret i32 %952
+949:                                              ; preds = %948, %945
+  %950 = icmp eq i32 %.1, 22
+  %951 = select i1 %950, i32 0, i32 %.1
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.192, i32 noundef %951) #23
+  ret i32 %951
 }
 
 declare i32 @cli_jsonbool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

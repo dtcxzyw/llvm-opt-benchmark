@@ -519,7 +519,7 @@ define void @SetToZero(ptr nocapture noundef readonly %0) local_unnamed_addr #6 
 ; Function Attrs: nofree nounwind uwtable
 define void @PrintMat(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
-  switch i32 %2, label %56 [
+  switch i32 %2, label %55 [
     i32 1, label %3
     i32 2, label %23
   ]
@@ -578,10 +578,10 @@ define void @PrintMat(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   br label %32
 
 32:                                               ; preds = %.lr.ph54, %._crit_edge
-  %33 = phi i64 [ %27, %.lr.ph54 ], [ %54, %._crit_edge ]
-  %.152 = phi i64 [ 0, %.lr.ph54 ], [ %53, %._crit_edge ]
+  %33 = phi i64 [ %27, %.lr.ph54 ], [ %53, %._crit_edge ]
+  %.152 = phi i64 [ 0, %.lr.ph54 ], [ %52, %._crit_edge ]
   %34 = load i64, ptr %29, align 8
-  %35 = sub nsw i64 %.152, %34
+  %35 = sub i64 %.152, %34
   %spec.select = tail call i64 @llvm.smax.i64(i64 %35, i64 0)
   %36 = load i64, ptr %30, align 8
   %37 = add nsw i64 %36, %.152
@@ -599,35 +599,35 @@ define void @PrintMat(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %.13648 = phi i64 [ %42, %.lr.ph ], [ 0, %32 ]
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.3)
   %42 = add nuw nsw i64 %.13648, 1
-  %43 = icmp sgt i64 %35, %42
-  br i1 %43, label %.lr.ph, label %.preheader47, !llvm.loop !17
+  %exitcond.not = icmp eq i64 %42, %35
+  br i1 %exitcond.not, label %.preheader47, label %.lr.ph, !llvm.loop !17
 
 .lr.ph51:                                         ; preds = %.preheader47, %.lr.ph51
-  %.250 = phi i64 [ %52, %.lr.ph51 ], [ %spec.select, %.preheader47 ]
-  %44 = getelementptr inbounds ptr, ptr %25, i64 %.250
-  %45 = load ptr, ptr %44, align 8
-  %46 = sub nsw i64 %.152, %.250
-  %47 = load i64, ptr %31, align 8
-  %48 = getelementptr double, ptr %45, i64 %46
-  %49 = getelementptr double, ptr %48, i64 %47
-  %50 = load double, ptr %49, align 8
-  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %50)
-  %52 = add nuw nsw i64 %.250, 1
+  %.250 = phi i64 [ %51, %.lr.ph51 ], [ %spec.select, %.preheader47 ]
+  %43 = getelementptr inbounds ptr, ptr %25, i64 %.250
+  %44 = load ptr, ptr %43, align 8
+  %45 = sub nsw i64 %.152, %.250
+  %46 = load i64, ptr %31, align 8
+  %47 = getelementptr double, ptr %44, i64 %45
+  %48 = getelementptr double, ptr %47, i64 %46
+  %49 = load double, ptr %48, align 8
+  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %49)
+  %51 = add nuw nsw i64 %.250, 1
   %.not42.not = icmp slt i64 %.250, %39
   br i1 %.not42.not, label %.lr.ph51, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %.preheader47
   %putchar43 = tail call i32 @putchar(i32 10)
-  %53 = add nuw nsw i64 %.152, 1
-  %54 = load i64, ptr %26, align 8
-  %55 = icmp slt i64 %53, %54
-  br i1 %55, label %32, label %.sink.split, !llvm.loop !19
+  %52 = add nuw nsw i64 %.152, 1
+  %53 = load i64, ptr %26, align 8
+  %54 = icmp slt i64 %52, %53
+  br i1 %54, label %32, label %.sink.split, !llvm.loop !19
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge58, %23, %3
   %putchar41 = tail call i32 @putchar(i32 10)
-  br label %56
+  br label %55
 
-56:                                               ; preds = %.sink.split, %1
+55:                                               ; preds = %.sink.split, %1
   ret void
 }
 

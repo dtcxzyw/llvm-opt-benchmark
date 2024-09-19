@@ -1339,10 +1339,10 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %8 = xor i32 %7, -1
   br label %9
 
-9:                                                ; preds = %6, %34
-  %10 = phi i32 [ %36, %34 ], [ %1, %6 ]
-  %11 = phi i32 [ %37, %34 ], [ 0, %6 ]
-  %12 = phi i32 [ %35, %34 ], [ 0, %6 ]
+9:                                                ; preds = %6, %33
+  %10 = phi i32 [ %35, %33 ], [ %1, %6 ]
+  %11 = phi i32 [ %36, %33 ], [ 0, %6 ]
+  %12 = phi i32 [ %34, %33 ], [ 0, %6 ]
   %13 = and i32 %10, %8
   %14 = add nuw i32 %13, %11
   %15 = icmp eq i32 %12, 0
@@ -1369,29 +1369,29 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
 
 28:                                               ; preds = %23
   %29 = add nuw nsw i32 %21, 1
-  %30 = icmp ult i32 %29, %14
-  br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !57
+  %exitcond.not = icmp eq i32 %29, %14
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %28, %19
-  %31 = phi ptr [ %4, %19 ], [ %27, %28 ]
-  %32 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %31, i64 noundef -1) #8
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %.loopexit4, !prof !44
+  %30 = phi ptr [ %4, %19 ], [ %27, %28 ]
+  %31 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %30, i64 noundef -1) #8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %.loopexit4, !prof !44
 
-34:                                               ; preds = %.loopexit
-  %35 = add nuw nsw i32 %12, 1
-  %36 = lshr i32 %10, %2
-  %37 = add nuw nsw i32 %11, %3
-  %38 = icmp eq i32 %35, %5
-  br i1 %38, label %39, label %9, !llvm.loop !58
+33:                                               ; preds = %.loopexit
+  %34 = add nuw nsw i32 %12, 1
+  %35 = lshr i32 %10, %2
+  %36 = add nuw nsw i32 %11, %3
+  %37 = icmp eq i32 %34, %5
+  br i1 %37, label %38, label %9, !llvm.loop !58
 
-39:                                               ; preds = %34
-  %40 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #8
+38:                                               ; preds = %33
+  %39 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #8
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %.loopexit, %9, %39
-  %41 = phi i32 [ %40, %39 ], [ %17, %9 ], [ %32, %.loopexit ]
-  ret i32 %41
+.loopexit4:                                       ; preds = %.loopexit, %9, %38
+  %40 = phi i32 [ %39, %38 ], [ %17, %9 ], [ %31, %.loopexit ]
+  ret i32 %40
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable

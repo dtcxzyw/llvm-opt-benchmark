@@ -477,8 +477,8 @@ readline.exit.i:                                  ; preds = %.split.i.i, %.split
 
 108:                                              ; preds = %110
   %109 = getelementptr inbounds i8, ptr %.029198.i, i64 1
-  %.not39.i = icmp ult ptr %109, %103
-  br i1 %.not39.i, label %110, label %.critedge47.i, !llvm.loop !9
+  %exitcond.not.i = icmp eq ptr %109, %103
+  br i1 %exitcond.not.i, label %.critedge47.i, label %110, !llvm.loop !9
 
 110:                                              ; preds = %108, %.lr.ph.i
   %.029198.i = phi ptr [ %.1105.i, %.lr.ph.i ], [ %109, %108 ]

@@ -302,314 +302,314 @@ define hidden void @av1_highbd_warp_affine_c(ptr nocapture noundef readonly %0, 
   br i1 %47, label %.preheader217.us, label %._crit_edge239
 
 .preheader217.us:                                 ; preds = %.preheader217.lr.ph, %._crit_edge.us244
-  %.0238.us = phi i32 [ %259, %._crit_edge.us244 ], [ %7, %.preheader217.lr.ph ]
-  %78 = add nsw i32 %.0238.us, 4
-  %79 = shl i32 %78, %12
-  %80 = sub nsw i32 %41, %.0238.us
-  %81 = icmp sgt i32 %80, 8
-  %82 = add nsw i32 %80, -4
-  %spec.select205.us = select i1 %81, i32 4, i32 %82
-  %83 = icmp sgt i32 %spec.select205.us, -4
+  %indvars.iv273 = phi i32 [ %indvars.iv.next274, %._crit_edge.us244 ], [ %9, %.preheader217.lr.ph ]
+  %.0238.us = phi i32 [ %251, %._crit_edge.us244 ], [ %7, %.preheader217.lr.ph ]
+  %smin275 = tail call i32 @llvm.smin.i32(i32 %indvars.iv273, i32 8)
+  %78 = add i32 %smin275, -4
+  %79 = add nsw i32 %.0238.us, 4
+  %80 = shl i32 %79, %12
+  %81 = icmp sgt i32 %41, %.0238.us
   %reass.sub = sub i32 %.0238.us, %7
   %invariant.op236.us = add nuw nsw i32 %reass.sub, 4
-  %84 = sext i32 %spec.select205.us to i64
-  br label %85
+  %wide.trip.count276 = sext i32 %78 to i64
+  br label %82
 
-85:                                               ; preds = %.preheader217.us, %._crit_edge235.us
-  %.0183237.us = phi i32 [ %6, %.preheader217.us ], [ %112, %._crit_edge235.us ]
-  %86 = add nsw i32 %.0183237.us, 4
-  %87 = shl i32 %86, %11
-  %88 = load i32, ptr %48, align 4
-  %89 = mul nsw i32 %88, %87
-  %90 = load i32, ptr %49, align 4
-  %91 = mul nsw i32 %90, %79
-  %92 = add nsw i32 %91, %89
-  %93 = load i32, ptr %0, align 4
-  %94 = add nsw i32 %92, %93
-  %95 = load i32, ptr %50, align 4
-  %96 = mul nsw i32 %95, %87
-  %97 = load i32, ptr %51, align 4
-  %98 = mul nsw i32 %97, %79
-  %99 = add nsw i32 %98, %96
-  %100 = load i32, ptr %52, align 4
-  %101 = add nsw i32 %99, %100
-  %102 = ashr i32 %94, %11
-  %103 = ashr i32 %101, %12
-  %104 = ashr i32 %102, 16
-  %105 = and i32 %102, 65532
-  %106 = ashr i32 %103, 16
-  %107 = sub nsw i32 %105, %56
-  %108 = and i32 %107, -64
-  %109 = add nsw i32 %104, -3
-  %110 = sext i32 %109 to i64
-  %111 = sext i32 %106 to i64
-  br label %114
+82:                                               ; preds = %.preheader217.us, %._crit_edge235.us
+  %indvars.iv267 = phi i32 [ %8, %.preheader217.us ], [ %indvars.iv.next268, %._crit_edge235.us ]
+  %.0183237.us = phi i32 [ %6, %.preheader217.us ], [ %110, %._crit_edge235.us ]
+  %smin = tail call i32 @llvm.smin.i32(i32 %indvars.iv267, i32 8)
+  %83 = add i32 %smin, -4
+  %84 = add nsw i32 %.0183237.us, 4
+  %85 = shl i32 %84, %11
+  %86 = load i32, ptr %48, align 4
+  %87 = mul nsw i32 %86, %85
+  %88 = load i32, ptr %49, align 4
+  %89 = mul nsw i32 %88, %80
+  %90 = add nsw i32 %89, %87
+  %91 = load i32, ptr %0, align 4
+  %92 = add nsw i32 %90, %91
+  %93 = load i32, ptr %50, align 4
+  %94 = mul nsw i32 %93, %85
+  %95 = load i32, ptr %51, align 4
+  %96 = mul nsw i32 %95, %80
+  %97 = add nsw i32 %96, %94
+  %98 = load i32, ptr %52, align 4
+  %99 = add nsw i32 %97, %98
+  %100 = ashr i32 %92, %11
+  %101 = ashr i32 %99, %12
+  %102 = ashr i32 %100, 16
+  %103 = and i32 %100, 65532
+  %104 = ashr i32 %101, 16
+  %105 = sub nsw i32 %103, %56
+  %106 = and i32 %105, -64
+  %107 = add nsw i32 %102, -3
+  %108 = sext i32 %107 to i64
+  %109 = sext i32 %104 to i64
+  br label %112
 
 ._crit_edge235.us:                                ; preds = %._crit_edge.us.us, %.lr.ph234.us, %.preheader.us
-  %112 = add nsw i32 %.0183237.us, 8
-  %113 = icmp slt i32 %112, %46
-  br i1 %113, label %85, label %._crit_edge.us244, !llvm.loop !4
+  %110 = add nsw i32 %.0183237.us, 8
+  %111 = icmp slt i32 %110, %46
+  %indvars.iv.next268 = add i32 %indvars.iv267, -8
+  br i1 %111, label %82, label %._crit_edge.us244, !llvm.loop !4
 
-114:                                              ; preds = %127, %85
-  %indvars.iv256 = phi i64 [ %indvars.iv.next257, %127 ], [ -7, %85 ]
-  %115 = add nsw i64 %indvars.iv256, %111
-  %116 = icmp slt i64 %115, 0
-  %117 = trunc nsw i64 %115 to i32
-  %118 = tail call i32 @llvm.smin.i32(i32 %117, i32 %61)
-  %119 = select i1 %116, i32 0, i32 %118
-  %120 = mul nsw i32 %119, %4
-  %121 = shl i64 %indvars.iv256, 3
-  %122 = add nsw i64 %121, 60
-  %123 = trunc i64 %indvars.iv256 to i32
-  %124 = add i32 %123, 4
-  %125 = mul i32 %124, %54
-  %126 = add i32 %125, %108
-  br label %128
+112:                                              ; preds = %125, %82
+  %indvars.iv256 = phi i64 [ %indvars.iv.next257, %125 ], [ -7, %82 ]
+  %113 = add nsw i64 %indvars.iv256, %109
+  %114 = icmp slt i64 %113, 0
+  %115 = trunc nsw i64 %113 to i32
+  %116 = tail call i32 @llvm.smin.i32(i32 %115, i32 %61)
+  %117 = select i1 %114, i32 0, i32 %116
+  %118 = mul nsw i32 %117, %4
+  %119 = shl i64 %indvars.iv256, 3
+  %120 = add nsw i64 %119, 60
+  %121 = trunc i64 %indvars.iv256 to i32
+  %122 = add i32 %121, 4
+  %123 = mul i32 %122, %54
+  %124 = add i32 %123, %106
+  br label %126
 
-127:                                              ; preds = %135
+125:                                              ; preds = %133
   %indvars.iv.next257 = add nsw i64 %indvars.iv256, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next257, 8
-  br i1 %exitcond259.not, label %.preheader.us, label %114, !llvm.loop !6
+  br i1 %exitcond259.not, label %.preheader.us, label %112, !llvm.loop !6
 
-128:                                              ; preds = %135, %114
-  %indvars.iv252 = phi i64 [ %indvars.iv.next253, %135 ], [ -4, %114 ]
-  %.0190221.us = phi i32 [ %140, %135 ], [ %126, %114 ]
-  %129 = add nsw i32 %.0190221.us, 512
-  %130 = ashr i32 %129, 10
-  %131 = add nsw i32 %130, 64
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %132
-  %134 = add nsw i64 %indvars.iv252, %110
-  br label %141
+126:                                              ; preds = %133, %112
+  %indvars.iv252 = phi i64 [ %indvars.iv.next253, %133 ], [ -4, %112 ]
+  %.0190221.us = phi i32 [ %138, %133 ], [ %124, %112 ]
+  %127 = add nsw i32 %.0190221.us, 512
+  %128 = ashr i32 %127, 10
+  %129 = add nsw i32 %128, 64
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %130
+  %132 = add nsw i64 %indvars.iv252, %108
+  br label %139
 
-135:                                              ; preds = %141
-  %136 = add nsw i32 %156, %65
-  %137 = ashr i32 %136, %27
-  %138 = add nsw i64 %122, %indvars.iv252
-  %139 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %138
-  store i32 %137, ptr %139, align 4
-  %140 = add nsw i32 %.0190221.us, %53
+133:                                              ; preds = %139
+  %134 = add nsw i32 %154, %65
+  %135 = ashr i32 %134, %27
+  %136 = add nsw i64 %120, %indvars.iv252
+  %137 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %136
+  store i32 %135, ptr %137, align 4
+  %138 = add nsw i32 %.0190221.us, %53
   %indvars.iv.next253 = add nsw i64 %indvars.iv252, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next253, 4
-  br i1 %exitcond255.not, label %127, label %128, !llvm.loop !7
+  br i1 %exitcond255.not, label %125, label %126, !llvm.loop !7
 
-141:                                              ; preds = %141, %128
-  %indvars.iv = phi i64 [ %indvars.iv.next, %141 ], [ 0, %128 ]
-  %.0192218.us = phi i32 [ %156, %141 ], [ %62, %128 ]
-  %142 = add nsw i64 %134, %indvars.iv
-  %143 = icmp slt i64 %142, 0
-  %144 = trunc nsw i64 %142 to i32
-  %145 = tail call i32 @llvm.smin.i32(i32 %144, i32 %63)
-  %146 = select i1 %143, i32 0, i32 %145
-  %147 = add nsw i32 %146, %120
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i16, ptr %1, i64 %148
-  %150 = load i16, ptr %149, align 2
-  %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i16, ptr %133, i64 %indvars.iv
-  %153 = load i16, ptr %152, align 2
-  %154 = sext i16 %153 to i32
-  %155 = mul nsw i32 %154, %151
-  %156 = add nsw i32 %155, %.0192218.us
+139:                                              ; preds = %139, %126
+  %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ 0, %126 ]
+  %.0192218.us = phi i32 [ %154, %139 ], [ %62, %126 ]
+  %140 = add nsw i64 %132, %indvars.iv
+  %141 = icmp slt i64 %140, 0
+  %142 = trunc nsw i64 %140 to i32
+  %143 = tail call i32 @llvm.smin.i32(i32 %142, i32 %63)
+  %144 = select i1 %141, i32 0, i32 %143
+  %145 = add nsw i32 %144, %118
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds i16, ptr %1, i64 %146
+  %148 = load i16, ptr %147, align 2
+  %149 = zext i16 %148 to i32
+  %150 = getelementptr inbounds i16, ptr %131, i64 %indvars.iv
+  %151 = load i16, ptr %150, align 2
+  %152 = sext i16 %151 to i32
+  %153 = mul nsw i32 %152, %149
+  %154 = add nsw i32 %153, %.0192218.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %135, label %141, !llvm.loop !8
+  br i1 %exitcond.not, label %133, label %139, !llvm.loop !8
 
-.preheader.us:                                    ; preds = %127
-  %157 = and i32 %103, 65532
-  %158 = sub nsw i32 %157, %60
-  %159 = and i32 %158, -64
-  br i1 %83, label %.lr.ph234.us, label %._crit_edge235.us
+.preheader.us:                                    ; preds = %125
+  %155 = and i32 %101, 65532
+  %156 = sub nsw i32 %155, %60
+  %157 = and i32 %156, -64
+  br i1 %81, label %.lr.ph234.us, label %._crit_edge235.us
 
 .lr.ph234.us:                                     ; preds = %.preheader.us
-  %160 = sub nsw i32 %46, %.0183237.us
-  %161 = icmp sgt i32 %160, 8
-  %162 = add nsw i32 %160, -4
-  %spec.select206.us = select i1 %161, i32 4, i32 %162
-  %163 = icmp sgt i32 %spec.select206.us, -4
+  %158 = icmp sgt i32 %46, %.0183237.us
   %reass.sub246 = sub i32 %.0183237.us, %6
-  %164 = add nuw nsw i32 %reass.sub246, 4
-  br i1 %163, label %.lr.ph.us.us.preheader, label %._crit_edge235.us
+  %159 = add nuw nsw i32 %reass.sub246, 4
+  br i1 %158, label %.lr.ph.us.us.preheader, label %._crit_edge235.us
 
 .lr.ph.us.us.preheader:                           ; preds = %.lr.ph234.us
-  %165 = sext i32 %spec.select206.us to i64
+  %wide.trip.count = sext i32 %83 to i64
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %._crit_edge.us.us
-  %indvars.iv267 = phi i64 [ -4, %.lr.ph.us.us.preheader ], [ %indvars.iv.next268, %._crit_edge.us.us ]
-  %166 = trunc nsw i64 %indvars.iv267 to i32
-  %.reass.reass.us.us = add i32 %invariant.op236.us, %166
-  %167 = mul nsw i32 %.reass.reass.us.us, %10
-  %invariant.op229.us.us = add i32 %164, %167
-  %168 = trunc i64 %indvars.iv267 to i32
-  %169 = add i32 %168, 4
-  %170 = mul i32 %169, %58
-  %171 = add i32 %170, %159
-  br label %172
+  %indvars.iv270 = phi i64 [ -4, %.lr.ph.us.us.preheader ], [ %indvars.iv.next271, %._crit_edge.us.us ]
+  %160 = trunc nsw i64 %indvars.iv270 to i32
+  %.reass.reass.us.us = add i32 %invariant.op236.us, %160
+  %161 = mul nsw i32 %.reass.reass.us.us, %10
+  %invariant.op229.us.us = add i32 %159, %161
+  %162 = trunc i64 %indvars.iv270 to i32
+  %163 = add i32 %162, 4
+  %164 = mul i32 %163, %58
+  %165 = add i32 %164, %157
+  br label %166
 
-172:                                              ; preds = %242, %.lr.ph.us.us
-  %indvars.iv264 = phi i64 [ %indvars.iv.next265, %242 ], [ -4, %.lr.ph.us.us ]
-  %.0188227.us.us = phi i32 [ %243, %242 ], [ %171, %.lr.ph.us.us ]
-  %173 = add nsw i32 %.0188227.us.us, 512
-  %174 = ashr i32 %173, 10
-  %175 = add nsw i32 %174, 64
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %176
-  %178 = trunc nsw i64 %indvars.iv264 to i32
-  %179 = add i32 %178, 36
-  br label %245
+166:                                              ; preds = %236, %.lr.ph.us.us
+  %indvars.iv264 = phi i64 [ %indvars.iv.next265, %236 ], [ -4, %.lr.ph.us.us ]
+  %.0188227.us.us = phi i32 [ %237, %236 ], [ %165, %.lr.ph.us.us ]
+  %167 = add nsw i32 %.0188227.us.us, 512
+  %168 = ashr i32 %167, 10
+  %169 = add nsw i32 %168, 64
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %170
+  %172 = trunc nsw i64 %indvars.iv264 to i32
+  %173 = add i32 %172, 36
+  br label %238
 
-180:                                              ; preds = %245
-  %181 = load i32, ptr %28, align 8
-  %.not199.us.us = icmp eq i32 %181, 0
-  br i1 %.not199.us.us, label %227, label %182
+174:                                              ; preds = %238
+  %175 = load i32, ptr %28, align 8
+  %.not199.us.us = icmp eq i32 %175, 0
+  br i1 %.not199.us.us, label %221, label %176
 
-182:                                              ; preds = %180
-  %183 = load ptr, ptr %67, align 8
-  %184 = load i32, ptr %68, align 8
-  %185 = mul nsw i32 %184, %.reass.reass.us.us
-  %186 = add i32 %164, %178
-  %187 = add nsw i32 %185, %186
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i16, ptr %183, i64 %188
-  %190 = add nsw i32 %257, %70
-  %191 = ashr i32 %190, %37
-  %192 = load i32, ptr %14, align 8
-  %.not201.us.us = icmp eq i32 %192, 0
-  br i1 %.not201.us.us, label %225, label %193
+176:                                              ; preds = %174
+  %177 = load ptr, ptr %67, align 8
+  %178 = load i32, ptr %68, align 8
+  %179 = mul nsw i32 %178, %.reass.reass.us.us
+  %180 = add i32 %159, %172
+  %181 = add nsw i32 %179, %180
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds i16, ptr %177, i64 %182
+  %184 = add nsw i32 %250, %70
+  %185 = ashr i32 %184, %37
+  %186 = load i32, ptr %14, align 8
+  %.not201.us.us = icmp eq i32 %186, 0
+  br i1 %.not201.us.us, label %219, label %187
 
-193:                                              ; preds = %182
-  %.reass230.us.us = add i32 %invariant.op229.us.us, %178
-  %194 = sext i32 %.reass230.us.us to i64
-  %195 = getelementptr inbounds i16, ptr %5, i64 %194
-  %196 = load i16, ptr %189, align 2
-  %197 = zext i16 %196 to i32
-  %198 = load i32, ptr %71, align 4
-  %.not202.us.us = icmp eq i32 %198, 0
-  br i1 %.not202.us.us, label %206, label %199
+187:                                              ; preds = %176
+  %.reass230.us.us = add i32 %invariant.op229.us.us, %172
+  %188 = sext i32 %.reass230.us.us to i64
+  %189 = getelementptr inbounds i16, ptr %5, i64 %188
+  %190 = load i16, ptr %183, align 2
+  %191 = zext i16 %190 to i32
+  %192 = load i32, ptr %71, align 4
+  %.not202.us.us = icmp eq i32 %192, 0
+  br i1 %.not202.us.us, label %200, label %193
 
-199:                                              ; preds = %193
-  %200 = load i32, ptr %72, align 8
-  %201 = mul nsw i32 %200, %197
-  %202 = load i32, ptr %73, align 4
-  %203 = mul nsw i32 %202, %191
-  %204 = add nsw i32 %203, %201
-  %205 = ashr i32 %204, 4
-  br label %209
+193:                                              ; preds = %187
+  %194 = load i32, ptr %72, align 8
+  %195 = mul nsw i32 %194, %191
+  %196 = load i32, ptr %73, align 4
+  %197 = mul nsw i32 %196, %185
+  %198 = add nsw i32 %197, %195
+  %199 = ashr i32 %198, 4
+  br label %203
 
-206:                                              ; preds = %193
-  %207 = add nsw i32 %191, %197
-  %208 = ashr i32 %207, 1
-  br label %209
+200:                                              ; preds = %187
+  %201 = add nsw i32 %185, %191
+  %202 = ashr i32 %201, 1
+  br label %203
 
-209:                                              ; preds = %206, %199
-  %.0182.us.us = phi i32 [ %205, %199 ], [ %208, %206 ]
-  %210 = load i32, ptr %38, align 8
-  %211 = sub i32 %.neg216, %210
-  %.neg203.us.us = shl nsw i32 -1, %211
-  %212 = xor i32 %210, -1
-  %.reass232.us.us = add i32 %.neg216, %212
+203:                                              ; preds = %200, %193
+  %.0182.us.us = phi i32 [ %199, %193 ], [ %202, %200 ]
+  %204 = load i32, ptr %38, align 8
+  %205 = sub i32 %.neg216, %204
+  %.neg203.us.us = shl nsw i32 -1, %205
+  %206 = xor i32 %204, -1
+  %.reass232.us.us = add i32 %.neg216, %206
   %.neg204.us.us = shl nsw i32 -1, %.reass232.us.us
-  %213 = add nsw i32 %.0182.us.us, %75
-  %214 = add i32 %213, %.neg203.us.us
-  %215 = add i32 %214, %.neg204.us.us
-  %216 = ashr i32 %215, %40
-  switch i32 %13, label %221 [
-    i32 12, label %219
-    i32 10, label %217
+  %207 = add nsw i32 %.0182.us.us, %75
+  %208 = add i32 %207, %.neg203.us.us
+  %209 = add i32 %208, %.neg204.us.us
+  %210 = ashr i32 %209, %40
+  switch i32 %13, label %215 [
+    i32 12, label %213
+    i32 10, label %211
   ]
 
-217:                                              ; preds = %209
-  %218 = tail call i32 @llvm.umin.i32(i32 %216, i32 1023)
+211:                                              ; preds = %203
+  %212 = tail call i32 @llvm.umin.i32(i32 %210, i32 1023)
   br label %clip_pixel_highbd.exit.us.us
 
-219:                                              ; preds = %209
-  %220 = tail call i32 @llvm.umin.i32(i32 %216, i32 4095)
+213:                                              ; preds = %203
+  %214 = tail call i32 @llvm.umin.i32(i32 %210, i32 4095)
   br label %clip_pixel_highbd.exit.us.us
 
-221:                                              ; preds = %209
-  %222 = tail call i32 @llvm.umin.i32(i32 %216, i32 255)
+215:                                              ; preds = %203
+  %216 = tail call i32 @llvm.umin.i32(i32 %210, i32 255)
   br label %clip_pixel_highbd.exit.us.us
 
-clip_pixel_highbd.exit.us.us:                     ; preds = %221, %219, %217
-  %.sink.i.us.us = phi i32 [ %220, %219 ], [ %218, %217 ], [ %222, %221 ]
-  %223 = icmp slt i32 %216, 0
-  %224 = trunc nuw nsw i32 %.sink.i.us.us to i16
-  %.0.i.us.us = select i1 %223, i16 0, i16 %224
-  store i16 %.0.i.us.us, ptr %195, align 2
-  br label %242
+clip_pixel_highbd.exit.us.us:                     ; preds = %215, %213, %211
+  %.sink.i.us.us = phi i32 [ %214, %213 ], [ %212, %211 ], [ %216, %215 ]
+  %217 = icmp slt i32 %210, 0
+  %218 = trunc nuw nsw i32 %.sink.i.us.us to i16
+  %.0.i.us.us = select i1 %217, i16 0, i16 %218
+  store i16 %.0.i.us.us, ptr %189, align 2
+  br label %236
 
-225:                                              ; preds = %182
-  %226 = trunc i32 %191 to i16
-  store i16 %226, ptr %189, align 2
-  br label %242
+219:                                              ; preds = %176
+  %220 = trunc i32 %185 to i16
+  store i16 %220, ptr %183, align 2
+  br label %236
 
-227:                                              ; preds = %180
-  %228 = add i32 %invariant.op229.us.us, %178
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i16, ptr %5, i64 %229
-  %231 = add nsw i32 %257, %70
-  %232 = ashr i32 %231, %37
-  %233 = add i32 %77, %232
-  switch i32 %13, label %238 [
-    i32 12, label %236
-    i32 10, label %234
+221:                                              ; preds = %174
+  %222 = add i32 %invariant.op229.us.us, %172
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i16, ptr %5, i64 %223
+  %225 = add nsw i32 %250, %70
+  %226 = ashr i32 %225, %37
+  %227 = add i32 %77, %226
+  switch i32 %13, label %232 [
+    i32 12, label %230
+    i32 10, label %228
   ]
 
-234:                                              ; preds = %227
-  %235 = tail call i32 @llvm.umin.i32(i32 %233, i32 1023)
+228:                                              ; preds = %221
+  %229 = tail call i32 @llvm.umin.i32(i32 %227, i32 1023)
   br label %clip_pixel_highbd.exit209.us.us
 
-236:                                              ; preds = %227
-  %237 = tail call i32 @llvm.umin.i32(i32 %233, i32 4095)
+230:                                              ; preds = %221
+  %231 = tail call i32 @llvm.umin.i32(i32 %227, i32 4095)
   br label %clip_pixel_highbd.exit209.us.us
 
-238:                                              ; preds = %227
-  %239 = tail call i32 @llvm.umin.i32(i32 %233, i32 255)
+232:                                              ; preds = %221
+  %233 = tail call i32 @llvm.umin.i32(i32 %227, i32 255)
   br label %clip_pixel_highbd.exit209.us.us
 
-clip_pixel_highbd.exit209.us.us:                  ; preds = %238, %236, %234
-  %.sink.i207.us.us = phi i32 [ %237, %236 ], [ %235, %234 ], [ %239, %238 ]
-  %240 = icmp slt i32 %233, 0
-  %241 = trunc nuw nsw i32 %.sink.i207.us.us to i16
-  %.0.i208.us.us = select i1 %240, i16 0, i16 %241
-  store i16 %.0.i208.us.us, ptr %230, align 2
-  br label %242
+clip_pixel_highbd.exit209.us.us:                  ; preds = %232, %230, %228
+  %.sink.i207.us.us = phi i32 [ %231, %230 ], [ %229, %228 ], [ %233, %232 ]
+  %234 = icmp slt i32 %227, 0
+  %235 = trunc nuw nsw i32 %.sink.i207.us.us to i16
+  %.0.i208.us.us = select i1 %234, i16 0, i16 %235
+  store i16 %.0.i208.us.us, ptr %224, align 2
+  br label %236
 
-242:                                              ; preds = %clip_pixel_highbd.exit209.us.us, %225, %clip_pixel_highbd.exit.us.us
-  %243 = add nsw i32 %.0188227.us.us, %57
+236:                                              ; preds = %clip_pixel_highbd.exit209.us.us, %219, %clip_pixel_highbd.exit.us.us
+  %237 = add nsw i32 %.0188227.us.us, %57
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, 1
-  %244 = icmp slt i64 %indvars.iv.next265, %165
-  br i1 %244, label %172, label %._crit_edge.us.us, !llvm.loop !9
+  %exitcond269.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count
+  br i1 %exitcond269.not, label %._crit_edge.us.us, label %166, !llvm.loop !9
 
-245:                                              ; preds = %245, %172
-  %indvars.iv260 = phi i64 [ %indvars.iv.next261, %245 ], [ 0, %172 ]
-  %.0185223.us.us = phi i32 [ %257, %245 ], [ %66, %172 ]
-  %246 = add nsw i64 %indvars.iv260, %indvars.iv267
-  %247 = trunc nsw i64 %246 to i32
-  %248 = shl i32 %247, 3
-  %249 = add i32 %179, %248
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %250
-  %252 = load i32, ptr %251, align 4
-  %253 = getelementptr inbounds i16, ptr %177, i64 %indvars.iv260
-  %254 = load i16, ptr %253, align 2
-  %255 = sext i16 %254 to i32
-  %256 = mul nsw i32 %252, %255
-  %257 = add nsw i32 %256, %.0185223.us.us
+238:                                              ; preds = %238, %166
+  %indvars.iv260 = phi i64 [ %indvars.iv.next261, %238 ], [ 0, %166 ]
+  %.0185223.us.us = phi i32 [ %250, %238 ], [ %66, %166 ]
+  %239 = add nsw i64 %indvars.iv260, %indvars.iv270
+  %240 = trunc nsw i64 %239 to i32
+  %241 = shl i32 %240, 3
+  %242 = add i32 %173, %241
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [120 x i32], ptr %20, i64 0, i64 %243
+  %245 = load i32, ptr %244, align 4
+  %246 = getelementptr inbounds i16, ptr %171, i64 %indvars.iv260
+  %247 = load i16, ptr %246, align 2
+  %248 = sext i16 %247 to i32
+  %249 = mul nsw i32 %245, %248
+  %250 = add nsw i32 %249, %.0185223.us.us
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next261, 8
-  br i1 %exitcond263.not, label %180, label %245, !llvm.loop !10
+  br i1 %exitcond263.not, label %174, label %238, !llvm.loop !10
 
-._crit_edge.us.us:                                ; preds = %242
-  %indvars.iv.next268 = add nsw i64 %indvars.iv267, 1
-  %258 = icmp slt i64 %indvars.iv.next268, %84
-  br i1 %258, label %.lr.ph.us.us, label %._crit_edge235.us, !llvm.loop !11
+._crit_edge.us.us:                                ; preds = %236
+  %indvars.iv.next271 = add nsw i64 %indvars.iv270, 1
+  %exitcond277.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count276
+  br i1 %exitcond277.not, label %._crit_edge235.us, label %.lr.ph.us.us, !llvm.loop !11
 
 ._crit_edge.us244:                                ; preds = %._crit_edge235.us
-  %259 = add nsw i32 %.0238.us, 8
-  %260 = icmp slt i32 %259, %41
-  br i1 %260, label %.preheader217.us, label %._crit_edge239, !llvm.loop !12
+  %251 = add nsw i32 %.0238.us, 8
+  %252 = icmp slt i32 %251, %41
+  %indvars.iv.next274 = add i32 %indvars.iv273, -8
+  br i1 %252, label %.preheader217.us, label %._crit_edge239, !llvm.loop !12
 
 ._crit_edge239:                                   ; preds = %._crit_edge.us244, %.preheader217.lr.ph, %35
   ret void
@@ -781,276 +781,276 @@ define hidden void @av1_warp_affine_c(ptr nocapture noundef readonly %0, ptr noc
   br i1 %39, label %.preheader195.us, label %._crit_edge215
 
 .preheader195.us:                                 ; preds = %.preheader195.lr.ph, %._crit_edge.us220
-  %.0214.us = phi i32 [ %239, %._crit_edge.us220 ], [ %7, %.preheader195.lr.ph ]
-  %67 = add nsw i32 %.0214.us, 4
-  %68 = shl i32 %67, %12
-  %69 = sub nsw i32 %35, %.0214.us
-  %70 = icmp sgt i32 %69, 8
-  %71 = add nsw i32 %69, -4
-  %spec.select.us = select i1 %70, i32 4, i32 %71
-  %72 = icmp sgt i32 %spec.select.us, -4
+  %indvars.iv249 = phi i32 [ %indvars.iv.next250, %._crit_edge.us220 ], [ %9, %.preheader195.lr.ph ]
+  %.0214.us = phi i32 [ %231, %._crit_edge.us220 ], [ %7, %.preheader195.lr.ph ]
+  %smin251 = tail call i32 @llvm.smin.i32(i32 %indvars.iv249, i32 8)
+  %67 = add i32 %smin251, -4
+  %68 = add nsw i32 %.0214.us, 4
+  %69 = shl i32 %68, %12
+  %70 = icmp sgt i32 %35, %.0214.us
   %reass.sub = sub i32 %.0214.us, %7
   %invariant.op212.us = add nuw nsw i32 %reass.sub, 4
-  %73 = sext i32 %spec.select.us to i64
-  br label %74
+  %wide.trip.count252 = sext i32 %67 to i64
+  br label %71
 
-74:                                               ; preds = %.preheader195.us, %._crit_edge211.us
-  %.0170213.us = phi i32 [ %6, %.preheader195.us ], [ %101, %._crit_edge211.us ]
-  %75 = add nsw i32 %.0170213.us, 4
-  %76 = shl i32 %75, %11
-  %77 = load i32, ptr %40, align 4
-  %78 = mul nsw i32 %77, %76
-  %79 = load i32, ptr %41, align 4
-  %80 = mul nsw i32 %79, %68
-  %81 = add nsw i32 %80, %78
-  %82 = load i32, ptr %0, align 4
-  %83 = add nsw i32 %81, %82
-  %84 = load i32, ptr %42, align 4
-  %85 = mul nsw i32 %84, %76
-  %86 = load i32, ptr %43, align 4
-  %87 = mul nsw i32 %86, %68
-  %88 = add nsw i32 %87, %85
-  %89 = load i32, ptr %44, align 4
-  %90 = add nsw i32 %88, %89
-  %91 = ashr i32 %83, %11
-  %92 = ashr i32 %90, %12
-  %93 = ashr i32 %91, 16
-  %94 = and i32 %91, 65532
-  %95 = ashr i32 %92, 16
-  %96 = sub nsw i32 %94, %48
-  %97 = and i32 %96, -64
-  %98 = add nsw i32 %93, -3
-  %99 = sext i32 %98 to i64
-  %100 = sext i32 %95 to i64
-  br label %103
+71:                                               ; preds = %.preheader195.us, %._crit_edge211.us
+  %indvars.iv243 = phi i32 [ %8, %.preheader195.us ], [ %indvars.iv.next244, %._crit_edge211.us ]
+  %.0170213.us = phi i32 [ %6, %.preheader195.us ], [ %99, %._crit_edge211.us ]
+  %smin = tail call i32 @llvm.smin.i32(i32 %indvars.iv243, i32 8)
+  %72 = add i32 %smin, -4
+  %73 = add nsw i32 %.0170213.us, 4
+  %74 = shl i32 %73, %11
+  %75 = load i32, ptr %40, align 4
+  %76 = mul nsw i32 %75, %74
+  %77 = load i32, ptr %41, align 4
+  %78 = mul nsw i32 %77, %69
+  %79 = add nsw i32 %78, %76
+  %80 = load i32, ptr %0, align 4
+  %81 = add nsw i32 %79, %80
+  %82 = load i32, ptr %42, align 4
+  %83 = mul nsw i32 %82, %74
+  %84 = load i32, ptr %43, align 4
+  %85 = mul nsw i32 %84, %69
+  %86 = add nsw i32 %85, %83
+  %87 = load i32, ptr %44, align 4
+  %88 = add nsw i32 %86, %87
+  %89 = ashr i32 %81, %11
+  %90 = ashr i32 %88, %12
+  %91 = ashr i32 %89, 16
+  %92 = and i32 %89, 65532
+  %93 = ashr i32 %90, 16
+  %94 = sub nsw i32 %92, %48
+  %95 = and i32 %94, -64
+  %96 = add nsw i32 %91, -3
+  %97 = sext i32 %96 to i64
+  %98 = sext i32 %93 to i64
+  br label %101
 
 ._crit_edge211.us:                                ; preds = %._crit_edge.us.us, %.lr.ph210.us, %.preheader.us
-  %101 = add nsw i32 %.0170213.us, 8
-  %102 = icmp slt i32 %101, %38
-  br i1 %102, label %74, label %._crit_edge.us220, !llvm.loop !15
+  %99 = add nsw i32 %.0170213.us, 8
+  %100 = icmp slt i32 %99, %38
+  %indvars.iv.next244 = add i32 %indvars.iv243, -8
+  br i1 %100, label %71, label %._crit_edge.us220, !llvm.loop !15
 
-103:                                              ; preds = %116, %74
-  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %116 ], [ -7, %74 ]
-  %104 = add nsw i64 %indvars.iv232, %100
-  %105 = icmp slt i64 %104, 0
-  %106 = trunc nsw i64 %104 to i32
-  %107 = tail call i32 @llvm.smin.i32(i32 %106, i32 %53)
-  %108 = select i1 %105, i32 0, i32 %107
-  %109 = mul nsw i32 %108, %4
-  %110 = shl i64 %indvars.iv232, 3
-  %111 = add nsw i64 %110, 60
-  %112 = trunc i64 %indvars.iv232 to i32
-  %113 = add i32 %112, 4
-  %114 = mul i32 %113, %46
-  %115 = add i32 %114, %97
-  br label %117
+101:                                              ; preds = %114, %71
+  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %114 ], [ -7, %71 ]
+  %102 = add nsw i64 %indvars.iv232, %98
+  %103 = icmp slt i64 %102, 0
+  %104 = trunc nsw i64 %102 to i32
+  %105 = tail call i32 @llvm.smin.i32(i32 %104, i32 %53)
+  %106 = select i1 %103, i32 0, i32 %105
+  %107 = mul nsw i32 %106, %4
+  %108 = shl i64 %indvars.iv232, 3
+  %109 = add nsw i64 %108, 60
+  %110 = trunc i64 %indvars.iv232 to i32
+  %111 = add i32 %110, 4
+  %112 = mul i32 %111, %46
+  %113 = add i32 %112, %95
+  br label %115
 
-116:                                              ; preds = %124
+114:                                              ; preds = %122
   %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 8
-  br i1 %exitcond235.not, label %.preheader.us, label %103, !llvm.loop !16
+  br i1 %exitcond235.not, label %.preheader.us, label %101, !llvm.loop !16
 
-117:                                              ; preds = %124, %103
-  %indvars.iv228 = phi i64 [ %indvars.iv.next229, %124 ], [ -4, %103 ]
-  %.0177199.us = phi i32 [ %129, %124 ], [ %115, %103 ]
-  %118 = add nsw i32 %.0177199.us, 512
-  %119 = ashr i32 %118, 10
-  %120 = add nsw i32 %119, 64
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %121
-  %123 = add nsw i64 %indvars.iv228, %99
-  br label %130
+115:                                              ; preds = %122, %101
+  %indvars.iv228 = phi i64 [ %indvars.iv.next229, %122 ], [ -4, %101 ]
+  %.0177199.us = phi i32 [ %127, %122 ], [ %113, %101 ]
+  %116 = add nsw i32 %.0177199.us, 512
+  %117 = ashr i32 %116, 10
+  %118 = add nsw i32 %117, 64
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %119
+  %121 = add nsw i64 %indvars.iv228, %97
+  br label %128
 
-124:                                              ; preds = %130
-  %125 = add nsw i32 %145, %56
-  %126 = ashr i32 %125, %21
-  %127 = add nsw i64 %111, %indvars.iv228
-  %128 = getelementptr inbounds [120 x i32], ptr %19, i64 0, i64 %127
-  store i32 %126, ptr %128, align 4
-  %129 = add nsw i32 %.0177199.us, %45
+122:                                              ; preds = %128
+  %123 = add nsw i32 %143, %56
+  %124 = ashr i32 %123, %21
+  %125 = add nsw i64 %109, %indvars.iv228
+  %126 = getelementptr inbounds [120 x i32], ptr %19, i64 0, i64 %125
+  store i32 %124, ptr %126, align 4
+  %127 = add nsw i32 %.0177199.us, %45
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next229, 4
-  br i1 %exitcond231.not, label %116, label %117, !llvm.loop !17
+  br i1 %exitcond231.not, label %114, label %115, !llvm.loop !17
 
-130:                                              ; preds = %130, %117
-  %indvars.iv = phi i64 [ %indvars.iv.next, %130 ], [ 0, %117 ]
-  %.0179196.us = phi i32 [ %145, %130 ], [ 16384, %117 ]
-  %131 = add nsw i64 %123, %indvars.iv
-  %132 = icmp slt i64 %131, 0
-  %133 = trunc nsw i64 %131 to i32
-  %134 = tail call i32 @llvm.smin.i32(i32 %133, i32 %54)
-  %135 = select i1 %132, i32 0, i32 %134
-  %136 = add nsw i32 %135, %109
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %1, i64 %137
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i32
-  %141 = getelementptr inbounds i16, ptr %122, i64 %indvars.iv
-  %142 = load i16, ptr %141, align 2
-  %143 = sext i16 %142 to i32
-  %144 = mul nsw i32 %143, %140
-  %145 = add nsw i32 %144, %.0179196.us
+128:                                              ; preds = %128, %115
+  %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %115 ]
+  %.0179196.us = phi i32 [ %143, %128 ], [ 16384, %115 ]
+  %129 = add nsw i64 %121, %indvars.iv
+  %130 = icmp slt i64 %129, 0
+  %131 = trunc nsw i64 %129 to i32
+  %132 = tail call i32 @llvm.smin.i32(i32 %131, i32 %54)
+  %133 = select i1 %130, i32 0, i32 %132
+  %134 = add nsw i32 %133, %107
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %1, i64 %135
+  %137 = load i8, ptr %136, align 1
+  %138 = zext i8 %137 to i32
+  %139 = getelementptr inbounds i16, ptr %120, i64 %indvars.iv
+  %140 = load i16, ptr %139, align 2
+  %141 = sext i16 %140 to i32
+  %142 = mul nsw i32 %141, %138
+  %143 = add nsw i32 %142, %.0179196.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %124, label %130, !llvm.loop !18
+  br i1 %exitcond.not, label %122, label %128, !llvm.loop !18
 
-.preheader.us:                                    ; preds = %116
-  %146 = and i32 %92, 65532
-  %147 = sub nsw i32 %146, %52
-  %148 = and i32 %147, -64
-  br i1 %72, label %.lr.ph210.us, label %._crit_edge211.us
+.preheader.us:                                    ; preds = %114
+  %144 = and i32 %90, 65532
+  %145 = sub nsw i32 %144, %52
+  %146 = and i32 %145, -64
+  br i1 %70, label %.lr.ph210.us, label %._crit_edge211.us
 
 .lr.ph210.us:                                     ; preds = %.preheader.us
-  %149 = sub nsw i32 %38, %.0170213.us
-  %150 = icmp sgt i32 %149, 8
-  %151 = add nsw i32 %149, -4
-  %spec.select189.us = select i1 %150, i32 4, i32 %151
-  %152 = icmp sgt i32 %spec.select189.us, -4
+  %147 = icmp sgt i32 %38, %.0170213.us
   %reass.sub222 = sub i32 %.0170213.us, %6
-  %153 = add nuw nsw i32 %reass.sub222, 4
-  br i1 %152, label %.lr.ph.us.us.preheader, label %._crit_edge211.us
+  %148 = add nuw nsw i32 %reass.sub222, 4
+  br i1 %147, label %.lr.ph.us.us.preheader, label %._crit_edge211.us
 
 .lr.ph.us.us.preheader:                           ; preds = %.lr.ph210.us
-  %154 = sext i32 %spec.select189.us to i64
+  %wide.trip.count = sext i32 %72 to i64
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %._crit_edge.us.us
-  %indvars.iv243 = phi i64 [ -4, %.lr.ph.us.us.preheader ], [ %indvars.iv.next244, %._crit_edge.us.us ]
-  %155 = trunc nsw i64 %indvars.iv243 to i32
-  %.reass.reass.us.us = add i32 %invariant.op212.us, %155
-  %156 = mul nsw i32 %.reass.reass.us.us, %10
-  %invariant.op207.us.us = add i32 %153, %156
-  %157 = trunc i64 %indvars.iv243 to i32
-  %158 = add i32 %157, 4
-  %159 = mul i32 %158, %50
-  %160 = add i32 %159, %148
-  br label %161
+  %indvars.iv246 = phi i64 [ -4, %.lr.ph.us.us.preheader ], [ %indvars.iv.next247, %._crit_edge.us.us ]
+  %149 = trunc nsw i64 %indvars.iv246 to i32
+  %.reass.reass.us.us = add i32 %invariant.op212.us, %149
+  %150 = mul nsw i32 %.reass.reass.us.us, %10
+  %invariant.op207.us.us = add i32 %148, %150
+  %151 = trunc i64 %indvars.iv246 to i32
+  %152 = add i32 %151, 4
+  %153 = mul i32 %152, %50
+  %154 = add i32 %153, %146
+  br label %155
 
-161:                                              ; preds = %222, %.lr.ph.us.us
-  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %222 ], [ -4, %.lr.ph.us.us ]
-  %.0175205.us.us = phi i32 [ %223, %222 ], [ %160, %.lr.ph.us.us ]
-  %162 = add nsw i32 %.0175205.us.us, 512
-  %163 = ashr i32 %162, 10
-  %164 = add nsw i32 %163, 64
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %165
-  %167 = trunc nsw i64 %indvars.iv240 to i32
-  %168 = add i32 %167, 36
-  br label %225
+155:                                              ; preds = %216, %.lr.ph.us.us
+  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %216 ], [ -4, %.lr.ph.us.us ]
+  %.0175205.us.us = phi i32 [ %217, %216 ], [ %154, %.lr.ph.us.us ]
+  %156 = add nsw i32 %.0175205.us.us, 512
+  %157 = ashr i32 %156, 10
+  %158 = add nsw i32 %157, 64
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds [193 x [8 x i16]], ptr @av1_warped_filter, i64 0, i64 %159
+  %161 = trunc nsw i64 %indvars.iv240 to i32
+  %162 = add i32 %161, 36
+  br label %218
 
-169:                                              ; preds = %225
-  %170 = load i32, ptr %22, align 8
-  %.not185.us.us = icmp eq i32 %170, 0
-  br i1 %.not185.us.us, label %212, label %171
+163:                                              ; preds = %218
+  %164 = load i32, ptr %22, align 8
+  %.not185.us.us = icmp eq i32 %164, 0
+  br i1 %.not185.us.us, label %206, label %165
 
-171:                                              ; preds = %169
-  %172 = load ptr, ptr %58, align 8
-  %173 = load i32, ptr %59, align 8
-  %174 = mul nsw i32 %173, %.reass.reass.us.us
-  %175 = add i32 %153, %167
-  %176 = add nsw i32 %174, %175
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i16, ptr %172, i64 %177
-  %179 = add nsw i32 %237, %61
-  %180 = ashr i32 %179, %31
-  %181 = load i32, ptr %13, align 8
-  %.not186.us.us = icmp eq i32 %181, 0
-  br i1 %.not186.us.us, label %210, label %182
+165:                                              ; preds = %163
+  %166 = load ptr, ptr %58, align 8
+  %167 = load i32, ptr %59, align 8
+  %168 = mul nsw i32 %167, %.reass.reass.us.us
+  %169 = add i32 %148, %161
+  %170 = add nsw i32 %168, %169
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i16, ptr %166, i64 %171
+  %173 = add nsw i32 %230, %61
+  %174 = ashr i32 %173, %31
+  %175 = load i32, ptr %13, align 8
+  %.not186.us.us = icmp eq i32 %175, 0
+  br i1 %.not186.us.us, label %204, label %176
 
-182:                                              ; preds = %171
-  %.reass208.us.us = add i32 %invariant.op207.us.us, %167
-  %183 = sext i32 %.reass208.us.us to i64
-  %184 = getelementptr inbounds i8, ptr %5, i64 %183
-  %185 = load i16, ptr %178, align 2
-  %186 = zext i16 %185 to i32
-  %187 = load i32, ptr %62, align 4
-  %.not187.us.us = icmp eq i32 %187, 0
-  br i1 %.not187.us.us, label %195, label %188
+176:                                              ; preds = %165
+  %.reass208.us.us = add i32 %invariant.op207.us.us, %161
+  %177 = sext i32 %.reass208.us.us to i64
+  %178 = getelementptr inbounds i8, ptr %5, i64 %177
+  %179 = load i16, ptr %172, align 2
+  %180 = zext i16 %179 to i32
+  %181 = load i32, ptr %62, align 4
+  %.not187.us.us = icmp eq i32 %181, 0
+  br i1 %.not187.us.us, label %189, label %182
 
-188:                                              ; preds = %182
-  %189 = load i32, ptr %63, align 8
-  %190 = mul nsw i32 %189, %186
-  %191 = load i32, ptr %64, align 4
-  %192 = mul nsw i32 %191, %180
-  %193 = add nsw i32 %192, %190
-  %194 = ashr i32 %193, 4
-  br label %198
+182:                                              ; preds = %176
+  %183 = load i32, ptr %63, align 8
+  %184 = mul nsw i32 %183, %180
+  %185 = load i32, ptr %64, align 4
+  %186 = mul nsw i32 %185, %174
+  %187 = add nsw i32 %186, %184
+  %188 = ashr i32 %187, 4
+  br label %192
 
-195:                                              ; preds = %182
-  %196 = add nsw i32 %180, %186
-  %197 = ashr i32 %196, 1
-  br label %198
+189:                                              ; preds = %176
+  %190 = add nsw i32 %174, %180
+  %191 = ashr i32 %190, 1
+  br label %192
 
-198:                                              ; preds = %195, %188
-  %.0169.us.us = phi i32 [ %194, %188 ], [ %197, %195 ]
-  %199 = load i32, ptr %32, align 8
-  %200 = add i32 %199, %21
-  %201 = sub i32 22, %200
-  %.neg.us.us = shl nsw i32 -1, %201
-  %202 = sub i32 21, %200
-  %.neg188.us.us = shl nsw i32 -1, %202
-  %203 = add nsw i32 %.0169.us.us, %66
-  %204 = add i32 %203, %.neg.us.us
-  %205 = add i32 %204, %.neg188.us.us
-  %206 = ashr i32 %205, %34
-  %207 = tail call i32 @llvm.smax.i32(i32 %206, i32 0)
-  %208 = tail call i32 @llvm.umin.i32(i32 %207, i32 255)
-  %209 = trunc nuw i32 %208 to i8
-  store i8 %209, ptr %184, align 1
-  br label %222
+192:                                              ; preds = %189, %182
+  %.0169.us.us = phi i32 [ %188, %182 ], [ %191, %189 ]
+  %193 = load i32, ptr %32, align 8
+  %194 = add i32 %193, %21
+  %195 = sub i32 22, %194
+  %.neg.us.us = shl nsw i32 -1, %195
+  %196 = sub i32 21, %194
+  %.neg188.us.us = shl nsw i32 -1, %196
+  %197 = add nsw i32 %.0169.us.us, %66
+  %198 = add i32 %197, %.neg.us.us
+  %199 = add i32 %198, %.neg188.us.us
+  %200 = ashr i32 %199, %34
+  %201 = tail call i32 @llvm.smax.i32(i32 %200, i32 0)
+  %202 = tail call i32 @llvm.umin.i32(i32 %201, i32 255)
+  %203 = trunc nuw i32 %202 to i8
+  store i8 %203, ptr %178, align 1
+  br label %216
 
-210:                                              ; preds = %171
-  %211 = trunc i32 %180 to i16
-  store i16 %211, ptr %178, align 2
-  br label %222
+204:                                              ; preds = %165
+  %205 = trunc i32 %174 to i16
+  store i16 %205, ptr %172, align 2
+  br label %216
 
-212:                                              ; preds = %169
-  %213 = add i32 %invariant.op207.us.us, %167
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %5, i64 %214
-  %216 = add nsw i32 %237, %61
-  %217 = ashr i32 %216, %31
-  %218 = tail call i32 @llvm.smax.i32(i32 %217, i32 384)
-  %219 = add nsw i32 %218, -384
-  %220 = tail call i32 @llvm.umin.i32(i32 %219, i32 255)
-  %221 = trunc nuw i32 %220 to i8
-  store i8 %221, ptr %215, align 1
-  br label %222
+206:                                              ; preds = %163
+  %207 = add i32 %invariant.op207.us.us, %161
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr inbounds i8, ptr %5, i64 %208
+  %210 = add nsw i32 %230, %61
+  %211 = ashr i32 %210, %31
+  %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 384)
+  %213 = add nsw i32 %212, -384
+  %214 = tail call i32 @llvm.umin.i32(i32 %213, i32 255)
+  %215 = trunc nuw i32 %214 to i8
+  store i8 %215, ptr %209, align 1
+  br label %216
 
-222:                                              ; preds = %212, %210, %198
-  %223 = add nsw i32 %.0175205.us.us, %49
+216:                                              ; preds = %206, %204, %192
+  %217 = add nsw i32 %.0175205.us.us, %49
   %indvars.iv.next241 = add nsw i64 %indvars.iv240, 1
-  %224 = icmp slt i64 %indvars.iv.next241, %154
-  br i1 %224, label %161, label %._crit_edge.us.us, !llvm.loop !19
+  %exitcond245.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count
+  br i1 %exitcond245.not, label %._crit_edge.us.us, label %155, !llvm.loop !19
 
-225:                                              ; preds = %225, %161
-  %indvars.iv236 = phi i64 [ %indvars.iv.next237, %225 ], [ 0, %161 ]
-  %.0172201.us.us = phi i32 [ %237, %225 ], [ %57, %161 ]
-  %226 = add nsw i64 %indvars.iv236, %indvars.iv243
-  %227 = trunc nsw i64 %226 to i32
-  %228 = shl i32 %227, 3
-  %229 = add i32 %168, %228
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds [120 x i32], ptr %19, i64 0, i64 %230
-  %232 = load i32, ptr %231, align 4
-  %233 = getelementptr inbounds i16, ptr %166, i64 %indvars.iv236
-  %234 = load i16, ptr %233, align 2
-  %235 = sext i16 %234 to i32
-  %236 = mul nsw i32 %232, %235
-  %237 = add nsw i32 %236, %.0172201.us.us
+218:                                              ; preds = %218, %155
+  %indvars.iv236 = phi i64 [ %indvars.iv.next237, %218 ], [ 0, %155 ]
+  %.0172201.us.us = phi i32 [ %230, %218 ], [ %57, %155 ]
+  %219 = add nsw i64 %indvars.iv236, %indvars.iv246
+  %220 = trunc nsw i64 %219 to i32
+  %221 = shl i32 %220, 3
+  %222 = add i32 %162, %221
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds [120 x i32], ptr %19, i64 0, i64 %223
+  %225 = load i32, ptr %224, align 4
+  %226 = getelementptr inbounds i16, ptr %160, i64 %indvars.iv236
+  %227 = load i16, ptr %226, align 2
+  %228 = sext i16 %227 to i32
+  %229 = mul nsw i32 %225, %228
+  %230 = add nsw i32 %229, %.0172201.us.us
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 8
-  br i1 %exitcond239.not, label %169, label %225, !llvm.loop !20
+  br i1 %exitcond239.not, label %163, label %218, !llvm.loop !20
 
-._crit_edge.us.us:                                ; preds = %222
-  %indvars.iv.next244 = add nsw i64 %indvars.iv243, 1
-  %238 = icmp slt i64 %indvars.iv.next244, %73
-  br i1 %238, label %.lr.ph.us.us, label %._crit_edge211.us, !llvm.loop !21
+._crit_edge.us.us:                                ; preds = %216
+  %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
+  %exitcond253.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count252
+  br i1 %exitcond253.not, label %._crit_edge211.us, label %.lr.ph.us.us, !llvm.loop !21
 
 ._crit_edge.us220:                                ; preds = %._crit_edge211.us
-  %239 = add nsw i32 %.0214.us, 8
-  %240 = icmp slt i32 %239, %35
-  br i1 %240, label %.preheader195.us, label %._crit_edge215, !llvm.loop !22
+  %231 = add nsw i32 %.0214.us, 8
+  %232 = icmp slt i32 %231, %35
+  %indvars.iv.next250 = add i32 %indvars.iv249, -8
+  br i1 %232, label %.preheader195.us, label %._crit_edge215, !llvm.loop !22
 
 ._crit_edge215:                                   ; preds = %._crit_edge.us220, %.preheader195.lr.ph, %29
   ret void

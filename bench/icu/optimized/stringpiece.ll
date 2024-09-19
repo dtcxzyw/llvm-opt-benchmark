@@ -111,28 +111,33 @@ for.cond6.preheader.lr.ph:                        ; preds = %for.cond.preheader
 
 for.cond6.preheader.us.preheader:                 ; preds = %for.cond6.preheader.lr.ph
   %2 = sext i32 %offset to i64
+  %3 = add nsw i32 %needle.coerce1, -1
+  %4 = zext nneg i32 %3 to i64
+  %5 = add nsw i64 %2, %4
   %wide.trip.count = zext nneg i32 %needle.coerce1 to i64
   br label %for.cond6.preheader.us
 
 for.cond6.preheader.us:                           ; preds = %for.cond6.preheader.us.preheader, %if.then16.us
+  %indvars.iv31.in = phi i64 [ %5, %for.cond6.preheader.us.preheader ], [ %indvars.iv31, %if.then16.us ]
   %indvars.iv27 = phi i64 [ %2, %for.cond6.preheader.us.preheader ], [ %indvars.iv.next28, %if.then16.us ]
+  %indvars.iv31 = add nsw i64 %indvars.iv31.in, 1
   br label %for.body9.us
 
 for.body9.us:                                     ; preds = %for.cond6.preheader.us, %for.inc.us
   %indvars.iv29 = phi i64 [ %indvars.iv27, %for.cond6.preheader.us ], [ %indvars.iv.next30, %for.inc.us ]
   %indvars.iv = phi i64 [ 0, %for.cond6.preheader.us ], [ %indvars.iv.next, %for.inc.us ]
   %arrayidx.us = getelementptr inbounds i8, ptr %1, i64 %indvars.iv29
-  %3 = load i8, ptr %arrayidx.us, align 1
+  %6 = load i8, ptr %arrayidx.us, align 1
   %arrayidx13.us = getelementptr inbounds i8, ptr %needle.coerce0, i64 %indvars.iv
-  %4 = load i8, ptr %arrayidx13.us, align 1
-  %cmp15.not.us = icmp eq i8 %3, %4
+  %7 = load i8, ptr %arrayidx13.us, align 1
+  %cmp15.not.us = icmp eq i8 %6, %7
   br i1 %cmp15.not.us, label %for.inc.us, label %if.then16.us
 
 if.then16.us:                                     ; preds = %for.body9.us
-  %5 = trunc nsw i64 %indvars.iv29 to i32
-  %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub.us = add i32 %5, 1
-  %inc21.us = sub i32 %sub.us, %6
+  %8 = trunc nsw i64 %indvars.iv29 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %sub.us = add i32 %8, 1
+  %inc21.us = sub i32 %sub.us, %9
   %cmp5.us = icmp slt i32 %inc21.us, %0
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, 1
   br i1 %cmp5.us, label %for.cond6.preheader.us, label %return, !llvm.loop !4
@@ -144,11 +149,11 @@ for.inc.us:                                       ; preds = %for.body9.us
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body9.us, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.inc.us
-  %7 = trunc nsw i64 %indvars.iv.next30 to i32
+  %10 = trunc nsw i64 %indvars.iv31 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond6.preheader.lr.ph
-  %i.1.lcssa = phi i32 [ %offset, %for.cond6.preheader.lr.ph ], [ %7, %for.end.loopexit ]
+  %i.1.lcssa = phi i32 [ %offset, %for.cond6.preheader.lr.ph ], [ %10, %for.end.loopexit ]
   %j.0.lcssa = phi i32 [ 0, %for.cond6.preheader.lr.ph ], [ %needle.coerce1, %for.end.loopexit ]
   %sub19 = sub nsw i32 %i.1.lcssa, %j.0.lcssa
   br label %return

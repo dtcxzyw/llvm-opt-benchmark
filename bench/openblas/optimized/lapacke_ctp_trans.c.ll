@@ -105,9 +105,9 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   br i1 %74, label %45, label %56, !llvm.loop !6
 
 75:                                               ; preds = %.loopexit, %40
-  %76 = phi i64 [ %43, %40 ], [ %106, %.loopexit ]
-  %77 = phi i32 [ 0, %40 ], [ %105, %.loopexit ]
-  %78 = phi i32 [ 0, %40 ], [ %104, %.loopexit ]
+  %76 = phi i64 [ %43, %40 ], [ %105, %.loopexit ]
+  %77 = phi i32 [ 0, %40 ], [ %104, %.loopexit ]
+  %78 = phi i32 [ 0, %40 ], [ %103, %.loopexit ]
   %79 = add nuw nsw i32 %78, %27
   %80 = icmp slt i32 %79, %3
   br i1 %80, label %81, label %.loopexit
@@ -138,15 +138,15 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %102 = getelementptr inbounds i8, ptr %101, i64 4
   store float %92, ptr %101, align 4
   store float %94, ptr %102, align 4
-  %103 = icmp slt i64 %95, %44
-  br i1 %103, label %86, label %.loopexit, !llvm.loop !7
+  %exitcond.not = icmp eq i64 %95, %44
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !7
 
 .loopexit:                                        ; preds = %86, %75
-  %104 = add nuw nsw i32 %78, 1
-  %105 = xor i32 %78, -1
-  %106 = add nuw nsw i64 %76, 1
-  %107 = icmp eq i32 %104, %38
-  br i1 %107, label %.loopexit8, label %75, !llvm.loop !8
+  %103 = add nuw nsw i32 %78, 1
+  %104 = xor i32 %78, -1
+  %105 = add nuw nsw i64 %76, 1
+  %106 = icmp eq i32 %103, %38
+  br i1 %106, label %.loopexit8, label %75, !llvm.loop !8
 
 .loopexit8:                                       ; preds = %45, %.loopexit, %37, %29, %23, %18, %10, %6
   ret void

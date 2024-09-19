@@ -4881,9 +4881,9 @@ cleanup.done:                                     ; preds = %cleanup.action
   br i1 %call314, label %while.body320, label %for.body344
 
 while.body320:                                    ; preds = %cleanup.done
-  %inc321 = add nuw i64 %pcol305.0606, 1
-  %cmp307 = icmp ult i64 %inc321, %sub.ptr.div.i263
-  br i1 %cmp307, label %land.rhs308, label %if.then324, !llvm.loop !60
+  %inc321 = add i64 %pcol305.0606, 1
+  %exitcond671.not = icmp eq i64 %inc321, %sub.ptr.div.i263
+  br i1 %exitcond671.not, label %if.then324, label %land.rhs308, !llvm.loop !60
 
 lpad312:                                          ; preds = %land.rhs308
   %278 = landingpad { ptr, i32 }
@@ -5078,9 +5078,9 @@ cleanup.done385:                                  ; preds = %cleanup.action384
 
 cleanup.done385.thread:                           ; preds = %cleanup.done385, %if.end372
   %316 = phi i1 [ %ispart.2608, %if.end372 ], [ %spec.select, %cleanup.done385 ]
-  %inc393 = add nuw i64 %j341.0609, 1
-  %cmp343 = icmp ult i64 %inc393, %sub.ptr.div.i263
-  br i1 %cmp343, label %for.body344, label %for.inc395, !llvm.loop !61
+  %inc393 = add i64 %j341.0609, 1
+  %exitcond672.not = icmp eq i64 %inc393, %sub.ptr.div.i263
+  br i1 %exitcond672.not, label %for.inc395, label %for.body344, !llvm.loop !61
 
 lpad379:                                          ; preds = %land.rhs374
   %317 = landingpad { ptr, i32 }
@@ -5098,8 +5098,8 @@ terminate.lpad.i.i497:                            ; preds = %lpad379
 for.inc395:                                       ; preds = %cleanup.done385.thread, %_ZN4cvc58internal7IntegerD2Ev.exit471
   %ispart.1 = phi i1 [ %ispart.0611, %_ZN4cvc58internal7IntegerD2Ev.exit471 ], [ %316, %cleanup.done385.thread ]
   %inc396 = add nuw i64 %i.0612, 1
-  %exitcond671.not = icmp eq i64 %inc396, %umax
-  br i1 %exitcond671.not, label %for.end397.loopexit, label %while.cond306.preheader, !llvm.loop !62
+  %exitcond673.not = icmp eq i64 %inc396, %umax
+  br i1 %exitcond673.not, label %for.end397.loopexit, label %while.cond306.preheader, !llvm.loop !62
 
 for.end397.loopexit:                              ; preds = %for.inc395
   %320 = select i1 %ispart.1, i32 2, i32 1

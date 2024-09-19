@@ -179,8 +179,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.cond16, %if.end15
-  %exitcond.not = icmp eq i64 %add, %numprefix
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  %exitcond85.not = icmp eq i64 %add, %numprefix
+  br i1 %exitcond85.not, label %return, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
   %i.078 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond.loopexit ]
@@ -289,9 +289,9 @@ for.body18.lr.ph:                                 ; preds = %if.end15
   br label %for.body18
 
 for.cond16:                                       ; preds = %sdslen.exit65
-  %inc = add nuw i64 %j.076, 1
-  %cmp17 = icmp ult i64 %inc, %numprefix
-  br i1 %cmp17, label %for.body18, label %for.cond.loopexit, !llvm.loop !9
+  %inc = add i64 %j.076, 1
+  %exitcond.not = icmp eq i64 %inc, %numprefix
+  br i1 %exitcond.not, label %for.cond.loopexit, label %for.body18, !llvm.loop !9
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.cond16
   %j.076 = phi i64 [ %add, %for.body18.lr.ph ], [ %inc, %for.cond16 ]

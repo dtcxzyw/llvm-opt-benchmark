@@ -313,7 +313,7 @@ if.then10:                                        ; preds = %for.cond.outer, %fo
 if.end11:                                         ; preds = %for.cond.outer, %for.cond.backedge
   %conv265 = phi i64 [ %conv, %for.cond.backedge ], [ 0, %for.cond.outer ]
   %eline.1264 = phi i64 [ %eline.2, %for.cond.backedge ], [ %eline.1.ph, %for.cond.outer ]
-  %tobool18263 = phi i1 [ %tobool76.not317, %for.cond.backedge ], [ false, %for.cond.outer ]
+  %tobool18263 = phi i1 [ %tobool76.not321, %for.cond.backedge ], [ false, %for.cond.outer ]
   %bufnum.0262 = phi i32 [ %bufnum.0.be, %for.cond.backedge ], [ 0, %for.cond.outer ]
   %2 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %conv265
@@ -400,7 +400,7 @@ if.end75:                                         ; preds = %if.then49, %lor.lhs
   br i1 %or.cond105, label %for.cond.backedge, label %if.end78
 
 for.cond.backedge:                                ; preds = %if.end75.thread, %if.end75, %eat_ws.exit, %add_string.exit
-  %tobool76.not317 = phi i1 [ true, %if.end75 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %if.end75.thread ]
+  %tobool76.not321 = phi i1 [ true, %if.end75 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %if.end75.thread ]
   %bufnum.0.be = phi i32 [ %add46, %if.end75 ], [ 0, %eat_ws.exit ], [ 0, %add_string.exit ], [ %dec73, %if.end75.thread ]
   %conv = sext i32 %bufnum.0.be to i64
   %add = add nsw i64 %conv, 512
@@ -716,8 +716,8 @@ if.then123:                                       ; preds = %if.end120
   br label %if.then223
 
 for.cond.i134:                                    ; preds = %eat_ws.exit, %for.cond.backedge.i146
-  %43 = phi i16 [ %.pre313, %for.cond.backedge.i146 ], [ %30, %eat_ws.exit ]
-  %44 = phi i8 [ %.pre312, %for.cond.backedge.i146 ], [ %29, %eat_ws.exit ]
+  %43 = phi i16 [ %.pre317, %for.cond.backedge.i146 ], [ %30, %eat_ws.exit ]
+  %44 = phi i8 [ %.pre316, %for.cond.backedge.i146 ], [ %29, %eat_ws.exit ]
   %p.addr.0.i135 = phi ptr [ %p.addr.0.be.i147, %for.cond.backedge.i146 ], [ %p.addr.0.i, %eat_ws.exit ]
   %conv1.i138 = zext i16 %43 to i32
   %and2.i139 = and i32 %conv1.i138, 32
@@ -734,10 +734,10 @@ if.then.i141:                                     ; preds = %for.cond.i134
 
 for.cond.backedge.i146:                           ; preds = %if.end20.i151, %if.then.i141
   %p.addr.0.be.i147 = phi ptr [ %cond.i145, %if.then.i141 ], [ %incdec.ptr.i152, %if.end20.i151 ]
-  %.pre312 = load i8, ptr %p.addr.0.be.i147, align 1
-  %idxprom.i136.phi.trans.insert = zext i8 %.pre312 to i64
+  %.pre316 = load i8, ptr %p.addr.0.be.i147, align 1
+  %idxprom.i136.phi.trans.insert = zext i8 %.pre316 to i64
   %arrayidx.i137.phi.trans.insert = getelementptr inbounds [256 x i16], ptr @CONF_type_default, i64 0, i64 %idxprom.i136.phi.trans.insert
-  %.pre313 = load i16, ptr %arrayidx.i137.phi.trans.insert, align 2
+  %.pre317 = load i16, ptr %arrayidx.i137.phi.trans.insert, align 2
   br label %for.cond.i134
 
 if.end.i148:                                      ; preds = %for.cond.i134
@@ -800,10 +800,12 @@ if.end138:                                        ; preds = %if.end.i168, %land.
   %end.0 = phi ptr [ %p.addr.0.i135, %land.lhs.true131 ], [ %p.addr.0.i135, %eat_alpha_numeric.exit153 ], [ %p.addr.0.i155, %if.end.i168 ]
   %psection.0 = phi ptr [ null, %land.lhs.true131 ], [ null, %eat_alpha_numeric.exit153 ], [ %p.addr.0.i, %if.end.i168 ]
   %pname.0 = phi ptr [ %p.addr.0.i, %land.lhs.true131 ], [ %p.addr.0.i, %eat_alpha_numeric.exit153 ], [ %add.ptr, %if.end.i168 ]
+  %scevgep = getelementptr i8, ptr %end.0, i64 2
   br label %while.cond.i174
 
 while.cond.i174:                                  ; preds = %while.cond.i174, %if.end138
-  %p.addr.0.i175 = phi ptr [ %end.0, %if.end138 ], [ %incdec.ptr.i179, %while.cond.i174 ]
+  %indvars.iv312 = phi ptr [ %scevgep313, %while.cond.i174 ], [ %scevgep, %if.end138 ]
+  %p.addr.0.i175 = phi ptr [ %incdec.ptr.i179, %while.cond.i174 ], [ %end.0, %if.end138 ]
   %50 = load i8, ptr %p.addr.0.i175, align 1
   %idxprom.i176 = zext i8 %50 to i64
   %arrayidx.i177 = getelementptr inbounds [256 x i16], ptr @CONF_type_default, i64 0, i64 %idxprom.i176
@@ -811,6 +813,7 @@ while.cond.i174:                                  ; preds = %while.cond.i174, %i
   %52 = and i16 %51, 24
   %or.cond.i178 = icmp eq i16 %52, 16
   %incdec.ptr.i179 = getelementptr inbounds i8, ptr %p.addr.0.i175, i64 1
+  %scevgep313 = getelementptr i8, ptr %indvars.iv312, i64 1
   br i1 %or.cond.i178, label %while.cond.i174, label %eat_ws.exit180, !llvm.loop !11
 
 eat_ws.exit180:                                   ; preds = %while.cond.i174
@@ -826,7 +829,8 @@ if.end144:                                        ; preds = %eat_ws.exit180
   br label %while.cond.i181
 
 while.cond.i181:                                  ; preds = %while.cond.i181, %if.end144
-  %p.addr.0.i182 = phi ptr [ %incdec.ptr.i179, %if.end144 ], [ %incdec.ptr.i186, %while.cond.i181 ]
+  %indvars.iv314 = phi ptr [ %scevgep315, %while.cond.i181 ], [ %indvars.iv312, %if.end144 ]
+  %p.addr.0.i182 = phi ptr [ %incdec.ptr.i186, %while.cond.i181 ], [ %incdec.ptr.i179, %if.end144 ]
   %53 = load i8, ptr %p.addr.0.i182, align 1
   %idxprom.i183 = zext i8 %53 to i64
   %arrayidx.i184 = getelementptr inbounds [256 x i16], ptr @CONF_type_default, i64 0, i64 %idxprom.i183
@@ -834,6 +838,7 @@ while.cond.i181:                                  ; preds = %while.cond.i181, %i
   %55 = and i16 %54, 24
   %or.cond.i185 = icmp eq i16 %55, 16
   %incdec.ptr.i186 = getelementptr inbounds i8, ptr %p.addr.0.i182, i64 1
+  %scevgep315 = getelementptr i8, ptr %indvars.iv314, i64 1
   br i1 %or.cond.i185, label %while.cond.i181, label %while.cond147, !llvm.loop !11
 
 while.cond147:                                    ; preds = %while.cond.i181, %while.cond147
@@ -859,7 +864,8 @@ land.rhs:                                         ; preds = %while.cond159
   br i1 %tobool168.not, label %while.end171, label %while.cond159, !llvm.loop !13
 
 while.end171:                                     ; preds = %while.cond159, %land.rhs
-  store i8 0, ptr %p.0.pn, align 1
+  %p.0.pn.lcssa = phi ptr [ %indvars.iv314, %while.cond159 ], [ %p.0.pn, %land.rhs ]
+  store i8 0, ptr %p.0.pn.lcssa, align 1
   %calloc.i = call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %tobool.not.i188 = icmp eq ptr %calloc.i, null
   br i1 %tobool.not.i188, label %CONF_VALUE_new.exit.thread, label %if.end176

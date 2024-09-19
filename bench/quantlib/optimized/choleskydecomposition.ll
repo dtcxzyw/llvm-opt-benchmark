@@ -252,10 +252,10 @@ for.cond27.preheader.lr.ph:                       ; preds = %_ZN8QuantLib6Matrix
 
 for.cond27.preheader:                             ; preds = %for.cond27.preheader.lr.ph, %for.inc114
   %i.0149 = phi i64 [ 0, %for.cond27.preheader.lr.ph ], [ %inc115, %for.inc114 ]
-  %indvars155 = trunc i64 %i.0149 to i32
+  %indvars157 = trunc i64 %i.0149 to i32
   %mul.i.i = mul i64 %i.0149, %0
   %add.ptr.i.i58 = getelementptr inbounds nuw double, ptr %27, i64 %mul.i.i
-  %cmp34.not.not144 = icmp sgt i32 %indvars155, 0
+  %cmp34.not.not144 = icmp sgt i32 %indvars157, 0
   %add.ptr.i.i61 = getelementptr inbounds nuw double, ptr %26, i64 %mul.i.i
   %arrayidx101 = getelementptr inbounds nuw double, ptr %add.ptr.i.i61, i64 %i.0149
   %invariant.gep = getelementptr double, ptr %26, i64 %i.0149
@@ -299,8 +299,8 @@ invoke.cont95.us:                                 ; preds = %do.body47.us
 
 for.inc111.us:                                    ; preds = %invoke.cont95.us, %invoke.cont99.us
   %inc112.us = add nuw i64 %j.0147.us, 1
-  %cmp28.us = icmp ult i64 %inc112.us, %0
-  br i1 %cmp28.us, label %invoke.cont31.us, label %for.inc114, !llvm.loop !24
+  %exitcond156.not = icmp eq i64 %inc112.us, %0
+  br i1 %exitcond156.not, label %for.inc114, label %invoke.cont31.us, !llvm.loop !24
 
 invoke.cont40.us:                                 ; preds = %invoke.cont31.us, %invoke.cont40.us
   %indvars.iv = phi i64 [ 0, %invoke.cont31.us ], [ %indvars.iv.next, %invoke.cont40.us ]
@@ -312,8 +312,8 @@ invoke.cont40.us:                                 ; preds = %invoke.cont31.us, %
   %neg.us = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %neg.us, double %32, double %sum.0145.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond33.for.cond.cleanup_crit_edge.us, label %invoke.cont40.us, !llvm.loop !26
+  %exitcond155.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond155.not, label %for.cond33.for.cond.cleanup_crit_edge.us, label %invoke.cont40.us, !llvm.loop !26
 
 for.cond33.for.cond.cleanup_crit_edge.us:         ; preds = %invoke.cont40.us
   %cmp45.us = icmp eq i64 %i.0149, %j.0147.us
@@ -522,13 +522,13 @@ invoke.cont99:                                    ; preds = %invoke.cont31
 
 for.inc111:                                       ; preds = %invoke.cont95, %invoke.cont99
   %inc112 = add nuw i64 %j.0147, 1
-  %cmp28 = icmp ult i64 %inc112, %0
-  br i1 %cmp28, label %invoke.cont31, label %for.inc114, !llvm.loop !24
+  %exitcond.not = icmp eq i64 %inc112, %0
+  br i1 %exitcond.not, label %for.inc114, label %invoke.cont31, !llvm.loop !24
 
 for.inc114:                                       ; preds = %for.inc111, %for.inc111.us
   %inc115 = add nuw i64 %i.0149, 1
-  %exitcond156.not = icmp eq i64 %inc115, %0
-  br i1 %exitcond156.not, label %for.end116, label %for.cond27.preheader, !llvm.loop !27
+  %exitcond158.not = icmp eq i64 %inc115, %0
+  br i1 %exitcond158.not, label %for.end116, label %for.cond27.preheader, !llvm.loop !27
 
 for.end116:                                       ; preds = %for.inc114, %_ZN8QuantLib6MatrixC2Emmd.exit
   ret void

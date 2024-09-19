@@ -1278,21 +1278,21 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
   %66 = add nsw i64 %61, 4294967295
   %67 = getelementptr inbounds i8, ptr %6, i64 24
   %68 = getelementptr inbounds i8, ptr %6, i64 48
-  %wide.trip.count180 = and i64 %65, 4294967295
+  %wide.trip.count181 = and i64 %65, 4294967295
   %wide.trip.count = and i64 %66, 4294967295
   br label %.lr.ph141
 
 .loopexit134:                                     ; preds = %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge144, label %.lr.ph141, !llvm.loop !39
+  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
+  br i1 %exitcond182.not, label %._crit_edge144, label %.lr.ph141, !llvm.loop !39
 
 .lr.ph141:                                        ; preds = %.loopexit134, %.lr.ph143
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next178, %.loopexit134 ]
+  %indvars.iv178 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next179, %.loopexit134 ]
   %indvars.iv172 = phi i64 [ 1, %.lr.ph143 ], [ %indvars.iv.next173, %.loopexit134 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph143 ], [ %indvars.iv.next, %.loopexit134 ]
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph141
@@ -1304,7 +1304,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
 69:                                               ; preds = %.lr.ph, %202
   %indvars.iv169 = phi i64 [ %indvars.iv167, %.lr.ph ], [ %indvars.iv.next170, %202 ]
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %70, i64 %indvars.iv177
+  %71 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %70, i64 %indvars.iv178
   %72 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %70, i64 %indvars.iv174
   %73 = getelementptr inbounds %"struct.ZXing::ConcentricPattern", ptr %70, i64 %indvars.iv169
   %74 = getelementptr inbounds i8, ptr %73, i64 16
@@ -1510,196 +1510,196 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ZXing17ConcentricPatternES
 
 202:                                              ; preds = %.lr.ph.i.i.i71.preheader, %180, %193, %147, %129, %121, %126
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %203 = trunc nuw i64 %indvars.iv.next170 to i32
-  %204 = icmp slt i32 %203, %62
-  br i1 %204, label %69, label %._crit_edge, !llvm.loop !41
+  %lftr.wideiv = trunc i64 %indvars.iv.next170 to i32
+  %exitcond.not = icmp eq i32 %lftr.wideiv, %62
+  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %69, %202
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit134, label %.lr.ph, !llvm.loop !42
+  %exitcond177.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
+  br i1 %exitcond177.not, label %.loopexit134, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge144:                                   ; preds = %.loopexit134
   %.pre = load i64, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %205 = icmp ugt i64 %.pre, 128102389400760775
-  br i1 %205, label %206, label %207
+  %203 = icmp ugt i64 %.pre, 128102389400760775
+  br i1 %203, label %204, label %205
 
-206:                                              ; preds = %._crit_edge144
+204:                                              ; preds = %._crit_edge144
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #20
           to label %.noexc75 unwind label %.loopexit.split-lp
 
-.noexc75:                                         ; preds = %206
+.noexc75:                                         ; preds = %204
   unreachable
 
-207:                                              ; preds = %._crit_edge144
-  %208 = getelementptr inbounds i8, ptr %0, i64 16
-  %.not184 = icmp eq i64 %.pre, 0
-  br i1 %.not184, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i
+205:                                              ; preds = %._crit_edge144
+  %206 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not185 = icmp eq i64 %.pre, 0
+  br i1 %.not185, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i: ; preds = %207
-  %209 = mul nuw nsw i64 %.pre, 72
-  %210 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %209) #21
+_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i: ; preds = %205
+  %207 = mul nuw nsw i64 %.pre, 72
+  %208 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %207) #21
           to label %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %.loopexit.split-lp
 
 _ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i
-  %211 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %210, ptr %0, align 8
-  store ptr %210, ptr %211, align 8
-  %212 = getelementptr inbounds %"struct.ZXing::QRCode::FinderPatternSet", ptr %210, i64 %.pre
-  store ptr %212, ptr %208, align 8
+  %209 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %208, ptr %0, align 8
+  store ptr %208, ptr %209, align 8
+  %210 = getelementptr inbounds %"struct.ZXing::QRCode::FinderPatternSet", ptr %208, i64 %.pre
+  store ptr %210, ptr %206, align 8
   br label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit
 
-_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit: ; preds = %.thread, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i, %207
-  %213 = phi ptr [ %208, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %208, %207 ], [ %64, %.thread ]
-  %.promoted148 = phi ptr [ %210, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %207 ], [ null, %.thread ]
-  %.promoted = phi ptr [ %212, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %207 ], [ null, %.thread ]
-  %214 = load ptr, ptr %53, align 8
-  %.not152 = icmp eq ptr %214, %51
+_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit: ; preds = %.thread, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i, %205
+  %211 = phi ptr [ %206, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %206, %205 ], [ %64, %.thread ]
+  %.promoted148 = phi ptr [ %208, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %205 ], [ null, %.thread ]
+  %.promoted = phi ptr [ %210, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %205 ], [ null, %.thread ]
+  %212 = load ptr, ptr %53, align 8
+  %.not152 = icmp eq ptr %212, %51
   br i1 %.not152, label %._crit_edge155, label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit
-  %215 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %216
+  %213 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %214
 
-216:                                              ; preds = %.lr.ph154, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit
-  %217 = phi ptr [ %.promoted148, %.lr.ph154 ], [ %244, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.083.0153 = phi ptr [ %214, %.lr.ph154 ], [ %247, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
-  %218 = phi ptr [ %.promoted, %.lr.ph154 ], [ %246, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
-  %219 = phi ptr [ %.promoted148, %.lr.ph154 ], [ %245, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
-  %220 = getelementptr inbounds i8, ptr %.sroa.083.0153, i64 40
-  %.not.i = icmp eq ptr %217, %218
-  br i1 %.not.i, label %223, label %221
+214:                                              ; preds = %.lr.ph154, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit
+  %215 = phi ptr [ %.promoted148, %.lr.ph154 ], [ %242, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.083.0153 = phi ptr [ %212, %.lr.ph154 ], [ %245, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
+  %216 = phi ptr [ %.promoted, %.lr.ph154 ], [ %244, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
+  %217 = phi ptr [ %.promoted148, %.lr.ph154 ], [ %243, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
+  %218 = getelementptr inbounds i8, ptr %.sroa.083.0153, i64 40
+  %.not.i = icmp eq ptr %215, %216
+  br i1 %.not.i, label %221, label %219
 
-221:                                              ; preds = %216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %217, ptr noundef nonnull align 8 dereferenceable(72) %220, i64 72, i1 false)
-  %222 = getelementptr inbounds i8, ptr %217, i64 72
-  store ptr %222, ptr %215, align 8
+219:                                              ; preds = %214
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %215, ptr noundef nonnull align 8 dereferenceable(72) %218, i64 72, i1 false)
+  %220 = getelementptr inbounds i8, ptr %215, i64 72
+  store ptr %220, ptr %213, align 8
   br label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit
 
-223:                                              ; preds = %216
-  %224 = ptrtoint ptr %217 to i64
-  %225 = ptrtoint ptr %219 to i64
-  %226 = sub i64 %224, %225
-  %227 = icmp eq i64 %226, 9223372036854775800
-  br i1 %227, label %228, label %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+221:                                              ; preds = %214
+  %222 = ptrtoint ptr %215 to i64
+  %223 = ptrtoint ptr %217 to i64
+  %224 = sub i64 %222, %223
+  %225 = icmp eq i64 %224, 9223372036854775800
+  br i1 %225, label %226, label %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-228:                                              ; preds = %223
-  store ptr %218, ptr %213, align 1
-  store ptr %219, ptr %0, align 8
+226:                                              ; preds = %221
+  store ptr %216, ptr %211, align 1
+  store ptr %217, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #20
           to label %.noexc79 unwind label %.loopexit.split-lp
 
-.noexc79:                                         ; preds = %228
+.noexc79:                                         ; preds = %226
   unreachable
 
-_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %223
-  %229 = sdiv exact i64 %226, 72
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %229, i64 1)
-  %230 = add nsw i64 %.sroa.speculated.i.i.i, %229
-  %231 = icmp ult i64 %230, %229
-  %232 = call i64 @llvm.umin.i64(i64 %230, i64 128102389400760775)
-  %233 = select i1 %231, i64 128102389400760775, i64 %232
-  %.not.i.i.i77 = icmp eq i64 %233, 0
-  br i1 %.not.i.i.i77, label %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i, label %234
+_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %221
+  %227 = sdiv exact i64 %224, 72
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %227, i64 1)
+  %228 = add nsw i64 %.sroa.speculated.i.i.i, %227
+  %229 = icmp ult i64 %228, %227
+  %230 = call i64 @llvm.umin.i64(i64 %228, i64 128102389400760775)
+  %231 = select i1 %229, i64 128102389400760775, i64 %230
+  %.not.i.i.i77 = icmp eq i64 %231, 0
+  br i1 %.not.i.i.i77, label %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i, label %232
 
-234:                                              ; preds = %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %235 = mul nuw nsw i64 %233, 72
-  %236 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %235) #21
+232:                                              ; preds = %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %233 = mul nuw nsw i64 %231, 72
+  %234 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %233) #21
           to label %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
-_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %234, %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %237 = phi ptr [ null, %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %236, %234 ]
-  %238 = getelementptr inbounds %"struct.ZXing::QRCode::FinderPatternSet", ptr %237, i64 %229
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %238, ptr noundef nonnull align 8 dereferenceable(72) %220, i64 72, i1 false)
-  %.not10.i.i.i.i.i = icmp eq ptr %219, %217
+_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %232, %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %235 = phi ptr [ null, %_ZNKSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %234, %232 ]
+  %236 = getelementptr inbounds %"struct.ZXing::QRCode::FinderPatternSet", ptr %235, i64 %227
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %236, ptr noundef nonnull align 8 dereferenceable(72) %218, i64 72, i1 false)
+  %.not10.i.i.i.i.i = icmp eq ptr %217, %215
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i78
 
 .lr.ph.i.i.i.i.i78:                               ; preds = %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i78
-  %.012.i.i.i.i.i = phi ptr [ %240, %.lr.ph.i.i.i.i.i78 ], [ %237, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %239, %.lr.ph.i.i.i.i.i78 ], [ %219, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i ]
+  %.012.i.i.i.i.i = phi ptr [ %238, %.lr.ph.i.i.i.i.i78 ], [ %235, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %237, %.lr.ph.i.i.i.i.i78 ], [ %217, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i.i.i, i64 72, i1 false), !alias.scope !43
-  %239 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 72
-  %240 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 72
-  %.not.i.i.i.i.i = icmp eq ptr %239, %217
+  %237 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 72
+  %238 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 72
+  %.not.i.i.i.i.i = icmp eq ptr %237, %215
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i78, !llvm.loop !47
 
 _ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i78, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %237, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i ], [ %240, %.lr.ph.i.i.i.i.i78 ]
-  %241 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 72
-  %.not.i23.i.i = icmp eq ptr %219, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %242
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %235, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i.i ], [ %238, %.lr.ph.i.i.i.i.i78 ]
+  %239 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 72
+  %.not.i23.i.i = icmp eq ptr %217, null
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %240
 
-242:                                              ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %219) #22
+240:                                              ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
+  call void @_ZdlPv(ptr noundef nonnull %217) #22
   br label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %242, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  store ptr %241, ptr %215, align 8
-  %243 = getelementptr inbounds %"struct.ZXing::QRCode::FinderPatternSet", ptr %237, i64 %233
+_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %240, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
+  store ptr %239, ptr %213, align 8
+  %241 = getelementptr inbounds %"struct.ZXing::QRCode::FinderPatternSet", ptr %235, i64 %231
   br label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %221
-  %244 = phi ptr [ %241, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %222, %221 ]
-  %245 = phi ptr [ %237, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %219, %221 ]
-  %246 = phi ptr [ %243, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %218, %221 ]
-  %247 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.083.0153) #24
-  %.not = icmp eq ptr %247, %51
-  br i1 %.not, label %._crit_edge155, label %216
+_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %219
+  %242 = phi ptr [ %239, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %220, %219 ]
+  %243 = phi ptr [ %235, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %217, %219 ]
+  %244 = phi ptr [ %241, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %216, %219 ]
+  %245 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.083.0153) #24
+  %.not = icmp eq ptr %245, %51
+  br i1 %.not, label %._crit_edge155, label %214
 
-.loopexit:                                        ; preds = %234
+.loopexit:                                        ; preds = %232
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %218, ptr %213, align 1
-  store ptr %219, ptr %0, align 8
-  br label %249
+  store ptr %216, ptr %211, align 1
+  store ptr %217, ptr %0, align 8
+  br label %247
 
-.loopexit.split-lp:                               ; preds = %206, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i, %228
-  %248 = phi ptr [ null, %206 ], [ null, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i ], [ %219, %228 ]
+.loopexit.split-lp:                               ; preds = %204, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i, %226
+  %246 = phi ptr [ null, %204 ], [ null, %_ZNSt12_Vector_baseIN5ZXing6QRCode16FinderPatternSetESaIS2_EE11_M_allocateEm.exit.i ], [ %217, %226 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %249
+  br label %247
 
-249:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %250 = phi ptr [ %219, %.loopexit ], [ %248, %.loopexit.split-lp ]
+247:                                              ; preds = %.loopexit.split-lp, %.loopexit
+  %248 = phi ptr [ %217, %.loopexit ], [ %246, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i81 = icmp eq ptr %250, null
-  br i1 %.not.i.i.i81, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit, label %251
+  %.not.i.i.i81 = icmp eq ptr %248, null
+  br i1 %.not.i.i.i81, label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit, label %249
 
-251:                                              ; preds = %249
-  call void @_ZdlPv(ptr noundef nonnull %250) #22
+249:                                              ; preds = %247
+  call void @_ZdlPv(ptr noundef nonnull %248) #22
   br label %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit
 
 ._crit_edge155:                                   ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit
-  %.lcssa149 = phi ptr [ %.promoted148, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit ], [ %245, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
-  %.lcssa145 = phi ptr [ %.promoted, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit ], [ %246, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
-  store ptr %.lcssa145, ptr %213, align 1
+  %.lcssa149 = phi ptr [ %.promoted148, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit ], [ %243, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
+  %.lcssa145 = phi ptr [ %.promoted, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE7reserveEm.exit ], [ %244, %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EE9push_backERKS2_.exit ]
+  store ptr %.lcssa145, ptr %211, align 1
   store ptr %.lcssa149, ptr %0, align 8
-  %252 = load ptr, ptr %52, align 8
-  invoke void @_ZNSt8_Rb_treeIdSt4pairIKdN5ZXing6QRCode16FinderPatternSetEESt10_Select1stIS5_ESt4lessIdESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %252)
-          to label %_ZNSt8multimapIdN5ZXing6QRCode16FinderPatternSetESt4lessIdESaISt4pairIKdS2_EEED2Ev.exit unwind label %253
+  %250 = load ptr, ptr %52, align 8
+  invoke void @_ZNSt8_Rb_treeIdSt4pairIKdN5ZXing6QRCode16FinderPatternSetEESt10_Select1stIS5_ESt4lessIdESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %250)
+          to label %_ZNSt8multimapIdN5ZXing6QRCode16FinderPatternSetESt4lessIdESaISt4pairIKdS2_EEED2Ev.exit unwind label %251
 
-253:                                              ; preds = %._crit_edge155
-  %254 = landingpad { ptr, i32 }
+251:                                              ; preds = %._crit_edge155
+  %252 = landingpad { ptr, i32 }
           catch ptr null
-  %255 = extractvalue { ptr, i32 } %254, 0
-  call void @__clang_call_terminate(ptr %255) #25
+  %253 = extractvalue { ptr, i32 } %252, 0
+  call void @__clang_call_terminate(ptr %253) #25
   unreachable
 
 _ZNSt8multimapIdN5ZXing6QRCode16FinderPatternSetESt4lessIdESaISt4pairIKdS2_EEED2Ev.exit: ; preds = %._crit_edge155
   ret void
 
-_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit: ; preds = %251, %249, %80
-  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %lpad.phi, %249 ], [ %lpad.phi, %251 ]
-  %256 = load ptr, ptr %52, align 8
-  invoke void @_ZNSt8_Rb_treeIdSt4pairIKdN5ZXing6QRCode16FinderPatternSetEESt10_Select1stIS5_ESt4lessIdESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %256)
-          to label %_ZNSt8multimapIdN5ZXing6QRCode16FinderPatternSetESt4lessIdESaISt4pairIKdS2_EEED2Ev.exit82 unwind label %257
+_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit: ; preds = %249, %247, %80
+  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %lpad.phi, %247 ], [ %lpad.phi, %249 ]
+  %254 = load ptr, ptr %52, align 8
+  invoke void @_ZNSt8_Rb_treeIdSt4pairIKdN5ZXing6QRCode16FinderPatternSetEESt10_Select1stIS5_ESt4lessIdESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %254)
+          to label %_ZNSt8multimapIdN5ZXing6QRCode16FinderPatternSetESt4lessIdESaISt4pairIKdS2_EEED2Ev.exit82 unwind label %255
 
-257:                                              ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit
-  %258 = landingpad { ptr, i32 }
+255:                                              ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit
+  %256 = landingpad { ptr, i32 }
           catch ptr null
-  %259 = extractvalue { ptr, i32 } %258, 0
-  call void @__clang_call_terminate(ptr %259) #25
+  %257 = extractvalue { ptr, i32 } %256, 0
+  call void @__clang_call_terminate(ptr %257) #25
   unreachable
 
 _ZNSt8multimapIdN5ZXing6QRCode16FinderPatternSetESt4lessIdESaISt4pairIKdS2_EEED2Ev.exit82: ; preds = %_ZNSt6vectorIN5ZXing6QRCode16FinderPatternSetESaIS2_EED2Ev.exit

@@ -4705,7 +4705,8 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17SymbolTableConfigL8M
   br label %15
 
 15:                                               ; preds = %.lr.ph45, %._crit_edge40
-  %16 = phi i64 [ %12, %.lr.ph45 ], [ %60, %._crit_edge40 ]
+  %indvars.iv = phi i64 [ 128, %.lr.ph45 ], [ %indvars.iv.next, %._crit_edge40 ]
+  %16 = phi i64 [ %12, %.lr.ph45 ], [ %59, %._crit_edge40 ]
   %.02343 = phi i64 [ 0, %.lr.ph45 ], [ %.1.lcssa, %._crit_edge40 ]
   %.02642 = phi i64 [ 0, %.lr.ph45 ], [ %17, %._crit_edge40 ]
   %17 = add i64 %.02642, 128
@@ -4734,11 +4735,15 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i: ; preds = %22, %15
 
 _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit: ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i, %27
   %29 = icmp ult i64 %.02642, %18
-  br i1 %29, label %.lr.ph39, label %._crit_edge40
+  br i1 %29, label %.lr.ph39.preheader, label %._crit_edge40
 
-.lr.ph39:                                         ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit, %55
-  %.138 = phi i64 [ %.2, %55 ], [ %.02343, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit ]
-  %.02537 = phi i64 [ %56, %55 ], [ %.02642, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit ]
+.lr.ph39.preheader:                               ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit
+  %umin = call i64 @llvm.umin.i64(i64 %16, i64 %indvars.iv)
+  br label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %55
+  %.138 = phi i64 [ %.2, %55 ], [ %.02343, %.lr.ph39.preheader ]
+  %.02537 = phi i64 [ %56, %55 ], [ %.02642, %.lr.ph39.preheader ]
   %30 = load ptr, ptr %9, align 8
   %31 = getelementptr inbounds %"class.ConcurrentHashTable<SymbolTableConfig, MEMFLAGS::mtSymbol>::Bucket", ptr %30, i64 %.02537
   %32 = load volatile ptr, ptr %31, align 8
@@ -4799,46 +4804,47 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS
 55:                                               ; preds = %.lr.ph39, %35, %._crit_edge
   %.2 = phi i64 [ %.138, %.lr.ph39 ], [ %.138, %35 ], [ %.3.lcssa, %._crit_edge ]
   %56 = add nuw i64 %.02537, 1
-  %57 = icmp ult i64 %56, %18
-  br i1 %57, label %.lr.ph39, label %._crit_edge40, !llvm.loop !44
+  %exitcond.not = icmp eq i64 %56, %umin
+  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !44
 
 ._crit_edge40:                                    ; preds = %55, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit
   %.1.lcssa = phi i64 [ %.02343, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit ], [ %.2, %55 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   store volatile i64 %19, ptr %13, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp ult i64 %17, %60
-  br i1 %61, label %15, label %._crit_edge46, !llvm.loop !45
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp ult i64 %17, %59
+  %indvars.iv.next = add i64 %indvars.iv, 128
+  br i1 %60, label %15, label %._crit_edge46, !llvm.loop !45
 
 ._crit_edge46:                                    ; preds = %._crit_edge40, %4
   %.023.lcssa = phi i64 [ 0, %4 ], [ %.1.lcssa, %._crit_edge40 ]
-  %62 = load ptr, ptr %1, align 8
-  %63 = icmp eq ptr %62, null
-  %64 = getelementptr inbounds i8, ptr %5, i64 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 56
-  br i1 %63, label %66, label %69
+  %61 = load ptr, ptr %1, align 8
+  %62 = icmp eq ptr %61, null
+  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  %64 = getelementptr inbounds i8, ptr %5, i64 56
+  br i1 %62, label %65, label %68
 
-66:                                               ; preds = %._crit_edge46
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %64, i64 48, i1 false)
+65:                                               ; preds = %._crit_edge46
+  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %63, i64 48, i1 false)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV9NumberSeq, i64 16), ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
+  %67 = getelementptr inbounds i8, ptr %6, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   call void @_ZN15TableStatisticsC1E9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %6, i64 noundef %.023.lcssa, i64 noundef 8, i64 noundef 16) #18
-  br label %72
+  br label %71
 
-69:                                               ; preds = %._crit_edge46
-  %70 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull align 8 dereferenceable(48) %64, i64 48, i1 false)
+68:                                               ; preds = %._crit_edge46
+  %69 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull align 8 dereferenceable(48) %63, i64 48, i1 false)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV9NumberSeq, i64 16), ptr %7, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
-  call void @_ZN15TableStatisticsC1ER19TableRateStatistics9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull %7, i64 noundef %.023.lcssa, i64 noundef 8, i64 noundef 16) #18
-  br label %72
+  %70 = getelementptr inbounds i8, ptr %7, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
+  call void @_ZN15TableStatisticsC1ER19TableRateStatistics9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull %7, i64 noundef %.023.lcssa, i64 noundef 8, i64 noundef 16) #18
+  br label %71
 
-72:                                               ; preds = %69, %66
+71:                                               ; preds = %68, %65
   ret void
 }
 

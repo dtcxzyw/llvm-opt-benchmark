@@ -7608,9 +7608,9 @@ for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhE
   %utf8.sroa.24.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %utf8.sroa.24.0103, %if.then.i ], [ %add.ptr19.i.i.i54, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53 ], [ %utf8.sroa.24.4, %if.then.i.i30 ]
   %utf8.sroa.10.1 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i.i50, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53 ], [ %incdec.ptr.i.i31, %if.then.i.i30 ]
   %utf8.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %utf8.sroa.0.0105, %if.then.i ], [ %cond.i10.i.i.i46, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53 ], [ %utf8.sroa.0.4, %if.then.i.i30 ]
-  %inc = add nuw i64 %ii.1106, 1
-  %cmp7 = icmp ult i64 %inc, %latin1.coerce1
-  br i1 %cmp7, label %for.body8, label %for.end, !llvm.loop !166
+  %inc = add i64 %ii.1106, 1
+  %exitcond109.not = icmp eq i64 %inc, %latin1.coerce1
+  br i1 %exitcond109.not, label %for.end, label %for.body8, !llvm.loop !166
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
   %utf8.sroa.10.0.lcssa = phi ptr [ %utf8.sroa.24.2, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit ], [ %utf8.sroa.10.1, %for.inc ]
@@ -7892,9 +7892,9 @@ for.inc:                                          ; preds = %_ZNSt6vectorIhSaIhE
   %utf8.sroa.24.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %utf8.sroa.24.097, %if.then.i ], [ %add.ptr19.i.i.i54, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53 ], [ %utf8.sroa.24.4, %if.then.i.i30 ]
   %utf8.sroa.10.1 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i.i50, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53 ], [ %incdec.ptr.i.i31, %if.then.i.i30 ]
   %utf8.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %utf8.sroa.0.099, %if.then.i ], [ %cond.i10.i.i.i46, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53 ], [ %utf8.sroa.0.4, %if.then.i.i30 ]
-  %inc = add nuw i64 %ii.1100, 1
-  %cmp7 = icmp ult i64 %inc, %latin1.coerce1
-  br i1 %cmp7, label %for.body8, label %for.end, !llvm.loop !168
+  %inc = add i64 %ii.1100, 1
+  %exitcond103.not = icmp eq i64 %inc, %latin1.coerce1
+  br i1 %exitcond103.not, label %for.end, label %for.body8, !llvm.loop !168
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
   %utf8.sroa.10.0.lcssa = phi ptr [ %utf8.sroa.24.2, %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit ], [ %utf8.sroa.10.1, %for.inc ]

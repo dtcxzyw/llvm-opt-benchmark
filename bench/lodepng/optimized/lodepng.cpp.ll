@@ -334,10 +334,13 @@ for.body.i:                                       ; preds = %for.end42.i, %if.el
 
 for.cond7.loopexit.i:                             ; preds = %for.inc.i, %for.body9.i
   %cmp8.i = icmp ult i64 %add17.i, %numpresent.1
+  %indvars.iv.next.i = add i64 %indvars.iv.i, %mul16.i
   br i1 %cmp8.i, label %for.body9.i, label %for.end42.i, !llvm.loop !9
 
 for.body9.i:                                      ; preds = %for.cond7.loopexit.i, %for.body.i
+  %indvars.iv.i = phi i64 [ %mul16.i, %for.body.i ], [ %indvars.iv.next.i, %for.cond7.loopexit.i ]
   %p.047.i = phi i64 [ 0, %for.body.i ], [ %add17.i, %for.cond7.loopexit.i ]
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %numpresent.1, i64 %indvars.iv.i)
   %add.i = add i64 %p.047.i, %width.049.i
   %cond15.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %numpresent.1)
   %add17.i = add i64 %p.047.i, %mul16.i
@@ -380,8 +383,8 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
   %arrayidx34.i = getelementptr inbounds %struct.BPMNode, ptr %cond6.i, i64 %k.045.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx34.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx33.i, i64 24, i1 false)
   %inc38.i = add nuw i64 %k.045.i, 1
-  %cmp26.i = icmp ult i64 %inc38.i, %num.add17.i
-  br i1 %cmp26.i, label %for.body27.i, label %for.cond7.loopexit.i, !llvm.loop !10
+  %exitcond.not.i = icmp eq i64 %inc38.i, %umin.i
+  br i1 %exitcond.not.i, label %for.cond7.loopexit.i, label %for.body27.i, !llvm.loop !10
 
 for.end42.i:                                      ; preds = %for.cond7.loopexit.i
   %inc43.i = add i64 %counter.048.i, 1

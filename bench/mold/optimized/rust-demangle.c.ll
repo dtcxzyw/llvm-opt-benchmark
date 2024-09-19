@@ -5533,7 +5533,7 @@ do.end3:                                          ; preds = %entry
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %do.end14.i.i, %do.end3
-  %.pre.i = phi i8 [ %0, %do.end3 ], [ %.pre.i110, %do.end14.i.i ]
+  %.pre.i = phi i8 [ %0, %do.end3 ], [ %.pre.i111, %do.end14.i.i ]
   %3 = phi i64 [ %1, %do.end3 ], [ %6, %do.end14.i.i ]
   %hex_len.0.i.i = phi i64 [ 0, %do.end3 ], [ %inc.i.i, %do.end14.i.i ]
   %cmp.i.i.i.i = icmp ult i64 %3, %2
@@ -5558,7 +5558,7 @@ do.end2.i.i.i:                                    ; preds = %peek.exit.i.i.i
   br label %next.exit.i.i
 
 next.exit.i.i:                                    ; preds = %do.end2.i.i.i, %do.body1.i.i.i
-  %.pre.i110 = phi i8 [ %.pre.i, %do.end2.i.i.i ], [ 1, %do.body1.i.i.i ]
+  %.pre.i111 = phi i8 [ %.pre.i, %do.end2.i.i.i ], [ 1, %do.body1.i.i.i ]
   %6 = phi i64 [ %inc.i16.i.i, %do.end2.i.i.i ], [ %3, %do.body1.i.i.i ]
   %retval.0.i.i.i = phi i8 [ %5, %do.end2.i.i.i ], [ 0, %do.body1.i.i.i ]
   %7 = add i8 %retval.0.i.i.i, -48
@@ -5627,16 +5627,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %cond.i24 = add i8 %cond.v.i23, %14
   %or = or i8 %shl, %cond.i24
   %conv8.i = zext i8 %or to i32
+  %15 = add i64 %i.096, -2
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %for.body
-  %utf8.sroa.0.0 = phi i64 [ 0, %for.body ], [ %inc.i, %if.end.i ]
-  %conv63.i = phi i8 [ %or, %for.body ], [ %conv6.i, %if.end.i ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end.i ], [ %15, %for.body ]
+  %utf8.sroa.0.0 = phi i64 [ %inc.i, %if.end.i ], [ 0, %for.body ]
+  %conv63.i = phi i8 [ %conv6.i, %if.end.i ], [ %or, %for.body ]
   %sh_prom.i = trunc nuw nsw i64 %utf8.sroa.0.0 to i32
   %shr.i = lshr exact i32 128, %sh_prom.i
   %not.i = ashr i32 -129, %sh_prom.i
-  %15 = trunc i32 %not.i to i8
-  %conv6.i = and i8 %conv63.i, %15
+  %16 = trunc i32 %not.i to i8
+  %conv6.i = and i8 %conv63.i, %16
   %and10.i = and i32 %shr.i, %conv8.i
   %cmp11.i = icmp eq i32 %and10.i, 0
   br i1 %cmp11.i, label %utf8_decode.exit, label %if.end.i
@@ -5644,6 +5646,7 @@ while.body.i:                                     ; preds = %if.end.i, %for.body
 if.end.i:                                         ; preds = %while.body.i
   %inc.i = add nuw nsw i64 %utf8.sroa.0.0, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
+  %indvars.iv.next = add i64 %indvars.iv, 2
   br i1 %exitcond.not.i, label %do.body31, label %while.body.i, !llvm.loop !36
 
 utf8_decode.exit:                                 ; preds = %while.body.i
@@ -5672,16 +5675,16 @@ for.body40:                                       ; preds = %for.cond37.preheade
   %i.291 = phi i64 [ %add41, %do.end63 ], [ %i.096, %for.cond37.preheader ]
   %add41 = add i64 %i.291, 2
   %arrayidx43 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add41
-  %16 = load i8, ptr %arrayidx43, align 1
-  %cmp.i25 = icmp sgt i8 %16, 96
+  %17 = load i8, ptr %arrayidx43, align 1
+  %cmp.i25 = icmp sgt i8 %17, 96
   %cond.v.i26 = select i1 %cmp.i25, i8 9, i8 96
-  %cond.i27 = add i8 %cond.v.i26, %16
+  %cond.i27 = add i8 %cond.v.i26, %17
   %shl46 = shl i8 %cond.i27, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %i.291
-  %17 = load i8, ptr %gep, align 1
-  %cmp.i28 = icmp sgt i8 %17, 96
+  %18 = load i8, ptr %gep, align 1
+  %cmp.i28 = icmp sgt i8 %18, 96
   %cond.v.i29 = select i1 %cmp.i28, i8 -87, i8 -48
-  %cond.i30 = add i8 %cond.v.i29, %17
+  %cond.i30 = add i8 %cond.v.i29, %18
   %or52 = or i8 %shl46, %cond.i30
   %conv8.i31 = zext i8 %or52 to i32
   br label %while.body.i32
@@ -5693,8 +5696,8 @@ while.body.i32:                                   ; preds = %if.end.i42, %for.bo
   %sh_prom.i35 = trunc nuw nsw i64 %tmp.sroa.0.0 to i32
   %shr.i36 = lshr exact i32 128, %sh_prom.i35
   %not.i37 = ashr i32 -129, %sh_prom.i35
-  %18 = trunc i32 %not.i37 to i8
-  %conv6.i38 = and i8 %conv63.i34, %18
+  %19 = trunc i32 %not.i37 to i8
+  %conv6.i38 = and i8 %conv63.i34, %19
   %dec.i39 = add nsw i32 %dec4.i33, -1
   %and10.i40 = and i32 %shr.i36, %conv8.i31
   %cmp11.i41 = icmp eq i32 %and10.i40, 0
@@ -5722,7 +5725,7 @@ do.end63:                                         ; preds = %utf8_decode.exit48
   br i1 %cmp38.not, label %if.end68, label %for.body40, !llvm.loop !37
 
 if.end68:                                         ; preds = %do.end63, %for.cond37.preheader, %utf8_decode.exit
-  %i.1 = phi i64 [ %i.096, %utf8_decode.exit ], [ %i.096, %for.cond37.preheader ], [ %add41, %do.end63 ]
+  %i.1 = phi i64 [ %i.096, %utf8_decode.exit ], [ %i.096, %for.cond37.preheader ], [ %indvars.iv, %do.end63 ]
   %c.0 = phi i32 [ %conv19, %utf8_decode.exit ], [ %conv19, %for.cond37.preheader ], [ %or67, %do.end63 ]
   tail call fastcc void @print_quoted_escaped_char(ptr noundef %rdm, i8 noundef signext 34, i32 noundef %c.0)
   %add70 = add i64 %i.1, 2
@@ -5730,21 +5733,21 @@ if.end68:                                         ; preds = %do.end63, %for.cond
   br i1 %cmp, label %for.body, label %for.end71, !llvm.loop !38
 
 for.end71:                                        ; preds = %if.end68, %print_str.exit
-  %19 = load i8, ptr %errored, align 8
-  %tobool.i50 = trunc i8 %19 to i1
+  %20 = load i8, ptr %errored, align 8
+  %tobool.i50 = trunc i8 %20 to i1
   br i1 %tobool.i50, label %return, label %land.lhs.true.i51
 
 land.lhs.true.i51:                                ; preds = %for.end71
-  %20 = load i8, ptr %skipping_printing.i, align 1
-  %tobool1.i53 = trunc i8 %20 to i1
+  %21 = load i8, ptr %skipping_printing.i, align 1
+  %tobool1.i53 = trunc i8 %21 to i1
   br i1 %tobool1.i53, label %return, label %if.then.i54
 
 if.then.i54:                                      ; preds = %land.lhs.true.i51
   %callback.i55 = getelementptr inbounds i8, ptr %rdm, i64 24
-  %21 = load ptr, ptr %callback.i55, align 8
+  %22 = load ptr, ptr %callback.i55, align 8
   %callback_opaque.i56 = getelementptr inbounds i8, ptr %rdm, i64 16
-  %22 = load ptr, ptr %callback_opaque.i56, align 8
-  tail call void %21(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %22) #12
+  %23 = load ptr, ptr %callback_opaque.i56, align 8
+  tail call void %22(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %23) #12
   br label %return
 
 return:                                           ; preds = %if.then.i54, %land.lhs.true.i51, %for.end71, %do.body59, %do.body31, %do.body8, %do.body1

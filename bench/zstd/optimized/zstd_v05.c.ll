@@ -3766,15 +3766,21 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %1 = load i32, ptr %tableLog, align 4
   %cmp7 = icmp ugt i32 %1, %0
-  br i1 %cmp7, label %return, label %for.cond
+  br i1 %cmp7, label %return, label %for.cond.preheader
 
-for.cond:                                         ; preds = %if.end6, %for.cond
-  %maxW.0 = phi i32 [ %dec, %for.cond ], [ %1, %if.end6 ]
+for.cond.preheader:                               ; preds = %if.end6
+  %2 = add nuw nsw i32 %1, 1
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv67 = phi i32 [ %2, %for.cond.preheader ], [ %indvars.iv.next68, %for.cond ]
+  %maxW.0 = phi i32 [ %1, %for.cond.preheader ], [ %dec, %for.cond ]
   %idxprom = zext i32 %maxW.0 to i64
   %arrayidx10 = getelementptr inbounds [17 x i32], ptr %rankStats, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx10, align 4
-  %cmp11 = icmp eq i32 %2, 0
+  %3 = load i32, ptr %arrayidx10, align 4
+  %cmp11 = icmp eq i32 %3, 0
   %dec = add i32 %maxW.0, -1
+  %indvars.iv.next68 = add i32 %indvars.iv67, -1
   br i1 %cmp11, label %for.cond, label %for.cond12.preheader, !llvm.loop !25
 
 for.cond12.preheader:                             ; preds = %for.cond
@@ -3785,8 +3791,8 @@ for.body14:                                       ; preds = %for.cond12.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body14 ], [ 1, %for.cond12.preheader ]
   %nextRankStart.045 = phi i32 [ %add, %for.body14 ], [ 0, %for.cond12.preheader ]
   %arrayidx16 = getelementptr inbounds [17 x i32], ptr %rankStats, i64 0, i64 %indvars.iv
-  %3 = load i32, ptr %arrayidx16, align 4
-  %add = add i32 %3, %nextRankStart.045
+  %4 = load i32, ptr %arrayidx16, align 4
+  %add = add i32 %4, %nextRankStart.045
   %arrayidx18 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
   store i32 %nextRankStart.045, ptr %arrayidx18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3796,54 +3802,58 @@ for.body14:                                       ; preds = %for.cond12.preheade
 for.end20:                                        ; preds = %for.body14, %for.cond12.preheader
   %nextRankStart.0.lcssa = phi i32 [ 0, %for.cond12.preheader ], [ %add, %for.body14 ]
   store i32 %nextRankStart.0.lcssa, ptr %add.ptr, align 4
-  %4 = load i32, ptr %nbSymbols, align 4
-  %cmp2347.not = icmp eq i32 %4, 0
+  %5 = load i32, ptr %nbSymbols, align 4
+  %cmp2347.not = icmp eq i32 %5, 0
   br i1 %cmp2347.not, label %for.end39, label %for.body24.preheader
 
 for.body24.preheader:                             ; preds = %for.end20
-  %wide.trip.count = zext i32 %4 to i64
+  %wide.trip.count = zext i32 %5 to i64
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.preheader, %for.body24
   %indvars.iv58 = phi i64 [ 0, %for.body24.preheader ], [ %indvars.iv.next59, %for.body24 ]
   %arrayidx27 = getelementptr inbounds [256 x i8], ptr %weightList, i64 0, i64 %indvars.iv58
-  %5 = load i8, ptr %arrayidx27, align 1
-  %idxprom28 = zext i8 %5 to i64
+  %6 = load i8, ptr %arrayidx27, align 1
+  %idxprom28 = zext i8 %6 to i64
   %arrayidx29 = getelementptr inbounds i32, ptr %add.ptr, i64 %idxprom28
-  %6 = load i32, ptr %arrayidx29, align 4
-  %inc30 = add i32 %6, 1
+  %7 = load i32, ptr %arrayidx29, align 4
+  %inc30 = add i32 %7, 1
   store i32 %inc30, ptr %arrayidx29, align 4
   %conv31 = trunc i64 %indvars.iv58 to i8
-  %idxprom32 = zext i32 %6 to i64
+  %idxprom32 = zext i32 %7 to i64
   %arrayidx33 = getelementptr inbounds [256 x %struct.sortedSymbol_t], ptr %sortedSymbol, i64 0, i64 %idxprom32
   store i8 %conv31, ptr %arrayidx33, align 2
   %weight = getelementptr inbounds i8, ptr %arrayidx33, i64 1
-  store i8 %5, ptr %weight, align 1
+  store i8 %6, ptr %weight, align 1
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
   br i1 %exitcond.not, label %for.end39, label %for.body24, !llvm.loop !27
 
 for.end39:                                        ; preds = %for.body24, %for.end20
   store i32 0, ptr %add.ptr, align 4
-  %add41 = add i32 %1, 1
-  %sub = sub i32 %add41, %maxW.0
-  %7 = xor i32 %1, -1
-  %sub44 = add i32 %0, %7
+  %sub = sub i32 %2, %maxW.0
+  %8 = xor i32 %1, -1
+  %sub44 = add i32 %0, %8
   br i1 %cmp13.not44, label %for.end82, label %for.body50
 
 for.cond61.preheader:                             ; preds = %for.body50
   %sub62 = sub i32 %0, %sub
   %cmp63.not54 = icmp ugt i32 %sub, %sub62
-  br i1 %cmp63.not54, label %for.end82, label %for.body65
+  br i1 %cmp63.not54, label %for.end82, label %for.body65.preheader
+
+for.body65.preheader:                             ; preds = %for.cond61.preheader
+  %umax = call i32 @llvm.umax.i32(i32 %indvars.iv67, i32 2)
+  %wide.trip.count69 = zext i32 %umax to i64
+  br label %for.body65
 
 for.body50:                                       ; preds = %for.end39, %for.body50
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %for.body50 ], [ 1, %for.end39 ]
   %nextRankVal.050 = phi i32 [ %add55, %for.body50 ], [ 0, %for.end39 ]
   %arrayidx53 = getelementptr inbounds [17 x i32], ptr %rankStats, i64 0, i64 %indvars.iv61
-  %8 = load i32, ptr %arrayidx53, align 4
-  %9 = trunc nuw i64 %indvars.iv61 to i32
-  %add54 = add i32 %sub44, %9
-  %shl = shl i32 %8, %add54
+  %9 = load i32, ptr %arrayidx53, align 4
+  %10 = trunc nuw i64 %indvars.iv61 to i32
+  %add54 = add i32 %sub44, %10
+  %shl = shl i32 %9, %add54
   %add55 = add i32 %shl, %nextRankVal.050
   %arrayidx57 = getelementptr inbounds i32, ptr %rankVal, i64 %indvars.iv61
   store i32 %nextRankVal.050, ptr %arrayidx57, align 4
@@ -3851,8 +3861,8 @@ for.body50:                                       ; preds = %for.end39, %for.bod
   %cmp48.not.not = icmp ult i64 %indvars.iv61, %idxprom
   br i1 %cmp48.not.not, label %for.body50, label %for.cond61.preheader, !llvm.loop !28
 
-for.body65:                                       ; preds = %for.cond61.preheader, %for.cond69.for.inc80_crit_edge
-  %consumed.055 = phi i32 [ %inc81, %for.cond69.for.inc80_crit_edge ], [ %sub, %for.cond61.preheader ]
+for.body65:                                       ; preds = %for.body65.preheader, %for.cond69.for.inc80_crit_edge
+  %consumed.055 = phi i32 [ %inc81, %for.cond69.for.inc80_crit_edge ], [ %sub, %for.body65.preheader ]
   %idxprom66 = zext i32 %consumed.055 to i64
   %arrayidx67 = getelementptr inbounds [16 x [17 x i32]], ptr %rankVal, i64 0, i64 %idxprom66
   br label %for.body72
@@ -3860,13 +3870,13 @@ for.body65:                                       ; preds = %for.cond61.preheade
 for.body72:                                       ; preds = %for.body65, %for.body72
   %indvars.iv64 = phi i64 [ 1, %for.body65 ], [ %indvars.iv.next65, %for.body72 ]
   %arrayidx74 = getelementptr inbounds i32, ptr %rankVal, i64 %indvars.iv64
-  %10 = load i32, ptr %arrayidx74, align 4
-  %shr = lshr i32 %10, %consumed.055
+  %11 = load i32, ptr %arrayidx74, align 4
+  %shr = lshr i32 %11, %consumed.055
   %arrayidx76 = getelementptr inbounds i32, ptr %arrayidx67, i64 %indvars.iv64
   store i32 %shr, ptr %arrayidx76, align 4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %cmp70.not.not = icmp ult i64 %indvars.iv64, %idxprom
-  br i1 %cmp70.not.not, label %for.body72, label %for.cond69.for.inc80_crit_edge, !llvm.loop !29
+  %exitcond70 = icmp eq i64 %indvars.iv.next65, %wide.trip.count69
+  br i1 %exitcond70, label %for.cond69.for.inc80_crit_edge, label %for.body72, !llvm.loop !29
 
 for.cond69.for.inc80_crit_edge:                   ; preds = %for.body72
   %inc81 = add i32 %consumed.055, 1
@@ -3875,7 +3885,7 @@ for.cond69.for.inc80_crit_edge:                   ; preds = %for.body72
 
 for.end82:                                        ; preds = %for.cond69.for.inc80_crit_edge, %for.cond61.preheader, %for.end39
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i)
-  %sub.i = sub i32 %add41, %0
+  %sub.i = sub i32 %2, %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i, ptr noundef nonnull readonly align 16 dereferenceable(68) %rankVal, i64 68, i1 false)
   %cmp34.not.i = icmp eq i32 %nextRankStart.0.lcssa, 0
   br i1 %cmp34.not.i, label %HUFv05_fillDTableX4.exit, label %for.body.preheader.i
@@ -3887,15 +3897,15 @@ for.body.preheader.i:                             ; preds = %for.end82
 for.body.i:                                       ; preds = %if.end36.i, %for.body.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next38.i, %if.end36.i ]
   %arrayidx.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol, i64 %indvars.iv37.i
-  %11 = load i8, ptr %arrayidx.i, align 2
-  %conv.i = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx.i, align 2
+  %conv.i = zext i8 %12 to i32
   %weight5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
-  %12 = load i8, ptr %weight5.i, align 1
-  %conv6.i = zext i8 %12 to i32
-  %sub7.i = sub i32 %add41, %conv6.i
-  %idxprom8.i = zext i8 %12 to i64
+  %13 = load i8, ptr %weight5.i, align 1
+  %conv6.i = zext i8 %13 to i32
+  %sub7.i = sub i32 %2, %conv6.i
+  %idxprom8.i = zext i8 %13 to i64
   %arrayidx9.i = getelementptr inbounds [17 x i32], ptr %rankVal.i, i64 0, i64 %idxprom8.i
-  %13 = load i32, ptr %arrayidx9.i, align 4
+  %14 = load i32, ptr %arrayidx9.i, align 4
   %sub10.i = sub i32 %0, %sub7.i
   %shl.i = shl nuw i32 1, %sub10.i
   %cmp12.not.i = icmp ult i32 %sub10.i, %sub
@@ -3906,14 +3916,14 @@ if.then.i:                                        ; preds = %for.body.i
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %add.i, i32 1)
   %idxprom17.i = zext nneg i32 %spec.store.select.i to i64
   %arrayidx18.i = getelementptr inbounds i32, ptr %rankStart0, i64 %idxprom17.i
-  %14 = load i32, ptr %arrayidx18.i, align 4
-  %idx.ext.i = zext i32 %13 to i64
+  %15 = load i32, ptr %arrayidx18.i, align 4
+  %idx.ext.i = zext i32 %14 to i64
   %add.ptr.i = getelementptr inbounds %struct.HUFv05_DEltX4, ptr %add.ptr1, i64 %idx.ext.i
   %idxprom20.i = zext i32 %sub7.i to i64
   %arrayidx21.i = getelementptr inbounds [17 x i32], ptr %rankVal, i64 %idxprom20.i
-  %idx.ext23.i = zext i32 %14 to i64
+  %idx.ext23.i = zext i32 %15 to i64
   %add.ptr24.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %sortedSymbol, i64 %idx.ext23.i
-  %sub25.i = sub i32 %nextRankStart.0.lcssa, %14
+  %sub25.i = sub i32 %nextRankStart.0.lcssa, %15
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %rankVal.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %rankVal.i.i, ptr noundef nonnull readonly align 4 dereferenceable(68) %arrayidx21.i, i64 68, i1 false)
   %cmp.i.i43 = icmp sgt i32 %add.i, 1
@@ -3921,8 +3931,8 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %arrayidx.i.i = getelementptr inbounds [17 x i32], ptr %rankVal.i.i, i64 0, i64 %idxprom17.i
-  %15 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp131.not.i.i = icmp eq i32 %15, 0
+  %16 = load i32, ptr %arrayidx.i.i, align 4
+  %cmp131.not.i.i = icmp eq i32 %16, 0
   br i1 %cmp131.not.i.i, label %if.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
@@ -3930,7 +3940,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
   %DElt.sroa.4.0.insert.shift23.i.i = and i32 %DElt.sroa.4.0.insert.ext22.i.i, 16711680
   %DElt.sroa.4.0.insert.insert25.i.i = or disjoint i32 %DElt.sroa.4.0.insert.shift23.i.i, %conv.i
   %DElt.sroa.0.0.insert.insert20.i.i = or disjoint i32 %DElt.sroa.4.0.insert.insert25.i.i, 16777216
-  %wide.trip.count.i.i = zext i32 %15 to i64
+  %wide.trip.count.i.i = zext i32 %16 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -3942,7 +3952,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %if.end.i.i, label %for.body.i.i, !llvm.loop !31
 
 if.end.i.i:                                       ; preds = %for.body.i.i, %if.then.i.i, %if.then.i
-  %cmp633.not.i.i = icmp eq i32 %nextRankStart.0.lcssa, %14
+  %cmp633.not.i.i = icmp eq i32 %nextRankStart.0.lcssa, %15
   br i1 %cmp633.not.i.i, label %HUFv05_fillDTableX4Level2.exit.i, label %for.body8.preheader.i.i
 
 for.body8.preheader.i.i:                          ; preds = %if.end.i.i
@@ -3953,28 +3963,28 @@ for.body8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body8.i.i:                                    ; preds = %do.end.i.i, %for.body8.preheader.i.i
   %indvars.iv36.i.i = phi i64 [ 0, %for.body8.preheader.i.i ], [ %indvars.iv.next37.i.i, %do.end.i.i ]
   %arrayidx10.i.i = getelementptr inbounds %struct.sortedSymbol_t, ptr %add.ptr24.i, i64 %indvars.iv36.i.i
-  %16 = load i8, ptr %arrayidx10.i.i, align 2
-  %conv12.i.i = zext i8 %16 to i32
+  %17 = load i8, ptr %arrayidx10.i.i, align 2
+  %conv12.i.i = zext i8 %17 to i32
   %weight15.i.i = getelementptr inbounds i8, ptr %arrayidx10.i.i, i64 1
-  %17 = load i8, ptr %weight15.i.i, align 1
-  %conv16.i.i = zext i8 %17 to i32
-  %sub.i.i = sub i32 %add41, %conv16.i.i
+  %18 = load i8, ptr %weight15.i.i, align 1
+  %conv16.i.i = zext i8 %18 to i32
+  %sub.i.i = sub i32 %2, %conv16.i.i
   %sub19.i.i = sub i32 %sub10.i, %sub.i.i
   %shl.i.i = shl nuw i32 1, %sub19.i.i
-  %idxprom20.i.i = zext i8 %17 to i64
+  %idxprom20.i.i = zext i8 %18 to i64
   %arrayidx21.i.i = getelementptr inbounds [17 x i32], ptr %rankVal.i.i, i64 0, i64 %idxprom20.i.i
-  %18 = load i32, ptr %arrayidx21.i.i, align 4
-  %add.i.i = add i32 %shl.i.i, %18
+  %19 = load i32, ptr %arrayidx21.i.i, align 4
+  %add.i.i = add i32 %shl.i.i, %19
   %shl25.i.i = shl nuw nsw i32 %conv12.i.i, 8
   %add28.i.i = add i32 %sub.i.i, %sub7.i
   %DElt.sroa.4.0.insert.ext.i.i = shl i32 %add28.i.i, 16
   %DElt.sroa.4.0.insert.shift.i.i = and i32 %DElt.sroa.4.0.insert.ext.i.i, 16711680
-  %19 = or disjoint i32 %DElt.sroa.4.0.insert.shift.i.i, %shl25.i.i
-  %DElt.sroa.0.0.insert.insert.i.i.reass = or disjoint i32 %19, %invariant.op
+  %20 = or disjoint i32 %DElt.sroa.4.0.insert.shift.i.i, %shl25.i.i
+  %DElt.sroa.0.0.insert.insert.i.i.reass = or disjoint i32 %20, %invariant.op
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %for.body8.i.i
-  %i22.0.i.i = phi i32 [ %18, %for.body8.i.i ], [ %inc32.i.i, %do.body.i.i ]
+  %i22.0.i.i = phi i32 [ %19, %for.body8.i.i ], [ %inc32.i.i, %do.body.i.i ]
   %inc32.i.i = add i32 %i22.0.i.i, 1
   %idxprom33.i.i = zext i32 %i22.0.i.i to i64
   %arrayidx34.i.i = getelementptr inbounds %struct.HUFv05_DEltX4, ptr %add.ptr.i, i64 %idxprom33.i.i
@@ -3990,12 +4000,12 @@ do.end.i.i:                                       ; preds = %do.body.i.i
 
 HUFv05_fillDTableX4Level2.exit.i:                 ; preds = %do.end.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %rankVal.i.i)
-  %.pre.i = add i32 %shl.i, %13
+  %.pre.i = add i32 %shl.i, %14
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %add26.i = add i32 %shl.i, %13
-  %cmp3132.i = icmp ult i32 %13, %add26.i
+  %add26.i = add i32 %shl.i, %14
+  %cmp3132.i = icmp ult i32 %14, %add26.i
   br i1 %cmp3132.i, label %for.body33.lr.ph.i, label %if.end36.i
 
 for.body33.lr.ph.i:                               ; preds = %if.else.i
@@ -4003,12 +4013,12 @@ for.body33.lr.ph.i:                               ; preds = %if.else.i
   %DElt.sroa.2.0.insert.shift.i = and i32 %DElt.sroa.2.0.insert.ext.i, 16711680
   %DElt.sroa.2.0.insert.insert.i = or disjoint i32 %DElt.sroa.2.0.insert.shift.i, %conv.i
   %DElt.sroa.0.0.insert.insert.i = or disjoint i32 %DElt.sroa.2.0.insert.insert.i, 16777216
-  %20 = zext i32 %13 to i64
+  %21 = zext i32 %14 to i64
   %wide.trip.count.i = zext i32 %add26.i to i64
   br label %for.body33.i
 
 for.body33.i:                                     ; preds = %for.body33.i, %for.body33.lr.ph.i
-  %indvars.iv.i = phi i64 [ %20, %for.body33.lr.ph.i ], [ %indvars.iv.next.i, %for.body33.i ]
+  %indvars.iv.i = phi i64 [ %21, %for.body33.lr.ph.i ], [ %indvars.iv.next.i, %for.body33.i ]
   %arrayidx35.i = getelementptr inbounds %struct.HUFv05_DEltX4, ptr %add.ptr1, i64 %indvars.iv.i
   store i32 %DElt.sroa.0.0.insert.insert.i, ptr %arrayidx35.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8430,6 +8440,9 @@ declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22

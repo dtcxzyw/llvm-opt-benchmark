@@ -1661,35 +1661,35 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %18
 .preheader.lr.ph.us.preheader:                    ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
-  %.phi.trans.insert79 = zext nneg i32 %12 to i64
+  %.phi.trans.insert80 = zext nneg i32 %12 to i64
   br label %.preheader.us
 
 33:                                               ; preds = %.lr.ph.us, %49
-  %34 = phi i64 [ %.pre83, %.lr.ph.us ], [ %38, %49 ]
-  %35 = phi i32 [ %.pre81, %.lr.ph.us ], [ %47, %49 ]
-  %.154.us = phi i32 [ %29, %.lr.ph.us ], [ %50, %49 ]
-  %.253.us = phi ptr [ %87, %.lr.ph.us ], [ %42, %49 ]
-  %36 = zext nneg i32 %.154.us to i64
-  %37 = getelementptr inbounds i64, ptr %88, i64 %36
+  %34 = phi i64 [ %.pre84, %.lr.ph.us ], [ %38, %49 ]
+  %35 = phi i32 [ %.pre82, %.lr.ph.us ], [ %47, %49 ]
+  %.155.us = phi i32 [ %29, %.lr.ph.us ], [ %50, %49 ]
+  %.254.us = phi ptr [ %86, %.lr.ph.us ], [ %42, %49 ]
+  %36 = zext nneg i32 %.155.us to i64
+  %37 = getelementptr inbounds i64, ptr %87, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = sext i32 %35 to i64
   %40 = mul i64 %34, %39
   %41 = sub i64 %38, %40
-  %42 = getelementptr inbounds i8, ptr %.253.us, i64 %41
+  %42 = getelementptr inbounds i8, ptr %.254.us, i64 %41
   %43 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %36
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
-  %46 = getelementptr inbounds i32, ptr %89, i64 %36
+  %46 = getelementptr inbounds i32, ptr %88, i64 %36
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %.preheader.us.backedge, label %49, !llvm.loop !11
 
 49:                                               ; preds = %33
   store i32 0, ptr %43, align 4
-  %50 = add nsw i32 %.154.us, -1
-  %51 = icmp sgt i32 %.154.us, 0
-  br i1 %51, label %33, label %._crit_edge56, !llvm.loop !12
+  %50 = add nsw i32 %.155.us, -1
+  %51 = icmp sgt i32 %.155.us, 0
+  br i1 %51, label %33, label %._crit_edge57, !llvm.loop !12
 
 52:                                               ; preds = %.preheader.us, %54
   %.0.i.us = phi i64 [ %53, %54 ], [ 0, %.preheader.us ]
@@ -1698,7 +1698,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %18
   br i1 %.not.i.us, label %.preheader.i.us, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.13651.us, i64 %.0.i.us
+  %55 = getelementptr inbounds i8, ptr %.13652.us, i64 %.0.i.us
   %56 = load i32, ptr %55, align 4
   %.not13.i.us = icmp eq i32 %56, 0
   br i1 %.not13.i.us, label %52, label %_ZN2cvL10isZeroElemEPKhm.exit.us, !llvm.loop !13
@@ -1709,13 +1709,13 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %18
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us, %83
   %.116.i.us = phi i64 [ %84, %83 ], [ %.0.i.us, %.preheader.i.us ]
-  %58 = getelementptr inbounds i8, ptr %.13651.us, i64 %.116.i.us
+  %58 = getelementptr inbounds i8, ptr %.13652.us, i64 %.116.i.us
   %59 = load i8, ptr %58, align 1
   %.not12.i.us = icmp eq i8 %59, 0
   br i1 %.not12.i.us, label %83, label %_ZN2cvL10isZeroElemEPKhm.exit.us
 
 _ZN2cvL10isZeroElemEPKhm.exit.us:                 ; preds = %54, %.lr.ph.i.us
-  store i32 %.052.us, ptr %28, align 4
+  store i32 %.053.us, ptr %28, align 4
   %60 = load ptr, ptr %4, align 8
   %.not.i37.us = icmp eq ptr %60, null
   br i1 %.not.i37.us, label %_ZNK2cv9SparseMat4hashEPKi.exit.us, label %61
@@ -1741,99 +1741,99 @@ _ZN2cvL10isZeroElemEPKhm.exit.us:                 ; preds = %54, %.lr.ph.i.us
   %70 = zext i32 %69 to i64
   %71 = add i64 %67, %70
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %_ZNK2cv9SparseMat4hashEPKi.exit.us, label %.lr.ph.i38.us, !llvm.loop !10
+  %exitcond.not.i39.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
+  br i1 %exitcond.not.i39.us, label %_ZNK2cv9SparseMat4hashEPKi.exit.us, label %.lr.ph.i38.us, !llvm.loop !10
 
 _ZNK2cv9SparseMat4hashEPKi.exit.us:               ; preds = %.lr.ph.i38.us, %61, %_ZN2cvL10isZeroElemEPKhm.exit.us
   %.09.i.us = phi i64 [ 0, %_ZN2cvL10isZeroElemEPKhm.exit.us ], [ %63, %61 ], [ %71, %.lr.ph.i38.us ]
   %72 = call noundef ptr @_ZN2cv9SparseMat7newNodeEPKim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef %.09.i.us)
-  br i1 %.not14.i, label %.preheader.i41.us, label %.lr.ph.i39.us
+  br i1 %.not14.i, label %.preheader.i42.us, label %.lr.ph.i40.us
 
-.lr.ph.i39.us:                                    ; preds = %_ZNK2cv9SparseMat4hashEPKi.exit.us, %.lr.ph.i39.us
-  %73 = phi i64 [ %77, %.lr.ph.i39.us ], [ 4, %_ZNK2cv9SparseMat4hashEPKi.exit.us ]
-  %.015.i.us = phi i64 [ %73, %.lr.ph.i39.us ], [ 0, %_ZNK2cv9SparseMat4hashEPKi.exit.us ]
-  %74 = getelementptr inbounds i8, ptr %.13651.us, i64 %.015.i.us
+.lr.ph.i40.us:                                    ; preds = %_ZNK2cv9SparseMat4hashEPKi.exit.us, %.lr.ph.i40.us
+  %73 = phi i64 [ %77, %.lr.ph.i40.us ], [ 4, %_ZNK2cv9SparseMat4hashEPKi.exit.us ]
+  %.015.i.us = phi i64 [ %73, %.lr.ph.i40.us ], [ 0, %_ZNK2cv9SparseMat4hashEPKi.exit.us ]
+  %74 = getelementptr inbounds i8, ptr %.13652.us, i64 %.015.i.us
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds i8, ptr %72, i64 %.015.i.us
   store i32 %75, ptr %76, align 4
   %77 = add i64 %73, 4
-  %.not.i40.us = icmp ugt i64 %77, %25
-  br i1 %.not.i40.us, label %.preheader.i41.us, label %.lr.ph.i39.us, !llvm.loop !14
+  %.not.i41.us = icmp ugt i64 %77, %25
+  br i1 %.not.i41.us, label %.preheader.i42.us, label %.lr.ph.i40.us, !llvm.loop !14
 
-.preheader.i41.us:                                ; preds = %.lr.ph.i39.us, %_ZNK2cv9SparseMat4hashEPKi.exit.us
-  %.0.lcssa.i.us = phi i64 [ 0, %_ZNK2cv9SparseMat4hashEPKi.exit.us ], [ %73, %.lr.ph.i39.us ]
+.preheader.i42.us:                                ; preds = %.lr.ph.i40.us, %_ZNK2cv9SparseMat4hashEPKi.exit.us
+  %.0.lcssa.i.us = phi i64 [ 0, %_ZNK2cv9SparseMat4hashEPKi.exit.us ], [ %73, %.lr.ph.i40.us ]
   %78 = icmp ult i64 %.0.lcssa.i.us, %25
   br i1 %78, label %.lr.ph17.i.us, label %_ZN2cvL8copyElemEPKhPhm.exit.us
 
-.lr.ph17.i.us:                                    ; preds = %.preheader.i41.us, %.lr.ph17.i.us
-  %.116.i42.us = phi i64 [ %82, %.lr.ph17.i.us ], [ %.0.lcssa.i.us, %.preheader.i41.us ]
-  %79 = getelementptr inbounds i8, ptr %.13651.us, i64 %.116.i42.us
+.lr.ph17.i.us:                                    ; preds = %.preheader.i42.us, %.lr.ph17.i.us
+  %.116.i43.us = phi i64 [ %82, %.lr.ph17.i.us ], [ %.0.lcssa.i.us, %.preheader.i42.us ]
+  %79 = getelementptr inbounds i8, ptr %.13652.us, i64 %.116.i43.us
   %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %72, i64 %.116.i42.us
+  %81 = getelementptr inbounds i8, ptr %72, i64 %.116.i43.us
   store i8 %80, ptr %81, align 1
-  %82 = add nuw i64 %.116.i42.us, 1
-  %exitcond.not.i43.us = icmp eq i64 %82, %25
-  br i1 %exitcond.not.i43.us, label %_ZN2cvL8copyElemEPKhPhm.exit.us, label %.lr.ph17.i.us, !llvm.loop !15
+  %82 = add nuw i64 %.116.i43.us, 1
+  %exitcond.not.i44.us = icmp eq i64 %82, %25
+  br i1 %exitcond.not.i44.us, label %_ZN2cvL8copyElemEPKhPhm.exit.us, label %.lr.ph17.i.us, !llvm.loop !15
 
 83:                                               ; preds = %.lr.ph.i.us
-  %84 = add nuw i64 %.116.i.us, 1
-  %85 = icmp ult i64 %84, %25
-  br i1 %85, label %.lr.ph.i.us, label %_ZN2cvL8copyElemEPKhPhm.exit.us, !llvm.loop !16
+  %84 = add i64 %.116.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %84, %25
+  br i1 %exitcond.not.i.us, label %_ZN2cvL8copyElemEPKhPhm.exit.us, label %.lr.ph.i.us, !llvm.loop !16
 
-_ZN2cvL8copyElemEPKhPhm.exit.us:                  ; preds = %83, %.lr.ph17.i.us, %.preheader.i41.us, %.preheader.i.us
-  %86 = add nuw nsw i32 %.052.us, 1
-  %87 = getelementptr i8, ptr %.13651.us, i64 %25
-  %exitcond.not = icmp eq i32 %86, %16
+_ZN2cvL8copyElemEPKhPhm.exit.us:                  ; preds = %83, %.lr.ph17.i.us, %.preheader.i42.us, %.preheader.i.us
+  %85 = add nuw nsw i32 %.053.us, 1
+  %86 = getelementptr i8, ptr %.13652.us, i64 %25
+  %exitcond.not = icmp eq i32 %85, %16
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us.backedge
 
 .preheader.us.backedge:                           ; preds = %33, %_ZN2cvL8copyElemEPKhPhm.exit.us
-  %.052.us.be = phi i32 [ %86, %_ZN2cvL8copyElemEPKhPhm.exit.us ], [ 0, %33 ]
-  %.13651.us.be = phi ptr [ %87, %_ZN2cvL8copyElemEPKhPhm.exit.us ], [ %42, %33 ]
+  %.053.us.be = phi i32 [ %85, %_ZN2cvL8copyElemEPKhPhm.exit.us ], [ 0, %33 ]
+  %.13652.us.be = phi ptr [ %86, %_ZN2cvL8copyElemEPKhPhm.exit.us ], [ %42, %33 ]
   br label %.preheader.us, !llvm.loop !17
 
 .preheader.us:                                    ; preds = %.preheader.us.backedge, %.preheader.lr.ph.us.preheader
-  %.052.us = phi i32 [ 0, %.preheader.lr.ph.us.preheader ], [ %.052.us.be, %.preheader.us.backedge ]
-  %.13651.us = phi ptr [ %32, %.preheader.lr.ph.us.preheader ], [ %.13651.us.be, %.preheader.us.backedge ]
+  %.053.us = phi i32 [ 0, %.preheader.lr.ph.us.preheader ], [ %.053.us.be, %.preheader.us.backedge ]
+  %.13652.us = phi ptr [ %32, %.preheader.lr.ph.us.preheader ], [ %.13652.us.be, %.preheader.us.backedge ]
   br label %52
 
 ._crit_edge.us:                                   ; preds = %_ZN2cvL8copyElemEPKhPhm.exit.us
-  br i1 %30, label %.lr.ph.us, label %._crit_edge56
+  br i1 %30, label %.lr.ph.us, label %._crit_edge57
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us
-  %88 = load ptr, ptr %26, align 8
-  %89 = load ptr, ptr %7, align 8
-  %.phi.trans.insert80 = getelementptr inbounds i32, ptr %89, i64 %.phi.trans.insert79
-  %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
-  %.phi.trans.insert82 = getelementptr inbounds i64, ptr %88, i64 %.phi.trans.insert79
-  %.pre83 = load i64, ptr %.phi.trans.insert82, align 8
+  %87 = load ptr, ptr %26, align 8
+  %88 = load ptr, ptr %7, align 8
+  %.phi.trans.insert81 = getelementptr inbounds i32, ptr %88, i64 %.phi.trans.insert80
+  %.pre82 = load i32, ptr %.phi.trans.insert81, align 4
+  %.phi.trans.insert83 = getelementptr inbounds i64, ptr %87, i64 %.phi.trans.insert80
+  %.pre84 = load i64, ptr %.phi.trans.insert83, align 8
   br label %33
 
 _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
-  br i1 %30, label %.lr.ph.us59, label %._crit_edge56
+  br i1 %30, label %.lr.ph.us60, label %._crit_edge57
 
-.lr.ph.us59:                                      ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split, %.lr.ph.us59.backedge
-  %.154.us60 = phi i32 [ %.154.us60.be, %.lr.ph.us59.backedge ], [ %29, %_ZNK2cv3Mat8elemSizeEv.exit.split ]
-  %90 = zext nneg i32 %.154.us60 to i64
-  %91 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %91, align 4
-  %94 = getelementptr inbounds i32, ptr %13, i64 %90
-  %95 = load i32, ptr %94, align 4
-  %96 = icmp slt i32 %93, %95
-  br i1 %96, label %.lr.ph.us59.backedge, label %97
+.lr.ph.us60:                                      ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split, %.lr.ph.us60.backedge
+  %.155.us61 = phi i32 [ %.155.us61.be, %.lr.ph.us60.backedge ], [ %29, %_ZNK2cv3Mat8elemSizeEv.exit.split ]
+  %89 = zext nneg i32 %.155.us61 to i64
+  %90 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %90, align 4
+  %93 = getelementptr inbounds i32, ptr %13, i64 %89
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp slt i32 %92, %94
+  br i1 %95, label %.lr.ph.us60.backedge, label %96
 
-97:                                               ; preds = %.lr.ph.us59
-  store i32 0, ptr %91, align 4
-  %98 = add nsw i32 %.154.us60, -1
-  %99 = icmp sgt i32 %.154.us60, 0
-  br i1 %99, label %.lr.ph.us59.backedge, label %._crit_edge56
+96:                                               ; preds = %.lr.ph.us60
+  store i32 0, ptr %90, align 4
+  %97 = add nsw i32 %.155.us61, -1
+  %98 = icmp sgt i32 %.155.us61, 0
+  br i1 %98, label %.lr.ph.us60.backedge, label %._crit_edge57
 
-.lr.ph.us59.backedge:                             ; preds = %97, %.lr.ph.us59
-  %.154.us60.be = phi i32 [ %98, %97 ], [ %29, %.lr.ph.us59 ]
-  br label %.lr.ph.us59, !llvm.loop !12
+.lr.ph.us60.backedge:                             ; preds = %96, %.lr.ph.us60
+  %.155.us61.be = phi i32 [ %97, %96 ], [ %29, %.lr.ph.us60 ]
+  br label %.lr.ph.us60, !llvm.loop !12
 
-._crit_edge56:                                    ; preds = %97, %._crit_edge.us, %49, %_ZNK2cv3Mat8elemSizeEv.exit.split
+._crit_edge57:                                    ; preds = %96, %._crit_edge.us, %49, %_ZNK2cv3Mat8elemSizeEv.exit.split
   ret void
 }
 

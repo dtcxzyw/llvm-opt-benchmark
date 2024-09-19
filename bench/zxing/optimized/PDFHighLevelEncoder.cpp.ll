@@ -569,42 +569,46 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 264:                                              ; preds = %243
   %265 = load ptr, ptr %1, align 8
   %266 = call i64 @llvm.umax.i64(i64 %160, i64 %161)
-  br label %267
+  %267 = sub i64 %160, %161
+  br label %268
 
-267:                                              ; preds = %284, %264
-  %268 = phi i64 [ %161, %264 ], [ %288, %284 ]
-  %269 = icmp ult i64 %268, %160
-  br i1 %269, label %270, label %289
+268:                                              ; preds = %284, %264
+  %indvars.iv = phi i64 [ %indvars.iv.next, %284 ], [ %267, %264 ]
+  %269 = phi i64 [ %288, %284 ], [ %161, %264 ]
+  %270 = icmp ult i64 %269, %160
+  br i1 %270, label %271, label %289
 
-270:                                              ; preds = %267
-  %271 = getelementptr i32, ptr %265, i64 %268
-  br label %272
+271:                                              ; preds = %268
+  %272 = getelementptr i32, ptr %265, i64 %269
+  %invariant.op = add i64 %269, 1
+  br label %273
 
-272:                                              ; preds = %280, %270
-  %273 = phi i64 [ 0, %270 ], [ %281, %280 ]
-  %274 = getelementptr i32, ptr %271, i64 %273
-  %275 = load i32, ptr %274, align 4, !tbaa !21
-  %276 = icmp ult i64 %273, 13
-  %277 = add i32 %275, -48
-  %278 = icmp ult i32 %277, 10
-  %279 = select i1 %276, i1 %278, i1 false
-  br i1 %279, label %280, label %284
+273:                                              ; preds = %281, %271
+  %274 = phi i64 [ 0, %271 ], [ %282, %281 ]
+  %275 = getelementptr i32, ptr %272, i64 %274
+  %276 = load i32, ptr %275, align 4, !tbaa !21
+  %277 = icmp ult i64 %274, 13
+  %278 = add i32 %276, -48
+  %279 = icmp ult i32 %278, 10
+  %280 = select i1 %277, i1 %279, i1 false
+  br i1 %280, label %281, label %284
 
-280:                                              ; preds = %272
-  %281 = add nuw nsw i64 %273, 1
-  %282 = add i64 %281, %268
-  %283 = icmp ult i64 %282, %160
-  br i1 %283, label %272, label %284
+281:                                              ; preds = %273
+  %282 = add nuw nsw i64 %274, 1
+  %.reass = add i64 %274, %invariant.op
+  %283 = icmp ult i64 %.reass, %160
+  br i1 %283, label %273, label %284
 
-284:                                              ; preds = %280, %272
-  %285 = phi i64 [ %273, %272 ], [ %281, %280 ]
+284:                                              ; preds = %281, %273
+  %285 = phi i64 [ %274, %273 ], [ %indvars.iv, %281 ]
   %286 = trunc i64 %285 to i32
   %287 = icmp ult i32 %286, 13
-  %288 = add i64 %268, 1
-  br i1 %287, label %267, label %289, !llvm.loop !27
+  %288 = add i64 %269, 1
+  %indvars.iv.next = add i64 %indvars.iv, -1
+  br i1 %287, label %268, label %289, !llvm.loop !27
 
-289:                                              ; preds = %284, %267
-  %290 = phi i64 [ %266, %267 ], [ %268, %284 ]
+289:                                              ; preds = %284, %268
+  %290 = phi i64 [ %266, %268 ], [ %269, %284 ]
   %291 = trunc i64 %290 to i32
   %292 = sub i32 %291, %159
   %293 = call i32 @llvm.umax.i32(i32 %292, i32 1)

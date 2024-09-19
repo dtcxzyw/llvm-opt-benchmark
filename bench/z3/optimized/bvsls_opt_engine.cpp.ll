@@ -21954,8 +21954,8 @@ for.body348.preheader:                            ; preds = %for.body345
   br label %for.body348
 
 for.body348:                                      ; preds = %for.body348.preheader, %_ZN8rationalD2Ev.exit693
+  %j.0756 = phi i32 [ %inc369, %_ZN8rationalD2Ev.exit693 ], [ %add, %for.body348.preheader ]
   %distinct_pairs.1755 = phi i32 [ %spec.select102, %_ZN8rationalD2Ev.exit693 ], [ %distinct_pairs.0761, %for.body348.preheader ]
-  %pairs.1754 = phi i32 [ %inc355, %_ZN8rationalD2Ev.exit693 ], [ %pairs.0760, %for.body348.preheader ]
   %190 = load ptr, ptr %m_args.i581, align 8
   %m_hash.i.i.i.i.i.i.i.i584 = getelementptr inbounds i8, ptr %190, i64 12
   %191 = load i32, ptr %m_hash.i.i.i.i.i.i.i.i584, align 4
@@ -22073,7 +22073,6 @@ for.inc36.i.i.i.i655:                             ; preds = %if.then22.i.i.i.i65
 _ZN11sls_tracker9get_valueEP4expr.exit660:        ; preds = %if.then.i.i.i.i636, %if.then22.i.i.i.i650
   %retval.0.i.i.i.i658 = phi ptr [ %curr.133.i.i.i.i648, %if.then22.i.i.i.i650 ], [ %curr.031.i.i.i.i634, %if.then.i.i.i.i636 ]
   %value.i659 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i658, i64 16
-  %inc355 = add i32 %pairs.1754, 1
   store i32 0, ptr %ref.tmp356, align 8
   %bf.load.i.i.i662 = load i8, ptr %m_kind.i.i.i661, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i662, -4
@@ -22226,7 +22225,8 @@ terminate.lpad.i690:                              ; preds = %.noexc.i691, %_ZN8r
 _ZN8rationalD2Ev.exit693:                         ; preds = %.noexc.i691
   %inc366 = zext i1 %lnot.i to i32
   %spec.select102 = add i32 %distinct_pairs.1755, %inc366
-  %exitcond798.not = icmp eq i32 %inc355, %189
+  %inc369 = add nuw i32 %j.0756, 1
+  %exitcond798.not = icmp eq i32 %inc369, %188
   br i1 %exitcond798.not, label %for.cond343.loopexit, label %for.body348, !llvm.loop !154
 
 lpad358:                                          ; preds = %_ZN11mpq_managerILb1EE3setER3mpqRK3mpz.exit.i, %if.else.i.i.i679

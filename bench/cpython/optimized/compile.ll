@@ -21573,13 +21573,13 @@ if.then20:                                        ; preds = %land.lhs.true
 
 for.inc:                                          ; preds = %for.body12, %land.lhs.true
   %j.0 = add nsw i64 %j.037, 1
-  %cmp11 = icmp slt i64 %j.0, %0
-  br i1 %cmp11, label %for.body12, label %for.inc32, !llvm.loop !84
+  %exitcond.not = icmp eq i64 %j.0, %0
+  br i1 %exitcond.not, label %for.inc32, label %for.body12, !llvm.loop !84
 
 for.inc32:                                        ; preds = %for.inc, %for.body.for.inc32_crit_edge, %for.cond10.preheader
   %inc33.pre-phi = phi i64 [ %.pre, %for.body.for.inc32_crit_edge ], [ %j.035, %for.cond10.preheader ], [ %j.035, %for.inc ]
-  %exitcond.not = icmp eq i64 %inc33.pre-phi, %0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !85
+  %exitcond52.not = icmp eq i64 %inc33.pre-phi, %0
+  br i1 %exitcond52.not, label %return, label %for.body, !llvm.loop !85
 
 return:                                           ; preds = %for.inc32, %entry, %cond.end, %forbidden_name.exit.thread, %if.then20
   %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %forbidden_name.exit.thread ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.inc32 ]
@@ -28991,8 +28991,8 @@ for.body.lr.ph:                                   ; preds = %cond.end
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.inc, %if.end
-  %exitcond.not = icmp eq i64 %add, %0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !114
+  %exitcond59.not = icmp eq i64 %add, %0
+  br i1 %exitcond59.not, label %return, label %for.body, !llvm.loop !114
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
   %i.043 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond.loopexit ]
@@ -29060,9 +29060,9 @@ if.then20:                                        ; preds = %for.body16
   br label %return
 
 for.inc:                                          ; preds = %for.body16
-  %inc = add nuw nsw i64 %j.041, 1
-  %cmp15 = icmp slt i64 %inc, %0
-  br i1 %cmp15, label %for.body16, label %for.cond.loopexit, !llvm.loop !115
+  %inc = add nuw i64 %j.041, 1
+  %exitcond.not = icmp eq i64 %inc, %0
+  br i1 %exitcond.not, label %for.cond.loopexit, label %for.body16, !llvm.loop !115
 
 return:                                           ; preds = %for.cond.loopexit, %entry, %cond.end, %forbidden_name.exit.thread, %if.then20
   %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %forbidden_name.exit.thread ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.cond.loopexit ]

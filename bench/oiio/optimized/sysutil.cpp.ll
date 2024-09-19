@@ -26126,21 +26126,25 @@ if.then.i:                                        ; preds = %if.end6
 
 for.cond4.preheader.i:                            ; preds = %for.body.i
   %cmp.not14.i = icmp eq i64 %inc.i, 0
-  br i1 %cmp.not14.i, label %for.end11.i, label %for.body5.i
+  br i1 %cmp.not14.i, label %for.end11.i, label %for.body5.preheader.i
+
+for.body5.preheader.i:                            ; preds = %for.cond4.preheader.i
+  %umax.i = call i64 @llvm.umax.i64(i64 %indvars.iv.i, i64 2)
+  br label %for.body5.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 2, %for.body.i.preheader ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 2, %for.body.i.preheader ]
   %value_copy.013.i = phi i64 [ %div.i, %for.body.i ], [ %i.09, %for.body.i.preheader ]
   %digits.012.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %inc.i = add i64 %digits.012.i, 1
   %div.i = udiv i64 %value_copy.013.i, 10
   %tobool3.not.i = icmp ult i64 %value_copy.013.i, 10
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   br i1 %tobool3.not.i, label %for.cond4.preheader.i, label %for.body.i, !llvm.loop !162
 
-for.body5.i:                                      ; preds = %for.cond4.preheader.i, %for.body5.i
-  %i.016.i = phi i64 [ %inc10.i, %for.body5.i ], [ 1, %for.cond4.preheader.i ]
-  %value.addr.015.i = phi i64 [ %div8.i, %for.body5.i ], [ %i.09, %for.cond4.preheader.i ]
+for.body5.i:                                      ; preds = %for.body5.i, %for.body5.preheader.i
+  %i.016.i = phi i64 [ %inc10.i, %for.body5.i ], [ 1, %for.body5.preheader.i ]
+  %value.addr.015.i = phi i64 [ %div8.i, %for.body5.i ], [ %i.09, %for.body5.preheader.i ]
   %rem.i = urem i64 %value.addr.015.i, 10
   %2 = trunc nuw nsw i64 %rem.i to i8
   %conv.i = or disjoint i8 %2, 48
@@ -26148,9 +26152,9 @@ for.body5.i:                                      ; preds = %for.cond4.preheader
   %arrayidx.i10.i = getelementptr inbounds [40 x i8], ptr %ref.tmp, i64 0, i64 %sub.i
   store i8 %conv.i, ptr %arrayidx.i10.i, align 1, !alias.scope !159
   %div8.i = udiv i64 %value.addr.015.i, 10
-  %inc10.i = add i64 %i.016.i, 1
-  %exitcond.not = icmp eq i64 %inc10.i, %indvars.iv
-  br i1 %exitcond.not, label %for.end11.i, label %for.body5.i, !llvm.loop !163
+  %inc10.i = add nuw i64 %i.016.i, 1
+  %exitcond.i = icmp eq i64 %inc10.i, %umax.i
+  br i1 %exitcond.i, label %for.end11.i, label %for.body5.i, !llvm.loop !163
 
 for.end11.i:                                      ; preds = %for.body5.i, %for.cond4.preheader.i
   %arrayidx.i11.i = getelementptr inbounds [40 x i8], ptr %ref.tmp, i64 0, i64 %inc.i
@@ -26187,8 +26191,8 @@ invoke.cont19:                                    ; preds = %invoke.cont17
 
 for.inc:                                          ; preds = %invoke.cont19
   %inc = add nuw i64 %i.09, 1
-  %exitcond11.not = icmp eq i64 %inc, %size
-  br i1 %exitcond11.not, label %for.end, label %for.body, !llvm.loop !164
+  %exitcond.not = icmp eq i64 %inc, %size
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !164
 
 lpad18:                                           ; preds = %invoke.cont17
   %4 = landingpad { ptr, i32 }

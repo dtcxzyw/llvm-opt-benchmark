@@ -10854,7 +10854,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %60 = getelementptr i8, ptr %59, i64 %57
   %61 = load i8, ptr %60, align 1
   %.not164 = icmp eq i8 %61, 0
-  br i1 %.not164, label %.critedge.split.loop.exit350, label %62
+  br i1 %.not164, label %.critedge.split.loop.exit351, label %62
 
 62:                                               ; preds = %56
   %63 = add nuw nsw i32 %.promoted230, 1
@@ -10863,12 +10863,12 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %exitcond282.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count281
   br i1 %exitcond282.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !52
 
-.critedge.split.loop.exit350:                     ; preds = %56
+.critedge.split.loop.exit351:                     ; preds = %56
   %64 = trunc nuw nsw i64 %indvars.iv276 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.critedge.split.loop.exit350
-  %.0136212.lcssa = phi i32 [ %64, %.critedge.split.loop.exit350 ], [ %54, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.critedge.split.loop.exit351
+  %.0136212.lcssa = phi i32 [ %64, %.critedge.split.loop.exit351 ], [ %54, %.lr.ph ]
   %65 = icmp slt i32 %2, %.0136212.lcssa
   br i1 %65, label %.critedge.thread, label %.preheader204
 
@@ -10904,10 +10904,10 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 78:                                               ; preds = %73
   %79 = add nuw nsw i32 %70, 1
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
-  %.not329.not = icmp slt i64 %indvars.iv285, %51
+  %.not330.not = icmp slt i64 %indvars.iv285, %51
   %indvars.iv.next284 = add nsw i64 %indvars.iv283, -1
   %indvars.iv.next291 = add nsw i64 %indvars.iv290, -1
-  br i1 %.not329.not, label %.lr.ph217, label %.critedge.thread, !llvm.loop !53
+  br i1 %.not330.not, label %.lr.ph217, label %.critedge.thread, !llvm.loop !53
 
 .critedge3:                                       ; preds = %73, %.lr.ph217
   %80 = trunc nsw i64 %indvars.iv285 to i32
@@ -10918,8 +10918,8 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   br i1 %or.cond183, label %.critedge.thread, label %.preheader203
 
 .preheader203:                                    ; preds = %.critedge3
-  %.not330 = icmp slt i32 %.0134, %80
-  br i1 %.not330, label %.critedge5, label %.lr.ph222
+  %.not331 = icmp slt i32 %.0134, %80
+  br i1 %.not331, label %.critedge5, label %.lr.ph222
 
 .lr.ph222:                                        ; preds = %.preheader203, %91
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %91 ], [ %indvars.iv285, %.preheader203 ]
@@ -10942,9 +10942,9 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 91:                                               ; preds = %86
   %92 = add nuw nsw i32 %83, 1
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %.not331.not = icmp slt i64 %indvars.iv296, %51
+  %.not332.not = icmp slt i64 %indvars.iv296, %51
   %indvars.iv.next294 = add nsw i64 %indvars.iv293, -1
-  br i1 %.not331.not, label %.lr.ph222, label %.critedge5, !llvm.loop !54
+  br i1 %.not332.not, label %.lr.ph222, label %.critedge5, !llvm.loop !54
 
 .critedge5:                                       ; preds = %91, %.lr.ph222, %86, %.preheader203
   %.lcssa220 = phi i32 [ 0, %.preheader203 ], [ %83, %86 ], [ %83, %.lr.ph222 ], [ %92, %91 ]
@@ -10990,8 +10990,8 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %.not172 = icmp slt i32 %109, %11
   %110 = add nuw nsw i32 %.0134, %108
   %111 = icmp slt i32 %110, %9
-  %or.cond357 = select i1 %.not172, i1 %111, i1 false
-  br i1 %or.cond357, label %.lr.ph240, label %.critedge.thread
+  %or.cond358 = select i1 %.not172, i1 %111, i1 false
+  br i1 %or.cond358, label %.lr.ph240, label %.critedge.thread
 
 .lr.ph240:                                        ; preds = %.critedge7, %121
   %indvars.iv314 = phi i64 [ %indvars.iv.next315, %121 ], [ %indvars.iv303, %.critedge7 ]
@@ -11015,81 +11015,80 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %122 = add nuw nsw i32 %112, 1
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %indvars.iv.next312 = add nsw i64 %indvars.iv311, 1
-  %indvars = trunc i64 %indvars.iv.next312 to i32
-  %123 = icmp sgt i32 %9, %indvars
-  br i1 %123, label %.lr.ph240, label %.critedge.thread, !llvm.loop !56
+  %exitcond320.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count308
+  br i1 %exitcond320.not, label %.critedge.thread, label %.lr.ph240, !llvm.loop !56
 
 .critedge9:                                       ; preds = %115, %.lr.ph240
-  %124 = trunc nuw nsw i64 %indvars.iv314 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv314 to i32
   store i32 %112, ptr %19, align 4
-  %125 = add nuw nsw i32 %2, %124
-  %.not175 = icmp slt i32 %125, %11
+  %124 = add nuw nsw i32 %2, %123
+  %.not175 = icmp slt i32 %124, %11
   %.not176 = icmp slt i32 %112, %3
   %or.cond186 = select i1 %.not175, i1 %.not176, i1 false
   br i1 %or.cond186, label %.preheader, label %.critedge.thread
 
 .preheader:                                       ; preds = %.critedge9
-  %126 = add nuw nsw i32 %.0134, %124
-  %127 = icmp slt i32 %126, %9
-  br i1 %127, label %.lr.ph247, label %.critedge11
+  %125 = add nuw nsw i32 %.0134, %123
+  %126 = icmp slt i32 %125, %9
+  br i1 %126, label %.lr.ph247, label %.critedge11
 
-.lr.ph247:                                        ; preds = %.preheader, %137
-  %indvars.iv323 = phi i64 [ %indvars.iv.next324, %137 ], [ %indvars.iv314, %.preheader ]
-  %indvars.iv320 = phi i64 [ %indvars.iv.next321, %137 ], [ %indvars.iv311, %.preheader ]
-  %128 = phi i32 [ %138, %137 ], [ 0, %.preheader ]
-  %129 = add nuw nsw i64 %indvars.iv323, %53
-  %130 = icmp slt i64 %129, %95
-  br i1 %130, label %131, label %.critedge11
+.lr.ph247:                                        ; preds = %.preheader, %136
+  %indvars.iv325 = phi i64 [ %indvars.iv.next326, %136 ], [ %indvars.iv314, %.preheader ]
+  %indvars.iv322 = phi i64 [ %indvars.iv.next323, %136 ], [ %indvars.iv311, %.preheader ]
+  %127 = phi i32 [ %137, %136 ], [ 0, %.preheader ]
+  %128 = add nuw nsw i64 %indvars.iv325, %53
+  %129 = icmp slt i64 %128, %95
+  br i1 %129, label %130, label %.critedge11
 
-131:                                              ; preds = %.lr.ph247
-  %132 = mul nsw i64 %indvars.iv320, %52
-  %133 = getelementptr i8, ptr %30, i64 %132
-  %134 = getelementptr i8, ptr %133, i64 %129
-  %135 = load i8, ptr %134, align 1
-  %.not177 = icmp ne i8 %135, 0
-  %136 = icmp slt i32 %128, %3
-  %or.cond259 = select i1 %.not177, i1 %136, i1 false
-  br i1 %or.cond259, label %137, label %.critedge11
+130:                                              ; preds = %.lr.ph247
+  %131 = mul nsw i64 %indvars.iv322, %52
+  %132 = getelementptr i8, ptr %30, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 %128
+  %134 = load i8, ptr %133, align 1
+  %.not177 = icmp ne i8 %134, 0
+  %135 = icmp slt i32 %127, %3
+  %or.cond259 = select i1 %.not177, i1 %135, i1 false
+  br i1 %or.cond259, label %136, label %.critedge11
 
-137:                                              ; preds = %131
-  %138 = add nuw nsw i32 %128, 1
-  %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
-  %indvars.iv.next321 = add nsw i64 %indvars.iv320, 1
-  %indvars325 = trunc i64 %indvars.iv.next321 to i32
-  %139 = icmp sgt i32 %9, %indvars325
-  br i1 %139, label %.lr.ph247, label %.critedge11, !llvm.loop !57
+136:                                              ; preds = %130
+  %137 = add nuw nsw i32 %127, 1
+  %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
+  %indvars.iv.next323 = add nsw i64 %indvars.iv322, 1
+  %indvars = trunc i64 %indvars.iv.next323 to i32
+  %138 = icmp sgt i32 %9, %indvars
+  br i1 %138, label %.lr.ph247, label %.critedge11, !llvm.loop !57
 
-.critedge11:                                      ; preds = %137, %.lr.ph247, %131, %.preheader
-  %.lcssa245 = phi i32 [ 0, %.preheader ], [ %128, %131 ], [ %128, %.lr.ph247 ], [ %138, %137 ]
+.critedge11:                                      ; preds = %136, %.lr.ph247, %130, %.preheader
+  %.lcssa245 = phi i32 [ 0, %.preheader ], [ %127, %130 ], [ %127, %.lr.ph247 ], [ %137, %136 ]
   store i32 %.lcssa245, ptr %20, align 16
   %.not178 = icmp slt i32 %.lcssa245, %3
-  %140 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %6)
-  br i1 %140, label %141, label %.critedge.thread
+  %139 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %6)
+  br i1 %139, label %140, label %.critedge.thread
 
-141:                                              ; preds = %.critedge11
-  %142 = getelementptr inbounds i8, ptr %0, i64 4
-  %143 = load i32, ptr %142, align 4
-  %144 = icmp ne i32 %143, 1
-  %145 = select i1 %.not178, i1 true, i1 %.not169.not
-  %or.cond13.not = or i1 %145, %144
-  br i1 %or.cond13.not, label %146, label %.critedge.thread
+140:                                              ; preds = %.critedge11
+  %141 = getelementptr inbounds i8, ptr %0, i64 4
+  %142 = load i32, ptr %141, align 4
+  %143 = icmp ne i32 %142, 1
+  %144 = select i1 %.not178, i1 true, i1 %.not169.not
+  %or.cond13.not = or i1 %144, %143
+  br i1 %or.cond13.not, label %145, label %.critedge.thread
 
-146:                                              ; preds = %141
-  %147 = icmp eq i32 %143, 2
-  %148 = select i1 %.not178, i1 %.not169.not, i1 false
-  %or.cond15 = and i1 %148, %147
-  br i1 %or.cond15, label %.critedge.thread, label %149
+145:                                              ; preds = %140
+  %146 = icmp eq i32 %142, 2
+  %147 = select i1 %.not178, i1 %.not169.not, i1 false
+  %or.cond15 = and i1 %147, %146
+  br i1 %or.cond15, label %.critedge.thread, label %148
 
-149:                                              ; preds = %146
-  %150 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %142)
-  %151 = sub nsw i32 %150, %4
-  %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
-  %153 = shl nsw i32 %4, 1
-  %154 = icmp slt i32 %152, %153
+148:                                              ; preds = %145
+  %149 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %141)
+  %150 = sub nsw i32 %149, %4
+  %151 = tail call i32 @llvm.abs.i32(i32 %150, i1 true)
+  %152 = shl nsw i32 %4, 1
+  %153 = icmp slt i32 %151, %152
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %62, %78, %106, %121, %.preheader204, %.critedge5, %149, %146, %141, %.critedge11, %.critedge9, %.critedge7, %.critedge3, %.critedge, %42, %44, %5, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %5 ], [ false, %44 ], [ false, %42 ], [ false, %.critedge ], [ false, %.critedge3 ], [ false, %.critedge7 ], [ false, %.critedge9 ], [ false, %.critedge11 ], [ false, %141 ], [ false, %146 ], [ %154, %149 ], [ false, %.critedge5 ], [ false, %.preheader204 ], [ false, %121 ], [ false, %106 ], [ false, %78 ], [ false, %62 ]
+.critedge.thread:                                 ; preds = %62, %78, %106, %121, %.preheader204, %.critedge5, %148, %145, %140, %.critedge11, %.critedge9, %.critedge7, %.critedge3, %.critedge, %42, %44, %5, %13
+  %.0 = phi i1 [ false, %13 ], [ false, %5 ], [ false, %44 ], [ false, %42 ], [ false, %.critedge ], [ false, %.critedge3 ], [ false, %.critedge7 ], [ false, %.critedge9 ], [ false, %.critedge11 ], [ false, %140 ], [ false, %145 ], [ %153, %148 ], [ false, %.critedge5 ], [ false, %.preheader204 ], [ false, %121 ], [ false, %106 ], [ false, %78 ], [ false, %62 ]
   ret i1 %.0
 }
 
@@ -11216,6 +11215,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   br label %59
 
 59:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i32 [ %58, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.promoted175 = phi i32 [ 0, %.lr.ph ], [ %64, %63 ]
   %.0108151 = phi i32 [ %.pre-phi, %.lr.ph ], [ %65, %63 ]
   %.0111150 = phi ptr [ %54, %.lr.ph ], [ %66, %63 ]
@@ -11233,9 +11233,11 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %65 = add nsw i32 %.0108151, -1
   %66 = getelementptr inbounds i8, ptr %.0111150, i64 %57
   %67 = icmp sgt i32 %.0108151, 0
+  %indvars.iv.next = add i32 %indvars.iv, -1
   br i1 %67, label %59, label %.critedge2.thread, !llvm.loop !58
 
 68:                                               ; preds = %.lr.ph156, %.critedge
+  %indvars.iv232 = phi i32 [ %indvars.iv, %.lr.ph156 ], [ %indvars.iv.next233, %.critedge ]
   %69 = phi i32 [ 0, %.lr.ph156 ], [ %72, %.critedge ]
   %.1109155 = phi i32 [ %.0108151, %.lr.ph156 ], [ %73, %.critedge ]
   %.1112154 = phi ptr [ %.0111150, %.lr.ph156 ], [ %74, %.critedge ]
@@ -11250,6 +11252,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %73 = add nsw i32 %.1109155, -1
   %74 = getelementptr inbounds i8, ptr %.1112154, i64 %57
   %75 = icmp sgt i32 %.1109155, 0
+  %indvars.iv.next233 = add i32 %indvars.iv232, -1
   br i1 %75, label %68, label %.critedge2.thread, !llvm.loop !59
 
 .critedge2:                                       ; preds = %68
@@ -11272,7 +11275,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   br i1 %83, label %.lr.ph164, label %.critedge4, !llvm.loop !60
 
 .critedge4:                                       ; preds = %.lr.ph164, %79
-  %.lcssa161.ph = phi i32 [ %76, %.lr.ph164 ], [ %80, %79 ]
+  %.lcssa161.ph = phi i32 [ %76, %.lr.ph164 ], [ %indvars.iv232, %79 ]
   store i32 %.lcssa161.ph, ptr %8, align 16
   %.not126.not = icmp sge i32 %.lcssa161.ph, %3
   %spec.select = zext i1 %.not126.not to i32
@@ -11329,8 +11332,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   store i32 %105, ptr %98, align 4
   %106 = add i32 %.4180, 1
   %107 = getelementptr inbounds i8, ptr %.4115179, i64 %56
-  %exitcond229.not = icmp eq i32 %106, %11
-  br i1 %exitcond229.not, label %.critedge2.thread, label %.lr.ph181, !llvm.loop !62
+  %exitcond235.not = icmp eq i32 %106, %11
+  br i1 %exitcond235.not, label %.critedge2.thread, label %.lr.ph181, !llvm.loop !62
 
 .critedge8:                                       ; preds = %.lr.ph181, %.preheader142
   %108 = phi i32 [ 0, %.preheader142 ], [ %100, %.lr.ph181 ]
@@ -11372,8 +11375,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   store i32 %120, ptr %113, align 16
   %121 = add i32 %.5199, 1
   %122 = getelementptr inbounds i8, ptr %.5116198, i64 %56
-  %exitcond231.not = icmp eq i32 %121, %11
-  br i1 %exitcond231.not, label %.critedge10, label %.lr.ph200, !llvm.loop !63
+  %exitcond237.not = icmp eq i32 %121, %11
+  br i1 %exitcond237.not, label %.critedge10, label %.lr.ph200, !llvm.loop !63
 
 .critedge10:                                      ; preds = %119, %.lr.ph200, %.preheader
   %123 = phi i32 [ 0, %.preheader ], [ %115, %.lr.ph200 ], [ %120, %119 ]
@@ -11394,8 +11397,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   store i32 %129, ptr %112, align 16
   %130 = add i32 %.7191, 1
   %131 = getelementptr inbounds i8, ptr %.6117190, i64 %56
-  %exitcond230.not = icmp eq i32 %130, %11
-  br i1 %exitcond230.not, label %.critedge12, label %124, !llvm.loop !64
+  %exitcond236.not = icmp eq i32 %130, %11
+  br i1 %exitcond236.not, label %.critedge12, label %124, !llvm.loop !64
 
 .critedge12:                                      ; preds = %124, %128, %.preheader141
   %132 = phi i32 [ 0, %.preheader141 ], [ %129, %128 ], [ %125, %124 ]
@@ -11515,8 +11518,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %or.cond = and i1 %193, %173
   %194 = icmp eq i32 %.1, 1
   %or.cond15 = and i1 %194, %174
-  %or.cond255 = or i1 %or.cond, %or.cond15
-  br i1 %or.cond255, label %.critedge2.thread, label %195
+  %or.cond263 = or i1 %or.cond, %or.cond15
+  br i1 %or.cond263, label %.critedge2.thread, label %195
 
 195:                                              ; preds = %192
   %196 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %148)
@@ -11615,6 +11618,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %52
 
 52:                                               ; preds = %.lr.ph, %58
+  %indvars.iv232 = phi i32 [ %51, %.lr.ph ], [ %indvars.iv.next233, %58 ]
   %indvars.iv227 = phi i32 [ %.pre-phi, %.lr.ph ], [ %indvars.iv.next228, %58 ]
   %indvars.iv = phi i64 [ %50, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %.promoted153 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
@@ -11634,10 +11638,12 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %60 = icmp sgt i64 %indvars.iv, 0
   %indvars.iv.next228 = add i32 %indvars.iv227, -1
+  %indvars.iv.next233 = add i32 %indvars.iv232, -1
   br i1 %60, label %52, label %.critedge2.thread, !llvm.loop !65
 
 61:                                               ; preds = %.lr.ph137, %.critedge
-  %indvars.iv235 = phi i32 [ %indvars.iv227, %.lr.ph137 ], [ %indvars.iv.next236, %.critedge ]
+  %indvars.iv245 = phi i32 [ %indvars.iv232, %.lr.ph137 ], [ %indvars.iv.next246, %.critedge ]
+  %indvars.iv238 = phi i32 [ %indvars.iv227, %.lr.ph137 ], [ %indvars.iv.next239, %.critedge ]
   %indvars.iv230 = phi i64 [ %57, %.lr.ph137 ], [ %indvars.iv.next231, %.critedge ]
   %62 = phi i32 [ 0, %.lr.ph137 ], [ %66, %.critedge ]
   %63 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv230
@@ -11651,7 +11657,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %66 = add nuw nsw i32 %62, 1
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
   %67 = icmp sgt i64 %indvars.iv230, 0
-  %indvars.iv.next236 = add i32 %indvars.iv235, -1
+  %indvars.iv.next239 = add i32 %indvars.iv238, -1
+  %indvars.iv.next246 = add i32 %indvars.iv245, -1
   br i1 %67, label %61, label %.critedge2.thread, !llvm.loop !66
 
 .critedge2:                                       ; preds = %61
@@ -11659,25 +11666,25 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br i1 %.not109, label %.critedge2.thread, label %.lr.ph144.preheader
 
 .lr.ph144.preheader:                              ; preds = %.critedge2
-  %68 = zext i32 %indvars.iv235 to i64
+  %68 = zext i32 %indvars.iv238 to i64
   br label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %73
-  %indvars.iv238 = phi i64 [ %68, %.lr.ph144.preheader ], [ %indvars.iv.next239, %73 ]
+  %indvars.iv241 = phi i64 [ %68, %.lr.ph144.preheader ], [ %indvars.iv.next242, %73 ]
   %69 = phi i32 [ 0, %.lr.ph144.preheader ], [ %74, %73 ]
-  %70 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv238
+  %70 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv241
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %.critedge4
 
 73:                                               ; preds = %.lr.ph144
   %74 = add nuw nsw i32 %69, 1
-  %indvars.iv.next239 = add nsw i64 %indvars.iv238, -1
-  %75 = icmp sgt i64 %indvars.iv238, 0
+  %indvars.iv.next242 = add nsw i64 %indvars.iv241, -1
+  %75 = icmp sgt i64 %indvars.iv241, 0
   br i1 %75, label %.lr.ph144, label %.critedge4, !llvm.loop !67
 
 .critedge4:                                       ; preds = %.lr.ph144, %73
-  %.lcssa142.ph = phi i32 [ %69, %.lr.ph144 ], [ %74, %73 ]
+  %.lcssa142.ph = phi i32 [ %69, %.lr.ph144 ], [ %indvars.iv245, %73 ]
   store i32 %.lcssa142.ph, ptr %8, align 16
   %.not110.not = icmp sge i32 %.lcssa142.ph, %3
   %spec.select = zext i1 %.not110.not to i32
@@ -11689,22 +11696,22 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %78
 
 78:                                               ; preds = %.lr.ph149, %83
-  %indvars.iv241 = phi i64 [ %77, %.lr.ph149 ], [ %indvars.iv.next242, %83 ]
+  %indvars.iv249 = phi i64 [ %77, %.lr.ph149 ], [ %indvars.iv.next250, %83 ]
   %79 = phi i32 [ %.promoted153, %.lr.ph149 ], [ %84, %83 ]
-  %80 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv241
+  %80 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv249
   %81 = load i8, ptr %80, align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %..critedge6_crit_edge151
 
 83:                                               ; preds = %78
   %84 = add nuw nsw i32 %79, 1
-  %indvars.iv.next242 = add nsw i64 %indvars.iv241, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next242 to i32
+  %indvars.iv.next250 = add nsw i64 %indvars.iv249, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next250 to i32
   %exitcond.not = icmp eq i32 %11, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge2.thread, label %78, !llvm.loop !68
 
 ..critedge6_crit_edge151:                         ; preds = %78
-  %85 = trunc nsw i64 %indvars.iv241 to i32
+  %85 = trunc nsw i64 %indvars.iv249 to i32
   store i32 %79, ptr %49, align 8
   br label %.critedge6
 
@@ -11724,9 +11731,9 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %.lr.ph159
 
 .lr.ph159:                                        ; preds = %.lr.ph159.preheader, %96
-  %indvars.iv244 = phi i64 [ %90, %.lr.ph159.preheader ], [ %indvars.iv.next245, %96 ]
+  %indvars.iv252 = phi i64 [ %90, %.lr.ph159.preheader ], [ %indvars.iv.next253, %96 ]
   %91 = phi i32 [ 0, %.lr.ph159.preheader ], [ %97, %96 ]
-  %92 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv244
+  %92 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv252
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1
   %95 = icmp sge i32 %91, %3
@@ -11735,13 +11742,13 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
 
 96:                                               ; preds = %.lr.ph159
   %97 = add nuw nsw i32 %91, 1
-  %indvars.iv.next245 = add nsw i64 %indvars.iv244, 1
-  %lftr.wideiv247 = trunc i64 %indvars.iv.next245 to i32
-  %exitcond248.not = icmp eq i32 %11, %lftr.wideiv247
-  br i1 %exitcond248.not, label %.critedge2.thread, label %.lr.ph159, !llvm.loop !69
+  %indvars.iv.next253 = add nsw i64 %indvars.iv252, 1
+  %lftr.wideiv255 = trunc i64 %indvars.iv.next253 to i32
+  %exitcond256.not = icmp eq i32 %11, %lftr.wideiv255
+  br i1 %exitcond256.not, label %.critedge2.thread, label %.lr.ph159, !llvm.loop !69
 
 .critedge8.loopexit:                              ; preds = %.lr.ph159
-  %98 = trunc nsw i64 %indvars.iv244 to i32
+  %98 = trunc nsw i64 %indvars.iv252 to i32
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.preheader127
@@ -11777,9 +11784,9 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %113
-  %indvars.iv254 = phi i64 [ %107, %.lr.ph179.preheader ], [ %indvars.iv.next255, %113 ]
+  %indvars.iv262 = phi i64 [ %107, %.lr.ph179.preheader ], [ %indvars.iv.next263, %113 ]
   %109 = phi i32 [ 0, %.lr.ph179.preheader ], [ %114, %113 ]
-  %110 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv254
+  %110 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv262
   %111 = load i8, ptr %110, align 1
   %112 = trunc i8 %111 to i1
   %.not113 = icmp sle i32 %109, %3
@@ -11788,13 +11795,13 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
 
 113:                                              ; preds = %.lr.ph179
   %114 = add nuw nsw i32 %109, 1
-  %indvars.iv.next255 = add nsw i64 %indvars.iv254, 1
-  %lftr.wideiv257 = trunc i64 %indvars.iv.next255 to i32
-  %exitcond258.not = icmp eq i32 %11, %lftr.wideiv257
-  br i1 %exitcond258.not, label %.critedge10, label %.lr.ph179, !llvm.loop !70
+  %indvars.iv.next263 = add nsw i64 %indvars.iv262, 1
+  %lftr.wideiv265 = trunc i64 %indvars.iv.next263 to i32
+  %exitcond266.not = icmp eq i32 %11, %lftr.wideiv265
+  br i1 %exitcond266.not, label %.critedge10, label %.lr.ph179, !llvm.loop !70
 
 .critedge10.loopexit.split.loop.exit:             ; preds = %.lr.ph179
-  %115 = trunc nsw i64 %indvars.iv254 to i32
+  %115 = trunc nsw i64 %indvars.iv262 to i32
   br label %.critedge10
 
 .critedge10:                                      ; preds = %113, %.critedge10.loopexit.split.loop.exit, %.preheader
@@ -11805,32 +11812,32 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br i1 %.not114, label %125, label %.critedge2.thread
 
 116:                                              ; preds = %.lr.ph169, %121
-  %indvars.iv249 = phi i64 [ %103, %.lr.ph169 ], [ %indvars.iv.next250, %121 ]
+  %indvars.iv257 = phi i64 [ %103, %.lr.ph169 ], [ %indvars.iv.next258, %121 ]
   %117 = phi i32 [ 0, %.lr.ph169 ], [ %122, %121 ]
-  %118 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv249
+  %118 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv257
   %119 = load i8, ptr %118, align 1
   %120 = trunc i8 %119 to i1
   br i1 %120, label %121, label %..critedge12_crit_edge171
 
 121:                                              ; preds = %116
   %122 = add nuw nsw i32 %117, 1
-  %indvars.iv.next250 = add nsw i64 %indvars.iv249, 1
-  %lftr.wideiv252 = trunc i64 %indvars.iv.next250 to i32
-  %exitcond253.not = icmp eq i32 %11, %lftr.wideiv252
-  br i1 %exitcond253.not, label %.critedge12.sink.split, label %116, !llvm.loop !71
+  %indvars.iv.next258 = add nsw i64 %indvars.iv257, 1
+  %lftr.wideiv260 = trunc i64 %indvars.iv.next258 to i32
+  %exitcond261.not = icmp eq i32 %11, %lftr.wideiv260
+  br i1 %exitcond261.not, label %.critedge12.sink.split, label %116, !llvm.loop !71
 
 ..critedge12_crit_edge171:                        ; preds = %116
-  %123 = trunc nsw i64 %indvars.iv249 to i32
+  %123 = trunc nsw i64 %indvars.iv257 to i32
   br label %.critedge12.sink.split
 
 .critedge12.sink.split:                           ; preds = %121, %..critedge12_crit_edge171
-  %.lcssa273.sink = phi i32 [ %117, %..critedge12_crit_edge171 ], [ %104, %121 ]
+  %.lcssa281.sink = phi i32 [ %117, %..critedge12_crit_edge171 ], [ %104, %121 ]
   %.7.lcssa.ph = phi i32 [ %123, %..critedge12_crit_edge171 ], [ %11, %121 ]
-  store i32 %.lcssa273.sink, ptr %102, align 16
+  store i32 %.lcssa281.sink, ptr %102, align 16
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.sink.split, %.preheader126
-  %124 = phi i32 [ 0, %.preheader126 ], [ %.lcssa273.sink, %.critedge12.sink.split ]
+  %124 = phi i32 [ 0, %.preheader126 ], [ %.lcssa281.sink, %.critedge12.sink.split ]
   %.7.lcssa = phi i32 [ %.4.lcssa, %.preheader126 ], [ %.7.lcssa.ph, %.critedge12.sink.split ]
   %.not112 = icmp slt i32 %124, %3
   %spec.select121 = select i1 %.not112, i32 %spec.select, i32 2
@@ -11851,32 +11858,32 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %131
 
 131:                                              ; preds = %.lr.ph189, %136
-  %indvars.iv259 = phi i64 [ %128, %.lr.ph189 ], [ %indvars.iv.next260, %136 ]
+  %indvars.iv267 = phi i64 [ %128, %.lr.ph189 ], [ %indvars.iv.next268, %136 ]
   %132 = phi i32 [ %.promoted193, %.lr.ph189 ], [ %137, %136 ]
-  %133 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv259
+  %133 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv267
   %134 = load i8, ptr %133, align 1
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %..critedge14_crit_edge191
 
 136:                                              ; preds = %131
   %137 = add nsw i32 %132, 1
-  %indvars.iv.next260 = add nsw i64 %indvars.iv259, 1
-  %lftr.wideiv262 = trunc i64 %indvars.iv.next260 to i32
-  %exitcond263.not = icmp eq i32 %11, %lftr.wideiv262
-  br i1 %exitcond263.not, label %.critedge14.sink.split, label %131, !llvm.loop !72
+  %indvars.iv.next268 = add nsw i64 %indvars.iv267, 1
+  %lftr.wideiv270 = trunc i64 %indvars.iv.next268 to i32
+  %exitcond271.not = icmp eq i32 %11, %lftr.wideiv270
+  br i1 %exitcond271.not, label %.critedge14.sink.split, label %131, !llvm.loop !72
 
 ..critedge14_crit_edge191:                        ; preds = %131
-  %138 = trunc nsw i64 %indvars.iv259 to i32
+  %138 = trunc nsw i64 %indvars.iv267 to i32
   br label %.critedge14.sink.split
 
 .critedge14.sink.split:                           ; preds = %136, %..critedge14_crit_edge191
-  %.lcssa270.sink = phi i32 [ %132, %..critedge14_crit_edge191 ], [ %130, %136 ]
+  %.lcssa278.sink = phi i32 [ %132, %..critedge14_crit_edge191 ], [ %130, %136 ]
   %.8.lcssa.ph = phi i32 [ %138, %..critedge14_crit_edge191 ], [ %11, %136 ]
-  store i32 %.lcssa270.sink, ptr %127, align 16
+  store i32 %.lcssa278.sink, ptr %127, align 16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge14.sink.split, %125
-  %139 = phi i32 [ %.promoted193, %125 ], [ %.lcssa270.sink, %.critedge14.sink.split ]
+  %139 = phi i32 [ %.promoted193, %125 ], [ %.lcssa278.sink, %.critedge14.sink.split ]
   %.8.lcssa = phi i32 [ %.6, %125 ], [ %.8.lcssa.ph, %.critedge14.sink.split ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
   %140 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder18INTEGER_MATH_SHIFTE, align 4
@@ -11985,8 +11992,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %or.cond = and i1 %198, %178
   %199 = icmp eq i32 %.1, 1
   %or.cond17 = and i1 %199, %179
-  %or.cond293 = or i1 %or.cond, %or.cond17
-  br i1 %or.cond293, label %.critedge2.thread, label %200
+  %or.cond303 = or i1 %or.cond, %or.cond17
+  br i1 %or.cond303, label %.critedge2.thread, label %200
 
 200:                                              ; preds = %197
   %201 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %153)

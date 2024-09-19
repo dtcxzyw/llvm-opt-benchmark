@@ -3896,9 +3896,9 @@ for.inc284.i:                                     ; preds = %if.else.i, %if.then
   %x.0.copyload.i430.i = load i64, ptr %p_memsz275.i, align 1, !noalias !4
   %127 = call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i430.i)
   %add277.i = add i64 %127, %.sink607.i
-  %i225.1.i = add nuw nsw i64 %i225.1560.i, 1
-  %cmp250.i = icmp ult i64 %i225.1.i, %sub.ptr.div.i411.i
-  br i1 %cmp250.i, label %land.rhs251.i, label %if.end290.i, !llvm.loop !18
+  %i225.1.i = add i64 %i225.1560.i, 1
+  %exitcond.not = icmp eq i64 %i225.1.i, %sub.ptr.div.i411.i
+  br i1 %exitcond.not, label %if.end290.i, label %land.rhs251.i, !llvm.loop !18
 
 for.inc287.i:                                     ; preds = %for.body229.i
   %inc288.i = add nuw i64 %i225.0551.i, 1

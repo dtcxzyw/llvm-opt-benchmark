@@ -535,122 +535,117 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.end46, %entry
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %for.end46 ], [ 0, %entry ]
-  %indvars.iv59 = phi i32 [ %indvars.iv.next60, %for.end46 ], [ 1, %entry ]
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %for.end46 ], [ 0, %entry ]
+  %indvars.iv57 = phi i32 [ %indvars.iv.next58, %for.end46 ], [ 1, %entry ]
   %err.0 = phi nsz double [ %mul, %for.end46 ], [ %0, %entry ]
-  %umax61 = tail call i32 @llvm.umax.i32(i32 %indvars.iv59, i32 1)
-  %1 = trunc nuw i64 %indvars.iv64 to i32
-  %2 = lshr i32 %1, 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %3 = load i32, ptr %max_order, align 4
-  %4 = zext i32 %3 to i64
-  %cmp = icmp ult i64 %indvars.iv64, %4
+  %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv57, i32 1)
+  %1 = load i32, ptr %max_order, align 4
+  %2 = zext i32 %1 to i64
+  %cmp = icmp ult i64 %indvars.iv61, %2
   br i1 %cmp, label %for.body, label %for.end56
 
 for.body:                                         ; preds = %for.cond
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %arrayidx1 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv.next65
-  %5 = load double, ptr %arrayidx1, align 8
-  %fneg = fneg reassoc nsz arcp double %5
-  %cmp342.not = icmp eq i64 %indvars.iv64, 0
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %arrayidx1 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv.next62
+  %3 = load double, ptr %arrayidx1, align 8
+  %fneg = fneg reassoc nsz arcp double %3
+  %cmp342.not = icmp eq i64 %indvars.iv61, 0
   br i1 %cmp342.not, label %for.end28.thread, label %for.body4
 
 for.end28.thread:                                 ; preds = %for.body
-  %div68 = fdiv reassoc nsz arcp double %fneg, %err.0
-  %arrayidx1069 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv64
-  store double %div68, ptr %arrayidx1069, align 8
+  %div66 = fdiv reassoc nsz arcp double %fneg, %err.0
+  %arrayidx1067 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv61
+  store double %div66, ptr %arrayidx1067, align 8
   br label %if.end
 
 for.body4:                                        ; preds = %for.body, %for.body4
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body4 ], [ 0, %for.body ]
-  %r.044 = phi double [ %9, %for.body4 ], [ %fneg, %for.body ]
+  %r.044 = phi double [ %7, %for.body4 ], [ %fneg, %for.body ]
   %arrayidx6 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv
-  %6 = load double, ptr %arrayidx6, align 8
-  %7 = sub nuw nsw i64 %indvars.iv64, %indvars.iv
-  %arrayidx8 = getelementptr inbounds double, ptr %autoc, i64 %7
-  %8 = load double, ptr %arrayidx8, align 8
-  %neg = fneg reassoc nsz arcp double %6
-  %9 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg, double %8, double %r.044)
+  %4 = load double, ptr %arrayidx6, align 8
+  %5 = sub nuw nsw i64 %indvars.iv61, %indvars.iv
+  %arrayidx8 = getelementptr inbounds double, ptr %autoc, i64 %5
+  %6 = load double, ptr %arrayidx8, align 8
+  %neg = fneg reassoc nsz arcp double %4
+  %7 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg, double %6, double %r.044)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv64
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv61
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body4
-  %div = fdiv reassoc nsz arcp double %9, %err.0
-  %arrayidx10 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv64
+  %div = fdiv reassoc nsz arcp double %7, %err.0
+  %arrayidx10 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv61
   store double %div, ptr %arrayidx10, align 8
-  %cmp1245.not = icmp eq i64 %indvars.iv64, 1
-  br i1 %cmp1245.not, label %for.end28, label %for.body13.preheader
+  %cmp1245.not = icmp eq i64 %indvars.iv61, 1
+  br i1 %cmp1245.not, label %if.then, label %for.body13.preheader
 
 for.body13.preheader:                             ; preds = %for.end
-  %wide.trip.count54 = zext nneg i32 %umax to i64
+  %shr = lshr i64 %indvars.iv61, 1
+  %8 = and i64 %shr, 2147483647
   br label %for.body13
 
 for.body13:                                       ; preds = %for.body13.preheader, %for.body13
   %indvars.iv51 = phi i64 [ 0, %for.body13.preheader ], [ %indvars.iv.next52, %for.body13 ]
   %arrayidx15 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv51
-  %10 = load double, ptr %arrayidx15, align 8
-  %11 = xor i64 %indvars.iv51, -1
-  %sub17 = add nsw i64 %indvars.iv64, %11
+  %9 = load double, ptr %arrayidx15, align 8
+  %10 = xor i64 %indvars.iv51, -1
+  %sub17 = add nsw i64 %indvars.iv61, %10
   %idxprom18 = and i64 %sub17, 4294967295
   %arrayidx19 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %idxprom18
-  %12 = load double, ptr %arrayidx19, align 8
-  %13 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %div, double %12, double %10)
-  store double %13, ptr %arrayidx15, align 8
-  %14 = load double, ptr %arrayidx19, align 8
-  %15 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %div, double %10, double %14)
-  store double %15, ptr %arrayidx19, align 8
+  %11 = load double, ptr %arrayidx19, align 8
+  %12 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %div, double %11, double %9)
+  store double %12, ptr %arrayidx15, align 8
+  %13 = load double, ptr %arrayidx19, align 8
+  %14 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %div, double %9, double %13)
+  store double %14, ptr %arrayidx19, align 8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %for.end28.loopexit, label %for.body13, !llvm.loop !28
+  %cmp12 = icmp ult i64 %indvars.iv.next52, %8
+  br i1 %cmp12, label %for.body13, label %for.end28, !llvm.loop !28
 
-for.end28.loopexit:                               ; preds = %for.body13
-  %16 = zext nneg i32 %umax to i64
-  br label %for.end28
-
-for.end28:                                        ; preds = %for.end28.loopexit, %for.end
-  %j.1.lcssa = phi i64 [ 0, %for.end ], [ %16, %for.end28.loopexit ]
-  %and = and i32 %1, 1
-  %tobool.not = icmp eq i32 %and, 0
+for.end28:                                        ; preds = %for.body13
+  %15 = and i64 %indvars.iv.next52, 4294967295
+  %and64 = and i64 %indvars.iv61, 1
+  %tobool.not = icmp eq i64 %and64, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %for.end28
-  %arrayidx30 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %j.1.lcssa
-  %17 = load double, ptr %arrayidx30, align 8
-  %18 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %17, double %div, double %17)
-  store double %18, ptr %arrayidx30, align 8
+if.then:                                          ; preds = %for.end, %for.end28
+  %j.1.lcssa81 = phi i64 [ %15, %for.end28 ], [ 0, %for.end ]
+  %arrayidx30 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %j.1.lcssa81
+  %16 = load double, ptr %arrayidx30, align 8
+  %17 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %16, double %div, double %16)
+  store double %17, ptr %arrayidx30, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.end28.thread, %if.then, %for.end28
-  %div7176 = phi double [ %div68, %for.end28.thread ], [ %div, %if.then ], [ %div, %for.end28 ]
-  %neg33 = fneg reassoc nsz arcp double %div7176
-  %19 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg33, double %div7176, double 1.000000e+00)
-  %wide.trip.count62 = zext i32 %umax61 to i64
+  %div6974 = phi double [ %div66, %for.end28.thread ], [ %div, %if.then ], [ %div, %for.end28 ]
+  %neg33 = fneg reassoc nsz arcp double %div6974
+  %18 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg33, double %div6974, double 1.000000e+00)
+  %wide.trip.count59 = zext i32 %umax to i64
   br label %for.body36
 
 for.body36:                                       ; preds = %if.end, %for.body36
-  %indvars.iv56 = phi i64 [ 0, %if.end ], [ %indvars.iv.next57, %for.body36 ]
-  %arrayidx38 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv56
-  %20 = load double, ptr %arrayidx38, align 8
-  %21 = fptrunc double %20 to float
-  %conv = fneg reassoc nsz arcp float %21
-  %arrayidx43 = getelementptr inbounds [32 x float], ptr %lp_coeff, i64 %indvars.iv64, i64 %indvars.iv56
+  %indvars.iv54 = phi i64 [ 0, %if.end ], [ %indvars.iv.next55, %for.body36 ]
+  %arrayidx38 = getelementptr inbounds [32 x double], ptr %lpc, i64 0, i64 %indvars.iv54
+  %19 = load double, ptr %arrayidx38, align 8
+  %20 = fptrunc double %19 to float
+  %conv = fneg reassoc nsz arcp float %20
+  %arrayidx43 = getelementptr inbounds [32 x float], ptr %lp_coeff, i64 %indvars.iv61, i64 %indvars.iv54
   store float %conv, ptr %arrayidx43, align 4
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond63 = icmp eq i64 %indvars.iv.next57, %wide.trip.count62
-  br i1 %exitcond63, label %for.end46, label %for.body36, !llvm.loop !29
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond60 = icmp eq i64 %indvars.iv.next55, %wide.trip.count59
+  br i1 %exitcond60, label %for.end46, label %for.body36, !llvm.loop !29
 
 for.end46:                                        ; preds = %for.body36
-  %mul = fmul reassoc nsz arcp double %19, %err.0
-  %arrayidx48 = getelementptr inbounds double, ptr %error, i64 %indvars.iv64
+  %mul = fmul reassoc nsz arcp double %18, %err.0
+  %arrayidx48 = getelementptr inbounds double, ptr %error, i64 %indvars.iv61
   store double %mul, ptr %arrayidx48, align 8
   %cmp49 = fcmp reassoc nsz arcp oeq double %mul, 0.000000e+00
-  %indvars.iv.next60 = add i32 %indvars.iv59, 1
+  %indvars.iv.next58 = add i32 %indvars.iv57, 1
   br i1 %cmp49, label %if.then51, label %for.cond, !llvm.loop !30
 
 if.then51:                                        ; preds = %for.end46
-  %22 = trunc nuw i64 %indvars.iv.next65 to i32
-  store i32 %22, ptr %max_order, align 4
+  %21 = trunc nuw i64 %indvars.iv.next62 to i32
+  store i32 %21, ptr %max_order, align 4
   br label %for.end56
 
 for.end56:                                        ; preds = %for.cond, %if.then51

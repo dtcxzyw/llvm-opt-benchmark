@@ -23374,9 +23374,9 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   %20 = sext i32 %1 to i64
   %wide.trip.count270 = zext nneg i32 %1 to i64
   %wide.trip.count265 = zext i32 %5 to i64
-  %wide.trip.count300 = zext nneg i32 %1 to i64
-  %wide.trip.count295 = zext i32 %5 to i64
-  %wide.trip.count305 = zext i32 %5 to i64
+  %wide.trip.count302 = zext nneg i32 %1 to i64
+  %wide.trip.count297 = zext i32 %5 to i64
+  %wide.trip.count307 = zext i32 %5 to i64
   br label %.preheader201
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -23396,7 +23396,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   br i1 %exitcond259.not, label %.preheader202, label %.lr.ph, !llvm.loop !247
 
 .preheader201:                                    ; preds = %.preheader202, %._crit_edge247
-  %.0176248 = phi i32 [ 1, %.preheader202 ], [ %155, %._crit_edge247 ]
+  %.0176248 = phi i32 [ 1, %.preheader202 ], [ %154, %._crit_edge247 ]
   br i1 %.not185.not216, label %.lr.ph215, label %._crit_edge220.thread
 
 .loopexit199:                                     ; preds = %30
@@ -23438,20 +23438,20 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
 
 .loopexit198:                                     ; preds = %.loopexit
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
-  br i1 %exitcond301.not, label %.preheader200, label %.lr.ph239, !llvm.loop !250
+  %exitcond303.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count302
+  br i1 %exitcond303.not, label %.preheader200, label %.lr.ph239, !llvm.loop !250
 
 .preheader200:                                    ; preds = %.loopexit198
   br i1 %.not207, label %._crit_edge247, label %.lr.ph246
 
 .lr.ph239:                                        ; preds = %.loopexit198, %.lr.ph243
-  %indvars.iv297 = phi i64 [ 1, %.lr.ph243 ], [ %indvars.iv.next298, %.loopexit198 ]
+  %indvars.iv299 = phi i64 [ 1, %.lr.ph243 ], [ %indvars.iv.next300, %.loopexit198 ]
   %indvars.iv277 = phi i64 [ 2, %.lr.ph243 ], [ %indvars.iv.next278, %.loopexit198 ]
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv297
-  %41 = getelementptr inbounds double, ptr %2, i64 %indvars.iv297
-  %42 = getelementptr inbounds double, ptr %11, i64 %indvars.iv297
-  %.not189.not222 = icmp ugt i64 %indvars.iv297, 1
+  %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
+  %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv299
+  %41 = getelementptr inbounds double, ptr %2, i64 %indvars.iv299
+  %42 = getelementptr inbounds double, ptr %11, i64 %indvars.iv299
+  %.not189.not222 = icmp ugt i64 %indvars.iv299, 1
   br label %43
 
 43:                                               ; preds = %.lr.ph239, %.loopexit
@@ -23530,7 +23530,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   br label %89
 
 .preheader197:                                    ; preds = %89, %70
-  %.not190.not226 = icmp ult i64 %indvars.iv.next298, %indvars.iv284
+  %.not190.not226 = icmp ult i64 %indvars.iv.next300, %indvars.iv284
   br i1 %.not190.not226, label %.lr.ph228, label %.preheader196
 
 .lr.ph228:                                        ; preds = %.preheader197
@@ -23541,7 +23541,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   %indvars.iv272 = phi i64 [ 1, %.lr.ph225 ], [ %indvars.iv.next273, %89 ]
   %90 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv272
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds double, ptr %91, i64 %indvars.iv297
+  %92 = getelementptr inbounds double, ptr %91, i64 %indvars.iv299
   %93 = load double, ptr %92, align 8
   %94 = getelementptr inbounds double, ptr %91, i64 %indvars.iv284
   %95 = load double, ptr %94, align 8
@@ -23555,7 +23555,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   %102 = getelementptr inbounds double, ptr %101, i64 %indvars.iv284
   store double %100, ptr %102, align 8
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %exitcond276.not = icmp eq i64 %indvars.iv.next273, %indvars.iv297
+  %exitcond276.not = icmp eq i64 %indvars.iv.next273, %indvars.iv299
   br i1 %exitcond276.not, label %.preheader197, label %89, !llvm.loop !251
 
 .preheader196:                                    ; preds = %105, %.preheader197
@@ -23595,7 +23595,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
 
 .lr.ph234:                                        ; preds = %120, %.preheader196..lr.ph234_crit_edge
   %.pre-phi = phi double [ %.pre, %.preheader196..lr.ph234_crit_edge ], [ %104, %120 ]
-  br label %135
+  br label %134
 
 120:                                              ; preds = %.lr.ph231, %120
   %indvars.iv286 = phi i64 [ %indvars.iv284, %.lr.ph231 ], [ %indvars.iv.next287, %120 ]
@@ -23615,55 +23615,54 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl6jacobiEPPdiS2_S3_(ptr nocap
   %132 = load ptr, ptr %103, align 8
   %133 = getelementptr inbounds double, ptr %132, i64 %indvars.iv.next287
   store double %131, ptr %133, align 8
-  %134 = trunc nuw i64 %indvars.iv.next287 to i32
-  %.not191.not = icmp sgt i32 %1, %134
-  br i1 %.not191.not, label %120, label %.lr.ph234, !llvm.loop !253
+  %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count302
+  br i1 %exitcond290.not, label %.lr.ph234, label %120, !llvm.loop !253
 
-135:                                              ; preds = %.lr.ph234, %135
-  %indvars.iv289 = phi i64 [ 1, %.lr.ph234 ], [ %indvars.iv.next290, %135 ]
-  %136 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv289
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds double, ptr %137, i64 %indvars.iv297
-  %139 = load double, ptr %138, align 8
-  %140 = getelementptr inbounds double, ptr %137, i64 %indvars.iv284
-  %141 = load double, ptr %140, align 8
-  %142 = tail call double @llvm.fmuladd.f64(double %139, double %75, double %141)
-  %143 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double %142, double %139)
-  store double %143, ptr %138, align 8
-  %144 = fneg double %141
-  %145 = tail call double @llvm.fmuladd.f64(double %144, double %75, double %139)
-  %146 = tail call double @llvm.fmuladd.f64(double %73, double %145, double %141)
-  %147 = load ptr, ptr %136, align 8
-  %148 = getelementptr inbounds double, ptr %147, i64 %indvars.iv284
-  store double %146, ptr %148, align 8
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count295
-  br i1 %exitcond293.not, label %.loopexit, label %135, !llvm.loop !254
+134:                                              ; preds = %.lr.ph234, %134
+  %indvars.iv291 = phi i64 [ 1, %.lr.ph234 ], [ %indvars.iv.next292, %134 ]
+  %135 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv291
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds double, ptr %136, i64 %indvars.iv299
+  %138 = load double, ptr %137, align 8
+  %139 = getelementptr inbounds double, ptr %136, i64 %indvars.iv284
+  %140 = load double, ptr %139, align 8
+  %141 = tail call double @llvm.fmuladd.f64(double %138, double %75, double %140)
+  %142 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double %141, double %138)
+  store double %142, ptr %137, align 8
+  %143 = fneg double %140
+  %144 = tail call double @llvm.fmuladd.f64(double %143, double %75, double %138)
+  %145 = tail call double @llvm.fmuladd.f64(double %73, double %144, double %140)
+  %146 = load ptr, ptr %135, align 8
+  %147 = getelementptr inbounds double, ptr %146, i64 %indvars.iv284
+  store double %145, ptr %147, align 8
+  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
+  %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count297
+  br i1 %exitcond295.not, label %.loopexit, label %134, !llvm.loop !254
 
-.loopexit:                                        ; preds = %135, %50, %51
+.loopexit:                                        ; preds = %134, %50, %51
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %exitcond296.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count295
-  br i1 %exitcond296.not, label %.loopexit198, label %43, !llvm.loop !255
+  %exitcond298.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count297
+  br i1 %exitcond298.not, label %.loopexit198, label %43, !llvm.loop !255
 
 .lr.ph246:                                        ; preds = %.preheader200, %.lr.ph246
-  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %.lr.ph246 ], [ 1, %.preheader200 ]
-  %149 = getelementptr inbounds double, ptr %11, i64 %indvars.iv302
-  %150 = load double, ptr %149, align 8
-  %151 = getelementptr inbounds double, ptr %10, i64 %indvars.iv302
-  %152 = load double, ptr %151, align 8
-  %153 = fadd double %150, %152
-  store double %153, ptr %151, align 8
-  %154 = getelementptr inbounds double, ptr %2, i64 %indvars.iv302
-  store double %153, ptr %154, align 8
-  store double 0.000000e+00, ptr %149, align 8
-  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count305
-  br i1 %exitcond306.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !256
+  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %.lr.ph246 ], [ 1, %.preheader200 ]
+  %148 = getelementptr inbounds double, ptr %11, i64 %indvars.iv304
+  %149 = load double, ptr %148, align 8
+  %150 = getelementptr inbounds double, ptr %10, i64 %indvars.iv304
+  %151 = load double, ptr %150, align 8
+  %152 = fadd double %149, %151
+  store double %152, ptr %150, align 8
+  %153 = getelementptr inbounds double, ptr %2, i64 %indvars.iv304
+  store double %152, ptr %153, align 8
+  store double 0.000000e+00, ptr %148, align 8
+  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
+  %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
+  br i1 %exitcond308.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !256
 
 ._crit_edge247:                                   ; preds = %.lr.ph246, %.preheader200
-  %155 = add nuw nsw i32 %.0176248, 1
-  %exitcond307.not = icmp eq i32 %155, 51
-  br i1 %exitcond307.not, label %._crit_edge220.thread, label %.preheader201, !llvm.loop !257
+  %154 = add nuw nsw i32 %.0176248, 1
+  %exitcond309.not = icmp eq i32 %154, 51
+  br i1 %exitcond309.not, label %._crit_edge220.thread, label %.preheader201, !llvm.loop !257
 
 ._crit_edge220.thread:                            ; preds = %._crit_edge247, %._crit_edge220, %.preheader201
   tail call void @_ZdaPv(ptr noundef nonnull %10) #39

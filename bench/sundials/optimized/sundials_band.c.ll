@@ -46,8 +46,10 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   br i1 %15, label %.lr.ph177, label %._crit_edge178
 
 .lr.ph177:                                        ; preds = %.loopexit145, %._crit_edge173
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge173 ], [ %4, %.loopexit145 ]
   %.0115175 = phi ptr [ %67, %._crit_edge173 ], [ %5, %.loopexit145 ]
   %.0126174 = phi i64 [ %21, %._crit_edge173 ], [ 0, %.loopexit145 ]
+  %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv, i64 %14)
   %16 = getelementptr inbounds ptr, ptr %0, i64 %.0126174
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds double, ptr %17, i64 %4
@@ -74,10 +76,10 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   %26 = fcmp ogt double %25, %.0118156
   %.1128 = select i1 %26, i64 %.0122154, i64 %.0127153
   %.1 = select i1 %26, double %25, double %.0118156
-  %27 = add nuw nsw i64 %.0122154, 1
+  %27 = add nuw i64 %.0122154, 1
   %28 = getelementptr inbounds i8, ptr %.0120155, i64 8
-  %.not137.not = icmp slt i64 %.0122154, %.
-  br i1 %.not137.not, label %.lr.ph, label %._crit_edge
+  %exitcond183.not = icmp eq i64 %.0122154, %.
+  br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph177
   %.0127.lcssa = phi i64 [ %.0126174, %.lr.ph177 ], [ %.1128, %.lr.ph ]
@@ -110,10 +112,10 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   %39 = load double, ptr %.1121159, align 8
   %40 = fmul double %38, %39
   store double %40, ptr %.1121159, align 8
-  %41 = add nuw nsw i64 %.1123158, 1
+  %41 = add nuw i64 %.1123158, 1
   %42 = getelementptr inbounds i8, ptr %.1121159, i64 8
-  %.not139.not = icmp slt i64 %.1123158, %.
-  br i1 %.not139.not, label %.lr.ph161, label %._crit_edge162
+  %exitcond184.not = icmp eq i64 %.1123158, %.
+  br i1 %exitcond184.not, label %._crit_edge162, label %.lr.ph161
 
 ._crit_edge162:                                   ; preds = %.lr.ph161, %36
   %43 = add nsw i64 %.0126174, %4
@@ -159,21 +161,22 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   %61 = load double, ptr %.0119166, align 8
   %62 = tail call double @llvm.fmuladd.f64(double %49, double %60, double %61)
   store double %62, ptr %.0119166, align 8
-  %63 = add nuw nsw i64 %.2124164, 1
+  %63 = add nuw i64 %.2124164, 1
   %64 = getelementptr inbounds i8, ptr %.2165, i64 8
   %65 = getelementptr inbounds i8, ptr %.0119166, i64 8
-  %.not141.not = icmp slt i64 %.2124164, %.
-  br i1 %.not141.not, label %.lr.ph168, label %.loopexit
+  %exitcond185.not = icmp eq i64 %.2124164, %.
+  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph168
 
 .loopexit:                                        ; preds = %.lr.ph168, %55
-  %66 = add nuw nsw i64 %.0125170, 1
-  %.not140.not = icmp slt i64 %.0125170, %.142
-  br i1 %.not140.not, label %.lr.ph172, label %._crit_edge173
+  %66 = add nuw i64 %.0125170, 1
+  %exitcond186.not = icmp eq i64 %.0125170, %smin
+  br i1 %exitcond186.not, label %._crit_edge173, label %.lr.ph172
 
 ._crit_edge173:                                   ; preds = %.loopexit, %._crit_edge162
   %67 = getelementptr inbounds i8, ptr %.0115175, i64 8
-  %exitcond183.not = icmp eq i64 %21, %14
-  br i1 %exitcond183.not, label %._crit_edge178, label %.lr.ph177
+  %indvars.iv.next = add i64 %indvars.iv, 1
+  %exitcond187.not = icmp eq i64 %21, %14
+  br i1 %exitcond187.not, label %._crit_edge178, label %.lr.ph177
 
 ._crit_edge178:                                   ; preds = %._crit_edge173, %.loopexit145
   %.0115.lcssa = phi ptr [ %5, %.loopexit145 ], [ %67, %._crit_edge173 ]
@@ -222,8 +225,8 @@ define void @SUNDlsMat_BandGBTRS(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %13, label %.lr.ph68.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %22
-  %exitcond.not.i = icmp eq i64 %27, %12
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph68.i
+  %exitcond75.not.i = icmp eq i64 %27, %12
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %3
   %14 = icmp sgt i64 %7, 0
@@ -265,9 +268,9 @@ define void @SUNDlsMat_BandGBTRS(ptr nocapture noundef readonly %0, ptr nocaptur
   %32 = load double, ptr %31, align 8
   %33 = tail call double @llvm.fmuladd.f64(double %18, double %30, double %32)
   store double %33, ptr %31, align 8
-  %34 = add nuw nsw i64 %.05966.i, 1
-  %.not64.not.i = icmp slt i64 %.05966.i, %..i
-  br i1 %.not64.not.i, label %.lr.ph.i, label %.loopexit.i
+  %34 = add nuw i64 %.05966.i, 1
+  %exitcond.not.i = icmp eq i64 %.05966.i, %..i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph73.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %.172.i = phi i64 [ %52, %._crit_edge.i ], [ %12, %.preheader.i ]
@@ -314,8 +317,8 @@ define void @SUNDlsMat_bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %8, label %.lr.ph68, label %.preheader
 
 .loopexit:                                        ; preds = %.lr.ph, %17
-  %exitcond.not = icmp eq i64 %22, %7
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph68
+  %exitcond75.not = icmp eq i64 %22, %7
+  br i1 %exitcond75.not, label %.preheader, label %.lr.ph68
 
 .preheader:                                       ; preds = %.loopexit, %6
   %9 = icmp sgt i64 %1, 0
@@ -357,9 +360,9 @@ define void @SUNDlsMat_bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef 
   %27 = load double, ptr %26, align 8
   %28 = tail call double @llvm.fmuladd.f64(double %13, double %25, double %27)
   store double %28, ptr %26, align 8
-  %29 = add nuw nsw i64 %.05966, 1
-  %.not64.not = icmp slt i64 %.05966, %.
-  br i1 %.not64.not, label %.lr.ph, label %.loopexit
+  %29 = add nuw i64 %.05966, 1
+  %exitcond.not = icmp eq i64 %.05966, %.
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .lr.ph73:                                         ; preds = %.preheader, %._crit_edge
   %.172 = phi i64 [ %47, %._crit_edge ], [ %7, %.preheader ]
@@ -414,8 +417,8 @@ define void @BandGBTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %13, label %.lr.ph68.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %22
-  %exitcond.not.i = icmp eq i64 %27, %12
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph68.i
+  %exitcond75.not.i = icmp eq i64 %27, %12
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %3
   %14 = icmp sgt i64 %7, 0
@@ -457,9 +460,9 @@ define void @BandGBTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %32 = load double, ptr %31, align 8
   %33 = tail call double @llvm.fmuladd.f64(double %18, double %30, double %32)
   store double %33, ptr %31, align 8
-  %34 = add nuw nsw i64 %.05966.i, 1
-  %.not64.not.i = icmp slt i64 %.05966.i, %..i
-  br i1 %.not64.not.i, label %.lr.ph.i, label %.loopexit.i
+  %34 = add nuw i64 %.05966.i, 1
+  %exitcond.not.i = icmp eq i64 %.05966.i, %..i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph73.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %.172.i = phi i64 [ %52, %._crit_edge.i ], [ %12, %.preheader.i ]
@@ -971,8 +974,8 @@ define void @bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
   br i1 %8, label %.lr.ph68.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %17
-  %exitcond.not.i = icmp eq i64 %22, %7
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph68.i
+  %exitcond75.not.i = icmp eq i64 %22, %7
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %6
   %9 = icmp sgt i64 %1, 0
@@ -1014,9 +1017,9 @@ define void @bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
   %27 = load double, ptr %26, align 8
   %28 = tail call double @llvm.fmuladd.f64(double %13, double %25, double %27)
   store double %28, ptr %26, align 8
-  %29 = add nuw nsw i64 %.05966.i, 1
-  %.not64.not.i = icmp slt i64 %.05966.i, %..i
-  br i1 %.not64.not.i, label %.lr.ph.i, label %.loopexit.i
+  %29 = add nuw i64 %.05966.i, 1
+  %exitcond.not.i = icmp eq i64 %.05966.i, %..i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph73.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %.172.i = phi i64 [ %47, %._crit_edge.i ], [ %7, %.preheader.i ]

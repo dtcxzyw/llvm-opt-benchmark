@@ -292,10 +292,10 @@ land.rhs223:                                      ; preds = %if.then216, %while.
 
 while.body229:                                    ; preds = %land.rhs223
   %incdec.ptr224 = getelementptr inbounds i8, ptr %dp.5191, i64 -1
-  %inc230 = add nuw nsw i32 %ex.1193, 1
+  %inc230 = add i32 %ex.1193, 1
   %dec = add i32 %dig.3192, -1
-  %cmp221 = icmp slt i32 %ex.1193, -1
-  br i1 %cmp221, label %land.rhs223, label %if.end235, !llvm.loop !7
+  %exitcond.not = icmp eq i32 %inc230, 0
+  br i1 %exitcond.not, label %if.end235, label %land.rhs223, !llvm.loop !7
 
 while.end231:                                     ; preds = %land.rhs223
   %cmp232 = icmp ult i32 %ex.1193, -1048575

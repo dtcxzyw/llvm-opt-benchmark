@@ -35951,7 +35951,7 @@ default.unreachable9:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5image8dynimage12DynamicImage6invert17h5a06b8d91e9ca859E(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  switch i64 %2, label %default.unreachable34 [
+  switch i64 %2, label %default.unreachable35 [
     i64 0, label %3
     i64 1, label %5
     i64 2, label %7
@@ -35964,7 +35964,7 @@ define void @_ZN5image8dynimage12DynamicImage6invert17h5a06b8d91e9ca859E(ptr noa
     i64 9, label %41
   ]
 
-default.unreachable34:                            ; preds = %1
+default.unreachable35:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -36096,57 +36096,64 @@ default.unreachable34:                            ; preds = %1
   br i1 %.not51.i3, label %_ZN5image8imageops8colorops6invert17h5fe412a235b41212E.exit, label %.split.us.preheader.i4
 
 .split.us.preheader.i4:                           ; preds = %.split.lr.ph.i2
-  %wide.trip.count59.i = zext i32 %43 to i64
+  %51 = shl nuw nsw i64 %46, 2
+  %wide.trip.count62.i = zext i32 %43 to i64
   br label %.split.us.i5
 
-.split.us.i5:                                     ; preds = %..loopexit_crit_edge.us.i14, %.split.us.preheader.i4
-  %indvars.iv56.i = phi i64 [ 0, %.split.us.preheader.i4 ], [ %indvars.iv.next57.i, %..loopexit_crit_edge.us.i14 ]
-  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %51 = mul nuw i64 %indvars.iv56.i, %46
-  br label %52
+.split.us.i5:                                     ; preds = %..loopexit_crit_edge.us.i15, %.split.us.preheader.i4
+  %indvars.iv = phi i64 [ %indvars.iv.next, %..loopexit_crit_edge.us.i15 ], [ 4, %.split.us.preheader.i4 ]
+  %indvars.iv59.i6 = phi i64 [ %indvars.iv.next60.i7, %..loopexit_crit_edge.us.i15 ], [ 0, %.split.us.preheader.i4 ]
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %..loopexit_crit_edge.us.i15 ], [ -4, %.split.us.preheader.i4 ]
+  %52 = lshr exact i64 %indvars.iv56.i, 2
+  %indvars.iv.next60.i7 = add nuw nsw i64 %indvars.iv59.i6, 1
+  %53 = mul nuw i64 %indvars.iv59.i6, %46
+  br label %54
 
-52:                                               ; preds = %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i", %.split.us.i5
-  %indvars.iv.i6 = phi i64 [ 0, %.split.us.i5 ], [ %indvars.iv.next.i7, %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i" ]
-  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
-  %53 = add nuw i64 %indvars.iv.i6, %51
-  %54 = shl i64 %53, 2
-  %55 = add i64 %54, 4
-  %56 = icmp eq i64 %54, -4
-  br i1 %56, label %.split46.us.i, label %57
+54:                                               ; preds = %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i", %.split.us.i5
+  %indvars.iv.i8 = phi i64 [ 0, %.split.us.i5 ], [ %indvars.iv.next.i9, %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i" ]
+  %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
+  %55 = add nuw i64 %indvars.iv.i8, %53
+  %56 = shl i64 %55, 2
+  %exitcond.i = icmp eq i64 %indvars.iv.i8, %52
+  br i1 %exitcond.i, label %.split46.us.i, label %57
 
-57:                                               ; preds = %52
-  %58 = icmp ugt i64 %55, %50
-  br i1 %58, label %.split48.us.i15, label %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i"
+57:                                               ; preds = %54
+  %58 = add i64 %56, 4
+  %59 = icmp ugt i64 %58, %50
+  br i1 %59, label %.split48.us.i16, label %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i"
 
 "_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i": ; preds = %57
-  %59 = getelementptr inbounds float, ptr %48, i64 %54
-  %.sroa.0.0.copyload15.us.i8 = load float, ptr %59, align 4, !noalias !5773
-  %.sroa.6.0..sroa_idx16.us.i9 = getelementptr inbounds i8, ptr %59, i64 4
-  %.sroa.6.0.copyload17.us.i10 = load float, ptr %.sroa.6.0..sroa_idx16.us.i9, align 4, !noalias !5773
-  %.sroa.8.0..sroa_idx18.us.i11 = getelementptr inbounds i8, ptr %59, i64 8
-  %.sroa.8.0.copyload19.us.i12 = load float, ptr %.sroa.8.0..sroa_idx18.us.i11, align 4, !noalias !5773
-  %60 = fsub float 1.000000e+00, %.sroa.0.0.copyload15.us.i8
-  %61 = fsub float 1.000000e+00, %.sroa.6.0.copyload17.us.i10
-  %62 = fsub float 1.000000e+00, %.sroa.8.0.copyload19.us.i12
-  store float %60, ptr %59, align 4, !noalias !5776
-  store float %61, ptr %.sroa.6.0..sroa_idx16.us.i9, align 4, !noalias !5776
-  store float %62, ptr %.sroa.8.0..sroa_idx18.us.i11, align 4, !noalias !5776
-  %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i7, %46
-  br i1 %exitcond.not.i13, label %..loopexit_crit_edge.us.i14, label %52
+  %60 = getelementptr inbounds float, ptr %48, i64 %56
+  %.sroa.0.0.copyload15.us.i10 = load float, ptr %60, align 4, !noalias !5773
+  %.sroa.6.0..sroa_idx16.us.i11 = getelementptr inbounds i8, ptr %60, i64 4
+  %.sroa.6.0.copyload17.us.i12 = load float, ptr %.sroa.6.0..sroa_idx16.us.i11, align 4, !noalias !5773
+  %.sroa.8.0..sroa_idx18.us.i13 = getelementptr inbounds i8, ptr %60, i64 8
+  %.sroa.8.0.copyload19.us.i14 = load float, ptr %.sroa.8.0..sroa_idx18.us.i13, align 4, !noalias !5773
+  %61 = fsub float 1.000000e+00, %.sroa.0.0.copyload15.us.i10
+  %62 = fsub float 1.000000e+00, %.sroa.6.0.copyload17.us.i12
+  %63 = fsub float 1.000000e+00, %.sroa.8.0.copyload19.us.i14
+  store float %61, ptr %60, align 4, !noalias !5776
+  store float %62, ptr %.sroa.6.0..sroa_idx16.us.i11, align 4, !noalias !5776
+  store float %63, ptr %.sroa.8.0..sroa_idx18.us.i13, align 4, !noalias !5776
+  %exitcond58.not.i = icmp eq i64 %indvars.iv.next.i9, %46
+  br i1 %exitcond58.not.i, label %..loopexit_crit_edge.us.i15, label %54
 
-..loopexit_crit_edge.us.i14:                      ; preds = %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i"
-  %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %_ZN5image8imageops8colorops6invert17h5fe412a235b41212E.exit, label %.split.us.i5
+..loopexit_crit_edge.us.i15:                      ; preds = %"_ZN95_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImage$GT$9put_pixel17h36196ff2b4e91a02E.exit.us.i"
+  %indvars.iv.next57.i = sub i64 %indvars.iv56.i, %51
+  %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i7, %wide.trip.count62.i
+  %indvars.iv.next = add i64 %indvars.iv, %51
+  br i1 %exitcond63.not.i, label %_ZN5image8imageops8colorops6invert17h5fe412a235b41212E.exit, label %.split.us.i5
 
-.split46.us.i:                                    ; preds = %52
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949) #22, !noalias !5779
+.split46.us.i:                                    ; preds = %54
+  %64 = add i64 %indvars.iv, %indvars.iv56.i
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949) #22, !noalias !5779
   unreachable
 
-.split48.us.i15:                                  ; preds = %57
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %55, i64 noundef %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949) #22, !noalias !5779
+.split48.us.i16:                                  ; preds = %57
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %58, i64 noundef %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949) #22, !noalias !5779
   unreachable
 
-_ZN5image8imageops8colorops6invert17h5fe412a235b41212E.exit: ; preds = %..loopexit_crit_edge.us.i14, %..loopexit_crit_edge.us.i, %.split.lr.ph.i2, %41, %.split.lr.ph.i, %19, %17, %15, %13, %11, %9, %7, %5, %3
+_ZN5image8imageops8colorops6invert17h5fe412a235b41212E.exit: ; preds = %..loopexit_crit_edge.us.i15, %..loopexit_crit_edge.us.i, %.split.lr.ph.i2, %41, %.split.lr.ph.i, %19, %17, %15, %13, %11, %9, %7, %5, %3
   ret void
 }
 

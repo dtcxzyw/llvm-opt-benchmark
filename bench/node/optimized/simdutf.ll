@@ -3432,10 +3432,10 @@ for.body7.i:                                      ; preds = %for.cond5.preheader
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %pos.113.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %cmp8.i = icmp sgt i8 %0, -1
-  %inc.i = add nuw i64 %pos.113.i, 1
-  %cmp6.i = icmp ult i64 %inc.i, %len
-  %or.cond = select i1 %cmp8.i, i1 %cmp6.i, i1 false
-  br i1 %or.cond, label %for.body7.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15ascii8validateEPKcm.exit, !llvm.loop !16
+  %inc.i = add i64 %pos.113.i, 1
+  %exitcond.not.i = icmp ne i64 %inc.i, %len
+  %or.cond.not = and i1 %exitcond.not.i, %cmp8.i
+  br i1 %or.cond.not, label %for.body7.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15ascii8validateEPKcm.exit, !llvm.loop !16
 
 _ZN7simdutf6scalar12_GLOBAL__N_15ascii8validateEPKcm.exit: ; preds = %for.body.i, %for.body7.i, %for.cond5.preheader.i
   %retval.0.i = phi i1 [ true, %for.cond5.preheader.i ], [ %cmp8.i, %for.body7.i ], [ false, %for.body.i ]

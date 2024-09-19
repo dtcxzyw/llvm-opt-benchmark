@@ -5613,7 +5613,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   br i1 %.not, label %.preheader119.preheader, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %55, %.critedge2
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge2 ], [ %40, %55 ]
   %.068137 = phi i64 [ %58, %.critedge2 ], [ 0, %55 ]
+  %umin = tail call i64 @llvm.umin.i64(i64 %14, i64 %indvars.iv)
   %56 = getelementptr inbounds i32, ptr %10, i64 %.068137
   %57 = load i32, ptr %56, align 4
   %58 = add i64 %.068137, %40
@@ -5628,8 +5630,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %60 = load i32, ptr %59, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %60, i32 %.0108131)
   %61 = add nuw i64 %.067132, 1
-  %or.cond = icmp ult i64 %61, %invariant.umin
-  br i1 %or.cond, label %.lr.ph134, label %.critedge2, !llvm.loop !43
+  %exitcond.not = icmp eq i64 %61, %umin
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph134, !llvm.loop !43
 
 .critedge2:                                       ; preds = %.lr.ph134, %.lr.ph139
   %.0108.lcssa = phi i32 [ %57, %.lr.ph139 ], [ %.sroa.speculated, %.lr.ph134 ]
@@ -5637,6 +5639,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %63 = getelementptr inbounds i32, ptr %.070, i64 %62
   store i32 %.0108.lcssa, ptr %63, align 4
   %64 = icmp ult i64 %58, %14
+  %indvars.iv.next = add i64 %indvars.iv, %40
   br i1 %64, label %.lr.ph139, label %.preheader119.preheader, !llvm.loop !44
 
 .preheader119.preheader:                          ; preds = %.critedge2, %55

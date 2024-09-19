@@ -677,7 +677,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = load ptr, ptr %5, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
-  br i1 %8, label %9, label %52
+  br i1 %8, label %9, label %51
 
 9:                                                ; preds = %6
   %10 = add nsw i32 %3, -1
@@ -705,8 +705,8 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %31
 
 .loopexit:                                        ; preds = %34, %31
-  %exitcond.not = icmp eq i64 %32, %29
-  br i1 %exitcond.not, label %46, label %31
+  %exitcond82.not = icmp eq i64 %32, %29
+  br i1 %exitcond82.not, label %45, label %31
 
 31:                                               ; preds = %9, %.loopexit
   %.07481 = phi i64 [ 0, %9 ], [ %32, %.loopexit ]
@@ -732,41 +732,41 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %40, double %41)
   store double %43, ptr %gep, align 8
   %44 = add nuw nsw i64 %.078, 1
-  %45 = icmp ult i64 %44, %29
-  br i1 %45, label %34, label %.loopexit
+  %exitcond.not = icmp eq i64 %44, %29
+  br i1 %exitcond.not, label %.loopexit, label %34
 
-46:                                               ; preds = %.loopexit
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %27, ptr noundef %0, ptr noundef %48) #7
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %47, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %50, double noundef -1.000000e+00, ptr noundef %51, ptr noundef %50) #7
-  br label %52
+45:                                               ; preds = %.loopexit
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %27, ptr noundef %0, ptr noundef %47) #7
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %46, align 8
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %49, double noundef -1.000000e+00, ptr noundef %50, ptr noundef %49) #7
+  br label %51
 
-52:                                               ; preds = %46, %6
-  %53 = load ptr, ptr %5, align 8
-  %54 = tail call double @N_VDotProd(ptr noundef %53, ptr noundef %53) #7
-  %55 = fcmp ugt double %54, 0.000000e+00
-  br i1 %55, label %56, label %58
+51:                                               ; preds = %45, %6
+  %52 = load ptr, ptr %5, align 8
+  %53 = tail call double @N_VDotProd(ptr noundef %52, ptr noundef %52) #7
+  %54 = fcmp ugt double %53, 0.000000e+00
+  br i1 %54, label %55, label %57
 
-56:                                               ; preds = %52
-  %57 = tail call double @sqrt(double noundef %54) #7
-  br label %58
+55:                                               ; preds = %51
+  %56 = tail call double @sqrt(double noundef %53) #7
+  br label %57
 
-58:                                               ; preds = %52, %56
-  %59 = phi double [ %57, %56 ], [ 0.000000e+00, %52 ]
-  %60 = add i32 %4, 1
-  %61 = mul i32 %60, %3
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds double, ptr %1, i64 %62
-  store double %59, ptr %63, align 8
-  %64 = fdiv double 1.000000e+00, %59
-  %65 = load ptr, ptr %5, align 8
-  %66 = sext i32 %3 to i64
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  tail call void @N_VScale(double noundef %64, ptr noundef %65, ptr noundef %68) #7
+57:                                               ; preds = %51, %55
+  %58 = phi double [ %56, %55 ], [ 0.000000e+00, %51 ]
+  %59 = add i32 %4, 1
+  %60 = mul i32 %59, %3
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds double, ptr %1, i64 %61
+  store double %58, ptr %62, align 8
+  %63 = fdiv double 1.000000e+00, %58
+  %64 = load ptr, ptr %5, align 8
+  %65 = sext i32 %3 to i64
+  %66 = getelementptr inbounds ptr, ptr %0, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  tail call void @N_VScale(double noundef %63, ptr noundef %64, ptr noundef %67) #7
   ret i32 0
 }
 
@@ -775,7 +775,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = load ptr, ptr %5, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %7) #7
   %8 = icmp sgt i32 %3, 0
-  br i1 %8, label %9, label %68
+  br i1 %8, label %9, label %67
 
 9:                                                ; preds = %6
   %10 = add nsw i32 %3, -1
@@ -828,8 +828,8 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %47
 
 .loopexit:                                        ; preds = %50, %47
-  %exitcond104.not = icmp eq i64 %48, %23
-  br i1 %exitcond104.not, label %62, label %47
+  %exitcond105.not = icmp eq i64 %48, %23
+  br i1 %exitcond105.not, label %61, label %47
 
 47:                                               ; preds = %41, %.loopexit
   %.1101 = phi i64 [ 0, %41 ], [ %48, %.loopexit ]
@@ -855,41 +855,41 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = tail call double @llvm.fmuladd.f64(double %58, double %56, double %57)
   store double %59, ptr %gep100, align 8
   %60 = add nuw nsw i64 %.098, 1
-  %61 = icmp ult i64 %60, %23
-  br i1 %61, label %50, label %.loopexit
+  %exitcond104.not = icmp eq i64 %60, %23
+  br i1 %exitcond104.not, label %.loopexit, label %50
 
-62:                                               ; preds = %.loopexit
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %invariant.gep, ptr noundef %0, ptr noundef %64) #7
-  %66 = load ptr, ptr %5, align 8
-  %67 = load ptr, ptr %63, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %66, double noundef -1.000000e+00, ptr noundef %67, ptr noundef %66) #7
-  br label %68
+61:                                               ; preds = %.loopexit
+  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %invariant.gep, ptr noundef %0, ptr noundef %63) #7
+  %65 = load ptr, ptr %5, align 8
+  %66 = load ptr, ptr %62, align 8
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %65, double noundef -1.000000e+00, ptr noundef %66, ptr noundef %65) #7
+  br label %67
 
-68:                                               ; preds = %62, %6
-  %69 = load ptr, ptr %5, align 8
-  %70 = tail call double @N_VDotProd(ptr noundef %69, ptr noundef %69) #7
-  %71 = fcmp ugt double %70, 0.000000e+00
-  br i1 %71, label %72, label %74
+67:                                               ; preds = %61, %6
+  %68 = load ptr, ptr %5, align 8
+  %69 = tail call double @N_VDotProd(ptr noundef %68, ptr noundef %68) #7
+  %70 = fcmp ugt double %69, 0.000000e+00
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %68
-  %73 = tail call double @sqrt(double noundef %70) #7
-  br label %74
+71:                                               ; preds = %67
+  %72 = tail call double @sqrt(double noundef %69) #7
+  br label %73
 
-74:                                               ; preds = %68, %72
-  %75 = phi double [ %73, %72 ], [ 0.000000e+00, %68 ]
-  %76 = add i32 %4, 1
-  %77 = mul i32 %76, %3
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %1, i64 %78
-  store double %75, ptr %79, align 8
-  %80 = fdiv double 1.000000e+00, %75
-  %81 = load ptr, ptr %5, align 8
-  %82 = sext i32 %3 to i64
-  %83 = getelementptr inbounds ptr, ptr %0, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  tail call void @N_VScale(double noundef %80, ptr noundef %81, ptr noundef %84) #7
+73:                                               ; preds = %67, %71
+  %74 = phi double [ %72, %71 ], [ 0.000000e+00, %67 ]
+  %75 = add i32 %4, 1
+  %76 = mul i32 %75, %3
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds double, ptr %1, i64 %77
+  store double %74, ptr %78, align 8
+  %79 = fdiv double 1.000000e+00, %74
+  %80 = load ptr, ptr %5, align 8
+  %81 = sext i32 %3 to i64
+  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %83 = load ptr, ptr %82, align 8
+  tail call void @N_VScale(double noundef %79, ptr noundef %80, ptr noundef %83) #7
   ret i32 0
 }
 

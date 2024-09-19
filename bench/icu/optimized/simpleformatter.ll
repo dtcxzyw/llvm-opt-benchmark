@@ -222,8 +222,8 @@ if.else60:                                        ; preds = %land.lhs.true52, %l
   br i1 %cmp61, label %land.lhs.true62, label %if.then94
 
 land.lhs.true62:                                  ; preds = %if.else60
-  %sext118 = shl i64 %indvars.iv.next, 32
-  %idxprom64 = ashr exact i64 %sext118, 32
+  %sext120 = shl i64 %indvars.iv.next, 32
+  %idxprom64 = ashr exact i64 %sext120, 32
   %arrayidx65 = getelementptr inbounds i16, ptr %retval.0.i, i64 %idxprom64
   %26 = load i16, ptr %arrayidx65, align 2
   %27 = add i16 %26, -49
@@ -239,8 +239,8 @@ if.then71:                                        ; preds = %land.lhs.true62
 while.cond:                                       ; preds = %while.body, %if.then71
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %while.body ], [ %28, %if.then71 ]
   %argNumber.2 = phi i32 [ %add85, %while.body ], [ %sub73, %if.then71 ]
-  %cmp74 = icmp slt i64 %indvars.iv115, %8
-  br i1 %cmp74, label %land.lhs.true75, label %if.then94
+  %exitcond119.not = icmp eq i64 %indvars.iv115, %8
+  br i1 %exitcond119.not, label %if.then94, label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %while.cond
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1

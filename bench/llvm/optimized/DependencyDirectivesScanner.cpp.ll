@@ -2066,7 +2066,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17Scanner8skipLineERPKcS2_(ptr noca
   br label %6
 
 6:                                                ; preds = %_ZL11skipNewlineRPKcS0_.exit81, %3
-  %7 = phi ptr [ %218, %_ZL11skipNewlineRPKcS0_.exit81 ], [ %.pre, %3 ]
+  %7 = phi ptr [ %219, %_ZL11skipNewlineRPKcS0_.exit81 ], [ %.pre, %3 ]
   %8 = icmp eq ptr %7, %2
   br i1 %8, label %.critedge.thread, label %9
 
@@ -2107,7 +2107,7 @@ _ZL11skipNewlineRPKcS0_.exit:                     ; preds = %19, %._crit_edge.i.
   br label %.critedge.thread
 
 .lr.ph:                                           ; preds = %9, %.backedge
-  %27 = phi ptr [ %152, %.backedge ], [ %7, %9 ]
+  %27 = phi ptr [ %153, %.backedge ], [ %7, %9 ]
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %29
@@ -2117,7 +2117,7 @@ _ZL11skipNewlineRPKcS0_.exit:                     ; preds = %19, %._crit_edge.i.
   br i1 %.not90, label %33, label %.critedge
 
 33:                                               ; preds = %.lr.ph
-  switch i8 %28, label %153 [
+  switch i8 %28, label %154 [
     i8 34, label %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit.thread
     i8 39, label %34
   ]
@@ -2228,7 +2228,8 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread:        ; preds = %71, %62, %64, %_ZL1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %82, %.lr.ph.preheader.i
-  %.056.i = phi ptr [ %83, %82 ], [ %78, %.lr.ph.preheader.i ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %82 ]
+  %.056.i = phi ptr [ %78, %.lr.ph.preheader.i ], [ %83, %82 ]
   %81 = load i8, ptr %.056.i, align 1
   %.not46.i = icmp eq i8 %81, 40
   br i1 %.not46.i, label %.critedge.i, label %82
@@ -2236,6 +2237,7 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread:        ; preds = %71, %62, %64, %_ZL1
 82:                                               ; preds = %.lr.ph.i
   %83 = getelementptr inbounds i8, ptr %.056.i, i64 1
   %.not.i52 = icmp eq ptr %83, %2
+  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   br i1 %.not.i52, label %.backedge.sink.split, label %.lr.ph.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %.lr.ph.i
@@ -2247,10 +2249,12 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread:        ; preds = %71, %62, %64, %_ZL1
   br i1 %.not475767.i, label %.backedge, label %.lr.ph60.i
 
 .lr.ph60.i:                                       ; preds = %.critedge.i, %.backedge.i
-  %.168.i = phi ptr [ %.263.i, %.backedge.i ], [ %.056.i, %.critedge.i ]
+  %.168.i = phi ptr [ %.263.lcssa.i, %.backedge.i ], [ %.056.i, %.critedge.i ]
+  %scevgep81.i = getelementptr i8, ptr %.168.i, i64 %indvars.iv.i
   br label %87
 
 87:                                               ; preds = %90, %.lr.ph60.i
+  %indvars.iv82.i = phi ptr [ %scevgep81.i, %.lr.ph60.i ], [ %scevgep83.i, %90 ]
   %storemerge58.i = phi ptr [ %.168.i, %.lr.ph60.i ], [ %89, %90 ]
   %88 = load i8, ptr %storemerge58.i, align 1
   %.not48.i = icmp eq i8 %88, 41
@@ -2260,6 +2264,7 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread:        ; preds = %71, %62, %64, %_ZL1
   br i1 %.not48.i, label %.critedge2.i, label %90
 
 90:                                               ; preds = %87
+  %scevgep83.i = getelementptr i8, ptr %indvars.iv82.i, i64 1
   br i1 %.not4962.i, label %.backedge, label %87, !llvm.loop !25
 
 .critedge2.i:                                     ; preds = %87
@@ -2274,14 +2279,19 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread:        ; preds = %71, %62, %64, %_ZL1
   %93 = ptrtoint ptr %.263.i to i64
   %94 = sub i64 %93, %91
   %95 = icmp ult i64 %94, %86
-  br i1 %95, label %96, label %104
+  br i1 %95, label %96, label %._crit_edge88.i
+
+._crit_edge88.i:                                  ; preds = %92
+  %.pre.i = ptrtoint ptr %indvars.iv82.i to i64
+  %.pre89.i = sub i64 %.pre.i, %91
+  br label %split.i
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds i8, ptr %78, i64 %94
   %98 = load i8, ptr %97, align 1
   %99 = load i8, ptr %.263.i, align 1
   %100 = icmp eq i8 %98, %99
-  br i1 %100, label %101, label %.backedge.i
+  br i1 %100, label %101, label %split.i
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds i8, ptr %.263.i, i64 1
@@ -2289,29 +2299,35 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread:        ; preds = %71, %62, %64, %_ZL1
   br i1 %.not49.i, label %.critedge4.loopexit.i, label %92, !llvm.loop !26
 
 .critedge4.loopexit.i:                            ; preds = %101
-  %.16881.le.i = ptrtoint ptr %.168.i to i64
-  %scevgep80.le.i = getelementptr i8, ptr %.168.i, i64 %5
-  %103 = sub i64 0, %.16881.le.i
-  %scevgep82.le.i = getelementptr i8, ptr %scevgep80.le.i, i64 %103
+  %.16886.le.i = ptrtoint ptr %.168.i to i64
+  %scevgep85.le.i = getelementptr i8, ptr %.168.i, i64 %5
+  %103 = sub i64 0, %.16886.le.i
+  %scevgep87.le.i = getelementptr i8, ptr %scevgep85.le.i, i64 %103
   br label %.backedge.sink.split
 
-.backedge.i:                                      ; preds = %96, %104
-  store ptr %.263.i, ptr %1, align 8
-  %.not4757.i = icmp eq ptr %.263.i, %2
+split.i:                                          ; preds = %96, %._crit_edge88.i
+  %.pre-phi90.i = phi i64 [ %.pre89.i, %._crit_edge88.i ], [ %94, %96 ]
+  %.263.lcssa.i = phi ptr [ %indvars.iv82.i, %._crit_edge88.i ], [ %.263.i, %96 ]
+  %104 = icmp ult i64 %.pre-phi90.i, %86
+  br i1 %104, label %.backedge.i, label %105
+
+.backedge.i:                                      ; preds = %105, %split.i
+  store ptr %.263.lcssa.i, ptr %1, align 8
+  %.not4757.i = icmp eq ptr %.263.lcssa.i, %2
   br i1 %.not4757.i, label %.backedge, label %.lr.ph60.i, !llvm.loop !27
 
-104:                                              ; preds = %92
-  %105 = load i8, ptr %.263.i, align 1
-  %.not50.i = icmp eq i8 %105, 34
-  br i1 %.not50.i, label %106, label %.backedge.i
+105:                                              ; preds = %split.i
+  %106 = load i8, ptr %.263.lcssa.i, align 1
+  %.not50.i = icmp eq i8 %106, 34
+  br i1 %.not50.i, label %107, label %.backedge.i
 
-106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %.263.i, i64 1
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds i8, ptr %.263.lcssa.i, i64 1
   br label %.backedge.sink.split
 
 _ZL18isRawStringLiteralPKcS0_.exit.thread85:      ; preds = %70, %59, %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit.thread, %_ZL18isRawStringLiteralPKcS0_.exit
-  %108 = icmp eq i8 %57, 60
-  %narrow.i = select i1 %108, i8 62, i8 %57
+  %109 = icmp eq i8 %57, 60
+  %narrow.i = select i1 %109, i8 62, i8 %57
   %storemerge43.i = getelementptr inbounds i8, ptr %56, i64 1
   store ptr %storemerge43.i, ptr %1, align 8
   %.not44.i = icmp eq ptr %storemerge43.i, %2
@@ -2321,272 +2337,272 @@ _ZL18isRawStringLiteralPKcS0_.exit.thread85:      ; preds = %70, %59, %_ZL24isQu
   %storemerge46.i = phi ptr [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread85 ]
   %.pn4245.i = phi ptr [ %.pn41.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %56, %_ZL18isRawStringLiteralPKcS0_.exit.thread85 ]
   %.pn424550.i = ptrtoint ptr %.pn4245.i to i64
-  %109 = load i8, ptr %storemerge46.i, align 1
-  %.not26.i = icmp eq i8 %narrow.i, %109
-  br i1 %.not26.i, label %.critedge.i65, label %110
+  %110 = load i8, ptr %storemerge46.i, align 1
+  %.not26.i = icmp eq i8 %narrow.i, %110
+  br i1 %.not26.i, label %.critedge.i65, label %111
 
-110:                                              ; preds = %.lr.ph.i53
-  %111 = zext i8 %109 to i64
-  %112 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %111
-  %113 = load i16, ptr %112, align 2
-  %114 = and i16 %113, 2
-  %.not38.i = icmp eq i16 %114, 0
-  br i1 %.not38.i, label %115, label %.backedge
+111:                                              ; preds = %.lr.ph.i53
+  %112 = zext i8 %110 to i64
+  %113 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %112
+  %114 = load i16, ptr %113, align 2
+  %115 = and i16 %114, 2
+  %.not38.i = icmp eq i16 %115, 0
+  br i1 %.not38.i, label %116, label %.backedge
 
-115:                                              ; preds = %110
-  %.not28.i54 = icmp eq i8 %109, 92
-  br i1 %.not28.i54, label %116, label %_ZL5isEOLPKcS0_.exit.thread.i
+116:                                              ; preds = %111
+  %.not28.i54 = icmp eq i8 %110, 92
+  br i1 %.not28.i54, label %117, label %_ZL5isEOLPKcS0_.exit.thread.i
 
-116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.pn4245.i, i64 2
-  store ptr %117, ptr %1, align 8
-  %118 = icmp eq ptr %117, %2
-  br i1 %118, label %.backedge, label %119
+117:                                              ; preds = %116
+  %118 = getelementptr inbounds i8, ptr %.pn4245.i, i64 2
+  store ptr %118, ptr %1, align 8
+  %119 = icmp eq ptr %118, %2
+  br i1 %119, label %.backedge, label %120
 
-119:                                              ; preds = %116
-  %120 = load i8, ptr %117, align 1
-  %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %121
-  %123 = load i16, ptr %122, align 2
-  %124 = and i16 %123, 7
-  %.not39.i = icmp eq i16 %124, 0
+120:                                              ; preds = %117
+  %121 = load i8, ptr %118, align 1
+  %122 = zext i8 %121 to i64
+  %123 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %122
+  %124 = load i16, ptr %123, align 2
+  %125 = and i16 %124, 7
+  %.not39.i = icmp eq i16 %125, 0
   br i1 %.not39.i, label %_ZL5isEOLPKcS0_.exit.thread.i, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %119
+.lr.ph.i.preheader.i:                             ; preds = %120
   %scevgep.i56 = getelementptr i8, ptr %.pn4245.i, i64 %5
-  %125 = sub i64 0, %.pn424550.i
-  %scevgep51.i = getelementptr i8, ptr %scevgep.i56, i64 %125
+  %126 = sub i64 0, %.pn424550.i
+  %scevgep51.i = getelementptr i8, ptr %scevgep.i56, i64 %126
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %131, %.lr.ph.i.preheader.i
-  %.0.i57 = phi ptr [ %132, %131 ], [ %117, %.lr.ph.i.preheader.i ]
-  %126 = load i8, ptr %.0.i57, align 1
-  %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %127
-  %129 = load i16, ptr %128, align 2
-  %130 = and i16 %129, 5
-  %.not4.i.i = icmp eq i16 %130, 0
-  br i1 %.not4.i.i, label %_ZL14skipOverSpacesRPKcS0_.exit.i, label %131
+.lr.ph.i.i:                                       ; preds = %132, %.lr.ph.i.preheader.i
+  %.0.i57 = phi ptr [ %133, %132 ], [ %118, %.lr.ph.i.preheader.i ]
+  %127 = load i8, ptr %.0.i57, align 1
+  %128 = zext i8 %127 to i64
+  %129 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %128
+  %130 = load i16, ptr %129, align 2
+  %131 = and i16 %130, 5
+  %.not4.i.i = icmp eq i16 %131, 0
+  br i1 %.not4.i.i, label %_ZL14skipOverSpacesRPKcS0_.exit.i, label %132
 
-131:                                              ; preds = %.lr.ph.i.i
-  %132 = getelementptr inbounds i8, ptr %.0.i57, i64 1
-  %.not.i.i58 = icmp eq ptr %132, %2
+132:                                              ; preds = %.lr.ph.i.i
+  %133 = getelementptr inbounds i8, ptr %.0.i57, i64 1
+  %.not.i.i58 = icmp eq ptr %133, %2
   br i1 %.not.i.i58, label %_ZL14skipOverSpacesRPKcS0_.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
-_ZL14skipOverSpacesRPKcS0_.exit.i:                ; preds = %131, %.lr.ph.i.i
-  %.1.i = phi ptr [ %.0.i57, %.lr.ph.i.i ], [ %scevgep51.i, %131 ]
-  %133 = icmp eq ptr %.1.i, %2
-  br i1 %133, label %_ZL5isEOLPKcS0_.exit.thread.i, label %134
+_ZL14skipOverSpacesRPKcS0_.exit.i:                ; preds = %132, %.lr.ph.i.i
+  %.1.i = phi ptr [ %.0.i57, %.lr.ph.i.i ], [ %scevgep51.i, %132 ]
+  %134 = icmp eq ptr %.1.i, %2
+  br i1 %134, label %_ZL5isEOLPKcS0_.exit.thread.i, label %135
 
-134:                                              ; preds = %_ZL14skipOverSpacesRPKcS0_.exit.i
-  %135 = ptrtoint ptr %.1.i to i64
-  %136 = sub i64 %5, %135
-  %137 = icmp slt i64 %136, 2
+135:                                              ; preds = %_ZL14skipOverSpacesRPKcS0_.exit.i
+  %136 = ptrtoint ptr %.1.i to i64
+  %137 = sub i64 %5, %136
+  %138 = icmp slt i64 %137, 2
   %.pre.i.i59 = load i8, ptr %.1.i, align 1
-  %138 = zext i8 %.pre.i.i59 to i64
-  %139 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %138
-  %140 = load i16, ptr %139, align 2
-  %141 = and i16 %140, 2
-  %.not12.i.i60 = icmp eq i16 %141, 0
-  %or.cond16.i.i61 = select i1 %137, i1 true, i1 %.not12.i.i60
-  br i1 %or.cond16.i.i61, label %_ZL5isEOLPKcS0_.exit.i64, label %142
+  %139 = zext i8 %.pre.i.i59 to i64
+  %140 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %139
+  %141 = load i16, ptr %140, align 2
+  %142 = and i16 %141, 2
+  %.not12.i.i60 = icmp eq i16 %142, 0
+  %or.cond16.i.i61 = select i1 %138, i1 true, i1 %.not12.i.i60
+  br i1 %or.cond16.i.i61, label %_ZL5isEOLPKcS0_.exit.i64, label %143
 
-142:                                              ; preds = %134
-  %143 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %145
-  %147 = load i16, ptr %146, align 2
-  %148 = and i16 %147, 2
-  %.not13.i.i62 = icmp eq i16 %148, 0
-  %.not.i30.i = icmp eq i8 %.pre.i.i59, %144
+143:                                              ; preds = %135
+  %144 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i64
+  %147 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %146
+  %148 = load i16, ptr %147, align 2
+  %149 = and i16 %148, 2
+  %.not13.i.i62 = icmp eq i16 %149, 0
+  %.not.i30.i = icmp eq i8 %.pre.i.i59, %145
   %or.cond.i.i63 = or i1 %.not.i30.i, %.not13.i.i62
   %spec.select.i = select i1 %or.cond.i.i63, i64 1, i64 2
   br label %_ZL5isEOLPKcS0_.exit.thread34.i
 
-_ZL5isEOLPKcS0_.exit.i64:                         ; preds = %134
+_ZL5isEOLPKcS0_.exit.i64:                         ; preds = %135
   br i1 %.not12.i.i60, label %_ZL5isEOLPKcS0_.exit.thread.i, label %_ZL5isEOLPKcS0_.exit.thread34.i
 
-_ZL5isEOLPKcS0_.exit.thread34.i:                  ; preds = %_ZL5isEOLPKcS0_.exit.i64, %142
-  %.0.i37.i = phi i64 [ 1, %_ZL5isEOLPKcS0_.exit.i64 ], [ %spec.select.i, %142 ]
-  %149 = getelementptr inbounds i8, ptr %.1.i, i64 %.0.i37.i
-  %150 = getelementptr inbounds i8, ptr %149, i64 -1
+_ZL5isEOLPKcS0_.exit.thread34.i:                  ; preds = %_ZL5isEOLPKcS0_.exit.i64, %143
+  %.0.i37.i = phi i64 [ 1, %_ZL5isEOLPKcS0_.exit.i64 ], [ %spec.select.i, %143 ]
+  %150 = getelementptr inbounds i8, ptr %.1.i, i64 %.0.i37.i
+  %151 = getelementptr inbounds i8, ptr %150, i64 -1
   br label %_ZL5isEOLPKcS0_.exit.thread.i
 
-_ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exit.thread34.i, %_ZL5isEOLPKcS0_.exit.i64, %_ZL14skipOverSpacesRPKcS0_.exit.i, %119, %115
-  %.pn41.i = phi ptr [ %117, %_ZL14skipOverSpacesRPKcS0_.exit.i ], [ %117, %_ZL5isEOLPKcS0_.exit.i64 ], [ %150, %_ZL5isEOLPKcS0_.exit.thread34.i ], [ %117, %119 ], [ %storemerge46.i, %115 ]
+_ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exit.thread34.i, %_ZL5isEOLPKcS0_.exit.i64, %_ZL14skipOverSpacesRPKcS0_.exit.i, %120, %116
+  %.pn41.i = phi ptr [ %118, %_ZL14skipOverSpacesRPKcS0_.exit.i ], [ %118, %_ZL5isEOLPKcS0_.exit.i64 ], [ %151, %_ZL5isEOLPKcS0_.exit.thread34.i ], [ %118, %120 ], [ %storemerge46.i, %116 ]
   %storemerge.i = getelementptr inbounds i8, ptr %.pn41.i, i64 1
   store ptr %storemerge.i, ptr %1, align 8
   %.not.i55 = icmp eq ptr %storemerge.i, %2
   br i1 %.not.i55, label %.backedge, label %.lr.ph.i53, !llvm.loop !28
 
 .critedge.i65:                                    ; preds = %.lr.ph.i53
-  %151 = getelementptr inbounds i8, ptr %.pn4245.i, i64 2
+  %152 = getelementptr inbounds i8, ptr %.pn4245.i, i64 2
   br label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %82, %.critedge2.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread, %.critedge4.loopexit.i, %106, %194, %204, %191, %.thread, %.critedge.i65
-  %.sink.i69.sink = phi ptr [ %151, %.critedge.i65 ], [ %158, %.thread ], [ %193, %191 ], [ %205, %204 ], [ %2, %194 ], [ %107, %106 ], [ %78, %_ZL18isRawStringLiteralPKcS0_.exit.thread ], [ %scevgep82.le.i, %.critedge4.loopexit.i ], [ %89, %.critedge2.i ], [ %scevgep.i, %82 ]
+.backedge.sink.split:                             ; preds = %82, %.critedge2.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread, %.critedge4.loopexit.i, %107, %195, %205, %192, %.thread, %.critedge.i65
+  %.sink.i69.sink = phi ptr [ %152, %.critedge.i65 ], [ %159, %.thread ], [ %194, %192 ], [ %206, %205 ], [ %2, %195 ], [ %108, %107 ], [ %78, %_ZL18isRawStringLiteralPKcS0_.exit.thread ], [ %scevgep87.le.i, %.critedge4.loopexit.i ], [ %89, %.critedge2.i ], [ %scevgep.i, %82 ]
   store ptr %.sink.i69.sink, ptr %1, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.i, %110, %116, %_ZL5isEOLPKcS0_.exit.thread.i, %206, %188, %_ZL5isEOLPKcS0_.exit25.thread.i.i, %.lr.ph.i.i66, %90, %.preheader.i.i, %.backedge.sink.split, %196, %162, %.critedge.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread85
-  %152 = phi ptr [ %197, %196 ], [ %163, %162 ], [ %.056.i, %.critedge.i ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread85 ], [ %.sink.i69.sink, %.backedge.sink.split ], [ %170, %.preheader.i.i ], [ %89, %90 ], [ %189, %188 ], [ %170, %_ZL5isEOLPKcS0_.exit25.thread.i.i ], [ %.promoted3637.i.i, %.lr.ph.i.i66 ], [ %207, %206 ], [ %storemerge46.i, %110 ], [ %117, %116 ], [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %.263.i, %.backedge.i ]
-  %.not = icmp eq ptr %152, %2
+.backedge:                                        ; preds = %.backedge.i, %111, %117, %_ZL5isEOLPKcS0_.exit.thread.i, %207, %189, %_ZL5isEOLPKcS0_.exit25.thread.i.i, %.lr.ph.i.i66, %90, %.preheader.i.i, %.backedge.sink.split, %197, %163, %.critedge.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread85
+  %153 = phi ptr [ %198, %197 ], [ %164, %163 ], [ %.056.i, %.critedge.i ], [ %storemerge43.i, %_ZL18isRawStringLiteralPKcS0_.exit.thread85 ], [ %.sink.i69.sink, %.backedge.sink.split ], [ %171, %.preheader.i.i ], [ %89, %90 ], [ %190, %189 ], [ %171, %_ZL5isEOLPKcS0_.exit25.thread.i.i ], [ %.promoted3637.i.i, %.lr.ph.i.i66 ], [ %208, %207 ], [ %storemerge46.i, %111 ], [ %118, %117 ], [ %storemerge.i, %_ZL5isEOLPKcS0_.exit.thread.i ], [ %.263.lcssa.i, %.backedge.i ]
+  %.not = icmp eq ptr %153, %2
   br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !29
 
-153:                                              ; preds = %33
+154:                                              ; preds = %33
   %.not44 = icmp ne i8 %28, 47
-  %154 = ptrtoint ptr %27 to i64
-  %155 = sub i64 %5, %154
-  %156 = icmp slt i64 %155, 2
-  %or.cond = or i1 %156, %.not44
-  br i1 %or.cond, label %.thread, label %159
+  %155 = ptrtoint ptr %27 to i64
+  %156 = sub i64 %5, %155
+  %157 = icmp slt i64 %156, 2
+  %or.cond = or i1 %157, %.not44
+  br i1 %or.cond, label %.thread, label %160
 
-.thread:                                          ; preds = %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit, %153
+.thread:                                          ; preds = %_ZL24isQuoteCppDigitSeparatorPKcS0_S0_.exit, %154
   store ptr %27, ptr %4, align 8
-  %157 = load ptr, ptr %1, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 1
+  %158 = load ptr, ptr %1, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 1
   br label %.backedge.sink.split
 
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %27, i64 1
-  %161 = load i8, ptr %160, align 1
-  switch i8 %161, label %191 [
-    i8 47, label %162
-    i8 42, label %194
+160:                                              ; preds = %154
+  %161 = getelementptr inbounds i8, ptr %27, i64 1
+  %162 = load i8, ptr %161, align 1
+  switch i8 %162, label %192 [
+    i8 47, label %163
+    i8 42, label %195
   ]
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %27, i64 2
-  store ptr %163, ptr %1, align 8
-  %164 = icmp eq ptr %163, %2
-  br i1 %164, label %.backedge, label %.lr.ph.i.i66
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds i8, ptr %27, i64 2
+  store ptr %164, ptr %1, align 8
+  %165 = icmp eq ptr %164, %2
+  br i1 %165, label %.backedge, label %.lr.ph.i.i66
 
-.lr.ph.i.i66:                                     ; preds = %162, %188
-  %.promoted3637.i.i = phi ptr [ %189, %188 ], [ %163, %162 ]
+.lr.ph.i.i66:                                     ; preds = %163, %189
+  %.promoted3637.i.i = phi ptr [ %190, %189 ], [ %164, %163 ]
   %.pre.i.i.i = load i8, ptr %.promoted3637.i.i, align 1
-  %165 = zext i8 %.pre.i.i.i to i64
-  %166 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %165
-  %167 = load i16, ptr %166, align 2
-  %168 = and i16 %167, 2
-  %.not12.i.not.i.i = icmp eq i16 %168, 0
+  %166 = zext i8 %.pre.i.i.i to i64
+  %167 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %166
+  %168 = load i16, ptr %167, align 2
+  %169 = and i16 %168, 2
+  %.not12.i.not.i.i = icmp eq i16 %169, 0
   br i1 %.not12.i.not.i.i, label %.preheader.i.i, label %.backedge
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i66, %_ZL5isEOLPKcS0_.exit25.i.i
-  %169 = phi ptr [ %170, %_ZL5isEOLPKcS0_.exit25.i.i ], [ %.promoted3637.i.i, %.lr.ph.i.i66 ]
-  %170 = getelementptr inbounds i8, ptr %169, i64 1
-  store ptr %170, ptr %1, align 8
-  %171 = icmp eq ptr %170, %2
-  br i1 %171, label %.backedge, label %172
+  %170 = phi ptr [ %171, %_ZL5isEOLPKcS0_.exit25.i.i ], [ %.promoted3637.i.i, %.lr.ph.i.i66 ]
+  %171 = getelementptr inbounds i8, ptr %170, i64 1
+  store ptr %171, ptr %1, align 8
+  %172 = icmp eq ptr %171, %2
+  br i1 %172, label %.backedge, label %173
 
-172:                                              ; preds = %.preheader.i.i
-  %173 = ptrtoint ptr %170 to i64
-  %174 = sub i64 %5, %173
-  %175 = icmp slt i64 %174, 2
-  %.pre.i16.i.i = load i8, ptr %170, align 1
-  %176 = zext i8 %.pre.i16.i.i to i64
-  %177 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %176
-  %178 = load i16, ptr %177, align 2
-  %179 = and i16 %178, 2
-  %.not12.i17.i.i = icmp eq i16 %179, 0
-  %or.cond16.i18.i.i = select i1 %175, i1 true, i1 %.not12.i17.i.i
-  br i1 %or.cond16.i18.i.i, label %_ZL5isEOLPKcS0_.exit25.i.i, label %180
+173:                                              ; preds = %.preheader.i.i
+  %174 = ptrtoint ptr %171 to i64
+  %175 = sub i64 %5, %174
+  %176 = icmp slt i64 %175, 2
+  %.pre.i16.i.i = load i8, ptr %171, align 1
+  %177 = zext i8 %.pre.i16.i.i to i64
+  %178 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %177
+  %179 = load i16, ptr %178, align 2
+  %180 = and i16 %179, 2
+  %.not12.i17.i.i = icmp eq i16 %180, 0
+  %or.cond16.i18.i.i = select i1 %176, i1 true, i1 %.not12.i17.i.i
+  br i1 %or.cond16.i18.i.i, label %_ZL5isEOLPKcS0_.exit25.i.i, label %181
 
-180:                                              ; preds = %172
-  %181 = getelementptr inbounds i8, ptr %169, i64 2
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i64
-  %184 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %183
-  %185 = load i16, ptr %184, align 2
-  %186 = and i16 %185, 2
-  %.not13.i19.i.i = icmp eq i16 %186, 0
-  %.not.i20.i.i = icmp eq i8 %.pre.i16.i.i, %182
+181:                                              ; preds = %173
+  %182 = getelementptr inbounds i8, ptr %170, i64 2
+  %183 = load i8, ptr %182, align 1
+  %184 = zext i8 %183 to i64
+  %185 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %184
+  %186 = load i16, ptr %185, align 2
+  %187 = and i16 %186, 2
+  %.not13.i19.i.i = icmp eq i16 %187, 0
+  %.not.i20.i.i = icmp eq i8 %.pre.i16.i.i, %183
   %or.cond.i21.i.i = or i1 %.not.i20.i.i, %.not13.i19.i.i
   %spec.select.i.i = select i1 %or.cond.i21.i.i, i64 1, i64 2
   br label %_ZL5isEOLPKcS0_.exit25.thread.i.i
 
-_ZL5isEOLPKcS0_.exit25.i.i:                       ; preds = %172
+_ZL5isEOLPKcS0_.exit25.i.i:                       ; preds = %173
   br i1 %.not12.i17.i.i, label %.preheader.i.i, label %_ZL5isEOLPKcS0_.exit25.thread.i.i, !llvm.loop !13
 
-_ZL5isEOLPKcS0_.exit25.thread.i.i:                ; preds = %_ZL5isEOLPKcS0_.exit25.i.i, %180
-  %.0.i2230.i.i = phi i64 [ %spec.select.i.i, %180 ], [ 1, %_ZL5isEOLPKcS0_.exit25.i.i ]
-  %187 = load i8, ptr %169, align 1
-  %.not15.i.i = icmp eq i8 %187, 92
-  br i1 %.not15.i.i, label %188, label %.backedge
+_ZL5isEOLPKcS0_.exit25.thread.i.i:                ; preds = %_ZL5isEOLPKcS0_.exit25.i.i, %181
+  %.0.i2230.i.i = phi i64 [ %spec.select.i.i, %181 ], [ 1, %_ZL5isEOLPKcS0_.exit25.i.i ]
+  %188 = load i8, ptr %170, align 1
+  %.not15.i.i = icmp eq i8 %188, 92
+  br i1 %.not15.i.i, label %189, label %.backedge
 
-188:                                              ; preds = %_ZL5isEOLPKcS0_.exit25.thread.i.i
-  %189 = getelementptr inbounds i8, ptr %170, i64 %.0.i2230.i.i
-  store ptr %189, ptr %1, align 8
-  %190 = icmp eq ptr %189, %2
-  br i1 %190, label %.backedge, label %.lr.ph.i.i66, !llvm.loop !15
+189:                                              ; preds = %_ZL5isEOLPKcS0_.exit25.thread.i.i
+  %190 = getelementptr inbounds i8, ptr %171, i64 %.0.i2230.i.i
+  store ptr %190, ptr %1, align 8
+  %191 = icmp eq ptr %190, %2
+  br i1 %191, label %.backedge, label %.lr.ph.i.i66, !llvm.loop !15
 
-191:                                              ; preds = %159
+192:                                              ; preds = %160
   store ptr %27, ptr %4, align 8
-  %192 = load ptr, ptr %1, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 1
+  %193 = load ptr, ptr %1, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 1
   br label %.backedge.sink.split
 
-194:                                              ; preds = %159
-  %195 = icmp ult i64 %155, 4
-  br i1 %195, label %.backedge.sink.split, label %196
+195:                                              ; preds = %160
+  %196 = icmp ult i64 %156, 4
+  br i1 %196, label %.backedge.sink.split, label %197
 
-196:                                              ; preds = %194
-  %197 = getelementptr inbounds i8, ptr %27, i64 3
-  store ptr %197, ptr %1, align 8
-  %.not12.i = icmp eq ptr %197, %2
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds i8, ptr %27, i64 3
+  store ptr %198, ptr %1, align 8
+  %.not12.i = icmp eq ptr %198, %2
   br i1 %.not12.i, label %.backedge, label %.lr.ph.i67
 
-.lr.ph.i67:                                       ; preds = %196, %206
-  %storemerge13.i = phi ptr [ %207, %206 ], [ %197, %196 ]
-  %198 = getelementptr inbounds i8, ptr %storemerge13.i, i64 -1
-  %199 = load i8, ptr %198, align 1
-  %200 = icmp eq i8 %199, 42
-  br i1 %200, label %201, label %206
+.lr.ph.i67:                                       ; preds = %197, %207
+  %storemerge13.i = phi ptr [ %208, %207 ], [ %198, %197 ]
+  %199 = getelementptr inbounds i8, ptr %storemerge13.i, i64 -1
+  %200 = load i8, ptr %199, align 1
+  %201 = icmp eq i8 %200, 42
+  br i1 %201, label %202, label %207
 
-201:                                              ; preds = %.lr.ph.i67
-  %202 = load i8, ptr %storemerge13.i, align 1
-  %203 = icmp eq i8 %202, 47
-  br i1 %203, label %204, label %206
+202:                                              ; preds = %.lr.ph.i67
+  %203 = load i8, ptr %storemerge13.i, align 1
+  %204 = icmp eq i8 %203, 47
+  br i1 %204, label %205, label %207
 
-204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %storemerge13.i, i64 1
+205:                                              ; preds = %202
+  %206 = getelementptr inbounds i8, ptr %storemerge13.i, i64 1
   br label %.backedge.sink.split
 
-206:                                              ; preds = %201, %.lr.ph.i67
-  %207 = getelementptr inbounds i8, ptr %storemerge13.i, i64 1
-  store ptr %207, ptr %1, align 8
-  %.not.i68 = icmp eq ptr %207, %2
+207:                                              ; preds = %202, %.lr.ph.i67
+  %208 = getelementptr inbounds i8, ptr %storemerge13.i, i64 1
+  store ptr %208, ptr %1, align 8
+  %.not.i68 = icmp eq ptr %208, %2
   br i1 %.not.i68, label %.backedge, label %.lr.ph.i67, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph
-  %208 = ptrtoint ptr %27 to i64
-  %209 = sub i64 %5, %208
-  %210 = icmp slt i64 %209, 2
-  br i1 %210, label %._crit_edge.i.i79, label %211
+  %209 = ptrtoint ptr %27 to i64
+  %210 = sub i64 %5, %209
+  %211 = icmp slt i64 %210, 2
+  br i1 %211, label %._crit_edge.i.i79, label %212
 
-211:                                              ; preds = %.critedge
-  %212 = getelementptr inbounds i8, ptr %27, i64 1
-  %213 = load i8, ptr %212, align 1
-  %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %214
-  %216 = load i16, ptr %215, align 2
-  %217 = and i16 %216, 2
-  %.not13.i.i73 = icmp eq i16 %217, 0
-  %.not.i.i74 = icmp eq i8 %28, %213
+212:                                              ; preds = %.critedge
+  %213 = getelementptr inbounds i8, ptr %27, i64 1
+  %214 = load i8, ptr %213, align 1
+  %215 = zext i8 %214 to i64
+  %216 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %215
+  %217 = load i16, ptr %216, align 2
+  %218 = and i16 %217, 2
+  %.not13.i.i73 = icmp eq i16 %218, 0
+  %.not.i.i74 = icmp eq i8 %28, %214
   %or.cond.i.i75 = or i1 %.not.i.i74, %.not13.i.i73
   br i1 %or.cond.i.i75, label %._crit_edge.i.i79, label %_ZL11skipNewlineRPKcS0_.exit81
 
-._crit_edge.i.i79:                                ; preds = %211, %.critedge
+._crit_edge.i.i79:                                ; preds = %212, %.critedge
   br label %_ZL11skipNewlineRPKcS0_.exit81
 
-_ZL11skipNewlineRPKcS0_.exit81:                   ; preds = %211, %._crit_edge.i.i79
-  %.0.i.i77 = phi i64 [ 1, %._crit_edge.i.i79 ], [ 2, %211 ]
-  %218 = getelementptr inbounds i8, ptr %27, i64 %.0.i.i77
-  store ptr %218, ptr %1, align 8
-  %219 = getelementptr inbounds i8, ptr %27, i64 -1
-  %220 = load i8, ptr %219, align 1
-  %221 = icmp eq i8 %220, 92
-  br i1 %221, label %6, label %.critedge.thread, !llvm.loop !30
+_ZL11skipNewlineRPKcS0_.exit81:                   ; preds = %212, %._crit_edge.i.i79
+  %.0.i.i77 = phi i64 [ 1, %._crit_edge.i.i79 ], [ 2, %212 ]
+  %219 = getelementptr inbounds i8, ptr %27, i64 %.0.i.i77
+  store ptr %219, ptr %1, align 8
+  %220 = getelementptr inbounds i8, ptr %27, i64 -1
+  %221 = load i8, ptr %220, align 1
+  %222 = icmp eq i8 %221, 92
+  br i1 %222, label %6, label %.critedge.thread, !llvm.loop !30
 
 .critedge.thread:                                 ; preds = %_ZL11skipNewlineRPKcS0_.exit81, %6, %.backedge, %_ZL11skipNewlineRPKcS0_.exit
   ret void

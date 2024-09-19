@@ -23008,6 +23008,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
+  %indvars.iv12 = phi i32 [ %nmov, %entry ], [ %indvars.iv.next13, %if.end ]
   %indvars.iv = phi i64 [ %0, %entry ], [ %1, %if.end ]
   %1 = add nsw i64 %indvars.iv, -1
   %arrayidx = getelementptr %struct.TCGMovExtend, ptr %mov, i64 %1
@@ -23016,43 +23017,45 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %cmp.i, label %for.cond23.preheader, label %if.end
 
 for.cond23.preheader:                             ; preds = %for.body
-  %3 = trunc nuw i64 %indvars.iv to i32
-  %4 = and i64 %indvars.iv, 4294967295
+  %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv12, i32 1)
+  %wide.trip.count = zext i32 %umax to i64
   br label %for.body26
 
 if.end:                                           ; preds = %for.body
   %dst_type6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %5 = load i32, ptr %dst_type6, align 4
-  %cmp7 = icmp eq i32 %5, 0
+  %3 = load i32, ptr %dst_type6, align 4
+  %cmp7 = icmp eq i32 %3, 0
   %cond = select i1 %cmp7, i32 2, i32 3
   %src_ext = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %6 = load i32, ptr %src_ext, align 4
-  %and = and i32 %6, 7
+  %4 = load i32, ptr %src_ext, align 4
+  %and = and i32 %4, 7
   %cmp10.not = icmp eq i32 %and, %cond
   tail call void @llvm.assume(i1 %cmp10.not)
   %src3 = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %7 = load i32, ptr %src3, align 4
+  %5 = load i32, ptr %src3, align 4
   %sub.i.i = shl i32 %2, 3
-  %8 = add i32 %sub.i.i, -48
-  %conv = zext nneg i32 %8 to i64
-  tail call fastcc void @tcg_out_st(ptr noundef %s, i32 noundef %5, i32 noundef %7, i32 noundef 4, i64 noundef %conv)
+  %6 = add i32 %sub.i.i, -48
+  %conv = zext nneg i32 %6 to i64
+  tail call fastcc void @tcg_out_st(ptr noundef %s, i32 noundef %3, i32 noundef %5, i32 noundef 4, i64 noundef %conv)
   %cmp.not.wide = icmp eq i64 %1, 0
+  %indvars.iv.next13 = add nsw i32 %indvars.iv12, -1
   br i1 %cmp.not.wide, label %sw.epilog, label %for.body, !llvm.loop !105
 
 for.body26:                                       ; preds = %for.cond23.preheader, %for.body26
   %indvars.iv9 = phi i64 [ 0, %for.cond23.preheader ], [ %indvars.iv.next10, %for.body26 ]
   %arrayidx28 = getelementptr %struct.TCGMovExtend, ptr %mov, i64 %indvars.iv9
-  %9 = load i32, ptr %arrayidx28, align 4
-  %idxprom30 = zext i32 %9 to i64
+  %7 = load i32, ptr %arrayidx28, align 4
+  %idxprom30 = zext i32 %7 to i64
   %arrayidx31 = getelementptr [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 %idxprom30
-  %10 = load i32, ptr %arrayidx31, align 4
-  store i32 %10, ptr %arrayidx28, align 4
+  %8 = load i32, ptr %arrayidx31, align 4
+  store i32 %8, ptr %arrayidx28, align 4
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
-  %cmp24 = icmp ult i64 %indvars.iv.next10, %4
-  br i1 %cmp24, label %for.body26, label %for.end35, !llvm.loop !106
+  %exitcond.not = icmp eq i64 %indvars.iv.next10, %wide.trip.count
+  br i1 %exitcond.not, label %for.end35, label %for.body26, !llvm.loop !106
 
 for.end35:                                        ; preds = %for.body26
-  switch i32 %3, label %do.body88 [
+  %9 = trunc nuw i64 %indvars.iv to i32
+  switch i32 %9, label %do.body88 [
     i32 1, label %sw.bb87
     i32 3, label %cond.end
     i32 2, label %cond.end85
@@ -23062,73 +23065,73 @@ cond.end:                                         ; preds = %for.end35
   %add.ptr72 = getelementptr i8, ptr %mov, i64 40
   %add.ptr71 = getelementptr i8, ptr %mov, i64 20
   %src.i = getelementptr inbounds i8, ptr %mov, i64 4
-  %11 = load i32, ptr %src.i, align 4
+  %10 = load i32, ptr %src.i, align 4
   %src3.i = getelementptr i8, ptr %mov, i64 24
-  %12 = load i32, ptr %src3.i, align 4
+  %11 = load i32, ptr %src3.i, align 4
   %src5.i = getelementptr i8, ptr %mov, i64 44
-  %13 = load i32, ptr %src5.i, align 4
-  %14 = load i32, ptr %mov, align 4
-  %cmp.not.i = icmp eq i32 %14, %12
-  %cmp7.not.i = icmp eq i32 %14, %13
+  %12 = load i32, ptr %src5.i, align 4
+  %13 = load i32, ptr %mov, align 4
+  %cmp.not.i = icmp eq i32 %13, %11
+  %cmp7.not.i = icmp eq i32 %13, %12
   %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %cmp7.not.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %11)
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %10)
   tail call fastcc void @tcg_out_movext2(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, ptr noundef nonnull readonly %add.ptr72)
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %cond.end
-  %15 = load i32, ptr %add.ptr71, align 4
-  %cmp9.not.i = icmp eq i32 %15, %11
-  %cmp12.not.i = icmp eq i32 %15, %13
+  %14 = load i32, ptr %add.ptr71, align 4
+  %cmp9.not.i = icmp eq i32 %14, %10
+  %cmp12.not.i = icmp eq i32 %14, %12
   %or.cond115.i = select i1 %cmp9.not.i, i1 true, i1 %cmp12.not.i
   br i1 %or.cond115.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, i32 noundef %12)
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, i32 noundef %11)
   tail call fastcc void @tcg_out_movext2(ptr noundef %s, ptr noundef nonnull readonly %mov, ptr noundef nonnull readonly %add.ptr72)
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %if.end.i
-  %16 = load i32, ptr %add.ptr72, align 4
-  %cmp16.not.i = icmp eq i32 %16, %11
-  %cmp19.not.i = icmp eq i32 %16, %12
+  %15 = load i32, ptr %add.ptr72, align 4
+  %cmp16.not.i = icmp eq i32 %15, %10
+  %cmp19.not.i = icmp eq i32 %15, %11
   %or.cond116.i = or i1 %cmp16.not.i, %cmp19.not.i
   br i1 %or.cond116.i, label %if.end21.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end14.i
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr72, i32 noundef %13)
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr72, i32 noundef %12)
   tail call fastcc void @tcg_out_movext2(ptr noundef %s, ptr noundef nonnull readonly %mov, ptr noundef nonnull readonly %add.ptr71)
   br label %sw.epilog
 
 if.end21.i:                                       ; preds = %if.end14.i
-  %17 = select i1 %cmp.not.i, i1 %cmp12.not.i, i1 false
-  %brmerge125.demorgan.i = and i1 %17, %cmp16.not.i
+  %16 = select i1 %cmp.not.i, i1 %cmp12.not.i, i1 false
+  %brmerge125.demorgan.i = and i1 %16, %cmp16.not.i
   br i1 %brmerge125.demorgan.i, label %if.then30.i, label %if.else52.i
 
 if.then30.i:                                      ; preds = %if.end21.i
   %src_type.i = getelementptr inbounds i8, ptr %mov, i64 12
-  %18 = load i32, ptr %src_type.i, align 4
+  %17 = load i32, ptr %src_type.i, align 4
   %src_type31.i = getelementptr i8, ptr %mov, i64 32
-  %19 = load i32, ptr %src_type31.i, align 4
-  %20 = or i32 %19, %18
-  %cmp.i.i = icmp eq i32 %20, 0
+  %18 = load i32, ptr %src_type31.i, align 4
+  %19 = or i32 %18, %17
+  %cmp.i.i = icmp eq i32 %19, 0
   %add.i.i = select i1 %cmp.i.i, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i.i, i32 noundef %11, i32 noundef %12)
-  %21 = load i32, ptr %src_type31.i, align 4
+  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i.i, i32 noundef %10, i32 noundef %11)
+  %20 = load i32, ptr %src_type31.i, align 4
   %src_type35.i = getelementptr i8, ptr %mov, i64 52
-  %22 = load i32, ptr %src_type35.i, align 4
-  %23 = or i32 %22, %21
-  %cmp.i119.i = icmp eq i32 %23, 0
+  %21 = load i32, ptr %src_type35.i, align 4
+  %22 = or i32 %21, %20
+  %cmp.i119.i = icmp eq i32 %22, 0
   %add.i120.i = select i1 %cmp.i119.i, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i120.i, i32 noundef %12, i32 noundef %13)
-  %24 = load i32, ptr %mov, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %24)
-  %25 = load i32, ptr %add.ptr71, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, i32 noundef %25)
-  %26 = load i32, ptr %add.ptr72, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr72, i32 noundef %26)
+  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i120.i, i32 noundef %11, i32 noundef %12)
+  %23 = load i32, ptr %mov, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %23)
+  %24 = load i32, ptr %add.ptr71, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, i32 noundef %24)
+  %25 = load i32, ptr %add.ptr72, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr72, i32 noundef %25)
   br label %sw.epilog
 
 if.else52.i:                                      ; preds = %if.end21.i
@@ -23138,26 +23141,26 @@ if.else52.i:                                      ; preds = %if.end21.i
 
 if.then61.i:                                      ; preds = %if.else52.i
   %src_type62.i = getelementptr i8, ptr %mov, i64 32
-  %27 = load i32, ptr %src_type62.i, align 4
+  %26 = load i32, ptr %src_type62.i, align 4
   %src_type63.i = getelementptr i8, ptr %mov, i64 52
-  %28 = load i32, ptr %src_type63.i, align 4
-  %29 = or i32 %28, %27
-  %cmp.i121.i = icmp eq i32 %29, 0
+  %27 = load i32, ptr %src_type63.i, align 4
+  %28 = or i32 %27, %26
+  %cmp.i121.i = icmp eq i32 %28, 0
   %add.i122.i = select i1 %cmp.i121.i, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i122.i, i32 noundef %12, i32 noundef %13)
+  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i122.i, i32 noundef %11, i32 noundef %12)
   %src_type72.i = getelementptr inbounds i8, ptr %mov, i64 12
-  %30 = load i32, ptr %src_type72.i, align 4
-  %31 = load i32, ptr %src_type62.i, align 4
-  %32 = or i32 %31, %30
-  %cmp.i123.i = icmp eq i32 %32, 0
+  %29 = load i32, ptr %src_type72.i, align 4
+  %30 = load i32, ptr %src_type62.i, align 4
+  %31 = or i32 %30, %29
+  %cmp.i123.i = icmp eq i32 %31, 0
   %add.i124.i = select i1 %cmp.i123.i, i32 135, i32 4231
-  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i124.i, i32 noundef %11, i32 noundef %12)
-  %33 = load i32, ptr %mov, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %33)
-  %34 = load i32, ptr %add.ptr71, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, i32 noundef %34)
-  %35 = load i32, ptr %add.ptr72, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr72, i32 noundef %35)
+  tail call fastcc void @tcg_out_modrm(ptr noundef %s, i32 noundef %add.i124.i, i32 noundef %10, i32 noundef %11)
+  %32 = load i32, ptr %mov, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %32)
+  %33 = load i32, ptr %add.ptr71, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr71, i32 noundef %33)
+  %34 = load i32, ptr %add.ptr72, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %add.ptr72, i32 noundef %34)
   br label %sw.epilog
 
 do.body94.i:                                      ; preds = %if.else52.i
@@ -23171,8 +23174,8 @@ cond.end85:                                       ; preds = %for.end35
 
 sw.bb87:                                          ; preds = %for.end35
   %src.i58 = getelementptr inbounds i8, ptr %mov, i64 4
-  %36 = load i32, ptr %src.i58, align 4
-  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %36)
+  %35 = load i32, ptr %src.i58, align 4
+  tail call fastcc void @tcg_out_movext1_new_src(ptr noundef %s, ptr noundef nonnull readonly %mov, i32 noundef %35)
   br label %sw.epilog
 
 do.body88:                                        ; preds = %for.end35

@@ -22153,8 +22153,8 @@ for.body74.preheader:                             ; preds = %_ZN4cvc58internal8T
   br label %for.body74
 
 for.cond72.loopexit:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit366, %for.body74
-  %exitcond408.not = icmp eq i64 %add, %umax
-  br i1 %exitcond408.not, label %for.end101, label %for.body74, !llvm.loop !270
+  %exitcond409.not = icmp eq i64 %add, %umax
+  br i1 %exitcond409.not, label %for.end101, label %for.body74, !llvm.loop !270
 
 for.body74:                                       ; preds = %for.body74.preheader, %for.cond72.loopexit
   %i71.0405 = phi i64 [ %add, %for.cond72.loopexit ], [ 0, %for.body74.preheader ]
@@ -22363,9 +22363,9 @@ terminate.lpad.i365:                              ; preds = %if.then13.i.i364
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit366: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit355, %if.then.i.i358, %if.then13.i.i364
-  %inc97 = add nuw i64 %j.0403, 1
-  %cmp76 = icmp ult i64 %inc97, %sub.ptr.div.i
-  br i1 %cmp76, label %for.body77, label %for.cond72.loopexit, !llvm.loop !280
+  %inc97 = add i64 %j.0403, 1
+  %exitcond408.not = icmp eq i64 %inc97, %sub.ptr.div.i
+  br i1 %exitcond408.not, label %for.cond72.loopexit, label %for.body77, !llvm.loop !280
 
 lpad57:                                           ; preds = %if.then13.i4.i243, %if.then13.i.i250
   %96 = landingpad { ptr, i32 }

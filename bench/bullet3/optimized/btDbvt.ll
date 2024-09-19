@@ -481,7 +481,7 @@ for.cond.preheader.lr.ph:                         ; preds = %entry
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.lr.ph, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit
-  %indvars.iv64 = phi i64 [ %0, %for.cond.preheader.lr.ph ], [ %indvars.iv.next65, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit ]
+  %indvars.iv66 = phi i64 [ %0, %for.cond.preheader.lr.ph ], [ %indvars.iv.next67, %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit ]
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %_ZL5mergeRK12btDbvtAabbMmS1_.exit, %for.body
@@ -489,8 +489,8 @@ for.cond.loopexit:                                ; preds = %_ZL5mergeRK12btDbvt
   %minidx.sroa.4.1.lcssa = phi i32 [ %minidx.sroa.4.054, %for.body ], [ %minidx.sroa.4.2, %_ZL5mergeRK12btDbvtAabbMmS1_.exit ]
   %minsize.1.lcssa = phi float [ %minsize.055, %for.body ], [ %minsize.2, %_ZL5mergeRK12btDbvtAabbMmS1_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next62, %indvars.iv64
-  br i1 %exitcond.not, label %for.end13, label %for.body, !llvm.loop !7
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %indvars.iv66
+  br i1 %exitcond65.not, label %for.end13, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond.loopexit
   %indvars.iv61 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next62, %for.cond.loopexit ]
@@ -499,7 +499,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %minidx.sroa.4.054 = phi i32 [ -1, %for.cond.preheader ], [ %minidx.sroa.4.1.lcssa, %for.cond.loopexit ]
   %minidx.sroa.0.053 = phi i32 [ -1, %for.cond.preheader ], [ %minidx.sroa.0.1.lcssa, %for.cond.loopexit ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %cmp345 = icmp slt i64 %indvars.iv.next62, %indvars.iv64
+  %cmp345 = icmp slt i64 %indvars.iv.next62, %indvars.iv66
   br i1 %cmp345, label %for.body4.lr.ph, label %for.cond.loopexit
 
 for.body4.lr.ph:                                  ; preds = %for.body
@@ -562,20 +562,18 @@ _ZL5mergeRK12btDbvtAabbMmS1_.exit:                ; preds = %for.body.i.i
   %minidx.sroa.4.2 = select i1 %cmp8, i32 %16, i32 %minidx.sroa.4.148
   %minsize.2 = select i1 %cmp8, float %add8.i, float %minsize.149
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %sext = shl i64 %indvars.iv.next59, 32
-  %17 = ashr exact i64 %sext, 32
-  %cmp3 = icmp slt i64 %17, %indvars.iv64
-  br i1 %cmp3, label %for.body4, label %for.cond.loopexit, !llvm.loop !12
+  %exitcond.not = icmp eq i64 %indvars.iv.next59, %indvars.iv66
+  br i1 %exitcond.not, label %for.cond.loopexit, label %for.body4, !llvm.loop !12
 
 for.end13:                                        ; preds = %for.cond.loopexit
   %idxprom15 = sext i32 %minidx.sroa.0.1.lcssa to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom15
-  %18 = load ptr, ptr %arrayidx16, align 8
+  %17 = load ptr, ptr %arrayidx16, align 8
   %idxprom18 = sext i32 %minidx.sroa.4.1.lcssa to i64
   %arrayidx19 = getelementptr inbounds ptr, ptr %leaves, i64 %idxprom18
-  %19 = load ptr, ptr %arrayidx19, align 8
-  %20 = load ptr, ptr %m_free.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %20, null
+  %18 = load ptr, ptr %arrayidx19, align 8
+  %19 = load ptr, ptr %m_free.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end13
@@ -588,31 +586,31 @@ if.else.i.i:                                      ; preds = %for.end13
   br label %_ZL10createnodeP6btDbvtP10btDbvtNodePv.exit.i
 
 _ZL10createnodeP6btDbvtP10btDbvtNodePv.exit.i:    ; preds = %if.else.i.i, %if.then.i.i
-  %node.0.i.i = phi ptr [ %20, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
+  %node.0.i.i = phi ptr [ %19, %if.then.i.i ], [ %call.i.i, %if.else.i.i ]
   %parent3.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 32
-  %21 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
-  %mx.i.i30 = getelementptr inbounds i8, ptr %18, i64 16
-  %mx25.i.i31 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
+  %mx.i.i30 = getelementptr inbounds i8, ptr %17, i64 16
+  %mx25.i.i31 = getelementptr inbounds i8, ptr %18, i64 16
   %mx44.i.i32 = getelementptr inbounds i8, ptr %node.0.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parent3.i.i, i8 0, i64 24, i1 false)
   br label %for.body.i.i33
 
 for.body.i.i33:                                   ; preds = %for.body.i.i33, %_ZL10createnodeP6btDbvtP10btDbvtNodePv.exit.i
   %indvars.iv.i.i34 = phi i64 [ 0, %_ZL10createnodeP6btDbvtP10btDbvtNodePv.exit.i ], [ %indvars.iv.next.i.i43, %for.body.i.i33 ]
-  %arrayidx.i2.i = getelementptr inbounds float, ptr %18, i64 %indvars.iv.i.i34
-  %22 = load float, ptr %arrayidx.i2.i, align 4
-  %arrayidx4.i.i35 = getelementptr inbounds float, ptr %19, i64 %indvars.iv.i.i34
-  %23 = load float, ptr %arrayidx4.i.i35, align 4
-  %cmp5.i.i36 = fcmp olt float %22, %23
-  %.sink.i.i37 = select i1 %cmp5.i.i36, float %22, float %23
-  %24 = getelementptr inbounds float, ptr %node.0.i.i, i64 %indvars.iv.i.i34
-  store float %.sink.i.i37, ptr %24, align 4
+  %arrayidx.i2.i = getelementptr inbounds float, ptr %17, i64 %indvars.iv.i.i34
+  %21 = load float, ptr %arrayidx.i2.i, align 4
+  %arrayidx4.i.i35 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.i.i34
+  %22 = load float, ptr %arrayidx4.i.i35, align 4
+  %cmp5.i.i36 = fcmp olt float %21, %22
+  %.sink.i.i37 = select i1 %cmp5.i.i36, float %21, float %22
+  %23 = getelementptr inbounds float, ptr %node.0.i.i, i64 %indvars.iv.i.i34
+  store float %.sink.i.i37, ptr %23, align 4
   %arrayidx24.i.i38 = getelementptr inbounds float, ptr %mx.i.i30, i64 %indvars.iv.i.i34
-  %25 = load float, ptr %arrayidx24.i.i38, align 4
+  %24 = load float, ptr %arrayidx24.i.i38, align 4
   %arrayidx28.i.i39 = getelementptr inbounds float, ptr %mx25.i.i31, i64 %indvars.iv.i.i34
-  %26 = load float, ptr %arrayidx28.i.i39, align 4
-  %cmp29.i.i40 = fcmp ogt float %25, %26
-  %.sink25.i.i41 = select i1 %cmp29.i.i40, float %25, float %26
+  %25 = load float, ptr %arrayidx28.i.i39, align 4
+  %cmp29.i.i40 = fcmp ogt float %24, %25
+  %.sink25.i.i41 = select i1 %cmp29.i.i40, float %24, float %25
   %arrayidx38.i.i42 = getelementptr inbounds float, ptr %mx44.i.i32, i64 %indvars.iv.i.i34
   store float %.sink25.i.i41, ptr %arrayidx38.i.i42, align 4
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i34, 1
@@ -620,19 +618,19 @@ for.body.i.i33:                                   ; preds = %for.body.i.i33, %_Z
   br i1 %exitcond.not.i.i44, label %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit, label %for.body.i.i33, !llvm.loop !11
 
 _ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit: ; preds = %for.body.i.i33
-  store ptr %18, ptr %21, align 8
+  store ptr %17, ptr %20, align 8
   %arrayidx28 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
-  store ptr %19, ptr %arrayidx28, align 8
-  %parent = getelementptr inbounds i8, ptr %18, i64 32
+  store ptr %18, ptr %arrayidx28, align 8
+  %parent = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %node.0.i.i, ptr %parent, align 8
-  %parent31 = getelementptr inbounds i8, ptr %19, i64 32
+  %parent31 = getelementptr inbounds i8, ptr %18, i64 32
   store ptr %node.0.i.i, ptr %parent31, align 8
   store ptr %node.0.i.i, ptr %arrayidx16, align 8
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv64
-  %27 = load ptr, ptr %gep, align 8
-  store ptr %27, ptr %arrayidx19, align 8
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
-  %cmp = icmp sgt i64 %indvars.iv64, 2
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv66
+  %26 = load ptr, ptr %gep, align 8
+  store ptr %26, ptr %arrayidx19, align 8
+  %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
+  %cmp = icmp sgt i64 %indvars.iv66, 2
   br i1 %cmp, label %for.cond.preheader, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %_ZL10createnodeP6btDbvtP10btDbvtNodeRK12btDbvtAabbMmS5_Pv.exit, %entry

@@ -26049,14 +26049,19 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %add.ptr = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub
   %cmp.not12.i = icmp slt i64 %sub.ptr.div, 7
-  br i1 %cmp.not12.i, label %_ZSt22__chunk_insertion_sortIPN3sat7watchedElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_T1_.exit.thread, label %while.body.i
+  br i1 %cmp.not12.i, label %_ZSt22__chunk_insertion_sortIPN3sat7watchedElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_T1_.exit.thread, label %while.body.i.preheader
 
 _ZSt22__chunk_insertion_sortIPN3sat7watchedElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_T1_.exit.thread: ; preds = %entry
   tail call void @_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_(ptr noundef %__first, ptr noundef %__last)
   br label %while.end
 
-while.body.i:                                     ; preds = %entry, %_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_.exit
-  %__first.addr.013.i = phi ptr [ %add.ptr.i, %_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_.exit ], [ %__first, %entry ]
+while.body.i.preheader:                           ; preds = %entry
+  %scevgep = getelementptr i8, ptr %__first, i64 16
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %while.body.i.preheader, %_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_.exit
+  %indvars.iv = phi ptr [ %scevgep, %while.body.i.preheader ], [ %scevgep20, %_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_.exit ]
+  %__first.addr.013.i = phi ptr [ %__first, %while.body.i.preheader ], [ %add.ptr.i, %_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i)
   %m_val2.i.i7.i.i.i = getelementptr inbounds i8, ptr %__first.addr.013.i, i64 8
   br label %for.body.i
@@ -26098,11 +26103,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6bin_ltEEclIPNS2_7watchedES7_EEbT_T0_.
 
 if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6bin_ltEEclIPNS2_7watchedES7_EEbT_T0_.exit.i, %if.end4.i.i.i, %if.end.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.019.i.ptr, i64 16, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn18.i, i64 32
-  %sub.ptr.div.i.i.i.i.i.i = lshr exact i64 %__i.019.i.idx, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.sat::watched", ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.013.i, i64 %__i.019.i.idx, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %indvars.iv, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.013.i, i64 %__i.019.i.idx, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %__first.addr.013.i, ptr noundef nonnull align 8 dereferenceable(12) %__val.i, i64 12, i1 false)
   br label %for.inc.i
 
@@ -26179,6 +26180,7 @@ _ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bi
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
   %cmp.not.i = icmp slt i64 %sub.ptr.sub.i, 112
+  %scevgep20 = getelementptr i8, ptr %indvars.iv, i64 112
   br i1 %cmp.not.i, label %_ZSt22__chunk_insertion_sortIPN3sat7watchedElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_T1_.exit, label %while.body.i, !llvm.loop !133
 
 _ZSt22__chunk_insertion_sortIPN3sat7watchedElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_T1_.exit: ; preds = %_ZSt16__insertion_sortIPN3sat7watchedEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6bin_ltEEEEvT_S8_T0_.exit

@@ -23689,79 +23689,79 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit: ; preds = %.thread.i, %
   %36 = getelementptr inbounds i64, ptr %23, i64 %.011.i.i
   store i64 %35, ptr %36, align 8
   %37 = add nuw i64 %.011.i.i, 1
-  %38 = icmp ult i64 %37, %29
-  br i1 %38, label %.lr.ph.i.i, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit, !llvm.loop !344
+  %exitcond.not = icmp eq i64 %37, %29
+  br i1 %exitcond.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit, label %.lr.ph.i.i, !llvm.loop !344
 
 _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i, %24
-  %exitcond.not = icmp eq i64 %27, %.sroa.speculated
-  br i1 %exitcond.not, label %39, label %24, !llvm.loop !345
+  %exitcond73.not = icmp eq i64 %27, %.sroa.speculated
+  br i1 %exitcond73.not, label %38, label %24, !llvm.loop !345
 
-39:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit
+38:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit
   store i64 %5, ptr %20, align 8
   br i1 %11, label %.lr.ph.i.i8, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit
 
-.lr.ph.i.i8:                                      ; preds = %39, %.lr.ph.i.i8
-  %.05.i.i = phi i64 [ %48, %.lr.ph.i.i8 ], [ 1, %39 ]
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr i64, ptr %40, i64 %.05.i.i
-  %42 = getelementptr i8, ptr %41, i64 -8
-  %43 = load i64, ptr %42, align 8
-  %44 = mul i64 %.05.i.i, %21
-  %45 = getelementptr inbounds i64, ptr %6, i64 %44
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, %43
-  store i64 %47, ptr %41, align 8
-  %48 = add nuw i64 %.05.i.i, 1
-  %exitcond73.not = icmp eq i64 %48, %.sroa.speculated51
-  br i1 %exitcond73.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, label %.lr.ph.i.i8, !llvm.loop !346
+.lr.ph.i.i8:                                      ; preds = %38, %.lr.ph.i.i8
+  %.05.i.i = phi i64 [ %47, %.lr.ph.i.i8 ], [ 1, %38 ]
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr i64, ptr %39, i64 %.05.i.i
+  %41 = getelementptr i8, ptr %40, i64 -8
+  %42 = load i64, ptr %41, align 8
+  %43 = mul i64 %.05.i.i, %21
+  %44 = getelementptr inbounds i64, ptr %6, i64 %43
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, %42
+  store i64 %46, ptr %40, align 8
+  %47 = add nuw i64 %.05.i.i, 1
+  %exitcond74.not = icmp eq i64 %47, %.sroa.speculated51
+  br i1 %exitcond74.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, label %.lr.ph.i.i8, !llvm.loop !346
 
 _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit: ; preds = %.lr.ph.i.i8
   %.pre = load ptr, ptr %8, align 8
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit: ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, %39
-  %49 = phi ptr [ %.pre, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit ], [ %20, %39 ]
-  br label %50
+_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit: ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, %38
+  %48 = phi ptr [ %.pre, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit ], [ %20, %38 ]
+  br label %49
 
-50:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
-  %storemerge672 = phi i64 [ 0, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit ], [ %53, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit ]
-  %51 = mul i64 %storemerge672, %21
-  %52 = icmp eq i64 %storemerge672, %22
-  %53 = add nuw i64 %storemerge672, 1
-  %54 = mul i64 %53, %21
-  %55 = select i1 %52, i64 %9, i64 %54
-  %56 = icmp ult i64 %51, %55
-  br i1 %56, label %.lr.ph.i.i9.preheader, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
+49:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
+  %storemerge672 = phi i64 [ 0, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit ], [ %52, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit ]
+  %50 = mul i64 %storemerge672, %21
+  %51 = icmp eq i64 %storemerge672, %22
+  %52 = add nuw i64 %storemerge672, 1
+  %53 = mul i64 %52, %21
+  %54 = select i1 %51, i64 %9, i64 %53
+  %55 = icmp ult i64 %50, %54
+  br i1 %55, label %.lr.ph.i.i9.preheader, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
 
-.lr.ph.i.i9.preheader:                            ; preds = %50
-  %57 = getelementptr inbounds i64, ptr %49, i64 %storemerge672
+.lr.ph.i.i9.preheader:                            ; preds = %49
+  %56 = getelementptr inbounds i64, ptr %48, i64 %storemerge672
   br label %.lr.ph.i.i9
 
 .lr.ph.i.i9:                                      ; preds = %.lr.ph.i.i9.preheader, %.lr.ph.i.i9
-  %.06.i.i = phi i64 [ %62, %.lr.ph.i.i9 ], [ %51, %.lr.ph.i.i9.preheader ]
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i64, ptr %23, i64 %.06.i.i
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %58
-  store i64 %61, ptr %59, align 8
-  %62 = add nuw i64 %.06.i.i, 1
-  %63 = icmp ult i64 %62, %55
-  br i1 %63, label %.lr.ph.i.i9, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit, !llvm.loop !347
+  %.06.i.i = phi i64 [ %61, %.lr.ph.i.i9 ], [ %50, %.lr.ph.i.i9.preheader ]
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds i64, ptr %23, i64 %.06.i.i
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, %57
+  store i64 %60, ptr %58, align 8
+  %61 = add nuw i64 %.06.i.i, 1
+  %exitcond75.not = icmp eq i64 %61, %54
+  br i1 %exitcond75.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit, label %.lr.ph.i.i9, !llvm.loop !347
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i9, %50
-  %exitcond74.not = icmp eq i64 %53, %.sroa.speculated
-  br i1 %exitcond74.not, label %_ZN4dmlc12OMPExceptionD2Ev.exit13, label %50, !llvm.loop !348
+_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i9, %49
+  %exitcond76.not = icmp eq i64 %52, %.sroa.speculated
+  br i1 %exitcond76.not, label %_ZN4dmlc12OMPExceptionD2Ev.exit13, label %49, !llvm.loop !348
 
 _ZN4dmlc12OMPExceptionD2Ev.exit13:                ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
-  %64 = load i64, ptr %12, align 8
-  %65 = icmp ugt i64 %64, 128
-  br i1 %65, label %66, label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
+  %62 = load i64, ptr %12, align 8
+  %63 = icmp ugt i64 %62, 128
+  br i1 %63, label %64, label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
 
-66:                                               ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13
-  call void @free(ptr noundef %49) #9
+64:                                               ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13
+  call void @free(ptr noundef %48) #9
   br label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
 
-_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14: ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13, %66
+_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14: ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13, %64
   ret void
 }
 
@@ -30592,79 +30592,79 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit: ; preds = %.thread.i, %
   %36 = getelementptr inbounds i64, ptr %23, i64 %.011.i.i
   store i64 %35, ptr %36, align 8
   %37 = add nuw i64 %.011.i.i, 1
-  %38 = icmp ult i64 %37, %29
-  br i1 %38, label %.lr.ph.i.i, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit, !llvm.loop !442
+  %exitcond.not = icmp eq i64 %37, %29
+  br i1 %exitcond.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit, label %.lr.ph.i.i, !llvm.loop !442
 
 _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i, %24
-  %exitcond.not = icmp eq i64 %27, %.sroa.speculated
-  br i1 %exitcond.not, label %39, label %24, !llvm.loop !443
+  %exitcond73.not = icmp eq i64 %27, %.sroa.speculated
+  br i1 %exitcond73.not, label %38, label %24, !llvm.loop !443
 
-39:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit
+38:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit
   store i64 %5, ptr %20, align 8
   br i1 %11, label %.lr.ph.i.i8, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit
 
-.lr.ph.i.i8:                                      ; preds = %39, %.lr.ph.i.i8
-  %.05.i.i = phi i64 [ %48, %.lr.ph.i.i8 ], [ 1, %39 ]
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr i64, ptr %40, i64 %.05.i.i
-  %42 = getelementptr i8, ptr %41, i64 -8
-  %43 = load i64, ptr %42, align 8
-  %44 = mul i64 %.05.i.i, %21
-  %45 = getelementptr inbounds i64, ptr %6, i64 %44
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, %43
-  store i64 %47, ptr %41, align 8
-  %48 = add nuw i64 %.05.i.i, 1
-  %exitcond73.not = icmp eq i64 %48, %.sroa.speculated51
-  br i1 %exitcond73.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, label %.lr.ph.i.i8, !llvm.loop !444
+.lr.ph.i.i8:                                      ; preds = %38, %.lr.ph.i.i8
+  %.05.i.i = phi i64 [ %47, %.lr.ph.i.i8 ], [ 1, %38 ]
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr i64, ptr %39, i64 %.05.i.i
+  %41 = getelementptr i8, ptr %40, i64 -8
+  %42 = load i64, ptr %41, align 8
+  %43 = mul i64 %.05.i.i, %21
+  %44 = getelementptr inbounds i64, ptr %6, i64 %43
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, %42
+  store i64 %46, ptr %40, align 8
+  %47 = add nuw i64 %.05.i.i, 1
+  %exitcond74.not = icmp eq i64 %47, %.sroa.speculated51
+  br i1 %exitcond74.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, label %.lr.ph.i.i8, !llvm.loop !444
 
 _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit: ; preds = %.lr.ph.i.i8
   %.pre = load ptr, ptr %8, align 8
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit: ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, %39
-  %49 = phi ptr [ %.pre, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit ], [ %20, %39 ]
-  br label %50
+_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit: ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, %38
+  %48 = phi ptr [ %.pre, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit ], [ %20, %38 ]
+  br label %49
 
-50:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
-  %storemerge672 = phi i64 [ 0, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit ], [ %53, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit ]
-  %51 = mul i64 %storemerge672, %21
-  %52 = icmp eq i64 %storemerge672, %22
-  %53 = add nuw i64 %storemerge672, 1
-  %54 = mul i64 %53, %21
-  %55 = select i1 %52, i64 %9, i64 %54
-  %56 = icmp ult i64 %51, %55
-  br i1 %56, label %.lr.ph.i.i9.preheader, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
+49:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
+  %storemerge672 = phi i64 [ 0, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit ], [ %52, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit ]
+  %50 = mul i64 %storemerge672, %21
+  %51 = icmp eq i64 %storemerge672, %22
+  %52 = add nuw i64 %storemerge672, 1
+  %53 = mul i64 %52, %21
+  %54 = select i1 %51, i64 %9, i64 %53
+  %55 = icmp ult i64 %50, %54
+  br i1 %55, label %.lr.ph.i.i9.preheader, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
 
-.lr.ph.i.i9.preheader:                            ; preds = %50
-  %57 = getelementptr inbounds i64, ptr %49, i64 %storemerge672
+.lr.ph.i.i9.preheader:                            ; preds = %49
+  %56 = getelementptr inbounds i64, ptr %48, i64 %storemerge672
   br label %.lr.ph.i.i9
 
 .lr.ph.i.i9:                                      ; preds = %.lr.ph.i.i9.preheader, %.lr.ph.i.i9
-  %.06.i.i = phi i64 [ %62, %.lr.ph.i.i9 ], [ %51, %.lr.ph.i.i9.preheader ]
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i64, ptr %23, i64 %.06.i.i
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %58
-  store i64 %61, ptr %59, align 8
-  %62 = add nuw i64 %.06.i.i, 1
-  %63 = icmp ult i64 %62, %55
-  br i1 %63, label %.lr.ph.i.i9, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit, !llvm.loop !445
+  %.06.i.i = phi i64 [ %61, %.lr.ph.i.i9 ], [ %50, %.lr.ph.i.i9.preheader ]
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds i64, ptr %23, i64 %.06.i.i
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, %57
+  store i64 %60, ptr %58, align 8
+  %61 = add nuw i64 %.06.i.i, 1
+  %exitcond75.not = icmp eq i64 %61, %54
+  br i1 %exitcond75.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit, label %.lr.ph.i.i9, !llvm.loop !445
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i9, %50
-  %exitcond74.not = icmp eq i64 %53, %.sroa.speculated
-  br i1 %exitcond74.not, label %_ZN4dmlc12OMPExceptionD2Ev.exit13, label %50, !llvm.loop !446
+_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i9, %49
+  %exitcond76.not = icmp eq i64 %52, %.sroa.speculated
+  br i1 %exitcond76.not, label %_ZN4dmlc12OMPExceptionD2Ev.exit13, label %49, !llvm.loop !446
 
 _ZN4dmlc12OMPExceptionD2Ev.exit13:                ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
-  %64 = load i64, ptr %12, align 8
-  %65 = icmp ugt i64 %64, 128
-  br i1 %65, label %66, label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
+  %62 = load i64, ptr %12, align 8
+  %63 = icmp ugt i64 %62, 128
+  br i1 %63, label %64, label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
 
-66:                                               ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13
-  call void @free(ptr noundef %49) #9
+64:                                               ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13
+  call void @free(ptr noundef %48) #9
   br label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
 
-_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14: ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13, %66
+_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14: ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13, %64
   ret void
 }
 
@@ -35118,79 +35118,79 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit: ; preds = %.thread.i, %
   %36 = getelementptr inbounds i64, ptr %23, i64 %.011.i.i
   store i64 %35, ptr %36, align 8
   %37 = add nuw i64 %.011.i.i, 1
-  %38 = icmp ult i64 %37, %29
-  br i1 %38, label %.lr.ph.i.i, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit, !llvm.loop !527
+  %exitcond.not = icmp eq i64 %37, %29
+  br i1 %exitcond.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit, label %.lr.ph.i.i, !llvm.loop !527
 
 _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i, %24
-  %exitcond.not = icmp eq i64 %27, %.sroa.speculated
-  br i1 %exitcond.not, label %39, label %24, !llvm.loop !528
+  %exitcond73.not = icmp eq i64 %27, %.sroa.speculated
+  br i1 %exitcond73.not, label %38, label %24, !llvm.loop !528
 
-39:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit
+38:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE_JEEEvSD_DpT0_.exit
   store i64 %5, ptr %20, align 8
   br i1 %11, label %.lr.ph.i.i8, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit
 
-.lr.ph.i.i8:                                      ; preds = %39, %.lr.ph.i.i8
-  %.05.i.i = phi i64 [ %48, %.lr.ph.i.i8 ], [ 1, %39 ]
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr i64, ptr %40, i64 %.05.i.i
-  %42 = getelementptr i8, ptr %41, i64 -8
-  %43 = load i64, ptr %42, align 8
-  %44 = mul i64 %.05.i.i, %21
-  %45 = getelementptr inbounds i64, ptr %6, i64 %44
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, %43
-  store i64 %47, ptr %41, align 8
-  %48 = add nuw i64 %.05.i.i, 1
-  %exitcond73.not = icmp eq i64 %48, %.sroa.speculated51
-  br i1 %exitcond73.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, label %.lr.ph.i.i8, !llvm.loop !529
+.lr.ph.i.i8:                                      ; preds = %38, %.lr.ph.i.i8
+  %.05.i.i = phi i64 [ %47, %.lr.ph.i.i8 ], [ 1, %38 ]
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr i64, ptr %39, i64 %.05.i.i
+  %41 = getelementptr i8, ptr %40, i64 -8
+  %42 = load i64, ptr %41, align 8
+  %43 = mul i64 %.05.i.i, %21
+  %44 = getelementptr inbounds i64, ptr %6, i64 %43
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, %42
+  store i64 %46, ptr %40, align 8
+  %47 = add nuw i64 %.05.i.i, 1
+  %exitcond74.not = icmp eq i64 %47, %.sroa.speculated51
+  br i1 %exitcond74.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, label %.lr.ph.i.i8, !llvm.loop !529
 
 _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit: ; preds = %.lr.ph.i.i8
   %.pre = load ptr, ptr %8, align 8
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit: ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, %39
-  %49 = phi ptr [ %.pre, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit ], [ %20, %39 ]
-  br label %50
+_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit: ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit, %38
+  %48 = phi ptr [ %.pre, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.loopexit ], [ %20, %38 ]
+  br label %49
 
-50:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
-  %storemerge672 = phi i64 [ 0, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit ], [ %53, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit ]
-  %51 = mul i64 %storemerge672, %21
-  %52 = icmp eq i64 %storemerge672, %22
-  %53 = add nuw i64 %storemerge672, 1
-  %54 = mul i64 %53, %21
-  %55 = select i1 %52, i64 %9, i64 %54
-  %56 = icmp ult i64 %51, %55
-  br i1 %56, label %.lr.ph.i.i9.preheader, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
+49:                                               ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
+  %storemerge672 = phi i64 [ 0, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit ], [ %52, %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit ]
+  %50 = mul i64 %storemerge672, %21
+  %51 = icmp eq i64 %storemerge672, %22
+  %52 = add nuw i64 %storemerge672, 1
+  %53 = mul i64 %52, %21
+  %54 = select i1 %51, i64 %9, i64 %53
+  %55 = icmp ult i64 %50, %54
+  br i1 %55, label %.lr.ph.i.i9.preheader, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
 
-.lr.ph.i.i9.preheader:                            ; preds = %50
-  %57 = getelementptr inbounds i64, ptr %49, i64 %storemerge672
+.lr.ph.i.i9.preheader:                            ; preds = %49
+  %56 = getelementptr inbounds i64, ptr %48, i64 %storemerge672
   br label %.lr.ph.i.i9
 
 .lr.ph.i.i9:                                      ; preds = %.lr.ph.i.i9.preheader, %.lr.ph.i.i9
-  %.06.i.i = phi i64 [ %62, %.lr.ph.i.i9 ], [ %51, %.lr.ph.i.i9.preheader ]
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i64, ptr %23, i64 %.06.i.i
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %58
-  store i64 %61, ptr %59, align 8
-  %62 = add nuw i64 %.06.i.i, 1
-  %63 = icmp ult i64 %62, %55
-  br i1 %63, label %.lr.ph.i.i9, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit, !llvm.loop !530
+  %.06.i.i = phi i64 [ %61, %.lr.ph.i.i9 ], [ %50, %.lr.ph.i.i9.preheader ]
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds i64, ptr %23, i64 %.06.i.i
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, %57
+  store i64 %60, ptr %58, align 8
+  %61 = add nuw i64 %.06.i.i, 1
+  %exitcond75.not = icmp eq i64 %61, %54
+  br i1 %exitcond75.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit, label %.lr.ph.i.i9, !llvm.loop !530
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i9, %50
-  %exitcond74.not = icmp eq i64 %53, %.sroa.speculated
-  br i1 %exitcond74.not, label %_ZN4dmlc12OMPExceptionD2Ev.exit13, label %50, !llvm.loop !531
+_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit: ; preds = %.lr.ph.i.i9, %49
+  %exitcond76.not = icmp eq i64 %52, %.sroa.speculated
+  br i1 %exitcond76.not, label %_ZN4dmlc12OMPExceptionD2Ev.exit13, label %49, !llvm.loop !531
 
 _ZN4dmlc12OMPExceptionD2Ev.exit13:                ; preds = %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE1_JEEEvSD_DpT0_.exit
-  %64 = load i64, ptr %12, align 8
-  %65 = icmp ugt i64 %64, 128
-  br i1 %65, label %66, label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
+  %62 = load i64, ptr %12, align 8
+  %63 = icmp ugt i64 %62, 128
+  br i1 %63, label %64, label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
 
-66:                                               ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13
-  call void @free(ptr noundef %49) #9
+64:                                               ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13
+  call void @free(ptr noundef %48) #9
   br label %_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14
 
-_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14: ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13, %66
+_ZN7xgboost6common17MemStackAllocatorImLm128EED2Ev.exit14: ; preds = %_ZN4dmlc12OMPExceptionD2Ev.exit13, %64
   ret void
 }
 

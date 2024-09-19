@@ -14877,8 +14877,9 @@ for.body35:                                       ; preds = %_ZN6spacer13lemma_l
   store ptr %38, ptr %arrayidx.i.i41, align 8
   store ptr %39, ptr %arrayidx.i2.i, align 8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %cmp26 = icmp ult i64 %indvars.iv.next66, %13
-  br i1 %cmp26, label %land.rhs27, label %for.end, !llvm.loop !78
+  %lftr.wideiv = trunc i64 %indvars.iv.next66 to i32
+  %exitcond.not = icmp eq i32 %12, %lftr.wideiv
+  br i1 %exitcond.not, label %for.end, label %land.rhs27, !llvm.loop !78
 
 for.end:                                          ; preds = %_ZN6spacer13lemma_lt_procclEPNS_5lemmaES2_.exit, %for.body35, %lor.rhs.i, %_ZN6spacer5lemma9set_levelEj.exit
   %41 = load ptr, ptr %this, align 8

@@ -2139,22 +2139,23 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge469, %.preheader
-  %indvars.iv506 = phi i32 [ 7, %._crit_edge469 ], [ %indvars.iv.next507, %.preheader ]
+  %indvars.iv503 = phi i64 [ 7, %._crit_edge469 ], [ %indvars.iv.next504, %.preheader ]
   %indvar = phi i64 [ 0, %._crit_edge469 ], [ %indvar.next, %.preheader ]
-  %.0176472 = phi i32 [ 0, %._crit_edge469 ], [ %340, %.preheader ]
+  %.0176472 = phi i64 [ 0, %._crit_edge469 ], [ %340, %.preheader ]
   %335 = shl nuw nsw i64 %indvar, 5
   %scevgep = getelementptr i8, ptr %8, i64 %335
   %336 = shl i64 %indvar, 2
   %337 = sub i64 28, %336
-  %338 = sext i32 %.0176472 to i64
-  %339 = shl nsw i64 %338, 2
+  %sext = shl i64 %.0176472, 32
+  %338 = ashr exact i64 %sext, 32
+  %339 = ashr exact i64 %sext, 30
   %scevgep498 = getelementptr i8, ptr %5, i64 %339
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep498, i64 %337, i1 false)
-  %340 = add i32 %.0176472, %indvars.iv506
+  %340 = add i64 %indvars.iv503, %338
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %indvars.iv.next507 = add nsw i32 %indvars.iv506, -1
-  %exitcond511.not = icmp eq i64 %indvar.next, 6
-  br i1 %exitcond511.not, label %341, label %.preheader, !llvm.loop !103
+  %indvars.iv.next504 = add nsw i64 %indvars.iv503, -1
+  %exitcond510.not = icmp eq i64 %indvar.next, 6
+  br i1 %exitcond510.not, label %341, label %.preheader, !llvm.loop !103
 
 341:                                              ; preds = %.preheader
   %342 = getelementptr inbounds i8, ptr %0, i64 16

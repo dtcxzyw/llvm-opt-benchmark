@@ -904,7 +904,7 @@ define void @PrintMat(ptr nocapture noundef readonly %0, ptr nocapture noundef %
 ; Function Attrs: nofree nounwind uwtable
 define void @SUNDlsMat_PrintMat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %0, align 8
-  switch i32 %3, label %57 [
+  switch i32 %3, label %56 [
     i32 1, label %4
     i32 2, label %24
   ]
@@ -963,10 +963,10 @@ define void @SUNDlsMat_PrintMat(ptr nocapture noundef readonly %0, ptr nocapture
   br label %33
 
 33:                                               ; preds = %.lr.ph63, %._crit_edge
-  %34 = phi i64 [ %28, %.lr.ph63 ], [ %55, %._crit_edge ]
-  %.161 = phi i64 [ 0, %.lr.ph63 ], [ %54, %._crit_edge ]
+  %34 = phi i64 [ %28, %.lr.ph63 ], [ %54, %._crit_edge ]
+  %.161 = phi i64 [ 0, %.lr.ph63 ], [ %53, %._crit_edge ]
   %35 = load i64, ptr %30, align 8
-  %36 = sub nsw i64 %.161, %35
+  %36 = sub i64 %.161, %35
   %spec.select = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
   %37 = load i64, ptr %31, align 8
   %38 = add nsw i64 %37, %.161
@@ -984,35 +984,35 @@ define void @SUNDlsMat_PrintMat(ptr nocapture noundef readonly %0, ptr nocapture
   %.14557 = phi i64 [ %43, %.lr.ph ], [ 0, %33 ]
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #14
   %43 = add nuw nsw i64 %.14557, 1
-  %44 = icmp sgt i64 %36, %43
-  br i1 %44, label %.lr.ph, label %.preheader56
+  %exitcond.not = icmp eq i64 %43, %36
+  br i1 %exitcond.not, label %.preheader56, label %.lr.ph
 
 .lr.ph60:                                         ; preds = %.preheader56, %.lr.ph60
-  %.259 = phi i64 [ %53, %.lr.ph60 ], [ %spec.select, %.preheader56 ]
-  %45 = getelementptr inbounds ptr, ptr %26, i64 %.259
-  %46 = load ptr, ptr %45, align 8
-  %47 = sub nsw i64 %.161, %.259
-  %48 = load i64, ptr %32, align 8
-  %49 = getelementptr double, ptr %46, i64 %47
-  %50 = getelementptr double, ptr %49, i64 %48
-  %51 = load double, ptr %50, align 8
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %51) #14
-  %53 = add nuw nsw i64 %.259, 1
+  %.259 = phi i64 [ %52, %.lr.ph60 ], [ %spec.select, %.preheader56 ]
+  %44 = getelementptr inbounds ptr, ptr %26, i64 %.259
+  %45 = load ptr, ptr %44, align 8
+  %46 = sub nsw i64 %.161, %.259
+  %47 = load i64, ptr %32, align 8
+  %48 = getelementptr double, ptr %45, i64 %46
+  %49 = getelementptr double, ptr %48, i64 %47
+  %50 = load double, ptr %49, align 8
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %50) #14
+  %52 = add nuw nsw i64 %.259, 1
   %.not51.not = icmp slt i64 %.259, %40
   br i1 %.not51.not, label %.lr.ph60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph60, %.preheader56
   %fputc52 = tail call i32 @fputc(i32 10, ptr %1)
-  %54 = add nuw nsw i64 %.161, 1
-  %55 = load i64, ptr %27, align 8
-  %56 = icmp slt i64 %54, %55
-  br i1 %56, label %33, label %.sink.split
+  %53 = add nuw nsw i64 %.161, 1
+  %54 = load i64, ptr %27, align 8
+  %55 = icmp slt i64 %53, %54
+  br i1 %55, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge67, %24, %4
   %fputc50 = tail call i32 @fputc(i32 10, ptr %1)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %.sink.split, %2
+56:                                               ; preds = %.sink.split, %2
   ret void
 }
 

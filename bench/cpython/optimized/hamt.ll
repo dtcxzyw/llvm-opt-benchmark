@@ -1673,18 +1673,18 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sub_node.i)
   %shr.i.i = lshr i32 %hash, %shift
-  %and.i.i125 = and i32 %shr.i.i, 31
-  %shl.i126 = shl nuw i32 1, %and.i.i125
+  %and.i.i126 = and i32 %shr.i.i, 31
+  %shl.i127 = shl nuw i32 1, %and.i.i126
   %b_bitmap.i = getelementptr inbounds i8, ptr %node, i64 24
   %1 = load i32, ptr %b_bitmap.i, align 8
-  %and.i = and i32 %1, %shl.i126
+  %and.i = and i32 %1, %shl.i127
   %cmp.i14 = icmp eq i32 %and.i, 0
   br i1 %cmp.i14, label %hamt_node_bitmap_without.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %sub.i123 = add i32 %shl.i126, -1
-  %and.i124 = and i32 %1, %sub.i123
-  %2 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i124)
+  %sub.i124 = add i32 %shl.i127, -1
+  %and.i125 = and i32 %1, %sub.i124
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i125)
   %mul.i = shl nuw nsw i32 %2, 1
   %add.i = or disjoint i32 %mul.i, 1
   %b_array.i = getelementptr inbounds i8, ptr %node, i64 32
@@ -1708,8 +1708,8 @@ sw.bb10.i:                                        ; preds = %if.then7.i
   %5 = load ptr, ptr %sub_node.i, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val.i = load ptr, ptr %6, align 8
-  %cmp.i121.not = icmp eq ptr %.val.i, @_PyHamt_BitmapNode_Type
-  br i1 %cmp.i121.not, label %if.then12.i, label %if.end41.i
+  %cmp.i122.not = icmp eq ptr %.val.i, @_PyHamt_BitmapNode_Type
+  br i1 %cmp.i122.not, label %if.then12.i, label %if.end41.i
 
 if.then12.i:                                      ; preds = %sw.bb10.i
   %7 = getelementptr i8, ptr %5, i64 16
@@ -1753,29 +1753,29 @@ if.end22.i:                                       ; preds = %if.then18.i
   %arrayidx30.i = getelementptr [1 x ptr], ptr %b_array28.i, i64 0, i64 %idxprom.i
   %14 = load ptr, ptr %arrayidx30.i, align 8
   %15 = load i32, ptr %12, align 8
-  %add.i.i116 = add i32 %15, 1
-  %cmp.i.i117 = icmp eq i32 %add.i.i116, 0
-  br i1 %cmp.i.i117, label %_Py_NewRef.exit119, label %if.end.i.i118
+  %add.i.i117 = add i32 %15, 1
+  %cmp.i.i118 = icmp eq i32 %add.i.i117, 0
+  br i1 %cmp.i.i118, label %_Py_NewRef.exit120, label %if.end.i.i119
 
-if.end.i.i118:                                    ; preds = %if.end22.i
-  store i32 %add.i.i116, ptr %12, align 8
-  br label %_Py_NewRef.exit119
+if.end.i.i119:                                    ; preds = %if.end22.i
+  store i32 %add.i.i117, ptr %12, align 8
+  br label %_Py_NewRef.exit120
 
-_Py_NewRef.exit119:                               ; preds = %if.end22.i, %if.end.i.i118
+_Py_NewRef.exit120:                               ; preds = %if.end22.i, %if.end.i.i119
   store ptr %12, ptr %arrayidx30.i, align 8
   tail call fastcc void @Py_XDECREF(ptr noundef %14)
   %arrayidx36.i = getelementptr [1 x ptr], ptr %b_array28.i, i64 0, i64 %idxprom4.i
   %16 = load ptr, ptr %arrayidx36.i, align 8
   %17 = load i32, ptr %13, align 8
-  %add.i.i113 = add i32 %17, 1
-  %cmp.i.i114 = icmp eq i32 %add.i.i113, 0
-  br i1 %cmp.i.i114, label %_Py_NewRef.exit, label %if.end.i.i115
+  %add.i.i114 = add i32 %17, 1
+  %cmp.i.i115 = icmp eq i32 %add.i.i114, 0
+  br i1 %cmp.i.i115, label %_Py_NewRef.exit, label %if.end.i.i116
 
-if.end.i.i115:                                    ; preds = %_Py_NewRef.exit119
-  store i32 %add.i.i113, ptr %13, align 8
+if.end.i.i116:                                    ; preds = %_Py_NewRef.exit120
+  store i32 %add.i.i114, ptr %13, align 8
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit119, %if.end.i.i115
+_Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit120, %if.end.i.i116
   store ptr %13, ptr %arrayidx36.i, align 8
   %18 = load i64, ptr %16, align 8
   %19 = and i64 %18, 2147483648
@@ -1815,84 +1815,84 @@ Py_DECREF.exit79.i:                               ; preds = %if.then1.i77.i, %if
 if.end41.i:                                       ; preds = %land.lhs.true.i, %if.then12.i, %sw.bb10.i
   %22 = getelementptr i8, ptr %node, i64 16
   %node.val.i = load i64, ptr %22, align 8
-  %cmp.i.i81 = icmp eq i64 %node.val.i, 0
-  br i1 %cmp.i.i81, label %do.body47.i, label %if.end.i.i82
+  %cmp.i.i82 = icmp eq i64 %node.val.i, 0
+  br i1 %cmp.i.i82, label %do.body47.i, label %if.end.i.i83
 
-if.end.i.i82:                                     ; preds = %if.end41.i
-  %call.i.i83 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %node.val.i) #11
-  %cmp1.i.i84 = icmp eq ptr %call.i.i83, null
-  br i1 %cmp1.i.i84, label %hamt_node_bitmap_without.exit, label %if.end3.i.i85
+if.end.i.i83:                                     ; preds = %if.end41.i
+  %call.i.i84 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %node.val.i) #11
+  %cmp1.i.i85 = icmp eq ptr %call.i.i84, null
+  br i1 %cmp1.i.i85, label %hamt_node_bitmap_without.exit, label %if.end3.i.i86
 
-if.end3.i.i85:                                    ; preds = %if.end.i.i82
-  %ob_size.i.i.i86 = getelementptr inbounds i8, ptr %call.i.i83, i64 16
-  store i64 %node.val.i, ptr %ob_size.i.i.i86, align 8
-  %cmp411.i.i87 = icmp sgt i64 %node.val.i, 0
-  br i1 %cmp411.i.i87, label %for.body.lr.ph.i.i111, label %hamt_node_bitmap_new.exit.i
+if.end3.i.i86:                                    ; preds = %if.end.i.i83
+  %ob_size.i.i.i87 = getelementptr inbounds i8, ptr %call.i.i84, i64 16
+  store i64 %node.val.i, ptr %ob_size.i.i.i87, align 8
+  %cmp411.i.i88 = icmp sgt i64 %node.val.i, 0
+  br i1 %cmp411.i.i88, label %for.body.lr.ph.i.i112, label %hamt_node_bitmap_new.exit.i
 
-for.body.lr.ph.i.i111:                            ; preds = %if.end3.i.i85
-  %b_array.i.i112 = getelementptr inbounds i8, ptr %call.i.i83, i64 32
+for.body.lr.ph.i.i112:                            ; preds = %if.end3.i.i86
+  %b_array.i.i113 = getelementptr inbounds i8, ptr %call.i.i84, i64 32
   %23 = shl nuw i64 %node.val.i, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i112, i8 0, i64 %23, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i113, i8 0, i64 %23, i1 false)
   br label %hamt_node_bitmap_new.exit.i
 
-hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.lr.ph.i.i111, %if.end3.i.i85
-  %b_bitmap.i.i88 = getelementptr inbounds i8, ptr %call.i.i83, i64 24
-  store i32 0, ptr %b_bitmap.i.i88, align 8
-  %add.ptr.i.i.i.i89 = getelementptr i8, ptr %call.i.i83, i64 -16
+hamt_node_bitmap_new.exit.i:                      ; preds = %for.body.lr.ph.i.i112, %if.end3.i.i86
+  %b_bitmap.i.i89 = getelementptr inbounds i8, ptr %call.i.i84, i64 24
+  store i32 0, ptr %b_bitmap.i.i89, align 8
+  %add.ptr.i.i.i.i90 = getelementptr i8, ptr %call.i.i84, i64 -16
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %25 = load ptr, ptr %24, align 8
-  %interp.i.i.i.i90 = getelementptr inbounds i8, ptr %25, i64 16
-  %26 = load ptr, ptr %interp.i.i.i.i90, align 8
-  %generation03.i.i.i91 = getelementptr inbounds i8, ptr %26, i64 1096
-  %27 = load ptr, ptr %generation03.i.i.i91, align 8
-  %_gc_prev.i.i.i92 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load i64, ptr %_gc_prev.i.i.i92, align 8
+  %interp.i.i.i.i91 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = load ptr, ptr %interp.i.i.i.i91, align 8
+  %generation03.i.i.i92 = getelementptr inbounds i8, ptr %26, i64 1096
+  %27 = load ptr, ptr %generation03.i.i.i92, align 8
+  %_gc_prev.i.i.i93 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = load i64, ptr %_gc_prev.i.i.i93, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = ptrtoint ptr %add.ptr.i.i.i.i89 to i64
+  %30 = ptrtoint ptr %add.ptr.i.i.i.i90 to i64
   store i64 %30, ptr %29, align 8
-  %_gc_prev.i.i.i.i93 = getelementptr i8, ptr %call.i.i83, i64 -8
-  %31 = load i64, ptr %_gc_prev.i.i.i.i93, align 8
-  %and.i.i.i.i94 = and i64 %31, 3
-  %or.i.i.i.i95 = or i64 %and.i.i.i.i94, %28
-  store i64 %or.i.i.i.i95, ptr %_gc_prev.i.i.i.i93, align 8
+  %_gc_prev.i.i.i.i94 = getelementptr i8, ptr %call.i.i84, i64 -8
+  %31 = load i64, ptr %_gc_prev.i.i.i.i94, align 8
+  %and.i.i.i.i95 = and i64 %31, 3
+  %or.i.i.i.i96 = or i64 %and.i.i.i.i95, %28
+  store i64 %or.i.i.i.i96, ptr %_gc_prev.i.i.i.i94, align 8
   %32 = ptrtoint ptr %27 to i64
-  store i64 %32, ptr %add.ptr.i.i.i.i89, align 8
-  store i64 %30, ptr %_gc_prev.i.i.i92, align 8
+  store i64 %32, ptr %add.ptr.i.i.i.i90, align 8
+  store i64 %30, ptr %_gc_prev.i.i.i93, align 8
   %node.val1013.pre.i = load i64, ptr %22, align 8
   %33 = icmp sgt i64 %node.val1013.pre.i, 0
-  br i1 %33, label %for.body.lr.ph.i99, label %do.body47.i
+  br i1 %33, label %for.body.lr.ph.i100, label %do.body47.i
 
-for.body.lr.ph.i99:                               ; preds = %hamt_node_bitmap_new.exit.i
-  %b_array5.i101 = getelementptr inbounds i8, ptr %call.i.i83, i64 32
-  br label %for.body.i102
+for.body.lr.ph.i100:                              ; preds = %hamt_node_bitmap_new.exit.i
+  %b_array5.i102 = getelementptr inbounds i8, ptr %call.i.i84, i64 32
+  br label %for.body.i103
 
-for.body.i102:                                    ; preds = %_Py_XNewRef.exit.i109, %for.body.lr.ph.i99
-  %i.015.i = phi i64 [ 0, %for.body.lr.ph.i99 ], [ %inc.i110, %_Py_XNewRef.exit.i109 ]
-  %arrayidx.i103 = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %i.015.i
-  %34 = load ptr, ptr %arrayidx.i103, align 8
-  %cmp.not.i.i.i104 = icmp eq ptr %34, null
-  br i1 %cmp.not.i.i.i104, label %_Py_XNewRef.exit.i109, label %if.then.i.i.i105
+for.body.i103:                                    ; preds = %_Py_XNewRef.exit.i110, %for.body.lr.ph.i100
+  %i.015.i = phi i64 [ 0, %for.body.lr.ph.i100 ], [ %inc.i111, %_Py_XNewRef.exit.i110 ]
+  %arrayidx.i104 = getelementptr [1 x ptr], ptr %b_array.i, i64 0, i64 %i.015.i
+  %34 = load ptr, ptr %arrayidx.i104, align 8
+  %cmp.not.i.i.i105 = icmp eq ptr %34, null
+  br i1 %cmp.not.i.i.i105, label %_Py_XNewRef.exit.i110, label %if.then.i.i.i106
 
-if.then.i.i.i105:                                 ; preds = %for.body.i102
+if.then.i.i.i106:                                 ; preds = %for.body.i103
   %35 = load i32, ptr %34, align 8
-  %add.i.i.i.i106 = add i32 %35, 1
-  %cmp.i.i.i.i107 = icmp eq i32 %add.i.i.i.i106, 0
-  br i1 %cmp.i.i.i.i107, label %_Py_XNewRef.exit.i109, label %if.end.i.i.i.i108
+  %add.i.i.i.i107 = add i32 %35, 1
+  %cmp.i.i.i.i108 = icmp eq i32 %add.i.i.i.i107, 0
+  br i1 %cmp.i.i.i.i108, label %_Py_XNewRef.exit.i110, label %if.end.i.i.i.i109
 
-if.end.i.i.i.i108:                                ; preds = %if.then.i.i.i105
-  store i32 %add.i.i.i.i106, ptr %34, align 8
-  br label %_Py_XNewRef.exit.i109
+if.end.i.i.i.i109:                                ; preds = %if.then.i.i.i106
+  store i32 %add.i.i.i.i107, ptr %34, align 8
+  br label %_Py_XNewRef.exit.i110
 
-_Py_XNewRef.exit.i109:                            ; preds = %if.end.i.i.i.i108, %if.then.i.i.i105, %for.body.i102
-  %arrayidx6.i = getelementptr [1 x ptr], ptr %b_array5.i101, i64 0, i64 %i.015.i
+_Py_XNewRef.exit.i110:                            ; preds = %if.end.i.i.i.i109, %if.then.i.i.i106, %for.body.i103
+  %arrayidx6.i = getelementptr [1 x ptr], ptr %b_array5.i102, i64 0, i64 %i.015.i
   store ptr %34, ptr %arrayidx6.i, align 8
-  %inc.i110 = add nuw nsw i64 %i.015.i, 1
+  %inc.i111 = add nuw nsw i64 %i.015.i, 1
   %node.val10.i = load i64, ptr %22, align 8
-  %cmp3.i = icmp slt i64 %inc.i110, %node.val10.i
-  br i1 %cmp3.i, label %for.body.i102, label %do.body47.i, !llvm.loop !11
+  %cmp3.i = icmp slt i64 %inc.i111, %node.val10.i
+  br i1 %cmp3.i, label %for.body.i103, label %do.body47.i, !llvm.loop !11
 
-do.body47.i:                                      ; preds = %_Py_XNewRef.exit.i109, %hamt_node_bitmap_new.exit.i, %if.end41.i
-  %retval.0.i19.i = phi ptr [ %call.i.i83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end41.i ], [ %call.i.i83, %_Py_XNewRef.exit.i109 ]
+do.body47.i:                                      ; preds = %_Py_XNewRef.exit.i110, %hamt_node_bitmap_new.exit.i, %if.end41.i
+  %retval.0.i19.i = phi ptr [ %call.i.i84, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end41.i ], [ %call.i.i84, %_Py_XNewRef.exit.i110 ]
   %36 = load i32, ptr %b_bitmap.i, align 8
   %b_bitmap7.i = getelementptr inbounds i8, ptr %retval.0.i19.i, i64 24
   store i32 %36, ptr %b_bitmap7.i, align 8
@@ -1945,15 +1945,15 @@ if.end3.i.i:                                      ; preds = %if.end.i.i55
   %ob_size.i.i.i58 = getelementptr inbounds i8, ptr %call.i.i56, i64 16
   store i64 %sub.i53, ptr %ob_size.i.i.i58, align 8
   %cmp411.i.i = icmp sgt i64 %sub.i53, 0
-  br i1 %cmp411.i.i, label %for.body.lr.ph.i.i79, label %if.end.i67
+  br i1 %cmp411.i.i, label %for.body.lr.ph.i.i80, label %if.end.i67
 
-for.body.lr.ph.i.i79:                             ; preds = %if.end3.i.i
-  %b_array.i.i80 = getelementptr inbounds i8, ptr %call.i.i56, i64 32
+for.body.lr.ph.i.i80:                             ; preds = %if.end3.i.i
+  %b_array.i.i81 = getelementptr inbounds i8, ptr %call.i.i56, i64 32
   %42 = shl nuw i64 %sub.i53, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i80, i8 0, i64 %42, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i81, i8 0, i64 %42, i1 false)
   br label %if.end.i67
 
-if.end.i67:                                       ; preds = %if.end3.i.i, %for.body.lr.ph.i.i79
+if.end.i67:                                       ; preds = %if.end3.i.i, %for.body.lr.ph.i.i80
   %b_bitmap.i.i59 = getelementptr inbounds i8, ptr %call.i.i56, i64 24
   store i32 0, ptr %b_bitmap.i.i59, align 8
   %add.ptr.i.i.i.i60 = getelementptr i8, ptr %call.i.i56, i64 -16
@@ -1977,11 +1977,11 @@ if.end.i67:                                       ; preds = %if.end3.i.i, %for.b
   store i64 %51, ptr %add.ptr.i.i.i.i60, align 8
   store i64 %49, ptr %_gc_prev.i.i.i63, align 8
   %52 = load i32, ptr %b_bitmap.i, align 8
-  %and.i.i = and i32 %52, %sub.i123
+  %and.i.i = and i32 %52, %sub.i124
   %53 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i.i)
   %mul.i69 = shl nuw nsw i32 %53, 1
   %cmp329.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp329.not.i, label %for.end.i74, label %for.body.lr.ph.i70
+  br i1 %cmp329.not.i, label %for.end.i75, label %for.body.lr.ph.i70
 
 for.body.lr.ph.i70:                               ; preds = %if.end.i67
   %b_array5.i = getelementptr i8, ptr %call.i.i56, i64 32
@@ -2010,19 +2010,19 @@ _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if
   %arrayidx7.i = getelementptr [1 x ptr], ptr %b_array5.i, i64 0, i64 %indvars.iv.i
   store ptr %54, ptr %arrayidx7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i74, label %for.body.i72, !llvm.loop !12
+  %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i74, label %for.end.i75, label %for.body.i72, !llvm.loop !12
 
-for.end.i74:                                      ; preds = %_Py_XNewRef.exit.i, %if.end.i67
-  %add8.i75 = add nuw nsw i32 %mul.i69, 2
+for.end.i75:                                      ; preds = %_Py_XNewRef.exit.i, %if.end.i67
+  %add8.i76 = add nuw nsw i32 %mul.i69, 2
   %o.val31.i = load i64, ptr %40, align 8
   %conv32.i = trunc i64 %o.val31.i to i32
-  %cmp1133.i = icmp ult i32 %add8.i75, %conv32.i
+  %cmp1133.i = icmp ult i32 %add8.i76, %conv32.i
   br i1 %cmp1133.i, label %for.body13.lr.ph.i, label %for.end24.i
 
-for.body13.lr.ph.i:                               ; preds = %for.end.i74
+for.body13.lr.ph.i:                               ; preds = %for.end.i75
   %b_array18.i = getelementptr inbounds i8, ptr %call.i.i56, i64 32
-  %56 = zext nneg i32 %add8.i75 to i64
+  %56 = zext nneg i32 %add8.i76 to i64
   br label %for.body13.i
 
 for.body13.i:                                     ; preds = %_Py_XNewRef.exit25.i, %for.body13.lr.ph.i
@@ -2049,15 +2049,15 @@ _Py_XNewRef.exit25.i:                             ; preds = %if.end.i.i.i24.i, %
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %o.val.i = load i64, ptr %40, align 8
   %60 = and i64 %o.val.i, 4294967295
-  %cmp11.i78 = icmp ult i64 %indvars.iv.next37.i, %60
-  br i1 %cmp11.i78, label %for.body13.i, label %for.end24.i, !llvm.loop !13
+  %cmp11.i79 = icmp ult i64 %indvars.iv.next37.i, %60
+  br i1 %cmp11.i79, label %for.body13.i, label %for.end24.i, !llvm.loop !13
 
-for.end24.i:                                      ; preds = %_Py_XNewRef.exit25.i, %for.end.i74
+for.end24.i:                                      ; preds = %_Py_XNewRef.exit25.i, %for.end.i75
   %61 = load i32, ptr %b_bitmap.i, align 8
-  %not.i = xor i32 %shl.i126, -1
-  %and.i76 = and i32 %61, %not.i
+  %not.i = xor i32 %shl.i127, -1
+  %and.i77 = and i32 %61, %not.i
   %b_bitmap26.i = getelementptr inbounds i8, ptr %call.i.i56, i64 24
-  store i32 %and.i76, ptr %b_bitmap26.i, align 8
+  store i32 %and.i77, ptr %b_bitmap26.i, align 8
   br label %hamt_node_bitmap_clone_without.exit
 
 hamt_node_bitmap_clone_without.exit:              ; preds = %if.end.i.i55, %for.end24.i
@@ -2066,8 +2066,8 @@ hamt_node_bitmap_clone_without.exit:              ; preds = %if.end.i.i55, %for.
   %..i = select i1 %cmp68.i, i32 0, i32 3
   br label %hamt_node_bitmap_without.exit
 
-hamt_node_bitmap_without.exit:                    ; preds = %if.end.i.i82, %if.then, %if.then7.i, %if.then21.i, %if.end.i92.i, %if.then1.i95.i, %Py_DECREF.exit79.i, %do.end53.i, %if.else.i, %if.end59.i, %if.end62.i, %hamt_node_bitmap_clone_without.exit
-  %retval.0.i = phi i32 [ 3, %Py_DECREF.exit79.i ], [ 3, %do.end53.i ], [ 1, %if.then ], [ 0, %if.then21.i ], [ 0, %if.then1.i95.i ], [ 0, %if.end.i92.i ], [ %call9.i, %if.then7.i ], [ 0, %if.else.i ], [ 1, %if.end59.i ], [ 2, %if.end62.i ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ 0, %if.end.i.i82 ]
+hamt_node_bitmap_without.exit:                    ; preds = %if.end.i.i83, %if.then, %if.then7.i, %if.then21.i, %if.end.i92.i, %if.then1.i95.i, %Py_DECREF.exit79.i, %do.end53.i, %if.else.i, %if.end59.i, %if.end62.i, %hamt_node_bitmap_clone_without.exit
+  %retval.0.i = phi i32 [ 3, %Py_DECREF.exit79.i ], [ 3, %do.end53.i ], [ 1, %if.then ], [ 0, %if.then21.i ], [ 0, %if.then1.i95.i ], [ 0, %if.end.i92.i ], [ %call9.i, %if.then7.i ], [ 0, %if.else.i ], [ 1, %if.end59.i ], [ 2, %if.end62.i ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ 0, %if.end.i.i83 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sub_node.i)
   br label %return
 
@@ -2078,9 +2078,9 @@ if.else:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sub_node.i17)
   %shr.i = lshr i32 %hash, %shift
-  %and.i167 = and i32 %shr.i, 31
+  %and.i168 = and i32 %shr.i, 31
   %a_array.i = getelementptr inbounds i8, ptr %node, i64 16
-  %idxprom.i19 = zext nneg i32 %and.i167 to i64
+  %idxprom.i19 = zext nneg i32 %and.i168 to i64
   %arrayidx.i20 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %idxprom.i19
   %62 = load ptr, ptr %arrayidx.i20, align 8
   %cmp.i21 = icmp eq ptr %62, null
@@ -2098,62 +2098,62 @@ if.end.i22:                                       ; preds = %if.then4
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i22
-  %a_count.i146 = getelementptr inbounds i8, ptr %node, i64 272
-  %63 = load i64, ptr %a_count.i146, align 8
-  %call.i.i147 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
-  %cmp.i.i148 = icmp eq ptr %call.i.i147, null
-  br i1 %cmp.i.i148, label %if.then5.i, label %hamt_node_array_new.exit.i
+  %a_count.i147 = getelementptr inbounds i8, ptr %node, i64 272
+  %63 = load i64, ptr %a_count.i147, align 8
+  %call.i.i148 = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamt_ArrayNode_Type) #11
+  %cmp.i.i149 = icmp eq ptr %call.i.i148, null
+  br i1 %cmp.i.i149, label %if.then5.i, label %hamt_node_array_new.exit.i
 
 hamt_node_array_new.exit.i:                       ; preds = %sw.bb2.i
-  %a_array.i.i = getelementptr i8, ptr %call.i.i147, i64 16
+  %a_array.i.i = getelementptr i8, ptr %call.i.i148, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i.i, i8 0, i64 256, i1 false)
-  %a_count.i.i = getelementptr inbounds i8, ptr %call.i.i147, i64 272
+  %a_count.i.i = getelementptr inbounds i8, ptr %call.i.i148, i64 272
   store i64 %63, ptr %a_count.i.i, align 8
-  %add.ptr.i.i.i.i149 = getelementptr i8, ptr %call.i.i147, i64 -16
+  %add.ptr.i.i.i.i150 = getelementptr i8, ptr %call.i.i148, i64 -16
   %64 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %65 = load ptr, ptr %64, align 8
-  %interp.i.i.i.i150 = getelementptr inbounds i8, ptr %65, i64 16
-  %66 = load ptr, ptr %interp.i.i.i.i150, align 8
-  %generation03.i.i.i151 = getelementptr inbounds i8, ptr %66, i64 1096
-  %67 = load ptr, ptr %generation03.i.i.i151, align 8
-  %_gc_prev.i.i.i152 = getelementptr inbounds i8, ptr %67, i64 8
-  %68 = load i64, ptr %_gc_prev.i.i.i152, align 8
+  %interp.i.i.i.i151 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = load ptr, ptr %interp.i.i.i.i151, align 8
+  %generation03.i.i.i152 = getelementptr inbounds i8, ptr %66, i64 1096
+  %67 = load ptr, ptr %generation03.i.i.i152, align 8
+  %_gc_prev.i.i.i153 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = load i64, ptr %_gc_prev.i.i.i153, align 8
   %69 = inttoptr i64 %68 to ptr
-  %70 = ptrtoint ptr %add.ptr.i.i.i.i149 to i64
+  %70 = ptrtoint ptr %add.ptr.i.i.i.i150 to i64
   store i64 %70, ptr %69, align 8
-  %_gc_prev.i.i.i.i153 = getelementptr i8, ptr %call.i.i147, i64 -8
-  %71 = load i64, ptr %_gc_prev.i.i.i.i153, align 8
-  %and.i.i.i.i154 = and i64 %71, 3
-  %or.i.i.i.i155 = or i64 %and.i.i.i.i154, %68
-  store i64 %or.i.i.i.i155, ptr %_gc_prev.i.i.i.i153, align 8
+  %_gc_prev.i.i.i.i154 = getelementptr i8, ptr %call.i.i148, i64 -8
+  %71 = load i64, ptr %_gc_prev.i.i.i.i154, align 8
+  %and.i.i.i.i155 = and i64 %71, 3
+  %or.i.i.i.i156 = or i64 %and.i.i.i.i155, %68
+  store i64 %or.i.i.i.i156, ptr %_gc_prev.i.i.i.i154, align 8
   %72 = ptrtoint ptr %67 to i64
-  store i64 %72, ptr %add.ptr.i.i.i.i149, align 8
-  store i64 %70, ptr %_gc_prev.i.i.i152, align 8
-  br label %for.body.i157
+  store i64 %72, ptr %add.ptr.i.i.i.i150, align 8
+  store i64 %70, ptr %_gc_prev.i.i.i153, align 8
+  br label %for.body.i158
 
-for.body.i157:                                    ; preds = %_Py_XNewRef.exit.i164, %hamt_node_array_new.exit.i
-  %i.07.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %inc.i165, %_Py_XNewRef.exit.i164 ]
-  %arrayidx.i158 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.07.i
-  %73 = load ptr, ptr %arrayidx.i158, align 8
-  %cmp.not.i.i.i159 = icmp eq ptr %73, null
-  br i1 %cmp.not.i.i.i159, label %_Py_XNewRef.exit.i164, label %if.then.i.i.i160
+for.body.i158:                                    ; preds = %_Py_XNewRef.exit.i165, %hamt_node_array_new.exit.i
+  %i.07.i = phi i64 [ 0, %hamt_node_array_new.exit.i ], [ %inc.i166, %_Py_XNewRef.exit.i165 ]
+  %arrayidx.i159 = getelementptr [32 x ptr], ptr %a_array.i, i64 0, i64 %i.07.i
+  %73 = load ptr, ptr %arrayidx.i159, align 8
+  %cmp.not.i.i.i160 = icmp eq ptr %73, null
+  br i1 %cmp.not.i.i.i160, label %_Py_XNewRef.exit.i165, label %if.then.i.i.i161
 
-if.then.i.i.i160:                                 ; preds = %for.body.i157
+if.then.i.i.i161:                                 ; preds = %for.body.i158
   %74 = load i32, ptr %73, align 8
-  %add.i.i.i.i161 = add i32 %74, 1
-  %cmp.i.i.i.i162 = icmp eq i32 %add.i.i.i.i161, 0
-  br i1 %cmp.i.i.i.i162, label %_Py_XNewRef.exit.i164, label %if.end.i.i.i.i163
+  %add.i.i.i.i162 = add i32 %74, 1
+  %cmp.i.i.i.i163 = icmp eq i32 %add.i.i.i.i162, 0
+  br i1 %cmp.i.i.i.i163, label %_Py_XNewRef.exit.i165, label %if.end.i.i.i.i164
 
-if.end.i.i.i.i163:                                ; preds = %if.then.i.i.i160
-  store i32 %add.i.i.i.i161, ptr %73, align 8
-  br label %_Py_XNewRef.exit.i164
+if.end.i.i.i.i164:                                ; preds = %if.then.i.i.i161
+  store i32 %add.i.i.i.i162, ptr %73, align 8
+  br label %_Py_XNewRef.exit.i165
 
-_Py_XNewRef.exit.i164:                            ; preds = %if.end.i.i.i.i163, %if.then.i.i.i160, %for.body.i157
+_Py_XNewRef.exit.i165:                            ; preds = %if.end.i.i.i.i164, %if.then.i.i.i161, %for.body.i158
   %arrayidx4.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %i.07.i
   store ptr %73, ptr %arrayidx4.i, align 8
-  %inc.i165 = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i166 = icmp eq i64 %inc.i165, 32
-  br i1 %exitcond.not.i166, label %do.body.i, label %for.body.i157, !llvm.loop !7
+  %inc.i166 = add nuw nsw i64 %i.07.i, 1
+  %exitcond.not.i167 = icmp eq i64 %inc.i166, 32
+  br i1 %exitcond.not.i167, label %do.body.i, label %for.body.i158, !llvm.loop !7
 
 if.then5.i:                                       ; preds = %sw.bb2.i
   %75 = load ptr, ptr %sub_node.i17, align 8
@@ -2172,7 +2172,7 @@ if.then1.i96.i:                                   ; preds = %if.end.i93.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %75) #11
   br label %hamt_node_array_without.exit
 
-do.body.i:                                        ; preds = %_Py_XNewRef.exit.i164
+do.body.i:                                        ; preds = %_Py_XNewRef.exit.i165
   %arrayidx9.i = getelementptr [32 x ptr], ptr %a_array.i.i, i64 0, i64 %idxprom.i19
   %78 = load ptr, ptr %arrayidx9.i, align 8
   %79 = load ptr, ptr %sub_node.i17, align 8
@@ -2193,7 +2193,7 @@ if.then1.i87.i:                                   ; preds = %if.end.i84.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i87.i, %if.end.i84.i, %do.body.i
-  store ptr %call.i.i147, ptr %new_node, align 8
+  store ptr %call.i.i148, ptr %new_node, align 8
   br label %hamt_node_array_without.exit
 
 sw.bb10.i24:                                      ; preds = %if.end.i22
@@ -2254,8 +2254,8 @@ for.cond.i.preheader:                             ; preds = %if.end29.i
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
   %indvars.iv = phi i64 [ 0, %for.cond.i.preheader ], [ %indvars.iv.next, %for.inc.i ]
-  %bitmap.0.i174 = phi i32 [ 0, %for.cond.i.preheader ], [ %bitmap.1.i, %for.inc.i ]
-  %new_i.0.i172 = phi i64 [ 0, %for.cond.i.preheader ], [ %new_i.1.i, %for.inc.i ]
+  %bitmap.0.i175 = phi i32 [ 0, %for.cond.i.preheader ], [ %bitmap.1.i, %for.inc.i ]
+  %new_i.0.i173 = phi i64 [ 0, %for.cond.i.preheader ], [ %new_i.1.i, %for.inc.i ]
   %cmp36.i = icmp eq i64 %indvars.iv, %idxprom.i19
   br i1 %cmp36.i, label %for.inc.i, label %if.end38.i
 
@@ -2268,11 +2268,11 @@ if.end38.i:                                       ; preds = %for.body.i
 if.end45.i:                                       ; preds = %if.end38.i
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   %shl.i = shl nuw i32 1, %87
-  %or.i = or i32 %bitmap.0.i174, %shl.i
+  %or.i = or i32 %bitmap.0.i175, %shl.i
   %88 = getelementptr i8, ptr %86, i64 8
   %.val.i30 = load ptr, ptr %88, align 8
-  %cmp.i144.not = icmp eq ptr %.val.i30, @_PyHamt_BitmapNode_Type
-  br i1 %cmp.i144.not, label %if.then47.i, label %if.else72.i
+  %cmp.i145.not = icmp eq ptr %.val.i30, @_PyHamt_BitmapNode_Type
+  br i1 %cmp.i145.not, label %if.then47.i, label %if.else72.i
 
 if.then47.i:                                      ; preds = %if.end45.i
   %89 = getelementptr i8, ptr %86, i64 16
@@ -2291,61 +2291,61 @@ if.then52.i:                                      ; preds = %land.lhs.true.i34
   %arrayidx57.i = getelementptr i8, ptr %86, i64 40
   %92 = load ptr, ptr %arrayidx57.i, align 8
   %93 = load i32, ptr %91, align 8
-  %add.i.i139 = add i32 %93, 1
-  %cmp.i.i140 = icmp eq i32 %add.i.i139, 0
-  br i1 %cmp.i.i140, label %_Py_NewRef.exit142, label %if.end.i.i141
+  %add.i.i140 = add i32 %93, 1
+  %cmp.i.i141 = icmp eq i32 %add.i.i140, 0
+  br i1 %cmp.i.i141, label %_Py_NewRef.exit143, label %if.end.i.i142
 
-if.end.i.i141:                                    ; preds = %if.then52.i
-  store i32 %add.i.i139, ptr %91, align 8
-  br label %_Py_NewRef.exit142
+if.end.i.i142:                                    ; preds = %if.then52.i
+  store i32 %add.i.i140, ptr %91, align 8
+  br label %_Py_NewRef.exit143
 
-_Py_NewRef.exit142:                               ; preds = %if.then52.i, %if.end.i.i141
-  %arrayidx60.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i172
+_Py_NewRef.exit143:                               ; preds = %if.then52.i, %if.end.i.i142
+  %arrayidx60.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i173
   store ptr %91, ptr %arrayidx60.i, align 8
   %94 = load i32, ptr %92, align 8
-  %add.i.i135 = add i32 %94, 1
-  %cmp.i.i136 = icmp eq i32 %add.i.i135, 0
-  br i1 %cmp.i.i136, label %if.end79.i, label %if.end.i.i137
+  %add.i.i136 = add i32 %94, 1
+  %cmp.i.i137 = icmp eq i32 %add.i.i136, 0
+  br i1 %cmp.i.i137, label %if.end79.i, label %if.end.i.i138
 
-if.end.i.i137:                                    ; preds = %_Py_NewRef.exit142
-  store i32 %add.i.i135, ptr %92, align 8
+if.end.i.i138:                                    ; preds = %_Py_NewRef.exit143
+  store i32 %add.i.i136, ptr %92, align 8
   br label %if.end79.i
 
 if.else.i32:                                      ; preds = %land.lhs.true.i34, %if.then47.i
-  %arrayidx66.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i172
+  %arrayidx66.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i173
   store ptr null, ptr %arrayidx66.i, align 8
   %95 = load i32, ptr %86, align 8
-  %add.i.i131 = add i32 %95, 1
-  %cmp.i.i132 = icmp eq i32 %add.i.i131, 0
-  br i1 %cmp.i.i132, label %if.end79.i, label %if.end.i.i133
+  %add.i.i132 = add i32 %95, 1
+  %cmp.i.i133 = icmp eq i32 %add.i.i132, 0
+  br i1 %cmp.i.i133, label %if.end79.i, label %if.end.i.i134
 
-if.end.i.i133:                                    ; preds = %if.else.i32
-  store i32 %add.i.i131, ptr %86, align 8
+if.end.i.i134:                                    ; preds = %if.else.i32
+  store i32 %add.i.i132, ptr %86, align 8
   br label %if.end79.i
 
 if.else72.i:                                      ; preds = %if.end45.i
-  %arrayidx74.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i172
+  %arrayidx74.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %new_i.0.i173
   store ptr null, ptr %arrayidx74.i, align 8
   %96 = load i32, ptr %86, align 8
-  %add.i.i127 = add i32 %96, 1
-  %cmp.i.i128 = icmp eq i32 %add.i.i127, 0
-  br i1 %cmp.i.i128, label %if.end79.i, label %if.end.i.i129
+  %add.i.i128 = add i32 %96, 1
+  %cmp.i.i129 = icmp eq i32 %add.i.i128, 0
+  br i1 %cmp.i.i129, label %if.end79.i, label %if.end.i.i130
 
-if.end.i.i129:                                    ; preds = %if.else72.i
-  store i32 %add.i.i127, ptr %86, align 8
+if.end.i.i130:                                    ; preds = %if.else72.i
+  store i32 %add.i.i128, ptr %86, align 8
   br label %if.end79.i
 
-if.end79.i:                                       ; preds = %if.end.i.i129, %if.else72.i, %if.end.i.i133, %if.else.i32, %if.end.i.i137, %_Py_NewRef.exit142
-  %.sink = phi ptr [ %92, %_Py_NewRef.exit142 ], [ %92, %if.end.i.i137 ], [ %86, %if.else.i32 ], [ %86, %if.end.i.i133 ], [ %86, %if.else72.i ], [ %86, %if.end.i.i129 ]
-  %add77.i = add i64 %new_i.0.i172, 1
+if.end79.i:                                       ; preds = %if.end.i.i130, %if.else72.i, %if.end.i.i134, %if.else.i32, %if.end.i.i138, %_Py_NewRef.exit143
+  %.sink = phi ptr [ %92, %_Py_NewRef.exit143 ], [ %92, %if.end.i.i138 ], [ %86, %if.else.i32 ], [ %86, %if.end.i.i134 ], [ %86, %if.else72.i ], [ %86, %if.end.i.i130 ]
+  %add77.i = add i64 %new_i.0.i173, 1
   %arrayidx78.i = getelementptr [1 x ptr], ptr %b_array73.i, i64 0, i64 %add77.i
   store ptr %.sink, ptr %arrayidx78.i, align 8
-  %add80.i = add i64 %new_i.0.i172, 2
+  %add80.i = add i64 %new_i.0.i173, 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end79.i, %if.end38.i, %for.body.i
-  %new_i.1.i = phi i64 [ %new_i.0.i172, %for.body.i ], [ %new_i.0.i172, %if.end38.i ], [ %add80.i, %if.end79.i ]
-  %bitmap.1.i = phi i32 [ %bitmap.0.i174, %for.body.i ], [ %bitmap.0.i174, %if.end38.i ], [ %or.i, %if.end79.i ]
+  %new_i.1.i = phi i64 [ %new_i.0.i173, %for.body.i ], [ %new_i.0.i173, %if.end38.i ], [ %add80.i, %if.end79.i ]
+  %bitmap.1.i = phi i32 [ %bitmap.0.i175, %for.body.i ], [ %bitmap.0.i175, %if.end38.i ], [ %or.i, %if.end79.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !14
@@ -2566,8 +2566,8 @@ _Py_NewRef.exit63.i:                              ; preds = %if.end.i.i62.i, %fo
   %arrayidx47.i = getelementptr [1 x ptr], ptr %c_array46.i, i64 0, i64 %i.078.i
   store ptr %128, ptr %arrayidx47.i, align 8
   %inc.i52 = add nuw nsw i64 %i.078.i, 1
-  %cmp42.i = icmp slt i64 %inc.i52, %i.09.i.i
-  br i1 %cmp42.i, label %for.body.i51, label %for.end.i47, !llvm.loop !15
+  %exitcond.not.i = icmp eq i64 %inc.i52, %i.09.i.i
+  br i1 %exitcond.not.i, label %for.end.i47, label %for.body.i51, !llvm.loop !15
 
 for.end.i47:                                      ; preds = %_Py_NewRef.exit63.i, %hamt_node_collision_new.exit.i
   %add.i48 = add i64 %i.09.i.i, 2

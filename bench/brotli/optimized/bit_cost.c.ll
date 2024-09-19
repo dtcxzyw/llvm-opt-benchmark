@@ -88,8 +88,8 @@ for.body44:                                       ; preds = %for.end, %for.body4
   br i1 %exitcond131.not, label %for.body55, label %for.body44, !llvm.loop !6
 
 for.cond52.loopexit:                              ; preds = %for.inc71, %for.body55
-  %exitcond132.not = icmp eq i64 %add56, 4
-  br i1 %exitcond132.not, label %for.end76, label %for.body55, !llvm.loop !7
+  %exitcond133.not = icmp eq i64 %add56, 4
+  br i1 %exitcond133.not, label %for.end76, label %for.body55, !llvm.loop !7
 
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
@@ -118,8 +118,8 @@ if.then65:                                        ; preds = %for.body60
 for.inc71:                                        ; preds = %for.body60, %if.then65
   %12 = phi i32 [ %10, %for.body60 ], [ %11, %if.then65 ]
   %inc72 = add nuw nsw i64 %j.0109, 1
-  %cmp58 = icmp ult i64 %j.0109, 3
-  br i1 %cmp58, label %for.body60, label %for.cond52.loopexit, !llvm.loop !8
+  %exitcond132.not = icmp eq i64 %inc72, 4
+  br i1 %exitcond132.not, label %for.cond52.loopexit, label %for.body60, !llvm.loop !8
 
 for.end76:                                        ; preds = %for.cond52.loopexit
   %arrayidx77 = getelementptr inbounds i8, ptr %histo, i64 8
@@ -189,11 +189,11 @@ if.then.i:                                        ; preds = %if.then104
 if.end.i:                                         ; preds = %if.then104
   %conv.i = uitofp i32 %18 to double
   %call.i = tail call double @log2(double noundef %conv.i) #5
-  %.pre133 = load i32, ptr %arrayidx101, align 4
+  %.pre134 = load i32, ptr %arrayidx101, align 4
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %20 = phi i32 [ %18, %if.then.i ], [ %.pre133, %if.end.i ]
+  %20 = phi i32 [ %18, %if.then.i ], [ %.pre134, %if.end.i ]
   %retval.i.0 = phi double [ %19, %if.then.i ], [ %call.i, %if.end.i ]
   %sub109 = fsub double %retval.i182.0, %retval.i.0
   %add110 = fadd double %sub109, 5.000000e-01
@@ -326,7 +326,7 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
 while.end.i:                                      ; preds = %FastLog2.exit22.i
   %add164 = fadd double %bits.0.lcssa, %conv163
   %tobool9.i.not = icmp eq i64 %add5.i, 0
-  %.pre134 = uitofp i64 %add5.i to double
+  %.pre135 = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -339,18 +339,18 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %FastLog2.exit.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %call.i.i = tail call double @log2(double noundef %.pre134) #5
+  %call.i.i = tail call double @log2(double noundef %.pre135) #5
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
   %retval.i.i.0 = phi double [ %32, %if.then.i.i ], [ %call.i.i, %if.end.i.i ]
-  %33 = tail call double @llvm.fmuladd.f64(double %.pre134, double %retval.i.i.0, double %31)
+  %33 = tail call double @llvm.fmuladd.f64(double %.pre135, double %retval.i.i.0, double %31)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %while.end.i, %FastLog2.exit.i
   %retval1.i199.2 = phi double [ %33, %FastLog2.exit.i ], [ %31, %while.end.i ]
-  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre134
-  %retval1.i.0 = select i1 %cmp.i193, double %.pre134, double %retval1.i199.2
+  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre135
+  %retval1.i.0 = select i1 %cmp.i193, double %.pre135, double %retval1.i199.2
   %add166 = fadd double %add164, %retval1.i.0
   br label %return
 
@@ -448,8 +448,8 @@ for.body44:                                       ; preds = %for.end, %for.body4
   br i1 %exitcond131.not, label %for.body55, label %for.body44, !llvm.loop !14
 
 for.cond52.loopexit:                              ; preds = %for.inc71, %for.body55
-  %exitcond132.not = icmp eq i64 %add56, 4
-  br i1 %exitcond132.not, label %for.end76, label %for.body55, !llvm.loop !15
+  %exitcond133.not = icmp eq i64 %add56, 4
+  br i1 %exitcond133.not, label %for.end76, label %for.body55, !llvm.loop !15
 
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
@@ -478,8 +478,8 @@ if.then65:                                        ; preds = %for.body60
 for.inc71:                                        ; preds = %for.body60, %if.then65
   %12 = phi i32 [ %10, %for.body60 ], [ %11, %if.then65 ]
   %inc72 = add nuw nsw i64 %j.0109, 1
-  %cmp58 = icmp ult i64 %j.0109, 3
-  br i1 %cmp58, label %for.body60, label %for.cond52.loopexit, !llvm.loop !16
+  %exitcond132.not = icmp eq i64 %inc72, 4
+  br i1 %exitcond132.not, label %for.cond52.loopexit, label %for.body60, !llvm.loop !16
 
 for.end76:                                        ; preds = %for.cond52.loopexit
   %arrayidx77 = getelementptr inbounds i8, ptr %histo, i64 8
@@ -554,11 +554,11 @@ if.then.i:                                        ; preds = %if.then104
 if.end.i:                                         ; preds = %if.then104
   %conv.i = uitofp i32 %18 to double
   %call.i = tail call double @log2(double noundef %conv.i) #5
-  %.pre134 = load i32, ptr %arrayidx101, align 4
+  %.pre135 = load i32, ptr %arrayidx101, align 4
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %22 = phi i32 [ %18, %if.then.i ], [ %.pre134, %if.end.i ]
+  %22 = phi i32 [ %18, %if.then.i ], [ %.pre135, %if.end.i ]
   %retval.i.0 = phi double [ %21, %if.then.i ], [ %call.i, %if.end.i ]
   %sub109 = fsub double %retval.i182.0, %retval.i.0
   %add110 = fadd double %sub109, 5.000000e-01
@@ -585,8 +585,8 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.body135:                                      ; preds = %land.rhs
   %inc136 = add nuw nsw i32 %reps.0113, 1
-  %exitcond133.not = icmp eq i64 %k.0114, 703
-  br i1 %exitcond133.not, label %for.end139, label %land.rhs, !llvm.loop !17
+  %exitcond134.not = icmp eq i64 %k.0114, 703
+  br i1 %exitcond134.not, label %for.end139, label %land.rhs, !llvm.loop !17
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
@@ -596,19 +596,19 @@ for.end139:                                       ; preds = %land.rhs, %for.body
   br i1 %cmp142, label %for.end160, label %if.end145
 
 for.end139.thread:                                ; preds = %for.cond128.preheader
-  %add141138 = add nuw nsw i64 %i.3121, 1
-  %cmp142139 = icmp eq i64 %add141138, 704
-  br i1 %cmp142139, label %for.end160, label %if.then148
+  %add141139 = add nuw nsw i64 %i.3121, 1
+  %cmp142140 = icmp eq i64 %add141139, 704
+  br i1 %cmp142140, label %for.end160, label %if.then148
 
 if.end145:                                        ; preds = %for.end139
   %cmp146 = icmp ult i32 %reps.0.lcssa, 3
   br i1 %cmp146, label %if.then148, label %while.body.preheader
 
 if.then148:                                       ; preds = %for.end139.thread, %if.end145
-  %reps.0.lcssa140146 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
-  %add141141145 = phi i64 [ %add141, %if.end145 ], [ %add141138, %for.end139.thread ]
+  %reps.0.lcssa141147 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
+  %add141142146 = phi i64 [ %add141, %if.end145 ], [ %add141139, %for.end139.thread ]
   %26 = load i32, ptr %depth_histo, align 16
-  %add150 = add i32 %26, %reps.0.lcssa140146
+  %add150 = add i32 %26, %reps.0.lcssa141147
   store i32 %add150, ptr %depth_histo, align 16
   br label %if.end159
 
@@ -629,7 +629,7 @@ while.body:                                       ; preds = %while.body.preheade
 if.end159:                                        ; preds = %while.body, %if.then148, %FastLog2.exit
   %inc156.lcssa124 = phi i32 [ %inc156.lcssa126, %FastLog2.exit ], [ %inc156.lcssa126, %if.then148 ], [ %inc156, %while.body ]
   %bits.1 = phi double [ %23, %FastLog2.exit ], [ %bits.0120, %if.then148 ], [ %add157, %while.body ]
-  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141141145, %if.then148 ], [ %add141, %while.body ]
+  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141142146, %if.then148 ], [ %add141, %while.body ]
   %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0122, %if.then148 ], [ %max_depth.0122, %while.body ]
   %cmp97 = icmp ult i64 %i.4, 704
   br i1 %cmp97, label %for.body99, label %for.end160, !llvm.loop !19
@@ -698,7 +698,7 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
 while.end.i:                                      ; preds = %FastLog2.exit22.i
   %add164 = fadd double %bits.0.lcssa, %conv163
   %tobool9.i.not = icmp eq i64 %add5.i, 0
-  %.pre135 = uitofp i64 %add5.i to double
+  %.pre136 = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -711,18 +711,18 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %FastLog2.exit.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %call.i.i = tail call double @log2(double noundef %.pre135) #5
+  %call.i.i = tail call double @log2(double noundef %.pre136) #5
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
   %retval.i.i.0 = phi double [ %34, %if.then.i.i ], [ %call.i.i, %if.end.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.pre135, double %retval.i.i.0, double %33)
+  %35 = tail call double @llvm.fmuladd.f64(double %.pre136, double %retval.i.i.0, double %33)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %while.end.i, %FastLog2.exit.i
   %retval1.i199.2 = phi double [ %35, %FastLog2.exit.i ], [ %33, %while.end.i ]
-  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre135
-  %retval1.i.0 = select i1 %cmp.i193, double %.pre135, double %retval1.i199.2
+  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre136
+  %retval1.i.0 = select i1 %cmp.i193, double %.pre136, double %retval1.i199.2
   %add166 = fadd double %add164, %retval1.i.0
   br label %return
 
@@ -814,8 +814,8 @@ for.body44:                                       ; preds = %for.end, %for.body4
   br i1 %exitcond131.not, label %for.body55, label %for.body44, !llvm.loop !21
 
 for.cond52.loopexit:                              ; preds = %for.inc71, %for.body55
-  %exitcond132.not = icmp eq i64 %add56, 4
-  br i1 %exitcond132.not, label %for.end76, label %for.body55, !llvm.loop !22
+  %exitcond133.not = icmp eq i64 %add56, 4
+  br i1 %exitcond133.not, label %for.end76, label %for.body55, !llvm.loop !22
 
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
@@ -844,8 +844,8 @@ if.then65:                                        ; preds = %for.body60
 for.inc71:                                        ; preds = %for.body60, %if.then65
   %12 = phi i32 [ %10, %for.body60 ], [ %11, %if.then65 ]
   %inc72 = add nuw nsw i64 %j.0109, 1
-  %cmp58 = icmp ult i64 %j.0109, 3
-  br i1 %cmp58, label %for.body60, label %for.cond52.loopexit, !llvm.loop !23
+  %exitcond132.not = icmp eq i64 %inc72, 4
+  br i1 %exitcond132.not, label %for.cond52.loopexit, label %for.body60, !llvm.loop !23
 
 for.end76:                                        ; preds = %for.cond52.loopexit
   %arrayidx77 = getelementptr inbounds i8, ptr %histo, i64 8
@@ -920,11 +920,11 @@ if.then.i:                                        ; preds = %if.then104
 if.end.i:                                         ; preds = %if.then104
   %conv.i = uitofp i32 %18 to double
   %call.i = tail call double @log2(double noundef %conv.i) #5
-  %.pre134 = load i32, ptr %arrayidx101, align 4
+  %.pre135 = load i32, ptr %arrayidx101, align 4
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %22 = phi i32 [ %18, %if.then.i ], [ %.pre134, %if.end.i ]
+  %22 = phi i32 [ %18, %if.then.i ], [ %.pre135, %if.end.i ]
   %retval.i.0 = phi double [ %21, %if.then.i ], [ %call.i, %if.end.i ]
   %sub109 = fsub double %retval.i182.0, %retval.i.0
   %add110 = fadd double %sub109, 5.000000e-01
@@ -951,8 +951,8 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.body135:                                      ; preds = %land.rhs
   %inc136 = add nuw nsw i32 %reps.0113, 1
-  %exitcond133.not = icmp eq i64 %k.0114, 543
-  br i1 %exitcond133.not, label %for.end139, label %land.rhs, !llvm.loop !24
+  %exitcond134.not = icmp eq i64 %k.0114, 543
+  br i1 %exitcond134.not, label %for.end139, label %land.rhs, !llvm.loop !24
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
@@ -962,19 +962,19 @@ for.end139:                                       ; preds = %land.rhs, %for.body
   br i1 %cmp142, label %for.end160, label %if.end145
 
 for.end139.thread:                                ; preds = %for.cond128.preheader
-  %add141138 = add nuw nsw i64 %i.3121, 1
-  %cmp142139 = icmp eq i64 %add141138, 544
-  br i1 %cmp142139, label %for.end160, label %if.then148
+  %add141139 = add nuw nsw i64 %i.3121, 1
+  %cmp142140 = icmp eq i64 %add141139, 544
+  br i1 %cmp142140, label %for.end160, label %if.then148
 
 if.end145:                                        ; preds = %for.end139
   %cmp146 = icmp ult i32 %reps.0.lcssa, 3
   br i1 %cmp146, label %if.then148, label %while.body.preheader
 
 if.then148:                                       ; preds = %for.end139.thread, %if.end145
-  %reps.0.lcssa140146 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
-  %add141141145 = phi i64 [ %add141, %if.end145 ], [ %add141138, %for.end139.thread ]
+  %reps.0.lcssa141147 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
+  %add141142146 = phi i64 [ %add141, %if.end145 ], [ %add141139, %for.end139.thread ]
   %26 = load i32, ptr %depth_histo, align 16
-  %add150 = add i32 %26, %reps.0.lcssa140146
+  %add150 = add i32 %26, %reps.0.lcssa141147
   store i32 %add150, ptr %depth_histo, align 16
   br label %if.end159
 
@@ -995,7 +995,7 @@ while.body:                                       ; preds = %while.body.preheade
 if.end159:                                        ; preds = %while.body, %if.then148, %FastLog2.exit
   %inc156.lcssa124 = phi i32 [ %inc156.lcssa126, %FastLog2.exit ], [ %inc156.lcssa126, %if.then148 ], [ %inc156, %while.body ]
   %bits.1 = phi double [ %23, %FastLog2.exit ], [ %bits.0120, %if.then148 ], [ %add157, %while.body ]
-  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141141145, %if.then148 ], [ %add141, %while.body ]
+  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141142146, %if.then148 ], [ %add141, %while.body ]
   %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0122, %if.then148 ], [ %max_depth.0122, %while.body ]
   %cmp97 = icmp ult i64 %i.4, 544
   br i1 %cmp97, label %for.body99, label %for.end160, !llvm.loop !26
@@ -1064,7 +1064,7 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
 while.end.i:                                      ; preds = %FastLog2.exit22.i
   %add164 = fadd double %bits.0.lcssa, %conv163
   %tobool9.i.not = icmp eq i64 %add5.i, 0
-  %.pre135 = uitofp i64 %add5.i to double
+  %.pre136 = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -1077,18 +1077,18 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %FastLog2.exit.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %call.i.i = tail call double @log2(double noundef %.pre135) #5
+  %call.i.i = tail call double @log2(double noundef %.pre136) #5
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
   %retval.i.i.0 = phi double [ %34, %if.then.i.i ], [ %call.i.i, %if.end.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.pre135, double %retval.i.i.0, double %33)
+  %35 = tail call double @llvm.fmuladd.f64(double %.pre136, double %retval.i.i.0, double %33)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %while.end.i, %FastLog2.exit.i
   %retval1.i199.2 = phi double [ %35, %FastLog2.exit.i ], [ %33, %while.end.i ]
-  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre135
-  %retval1.i.0 = select i1 %cmp.i193, double %.pre135, double %retval1.i199.2
+  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre136
+  %retval1.i.0 = select i1 %cmp.i193, double %.pre136, double %retval1.i199.2
   %add166 = fadd double %add164, %retval1.i.0
   br label %return
 

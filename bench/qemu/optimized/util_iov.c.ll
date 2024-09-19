@@ -350,7 +350,8 @@ land.rhs.preheader:                               ; preds = %for.cond.preheader
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body
-  %indvars.iv134 = phi i32 [ %iov_cnt.addr.0115, %land.rhs.preheader ], [ %indvars.iv.next135, %for.body ]
+  %indvars.iv137 = phi i32 [ %iov_cnt.addr.0115, %land.rhs.preheader ], [ %indvars.iv.next138, %for.body ]
+  %indvars.iv133.in = phi i32 [ %iov_cnt.addr.0115, %land.rhs.preheader ], [ %indvars.iv133, %for.body ]
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %for.body ]
   %offset.addr.1104 = phi i64 [ %offset.addr.0113, %land.rhs.preheader ], [ %sub, %for.body ]
   %iov_len = getelementptr %struct.iovec, ptr %iov.0116, i64 %indvars.iv, i32 1
@@ -359,10 +360,11 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %cmp6.not, label %if.end14, label %for.body
 
 for.body:                                         ; preds = %land.rhs
+  %indvars.iv133 = add i32 %indvars.iv133.in, -1
   %sub = sub nuw i64 %offset.addr.1104, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %indvars.iv.next135 = add i32 %indvars.iv134, -1
+  %indvars.iv.next138 = add i32 %indvars.iv137, -1
   br i1 %exitcond.not, label %if.else, label %land.rhs, !llvm.loop !11
 
 if.else:                                          ; preds = %for.cond.preheader, %for.body
@@ -390,7 +392,7 @@ if.end22:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp24106.not, label %if.else46, label %land.rhs26.preheader
 
 land.rhs26.preheader:                             ; preds = %if.end22
-  %wide.trip.count137 = zext i32 %indvars.iv134 to i64
+  %wide.trip.count140 = zext i32 %indvars.iv137 to i64
   br label %land.rhs26
 
 land.rhs26:                                       ; preds = %land.rhs26.preheader, %for.body33
@@ -404,8 +406,8 @@ land.rhs26:                                       ; preds = %land.rhs26.preheade
 for.body33:                                       ; preds = %land.rhs26
   %sub37 = sub nuw i64 %tail.0107, %6
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count137
-  br i1 %exitcond138.not, label %for.end40.thread, label %land.rhs26, !llvm.loop !12
+  %exitcond141.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count140
+  br i1 %exitcond141.not, label %for.end40.thread, label %land.rhs26, !llvm.loop !12
 
 for.end40:                                        ; preds = %land.rhs26
   %7 = trunc nuw i64 %indvars.iv131 to i32
@@ -470,7 +472,7 @@ do_send_recv.exit:                                ; preds = %do.body.i, %land.rh
   br label %if.end72
 
 if.else69:                                        ; preds = %for.end40.thread, %for.end40
-  %niov.197 = phi i32 [ %indvars.iv134, %for.end40.thread ], [ %7, %for.end40 ]
+  %niov.197 = phi i32 [ %indvars.iv133.in, %for.end40.thread ], [ %7, %for.end40 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %msg.i73)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg.i73, i8 0, i64 56, i1 false)
   store ptr %add.ptr, ptr %msg_iov.i74, align 8

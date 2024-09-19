@@ -3187,41 +3187,41 @@ define internal i64 @i8042_panic_blink(i32 noundef %0) #0 align 16 {
   %33 = icmp eq i8 %32, 0
   tail call void @__const_udelay(i64 noundef 4295000) #9
   %34 = add nuw nsw i64 %28, 1
-  br i1 %33, label %37, label %35
+  br i1 %33, label %36, label %35
 
 35:                                               ; preds = %.preheader
-  %36 = icmp ugt i64 %28, 9
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !38
+  %exitcond = icmp eq i64 %34, 11
+  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !38
 
-37:                                               ; preds = %.preheader
-  %38 = icmp sgt i64 %28, 9
-  br i1 %38, label %.loopexit, label %39
+36:                                               ; preds = %.preheader
+  %37 = icmp sgt i64 %28, 9
+  br i1 %37, label %.loopexit, label %38
 
-39:                                               ; preds = %37
-  %40 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %49, label %42
+38:                                               ; preds = %36
+  %39 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %48, label %41
 
-42:                                               ; preds = %39
-  %43 = load volatile i64, ptr @jiffies, align 64
-  %44 = load i64, ptr @i8042_start_time, align 8
-  %45 = sub i64 %43, %44
-  %46 = trunc i64 %45 to i32
-  %47 = zext nneg i8 %3 to i32
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.72, i32 noundef %46, i32 noundef %47) #10
-  br label %49
+41:                                               ; preds = %38
+  %42 = load volatile i64, ptr @jiffies, align 64
+  %43 = load i64, ptr @i8042_start_time, align 8
+  %44 = sub i64 %42, %43
+  %45 = trunc i64 %44 to i32
+  %46 = zext nneg i8 %3 to i32
+  %47 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.72, i32 noundef %45, i32 noundef %46) #10
+  br label %48
 
-49:                                               ; preds = %42, %39
-  %50 = load i32, ptr @i8042_data_reg, align 4
-  %51 = trunc i32 %50 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %3, i16 %51) #9, !srcloc !11
+48:                                               ; preds = %41, %38
+  %49 = load i32, ptr @i8042_data_reg, align 4
+  %50 = trunc i32 %49 to i16
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %3, i16 %50) #9, !srcloc !11
   tail call void @__const_udelay(i64 noundef 4295000) #9
-  %52 = add nsw i64 %28, 2
+  %51 = add nsw i64 %28, 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %35, %49, %37, %23
-  %53 = phi i64 [ %26, %23 ], [ %34, %37 ], [ %52, %49 ], [ 11, %35 ], [ 11, %11 ]
-  ret i64 %53
+.loopexit:                                        ; preds = %11, %35, %48, %36, %23
+  %52 = phi i64 [ %26, %23 ], [ %34, %36 ], [ %51, %48 ], [ 11, %35 ], [ 11, %11 ]
+  ret i64 %52
 }
 
 ; Function Attrs: null_pointer_is_valid

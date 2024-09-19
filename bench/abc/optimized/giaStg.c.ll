@@ -216,9 +216,9 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   switch i32 %0, label %.loopexit189 [
     i32 1, label %.preheader
     i32 2, label %.preheader203
-    i32 3, label %.preheader303
-    i32 4, label %.preheader330
-    i32 5, label %.preheader327
+    i32 3, label %.preheader305
+    i32 4, label %.preheader318
+    i32 5, label %.preheader315
   ]
 
 .preheader:                                       ; preds = %Vec_VecStart.exit
@@ -228,8 +228,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.0170264 = phi i32 [ %15, %.lr.ph265 ], [ 0, %.preheader ]
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.0170264, i32 noundef %.0170264)
   %15 = add nuw nsw i32 %.0170264, 1
-  %exitcond285.not = icmp eq i32 %15, %1
-  br i1 %exitcond285.not, label %._crit_edge, label %.lr.ph265, !llvm.loop !9
+  %exitcond290.not = icmp eq i32 %15, %1
+  br i1 %exitcond290.not, label %._crit_edge, label %.lr.ph265, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph265, %.preheader
   store i32 %1, ptr %2, align 4
@@ -279,7 +279,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %.loopexit189, label %25
 
-.preheader303:                                    ; preds = %Vec_VecStart.exit, %34
+.preheader305:                                    ; preds = %Vec_VecStart.exit, %34
   %.1219 = phi i32 [ %35, %34 ], [ %0, %Vec_VecStart.exit ]
   %29 = add nsw i32 %.1219, -1
   %30 = mul nsw i32 %29, %.1219
@@ -289,20 +289,20 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %.not186 = icmp slt i32 %33, %1
   br i1 %.not186, label %34, label %36
 
-34:                                               ; preds = %.preheader303
+34:                                               ; preds = %.preheader305
   %35 = add nuw nsw i32 %.1219, 1
   %exitcond276.not = icmp eq i32 %35, 1000000000
-  br i1 %exitcond276.not, label %36, label %.preheader303, !llvm.loop !13
+  br i1 %exitcond276.not, label %36, label %.preheader305, !llvm.loop !13
 
-36:                                               ; preds = %.preheader303, %34
-  %.1.lcssa = phi i32 [ %.1219, %.preheader303 ], [ 1000000000, %34 ]
+36:                                               ; preds = %.preheader305, %34
+  %.1.lcssa = phi i32 [ %.1219, %.preheader305 ], [ 1000000000, %34 ]
   store i32 %.1.lcssa, ptr %2, align 4
   br label %37
 
 .loopexit200:                                     ; preds = %.loopexit198, %37
   %.3177.lcssa = phi i32 [ %.2176228, %37 ], [ %.4178.lcssa, %.loopexit198 ]
-  %exitcond278.not = icmp eq i32 %38, %.1.lcssa
-  br i1 %exitcond278.not, label %47, label %37, !llvm.loop !14
+  %exitcond279.not = icmp eq i32 %38, %.1.lcssa
+  br i1 %exitcond279.not, label %46, label %37, !llvm.loop !14
 
 37:                                               ; preds = %36, %.loopexit200
   %.2172229 = phi i32 [ 0, %36 ], [ %38, %.loopexit200 ]
@@ -312,9 +312,9 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   br i1 %39, label %.lr.ph226, label %.loopexit200
 
 .loopexit198:                                     ; preds = %42, %.lr.ph226
-  %.4178.lcssa = phi i32 [ %.3177224, %.lr.ph226 ], [ %45, %42 ]
-  %exitcond277.not = icmp eq i32 %40, %.1.lcssa
-  br i1 %exitcond277.not, label %.loopexit200, label %.lr.ph226, !llvm.loop !15
+  %.4178.lcssa = phi i32 [ %.3177224, %.lr.ph226 ], [ %44, %42 ]
+  %exitcond278.not = icmp eq i32 %40, %.1.lcssa
+  br i1 %exitcond278.not, label %.loopexit200, label %.lr.ph226, !llvm.loop !15
 
 .lr.ph226:                                        ; preds = %37, %.loopexit198
   %.1167225 = phi i32 [ %40, %.loopexit198 ], [ %38, %37 ]
@@ -324,208 +324,202 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   br i1 %41, label %.lr.ph222, label %.loopexit198
 
 42:                                               ; preds = %.lr.ph222
-  %43 = add nuw nsw i32 %.0163221, 1
-  %44 = icmp ult i32 %43, %.1.lcssa
-  br i1 %44, label %.lr.ph222, label %.loopexit198, !llvm.loop !16
+  %43 = add nuw i32 %.0163221, 1
+  %exitcond277.not = icmp eq i32 %43, %.1.lcssa
+  br i1 %exitcond277.not, label %.loopexit198, label %.lr.ph222, !llvm.loop !16
 
 .lr.ph222:                                        ; preds = %.lr.ph226, %42
   %.0163221 = phi i32 [ %43, %42 ], [ %40, %.lr.ph226 ]
-  %.4178220 = phi i32 [ %45, %42 ], [ %.3177224, %.lr.ph226 ]
+  %.4178220 = phi i32 [ %44, %42 ], [ %.3177224, %.lr.ph226 ]
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.4178220, i32 noundef %.2172229)
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.4178220, i32 noundef %.1167225)
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.4178220, i32 noundef %.0163221)
-  %45 = add nsw i32 %.4178220, 1
-  %46 = icmp eq i32 %45, %1
-  br i1 %46, label %.loopexit189, label %42
+  %44 = add nsw i32 %.4178220, 1
+  %45 = icmp eq i32 %44, %1
+  br i1 %45, label %.loopexit189, label %42
 
-47:                                               ; preds = %.loopexit200
+46:                                               ; preds = %.loopexit200
   switch i32 %0, label %.loopexit189 [
-    i32 4, label %.preheader330
-    i32 5, label %.preheader327
+    i32 4, label %.preheader318
+    i32 5, label %.preheader315
   ]
 
-.preheader330:                                    ; preds = %Vec_VecStart.exit, %47
-  br label %48
+.preheader318:                                    ; preds = %Vec_VecStart.exit, %46
+  br label %47
 
-48:                                               ; preds = %.preheader330, %56
-  %.2230 = phi i32 [ %57, %56 ], [ %0, %.preheader330 ]
-  %49 = add nsw i32 %.2230, -1
-  %50 = mul nsw i32 %49, %.2230
-  %51 = add nsw i32 %.2230, -2
-  %52 = mul nsw i32 %50, %51
-  %53 = add nsw i32 %.2230, -3
-  %54 = mul nsw i32 %52, %53
-  %55 = sdiv i32 %54, 24
-  %.not187 = icmp slt i32 %55, %1
-  br i1 %.not187, label %56, label %58
+47:                                               ; preds = %.preheader318, %55
+  %.2230 = phi i32 [ %56, %55 ], [ %0, %.preheader318 ]
+  %48 = add nsw i32 %.2230, -1
+  %49 = mul nsw i32 %48, %.2230
+  %50 = add nsw i32 %.2230, -2
+  %51 = mul nsw i32 %49, %50
+  %52 = add nsw i32 %.2230, -3
+  %53 = mul nsw i32 %51, %52
+  %54 = sdiv i32 %53, 24
+  %.not187 = icmp slt i32 %54, %1
+  br i1 %.not187, label %55, label %57
 
-56:                                               ; preds = %48
-  %57 = add nuw nsw i32 %.2230, 1
-  %exitcond279.not = icmp eq i32 %57, 1000000000
-  br i1 %exitcond279.not, label %58, label %48, !llvm.loop !17
+55:                                               ; preds = %47
+  %56 = add nuw nsw i32 %.2230, 1
+  %exitcond280.not = icmp eq i32 %56, 1000000000
+  br i1 %exitcond280.not, label %57, label %47, !llvm.loop !17
 
-58:                                               ; preds = %48, %56
-  %.2.lcssa = phi i32 [ %.2230, %48 ], [ 1000000000, %56 ]
+57:                                               ; preds = %47, %55
+  %.2.lcssa = phi i32 [ %.2230, %47 ], [ 1000000000, %55 ]
   store i32 %.2.lcssa, ptr %2, align 4
-  br label %59
+  br label %58
 
-.loopexit197:                                     ; preds = %.loopexit196, %59
-  %.6.lcssa = phi i32 [ %.5243, %59 ], [ %.7.lcssa, %.loopexit196 ]
-  %exitcond281.not = icmp eq i32 %60, %.2.lcssa
-  br i1 %exitcond281.not, label %74, label %59, !llvm.loop !18
+.loopexit197:                                     ; preds = %.loopexit196, %58
+  %.6.lcssa = phi i32 [ %.5243, %58 ], [ %.7.lcssa, %.loopexit196 ]
+  %exitcond284.not = icmp eq i32 %59, %.2.lcssa
+  br i1 %exitcond284.not, label %69, label %58, !llvm.loop !18
 
-59:                                               ; preds = %58, %.loopexit197
-  %.3173244 = phi i32 [ 0, %58 ], [ %60, %.loopexit197 ]
-  %.5243 = phi i32 [ 0, %58 ], [ %.6.lcssa, %.loopexit197 ]
-  %60 = add nuw nsw i32 %.3173244, 1
-  %61 = icmp ult i32 %60, %.2.lcssa
-  br i1 %61, label %.lr.ph241, label %.loopexit197
+58:                                               ; preds = %57, %.loopexit197
+  %.3173244 = phi i32 [ 0, %57 ], [ %59, %.loopexit197 ]
+  %.5243 = phi i32 [ 0, %57 ], [ %.6.lcssa, %.loopexit197 ]
+  %59 = add nuw nsw i32 %.3173244, 1
+  %60 = icmp ult i32 %59, %.2.lcssa
+  br i1 %60, label %.lr.ph241, label %.loopexit197
 
 .loopexit196:                                     ; preds = %.loopexit194, %.lr.ph241
-  %.7.lcssa = phi i32 [ %.6239, %.lr.ph241 ], [ %72, %.loopexit194 ]
-  %exitcond280.not = icmp eq i32 %62, %.2.lcssa
-  br i1 %exitcond280.not, label %.loopexit197, label %.lr.ph241, !llvm.loop !19
+  %.7.lcssa = phi i32 [ %.6239, %.lr.ph241 ], [ %.8.lcssa, %.loopexit194 ]
+  %exitcond283.not = icmp eq i32 %61, %.2.lcssa
+  br i1 %exitcond283.not, label %.loopexit197, label %.lr.ph241, !llvm.loop !19
 
-.lr.ph241:                                        ; preds = %59, %.loopexit196
-  %.2168240 = phi i32 [ %62, %.loopexit196 ], [ %60, %59 ]
-  %.6239 = phi i32 [ %.7.lcssa, %.loopexit196 ], [ %.5243, %59 ]
-  %62 = add nuw nsw i32 %.2168240, 1
-  %63 = icmp ult i32 %62, %.2.lcssa
-  %64 = add nuw nsw i32 %.2168240, 2
-  %65 = icmp ult i32 %64, %.2.lcssa
-  %or.cond = select i1 %63, i1 %65, i1 false
-  br i1 %or.cond, label %.lr.ph233.preheader, label %.loopexit196
+.lr.ph241:                                        ; preds = %58, %.loopexit196
+  %.2168240 = phi i32 [ %61, %.loopexit196 ], [ %59, %58 ]
+  %.6239 = phi i32 [ %.7.lcssa, %.loopexit196 ], [ %.5243, %58 ]
+  %61 = add nuw nsw i32 %.2168240, 1
+  %62 = icmp ult i32 %61, %.2.lcssa
+  br i1 %62, label %.lr.ph237, label %.loopexit196
 
-.loopexit194:                                     ; preds = %69
-  %66 = add nuw nsw i32 %68, 1
-  %67 = icmp ult i32 %66, %.2.lcssa
-  br i1 %67, label %.lr.ph233.preheader, label %.loopexit196, !llvm.loop !20
+.loopexit194:                                     ; preds = %65, %.lr.ph237
+  %.8.lcssa = phi i32 [ %.7235, %.lr.ph237 ], [ %67, %65 ]
+  %exitcond282.not = icmp eq i32 %63, %.2.lcssa
+  br i1 %exitcond282.not, label %.loopexit196, label %.lr.ph237, !llvm.loop !20
 
-.lr.ph233.preheader:                              ; preds = %.lr.ph241, %.loopexit194
-  %68 = phi i32 [ %66, %.loopexit194 ], [ %64, %.lr.ph241 ]
-  %.7235312 = phi i32 [ %72, %.loopexit194 ], [ %.6239, %.lr.ph241 ]
-  %.1164236311 = phi i32 [ %68, %.loopexit194 ], [ %62, %.lr.ph241 ]
-  br label %.lr.ph233
+.lr.ph237:                                        ; preds = %.lr.ph241, %.loopexit194
+  %.1164236 = phi i32 [ %63, %.loopexit194 ], [ %61, %.lr.ph241 ]
+  %.7235 = phi i32 [ %.8.lcssa, %.loopexit194 ], [ %.6239, %.lr.ph241 ]
+  %63 = add nuw nsw i32 %.1164236, 1
+  %64 = icmp ult i32 %63, %.2.lcssa
+  br i1 %64, label %.lr.ph233, label %.loopexit194
 
-69:                                               ; preds = %.lr.ph233
-  %70 = add nuw nsw i32 %.0161232, 1
-  %71 = icmp slt i32 %70, %.2.lcssa
-  br i1 %71, label %.lr.ph233, label %.loopexit194, !llvm.loop !21
+65:                                               ; preds = %.lr.ph233
+  %66 = add nuw i32 %.0161232, 1
+  %exitcond281.not = icmp eq i32 %66, %.2.lcssa
+  br i1 %exitcond281.not, label %.loopexit194, label %.lr.ph233, !llvm.loop !21
 
-.lr.ph233:                                        ; preds = %.lr.ph233.preheader, %69
-  %.0161232 = phi i32 [ %70, %69 ], [ %68, %.lr.ph233.preheader ]
-  %.8231 = phi i32 [ %72, %69 ], [ %.7235312, %.lr.ph233.preheader ]
+.lr.ph233:                                        ; preds = %.lr.ph237, %65
+  %.0161232 = phi i32 [ %66, %65 ], [ %63, %.lr.ph237 ]
+  %.8231 = phi i32 [ %67, %65 ], [ %.7235, %.lr.ph237 ]
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.8231, i32 noundef %.3173244)
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.8231, i32 noundef %.2168240)
-  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.8231, i32 noundef %.1164236311)
+  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.8231, i32 noundef %.1164236)
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.8231, i32 noundef %.0161232)
-  %72 = add nsw i32 %.8231, 1
-  %73 = icmp eq i32 %72, %1
-  br i1 %73, label %.loopexit189, label %69
+  %67 = add nsw i32 %.8231, 1
+  %68 = icmp eq i32 %67, %1
+  br i1 %68, label %.loopexit189, label %65
 
-74:                                               ; preds = %.loopexit197
-  %75 = icmp eq i32 %0, 5
-  br i1 %75, label %.preheader327, label %.loopexit189
+69:                                               ; preds = %.loopexit197
+  %70 = icmp eq i32 %0, 5
+  br i1 %70, label %.preheader315, label %.loopexit189
 
-.preheader327:                                    ; preds = %Vec_VecStart.exit, %47, %74
-  %.3245.ph = phi i32 [ 5, %74 ], [ %0, %47 ], [ %0, %Vec_VecStart.exit ]
-  br label %76
+.preheader315:                                    ; preds = %Vec_VecStart.exit, %46, %69
+  %.3245.ph = phi i32 [ 5, %69 ], [ %0, %46 ], [ %0, %Vec_VecStart.exit ]
+  br label %71
 
-76:                                               ; preds = %.preheader327, %86
-  %.3245 = phi i32 [ %87, %86 ], [ %.3245.ph, %.preheader327 ]
-  %77 = add nsw i32 %.3245, -1
-  %78 = mul nsw i32 %77, %.3245
-  %79 = add nsw i32 %.3245, -2
-  %80 = mul nsw i32 %78, %79
-  %81 = add nsw i32 %.3245, -3
-  %82 = mul nsw i32 %80, %81
-  %83 = add nsw i32 %.3245, -4
-  %84 = mul nsw i32 %82, %83
-  %85 = sdiv i32 %84, 120
-  %.not188 = icmp slt i32 %85, %1
-  br i1 %.not188, label %86, label %88
+71:                                               ; preds = %.preheader315, %81
+  %.3245 = phi i32 [ %82, %81 ], [ %.3245.ph, %.preheader315 ]
+  %72 = add nsw i32 %.3245, -1
+  %73 = mul nsw i32 %72, %.3245
+  %74 = add nsw i32 %.3245, -2
+  %75 = mul nsw i32 %73, %74
+  %76 = add nsw i32 %.3245, -3
+  %77 = mul nsw i32 %75, %76
+  %78 = add nsw i32 %.3245, -4
+  %79 = mul nsw i32 %77, %78
+  %80 = sdiv i32 %79, 120
+  %.not188 = icmp slt i32 %80, %1
+  br i1 %.not188, label %81, label %83
 
-86:                                               ; preds = %76
-  %87 = add nuw nsw i32 %.3245, 1
-  %exitcond282.not = icmp eq i32 %87, 1000000000
-  br i1 %exitcond282.not, label %88, label %76, !llvm.loop !22
+81:                                               ; preds = %71
+  %82 = add nuw nsw i32 %.3245, 1
+  %exitcond285.not = icmp eq i32 %82, 1000000000
+  br i1 %exitcond285.not, label %83, label %71, !llvm.loop !22
 
-88:                                               ; preds = %76, %86
-  %.3.lcssa = phi i32 [ %.3245, %76 ], [ 1000000000, %86 ]
+83:                                               ; preds = %71, %81
+  %.3.lcssa = phi i32 [ %.3245, %71 ], [ 1000000000, %81 ]
   store i32 %.3.lcssa, ptr %2, align 4
-  br label %89
+  br label %84
 
-.loopexit192:                                     ; preds = %.loopexit191, %89
-  %.10.lcssa = phi i32 [ %.9262, %89 ], [ %.11.lcssa, %.loopexit191 ]
-  %exitcond284.not = icmp eq i32 %90, %.3.lcssa
-  br i1 %exitcond284.not, label %.loopexit189, label %89, !llvm.loop !23
+.loopexit192:                                     ; preds = %.loopexit191, %84
+  %.10.lcssa = phi i32 [ %.9262, %84 ], [ %.11.lcssa, %.loopexit191 ]
+  %exitcond289.not = icmp eq i32 %85, %.3.lcssa
+  br i1 %exitcond289.not, label %.loopexit189, label %84, !llvm.loop !23
 
-89:                                               ; preds = %88, %.loopexit192
-  %.4263 = phi i32 [ 0, %88 ], [ %90, %.loopexit192 ]
-  %.9262 = phi i32 [ 0, %88 ], [ %.10.lcssa, %.loopexit192 ]
-  %90 = add nuw nsw i32 %.4263, 1
-  %91 = icmp ult i32 %90, %.3.lcssa
-  br i1 %91, label %.lr.ph260, label %.loopexit192
+84:                                               ; preds = %83, %.loopexit192
+  %.4263 = phi i32 [ 0, %83 ], [ %85, %.loopexit192 ]
+  %.9262 = phi i32 [ 0, %83 ], [ %.10.lcssa, %.loopexit192 ]
+  %85 = add nuw nsw i32 %.4263, 1
+  %86 = icmp ult i32 %85, %.3.lcssa
+  br i1 %86, label %.lr.ph260, label %.loopexit192
 
 .loopexit191:                                     ; preds = %.loopexit190, %.lr.ph260
-  %.11.lcssa = phi i32 [ %.10258, %.lr.ph260 ], [ %.12250.lcssa, %.loopexit190 ]
-  %exitcond283.not = icmp eq i32 %92, %.3.lcssa
-  br i1 %exitcond283.not, label %.loopexit192, label %.lr.ph260, !llvm.loop !24
+  %.11.lcssa = phi i32 [ %.10258, %.lr.ph260 ], [ %.12.lcssa, %.loopexit190 ]
+  %exitcond288.not = icmp eq i32 %87, %.3.lcssa
+  br i1 %exitcond288.not, label %.loopexit192, label %.lr.ph260, !llvm.loop !24
 
-.lr.ph260:                                        ; preds = %89, %.loopexit191
-  %.3169259 = phi i32 [ %92, %.loopexit191 ], [ %90, %89 ]
-  %.10258 = phi i32 [ %.11.lcssa, %.loopexit191 ], [ %.9262, %89 ]
-  %92 = add nuw nsw i32 %.3169259, 1
-  %93 = icmp ult i32 %92, %.3.lcssa
-  %94 = add nuw nsw i32 %.3169259, 2
-  %95 = icmp ult i32 %94, %.3.lcssa
-  %or.cond321 = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond321, label %.lr.ph252.preheader, label %.loopexit191
+.lr.ph260:                                        ; preds = %84, %.loopexit191
+  %.3169259 = phi i32 [ %87, %.loopexit191 ], [ %85, %84 ]
+  %.10258 = phi i32 [ %.11.lcssa, %.loopexit191 ], [ %.9262, %84 ]
+  %87 = add nuw nsw i32 %.3169259, 1
+  %88 = icmp ult i32 %87, %.3.lcssa
+  br i1 %88, label %.lr.ph256, label %.loopexit191
 
-.loopexit190:                                     ; preds = %.loopexit, %.lr.ph252.preheader
-  %.12250.lcssa = phi i32 [ %.11254317, %.lr.ph252.preheader ], [ %107, %.loopexit ]
-  %96 = add nuw nsw i32 %98, 1
-  %97 = icmp ult i32 %96, %.3.lcssa
-  br i1 %97, label %.lr.ph252.preheader, label %.loopexit191, !llvm.loop !25
+.loopexit190:                                     ; preds = %.loopexit, %.lr.ph256
+  %.12.lcssa = phi i32 [ %.11254, %.lr.ph256 ], [ %.13.lcssa, %.loopexit ]
+  %exitcond287.not = icmp eq i32 %89, %.3.lcssa
+  br i1 %exitcond287.not, label %.loopexit191, label %.lr.ph256, !llvm.loop !25
 
-.lr.ph252.preheader:                              ; preds = %.lr.ph260, %.loopexit190
-  %98 = phi i32 [ %96, %.loopexit190 ], [ %94, %.lr.ph260 ]
-  %.11254317 = phi i32 [ %.12250.lcssa, %.loopexit190 ], [ %.10258, %.lr.ph260 ]
-  %.2165255316 = phi i32 [ %98, %.loopexit190 ], [ %92, %.lr.ph260 ]
-  %99 = add nuw nsw i32 %98, 1
-  %100 = icmp ult i32 %99, %.3.lcssa
-  br i1 %100, label %.lr.ph248.preheader, label %.loopexit190
+.lr.ph256:                                        ; preds = %.lr.ph260, %.loopexit190
+  %.2165255 = phi i32 [ %89, %.loopexit190 ], [ %87, %.lr.ph260 ]
+  %.11254 = phi i32 [ %.12.lcssa, %.loopexit190 ], [ %.10258, %.lr.ph260 ]
+  %89 = add nuw nsw i32 %.2165255, 1
+  %90 = icmp ult i32 %89, %.3.lcssa
+  br i1 %90, label %.lr.ph252, label %.loopexit190
 
-.loopexit:                                        ; preds = %104
-  %101 = add nuw nsw i32 %103, 1
-  %102 = icmp slt i32 %101, %.3.lcssa
-  br i1 %102, label %.lr.ph248.preheader, label %.loopexit190, !llvm.loop !26
+.loopexit:                                        ; preds = %93, %.lr.ph252
+  %.13.lcssa = phi i32 [ %.12250, %.lr.ph252 ], [ %96, %93 ]
+  %exitcond286.not = icmp eq i32 %91, %.3.lcssa
+  br i1 %exitcond286.not, label %.loopexit190, label %.lr.ph252, !llvm.loop !26
 
-.lr.ph248.preheader:                              ; preds = %.lr.ph252.preheader, %.loopexit
-  %103 = phi i32 [ %101, %.loopexit ], [ %99, %.lr.ph252.preheader ]
-  %.12250314 = phi i32 [ %107, %.loopexit ], [ %.11254317, %.lr.ph252.preheader ]
-  %.1162251313 = phi i32 [ %103, %.loopexit ], [ %98, %.lr.ph252.preheader ]
-  br label %.lr.ph248
+.lr.ph252:                                        ; preds = %.lr.ph256, %.loopexit
+  %.1162251 = phi i32 [ %91, %.loopexit ], [ %89, %.lr.ph256 ]
+  %.12250 = phi i32 [ %.13.lcssa, %.loopexit ], [ %.11254, %.lr.ph256 ]
+  %91 = add nuw nsw i32 %.1162251, 1
+  %92 = icmp slt i32 %91, %.3.lcssa
+  br i1 %92, label %.lr.ph248, label %.loopexit
 
-104:                                              ; preds = %.lr.ph248
-  %105 = add nsw i32 %.0160247, 1
-  %106 = icmp slt i32 %105, %.3.lcssa
-  br i1 %106, label %.lr.ph248, label %.loopexit, !llvm.loop !27
+93:                                               ; preds = %.lr.ph248
+  %94 = add nsw i32 %.0160247, 1
+  %95 = icmp slt i32 %94, %.3.lcssa
+  br i1 %95, label %.lr.ph248, label %.loopexit, !llvm.loop !27
 
-.lr.ph248:                                        ; preds = %.lr.ph248.preheader, %104
-  %.0160247 = phi i32 [ %105, %104 ], [ %103, %.lr.ph248.preheader ]
-  %.13246 = phi i32 [ %107, %104 ], [ %.12250314, %.lr.ph248.preheader ]
+.lr.ph248:                                        ; preds = %.lr.ph252, %93
+  %.0160247 = phi i32 [ %94, %93 ], [ %91, %.lr.ph252 ]
+  %.13246 = phi i32 [ %96, %93 ], [ %.12250, %.lr.ph252 ]
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.4263)
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.3169259)
-  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.2165255316)
-  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.1162251313)
+  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.2165255)
+  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.1162251)
   tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.13246, i32 noundef %.0160247)
-  %107 = add nsw i32 %.13246, 1
-  %108 = icmp eq i32 %107, %1
-  br i1 %108, label %.loopexit189, label %104
+  %96 = add nsw i32 %.13246, 1
+  %97 = icmp eq i32 %96, %1
+  br i1 %97, label %.loopexit189, label %93
 
-.loopexit189:                                     ; preds = %.lr.ph222, %.lr.ph233, %.loopexit192, %.lr.ph248, %.loopexit201, %.lr.ph, %74, %47, %Vec_VecStart.exit, %._crit_edge
-  %.0179 = phi ptr [ %4, %._crit_edge ], [ null, %Vec_VecStart.exit ], [ null, %47 ], [ null, %74 ], [ %4, %.lr.ph ], [ null, %.loopexit201 ], [ %4, %.lr.ph248 ], [ null, %.loopexit192 ], [ %4, %.lr.ph233 ], [ %4, %.lr.ph222 ]
+.loopexit189:                                     ; preds = %.lr.ph222, %.lr.ph233, %.loopexit192, %.lr.ph248, %.loopexit201, %.lr.ph, %69, %46, %Vec_VecStart.exit, %._crit_edge
+  %.0179 = phi ptr [ %4, %._crit_edge ], [ null, %Vec_VecStart.exit ], [ null, %46 ], [ null, %69 ], [ %4, %.lr.ph ], [ null, %.loopexit201 ], [ %4, %.lr.ph248 ], [ null, %.loopexit192 ], [ %4, %.lr.ph233 ], [ %4, %.lr.ph222 ]
   ret ptr %.0179
 }
 

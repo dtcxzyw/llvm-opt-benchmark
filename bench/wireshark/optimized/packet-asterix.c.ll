@@ -36177,7 +36177,7 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %dissect_asterix_packet.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %dissect_asterix_data_block.exit.i
-  %.031.i = phi i32 [ %162, %dissect_asterix_data_block.exit.i ], [ 0, %8 ]
+  %.031.i = phi i32 [ %164, %dissect_asterix_data_block.exit.i ], [ 0, %8 ]
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.031.i) #3
   %11 = add nuw i32 %.031.i, 1
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #3
@@ -36212,9 +36212,9 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %36
 
 36:                                               ; preds = %asterix_message_length.exit.thread.i.i, %.lr.ph.i.i
-  %.068.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %160, %asterix_message_length.exit.thread.i.i ]
-  %.04267.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %159, %asterix_message_length.exit.thread.i.i ]
-  %37 = add i32 %31, %.04267.i.i
+  %.065.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %162, %asterix_message_length.exit.thread.i.i ]
+  %.04264.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %161, %asterix_message_length.exit.thread.i.i ]
+  %37 = add i32 %31, %.04264.i.i
   br i1 %32, label %38, label %asterix_get_active_uap.exit.i.i
 
 38:                                               ; preds = %36
@@ -36254,213 +36254,213 @@ asterix_fspec_len.exit.preheader.i.i.i:           ; preds = %50
   br i1 %.not3138.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %asterix_fspec_len.exit.preheader.i.i.i, %asterix_field_exists.exit.thread.i.i.i
-  %59 = phi ptr [ %87, %asterix_field_exists.exit.thread.i.i.i ], [ %46, %asterix_fspec_len.exit.preheader.i.i.i ]
+  %59 = phi ptr [ %88, %asterix_field_exists.exit.thread.i.i.i ], [ %46, %asterix_fspec_len.exit.preheader.i.i.i ]
   %.02540.i.i.i = phi i32 [ %.1.i.i.i, %asterix_field_exists.exit.thread.i.i.i ], [ %57, %asterix_fspec_len.exit.preheader.i.i.i ]
-  %.02639.i.i.i = phi i32 [ %85, %asterix_field_exists.exit.thread.i.i.i ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ]
+  %.02639.i.i.i = phi i32 [ %86, %asterix_field_exists.exit.thread.i.i.i ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ]
   %60 = sdiv i32 %.02639.i.i.i, 7
   %61 = add i32 %60, %.02639.i.i.i
   %62 = and i32 %61, 248
   %.not16.i.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not16.i.i.i.i, label %asterix_field_exists.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i
+  br i1 %.not16.i.i.i.i, label %asterix_field_exists.exit.i.i.i, label %.lr.ph.i.i.preheader.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %.lr.ph.i.i.i
+.lr.ph.i.i.preheader.i.i:                         ; preds = %.lr.ph.i.i.i
   %63 = lshr i32 %61, 3
-  %wide.trip.count.i.i.i = and i32 %63, 31
+  %64 = and i32 %63, 31
   br label %.lr.ph.i.i.i.i
 
-64:                                               ; preds = %.lr.ph.i.i.i.i
+65:                                               ; preds = %.lr.ph.i.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %asterix_field_exists.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  %exitcond.not.i.i = icmp eq i32 %indvars.iv.next.i.i.i, %64
+  br i1 %exitcond.not.i.i, label %asterix_field_exists.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
-.lr.ph.i.i.i.i:                                   ; preds = %64, %.lr.ph.preheader.i.i.i.i
-  %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %64 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %65 = add i32 %indvars.iv.i.i.i, %37
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %65) #3
-  %67 = and i8 %66, 1
-  %.not.i.i.i.i = icmp eq i8 %67, 0
-  br i1 %.not.i.i.i.i, label %asterix_field_exists.exit.thread.i.i.i, label %64
+.lr.ph.i.i.i.i:                                   ; preds = %65, %.lr.ph.i.i.preheader.i.i
+  %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %65 ], [ 0, %.lr.ph.i.i.preheader.i.i ]
+  %66 = add i32 %indvars.iv.i.i.i, %37
+  %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %66) #3
+  %68 = and i8 %67, 1
+  %.not.i.i.i.i = icmp eq i8 %68, 0
+  br i1 %.not.i.i.i.i, label %asterix_field_exists.exit.thread.i.i.i, label %65
 
-asterix_field_exists.exit.i.i.i:                  ; preds = %64, %.lr.ph.i.i.i
-  %.lcssa.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %wide.trip.count.i.i.i, %64 ]
-  %68 = add i32 %.lcssa.i.i.i.i, %37
-  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %68) #3
-  %70 = and i32 %61, 7
-  %71 = lshr exact i32 128, %70
-  %72 = zext i8 %69 to i32
-  %73 = and i32 %71, %72
-  %.not35.i.i.i = icmp eq i32 %73, 0
-  br i1 %.not35.i.i.i, label %asterix_field_exists.exit.thread.i.i.i, label %74
+asterix_field_exists.exit.i.i.i:                  ; preds = %65, %.lr.ph.i.i.i
+  %.lcssa.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %64, %65 ]
+  %69 = add i32 %.lcssa.i.i.i.i, %37
+  %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #3
+  %71 = and i32 %61, 7
+  %72 = lshr exact i32 128, %71
+  %73 = zext i8 %70 to i32
+  %74 = and i32 %72, %73
+  %.not35.i.i.i = icmp eq i32 %74, 0
+  br i1 %.not35.i.i.i, label %asterix_field_exists.exit.thread.i.i.i, label %75
 
-74:                                               ; preds = %asterix_field_exists.exit.i.i.i
-  %75 = icmp eq i32 %.02639.i.i.i, 1
-  %76 = add i32 %.02540.i.i.i, %37
-  br i1 %75, label %77, label %81
+75:                                               ; preds = %asterix_field_exists.exit.i.i.i
+  %76 = icmp eq i32 %.02639.i.i.i, 1
+  %77 = add i32 %.02540.i.i.i, %37
+  br i1 %76, label %78, label %82
 
-77:                                               ; preds = %74
-  %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %76) #3
-  %79 = lshr i8 %78, 7
-  %80 = zext nneg i8 %79 to i64
+78:                                               ; preds = %75
+  %79 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %77) #3
+  %80 = lshr i8 %79, 7
+  %81 = zext nneg i8 %80 to i64
   br label %asterix_get_active_uap.exit.i.i
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %59, align 8
-  %83 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %76, ptr noundef %82)
-  %84 = add i32 %83, %.02540.i.i.i
+82:                                               ; preds = %75
+  %83 = load ptr, ptr %59, align 8
+  %84 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %77, ptr noundef %83)
+  %85 = add i32 %84, %.02540.i.i.i
   br label %asterix_field_exists.exit.thread.i.i.i
 
-asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %81, %asterix_field_exists.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %84, %81 ], [ %.02540.i.i.i, %asterix_field_exists.exit.i.i.i ], [ %.02540.i.i.i, %.lr.ph.i.i.i.i ]
-  %85 = add i32 %.02639.i.i.i, 1
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr ptr, ptr %46, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %.not31.i.i.i = icmp eq ptr %88, null
+asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %82, %asterix_field_exists.exit.i.i.i
+  %.1.i.i.i = phi i32 [ %85, %82 ], [ %.02540.i.i.i, %asterix_field_exists.exit.i.i.i ], [ %.02540.i.i.i, %.lr.ph.i.i.i.i ]
+  %86 = add i32 %.02639.i.i.i, 1
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr ptr, ptr %46, i64 %87
+  %89 = load ptr, ptr %88, align 8
+  %.not31.i.i.i = icmp eq ptr %89, null
   br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
-asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i.i.i, %77, %asterix_fspec_len.exit.preheader.i.i.i, %45, %38, %36
-  %.0.i.i.i = phi i64 [ %80, %77 ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
-  %89 = load ptr, ptr %34, align 8
-  %.not.i.i.i = icmp eq ptr %89, null
-  br i1 %.not.i.i.i, label %dissect_asterix_data_block.exit.i, label %90
+asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i.i.i, %78, %asterix_fspec_len.exit.preheader.i.i.i, %45, %38, %36
+  %.0.i.i.i = phi i64 [ %81, %78 ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
+  %90 = load ptr, ptr %34, align 8
+  %.not.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i, label %dissect_asterix_data_block.exit.i, label %91
 
-90:                                               ; preds = %asterix_get_active_uap.exit.i.i
-  %91 = load i32, ptr %35, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr ptr, ptr %89, i64 %92
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr ptr, ptr %94, i64 %.0.i.i.i
-  %96 = load ptr, ptr %95, align 8
-  %.not24.i.i.i = icmp eq ptr %96, null
-  br i1 %.not24.i.i.i, label %dissect_asterix_data_block.exit.i, label %97
+91:                                               ; preds = %asterix_get_active_uap.exit.i.i
+  %92 = load i32, ptr %35, align 4
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr ptr, ptr %90, i64 %93
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr ptr, ptr %95, i64 %.0.i.i.i
+  %97 = load ptr, ptr %96, align 8
+  %.not24.i.i.i = icmp eq ptr %97, null
+  br i1 %.not24.i.i.i, label %dissect_asterix_data_block.exit.i, label %98
 
-97:                                               ; preds = %90
-  %98 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %99 = sub i32 %98, %37
-  br label %100
+98:                                               ; preds = %91
+  %99 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %100 = sub i32 %99, %37
+  br label %101
 
-100:                                              ; preds = %100, %97
-  %.0.i.i45.i.i = phi i32 [ 0, %97 ], [ %107, %100 ]
-  %101 = add i32 %.0.i.i45.i.i, %37
-  %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #3
-  %103 = and i8 %102, 1
-  %104 = icmp ne i8 %103, 0
-  %105 = icmp ult i32 %.0.i.i45.i.i, %99
-  %106 = select i1 %104, i1 %105, i1 false
-  %107 = add i32 %.0.i.i45.i.i, 1
-  br i1 %106, label %100, label %asterix_fspec_len.exit.preheader.i46.i.i, !llvm.loop !4
+101:                                              ; preds = %101, %98
+  %.0.i.i45.i.i = phi i32 [ 0, %98 ], [ %108, %101 ]
+  %102 = add i32 %.0.i.i45.i.i, %37
+  %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %102) #3
+  %104 = and i8 %103, 1
+  %105 = icmp ne i8 %104, 0
+  %106 = icmp ult i32 %.0.i.i45.i.i, %100
+  %107 = select i1 %105, i1 %106, i1 false
+  %108 = add i32 %.0.i.i45.i.i, 1
+  br i1 %107, label %101, label %asterix_fspec_len.exit.preheader.i46.i.i, !llvm.loop !4
 
-asterix_fspec_len.exit.preheader.i46.i.i:         ; preds = %100
-  %108 = load ptr, ptr %96, align 8
-  %.not2531.i.i.i = icmp eq ptr %108, null
+asterix_fspec_len.exit.preheader.i46.i.i:         ; preds = %101
+  %109 = load ptr, ptr %97, align 8
+  %.not2531.i.i.i = icmp eq ptr %109, null
   br i1 %.not2531.i.i.i, label %asterix_message_length.exit.i.i, label %.lr.ph.i47.i.i
 
-.lr.ph.i47.i.i:                                   ; preds = %asterix_fspec_len.exit.preheader.i46.i.i, %asterix_field_exists.exit.thread.i59.i.i
-  %109 = phi ptr [ %131, %asterix_field_exists.exit.thread.i59.i.i ], [ %96, %asterix_fspec_len.exit.preheader.i46.i.i ]
-  %.02033.i.i.i = phi i32 [ %.1.i60.i.i, %asterix_field_exists.exit.thread.i59.i.i ], [ %107, %asterix_fspec_len.exit.preheader.i46.i.i ]
-  %.02132.i.i.i = phi i32 [ %129, %asterix_field_exists.exit.thread.i59.i.i ], [ 0, %asterix_fspec_len.exit.preheader.i46.i.i ]
-  %110 = sdiv i32 %.02132.i.i.i, 7
-  %111 = add i32 %110, %.02132.i.i.i
-  %112 = and i32 %111, 248
-  %.not16.i.i48.i.i = icmp eq i32 %112, 0
-  br i1 %.not16.i.i48.i.i, label %asterix_field_exists.exit.i56.i.i, label %.lr.ph.preheader.i.i49.i.i
+.lr.ph.i47.i.i:                                   ; preds = %asterix_fspec_len.exit.preheader.i46.i.i, %asterix_field_exists.exit.thread.i56.i.i
+  %110 = phi ptr [ %133, %asterix_field_exists.exit.thread.i56.i.i ], [ %97, %asterix_fspec_len.exit.preheader.i46.i.i ]
+  %.02033.i.i.i = phi i32 [ %.1.i57.i.i, %asterix_field_exists.exit.thread.i56.i.i ], [ %108, %asterix_fspec_len.exit.preheader.i46.i.i ]
+  %.02132.i.i.i = phi i32 [ %131, %asterix_field_exists.exit.thread.i56.i.i ], [ 0, %asterix_fspec_len.exit.preheader.i46.i.i ]
+  %111 = sdiv i32 %.02132.i.i.i, 7
+  %112 = add i32 %111, %.02132.i.i.i
+  %113 = and i32 %112, 248
+  %.not16.i.i48.i.i = icmp eq i32 %113, 0
+  br i1 %.not16.i.i48.i.i, label %asterix_field_exists.exit.i53.i.i, label %.lr.ph.i.i49.preheader.i.i
 
-.lr.ph.preheader.i.i49.i.i:                       ; preds = %.lr.ph.i47.i.i
-  %113 = lshr i32 %111, 3
-  %wide.trip.count.i50.i.i = and i32 %113, 31
-  br label %.lr.ph.i.i51.i.i
+.lr.ph.i.i49.preheader.i.i:                       ; preds = %.lr.ph.i47.i.i
+  %114 = lshr i32 %112, 3
+  %115 = and i32 %114, 31
+  br label %.lr.ph.i.i49.i.i
 
-114:                                              ; preds = %.lr.ph.i.i51.i.i
-  %indvars.iv.next.i54.i.i = add nuw nsw i32 %indvars.iv.i52.i.i, 1
-  %exitcond.not.i55.i.i = icmp eq i32 %indvars.iv.next.i54.i.i, %wide.trip.count.i50.i.i
-  br i1 %exitcond.not.i55.i.i, label %asterix_field_exists.exit.i56.i.i, label %.lr.ph.i.i51.i.i, !llvm.loop !6
+116:                                              ; preds = %.lr.ph.i.i49.i.i
+  %indvars.iv.next.i52.i.i = add nuw nsw i32 %indvars.iv.i50.i.i, 1
+  %exitcond69.not.i.i = icmp eq i32 %indvars.iv.next.i52.i.i, %115
+  br i1 %exitcond69.not.i.i, label %asterix_field_exists.exit.i53.i.i, label %.lr.ph.i.i49.i.i, !llvm.loop !6
 
-.lr.ph.i.i51.i.i:                                 ; preds = %114, %.lr.ph.preheader.i.i49.i.i
-  %indvars.iv.i52.i.i = phi i32 [ %indvars.iv.next.i54.i.i, %114 ], [ 0, %.lr.ph.preheader.i.i49.i.i ]
-  %115 = add i32 %indvars.iv.i52.i.i, %37
-  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %115) #3
-  %117 = and i8 %116, 1
-  %.not.i.i53.i.i = icmp eq i8 %117, 0
-  br i1 %.not.i.i53.i.i, label %asterix_field_exists.exit.thread.i59.i.i, label %114
+.lr.ph.i.i49.i.i:                                 ; preds = %116, %.lr.ph.i.i49.preheader.i.i
+  %indvars.iv.i50.i.i = phi i32 [ %indvars.iv.next.i52.i.i, %116 ], [ 0, %.lr.ph.i.i49.preheader.i.i ]
+  %117 = add i32 %indvars.iv.i50.i.i, %37
+  %118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #3
+  %119 = and i8 %118, 1
+  %.not.i.i51.i.i = icmp eq i8 %119, 0
+  br i1 %.not.i.i51.i.i, label %asterix_field_exists.exit.thread.i56.i.i, label %116
 
-asterix_field_exists.exit.i56.i.i:                ; preds = %114, %.lr.ph.i47.i.i
-  %.lcssa.i.i57.i.i = phi i32 [ 0, %.lr.ph.i47.i.i ], [ %wide.trip.count.i50.i.i, %114 ]
-  %118 = add i32 %.lcssa.i.i57.i.i, %37
-  %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %118) #3
-  %120 = and i32 %111, 7
-  %121 = lshr exact i32 128, %120
-  %122 = zext i8 %119 to i32
-  %123 = and i32 %121, %122
-  %.not29.i58.i.i = icmp eq i32 %123, 0
-  br i1 %.not29.i58.i.i, label %asterix_field_exists.exit.thread.i59.i.i, label %124
+asterix_field_exists.exit.i53.i.i:                ; preds = %116, %.lr.ph.i47.i.i
+  %.lcssa.i.i54.i.i = phi i32 [ 0, %.lr.ph.i47.i.i ], [ %115, %116 ]
+  %120 = add i32 %.lcssa.i.i54.i.i, %37
+  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %120) #3
+  %122 = and i32 %112, 7
+  %123 = lshr exact i32 128, %122
+  %124 = zext i8 %121 to i32
+  %125 = and i32 %123, %124
+  %.not29.i55.i.i = icmp eq i32 %125, 0
+  br i1 %.not29.i55.i.i, label %asterix_field_exists.exit.thread.i56.i.i, label %126
 
-124:                                              ; preds = %asterix_field_exists.exit.i56.i.i
-  %125 = add i32 %.02033.i.i.i, %37
-  %126 = load ptr, ptr %109, align 8
-  %127 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %125, ptr noundef %126)
-  %128 = add i32 %127, %.02033.i.i.i
-  br label %asterix_field_exists.exit.thread.i59.i.i
+126:                                              ; preds = %asterix_field_exists.exit.i53.i.i
+  %127 = add i32 %.02033.i.i.i, %37
+  %128 = load ptr, ptr %110, align 8
+  %129 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %127, ptr noundef %128)
+  %130 = add i32 %129, %.02033.i.i.i
+  br label %asterix_field_exists.exit.thread.i56.i.i
 
-asterix_field_exists.exit.thread.i59.i.i:         ; preds = %.lr.ph.i.i51.i.i, %124, %asterix_field_exists.exit.i56.i.i
-  %.1.i60.i.i = phi i32 [ %128, %124 ], [ %.02033.i.i.i, %asterix_field_exists.exit.i56.i.i ], [ %.02033.i.i.i, %.lr.ph.i.i51.i.i ]
-  %129 = add i32 %.02132.i.i.i, 1
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr ptr, ptr %96, i64 %130
-  %132 = load ptr, ptr %131, align 8
-  %.not25.i.i.i = icmp eq ptr %132, null
+asterix_field_exists.exit.thread.i56.i.i:         ; preds = %.lr.ph.i.i49.i.i, %126, %asterix_field_exists.exit.i53.i.i
+  %.1.i57.i.i = phi i32 [ %130, %126 ], [ %.02033.i.i.i, %asterix_field_exists.exit.i53.i.i ], [ %.02033.i.i.i, %.lr.ph.i.i49.i.i ]
+  %131 = add i32 %.02132.i.i.i, 1
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr ptr, ptr %97, i64 %132
+  %134 = load ptr, ptr %133, align 8
+  %.not25.i.i.i = icmp eq ptr %134, null
   br i1 %.not25.i.i.i, label %asterix_message_length.exit.i.i, label %.lr.ph.i47.i.i, !llvm.loop !8
 
-asterix_message_length.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i59.i.i, %asterix_fspec_len.exit.preheader.i46.i.i
-  %.0.i61.i.i = phi i32 [ %107, %asterix_fspec_len.exit.preheader.i46.i.i ], [ %.1.i60.i.i, %asterix_field_exists.exit.thread.i59.i.i ]
-  %133 = icmp sgt i32 %.0.i61.i.i, 0
-  br i1 %133, label %134, label %dissect_asterix_data_block.exit.i
+asterix_message_length.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i56.i.i, %asterix_fspec_len.exit.preheader.i46.i.i
+  %.0.i58.i.i = phi i32 [ %108, %asterix_fspec_len.exit.preheader.i46.i.i ], [ %.1.i57.i.i, %asterix_field_exists.exit.thread.i56.i.i ]
+  %135 = icmp sgt i32 %.0.i58.i.i, 0
+  br i1 %135, label %136, label %dissect_asterix_data_block.exit.i
 
-134:                                              ; preds = %asterix_message_length.exit.i.i
-  %135 = load i32, ptr @hf_asterix_message, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %135, ptr noundef %0, i32 noundef %37, i32 noundef %.0.i61.i.i, i32 noundef 0) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.12113, i32 noundef %.068.i.i, i32 noundef %.0.i61.i.i) #3
-  %137 = load i32, ptr @ett_asterix_message, align 4
-  %138 = tail call ptr @proto_item_add_subtree(ptr noundef %136, i32 noundef %137) #3
-  %139 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %140 = sub i32 %139, %37
-  br label %141
+136:                                              ; preds = %asterix_message_length.exit.i.i
+  %137 = load i32, ptr @hf_asterix_message, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %137, ptr noundef %0, i32 noundef %37, i32 noundef %.0.i58.i.i, i32 noundef 0) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef nonnull @.str.12113, i32 noundef %.065.i.i, i32 noundef %.0.i58.i.i) #3
+  %139 = load i32, ptr @ett_asterix_message, align 4
+  %140 = tail call ptr @proto_item_add_subtree(ptr noundef %138, i32 noundef %139) #3
+  %141 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %142 = sub i32 %141, %37
+  br label %143
 
-141:                                              ; preds = %141, %134
-  %.0.i62.i.i = phi i32 [ 0, %134 ], [ %148, %141 ]
-  %142 = add i32 %.0.i62.i.i, %37
-  %143 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %142) #3
-  %144 = and i8 %143, 1
-  %145 = icmp ne i8 %144, 0
-  %146 = icmp ult i32 %.0.i62.i.i, %140
-  %147 = select i1 %145, i1 %146, i1 false
-  %148 = add i32 %.0.i62.i.i, 1
-  br i1 %147, label %141, label %asterix_message_length.exit.thread.i.i, !llvm.loop !4
+143:                                              ; preds = %143, %136
+  %.0.i59.i.i = phi i32 [ 0, %136 ], [ %150, %143 ]
+  %144 = add i32 %.0.i59.i.i, %37
+  %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #3
+  %146 = and i8 %145, 1
+  %147 = icmp ne i8 %146, 0
+  %148 = icmp ult i32 %.0.i59.i.i, %142
+  %149 = select i1 %147, i1 %148, i1 false
+  %150 = add i32 %.0.i59.i.i, 1
+  br i1 %149, label %143, label %asterix_message_length.exit.thread.i.i, !llvm.loop !4
 
-asterix_message_length.exit.thread.i.i:           ; preds = %141
-  %149 = load i32, ptr @hf_asterix_fspec, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %149, ptr noundef %0, i32 noundef %37, i32 noundef %148, i32 noundef 0) #3
-  %151 = load i32, ptr %35, align 4
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr ptr, ptr %89, i64 %152
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr ptr, ptr %154, i64 %.0.i.i.i
+asterix_message_length.exit.thread.i.i:           ; preds = %143
+  %151 = load i32, ptr @hf_asterix_fspec, align 4
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %151, ptr noundef %0, i32 noundef %37, i32 noundef %150, i32 noundef 0) #3
+  %153 = load i32, ptr %35, align 4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr ptr, ptr %90, i64 %154
   %156 = load ptr, ptr %155, align 8
-  %157 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %138, ptr noundef %156)
-  %158 = add i32 %148, %.04267.i.i
-  %159 = add i32 %158, %157
-  %160 = add i32 %.068.i.i, 1
-  %161 = icmp slt i32 %159, %21
-  br i1 %161, label %36, label %dissect_asterix_data_block.exit.i, !llvm.loop !9
+  %157 = getelementptr ptr, ptr %156, i64 %.0.i.i.i
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %140, ptr noundef %158)
+  %160 = add i32 %150, %.04264.i.i
+  %161 = add i32 %160, %159
+  %162 = add i32 %.065.i.i, 1
+  %163 = icmp slt i32 %161, %21
+  br i1 %163, label %36, label %dissect_asterix_data_block.exit.i, !llvm.loop !9
 
-dissect_asterix_data_block.exit.i:                ; preds = %asterix_message_length.exit.thread.i.i, %asterix_message_length.exit.i.i, %90, %asterix_get_active_uap.exit.i.i, %.lr.ph.i
-  %162 = add i32 %22, %.031.i
-  %163 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %164 = icmp ult i32 %162, %163
-  br i1 %164, label %.lr.ph.i, label %dissect_asterix_packet.exit, !llvm.loop !10
+dissect_asterix_data_block.exit.i:                ; preds = %asterix_message_length.exit.thread.i.i, %asterix_message_length.exit.i.i, %91, %asterix_get_active_uap.exit.i.i, %.lr.ph.i
+  %164 = add i32 %22, %.031.i
+  %165 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %166 = icmp ult i32 %164, %165
+  br i1 %166, label %.lr.ph.i, label %dissect_asterix_packet.exit, !llvm.loop !10
 
 dissect_asterix_packet.exit:                      ; preds = %dissect_asterix_data_block.exit.i, %8, %4
-  %165 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %165
+  %167 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %167
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1

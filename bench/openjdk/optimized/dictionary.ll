@@ -2550,7 +2550,8 @@ define hidden void @_ZN10Dictionary22print_table_statisticsEP12outputStreamPKc(p
   br label %37
 
 37:                                               ; preds = %._crit_edge12.i.i, %.lr.ph17.i.i
-  %38 = phi i64 [ %35, %.lr.ph17.i.i ], [ %75, %._crit_edge12.i.i ]
+  %indvars.iv.i.i = phi i64 [ 128, %.lr.ph17.i.i ], [ %indvars.iv.next.i.i, %._crit_edge12.i.i ]
+  %38 = phi i64 [ %35, %.lr.ph17.i.i ], [ %74, %._crit_edge12.i.i ]
   %.02315.i.i = phi i64 [ 0, %.lr.ph17.i.i ], [ %.1.lcssa.i.i, %._crit_edge12.i.i ]
   %.02614.i.i = phi i64 [ 0, %.lr.ph17.i.i ], [ %39, %._crit_edge12.i.i ]
   %39 = add i64 %.02614.i.i, 128
@@ -2579,11 +2580,15 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i: ; preds = %44, %
 
 _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i: ; preds = %49, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
   %51 = icmp ult i64 %.02614.i.i, %40
-  br i1 %51, label %.lr.ph11.i.i, label %._crit_edge12.i.i
+  br i1 %51, label %.lr.ph11.preheader.i.i, label %._crit_edge12.i.i
 
-.lr.ph11.i.i:                                     ; preds = %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i, %70
-  %.110.i.i = phi i64 [ %.2.i.i, %70 ], [ %.02315.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ]
-  %.0259.i.i = phi i64 [ %71, %70 ], [ %.02614.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ]
+.lr.ph11.preheader.i.i:                           ; preds = %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i
+  %umin.i.i = call i64 @llvm.umin.i64(i64 %38, i64 %indvars.iv.i.i)
+  br label %.lr.ph11.i.i
+
+.lr.ph11.i.i:                                     ; preds = %70, %.lr.ph11.preheader.i.i
+  %.110.i.i = phi i64 [ %.2.i.i, %70 ], [ %.02315.i.i, %.lr.ph11.preheader.i.i ]
+  %.0259.i.i = phi i64 [ %71, %70 ], [ %.02614.i.i, %.lr.ph11.preheader.i.i ]
   %52 = load ptr, ptr %32, align 8, !noalias !35
   %53 = getelementptr inbounds %"class.ConcurrentHashTable<Dictionary::Config, MEMFLAGS::mtClass>::Bucket", ptr %52, i64 %.0259.i.i
   %54 = load volatile ptr, ptr %53, align 8, !noalias !35
@@ -2637,52 +2642,53 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
 70:                                               ; preds = %._crit_edge.i.i, %57, %.lr.ph11.i.i
   %.2.i.i = phi i64 [ %.110.i.i, %.lr.ph11.i.i ], [ %.110.i.i, %57 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
   %71 = add nuw i64 %.0259.i.i, 1
-  %72 = icmp ult i64 %71, %40
-  br i1 %72, label %.lr.ph11.i.i, label %._crit_edge12.i.i, !llvm.loop !39
+  %exitcond.not.i.i = icmp eq i64 %71, %umin.i.i
+  br i1 %exitcond.not.i.i, label %._crit_edge12.i.i, label %.lr.ph11.i.i, !llvm.loop !39
 
 ._crit_edge12.i.i:                                ; preds = %70, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i
   %.1.lcssa.i.i = phi i64 [ %.02315.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ], [ %.2.i.i, %70 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !noalias !35, !srcloc !9
   store volatile i64 %41, ptr %36, align 8, !noalias !35
-  %73 = load ptr, ptr %31, align 8, !noalias !35
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  %75 = load i64, ptr %74, align 8, !noalias !35
-  %76 = icmp ult i64 %39, %75
-  br i1 %76, label %37, label %._crit_edge18.i.i, !llvm.loop !40
+  %72 = load ptr, ptr %31, align 8, !noalias !35
+  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %74 = load i64, ptr %73, align 8, !noalias !35
+  %75 = icmp ult i64 %39, %74
+  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 128
+  br i1 %75, label %37, label %._crit_edge18.i.i, !llvm.loop !40
 
 ._crit_edge18.i.i:                                ; preds = %._crit_edge12.i.i, %29
   %.023.lcssa.i.i = phi i64 [ 0, %29 ], [ %.1.lcssa.i.i, %._crit_edge12.i.i ]
-  %77 = load ptr, ptr %17, align 8, !noalias !35
-  %78 = icmp eq ptr %77, null
-  %79 = getelementptr inbounds i8, ptr %4, i64 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 56
-  br i1 %78, label %81, label %84
+  %76 = load ptr, ptr %17, align 8, !noalias !35
+  %77 = icmp eq ptr %76, null
+  %78 = getelementptr inbounds i8, ptr %4, i64 8
+  %79 = getelementptr inbounds i8, ptr %4, i64 56
+  br i1 %77, label %80, label %83
 
-81:                                               ; preds = %._crit_edge18.i.i
-  %82 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false), !noalias !35
+80:                                               ; preds = %._crit_edge18.i.i
+  %81 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %78, i64 48, i1 false), !noalias !35
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV9NumberSeq, i64 16), ptr %5, align 8, !noalias !35
-  %83 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !noalias !35
+  %82 = getelementptr inbounds i8, ptr %5, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !noalias !35
   call void @_ZN15TableStatisticsC1E9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull %5, i64 noundef %.023.lcssa.i.i, i64 noundef 8, i64 noundef 16) #15
   br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"
 
-84:                                               ; preds = %._crit_edge18.i.i
-  %85 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false), !noalias !35
+83:                                               ; preds = %._crit_edge18.i.i
+  %84 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %78, i64 48, i1 false), !noalias !35
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV9NumberSeq, i64 16), ptr %6, align 8, !noalias !35
-  %86 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !noalias !35
-  call void @_ZN15TableStatisticsC1ER19TableRateStatistics9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull %6, i64 noundef %.023.lcssa.i.i, i64 noundef 8, i64 noundef 16) #15
+  %85 = getelementptr inbounds i8, ptr %6, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !noalias !35
+  call void @_ZN15TableStatisticsC1ER19TableRateStatistics9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull %6, i64 noundef %.023.lcssa.i.i, i64 noundef 8, i64 noundef 16) #15
   br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"
 
-"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i": ; preds = %84, %81
+"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i": ; preds = %83, %80
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !32
-  %87 = load ptr, ptr %20, align 8, !noalias !32
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %87) #15
+  %86 = load ptr, ptr %20, align 8, !noalias !32
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %86) #15
   br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.exit"
 
 "_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE14statistics_getIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_SA_.exit": ; preds = %28, %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"

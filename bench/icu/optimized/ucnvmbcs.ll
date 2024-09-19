@@ -6596,7 +6596,7 @@ if.end48:                                         ; preds = %if.then46, %for.bod
 if.then50:                                        ; preds = %if.end48
   %11 = load i8, ptr %arrayidx43, align 1
   %cmp54 = icmp sgt i8 %11, -1
-  br i1 %cmp54, label %for.end65.loopexit.split.loop.exit84, label %for.inc64
+  br i1 %cmp54, label %for.end65.loopexit.split.loop.exit82, label %for.inc64
 
 if.else57:                                        ; preds = %if.end48
   %12 = and i32 %9, 14680064
@@ -6612,12 +6612,12 @@ for.end65.loopexit.split.loop.exit:               ; preds = %if.else57
   %13 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %for.end65.loopexit
 
-for.end65.loopexit.split.loop.exit84:             ; preds = %if.then50
+for.end65.loopexit.split.loop.exit82:             ; preds = %if.then50
   %14 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %for.end65.loopexit
 
-for.end65.loopexit:                               ; preds = %for.inc64, %for.end65.loopexit.split.loop.exit84, %for.end65.loopexit.split.loop.exit
-  %max.0.lcssa.ph = phi i32 [ %13, %for.end65.loopexit.split.loop.exit ], [ %14, %for.end65.loopexit.split.loop.exit84 ], [ %indvars.iv68, %for.inc64 ]
+for.end65.loopexit:                               ; preds = %for.inc64, %for.end65.loopexit.split.loop.exit82, %for.end65.loopexit.split.loop.exit
+  %max.0.lcssa.ph = phi i32 [ %13, %for.end65.loopexit.split.loop.exit ], [ %14, %for.end65.loopexit.split.loop.exit82 ], [ %indvars.iv68, %for.inc64 ]
   %.pre = load i8, ptr %arrayidx3, align 1
   br label %for.end65
 
@@ -6632,9 +6632,7 @@ for.end65:                                        ; preds = %for.end65.loopexit,
   br i1 %cmp74.not62, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %for.end65
-  %smax = tail call i32 @llvm.smax.i32(i32 %max.0.lcssa, i32 %indvars.iv68)
-  %18 = add nuw nsw i32 %smax, 1
-  %wide.trip.count = zext nneg i32 %18 to i64
+  %18 = zext i32 %max.0.lcssa to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end103
@@ -6673,8 +6671,8 @@ if.then96:                                        ; preds = %if.then87
 
 if.end103:                                        ; preds = %if.then87, %if.then96, %if.end85
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %while.body, !llvm.loop !49
+  %cmp74.not.not = icmp ult i64 %indvars.iv73, %18
+  br i1 %cmp74.not.not, label %while.body, label %return, !llvm.loop !49
 
 return:                                           ; preds = %if.end103, %for.end65, %if.then23
   ret void
@@ -8439,9 +8437,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -971,7 +971,7 @@ conv_ascii2bin.exit.i:                            ; preds = %if.then98, %while.b
 while.cond4.preheader.i:                          ; preds = %while.body.i, %conv_ascii2bin.exit.i, %if.then98
   %src.addr.0.i.lcssa = phi ptr [ %enc_data, %if.then98 ], [ %src.addr.0.i106, %conv_ascii2bin.exit.i ], [ %incdec.ptr.i, %while.body.i ]
   %src_len.addr.0.i.lcssa = phi i64 [ %conv99, %if.then98 ], [ %src_len.addr.0.i107, %conv_ascii2bin.exit.i ], [ %dec.i, %while.body.i ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %src_len.addr.0.i.lcssa, i64 3)
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %src_len.addr.0.i.lcssa, i64 3)
   br label %while.cond4.i
 
 while.body.i:                                     ; preds = %conv_ascii2bin.exit.i
@@ -1002,20 +1002,20 @@ conv_ascii2bin.exit16.i:                          ; preds = %land.rhs7.i
   br i1 %cmp10.i, label %while.cond4.i, label %while.end15.i, !llvm.loop !12
 
 while.end15.i:                                    ; preds = %conv_ascii2bin.exit16.i, %land.rhs7.i, %while.cond4.i
-  %src_len.addr.1.i.lcssa = phi i64 [ %src_len.addr.1.i, %conv_ascii2bin.exit16.i ], [ %src_len.addr.1.i, %land.rhs7.i ], [ %umin, %while.cond4.i ]
-  %rem.i.i = and i64 %src_len.addr.1.i.lcssa, 3
+  %src_len.addr.1.lcssa.i = phi i64 [ %src_len.addr.1.i, %land.rhs7.i ], [ %umin.i, %while.cond4.i ], [ %src_len.addr.1.i, %conv_ascii2bin.exit16.i ]
+  %rem.i.i = and i64 %src_len.addr.1.lcssa.i, 3
   %cmp.not.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.not.i.i, label %EVP_DecodedLength.exit.i, label %EVP_DecodeBlock.exit.thread
 
 EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
-  %div2.i.i = lshr exact i64 %src_len.addr.1.i.lcssa, 2
+  %div2.i.i = lshr exact i64 %src_len.addr.1.lcssa.i, 2
   %mul.i.i = mul nuw i64 %div2.i.i, 3
   store i64 %mul.i.i, ptr %dst_len.i, align 8
-  %cmp17.i = icmp ugt i64 %src_len.addr.1.i.lcssa, 2863311528
+  %cmp17.i = icmp ugt i64 %src_len.addr.1.lcssa.i, 2863311528
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i71
 
 if.end.i71:                                       ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0116, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0116, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.lcssa.i)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1105,28 +1105,29 @@ define hidden i32 @EVP_DecodeBlock(ptr nocapture noundef writeonly %dst, ptr noc
 entry:
   %dst_len = alloca i64, align 8
   %0 = load i8, ptr %src, align 1
-  %cmp.i32 = icmp slt i8 %0, 0
-  br i1 %cmp.i32, label %while.cond4.preheader, label %conv_ascii2bin.exit
+  %cmp.i33 = icmp slt i8 %0, 0
+  br i1 %cmp.i33, label %while.cond4.preheader, label %conv_ascii2bin.exit
 
 conv_ascii2bin.exit:                              ; preds = %entry, %while.body
   %1 = phi i8 [ %6, %while.body ], [ %0, %entry ]
-  %src_len.addr.034 = phi i64 [ %dec, %while.body ], [ %src_len, %entry ]
-  %src.addr.033 = phi ptr [ %incdec.ptr, %while.body ], [ %src, %entry ]
+  %src_len.addr.035 = phi i64 [ %dec, %while.body ], [ %src_len, %entry ]
+  %src.addr.034 = phi ptr [ %incdec.ptr, %while.body ], [ %src, %entry ]
   %2 = icmp eq i8 %1, 9
   %3 = icmp eq i8 %1, 32
   %4 = or i1 %2, %3
-  %cmp2 = icmp ne i64 %src_len.addr.034, 0
+  %cmp2 = icmp ne i64 %src_len.addr.035, 0
   %5 = select i1 %4, i1 %cmp2, i1 false
   br i1 %5, label %while.body, label %while.cond4.preheader
 
 while.cond4.preheader:                            ; preds = %conv_ascii2bin.exit, %while.body, %entry
-  %src.addr.0.lcssa = phi ptr [ %src, %entry ], [ %src.addr.033, %conv_ascii2bin.exit ], [ %incdec.ptr, %while.body ]
-  %src_len.addr.0.lcssa = phi i64 [ %src_len, %entry ], [ %src_len.addr.034, %conv_ascii2bin.exit ], [ %dec, %while.body ]
+  %src.addr.0.lcssa = phi ptr [ %src, %entry ], [ %src.addr.034, %conv_ascii2bin.exit ], [ %incdec.ptr, %while.body ]
+  %src_len.addr.0.lcssa = phi i64 [ %src_len, %entry ], [ %src_len.addr.035, %conv_ascii2bin.exit ], [ %dec, %while.body ]
+  %umin = tail call i64 @llvm.umin.i64(i64 %src_len.addr.0.lcssa, i64 3)
   br label %while.cond4
 
 while.body:                                       ; preds = %conv_ascii2bin.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.033, i64 1
-  %dec = add i64 %src_len.addr.034, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.034, i64 1
+  %dec = add i64 %src_len.addr.035, -1
   %6 = load i8, ptr %incdec.ptr, align 1
   %cmp.i = icmp slt i8 %6, 0
   br i1 %cmp.i, label %while.cond4.preheader, label %conv_ascii2bin.exit, !llvm.loop !11
@@ -1152,19 +1153,20 @@ conv_ascii2bin.exit16:                            ; preds = %land.rhs7
   br i1 %cmp10, label %while.cond4, label %while.end15, !llvm.loop !12
 
 while.end15:                                      ; preds = %land.rhs7, %while.cond4, %conv_ascii2bin.exit16
-  %rem.i = and i64 %src_len.addr.1, 3
+  %src_len.addr.1.lcssa = phi i64 [ %src_len.addr.1, %land.rhs7 ], [ %umin, %while.cond4 ], [ %src_len.addr.1, %conv_ascii2bin.exit16 ]
+  %rem.i = and i64 %src_len.addr.1.lcssa, 3
   %cmp.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.not.i, label %EVP_DecodedLength.exit, label %return
 
 EVP_DecodedLength.exit:                           ; preds = %while.end15
-  %div2.i = lshr exact i64 %src_len.addr.1, 2
+  %div2.i = lshr exact i64 %src_len.addr.1.lcssa, 2
   %mul.i = mul nuw i64 %div2.i, 3
   store i64 %mul.i, ptr %dst_len, align 8
-  %cmp17 = icmp ugt i64 %src_len.addr.1, 2863311528
+  %cmp17 = icmp ugt i64 %src_len.addr.1.lcssa, 2863311528
   br i1 %cmp17, label %return, label %if.end
 
 if.end:                                           ; preds = %EVP_DecodedLength.exit
-  %call19 = call i32 @EVP_DecodeBase64(ptr noundef %dst, ptr noundef nonnull %dst_len, i64 noundef %mul.i, ptr noundef nonnull %src.addr.0.lcssa, i64 noundef %src_len.addr.1)
+  %call19 = call i32 @EVP_DecodeBase64(ptr noundef %dst, ptr noundef nonnull %dst_len, i64 noundef %mul.i, ptr noundef nonnull %src.addr.0.lcssa, i64 noundef %src_len.addr.1.lcssa)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %while.cond23.preheader
 
@@ -1224,7 +1226,7 @@ conv_ascii2bin.exit.i:                            ; preds = %if.then, %while.bod
 while.cond4.preheader.i:                          ; preds = %while.body.i, %conv_ascii2bin.exit.i, %if.then
   %src.addr.0.i.lcssa = phi ptr [ %enc_data, %if.then ], [ %src.addr.0.i9, %conv_ascii2bin.exit.i ], [ %incdec.ptr.i, %while.body.i ]
   %src_len.addr.0.i.lcssa = phi i64 [ %conv, %if.then ], [ %src_len.addr.0.i10, %conv_ascii2bin.exit.i ], [ %dec.i, %while.body.i ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %src_len.addr.0.i.lcssa, i64 3)
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %src_len.addr.0.i.lcssa, i64 3)
   br label %while.cond4.i
 
 while.body.i:                                     ; preds = %conv_ascii2bin.exit.i
@@ -1255,20 +1257,20 @@ conv_ascii2bin.exit16.i:                          ; preds = %land.rhs7.i
   br i1 %cmp10.i, label %while.cond4.i, label %while.end15.i, !llvm.loop !12
 
 while.end15.i:                                    ; preds = %conv_ascii2bin.exit16.i, %land.rhs7.i, %while.cond4.i
-  %src_len.addr.1.i.lcssa = phi i64 [ %src_len.addr.1.i, %conv_ascii2bin.exit16.i ], [ %src_len.addr.1.i, %land.rhs7.i ], [ %umin, %while.cond4.i ]
-  %rem.i.i = and i64 %src_len.addr.1.i.lcssa, 3
+  %src_len.addr.1.lcssa.i = phi i64 [ %src_len.addr.1.i, %land.rhs7.i ], [ %umin.i, %while.cond4.i ], [ %src_len.addr.1.i, %conv_ascii2bin.exit16.i ]
+  %rem.i.i = and i64 %src_len.addr.1.lcssa.i, 3
   %cmp.not.i.i = icmp eq i64 %rem.i.i, 0
   br i1 %cmp.not.i.i, label %EVP_DecodedLength.exit.i, label %EVP_DecodeBlock.exit.thread
 
 EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
-  %div2.i.i = lshr exact i64 %src_len.addr.1.i.lcssa, 2
+  %div2.i.i = lshr exact i64 %src_len.addr.1.lcssa.i, 2
   %mul.i.i = mul nuw i64 %div2.i.i, 3
   store i64 %mul.i.i, ptr %dst_len.i, align 8
-  %cmp17.i = icmp ugt i64 %src_len.addr.1.i.lcssa, 2863311528
+  %cmp17.i = icmp ugt i64 %src_len.addr.1.lcssa.i, 2863311528
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.lcssa.i)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1327,20 +1329,20 @@ return:                                           ; preds = %entry, %if.end9
   ret i32 %retval.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

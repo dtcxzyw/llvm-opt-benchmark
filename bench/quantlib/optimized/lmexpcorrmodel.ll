@@ -1036,8 +1036,8 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %for.cond.cleanup, %
 
 for.cond.cleanup6:                                ; preds = %for.body7
   %inc15 = add nuw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc15, %4
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.cond3.preheader, !llvm.loop !43
+  %exitcond18.not = icmp eq i64 %inc15, %4
+  br i1 %exitcond18.not, label %for.cond.cleanup, label %for.cond3.preheader, !llvm.loop !43
 
 for.body7:                                        ; preds = %for.cond3.preheader, %for.body7
   %j.015 = phi i64 [ %i.017, %for.cond3.preheader ], [ %inc, %for.body7 ]
@@ -1052,8 +1052,8 @@ for.body7:                                        ; preds = %for.cond3.preheader
   %arrayidx13 = getelementptr inbounds nuw double, ptr %add.ptr.i.i14, i64 %j.015
   store double %call9, ptr %arrayidx13, align 8, !tbaa !30
   %inc = add nuw i64 %j.015, 1
-  %cmp5 = icmp ult i64 %inc, %4
-  br i1 %cmp5, label %for.body7, label %for.cond.cleanup6, !llvm.loop !47
+  %exitcond.not = icmp eq i64 %inc, %4
+  br i1 %exitcond.not, label %for.cond.cleanup6, label %for.body7, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

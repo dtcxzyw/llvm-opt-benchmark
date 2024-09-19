@@ -287,8 +287,8 @@ define void @dlagge_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 172:                                              ; preds = %.loopexit, %166
   %173 = phi i32 [ %.pre51, %166 ], [ %468, %.loopexit ]
   %174 = phi i32 [ %.pre, %166 ], [ %.pre59, %.loopexit ]
-  %175 = phi i64 [ 1, %166 ], [ %503, %.loopexit ]
-  %176 = phi i32 [ 0, %166 ], [ %507, %.loopexit ]
+  %175 = phi i64 [ 1, %166 ], [ %502, %.loopexit ]
+  %176 = phi i32 [ 0, %166 ], [ %506, %.loopexit ]
   %177 = trunc i64 %175 to i32
   %178 = mul i32 %176, %170
   %179 = add i32 %169, %178
@@ -754,16 +754,16 @@ define void @dlagge_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %500 = mul nsw i64 %499, %171
   %501 = getelementptr double, ptr %496, i64 %500
   store double 0.000000e+00, ptr %501, align 8, !tbaa !7
-  %502 = icmp slt i64 %499, %469
-  br i1 %502, label %497, label %.loopexit, !llvm.loop !14
+  %exitcond.not = icmp eq i64 %499, %469
+  br i1 %exitcond.not, label %.loopexit, label %497, !llvm.loop !14
 
 .loopexit:                                        ; preds = %497, %489, %486
-  %503 = add nuw nsw i64 %175, 1
-  %504 = load i32, ptr %11, align 4, !tbaa !3
-  %505 = sext i32 %504 to i64
-  %506 = icmp slt i64 %175, %505
-  %507 = add nuw nsw i32 %176, 1
-  br i1 %506, label %172, label %.loopexit31, !llvm.loop !15
+  %502 = add nuw nsw i64 %175, 1
+  %503 = load i32, ptr %11, align 4, !tbaa !3
+  %504 = sext i32 %503 to i64
+  %505 = icmp slt i64 %175, %504
+  %506 = add nuw nsw i32 %176, 1
+  br i1 %505, label %172, label %.loopexit31, !llvm.loop !15
 
 .loopexit31:                                      ; preds = %.loopexit, %.loopexit33, %.loopexit32, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5

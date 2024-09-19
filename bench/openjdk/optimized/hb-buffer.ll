@@ -1348,7 +1348,7 @@ define hidden void @_ZN11hb_buffer_t18merge_out_clustersEjj(ptr nocapture nounde
   br i1 %38, label %.critedge2.thread, label %.critedge4
 
 .critedge2.thread:                                ; preds = %36, %.critedge2
-  %.033.lcssa74 = phi i32 [ %.033.lcssa, %.critedge2 ], [ %26, %36 ]
+  %.033.lcssa76 = phi i32 [ %.033.lcssa, %.critedge2 ], [ %26, %36 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 84
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1395,36 +1395,36 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %57, %58
   br i1 %64, label %48, label %.critedge4, !llvm.loop !29
 
 .critedge4:                                       ; preds = %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit, %48, %.critedge2.thread, %.critedge2
-  %.033.lcssa73 = phi i32 [ %.033.lcssa74, %.critedge2.thread ], [ %.033.lcssa, %.critedge2 ], [ %.033.lcssa74, %48 ], [ %.033.lcssa74, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ]
-  %65 = icmp ult i32 %.034, %.033.lcssa73
+  %.033.lcssa75 = phi i32 [ %.033.lcssa76, %.critedge2.thread ], [ %.033.lcssa, %.critedge2 ], [ %.033.lcssa76, %48 ], [ %.033.lcssa76, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ]
+  %65 = icmp ult i32 %.034, %.033.lcssa75
   br i1 %65, label %.lr.ph56.preheader, label %.loopexit
 
 .lr.ph56.preheader:                               ; preds = %.critedge4
   %66 = zext i32 %.034 to i64
-  %67 = zext i32 %.033.lcssa73 to i64
   br label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38
   %indvars.iv69 = phi i64 [ %66, %.lr.ph56.preheader ], [ %indvars.iv.next70, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38 ]
-  %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %68, i64 %indvars.iv69
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 4
-  %.not.i37 = icmp eq i32 %71, %storemerge.lcssa
-  br i1 %.not.i37, label %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38, label %72
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %67, i64 %indvars.iv69
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load i32, ptr %69, align 4
+  %.not.i37 = icmp eq i32 %70, %storemerge.lcssa
+  br i1 %.not.i37, label %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38, label %71
 
-72:                                               ; preds = %.lr.ph56
-  %73 = getelementptr inbounds i8, ptr %69, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, -8
-  store i32 %75, ptr %73, align 4
+71:                                               ; preds = %.lr.ph56
+  %72 = getelementptr inbounds i8, ptr %68, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = and i32 %73, -8
+  store i32 %74, ptr %72, align 4
   br label %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38
 
-_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38: ; preds = %.lr.ph56, %72
-  store i32 %storemerge.lcssa, ptr %70, align 4
+_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38: ; preds = %.lr.ph56, %71
+  store i32 %storemerge.lcssa, ptr %69, align 4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %76 = icmp ult i64 %indvars.iv.next70, %67
-  br i1 %76, label %.lr.ph56, label %.loopexit, !llvm.loop !30
+  %lftr.wideiv72 = trunc i64 %indvars.iv.next70 to i32
+  %exitcond73.not = icmp eq i32 %.033.lcssa75, %lftr.wideiv72
+  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph56, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit38, %.critedge4, %3
   ret void

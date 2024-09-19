@@ -24671,31 +24671,34 @@ for.cond19.preheader:                             ; preds = %for.end
   %9 = sext i32 %call to i64
   %10 = sext i32 %first_diff.0.lcssa to i64
   %11 = sext i32 %2 to i64
+  %12 = sub i32 %2, %first_diff.0.lcssa
   br label %for.cond19
 
 for.cond19:                                       ; preds = %for.cond19.preheader, %for.body22
+  %indvars.iv61 = phi i32 [ %12, %for.cond19.preheader ], [ %indvars.iv.next62, %for.body22 ]
   %indvars.iv52 = phi i64 [ %11, %for.cond19.preheader ], [ %indvars.iv.next53, %for.body22 ]
   %indvars.iv50 = phi i64 [ %9, %for.cond19.preheader ], [ %indvars.iv.next51, %for.body22 ]
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, -1
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, -1
   %cmp20 = icmp sgt i64 %indvars.iv52, %10
   %cmp21 = icmp sgt i64 %indvars.iv50, %10
-  %12 = select i1 %cmp20, i1 %cmp21, i1 false
-  br i1 %12, label %for.body22, label %for.end34
+  %13 = select i1 %cmp20, i1 %cmp21, i1 false
+  br i1 %13, label %for.body22, label %for.end34
 
 for.body22:                                       ; preds = %for.cond19
   %arrayidx24 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.next53
-  %13 = load i16, ptr %arrayidx24, align 2
+  %14 = load i16, ptr %arrayidx24, align 2
   %arrayidx27 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv.next51
-  %14 = load i16, ptr %arrayidx27, align 2
-  %cmp29.not = icmp eq i16 %13, %14
+  %15 = load i16, ptr %arrayidx27, align 2
+  %cmp29.not = icmp eq i16 %14, %15
+  %indvars.iv.next62 = add i32 %indvars.iv61, -1
   br i1 %cmp29.not, label %for.cond19, label %for.end34, !llvm.loop !57
 
 for.end34:                                        ; preds = %for.body22, %for.cond19
-  %15 = trunc nsw i64 %indvars.iv.next51 to i32
-  %16 = trunc nsw i64 %indvars.iv.next53 to i32
-  %sub35 = sub nsw i32 %15, %first_diff.0.lcssa
-  %sub37 = sub nsw i32 %16, %first_diff.0.lcssa
+  %16 = trunc nsw i64 %indvars.iv.next51 to i32
+  %17 = trunc nsw i64 %indvars.iv.next53 to i32
+  %sub35 = sub nsw i32 %16, %first_diff.0.lcssa
+  %sub37 = sub nsw i32 %17, %first_diff.0.lcssa
   %cmp39 = icmp sgt i32 %sub35, -1
   %cmp40 = icmp sgt i32 %sub37, -1
   %or.cond = select i1 %cmp39, i1 true, i1 %cmp40
@@ -24712,21 +24715,21 @@ if.then41:                                        ; preds = %for.end34
   br i1 %or.cond48, label %if.end55, label %for.body46.preheader
 
 for.body46.preheader:                             ; preds = %if.then41
-  %17 = zext i32 %first_diff.0.lcssa to i64
-  %18 = zext nneg i32 %sub37 to i64
+  %18 = zext i32 %first_diff.0.lcssa to i64
+  %wide.trip.count63 = zext i32 %indvars.iv61 to i64
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.preheader, %for.body46
   %indvars.iv57 = phi i64 [ 0, %for.body46.preheader ], [ %indvars.iv.next58, %for.body46 ]
   %state.val = load ptr, ptr %Data, align 8
   %19 = getelementptr inbounds i16, ptr %state.val, i64 %indvars.iv57
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %19, i64 %17
+  %arrayidx.i.i = getelementptr inbounds i16, ptr %19, i64 %18
   %20 = load i16, ptr %arrayidx.i.i, align 2
   %arrayidx50 = getelementptr inbounds i16, ptr %call42, i64 %indvars.iv57
   store i16 %20, ptr %arrayidx50, align 2
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %cmp45.not.not = icmp ult i64 %indvars.iv57, %18
-  br i1 %cmp45.not.not, label %for.body46, label %if.end55, !llvm.loop !58
+  %exitcond64.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count63
+  br i1 %exitcond64.not, label %if.end55, label %for.body46, !llvm.loop !58
 
 if.end55:                                         ; preds = %for.body46, %for.end, %if.then41, %for.end34
   ret void

@@ -1490,8 +1490,8 @@ _ZN8QuantLib9transposeERKNS_6MatrixE.exit:        ; preds = %invoke.cont7.loopex
 
 for.cond.cleanup9:                                ; preds = %for.body10
   %inc20 = add nuw i64 %i.043, 1
-  %exitcond.not = icmp eq i64 %inc20, %8
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.cond6.preheader, !llvm.loop !55
+  %exitcond44.not = icmp eq i64 %inc20, %8
+  br i1 %exitcond44.not, label %for.cond.cleanup, label %for.cond6.preheader, !llvm.loop !55
 
 for.body10:                                       ; preds = %for.cond6.preheader, %for.body10
   %j.041 = phi i64 [ %i.043, %for.cond6.preheader ], [ %inc, %for.body10 ]
@@ -1507,8 +1507,8 @@ for.body10:                                       ; preds = %for.cond6.preheader
   %arrayidx18 = getelementptr inbounds nuw double, ptr %add.ptr.i.i27, i64 %j.041
   store double %26, ptr %arrayidx18, align 8, !tbaa !41
   %inc = add nuw i64 %j.041, 1
-  %cmp8 = icmp ult i64 %inc, %8
-  br i1 %cmp8, label %for.body10, label %for.cond.cleanup9, !llvm.loop !58
+  %exitcond.not = icmp eq i64 %inc, %8
+  br i1 %exitcond.not, label %for.cond.cleanup9, label %for.body10, !llvm.loop !58
 
 invoke.cont:                                      ; preds = %_ZN8QuantLib9transposeERKNS_6MatrixE.exit
   %27 = load ptr, ptr %corrMatrix_22, align 8, !tbaa !6

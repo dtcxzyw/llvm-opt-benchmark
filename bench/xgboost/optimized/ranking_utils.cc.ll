@@ -31029,10 +31029,12 @@ define linkonce_odr noundef double @_ZN4dmlc10ParseFloatIdLb1EEET_PKcPPc(ptr nou
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca i8, align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
+  %scevgep = getelementptr i8, ptr %0, i64 8
   br label %6
 
 6:                                                ; preds = %8, %2
-  %.0130 = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %indvars.iv221 = phi ptr [ %scevgep222, %8 ], [ %scevgep, %2 ]
+  %.0130 = phi ptr [ %9, %8 ], [ %0, %2 ]
   %7 = load i8, ptr %.0130, align 1
   switch i8 %7, label %_ZN4dmlc7isspaceEc.exit [
     i8 32, label %8
@@ -31044,6 +31046,7 @@ define linkonce_odr noundef double @_ZN4dmlc10ParseFloatIdLb1EEET_PKcPPc(ptr nou
 
 8:                                                ; preds = %6, %6, %6, %6, %6
   %9 = getelementptr inbounds i8, ptr %.0130, i64 1
+  %scevgep222 = getelementptr i8, ptr %indvars.iv221, i64 1
   br label %6, !llvm.loop !329
 
 _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
@@ -31052,6 +31055,7 @@ _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
   %11 = or i1 %.not145, %10
   %.1131.idx = zext i1 %11 to i64
   %.1131 = getelementptr inbounds i8, ptr %.0130, i64 %.1131.idx
+  %scevgep223 = getelementptr i8, ptr %indvars.iv221, i64 %.1131.idx
   br label %12
 
 12:                                               ; preds = %_ZN4dmlc7isspaceEc.exit, %18
@@ -31078,12 +31082,12 @@ _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
   ]
 
 .critedge.thread:                                 ; preds = %18, %.critedge, %.critedge
-  %.2132.lcssa229 = phi ptr [ %.2132169, %.critedge ], [ %.2132169, %.critedge ], [ %19, %18 ]
+  %.2132.lcssa233 = phi ptr [ %.2132169, %.critedge ], [ %.2132169, %.critedge ], [ %scevgep223, %18 ]
   %.not150 = icmp eq ptr %1, null
   br i1 %.not150, label %22, label %21
 
 21:                                               ; preds = %.critedge.thread
-  store ptr %.2132.lcssa229, ptr %1, align 8
+  store ptr %.2132.lcssa233, ptr %1, align 8
   br label %22
 
 22:                                               ; preds = %21, %.critedge.thread
@@ -31095,32 +31099,32 @@ _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds i8, ptr %.2132169, i64 %26
   %28 = sub nsw i64 3, %25
-  %scevgep = getelementptr i8, ptr %.2132169, i64 %28
+  %scevgep227 = getelementptr i8, ptr %.2132169, i64 %28
   br label %29
 
 29:                                               ; preds = %24, %35
-  %indvars.iv222 = phi i64 [ 0, %24 ], [ %indvars.iv.next223, %35 ]
+  %indvars.iv225 = phi i64 [ 0, %24 ], [ %indvars.iv.next226, %35 ]
   %.3171 = phi ptr [ %27, %24 ], [ %36, %35 ]
   %30 = load i8, ptr %.3171, align 1
   %31 = or i8 %30, 32
-  %32 = getelementptr inbounds [4 x i8], ptr @.str.103, i64 0, i64 %indvars.iv222
+  %32 = getelementptr inbounds [4 x i8], ptr @.str.103, i64 0, i64 %indvars.iv225
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %31, %33
   br i1 %34, label %35, label %.critedge3.thread
 
 35:                                               ; preds = %29
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %36 = getelementptr inbounds i8, ptr %.3171, i64 1
-  %exitcond225.not = icmp eq i64 %indvars.iv.next223, 3
-  br i1 %exitcond225.not, label %.critedge3, label %29, !llvm.loop !331
+  %exitcond229.not = icmp eq i64 %indvars.iv.next226, 3
+  br i1 %exitcond229.not, label %.critedge3, label %29, !llvm.loop !331
 
 .critedge3:                                       ; preds = %35
-  %37 = load i8, ptr %scevgep, align 1
+  %37 = load i8, ptr %scevgep227, align 1
   %38 = icmp eq i8 %37, 40
   br i1 %38, label %.preheader162, label %78
 
 .preheader162:                                    ; preds = %.critedge3, %.preheader162.backedge
-  %.3.pn = phi ptr [ %.5, %.preheader162.backedge ], [ %scevgep, %.critedge3 ]
+  %.3.pn = phi ptr [ %.5, %.preheader162.backedge ], [ %scevgep227, %.critedge3 ]
   %.5 = getelementptr inbounds i8, ptr %.3.pn, i64 1
   %39 = load i8, ptr %.5, align 1
   %40 = add i8 %39, -48
@@ -31238,7 +31242,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   resume { ptr, i32 } %.pn
 
 78:                                               ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %.critedge3
-  %.4 = phi ptr [ %76, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %scevgep, %.critedge3 ]
+  %.4 = phi ptr [ %76, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %scevgep227, %.critedge3 ]
   %.not149 = icmp eq ptr %1, null
   br i1 %.not149, label %171, label %79
 
@@ -31247,7 +31251,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %171
 
 .critedge3.thread:                                ; preds = %29
-  %80 = and i64 %indvars.iv222, 4294967295
+  %80 = and i64 %indvars.iv225, 4294967295
   %81 = sub nsw i64 0, %80
   %82 = getelementptr inbounds i8, ptr %.3171, i64 %81
   %83 = load i8, ptr %82, align 1
@@ -31428,8 +31432,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %.not, label %._crit_edge204, label %.lr.ph203, !llvm.loop !337
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %121, %.preheader
-  %.pr158233242247262 = phi i8 [ %137, %.preheader ], [ %128, %121 ], [ %137, %.lr.ph203 ]
-  %.11.lcssa234241249261 = phi ptr [ %136, %.preheader ], [ %.10, %121 ], [ %136, %.lr.ph203 ]
+  %.pr158237246251266 = phi i8 [ %137, %.preheader ], [ %128, %121 ], [ %137, %.lr.ph203 ]
+  %.11.lcssa238245253265 = phi ptr [ %136, %.preheader ], [ %.10, %121 ], [ %136, %.lr.ph203 ]
   %.1115.lcssa = phi double [ %.0114.lcssa, %.preheader ], [ 1.000000e+00, %121 ], [ %157, %.lr.ph203 ]
   %159 = fdiv double %.0122, %.1115.lcssa
   %160 = fmul double %.0122, %.1115.lcssa
@@ -31437,8 +31441,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %162
 
 162:                                              ; preds = %119, %._crit_edge204
-  %163 = phi i8 [ %120, %119 ], [ %.pr158233242247262, %._crit_edge204 ]
-  %.9 = phi ptr [ %.7, %119 ], [ %.11.lcssa234241249261, %._crit_edge204 ]
+  %163 = phi i8 [ %120, %119 ], [ %.pr158237246251266, %._crit_edge204 ]
+  %.9 = phi ptr [ %.7, %119 ], [ %.11.lcssa238245253265, %._crit_edge204 ]
   %.1123 = phi double [ %.0122, %119 ], [ %161, %._crit_edge204 ]
   switch i8 %163, label %166 [
     i8 102, label %164

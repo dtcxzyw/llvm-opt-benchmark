@@ -9481,6 +9481,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc80
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc80 ]
   %len.0166 = phi i64 [ 1, %entry ], [ %inc81, %for.inc80 ]
   %sub = add nsw i64 %len.0166, -1
   br label %for.body4
@@ -9996,8 +9997,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit99:          ; preds = %if.end71, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i98
   store ptr null, ptr %message_.i.i80, align 8
-  %cmp49 = icmp ult i64 %add, %sub
-  br i1 %cmp49, label %for.body50, label %for.end75, !llvm.loop !245
+  %exitcond168.not = icmp eq i64 %add, %indvars.iv
+  br i1 %exitcond168.not, label %for.end75, label %for.body50, !llvm.loop !245
 
 ehcleanup72:                                      ; preds = %_ZN7testing7MessageD2Ev.exit95, %lpad60
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %_ZN7testing7MessageD2Ev.exit95 ], [ %41, %lpad60 ]
@@ -10026,8 +10027,8 @@ if.then.i.i.i:                                    ; preds = %for.end75
   br label %_ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit
 
 _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit:     ; preds = %for.end75, %if.then.i.i.i
-  %exitcond168.not = icmp eq i64 %add.i.i, %len.0166
-  br i1 %exitcond168.not, label %for.inc80, label %for.body4, !llvm.loop !246
+  %exitcond169.not = icmp eq i64 %add.i.i, %len.0166
+  br i1 %exitcond169.not, label %for.inc80, label %for.body4, !llvm.loop !246
 
 ehcleanup76:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %_ZN7testing15AssertionResultD2Ev.exit103, %_ZN7testing15AssertionResultD2Ev.exit67, %ehcleanup21
   %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %_ZN7testing15AssertionResultD2Ev.exit67 ], [ %.pn18.pn, %_ZN7testing15AssertionResultD2Ev.exit103 ], [ %.pn.pn, %ehcleanup21 ], [ %lpad.loopexit125, %lpad.loopexit ], [ %lpad.loopexit127, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit130, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit133, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp134, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -10046,8 +10047,9 @@ _ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit110:  ; preds = %ehcleanup76, %if.th
 
 for.inc80:                                        ; preds = %_ZN4absl13InlinedVectorIiLm8ESaIiEED2Ev.exit
   %inc81 = add nuw nsw i64 %len.0166, 1
-  %exitcond169.not = icmp eq i64 %inc81, 20
-  br i1 %exitcond169.not, label %for.end82, label %for.cond2.preheader, !llvm.loop !247
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next, 19
+  br i1 %exitcond170.not, label %for.end82, label %for.cond2.preheader, !llvm.loop !247
 
 for.end82:                                        ; preds = %for.inc80
   ret void
@@ -14879,6 +14881,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc193
+  %indvars.iv = phi i64 [ 2, %entry ], [ %indvars.iv.next, %for.inc193 ]
   %indvar = phi i64 [ 0, %entry ], [ %indvar.next, %for.inc193 ]
   %len.0369 = phi i64 [ 1, %entry ], [ %inc194, %for.inc193 ]
   %1 = shl nuw nsw i64 %indvar, 2
@@ -15871,8 +15874,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit252:         ; preds = %if.end180, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i251
   store ptr null, ptr %message_.i.i233, align 8
   %inc183 = add nuw nsw i64 %i157.0366, 1
-  %cmp159 = icmp ult i64 %inc183, %len.0369
-  br i1 %cmp159, label %for.body160, label %for.end184, !llvm.loop !356
+  %exitcond420.not = icmp eq i64 %inc183, %len.0369
+  br i1 %exitcond420.not, label %for.end184, label %for.body160, !llvm.loop !356
 
 ehcleanup181:                                     ; preds = %_ZN7testing7MessageD2Ev.exit248, %lpad169
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit248 ], [ %90, %lpad169 ]
@@ -15963,7 +15966,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i258, %_ZN
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %for.end184, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE15DestroyElementsERS4_PS3_m.exit, %if.then.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i58) #35
   %inc188 = add nuw nsw i64 %erase_end.0367, 1
-  br i1 %cmp159365, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, label %for.inc190, !llvm.loop !358
+  %exitcond421.not = icmp eq i64 %inc188, %indvars.iv
+  br i1 %exitcond421.not, label %for.inc190, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !358
 
 ehcleanup185:                                     ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad13.loopexit.split-lp.loopexit, %_ZN7testing15AssertionResultD2Ev.exit256, %_ZN7testing15AssertionResultD2Ev.exit224, %_ZN7testing15AssertionResultD2Ev.exit192, %_ZN7testing15AssertionResultD2Ev.exit160, %_ZN7testing15AssertionResultD2Ev.exit122, %ehcleanup38, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit70
   %.pn54 = phi { ptr, i32 } [ %9, %_ZN12_GLOBAL__N_110RefCountedD2Ev.exit70 ], [ %.pn51.pn, %_ZN7testing15AssertionResultD2Ev.exit122 ], [ %.pn48.pn, %_ZN7testing15AssertionResultD2Ev.exit160 ], [ %.pn45.pn, %_ZN7testing15AssertionResultD2Ev.exit192 ], [ %.pn42.pn, %_ZN7testing15AssertionResultD2Ev.exit224 ], [ %.pn39.pn, %_ZN7testing15AssertionResultD2Ev.exit256 ], [ %.pn.pn, %ehcleanup38 ], [ %lpad.loopexit, %lpad13.loopexit ], [ %lpad.loopexit289, %lpad13.loopexit.split-lp.loopexit ], [ %lpad.loopexit292, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit294, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit297, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit299, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp300, %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -15994,14 +15998,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit277:                 ; preds = %ehcleanup185, %if.e
 
 for.inc190:                                       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %inc191 = add nuw nsw i64 %erase_begin.0368, 1
-  %exitcond420.not = icmp eq i64 %inc191, %len.0369
-  br i1 %exitcond420.not, label %for.inc193, label %for.cond5.preheader, !llvm.loop !359
+  %exitcond422.not = icmp eq i64 %inc191, %len.0369
+  br i1 %exitcond422.not, label %for.inc193, label %for.cond5.preheader, !llvm.loop !359
 
 for.inc193:                                       ; preds = %for.inc190
   %inc194 = add nuw nsw i64 %len.0369, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond421.not = icmp eq i64 %indvar.next, 19
-  br i1 %exitcond421.not, label %for.end195, label %for.cond2.preheader, !llvm.loop !360
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond423.not = icmp eq i64 %indvar.next, 19
+  br i1 %exitcond423.not, label %for.end195, label %for.cond2.preheader, !llvm.loop !360
 
 for.end195:                                       ; preds = %for.inc193
   ret void

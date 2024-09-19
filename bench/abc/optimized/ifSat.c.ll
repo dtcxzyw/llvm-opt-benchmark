@@ -896,7 +896,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %13 = getelementptr inbounds i8, ptr %6, i64 12
   %14 = getelementptr inbounds i8, ptr %6, i64 16
   %15 = getelementptr inbounds i8, ptr %6, i64 20
-  br label %355
+  br label %345
 
 .preheader475:                                    ; preds = %5
   %16 = icmp sgt i32 %3, 0
@@ -907,7 +907,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = getelementptr inbounds i8, ptr %6, i64 12
   %20 = getelementptr inbounds i8, ptr %6, i64 16
-  br label %178
+  br label %173
 
 .preheader466:                                    ; preds = %5
   %21 = icmp sgt i32 %3, 0
@@ -917,7 +917,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %22 = getelementptr inbounds i8, ptr %6, i64 4
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   %24 = getelementptr inbounds i8, ptr %6, i64 12
-  br label %84
+  br label %82
 
 .preheader460:                                    ; preds = %5
   %25 = icmp sgt i32 %3, 0
@@ -945,8 +945,8 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 32:                                               ; preds = %33
   %storemerge454 = add nuw i32 %storemerge454942, 1
-  %exitcond1179.not = icmp eq i32 %storemerge454, %3
-  br i1 %exitcond1179.not, label %._crit_edge945, label %33, !llvm.loop !19
+  %exitcond1209.not = icmp eq i32 %storemerge454, %3
+  br i1 %exitcond1209.not, label %._crit_edge945, label %33, !llvm.loop !19
 
 33:                                               ; preds = %.lr.ph944, %32
   %storemerge454942 = phi i32 [ %storemerge454941, %.lr.ph944 ], [ %storemerge454, %32 ]
@@ -958,8 +958,8 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not455, label %32, label %.loopexit458
 
 ._crit_edge945:                                   ; preds = %32, %.lr.ph949
-  %exitcond1180.not = icmp eq i32 %storemerge454941, %3
-  br i1 %exitcond1180.not, label %.loopexit458, label %.lr.ph949, !llvm.loop !20
+  %exitcond1210.not = icmp eq i32 %storemerge454941, %3
+  br i1 %exitcond1210.not, label %.loopexit458, label %.lr.ph949, !llvm.loop !20
 
 38:                                               ; preds = %.lr.ph922, %._crit_edge918
   %storemerge445921 = phi i32 [ 0, %.lr.ph922 ], [ %storemerge450913, %._crit_edge918 ]
@@ -995,169 +995,171 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not452, label %53, label %.loopexit458
 
 53:                                               ; preds = %47
-  %54 = add nsw i32 %storemerge451906, 1
-  %55 = icmp slt i32 %54, %3
-  br i1 %55, label %47, label %._crit_edge909, !llvm.loop !21
+  %54 = add i32 %storemerge451906, 1
+  %exitcond1199.not = icmp eq i32 %54, %3
+  br i1 %exitcond1199.not, label %._crit_edge909, label %47, !llvm.loop !21
 
 ._crit_edge909:                                   ; preds = %53, %42
   %storemerge451.lcssa = phi i32 [ %43, %42 ], [ %3, %53 ]
   store i32 %storemerge451.lcssa, ptr %27, align 8
   %storemerge450 = add nuw nsw i32 %storemerge450915, 1
-  %exitcond1171.not = icmp eq i32 %storemerge450, %3
-  br i1 %exitcond1171.not, label %._crit_edge918, label %42, !llvm.loop !22
+  %exitcond1200.not = icmp eq i32 %storemerge450, %3
+  br i1 %exitcond1200.not, label %._crit_edge918, label %42, !llvm.loop !22
 
 ._crit_edge918:                                   ; preds = %._crit_edge909, %38
   %storemerge450.lcssa = phi i32 [ %storemerge450913, %38 ], [ %3, %._crit_edge909 ]
   store i32 %storemerge450.lcssa, ptr %26, align 4
-  %exitcond1172.not = icmp eq i32 %storemerge450913, %3
-  br i1 %exitcond1172.not, label %._crit_edge923, label %38, !llvm.loop !23
+  %exitcond1201.not = icmp eq i32 %storemerge450913, %3
+  br i1 %exitcond1201.not, label %._crit_edge923, label %38, !llvm.loop !23
 
 ._crit_edge923:                                   ; preds = %._crit_edge918
-  %56 = icmp slt i32 %9, 1
-  br i1 %56, label %.loopexit458, label %.preheader457
+  %55 = icmp slt i32 %9, 1
+  br i1 %55, label %.loopexit458, label %.preheader457
 
 .preheader457:                                    ; preds = %._crit_edge923
   store i32 0, ptr %6, align 16
-  %57 = getelementptr inbounds i8, ptr %6, i64 4
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %59
+  %56 = getelementptr inbounds i8, ptr %6, i64 4
+  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  br label %58
 
-59:                                               ; preds = %.preheader457, %._crit_edge936
+58:                                               ; preds = %.preheader457, %._crit_edge936
   %storemerge446937 = phi i32 [ 0, %.preheader457 ], [ %storemerge447931, %._crit_edge936 ]
   %storemerge447931 = add nuw nsw i32 %storemerge446937, 1
-  store i32 %storemerge447931, ptr %57, align 4
-  %60 = icmp slt i32 %storemerge447931, %3
-  br i1 %60, label %.lr.ph935, label %._crit_edge936
+  store i32 %storemerge447931, ptr %56, align 4
+  %59 = icmp slt i32 %storemerge447931, %3
+  br i1 %59, label %.lr.ph935, label %._crit_edge936
 
-.lr.ph935:                                        ; preds = %59
-  %61 = shl nuw nsw i32 %storemerge446937, 1
-  %62 = shl nuw i32 1, %61
-  br label %63
+.lr.ph935:                                        ; preds = %58
+  %60 = shl nuw nsw i32 %storemerge446937, 1
+  %61 = shl nuw i32 1, %60
+  br label %62
 
-63:                                               ; preds = %.lr.ph935, %._crit_edge930
+62:                                               ; preds = %.lr.ph935, %._crit_edge930
   %storemerge447933 = phi i32 [ %storemerge447931, %.lr.ph935 ], [ %storemerge447, %._crit_edge930 ]
   %storemerge447.in932 = phi i32 [ %storemerge446937, %.lr.ph935 ], [ %storemerge447933, %._crit_edge930 ]
-  %64 = add nuw nsw i32 %storemerge447.in932, 2
-  store i32 %64, ptr %58, align 8
-  %65 = icmp slt i32 %64, %3
-  br i1 %65, label %.lr.ph929, label %._crit_edge930
+  %63 = add nuw nsw i32 %storemerge447.in932, 2
+  store i32 %63, ptr %57, align 8
+  %64 = icmp slt i32 %63, %3
+  br i1 %64, label %.lr.ph929, label %._crit_edge930
 
-.lr.ph929:                                        ; preds = %63
-  %66 = shl nuw nsw i32 %storemerge447933, 1
-  %67 = shl nuw i32 1, %66
-  br label %68
+.lr.ph929:                                        ; preds = %62
+  %65 = shl nuw nsw i32 %storemerge447933, 1
+  %66 = shl nuw i32 1, %65
+  br label %67
 
-68:                                               ; preds = %.lr.ph929, %81
-  %storemerge448927 = phi i32 [ %64, %.lr.ph929 ], [ %82, %81 ]
-  %69 = shl nsw i32 %storemerge448927, 1
-  %70 = shl nuw i32 1, %69
-  %71 = or i32 %62, %70
-  %72 = or i32 %71, %67
-  br label %74
+67:                                               ; preds = %.lr.ph929, %80
+  %storemerge448927 = phi i32 [ %63, %.lr.ph929 ], [ %81, %80 ]
+  %68 = shl nsw i32 %storemerge448927, 1
+  %69 = shl nuw i32 1, %68
+  %70 = or i32 %61, %69
+  %71 = or i32 %70, %66
+  br label %73
 
-73:                                               ; preds = %74
-  %indvars.iv.next1174 = add nuw nsw i64 %indvars.iv1173, 1
-  %exitcond1176.not = icmp eq i64 %indvars.iv.next1174, 3
-  br i1 %exitcond1176.not, label %81, label %74, !llvm.loop !24
+72:                                               ; preds = %73
+  %indvars.iv.next1203 = add nuw nsw i64 %indvars.iv1202, 1
+  %exitcond1205.not = icmp eq i64 %indvars.iv.next1203, 3
+  br i1 %exitcond1205.not, label %80, label %73, !llvm.loop !24
 
-74:                                               ; preds = %68, %73
-  %indvars.iv1173 = phi i64 [ 0, %68 ], [ %indvars.iv.next1174, %73 ]
-  %75 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1173
-  %76 = load i32, ptr %75, align 4
-  %77 = shl nsw i32 %76, 1
-  %78 = shl i32 3, %77
-  %79 = or i32 %78, %72
-  %80 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 3, ptr noundef %2, i32 noundef %3, i32 noundef %79, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not449 = icmp eq i32 %80, 0
-  br i1 %.not449, label %73, label %.loopexit458
+73:                                               ; preds = %67, %72
+  %indvars.iv1202 = phi i64 [ 0, %67 ], [ %indvars.iv.next1203, %72 ]
+  %74 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1202
+  %75 = load i32, ptr %74, align 4
+  %76 = shl nsw i32 %75, 1
+  %77 = shl i32 3, %76
+  %78 = or i32 %77, %71
+  %79 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 3, ptr noundef %2, i32 noundef %3, i32 noundef %78, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not449 = icmp eq i32 %79, 0
+  br i1 %.not449, label %72, label %.loopexit458
 
-81:                                               ; preds = %73
-  %82 = add nsw i32 %storemerge448927, 1
-  store i32 %82, ptr %58, align 8
-  %83 = icmp slt i32 %82, %3
-  br i1 %83, label %68, label %._crit_edge930, !llvm.loop !25
+80:                                               ; preds = %72
+  %81 = add nsw i32 %storemerge448927, 1
+  store i32 %81, ptr %57, align 8
+  %exitcond1206.not = icmp eq i32 %81, %3
+  br i1 %exitcond1206.not, label %._crit_edge930, label %67, !llvm.loop !25
 
-._crit_edge930:                                   ; preds = %81, %63
+._crit_edge930:                                   ; preds = %80, %62
   %storemerge447 = add nuw nsw i32 %storemerge447933, 1
-  store i32 %storemerge447, ptr %57, align 4
-  %exitcond1177.not = icmp eq i32 %storemerge447, %3
-  br i1 %exitcond1177.not, label %._crit_edge936, label %63, !llvm.loop !26
+  store i32 %storemerge447, ptr %56, align 4
+  %exitcond1207.not = icmp eq i32 %storemerge447, %3
+  br i1 %exitcond1207.not, label %._crit_edge936, label %62, !llvm.loop !26
 
-._crit_edge936:                                   ; preds = %._crit_edge930, %59
+._crit_edge936:                                   ; preds = %._crit_edge930, %58
   store i32 %storemerge447931, ptr %6, align 16
-  %exitcond1178.not = icmp eq i32 %storemerge447931, %3
-  br i1 %exitcond1178.not, label %.loopexit458, label %59, !llvm.loop !27
+  %exitcond1208.not = icmp eq i32 %storemerge447931, %3
+  br i1 %exitcond1208.not, label %.loopexit458, label %58, !llvm.loop !27
 
-84:                                               ; preds = %.lr.ph858, %._crit_edge854
+82:                                               ; preds = %.lr.ph858, %._crit_edge854
   %storemerge430857 = phi i32 [ 0, %.lr.ph858 ], [ %storemerge441849, %._crit_edge854 ]
   %storemerge441849 = add nuw nsw i32 %storemerge430857, 1
-  %85 = icmp slt i32 %storemerge441849, %3
-  br i1 %85, label %.lr.ph853, label %._crit_edge854
+  %83 = icmp slt i32 %storemerge441849, %3
+  br i1 %83, label %.lr.ph853, label %._crit_edge854
 
-.lr.ph853:                                        ; preds = %84
-  %86 = shl nuw nsw i32 %storemerge430857, 1
-  %87 = shl nuw i32 1, %86
-  br label %88
+.lr.ph853:                                        ; preds = %82
+  %84 = shl nuw nsw i32 %storemerge430857, 1
+  %85 = shl nuw i32 1, %84
+  br label %86
 
-88:                                               ; preds = %.lr.ph853, %._crit_edge845
+86:                                               ; preds = %.lr.ph853, %._crit_edge845
   %storemerge441851 = phi i32 [ %storemerge441849, %.lr.ph853 ], [ %storemerge441, %._crit_edge845 ]
   %storemerge441.in850 = phi i32 [ %storemerge430857, %.lr.ph853 ], [ %storemerge441851, %._crit_edge845 ]
-  %89 = add nuw nsw i32 %storemerge441.in850, 2
-  %90 = icmp slt i32 %89, %3
-  br i1 %90, label %.lr.ph844, label %._crit_edge845
+  %87 = add nuw nsw i32 %storemerge441.in850, 2
+  %88 = icmp slt i32 %87, %3
+  br i1 %88, label %.lr.ph844, label %._crit_edge845
 
-.lr.ph844:                                        ; preds = %88
-  %91 = shl nuw nsw i32 %storemerge441851, 1
-  %92 = shl nuw i32 1, %91
-  %storemerge4438341380 = add nsw i32 %storemerge441.in850, 3
-  %93 = icmp slt i32 %storemerge4438341380, %3
-  br i1 %93, label %.lr.ph837, label %._crit_edge845
+.lr.ph844:                                        ; preds = %86
+  %89 = shl nuw nsw i32 %storemerge441851, 1
+  %90 = shl nuw i32 1, %89
+  br label %91
 
-.lr.ph837:                                        ; preds = %.lr.ph844, %._crit_edge838
-  %storemerge4438341382 = phi i32 [ %storemerge443834, %._crit_edge838 ], [ %storemerge4438341380, %.lr.ph844 ]
-  %storemerge4428421381 = phi i32 [ %storemerge4438341382, %._crit_edge838 ], [ %89, %.lr.ph844 ]
-  %94 = shl nsw i32 %storemerge4428421381, 1
-  %95 = shl nuw i32 1, %94
-  br label %98
+91:                                               ; preds = %.lr.ph844, %._crit_edge838
+  %storemerge442842 = phi i32 [ %87, %.lr.ph844 ], [ %storemerge443834, %._crit_edge838 ]
+  %storemerge443834 = add nsw i32 %storemerge442842, 1
+  %92 = icmp slt i32 %storemerge443834, %3
+  br i1 %92, label %.lr.ph837, label %._crit_edge838
 
-96:                                               ; preds = %98
-  %storemerge443 = add nsw i32 %storemerge443835, 1
-  %97 = icmp slt i32 %storemerge443, %3
-  br i1 %97, label %98, label %._crit_edge838, !llvm.loop !28
+.lr.ph837:                                        ; preds = %91
+  %93 = shl nsw i32 %storemerge442842, 1
+  %94 = shl nuw i32 1, %93
+  br label %96
 
-98:                                               ; preds = %.lr.ph837, %96
-  %storemerge443835 = phi i32 [ %storemerge4438341382, %.lr.ph837 ], [ %storemerge443, %96 ]
-  %99 = shl nsw i32 %storemerge443835, 1
-  %100 = shl nuw i32 1, %99
-  %101 = or i32 %87, %100
-  %102 = or i32 %101, %92
-  %103 = or i32 %102, %95
-  %104 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %103, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not444 = icmp eq i32 %104, 0
-  br i1 %.not444, label %96, label %.loopexit458
+95:                                               ; preds = %96
+  %storemerge443 = add i32 %storemerge443835, 1
+  %exitcond1173.not = icmp eq i32 %storemerge443, %3
+  br i1 %exitcond1173.not, label %._crit_edge838, label %96, !llvm.loop !28
 
-._crit_edge838:                                   ; preds = %96
-  store i32 %3, ptr %24, align 4
-  %storemerge443834 = add nsw i32 %storemerge4438341382, 1
-  %105 = icmp slt i32 %storemerge443834, %3
-  br i1 %105, label %.lr.ph837, label %._crit_edge845, !llvm.loop !29
+96:                                               ; preds = %.lr.ph837, %95
+  %storemerge443835 = phi i32 [ %storemerge443834, %.lr.ph837 ], [ %storemerge443, %95 ]
+  %97 = shl nsw i32 %storemerge443835, 1
+  %98 = shl nuw i32 1, %97
+  %99 = or i32 %85, %98
+  %100 = or i32 %99, %90
+  %101 = or i32 %100, %94
+  %102 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %101, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not444 = icmp eq i32 %102, 0
+  br i1 %.not444, label %95, label %.loopexit458
 
-._crit_edge845:                                   ; preds = %._crit_edge838, %.lr.ph844, %88
-  %storemerge442.lcssa = phi i32 [ %89, %88 ], [ %3, %.lr.ph844 ], [ %3, %._crit_edge838 ]
+._crit_edge838:                                   ; preds = %95, %91
+  %storemerge443.lcssa = phi i32 [ %storemerge443834, %91 ], [ %3, %95 ]
+  store i32 %storemerge443.lcssa, ptr %24, align 4
+  %exitcond1174.not = icmp eq i32 %storemerge443834, %3
+  br i1 %exitcond1174.not, label %._crit_edge845, label %91, !llvm.loop !29
+
+._crit_edge845:                                   ; preds = %._crit_edge838, %86
+  %storemerge442.lcssa = phi i32 [ %87, %86 ], [ %3, %._crit_edge838 ]
   store i32 %storemerge442.lcssa, ptr %23, align 8
   %storemerge441 = add nuw nsw i32 %storemerge441851, 1
-  %exitcond1151.not = icmp eq i32 %storemerge441, %3
-  br i1 %exitcond1151.not, label %._crit_edge854, label %88, !llvm.loop !30
+  %exitcond1175.not = icmp eq i32 %storemerge441, %3
+  br i1 %exitcond1175.not, label %._crit_edge854, label %86, !llvm.loop !30
 
-._crit_edge854:                                   ; preds = %._crit_edge845, %84
-  %storemerge441.lcssa = phi i32 [ %storemerge441849, %84 ], [ %3, %._crit_edge845 ]
+._crit_edge854:                                   ; preds = %._crit_edge845, %82
+  %storemerge441.lcssa = phi i32 [ %storemerge441849, %82 ], [ %3, %._crit_edge845 ]
   store i32 %storemerge441.lcssa, ptr %22, align 4
-  %exitcond1152.not = icmp eq i32 %storemerge441849, %3
-  br i1 %exitcond1152.not, label %._crit_edge859, label %84, !llvm.loop !31
+  %exitcond1176.not = icmp eq i32 %storemerge441849, %3
+  br i1 %exitcond1176.not, label %._crit_edge859, label %82, !llvm.loop !31
 
 ._crit_edge859:                                   ; preds = %._crit_edge854
-  %106 = icmp slt i32 %9, 1
-  br i1 %106, label %.loopexit458, label %.preheader464
+  %103 = icmp slt i32 %9, 1
+  br i1 %103, label %.loopexit458, label %.preheader464
 
 ._crit_edge859.thread:                            ; preds = %.preheader466
   %or.cond = icmp slt i32 %9, 2
@@ -1165,99 +1167,94 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .preheader464:                                    ; preds = %._crit_edge859
   store i32 0, ptr %6, align 16
-  %107 = getelementptr inbounds i8, ptr %6, i64 4
-  %108 = getelementptr inbounds i8, ptr %6, i64 8
-  %109 = getelementptr inbounds i8, ptr %6, i64 12
-  br label %110
+  %104 = getelementptr inbounds i8, ptr %6, i64 4
+  %105 = getelementptr inbounds i8, ptr %6, i64 8
+  %106 = getelementptr inbounds i8, ptr %6, i64 12
+  br label %107
 
-110:                                              ; preds = %.preheader464, %._crit_edge877
+107:                                              ; preds = %.preheader464, %._crit_edge877
   %storemerge431878 = phi i32 [ 0, %.preheader464 ], [ %storemerge437872, %._crit_edge877 ]
   %storemerge437872 = add nuw nsw i32 %storemerge431878, 1
-  store i32 %storemerge437872, ptr %107, align 4
-  %111 = icmp slt i32 %storemerge437872, %3
-  br i1 %111, label %.lr.ph876, label %._crit_edge877
+  store i32 %storemerge437872, ptr %104, align 4
+  %108 = icmp slt i32 %storemerge437872, %3
+  br i1 %108, label %.lr.ph876, label %._crit_edge877
 
-.lr.ph876:                                        ; preds = %110
-  %112 = shl nuw nsw i32 %storemerge431878, 1
-  %113 = shl nuw i32 1, %112
-  br label %114
+.lr.ph876:                                        ; preds = %107
+  %109 = shl nuw nsw i32 %storemerge431878, 1
+  %110 = shl nuw i32 1, %109
+  br label %111
 
-114:                                              ; preds = %.lr.ph876, %._crit_edge871
+111:                                              ; preds = %.lr.ph876, %._crit_edge871
   %storemerge437874 = phi i32 [ %storemerge437872, %.lr.ph876 ], [ %storemerge437, %._crit_edge871 ]
   %storemerge437.in873 = phi i32 [ %storemerge431878, %.lr.ph876 ], [ %storemerge437874, %._crit_edge871 ]
-  %115 = add nuw nsw i32 %storemerge437.in873, 2
-  store i32 %115, ptr %108, align 8
-  %116 = icmp slt i32 %115, %3
-  br i1 %116, label %.lr.ph870, label %._crit_edge871
+  %112 = add nuw nsw i32 %storemerge437.in873, 2
+  store i32 %112, ptr %105, align 8
+  %113 = icmp slt i32 %112, %3
+  br i1 %113, label %.lr.ph870, label %._crit_edge871
 
-.lr.ph870:                                        ; preds = %114
-  %117 = shl nuw nsw i32 %storemerge437874, 1
-  %118 = shl nuw i32 1, %117
-  %storemerge4398631383 = add nsw i32 %storemerge437.in873, 3
-  store i32 %storemerge4398631383, ptr %109, align 4
-  %119 = icmp slt i32 %storemerge4398631383, %3
-  br i1 %119, label %.lr.ph866, label %._crit_edge867.thread
+.lr.ph870:                                        ; preds = %111
+  %114 = shl nuw nsw i32 %storemerge437874, 1
+  %115 = shl nuw i32 1, %114
+  br label %116
 
-._crit_edge867.thread:                            ; preds = %._crit_edge867, %.lr.ph870
-  %storemerge439863.lcssa = phi i32 [ %storemerge4398631383, %.lr.ph870 ], [ %storemerge439863, %._crit_edge867 ]
-  store i32 %storemerge439863.lcssa, ptr %108, align 8
-  br label %._crit_edge871
+116:                                              ; preds = %.lr.ph870, %._crit_edge867
+  %storemerge438868 = phi i32 [ %112, %.lr.ph870 ], [ %storemerge439863, %._crit_edge867 ]
+  %storemerge439863 = add nsw i32 %storemerge438868, 1
+  store i32 %storemerge439863, ptr %106, align 4
+  %117 = icmp slt i32 %storemerge439863, %3
+  br i1 %117, label %.lr.ph866, label %._crit_edge867
 
-.lr.ph866:                                        ; preds = %.lr.ph870, %._crit_edge867
-  %storemerge4398631385 = phi i32 [ %storemerge439863, %._crit_edge867 ], [ %storemerge4398631383, %.lr.ph870 ]
-  %storemerge4388681384 = phi i32 [ %storemerge4398631385, %._crit_edge867 ], [ %115, %.lr.ph870 ]
-  %120 = shl nsw i32 %storemerge4388681384, 1
-  %121 = shl nuw i32 1, %120
-  br label %122
+.lr.ph866:                                        ; preds = %116
+  %118 = shl nsw i32 %storemerge438868, 1
+  %119 = shl nuw i32 1, %118
+  br label %120
 
-122:                                              ; preds = %.lr.ph866, %136
-  %storemerge439864 = phi i32 [ %storemerge4398631385, %.lr.ph866 ], [ %storemerge439, %136 ]
-  %123 = shl nsw i32 %storemerge439864, 1
-  %124 = shl nuw i32 1, %123
-  %125 = or i32 %113, %124
-  %126 = or i32 %125, %118
-  %127 = or i32 %126, %121
-  br label %129
+120:                                              ; preds = %.lr.ph866, %134
+  %storemerge439864 = phi i32 [ %storemerge439863, %.lr.ph866 ], [ %storemerge439, %134 ]
+  %121 = shl nsw i32 %storemerge439864, 1
+  %122 = shl nuw i32 1, %121
+  %123 = or i32 %110, %122
+  %124 = or i32 %123, %115
+  %125 = or i32 %124, %119
+  br label %127
 
-128:                                              ; preds = %129
-  %indvars.iv.next1154 = add nuw nsw i64 %indvars.iv1153, 1
-  %exitcond1156.not = icmp eq i64 %indvars.iv.next1154, 4
-  br i1 %exitcond1156.not, label %136, label %129, !llvm.loop !32
+126:                                              ; preds = %127
+  %indvars.iv.next1178 = add nuw nsw i64 %indvars.iv1177, 1
+  %exitcond1180.not = icmp eq i64 %indvars.iv.next1178, 4
+  br i1 %exitcond1180.not, label %134, label %127, !llvm.loop !32
 
-129:                                              ; preds = %122, %128
-  %indvars.iv1153 = phi i64 [ 0, %122 ], [ %indvars.iv.next1154, %128 ]
-  %130 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1153
-  %131 = load i32, ptr %130, align 4
-  %132 = shl nsw i32 %131, 1
-  %133 = shl i32 3, %132
-  %134 = or i32 %133, %127
-  %135 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %134, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not440 = icmp eq i32 %135, 0
-  br i1 %.not440, label %128, label %.loopexit458
+127:                                              ; preds = %120, %126
+  %indvars.iv1177 = phi i64 [ 0, %120 ], [ %indvars.iv.next1178, %126 ]
+  %128 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1177
+  %129 = load i32, ptr %128, align 4
+  %130 = shl nsw i32 %129, 1
+  %131 = shl i32 3, %130
+  %132 = or i32 %131, %125
+  %133 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %132, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not440 = icmp eq i32 %133, 0
+  br i1 %.not440, label %126, label %.loopexit458
 
-136:                                              ; preds = %128
+134:                                              ; preds = %126
   %storemerge439 = add nsw i32 %storemerge439864, 1
-  store i32 %storemerge439, ptr %109, align 4
-  %137 = icmp slt i32 %storemerge439, %3
-  br i1 %137, label %122, label %._crit_edge867, !llvm.loop !33
+  store i32 %storemerge439, ptr %106, align 4
+  %exitcond1181.not = icmp eq i32 %storemerge439, %3
+  br i1 %exitcond1181.not, label %._crit_edge867, label %120, !llvm.loop !33
 
-._crit_edge867:                                   ; preds = %136
-  store i32 %storemerge4398631385, ptr %108, align 8
-  %storemerge439863 = add nsw i32 %storemerge4398631385, 1
-  store i32 %storemerge439863, ptr %109, align 4
-  %138 = icmp slt i32 %storemerge439863, %3
-  br i1 %138, label %.lr.ph866, label %._crit_edge867.thread, !llvm.loop !34
+._crit_edge867:                                   ; preds = %134, %116
+  store i32 %storemerge439863, ptr %105, align 8
+  %exitcond1182.not = icmp eq i32 %storemerge439863, %3
+  br i1 %exitcond1182.not, label %._crit_edge871, label %116, !llvm.loop !34
 
-._crit_edge871:                                   ; preds = %._crit_edge867.thread, %114
+._crit_edge871:                                   ; preds = %._crit_edge867, %111
   %storemerge437 = add nuw nsw i32 %storemerge437874, 1
-  store i32 %storemerge437, ptr %107, align 4
-  %exitcond1157.not = icmp eq i32 %storemerge437, %3
-  br i1 %exitcond1157.not, label %._crit_edge877, label %114, !llvm.loop !35
+  store i32 %storemerge437, ptr %104, align 4
+  %exitcond1183.not = icmp eq i32 %storemerge437, %3
+  br i1 %exitcond1183.not, label %._crit_edge877, label %111, !llvm.loop !35
 
-._crit_edge877:                                   ; preds = %._crit_edge871, %110
+._crit_edge877:                                   ; preds = %._crit_edge871, %107
   store i32 %storemerge437872, ptr %6, align 16
-  %exitcond1158.not = icmp eq i32 %storemerge437872, %3
-  br i1 %exitcond1158.not, label %._crit_edge880, label %110, !llvm.loop !36
+  %exitcond1184.not = icmp eq i32 %storemerge437872, %3
+  br i1 %exitcond1184.not, label %._crit_edge880, label %107, !llvm.loop !36
 
 ._crit_edge880:                                   ; preds = %._crit_edge877
   %.old = icmp eq i32 %9, 1
@@ -1268,684 +1265,668 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %21, label %.lr.ph903, label %.loopexit458
 
 .lr.ph903:                                        ; preds = %.preheader462
-  %139 = getelementptr inbounds i8, ptr %6, i64 4
-  %140 = getelementptr inbounds i8, ptr %6, i64 8
-  %141 = getelementptr inbounds i8, ptr %6, i64 12
-  br label %142
+  %135 = getelementptr inbounds i8, ptr %6, i64 4
+  %136 = getelementptr inbounds i8, ptr %6, i64 8
+  %137 = getelementptr inbounds i8, ptr %6, i64 12
+  br label %138
 
-142:                                              ; preds = %.lr.ph903, %._crit_edge901
+138:                                              ; preds = %.lr.ph903, %._crit_edge901
   %storemerge432902 = phi i32 [ 0, %.lr.ph903 ], [ %storemerge433896, %._crit_edge901 ]
   %storemerge433896 = add nuw nsw i32 %storemerge432902, 1
-  store i32 %storemerge433896, ptr %139, align 4
-  %143 = icmp slt i32 %storemerge433896, %3
-  br i1 %143, label %.lr.ph900, label %._crit_edge901
+  store i32 %storemerge433896, ptr %135, align 4
+  %139 = icmp slt i32 %storemerge433896, %3
+  br i1 %139, label %.lr.ph900, label %._crit_edge901
 
-.lr.ph900:                                        ; preds = %142
-  %144 = shl nuw nsw i32 %storemerge432902, 1
-  %145 = shl nuw i32 1, %144
-  br label %146
+.lr.ph900:                                        ; preds = %138
+  %140 = shl nuw nsw i32 %storemerge432902, 1
+  %141 = shl nuw i32 1, %140
+  br label %142
 
-146:                                              ; preds = %.lr.ph900, %._crit_edge895
+142:                                              ; preds = %.lr.ph900, %._crit_edge895
   %storemerge433898 = phi i32 [ %storemerge433896, %.lr.ph900 ], [ %storemerge433, %._crit_edge895 ]
   %storemerge433.in897 = phi i32 [ %storemerge432902, %.lr.ph900 ], [ %storemerge433898, %._crit_edge895 ]
-  %147 = add nuw nsw i32 %storemerge433.in897, 2
-  store i32 %147, ptr %140, align 8
-  %148 = icmp slt i32 %147, %3
-  br i1 %148, label %.lr.ph894, label %._crit_edge895
+  %143 = add nuw nsw i32 %storemerge433.in897, 2
+  store i32 %143, ptr %136, align 8
+  %144 = icmp slt i32 %143, %3
+  br i1 %144, label %.lr.ph894, label %._crit_edge895
 
-.lr.ph894:                                        ; preds = %146
-  %149 = shl nuw nsw i32 %storemerge433898, 1
+.lr.ph894:                                        ; preds = %142
+  %145 = shl nuw nsw i32 %storemerge433898, 1
+  %146 = shl nuw i32 1, %145
+  br label %147
+
+147:                                              ; preds = %.lr.ph894, %._crit_edge891
+  %storemerge434892 = phi i32 [ %143, %.lr.ph894 ], [ %storemerge435887, %._crit_edge891 ]
+  %storemerge435887 = add nsw i32 %storemerge434892, 1
+  store i32 %storemerge435887, ptr %137, align 4
+  %148 = icmp slt i32 %storemerge435887, %3
+  br i1 %148, label %.lr.ph890, label %._crit_edge891
+
+.lr.ph890:                                        ; preds = %147
+  %149 = shl nsw i32 %storemerge434892, 1
   %150 = shl nuw i32 1, %149
-  %storemerge4358871387 = add nsw i32 %storemerge433.in897, 3
-  store i32 %storemerge4358871387, ptr %141, align 4
-  %151 = icmp slt i32 %storemerge4358871387, %3
-  br i1 %151, label %.lr.ph890, label %._crit_edge891.thread
+  br label %151
 
-._crit_edge891.thread:                            ; preds = %._crit_edge891, %.lr.ph894
-  %storemerge435887.lcssa = phi i32 [ %storemerge4358871387, %.lr.ph894 ], [ %storemerge435887, %._crit_edge891 ]
-  store i32 %storemerge435887.lcssa, ptr %140, align 8
-  br label %._crit_edge895
-
-.lr.ph890:                                        ; preds = %.lr.ph894, %._crit_edge891
-  %storemerge4358871389 = phi i32 [ %storemerge435887, %._crit_edge891 ], [ %storemerge4358871387, %.lr.ph894 ]
-  %storemerge4348921388 = phi i32 [ %storemerge4358871389, %._crit_edge891 ], [ %147, %.lr.ph894 ]
-  %152 = shl nsw i32 %storemerge4348921388, 1
+151:                                              ; preds = %.lr.ph890, %172
+  %storemerge435888 = phi i32 [ %storemerge435887, %.lr.ph890 ], [ %storemerge435, %172 ]
+  %152 = shl nsw i32 %storemerge435888, 1
   %153 = shl nuw i32 1, %152
-  br label %154
+  %154 = or i32 %141, %153
+  %155 = or i32 %154, %146
+  %156 = or i32 %155, %150
+  br label %157
 
-154:                                              ; preds = %.lr.ph890, %175
-  %storemerge435888 = phi i32 [ %storemerge4358871389, %.lr.ph890 ], [ %storemerge435, %175 ]
-  %155 = shl nsw i32 %storemerge435888, 1
-  %156 = shl nuw i32 1, %155
-  %157 = or i32 %145, %156
-  %158 = or i32 %157, %150
-  %159 = or i32 %158, %153
-  br label %160
+.loopexit461:                                     ; preds = %163, %157
+  %indvars.iv.next1186 = add nuw nsw i64 %indvars.iv1185, 1
+  %exitcond1194.not = icmp eq i64 %indvars.iv.next1192, 4
+  br i1 %exitcond1194.not, label %172, label %157, !llvm.loop !37
 
-.loopexit461:                                     ; preds = %166, %160
-  %indvars.iv.next1160 = add nuw nsw i64 %indvars.iv1159, 1
-  %exitcond1168.not = icmp eq i64 %indvars.iv.next1166, 4
-  br i1 %exitcond1168.not, label %175, label %160, !llvm.loop !37
+157:                                              ; preds = %151, %.loopexit461
+  %indvars.iv1191 = phi i64 [ 0, %151 ], [ %indvars.iv.next1192, %.loopexit461 ]
+  %indvars.iv1185 = phi i64 [ 1, %151 ], [ %indvars.iv.next1186, %.loopexit461 ]
+  %indvars.iv.next1192 = add nuw nsw i64 %indvars.iv1191, 1
+  %158 = icmp ult i64 %indvars.iv1191, 3
+  br i1 %158, label %.lr.ph885, label %.loopexit461
 
-160:                                              ; preds = %154, %.loopexit461
-  %indvars.iv1165 = phi i64 [ 0, %154 ], [ %indvars.iv.next1166, %.loopexit461 ]
-  %indvars.iv1159 = phi i64 [ 1, %154 ], [ %indvars.iv.next1160, %.loopexit461 ]
-  %indvars.iv.next1166 = add nuw nsw i64 %indvars.iv1165, 1
-  %161 = icmp ult i64 %indvars.iv1165, 3
-  br i1 %161, label %.lr.ph885, label %.loopexit461
+.lr.ph885:                                        ; preds = %157
+  %159 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1191
+  %160 = load i32, ptr %159, align 4
+  %161 = shl nsw i32 %160, 1
+  %162 = shl i32 3, %161
+  br label %164
 
-.lr.ph885:                                        ; preds = %160
-  %162 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1165
-  %163 = load i32, ptr %162, align 4
-  %164 = shl nsw i32 %163, 1
-  %165 = shl i32 3, %164
-  br label %167
+163:                                              ; preds = %164
+  %indvars.iv.next1188 = add nuw nsw i64 %indvars.iv1187, 1
+  %exitcond1190.not = icmp eq i64 %indvars.iv.next1188, 4
+  br i1 %exitcond1190.not, label %.loopexit461, label %164, !llvm.loop !38
 
-166:                                              ; preds = %167
-  %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 1
-  %exitcond1164.not = icmp eq i64 %indvars.iv.next1162, 4
-  br i1 %exitcond1164.not, label %.loopexit461, label %167, !llvm.loop !38
+164:                                              ; preds = %.lr.ph885, %163
+  %indvars.iv1187 = phi i64 [ %indvars.iv1185, %.lr.ph885 ], [ %indvars.iv.next1188, %163 ]
+  %165 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1187
+  %166 = load i32, ptr %165, align 4
+  %167 = shl nsw i32 %166, 1
+  %168 = shl i32 3, %167
+  %169 = or i32 %162, %168
+  %170 = or i32 %169, %156
+  %171 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %170, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not436 = icmp eq i32 %171, 0
+  br i1 %.not436, label %163, label %.loopexit458
 
-167:                                              ; preds = %.lr.ph885, %166
-  %indvars.iv1161 = phi i64 [ %indvars.iv1159, %.lr.ph885 ], [ %indvars.iv.next1162, %166 ]
-  %168 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1161
-  %169 = load i32, ptr %168, align 4
-  %170 = shl nsw i32 %169, 1
-  %171 = shl i32 3, %170
-  %172 = or i32 %165, %171
-  %173 = or i32 %172, %159
-  %174 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %173, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not436 = icmp eq i32 %174, 0
-  br i1 %.not436, label %166, label %.loopexit458
-
-175:                                              ; preds = %.loopexit461
+172:                                              ; preds = %.loopexit461
   %storemerge435 = add nsw i32 %storemerge435888, 1
-  store i32 %storemerge435, ptr %141, align 4
-  %176 = icmp slt i32 %storemerge435, %3
-  br i1 %176, label %154, label %._crit_edge891, !llvm.loop !39
+  store i32 %storemerge435, ptr %137, align 4
+  %exitcond1195.not = icmp eq i32 %storemerge435, %3
+  br i1 %exitcond1195.not, label %._crit_edge891, label %151, !llvm.loop !39
 
-._crit_edge891:                                   ; preds = %175
-  store i32 %storemerge4358871389, ptr %140, align 8
-  %storemerge435887 = add nsw i32 %storemerge4358871389, 1
-  store i32 %storemerge435887, ptr %141, align 4
-  %177 = icmp slt i32 %storemerge435887, %3
-  br i1 %177, label %.lr.ph890, label %._crit_edge891.thread, !llvm.loop !40
+._crit_edge891:                                   ; preds = %172, %147
+  store i32 %storemerge435887, ptr %136, align 8
+  %exitcond1196.not = icmp eq i32 %storemerge435887, %3
+  br i1 %exitcond1196.not, label %._crit_edge895, label %147, !llvm.loop !40
 
-._crit_edge895:                                   ; preds = %._crit_edge891.thread, %146
+._crit_edge895:                                   ; preds = %._crit_edge891, %142
   %storemerge433 = add nuw nsw i32 %storemerge433898, 1
-  store i32 %storemerge433, ptr %139, align 4
-  %exitcond1169.not = icmp eq i32 %storemerge433, %3
-  br i1 %exitcond1169.not, label %._crit_edge901, label %146, !llvm.loop !41
+  store i32 %storemerge433, ptr %135, align 4
+  %exitcond1197.not = icmp eq i32 %storemerge433, %3
+  br i1 %exitcond1197.not, label %._crit_edge901, label %142, !llvm.loop !41
 
-._crit_edge901:                                   ; preds = %._crit_edge895, %142
+._crit_edge901:                                   ; preds = %._crit_edge895, %138
   store i32 %storemerge433896, ptr %6, align 16
-  %exitcond1170.not = icmp eq i32 %storemerge433896, %3
-  br i1 %exitcond1170.not, label %.loopexit458, label %142, !llvm.loop !42
+  %exitcond1198.not = icmp eq i32 %storemerge433896, %3
+  br i1 %exitcond1198.not, label %.loopexit458, label %138, !llvm.loop !42
 
-178:                                              ; preds = %.lr.ph743, %._crit_edge739
+173:                                              ; preds = %.lr.ph743, %._crit_edge739
   %storemerge406742 = phi i32 [ 0, %.lr.ph743 ], [ %storemerge425734, %._crit_edge739 ]
   %storemerge425734 = add nuw nsw i32 %storemerge406742, 1
-  %179 = icmp slt i32 %storemerge425734, %3
-  br i1 %179, label %.lr.ph738, label %._crit_edge739
+  %174 = icmp slt i32 %storemerge425734, %3
+  br i1 %174, label %.lr.ph738, label %._crit_edge739
 
-.lr.ph738:                                        ; preds = %178
-  %180 = shl nuw nsw i32 %storemerge406742, 1
+.lr.ph738:                                        ; preds = %173
+  %175 = shl nuw nsw i32 %storemerge406742, 1
+  %176 = shl nuw i32 1, %175
+  br label %177
+
+177:                                              ; preds = %.lr.ph738, %._crit_edge730
+  %storemerge425736 = phi i32 [ %storemerge425734, %.lr.ph738 ], [ %storemerge425, %._crit_edge730 ]
+  %storemerge425.in735 = phi i32 [ %storemerge406742, %.lr.ph738 ], [ %storemerge425736, %._crit_edge730 ]
+  %178 = add nuw nsw i32 %storemerge425.in735, 2
+  %179 = icmp slt i32 %178, %3
+  br i1 %179, label %.lr.ph729, label %._crit_edge730
+
+.lr.ph729:                                        ; preds = %177
+  %180 = shl nuw nsw i32 %storemerge425736, 1
   %181 = shl nuw i32 1, %180
   br label %182
 
-182:                                              ; preds = %.lr.ph738, %._crit_edge730
-  %storemerge425736 = phi i32 [ %storemerge425734, %.lr.ph738 ], [ %storemerge425, %._crit_edge730 ]
-  %storemerge425.in735 = phi i32 [ %storemerge406742, %.lr.ph738 ], [ %storemerge425736, %._crit_edge730 ]
-  %183 = add nuw nsw i32 %storemerge425.in735, 2
-  %184 = icmp slt i32 %183, %3
-  br i1 %184, label %.lr.ph729, label %._crit_edge730
+182:                                              ; preds = %.lr.ph729, %._crit_edge723
+  %storemerge426727 = phi i32 [ %178, %.lr.ph729 ], [ %storemerge427718, %._crit_edge723 ]
+  %storemerge427718 = add nsw i32 %storemerge426727, 1
+  %183 = icmp slt i32 %storemerge427718, %3
+  br i1 %183, label %.lr.ph722, label %._crit_edge723
 
-.lr.ph729:                                        ; preds = %182
-  %185 = shl nuw nsw i32 %storemerge425736, 1
-  %186 = shl nuw i32 1, %185
-  %storemerge4277181365 = add nsw i32 %storemerge425.in735, 3
-  %187 = icmp slt i32 %storemerge4277181365, %3
-  br i1 %187, label %.lr.ph722, label %._crit_edge730
+.lr.ph722:                                        ; preds = %182
+  %184 = shl nsw i32 %storemerge426727, 1
+  %185 = shl nuw i32 1, %184
+  br label %186
 
-.lr.ph722:                                        ; preds = %.lr.ph729, %._crit_edge723
-  %storemerge4277181367 = phi i32 [ %storemerge427718, %._crit_edge723 ], [ %storemerge4277181365, %.lr.ph729 ]
-  %storemerge4267271366 = phi i32 [ %storemerge4277181367, %._crit_edge723 ], [ %183, %.lr.ph729 ]
-  %188 = shl nsw i32 %storemerge4267271366, 1
-  %189 = shl nuw i32 1, %188
-  br label %190
+186:                                              ; preds = %.lr.ph722, %._crit_edge714
+  %storemerge427720 = phi i32 [ %storemerge427718, %.lr.ph722 ], [ %storemerge427, %._crit_edge714 ]
+  %storemerge427.in719 = phi i32 [ %storemerge426727, %.lr.ph722 ], [ %storemerge427720, %._crit_edge714 ]
+  %187 = add nsw i32 %storemerge427.in719, 2
+  %188 = icmp slt i32 %187, %3
+  br i1 %188, label %.lr.ph713, label %._crit_edge714
 
-190:                                              ; preds = %.lr.ph722, %._crit_edge714
-  %storemerge427720 = phi i32 [ %storemerge4277181367, %.lr.ph722 ], [ %storemerge427, %._crit_edge714 ]
-  %storemerge427.in719 = phi i32 [ %storemerge4267271366, %.lr.ph722 ], [ %storemerge427720, %._crit_edge714 ]
-  %191 = add nsw i32 %storemerge427.in719, 2
-  %192 = icmp slt i32 %191, %3
-  br i1 %192, label %.lr.ph713, label %._crit_edge714
+.lr.ph713:                                        ; preds = %186
+  %189 = shl nsw i32 %storemerge427720, 1
+  %190 = shl nuw i32 1, %189
+  br label %191
 
-.lr.ph713:                                        ; preds = %190
-  %193 = shl nsw i32 %storemerge427720, 1
-  %194 = shl nuw i32 1, %193
-  br label %195
+191:                                              ; preds = %.lr.ph713, %199
+  %storemerge428711 = phi i32 [ %187, %.lr.ph713 ], [ %200, %199 ]
+  %192 = shl nsw i32 %storemerge428711, 1
+  %193 = shl nuw i32 1, %192
+  %194 = or i32 %176, %193
+  %195 = or i32 %194, %181
+  %196 = or i32 %195, %185
+  %197 = or i32 %196, %190
+  %198 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %197, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not429 = icmp eq i32 %198, 0
+  br i1 %.not429, label %199, label %.loopexit458
 
-195:                                              ; preds = %.lr.ph713, %203
-  %storemerge428711 = phi i32 [ %191, %.lr.ph713 ], [ %204, %203 ]
-  %196 = shl nsw i32 %storemerge428711, 1
-  %197 = shl nuw i32 1, %196
-  %198 = or i32 %181, %197
-  %199 = or i32 %198, %186
-  %200 = or i32 %199, %189
-  %201 = or i32 %200, %194
-  %202 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %201, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not429 = icmp eq i32 %202, 0
-  br i1 %.not429, label %203, label %.loopexit458
+199:                                              ; preds = %191
+  %200 = add nsw i32 %storemerge428711, 1
+  %201 = icmp slt i32 %200, %3
+  br i1 %201, label %191, label %._crit_edge714, !llvm.loop !43
 
-203:                                              ; preds = %195
-  %204 = add nsw i32 %storemerge428711, 1
-  %205 = icmp slt i32 %204, %3
-  br i1 %205, label %195, label %._crit_edge714, !llvm.loop !43
-
-._crit_edge714:                                   ; preds = %203, %190
-  %storemerge428.lcssa = phi i32 [ %191, %190 ], [ %3, %203 ]
+._crit_edge714:                                   ; preds = %199, %186
+  %storemerge428.lcssa = phi i32 [ %187, %186 ], [ %3, %199 ]
   store i32 %storemerge428.lcssa, ptr %20, align 16
-  %storemerge427 = add nsw i32 %storemerge427720, 1
-  %206 = icmp slt i32 %storemerge427, %3
-  br i1 %206, label %190, label %._crit_edge723, !llvm.loop !44
+  %storemerge427 = add i32 %storemerge427720, 1
+  %exitcond1125.not = icmp eq i32 %storemerge427, %3
+  br i1 %exitcond1125.not, label %._crit_edge723, label %186, !llvm.loop !44
 
-._crit_edge723:                                   ; preds = %._crit_edge714
-  store i32 %3, ptr %19, align 4
-  %storemerge427718 = add nsw i32 %storemerge4277181367, 1
-  %207 = icmp slt i32 %storemerge427718, %3
-  br i1 %207, label %.lr.ph722, label %._crit_edge730, !llvm.loop !45
+._crit_edge723:                                   ; preds = %._crit_edge714, %182
+  %storemerge427.lcssa = phi i32 [ %storemerge427718, %182 ], [ %3, %._crit_edge714 ]
+  store i32 %storemerge427.lcssa, ptr %19, align 4
+  %exitcond1126.not = icmp eq i32 %storemerge427718, %3
+  br i1 %exitcond1126.not, label %._crit_edge730, label %182, !llvm.loop !45
 
-._crit_edge730:                                   ; preds = %._crit_edge723, %.lr.ph729, %182
-  %storemerge426.lcssa = phi i32 [ %183, %182 ], [ %3, %.lr.ph729 ], [ %3, %._crit_edge723 ]
+._crit_edge730:                                   ; preds = %._crit_edge723, %177
+  %storemerge426.lcssa = phi i32 [ %178, %177 ], [ %3, %._crit_edge723 ]
   store i32 %storemerge426.lcssa, ptr %18, align 8
   %storemerge425 = add nuw nsw i32 %storemerge425736, 1
-  %exitcond1112.not = icmp eq i32 %storemerge425, %3
-  br i1 %exitcond1112.not, label %._crit_edge739, label %182, !llvm.loop !46
+  %exitcond1127.not = icmp eq i32 %storemerge425, %3
+  br i1 %exitcond1127.not, label %._crit_edge739, label %177, !llvm.loop !46
 
-._crit_edge739:                                   ; preds = %._crit_edge730, %178
-  %storemerge425.lcssa = phi i32 [ %storemerge425734, %178 ], [ %3, %._crit_edge730 ]
+._crit_edge739:                                   ; preds = %._crit_edge730, %173
+  %storemerge425.lcssa = phi i32 [ %storemerge425734, %173 ], [ %3, %._crit_edge730 ]
   store i32 %storemerge425.lcssa, ptr %17, align 4
-  %exitcond1113.not = icmp eq i32 %storemerge425734, %3
-  br i1 %exitcond1113.not, label %._crit_edge744, label %178, !llvm.loop !47
+  %exitcond1128.not = icmp eq i32 %storemerge425734, %3
+  br i1 %exitcond1128.not, label %._crit_edge744, label %173, !llvm.loop !47
 
 ._crit_edge744:                                   ; preds = %._crit_edge739
-  %208 = icmp slt i32 %9, 1
-  br i1 %208, label %.loopexit458, label %.preheader473
+  %202 = icmp slt i32 %9, 1
+  br i1 %202, label %.loopexit458, label %.preheader473
 
 ._crit_edge744.thread:                            ; preds = %.preheader475
-  %or.cond1260 = icmp slt i32 %9, 2
-  br i1 %or.cond1260, label %.loopexit458, label %.preheader472
+  %or.cond1269 = icmp slt i32 %9, 2
+  br i1 %or.cond1269, label %.loopexit458, label %.preheader472
 
 .preheader473:                                    ; preds = %._crit_edge744
   store i32 0, ptr %6, align 16
-  %209 = getelementptr inbounds i8, ptr %6, i64 4
-  %210 = getelementptr inbounds i8, ptr %6, i64 8
-  %211 = getelementptr inbounds i8, ptr %6, i64 12
-  %212 = getelementptr inbounds i8, ptr %6, i64 16
-  br label %213
+  %203 = getelementptr inbounds i8, ptr %6, i64 4
+  %204 = getelementptr inbounds i8, ptr %6, i64 8
+  %205 = getelementptr inbounds i8, ptr %6, i64 12
+  %206 = getelementptr inbounds i8, ptr %6, i64 16
+  br label %207
 
-213:                                              ; preds = %.preheader473, %._crit_edge767
+207:                                              ; preds = %.preheader473, %._crit_edge767
   %storemerge407768 = phi i32 [ 0, %.preheader473 ], [ %storemerge420762, %._crit_edge767 ]
   %storemerge420762 = add nuw nsw i32 %storemerge407768, 1
-  store i32 %storemerge420762, ptr %209, align 4
-  %214 = icmp slt i32 %storemerge420762, %3
-  br i1 %214, label %.lr.ph766, label %._crit_edge767
+  store i32 %storemerge420762, ptr %203, align 4
+  %208 = icmp slt i32 %storemerge420762, %3
+  br i1 %208, label %.lr.ph766, label %._crit_edge767
 
-.lr.ph766:                                        ; preds = %213
-  %215 = shl nuw nsw i32 %storemerge407768, 1
-  %216 = shl nuw i32 1, %215
-  br label %217
+.lr.ph766:                                        ; preds = %207
+  %209 = shl nuw nsw i32 %storemerge407768, 1
+  %210 = shl nuw i32 1, %209
+  br label %211
 
-217:                                              ; preds = %.lr.ph766, %._crit_edge761
+211:                                              ; preds = %.lr.ph766, %._crit_edge761
   %storemerge420764 = phi i32 [ %storemerge420762, %.lr.ph766 ], [ %storemerge420, %._crit_edge761 ]
   %storemerge420.in763 = phi i32 [ %storemerge407768, %.lr.ph766 ], [ %storemerge420764, %._crit_edge761 ]
-  %218 = add nuw nsw i32 %storemerge420.in763, 2
-  store i32 %218, ptr %210, align 8
-  %219 = icmp slt i32 %218, %3
-  br i1 %219, label %.lr.ph760, label %._crit_edge761
+  %212 = add nuw nsw i32 %storemerge420.in763, 2
+  store i32 %212, ptr %204, align 8
+  %213 = icmp slt i32 %212, %3
+  br i1 %213, label %.lr.ph760, label %._crit_edge761
 
-.lr.ph760:                                        ; preds = %217
-  %220 = shl nuw nsw i32 %storemerge420764, 1
-  %221 = shl nuw i32 1, %220
-  %storemerge4227521368 = add nsw i32 %storemerge420.in763, 3
-  store i32 %storemerge4227521368, ptr %211, align 4
-  %222 = icmp slt i32 %storemerge4227521368, %3
-  br i1 %222, label %.lr.ph756, label %._crit_edge757.thread
+.lr.ph760:                                        ; preds = %211
+  %214 = shl nuw nsw i32 %storemerge420764, 1
+  %215 = shl nuw i32 1, %214
+  br label %216
 
-._crit_edge757.thread:                            ; preds = %._crit_edge757, %.lr.ph760
-  %storemerge422752.lcssa = phi i32 [ %storemerge4227521368, %.lr.ph760 ], [ %storemerge422752, %._crit_edge757 ]
-  store i32 %storemerge422752.lcssa, ptr %210, align 8
-  br label %._crit_edge761
+216:                                              ; preds = %.lr.ph760, %._crit_edge757
+  %storemerge421758 = phi i32 [ %212, %.lr.ph760 ], [ %storemerge422752, %._crit_edge757 ]
+  %storemerge422752 = add nsw i32 %storemerge421758, 1
+  store i32 %storemerge422752, ptr %205, align 4
+  %217 = icmp slt i32 %storemerge422752, %3
+  br i1 %217, label %.lr.ph756, label %._crit_edge757
 
-.lr.ph756:                                        ; preds = %.lr.ph760, %._crit_edge757
-  %storemerge4227521370 = phi i32 [ %storemerge422752, %._crit_edge757 ], [ %storemerge4227521368, %.lr.ph760 ]
-  %storemerge4217581369 = phi i32 [ %storemerge4227521370, %._crit_edge757 ], [ %218, %.lr.ph760 ]
-  %223 = shl nsw i32 %storemerge4217581369, 1
+.lr.ph756:                                        ; preds = %216
+  %218 = shl nsw i32 %storemerge421758, 1
+  %219 = shl nuw i32 1, %218
+  br label %220
+
+220:                                              ; preds = %.lr.ph756, %._crit_edge751
+  %storemerge422754 = phi i32 [ %storemerge422752, %.lr.ph756 ], [ %storemerge422, %._crit_edge751 ]
+  %storemerge422.in753 = phi i32 [ %storemerge421758, %.lr.ph756 ], [ %storemerge422754, %._crit_edge751 ]
+  %221 = add nsw i32 %storemerge422.in753, 2
+  store i32 %221, ptr %206, align 16
+  %222 = icmp slt i32 %221, %3
+  br i1 %222, label %.lr.ph750, label %._crit_edge751
+
+.lr.ph750:                                        ; preds = %220
+  %223 = shl nsw i32 %storemerge422754, 1
   %224 = shl nuw i32 1, %223
   br label %225
 
-225:                                              ; preds = %.lr.ph756, %._crit_edge751
-  %storemerge422754 = phi i32 [ %storemerge4227521370, %.lr.ph756 ], [ %storemerge422, %._crit_edge751 ]
-  %storemerge422.in753 = phi i32 [ %storemerge4217581369, %.lr.ph756 ], [ %storemerge422754, %._crit_edge751 ]
-  %226 = add nsw i32 %storemerge422.in753, 2
-  store i32 %226, ptr %212, align 16
-  %227 = icmp slt i32 %226, %3
-  br i1 %227, label %.lr.ph750, label %._crit_edge751
+225:                                              ; preds = %.lr.ph750, %240
+  %storemerge423748 = phi i32 [ %221, %.lr.ph750 ], [ %241, %240 ]
+  %226 = shl nsw i32 %storemerge423748, 1
+  %227 = shl nuw i32 1, %226
+  %228 = or i32 %210, %227
+  %229 = or i32 %228, %215
+  %230 = or i32 %229, %219
+  %231 = or i32 %230, %224
+  br label %233
 
-.lr.ph750:                                        ; preds = %225
-  %228 = shl nsw i32 %storemerge422754, 1
-  %229 = shl nuw i32 1, %228
-  br label %230
+232:                                              ; preds = %233
+  %indvars.iv.next1130 = add nuw nsw i64 %indvars.iv1129, 1
+  %exitcond1132.not = icmp eq i64 %indvars.iv.next1130, 5
+  br i1 %exitcond1132.not, label %240, label %233, !llvm.loop !48
 
-230:                                              ; preds = %.lr.ph750, %245
-  %storemerge423748 = phi i32 [ %226, %.lr.ph750 ], [ %246, %245 ]
-  %231 = shl nsw i32 %storemerge423748, 1
-  %232 = shl nuw i32 1, %231
-  %233 = or i32 %216, %232
-  %234 = or i32 %233, %221
-  %235 = or i32 %234, %224
-  %236 = or i32 %235, %229
-  br label %238
+233:                                              ; preds = %225, %232
+  %indvars.iv1129 = phi i64 [ 0, %225 ], [ %indvars.iv.next1130, %232 ]
+  %234 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1129
+  %235 = load i32, ptr %234, align 4
+  %236 = shl nsw i32 %235, 1
+  %237 = shl i32 3, %236
+  %238 = or i32 %237, %231
+  %239 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %238, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not424 = icmp eq i32 %239, 0
+  br i1 %.not424, label %232, label %.loopexit458
 
-237:                                              ; preds = %238
-  %indvars.iv.next1115 = add nuw nsw i64 %indvars.iv1114, 1
-  %exitcond1117.not = icmp eq i64 %indvars.iv.next1115, 5
-  br i1 %exitcond1117.not, label %245, label %238, !llvm.loop !48
+240:                                              ; preds = %232
+  %241 = add nsw i32 %storemerge423748, 1
+  store i32 %241, ptr %206, align 16
+  %242 = icmp slt i32 %241, %3
+  br i1 %242, label %225, label %._crit_edge751, !llvm.loop !49
 
-238:                                              ; preds = %230, %237
-  %indvars.iv1114 = phi i64 [ 0, %230 ], [ %indvars.iv.next1115, %237 ]
-  %239 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1114
-  %240 = load i32, ptr %239, align 4
-  %241 = shl nsw i32 %240, 1
-  %242 = shl i32 3, %241
-  %243 = or i32 %242, %236
-  %244 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %243, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not424 = icmp eq i32 %244, 0
-  br i1 %.not424, label %237, label %.loopexit458
-
-245:                                              ; preds = %237
-  %246 = add nsw i32 %storemerge423748, 1
-  store i32 %246, ptr %212, align 16
-  %247 = icmp slt i32 %246, %3
-  br i1 %247, label %230, label %._crit_edge751, !llvm.loop !49
-
-._crit_edge751:                                   ; preds = %245, %225
+._crit_edge751:                                   ; preds = %240, %220
   %storemerge422 = add nsw i32 %storemerge422754, 1
-  store i32 %storemerge422, ptr %211, align 4
-  %248 = icmp slt i32 %storemerge422, %3
-  br i1 %248, label %225, label %._crit_edge757, !llvm.loop !50
+  store i32 %storemerge422, ptr %205, align 4
+  %exitcond1133.not = icmp eq i32 %storemerge422, %3
+  br i1 %exitcond1133.not, label %._crit_edge757, label %220, !llvm.loop !50
 
-._crit_edge757:                                   ; preds = %._crit_edge751
-  store i32 %storemerge4227521370, ptr %210, align 8
-  %storemerge422752 = add nsw i32 %storemerge4227521370, 1
-  store i32 %storemerge422752, ptr %211, align 4
-  %249 = icmp slt i32 %storemerge422752, %3
-  br i1 %249, label %.lr.ph756, label %._crit_edge757.thread, !llvm.loop !51
+._crit_edge757:                                   ; preds = %._crit_edge751, %216
+  store i32 %storemerge422752, ptr %204, align 8
+  %exitcond1134.not = icmp eq i32 %storemerge422752, %3
+  br i1 %exitcond1134.not, label %._crit_edge761, label %216, !llvm.loop !51
 
-._crit_edge761:                                   ; preds = %._crit_edge757.thread, %217
+._crit_edge761:                                   ; preds = %._crit_edge757, %211
   %storemerge420 = add nuw nsw i32 %storemerge420764, 1
-  store i32 %storemerge420, ptr %209, align 4
-  %exitcond1118.not = icmp eq i32 %storemerge420, %3
-  br i1 %exitcond1118.not, label %._crit_edge767, label %217, !llvm.loop !52
+  store i32 %storemerge420, ptr %203, align 4
+  %exitcond1135.not = icmp eq i32 %storemerge420, %3
+  br i1 %exitcond1135.not, label %._crit_edge767, label %211, !llvm.loop !52
 
-._crit_edge767:                                   ; preds = %._crit_edge761, %213
+._crit_edge767:                                   ; preds = %._crit_edge761, %207
   store i32 %storemerge420762, ptr %6, align 16
-  %exitcond1119.not = icmp eq i32 %storemerge420762, %3
-  br i1 %exitcond1119.not, label %._crit_edge770, label %213, !llvm.loop !53
+  %exitcond1136.not = icmp eq i32 %storemerge420762, %3
+  br i1 %exitcond1136.not, label %._crit_edge770, label %207, !llvm.loop !53
 
 ._crit_edge770:                                   ; preds = %._crit_edge767
-  %.old1259 = icmp eq i32 %9, 1
-  br i1 %.old1259, label %.loopexit458, label %.preheader472
+  %.old1268 = icmp eq i32 %9, 1
+  br i1 %.old1268, label %.loopexit458, label %.preheader472
 
 .preheader472:                                    ; preds = %._crit_edge744.thread, %._crit_edge770
   store i32 0, ptr %6, align 16
   br i1 %16, label %.lr.ph798, label %.loopexit458
 
 .lr.ph798:                                        ; preds = %.preheader472
-  %250 = getelementptr inbounds i8, ptr %6, i64 4
-  %251 = getelementptr inbounds i8, ptr %6, i64 8
-  %252 = getelementptr inbounds i8, ptr %6, i64 12
-  %253 = getelementptr inbounds i8, ptr %6, i64 16
-  br label %254
+  %243 = getelementptr inbounds i8, ptr %6, i64 4
+  %244 = getelementptr inbounds i8, ptr %6, i64 8
+  %245 = getelementptr inbounds i8, ptr %6, i64 12
+  %246 = getelementptr inbounds i8, ptr %6, i64 16
+  br label %247
 
-254:                                              ; preds = %.lr.ph798, %._crit_edge796
+247:                                              ; preds = %.lr.ph798, %._crit_edge796
   %storemerge408797 = phi i32 [ 0, %.lr.ph798 ], [ %storemerge415791, %._crit_edge796 ]
   %storemerge415791 = add nuw nsw i32 %storemerge408797, 1
-  store i32 %storemerge415791, ptr %250, align 4
-  %255 = icmp slt i32 %storemerge415791, %3
-  br i1 %255, label %.lr.ph795, label %._crit_edge796
+  store i32 %storemerge415791, ptr %243, align 4
+  %248 = icmp slt i32 %storemerge415791, %3
+  br i1 %248, label %.lr.ph795, label %._crit_edge796
 
-.lr.ph795:                                        ; preds = %254
-  %256 = shl nuw nsw i32 %storemerge408797, 1
-  %257 = shl nuw i32 1, %256
-  br label %258
+.lr.ph795:                                        ; preds = %247
+  %249 = shl nuw nsw i32 %storemerge408797, 1
+  %250 = shl nuw i32 1, %249
+  br label %251
 
-258:                                              ; preds = %.lr.ph795, %._crit_edge790
+251:                                              ; preds = %.lr.ph795, %._crit_edge790
   %storemerge415793 = phi i32 [ %storemerge415791, %.lr.ph795 ], [ %storemerge415, %._crit_edge790 ]
   %storemerge415.in792 = phi i32 [ %storemerge408797, %.lr.ph795 ], [ %storemerge415793, %._crit_edge790 ]
-  %259 = add nuw nsw i32 %storemerge415.in792, 2
-  store i32 %259, ptr %251, align 8
-  %260 = icmp slt i32 %259, %3
-  br i1 %260, label %.lr.ph789, label %._crit_edge790
+  %252 = add nuw nsw i32 %storemerge415.in792, 2
+  store i32 %252, ptr %244, align 8
+  %253 = icmp slt i32 %252, %3
+  br i1 %253, label %.lr.ph789, label %._crit_edge790
 
-.lr.ph789:                                        ; preds = %258
-  %261 = shl nuw nsw i32 %storemerge415793, 1
-  %262 = shl nuw i32 1, %261
-  %storemerge4177811372 = add nsw i32 %storemerge415.in792, 3
-  store i32 %storemerge4177811372, ptr %252, align 4
-  %263 = icmp slt i32 %storemerge4177811372, %3
-  br i1 %263, label %.lr.ph785, label %._crit_edge786.thread
+.lr.ph789:                                        ; preds = %251
+  %254 = shl nuw nsw i32 %storemerge415793, 1
+  %255 = shl nuw i32 1, %254
+  br label %256
 
-._crit_edge786.thread:                            ; preds = %._crit_edge786, %.lr.ph789
-  %storemerge417781.lcssa = phi i32 [ %storemerge4177811372, %.lr.ph789 ], [ %storemerge417781, %._crit_edge786 ]
-  store i32 %storemerge417781.lcssa, ptr %251, align 8
-  br label %._crit_edge790
+256:                                              ; preds = %.lr.ph789, %._crit_edge786
+  %storemerge416787 = phi i32 [ %252, %.lr.ph789 ], [ %storemerge417781, %._crit_edge786 ]
+  %storemerge417781 = add nsw i32 %storemerge416787, 1
+  store i32 %storemerge417781, ptr %245, align 4
+  %257 = icmp slt i32 %storemerge417781, %3
+  br i1 %257, label %.lr.ph785, label %._crit_edge786
 
-.lr.ph785:                                        ; preds = %.lr.ph789, %._crit_edge786
-  %storemerge4177811374 = phi i32 [ %storemerge417781, %._crit_edge786 ], [ %storemerge4177811372, %.lr.ph789 ]
-  %storemerge4167871373 = phi i32 [ %storemerge4177811374, %._crit_edge786 ], [ %259, %.lr.ph789 ]
-  %264 = shl nsw i32 %storemerge4167871373, 1
-  %265 = shl nuw i32 1, %264
-  br label %266
+.lr.ph785:                                        ; preds = %256
+  %258 = shl nsw i32 %storemerge416787, 1
+  %259 = shl nuw i32 1, %258
+  br label %260
 
-266:                                              ; preds = %.lr.ph785, %._crit_edge780
-  %storemerge417783 = phi i32 [ %storemerge4177811374, %.lr.ph785 ], [ %storemerge417, %._crit_edge780 ]
-  %storemerge417.in782 = phi i32 [ %storemerge4167871373, %.lr.ph785 ], [ %storemerge417783, %._crit_edge780 ]
-  %267 = add nsw i32 %storemerge417.in782, 2
-  store i32 %267, ptr %253, align 16
-  %268 = icmp slt i32 %267, %3
-  br i1 %268, label %.lr.ph779, label %._crit_edge780
+260:                                              ; preds = %.lr.ph785, %._crit_edge780
+  %storemerge417783 = phi i32 [ %storemerge417781, %.lr.ph785 ], [ %storemerge417, %._crit_edge780 ]
+  %storemerge417.in782 = phi i32 [ %storemerge416787, %.lr.ph785 ], [ %storemerge417783, %._crit_edge780 ]
+  %261 = add nsw i32 %storemerge417.in782, 2
+  store i32 %261, ptr %246, align 16
+  %262 = icmp slt i32 %261, %3
+  br i1 %262, label %.lr.ph779, label %._crit_edge780
 
-.lr.ph779:                                        ; preds = %266
-  %269 = shl nsw i32 %storemerge417783, 1
-  %270 = shl nuw i32 1, %269
-  br label %271
+.lr.ph779:                                        ; preds = %260
+  %263 = shl nsw i32 %storemerge417783, 1
+  %264 = shl nuw i32 1, %263
+  br label %265
 
-271:                                              ; preds = %.lr.ph779, %293
-  %storemerge418777 = phi i32 [ %267, %.lr.ph779 ], [ %294, %293 ]
-  %272 = shl nsw i32 %storemerge418777, 1
-  %273 = shl nuw i32 1, %272
-  %274 = or i32 %257, %273
-  %275 = or i32 %274, %262
-  %276 = or i32 %275, %265
-  %277 = or i32 %276, %270
-  br label %278
+265:                                              ; preds = %.lr.ph779, %287
+  %storemerge418777 = phi i32 [ %261, %.lr.ph779 ], [ %288, %287 ]
+  %266 = shl nsw i32 %storemerge418777, 1
+  %267 = shl nuw i32 1, %266
+  %268 = or i32 %250, %267
+  %269 = or i32 %268, %255
+  %270 = or i32 %269, %259
+  %271 = or i32 %270, %264
+  br label %272
 
-.loopexit471:                                     ; preds = %284, %278
-  %indvars.iv.next1121 = add nuw nsw i64 %indvars.iv1120, 1
-  %exitcond1129.not = icmp eq i64 %indvars.iv.next1127, 5
-  br i1 %exitcond1129.not, label %293, label %278, !llvm.loop !54
+.loopexit471:                                     ; preds = %278, %272
+  %indvars.iv.next1138 = add nuw nsw i64 %indvars.iv1137, 1
+  %exitcond1146.not = icmp eq i64 %indvars.iv.next1144, 5
+  br i1 %exitcond1146.not, label %287, label %272, !llvm.loop !54
 
-278:                                              ; preds = %271, %.loopexit471
-  %indvars.iv1126 = phi i64 [ 0, %271 ], [ %indvars.iv.next1127, %.loopexit471 ]
-  %indvars.iv1120 = phi i64 [ 1, %271 ], [ %indvars.iv.next1121, %.loopexit471 ]
-  %indvars.iv.next1127 = add nuw nsw i64 %indvars.iv1126, 1
-  %279 = icmp ult i64 %indvars.iv1126, 4
-  br i1 %279, label %.lr.ph775, label %.loopexit471
+272:                                              ; preds = %265, %.loopexit471
+  %indvars.iv1143 = phi i64 [ 0, %265 ], [ %indvars.iv.next1144, %.loopexit471 ]
+  %indvars.iv1137 = phi i64 [ 1, %265 ], [ %indvars.iv.next1138, %.loopexit471 ]
+  %indvars.iv.next1144 = add nuw nsw i64 %indvars.iv1143, 1
+  %273 = icmp ult i64 %indvars.iv1143, 4
+  br i1 %273, label %.lr.ph775, label %.loopexit471
 
-.lr.ph775:                                        ; preds = %278
-  %280 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1126
+.lr.ph775:                                        ; preds = %272
+  %274 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1143
+  %275 = load i32, ptr %274, align 4
+  %276 = shl nsw i32 %275, 1
+  %277 = shl i32 3, %276
+  br label %279
+
+278:                                              ; preds = %279
+  %indvars.iv.next1140 = add nuw nsw i64 %indvars.iv1139, 1
+  %exitcond1142.not = icmp eq i64 %indvars.iv.next1140, 5
+  br i1 %exitcond1142.not, label %.loopexit471, label %279, !llvm.loop !55
+
+279:                                              ; preds = %.lr.ph775, %278
+  %indvars.iv1139 = phi i64 [ %indvars.iv1137, %.lr.ph775 ], [ %indvars.iv.next1140, %278 ]
+  %280 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1139
   %281 = load i32, ptr %280, align 4
   %282 = shl nsw i32 %281, 1
   %283 = shl i32 3, %282
-  br label %285
+  %284 = or i32 %277, %283
+  %285 = or i32 %284, %271
+  %286 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %285, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not419 = icmp eq i32 %286, 0
+  br i1 %.not419, label %278, label %.loopexit458
 
-284:                                              ; preds = %285
-  %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
-  %exitcond1125.not = icmp eq i64 %indvars.iv.next1123, 5
-  br i1 %exitcond1125.not, label %.loopexit471, label %285, !llvm.loop !55
+287:                                              ; preds = %.loopexit471
+  %288 = add nsw i32 %storemerge418777, 1
+  store i32 %288, ptr %246, align 16
+  %289 = icmp slt i32 %288, %3
+  br i1 %289, label %265, label %._crit_edge780, !llvm.loop !56
 
-285:                                              ; preds = %.lr.ph775, %284
-  %indvars.iv1122 = phi i64 [ %indvars.iv1120, %.lr.ph775 ], [ %indvars.iv.next1123, %284 ]
-  %286 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1122
-  %287 = load i32, ptr %286, align 4
-  %288 = shl nsw i32 %287, 1
-  %289 = shl i32 3, %288
-  %290 = or i32 %283, %289
-  %291 = or i32 %290, %277
-  %292 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %291, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not419 = icmp eq i32 %292, 0
-  br i1 %.not419, label %284, label %.loopexit458
-
-293:                                              ; preds = %.loopexit471
-  %294 = add nsw i32 %storemerge418777, 1
-  store i32 %294, ptr %253, align 16
-  %295 = icmp slt i32 %294, %3
-  br i1 %295, label %271, label %._crit_edge780, !llvm.loop !56
-
-._crit_edge780:                                   ; preds = %293, %266
+._crit_edge780:                                   ; preds = %287, %260
   %storemerge417 = add nsw i32 %storemerge417783, 1
-  store i32 %storemerge417, ptr %252, align 4
-  %296 = icmp slt i32 %storemerge417, %3
-  br i1 %296, label %266, label %._crit_edge786, !llvm.loop !57
+  store i32 %storemerge417, ptr %245, align 4
+  %exitcond1147.not = icmp eq i32 %storemerge417, %3
+  br i1 %exitcond1147.not, label %._crit_edge786, label %260, !llvm.loop !57
 
-._crit_edge786:                                   ; preds = %._crit_edge780
-  store i32 %storemerge4177811374, ptr %251, align 8
-  %storemerge417781 = add nsw i32 %storemerge4177811374, 1
-  store i32 %storemerge417781, ptr %252, align 4
-  %297 = icmp slt i32 %storemerge417781, %3
-  br i1 %297, label %.lr.ph785, label %._crit_edge786.thread, !llvm.loop !58
+._crit_edge786:                                   ; preds = %._crit_edge780, %256
+  store i32 %storemerge417781, ptr %244, align 8
+  %exitcond1148.not = icmp eq i32 %storemerge417781, %3
+  br i1 %exitcond1148.not, label %._crit_edge790, label %256, !llvm.loop !58
 
-._crit_edge790:                                   ; preds = %._crit_edge786.thread, %258
+._crit_edge790:                                   ; preds = %._crit_edge786, %251
   %storemerge415 = add nuw nsw i32 %storemerge415793, 1
-  store i32 %storemerge415, ptr %250, align 4
-  %exitcond1130.not = icmp eq i32 %storemerge415, %3
-  br i1 %exitcond1130.not, label %._crit_edge796, label %258, !llvm.loop !59
+  store i32 %storemerge415, ptr %243, align 4
+  %exitcond1149.not = icmp eq i32 %storemerge415, %3
+  br i1 %exitcond1149.not, label %._crit_edge796, label %251, !llvm.loop !59
 
-._crit_edge796:                                   ; preds = %._crit_edge790, %254
+._crit_edge796:                                   ; preds = %._crit_edge790, %247
   store i32 %storemerge415791, ptr %6, align 16
-  %exitcond1131.not = icmp eq i32 %storemerge415791, %3
-  br i1 %exitcond1131.not, label %._crit_edge799, label %254, !llvm.loop !60
+  %exitcond1150.not = icmp eq i32 %storemerge415791, %3
+  br i1 %exitcond1150.not, label %._crit_edge799, label %247, !llvm.loop !60
 
 ._crit_edge799:                                   ; preds = %._crit_edge796
-  %298 = icmp slt i32 %9, 3
-  br i1 %298, label %.loopexit458, label %.preheader469
+  %290 = icmp slt i32 %9, 3
+  br i1 %290, label %.loopexit458, label %.preheader469
 
 .preheader469:                                    ; preds = %._crit_edge799
   store i32 0, ptr %6, align 16
-  %299 = getelementptr inbounds i8, ptr %6, i64 4
-  %300 = getelementptr inbounds i8, ptr %6, i64 8
-  %301 = getelementptr inbounds i8, ptr %6, i64 12
-  %302 = getelementptr inbounds i8, ptr %6, i64 16
-  br label %303
+  %291 = getelementptr inbounds i8, ptr %6, i64 4
+  %292 = getelementptr inbounds i8, ptr %6, i64 8
+  %293 = getelementptr inbounds i8, ptr %6, i64 12
+  %294 = getelementptr inbounds i8, ptr %6, i64 16
+  br label %295
 
-303:                                              ; preds = %.preheader469, %._crit_edge829
+295:                                              ; preds = %.preheader469, %._crit_edge829
   %storemerge409830 = phi i32 [ 0, %.preheader469 ], [ %storemerge410824, %._crit_edge829 ]
   %storemerge410824 = add nuw nsw i32 %storemerge409830, 1
-  store i32 %storemerge410824, ptr %299, align 4
-  %304 = icmp slt i32 %storemerge410824, %3
-  br i1 %304, label %.lr.ph828, label %._crit_edge829
+  store i32 %storemerge410824, ptr %291, align 4
+  %296 = icmp slt i32 %storemerge410824, %3
+  br i1 %296, label %.lr.ph828, label %._crit_edge829
 
-.lr.ph828:                                        ; preds = %303
-  %305 = shl nuw nsw i32 %storemerge409830, 1
-  %306 = shl nuw i32 1, %305
-  br label %307
+.lr.ph828:                                        ; preds = %295
+  %297 = shl nuw nsw i32 %storemerge409830, 1
+  %298 = shl nuw i32 1, %297
+  br label %299
 
-307:                                              ; preds = %.lr.ph828, %._crit_edge823
+299:                                              ; preds = %.lr.ph828, %._crit_edge823
   %storemerge410826 = phi i32 [ %storemerge410824, %.lr.ph828 ], [ %storemerge410, %._crit_edge823 ]
   %storemerge410.in825 = phi i32 [ %storemerge409830, %.lr.ph828 ], [ %storemerge410826, %._crit_edge823 ]
-  %308 = add nuw nsw i32 %storemerge410.in825, 2
-  store i32 %308, ptr %300, align 8
-  %309 = icmp slt i32 %308, %3
-  br i1 %309, label %.lr.ph822, label %._crit_edge823
+  %300 = add nuw nsw i32 %storemerge410.in825, 2
+  store i32 %300, ptr %292, align 8
+  %301 = icmp slt i32 %300, %3
+  br i1 %301, label %.lr.ph822, label %._crit_edge823
 
-.lr.ph822:                                        ; preds = %307
-  %310 = shl nuw nsw i32 %storemerge410826, 1
-  %311 = shl nuw i32 1, %310
-  %storemerge4128141376 = add nsw i32 %storemerge410.in825, 3
-  store i32 %storemerge4128141376, ptr %301, align 4
-  %312 = icmp slt i32 %storemerge4128141376, %3
-  br i1 %312, label %.lr.ph818, label %._crit_edge819.thread
+.lr.ph822:                                        ; preds = %299
+  %302 = shl nuw nsw i32 %storemerge410826, 1
+  %303 = shl nuw i32 1, %302
+  br label %304
 
-._crit_edge819.thread:                            ; preds = %._crit_edge819, %.lr.ph822
-  %storemerge412814.lcssa = phi i32 [ %storemerge4128141376, %.lr.ph822 ], [ %storemerge412814, %._crit_edge819 ]
-  store i32 %storemerge412814.lcssa, ptr %300, align 8
-  br label %._crit_edge823
+304:                                              ; preds = %.lr.ph822, %._crit_edge819
+  %storemerge411820 = phi i32 [ %300, %.lr.ph822 ], [ %storemerge412814, %._crit_edge819 ]
+  %storemerge412814 = add nsw i32 %storemerge411820, 1
+  store i32 %storemerge412814, ptr %293, align 4
+  %305 = icmp slt i32 %storemerge412814, %3
+  br i1 %305, label %.lr.ph818, label %._crit_edge819
 
-.lr.ph818:                                        ; preds = %.lr.ph822, %._crit_edge819
-  %storemerge4128141378 = phi i32 [ %storemerge412814, %._crit_edge819 ], [ %storemerge4128141376, %.lr.ph822 ]
-  %storemerge4118201377 = phi i32 [ %storemerge4128141378, %._crit_edge819 ], [ %308, %.lr.ph822 ]
-  %313 = shl nsw i32 %storemerge4118201377, 1
-  %314 = shl nuw i32 1, %313
-  br label %315
+.lr.ph818:                                        ; preds = %304
+  %306 = shl nsw i32 %storemerge411820, 1
+  %307 = shl nuw i32 1, %306
+  br label %308
 
-315:                                              ; preds = %.lr.ph818, %._crit_edge813
-  %storemerge412816 = phi i32 [ %storemerge4128141378, %.lr.ph818 ], [ %storemerge412, %._crit_edge813 ]
-  %storemerge412.in815 = phi i32 [ %storemerge4118201377, %.lr.ph818 ], [ %storemerge412816, %._crit_edge813 ]
-  %316 = add nsw i32 %storemerge412.in815, 2
-  store i32 %316, ptr %302, align 16
-  %317 = icmp slt i32 %316, %3
-  br i1 %317, label %.lr.ph812, label %._crit_edge813
+308:                                              ; preds = %.lr.ph818, %._crit_edge813
+  %storemerge412816 = phi i32 [ %storemerge412814, %.lr.ph818 ], [ %storemerge412, %._crit_edge813 ]
+  %storemerge412.in815 = phi i32 [ %storemerge411820, %.lr.ph818 ], [ %storemerge412816, %._crit_edge813 ]
+  %309 = add nsw i32 %storemerge412.in815, 2
+  store i32 %309, ptr %294, align 16
+  %310 = icmp slt i32 %309, %3
+  br i1 %310, label %.lr.ph812, label %._crit_edge813
 
-.lr.ph812:                                        ; preds = %315
-  %318 = shl nsw i32 %storemerge412816, 1
-  %319 = shl nuw i32 1, %318
+.lr.ph812:                                        ; preds = %308
+  %311 = shl nsw i32 %storemerge412816, 1
+  %312 = shl nuw i32 1, %311
+  br label %313
+
+313:                                              ; preds = %.lr.ph812, %342
+  %storemerge413810 = phi i32 [ %309, %.lr.ph812 ], [ %343, %342 ]
+  %314 = shl nsw i32 %storemerge413810, 1
+  %315 = shl nuw i32 1, %314
+  %316 = or i32 %298, %315
+  %317 = or i32 %316, %303
+  %318 = or i32 %317, %307
+  %319 = or i32 %318, %312
   br label %320
 
-320:                                              ; preds = %.lr.ph812, %350
-  %storemerge413810 = phi i32 [ %316, %.lr.ph812 ], [ %351, %350 ]
-  %321 = shl nsw i32 %storemerge413810, 1
-  %322 = shl nuw i32 1, %321
-  %323 = or i32 %306, %322
-  %324 = or i32 %323, %311
-  %325 = or i32 %324, %314
-  %326 = or i32 %325, %319
-  br label %327
+.loopexit468:                                     ; preds = %.loopexit467, %320
+  %indvars.iv.next1152 = add nuw nsw i64 %indvars.iv1151, 1
+  %indvars.iv.next1160 = add nuw nsw i64 %indvars.iv1159, 1
+  %exitcond1168.not = icmp eq i64 %indvars.iv.next1166, 5
+  br i1 %exitcond1168.not, label %342, label %320, !llvm.loop !61
 
-.loopexit468:                                     ; preds = %.loopexit467, %327
-  %indvars.iv.next1133 = add nuw nsw i64 %indvars.iv1132, 1
-  %indvars.iv.next1140 = add nuw nsw i64 %indvars.iv1139, 1
-  %exitcond1148.not = icmp eq i64 %indvars.iv.next1146, 5
-  br i1 %exitcond1148.not, label %350, label %327, !llvm.loop !61
+320:                                              ; preds = %313, %.loopexit468
+  %indvars.iv1165 = phi i64 [ 0, %313 ], [ %indvars.iv.next1166, %.loopexit468 ]
+  %indvars.iv1159 = phi i64 [ 1, %313 ], [ %indvars.iv.next1160, %.loopexit468 ]
+  %indvars.iv1151 = phi i64 [ 2, %313 ], [ %indvars.iv.next1152, %.loopexit468 ]
+  %indvars.iv.next1166 = add nuw nsw i64 %indvars.iv1165, 1
+  %321 = icmp ult i64 %indvars.iv1165, 4
+  br i1 %321, label %.lr.ph808, label %.loopexit468
 
-327:                                              ; preds = %320, %.loopexit468
-  %indvars.iv1145 = phi i64 [ 0, %320 ], [ %indvars.iv.next1146, %.loopexit468 ]
-  %indvars.iv1139 = phi i64 [ 1, %320 ], [ %indvars.iv.next1140, %.loopexit468 ]
-  %indvars.iv1132 = phi i64 [ 2, %320 ], [ %indvars.iv.next1133, %.loopexit468 ]
-  %indvars.iv.next1146 = add nuw nsw i64 %indvars.iv1145, 1
-  %328 = icmp ult i64 %indvars.iv1145, 4
-  br i1 %328, label %.lr.ph808, label %.loopexit468
+.lr.ph808:                                        ; preds = %320
+  %322 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1165
+  br label %323
 
-.lr.ph808:                                        ; preds = %327
-  %329 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1145
-  br label %330
+.loopexit467:                                     ; preds = %333, %323
+  %indvars.iv.next1154 = add nuw nsw i64 %indvars.iv1153, 1
+  %exitcond1164.not = icmp eq i64 %indvars.iv.next1162, 5
+  br i1 %exitcond1164.not, label %.loopexit468, label %323, !llvm.loop !62
 
-.loopexit467:                                     ; preds = %340, %330
-  %indvars.iv.next1135 = add nuw nsw i64 %indvars.iv1134, 1
-  %exitcond1144.not = icmp eq i64 %indvars.iv.next1142, 5
-  br i1 %exitcond1144.not, label %.loopexit468, label %330, !llvm.loop !62
+323:                                              ; preds = %.lr.ph808, %.loopexit467
+  %indvars.iv1161 = phi i64 [ %indvars.iv1159, %.lr.ph808 ], [ %indvars.iv.next1162, %.loopexit467 ]
+  %indvars.iv1153 = phi i64 [ %indvars.iv1151, %.lr.ph808 ], [ %indvars.iv.next1154, %.loopexit467 ]
+  %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 1
+  %324 = icmp ult i64 %indvars.iv1161, 4
+  br i1 %324, label %.lr.ph805, label %.loopexit467
 
-330:                                              ; preds = %.lr.ph808, %.loopexit467
-  %indvars.iv1141 = phi i64 [ %indvars.iv1139, %.lr.ph808 ], [ %indvars.iv.next1142, %.loopexit467 ]
-  %indvars.iv1134 = phi i64 [ %indvars.iv1132, %.lr.ph808 ], [ %indvars.iv.next1135, %.loopexit467 ]
-  %indvars.iv.next1142 = add nuw nsw i64 %indvars.iv1141, 1
-  %331 = icmp ult i64 %indvars.iv1141, 4
-  br i1 %331, label %.lr.ph805, label %.loopexit467
+.lr.ph805:                                        ; preds = %323
+  %325 = load i32, ptr %322, align 4
+  %326 = shl nsw i32 %325, 1
+  %327 = shl i32 3, %326
+  %328 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1161
+  %329 = load i32, ptr %328, align 4
+  %330 = shl nsw i32 %329, 1
+  %331 = shl i32 3, %330
+  %332 = or i32 %327, %331
+  br label %334
 
-.lr.ph805:                                        ; preds = %330
-  %332 = load i32, ptr %329, align 4
-  %333 = shl nsw i32 %332, 1
-  %334 = shl i32 3, %333
-  %335 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1141
+333:                                              ; preds = %334
+  %indvars.iv.next1156 = add nuw nsw i64 %indvars.iv1155, 1
+  %exitcond1158.not = icmp eq i64 %indvars.iv.next1156, 5
+  br i1 %exitcond1158.not, label %.loopexit467, label %334, !llvm.loop !63
+
+334:                                              ; preds = %.lr.ph805, %333
+  %indvars.iv1155 = phi i64 [ %indvars.iv1153, %.lr.ph805 ], [ %indvars.iv.next1156, %333 ]
+  %335 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1155
   %336 = load i32, ptr %335, align 4
   %337 = shl nsw i32 %336, 1
   %338 = shl i32 3, %337
-  %339 = or i32 %334, %338
-  br label %342
+  %339 = or i32 %332, %338
+  %340 = or i32 %339, %319
+  %341 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %340, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not414 = icmp eq i32 %341, 0
+  br i1 %.not414, label %333, label %.loopexit458
 
-340:                                              ; preds = %342
-  %indvars.iv.next1137 = add nuw nsw i64 %indvars.iv1136, 1
-  %341 = icmp ult i64 %indvars.iv1136, 4
-  br i1 %341, label %342, label %.loopexit467, !llvm.loop !63
+342:                                              ; preds = %.loopexit468
+  %343 = add nsw i32 %storemerge413810, 1
+  store i32 %343, ptr %294, align 16
+  %344 = icmp slt i32 %343, %3
+  br i1 %344, label %313, label %._crit_edge813, !llvm.loop !64
 
-342:                                              ; preds = %.lr.ph805, %340
-  %indvars.iv1136 = phi i64 [ %indvars.iv1134, %.lr.ph805 ], [ %indvars.iv.next1137, %340 ]
-  %343 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1136
-  %344 = load i32, ptr %343, align 4
-  %345 = shl nsw i32 %344, 1
-  %346 = shl i32 3, %345
-  %347 = or i32 %339, %346
-  %348 = or i32 %347, %326
-  %349 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %348, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not414 = icmp eq i32 %349, 0
-  br i1 %.not414, label %340, label %.loopexit458
-
-350:                                              ; preds = %.loopexit468
-  %351 = add nsw i32 %storemerge413810, 1
-  store i32 %351, ptr %302, align 16
-  %352 = icmp slt i32 %351, %3
-  br i1 %352, label %320, label %._crit_edge813, !llvm.loop !64
-
-._crit_edge813:                                   ; preds = %350, %315
+._crit_edge813:                                   ; preds = %342, %308
   %storemerge412 = add nsw i32 %storemerge412816, 1
-  store i32 %storemerge412, ptr %301, align 4
-  %353 = icmp slt i32 %storemerge412, %3
-  br i1 %353, label %315, label %._crit_edge819, !llvm.loop !65
+  store i32 %storemerge412, ptr %293, align 4
+  %exitcond1169.not = icmp eq i32 %storemerge412, %3
+  br i1 %exitcond1169.not, label %._crit_edge819, label %308, !llvm.loop !65
 
-._crit_edge819:                                   ; preds = %._crit_edge813
-  store i32 %storemerge4128141378, ptr %300, align 8
-  %storemerge412814 = add nsw i32 %storemerge4128141378, 1
-  store i32 %storemerge412814, ptr %301, align 4
-  %354 = icmp slt i32 %storemerge412814, %3
-  br i1 %354, label %.lr.ph818, label %._crit_edge819.thread, !llvm.loop !66
+._crit_edge819:                                   ; preds = %._crit_edge813, %304
+  store i32 %storemerge412814, ptr %292, align 8
+  %exitcond1170.not = icmp eq i32 %storemerge412814, %3
+  br i1 %exitcond1170.not, label %._crit_edge823, label %304, !llvm.loop !66
 
-._crit_edge823:                                   ; preds = %._crit_edge819.thread, %307
+._crit_edge823:                                   ; preds = %._crit_edge819, %299
   %storemerge410 = add nuw nsw i32 %storemerge410826, 1
-  store i32 %storemerge410, ptr %299, align 4
-  %exitcond1149.not = icmp eq i32 %storemerge410, %3
-  br i1 %exitcond1149.not, label %._crit_edge829, label %307, !llvm.loop !67
+  store i32 %storemerge410, ptr %291, align 4
+  %exitcond1171.not = icmp eq i32 %storemerge410, %3
+  br i1 %exitcond1171.not, label %._crit_edge829, label %299, !llvm.loop !67
 
-._crit_edge829:                                   ; preds = %._crit_edge823, %303
+._crit_edge829:                                   ; preds = %._crit_edge823, %295
   store i32 %storemerge410824, ptr %6, align 16
-  %exitcond1150.not = icmp eq i32 %storemerge410824, %3
-  br i1 %exitcond1150.not, label %.loopexit458, label %303, !llvm.loop !68
+  %exitcond1172.not = icmp eq i32 %storemerge410824, %3
+  br i1 %exitcond1172.not, label %.loopexit458, label %295, !llvm.loop !68
 
-355:                                              ; preds = %.lr.ph561, %._crit_edge557
+345:                                              ; preds = %.lr.ph561, %._crit_edge557
   %storemerge560 = phi i32 [ 0, %.lr.ph561 ], [ %storemerge400552, %._crit_edge557 ]
   %storemerge400552 = add nuw nsw i32 %storemerge560, 1
-  %356 = icmp slt i32 %storemerge400552, %3
-  br i1 %356, label %.lr.ph556, label %._crit_edge557
+  %346 = icmp slt i32 %storemerge400552, %3
+  br i1 %346, label %.lr.ph556, label %._crit_edge557
 
-.lr.ph556:                                        ; preds = %355
-  %357 = shl nuw nsw i32 %storemerge560, 1
-  %358 = shl nuw i32 1, %357
-  br label %359
+.lr.ph556:                                        ; preds = %345
+  %347 = shl nuw nsw i32 %storemerge560, 1
+  %348 = shl nuw i32 1, %347
+  br label %349
 
-359:                                              ; preds = %.lr.ph556, %._crit_edge548
+349:                                              ; preds = %.lr.ph556, %._crit_edge548
   %storemerge400554 = phi i32 [ %storemerge400552, %.lr.ph556 ], [ %storemerge400, %._crit_edge548 ]
   %storemerge400.in553 = phi i32 [ %storemerge560, %.lr.ph556 ], [ %storemerge400554, %._crit_edge548 ]
-  %360 = add nuw nsw i32 %storemerge400.in553, 2
-  %361 = icmp slt i32 %360, %3
-  br i1 %361, label %.lr.ph547, label %._crit_edge548
+  %350 = add nuw nsw i32 %storemerge400.in553, 2
+  %351 = icmp slt i32 %350, %3
+  br i1 %351, label %.lr.ph547, label %._crit_edge548
 
-.lr.ph547:                                        ; preds = %359
-  %362 = shl nuw nsw i32 %storemerge400554, 1
-  %363 = shl nuw i32 1, %362
-  %storemerge4025361330 = add nsw i32 %storemerge400.in553, 3
-  %364 = icmp slt i32 %storemerge4025361330, %3
-  br i1 %364, label %.lr.ph540, label %._crit_edge548
+.lr.ph547:                                        ; preds = %349
+  %352 = shl nuw nsw i32 %storemerge400554, 1
+  %353 = shl nuw i32 1, %352
+  br label %354
 
-.lr.ph540:                                        ; preds = %.lr.ph547, %._crit_edge541
-  %storemerge4025361332 = phi i32 [ %storemerge402536, %._crit_edge541 ], [ %storemerge4025361330, %.lr.ph547 ]
-  %storemerge4015451331 = phi i32 [ %storemerge4025361332, %._crit_edge541 ], [ %360, %.lr.ph547 ]
-  %365 = shl nsw i32 %storemerge4015451331, 1
-  %366 = shl nuw i32 1, %365
-  br label %367
+354:                                              ; preds = %.lr.ph547, %._crit_edge541
+  %storemerge401545 = phi i32 [ %350, %.lr.ph547 ], [ %storemerge402536, %._crit_edge541 ]
+  %storemerge402536 = add nsw i32 %storemerge401545, 1
+  %355 = icmp slt i32 %storemerge402536, %3
+  br i1 %355, label %.lr.ph540, label %._crit_edge541
 
-367:                                              ; preds = %.lr.ph540, %._crit_edge532
-  %storemerge402538 = phi i32 [ %storemerge4025361332, %.lr.ph540 ], [ %storemerge402, %._crit_edge532 ]
-  %storemerge402.in537 = phi i32 [ %storemerge4015451331, %.lr.ph540 ], [ %storemerge402538, %._crit_edge532 ]
-  %368 = add nsw i32 %storemerge402.in537, 2
-  %369 = icmp slt i32 %368, %3
-  br i1 %369, label %.lr.ph531, label %._crit_edge532
+.lr.ph540:                                        ; preds = %354
+  %356 = shl nsw i32 %storemerge401545, 1
+  %357 = shl nuw i32 1, %356
+  br label %358
 
-.lr.ph531:                                        ; preds = %367
-  %370 = shl nsw i32 %storemerge402538, 1
-  %371 = shl nuw i32 1, %370
+358:                                              ; preds = %.lr.ph540, %._crit_edge532
+  %storemerge402538 = phi i32 [ %storemerge402536, %.lr.ph540 ], [ %storemerge402, %._crit_edge532 ]
+  %storemerge402.in537 = phi i32 [ %storemerge401545, %.lr.ph540 ], [ %storemerge402538, %._crit_edge532 ]
+  %359 = add nsw i32 %storemerge402.in537, 2
+  %360 = icmp slt i32 %359, %3
+  br i1 %360, label %.lr.ph531, label %._crit_edge532
+
+.lr.ph531:                                        ; preds = %358
+  %361 = shl nsw i32 %storemerge402538, 1
+  %362 = shl nuw i32 1, %361
   %storemerge4045251327 = add nsw i32 %storemerge402.in537, 3
-  %372 = icmp slt i32 %storemerge4045251327, %3
-  br i1 %372, label %.lr.ph, label %._crit_edge.thread
+  %363 = icmp slt i32 %storemerge4045251327, %3
+  br i1 %363, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.lr.ph531
   %storemerge404525.lcssa = phi i32 [ %storemerge4045251327, %.lr.ph531 ], [ %storemerge404525, %._crit_edge ]
@@ -1954,775 +1935,755 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph531, %._crit_edge
   %storemerge4045251329 = phi i32 [ %storemerge404525, %._crit_edge ], [ %storemerge4045251327, %.lr.ph531 ]
-  %storemerge4035291328 = phi i32 [ %storemerge4045251329, %._crit_edge ], [ %368, %.lr.ph531 ]
-  %373 = shl nsw i32 %storemerge4035291328, 1
-  %374 = shl nuw i32 1, %373
-  br label %377
+  %storemerge4035291328 = phi i32 [ %storemerge4045251329, %._crit_edge ], [ %359, %.lr.ph531 ]
+  %364 = shl nsw i32 %storemerge4035291328, 1
+  %365 = shl nuw i32 1, %364
+  br label %368
 
-375:                                              ; preds = %377
+366:                                              ; preds = %368
   %storemerge404 = add nsw i32 %storemerge404526, 1
-  %376 = icmp slt i32 %storemerge404, %3
-  br i1 %376, label %377, label %._crit_edge, !llvm.loop !69
+  %367 = icmp slt i32 %storemerge404, %3
+  br i1 %367, label %368, label %._crit_edge, !llvm.loop !69
 
-377:                                              ; preds = %.lr.ph, %375
-  %storemerge404526 = phi i32 [ %storemerge4045251329, %.lr.ph ], [ %storemerge404, %375 ]
-  %378 = shl nsw i32 %storemerge404526, 1
-  %379 = shl nuw i32 1, %378
-  %380 = or i32 %358, %379
-  %381 = or i32 %380, %363
-  %382 = or i32 %381, %366
-  %383 = or i32 %382, %371
-  %384 = or i32 %383, %374
-  %385 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %384, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not405 = icmp eq i32 %385, 0
-  br i1 %.not405, label %375, label %.loopexit458
+368:                                              ; preds = %.lr.ph, %366
+  %storemerge404526 = phi i32 [ %storemerge4045251329, %.lr.ph ], [ %storemerge404, %366 ]
+  %369 = shl nsw i32 %storemerge404526, 1
+  %370 = shl nuw i32 1, %369
+  %371 = or i32 %348, %370
+  %372 = or i32 %371, %353
+  %373 = or i32 %372, %357
+  %374 = or i32 %373, %362
+  %375 = or i32 %374, %365
+  %376 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %375, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not405 = icmp eq i32 %376, 0
+  br i1 %.not405, label %366, label %.loopexit458
 
-._crit_edge:                                      ; preds = %375
+._crit_edge:                                      ; preds = %366
   store i32 %3, ptr %15, align 4
   %storemerge404525 = add nsw i32 %storemerge4045251329, 1
-  %386 = icmp slt i32 %storemerge404525, %3
-  br i1 %386, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !70
+  %377 = icmp slt i32 %storemerge404525, %3
+  br i1 %377, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !70
 
-._crit_edge532:                                   ; preds = %._crit_edge.thread, %367
-  %storemerge403.lcssa = phi i32 [ %368, %367 ], [ %3, %._crit_edge.thread ]
+._crit_edge532:                                   ; preds = %._crit_edge.thread, %358
+  %storemerge403.lcssa = phi i32 [ %359, %358 ], [ %3, %._crit_edge.thread ]
   store i32 %storemerge403.lcssa, ptr %14, align 16
-  %storemerge402 = add nsw i32 %storemerge402538, 1
-  %387 = icmp slt i32 %storemerge402, %3
-  br i1 %387, label %367, label %._crit_edge541, !llvm.loop !71
+  %storemerge402 = add i32 %storemerge402538, 1
+  %exitcond.not = icmp eq i32 %storemerge402, %3
+  br i1 %exitcond.not, label %._crit_edge541, label %358, !llvm.loop !71
 
-._crit_edge541:                                   ; preds = %._crit_edge532
-  store i32 %3, ptr %13, align 4
-  %storemerge402536 = add nsw i32 %storemerge4025361332, 1
-  %388 = icmp slt i32 %storemerge402536, %3
-  br i1 %388, label %.lr.ph540, label %._crit_edge548, !llvm.loop !72
+._crit_edge541:                                   ; preds = %._crit_edge532, %354
+  %storemerge402.lcssa = phi i32 [ %storemerge402536, %354 ], [ %3, %._crit_edge532 ]
+  store i32 %storemerge402.lcssa, ptr %13, align 4
+  %exitcond1054.not = icmp eq i32 %storemerge402536, %3
+  br i1 %exitcond1054.not, label %._crit_edge548, label %354, !llvm.loop !72
 
-._crit_edge548:                                   ; preds = %._crit_edge541, %.lr.ph547, %359
-  %storemerge401.lcssa = phi i32 [ %360, %359 ], [ %3, %.lr.ph547 ], [ %3, %._crit_edge541 ]
+._crit_edge548:                                   ; preds = %._crit_edge541, %349
+  %storemerge401.lcssa = phi i32 [ %350, %349 ], [ %3, %._crit_edge541 ]
   store i32 %storemerge401.lcssa, ptr %12, align 8
   %storemerge400 = add nuw nsw i32 %storemerge400554, 1
-  %exitcond.not = icmp eq i32 %storemerge400, %3
-  br i1 %exitcond.not, label %._crit_edge557, label %359, !llvm.loop !73
+  %exitcond1055.not = icmp eq i32 %storemerge400, %3
+  br i1 %exitcond1055.not, label %._crit_edge557, label %349, !llvm.loop !73
 
-._crit_edge557:                                   ; preds = %._crit_edge548, %355
-  %storemerge400.lcssa = phi i32 [ %storemerge400552, %355 ], [ %3, %._crit_edge548 ]
+._crit_edge557:                                   ; preds = %._crit_edge548, %345
+  %storemerge400.lcssa = phi i32 [ %storemerge400552, %345 ], [ %3, %._crit_edge548 ]
   store i32 %storemerge400.lcssa, ptr %11, align 4
-  %exitcond1054.not = icmp eq i32 %storemerge400552, %3
-  br i1 %exitcond1054.not, label %._crit_edge562, label %355, !llvm.loop !74
+  %exitcond1056.not = icmp eq i32 %storemerge400552, %3
+  br i1 %exitcond1056.not, label %._crit_edge562, label %345, !llvm.loop !74
 
 ._crit_edge562:                                   ; preds = %._crit_edge557
-  %389 = icmp slt i32 %9, 1
-  br i1 %389, label %.loopexit458, label %.preheader486
+  %378 = icmp slt i32 %9, 1
+  br i1 %378, label %.loopexit458, label %.preheader486
 
 ._crit_edge562.thread:                            ; preds = %.preheader488
-  %or.cond1262 = icmp slt i32 %9, 2
-  br i1 %or.cond1262, label %.loopexit458, label %.preheader485
+  %or.cond1271 = icmp slt i32 %9, 2
+  br i1 %or.cond1271, label %.loopexit458, label %.preheader485
 
 .preheader486:                                    ; preds = %._crit_edge562
   store i32 0, ptr %6, align 16
-  %390 = getelementptr inbounds i8, ptr %6, i64 4
-  %391 = getelementptr inbounds i8, ptr %6, i64 8
-  %392 = getelementptr inbounds i8, ptr %6, i64 12
-  %393 = getelementptr inbounds i8, ptr %6, i64 16
-  %394 = getelementptr inbounds i8, ptr %6, i64 20
-  br label %395
+  %379 = getelementptr inbounds i8, ptr %6, i64 4
+  %380 = getelementptr inbounds i8, ptr %6, i64 8
+  %381 = getelementptr inbounds i8, ptr %6, i64 12
+  %382 = getelementptr inbounds i8, ptr %6, i64 16
+  %383 = getelementptr inbounds i8, ptr %6, i64 20
+  br label %384
 
-395:                                              ; preds = %.preheader486, %._crit_edge590
+384:                                              ; preds = %.preheader486, %._crit_edge590
   %storemerge373591 = phi i32 [ 0, %.preheader486 ], [ %storemerge394585, %._crit_edge590 ]
   %storemerge394585 = add nuw nsw i32 %storemerge373591, 1
-  store i32 %storemerge394585, ptr %390, align 4
-  %396 = icmp slt i32 %storemerge394585, %3
-  br i1 %396, label %.lr.ph589, label %._crit_edge590
+  store i32 %storemerge394585, ptr %379, align 4
+  %385 = icmp slt i32 %storemerge394585, %3
+  br i1 %385, label %.lr.ph589, label %._crit_edge590
 
-.lr.ph589:                                        ; preds = %395
-  %397 = shl nuw nsw i32 %storemerge373591, 1
-  %398 = shl nuw i32 1, %397
-  br label %399
+.lr.ph589:                                        ; preds = %384
+  %386 = shl nuw nsw i32 %storemerge373591, 1
+  %387 = shl nuw i32 1, %386
+  br label %388
 
-399:                                              ; preds = %.lr.ph589, %._crit_edge584
+388:                                              ; preds = %.lr.ph589, %._crit_edge584
   %storemerge394587 = phi i32 [ %storemerge394585, %.lr.ph589 ], [ %storemerge394, %._crit_edge584 ]
   %storemerge394.in586 = phi i32 [ %storemerge373591, %.lr.ph589 ], [ %storemerge394587, %._crit_edge584 ]
-  %400 = add nuw nsw i32 %storemerge394.in586, 2
-  store i32 %400, ptr %391, align 8
-  %401 = icmp slt i32 %400, %3
-  br i1 %401, label %.lr.ph583, label %._crit_edge584
+  %389 = add nuw nsw i32 %storemerge394.in586, 2
+  store i32 %389, ptr %380, align 8
+  %390 = icmp slt i32 %389, %3
+  br i1 %390, label %.lr.ph583, label %._crit_edge584
 
-.lr.ph583:                                        ; preds = %399
-  %402 = shl nuw nsw i32 %storemerge394587, 1
-  %403 = shl nuw i32 1, %402
-  %storemerge3965751337 = add nsw i32 %storemerge394.in586, 3
-  store i32 %storemerge3965751337, ptr %392, align 4
-  %404 = icmp slt i32 %storemerge3965751337, %3
-  br i1 %404, label %.lr.ph579, label %._crit_edge580.thread
+.lr.ph583:                                        ; preds = %388
+  %391 = shl nuw nsw i32 %storemerge394587, 1
+  %392 = shl nuw i32 1, %391
+  br label %393
 
-._crit_edge580.thread:                            ; preds = %._crit_edge580, %.lr.ph583
-  %storemerge396575.lcssa = phi i32 [ %storemerge3965751337, %.lr.ph583 ], [ %storemerge396575, %._crit_edge580 ]
-  store i32 %storemerge396575.lcssa, ptr %391, align 8
-  br label %._crit_edge584
+393:                                              ; preds = %.lr.ph583, %._crit_edge580
+  %storemerge395581 = phi i32 [ %389, %.lr.ph583 ], [ %storemerge396575, %._crit_edge580 ]
+  %storemerge396575 = add nsw i32 %storemerge395581, 1
+  store i32 %storemerge396575, ptr %381, align 4
+  %394 = icmp slt i32 %storemerge396575, %3
+  br i1 %394, label %.lr.ph579, label %._crit_edge580
 
-.lr.ph579:                                        ; preds = %.lr.ph583, %._crit_edge580
-  %storemerge3965751339 = phi i32 [ %storemerge396575, %._crit_edge580 ], [ %storemerge3965751337, %.lr.ph583 ]
-  %storemerge3955811338 = phi i32 [ %storemerge3965751339, %._crit_edge580 ], [ %400, %.lr.ph583 ]
-  %405 = shl nsw i32 %storemerge3955811338, 1
-  %406 = shl nuw i32 1, %405
-  br label %407
+.lr.ph579:                                        ; preds = %393
+  %395 = shl nsw i32 %storemerge395581, 1
+  %396 = shl nuw i32 1, %395
+  br label %397
 
-407:                                              ; preds = %.lr.ph579, %._crit_edge574
-  %storemerge396577 = phi i32 [ %storemerge3965751339, %.lr.ph579 ], [ %storemerge396, %._crit_edge574 ]
-  %storemerge396.in576 = phi i32 [ %storemerge3955811338, %.lr.ph579 ], [ %storemerge396577, %._crit_edge574 ]
-  %408 = add nsw i32 %storemerge396.in576, 2
-  store i32 %408, ptr %393, align 16
-  %409 = icmp slt i32 %408, %3
-  br i1 %409, label %.lr.ph573, label %._crit_edge574
+397:                                              ; preds = %.lr.ph579, %._crit_edge574
+  %storemerge396577 = phi i32 [ %storemerge396575, %.lr.ph579 ], [ %storemerge396, %._crit_edge574 ]
+  %storemerge396.in576 = phi i32 [ %storemerge395581, %.lr.ph579 ], [ %storemerge396577, %._crit_edge574 ]
+  %398 = add nsw i32 %storemerge396.in576, 2
+  store i32 %398, ptr %382, align 16
+  %399 = icmp slt i32 %398, %3
+  br i1 %399, label %.lr.ph573, label %._crit_edge574
 
-.lr.ph573:                                        ; preds = %407
-  %410 = shl nsw i32 %storemerge396577, 1
-  %411 = shl nuw i32 1, %410
-  %storemerge3985661333 = add nsw i32 %storemerge396.in576, 3
-  store i32 %storemerge3985661333, ptr %394, align 4
-  %412 = icmp slt i32 %storemerge3985661333, %3
-  br i1 %412, label %.lr.ph569, label %._crit_edge570.thread
+.lr.ph573:                                        ; preds = %397
+  %400 = shl nsw i32 %storemerge396577, 1
+  %401 = shl nuw i32 1, %400
+  %storemerge3985661330 = add nsw i32 %storemerge396.in576, 3
+  store i32 %storemerge3985661330, ptr %383, align 4
+  %402 = icmp slt i32 %storemerge3985661330, %3
+  br i1 %402, label %.lr.ph569, label %._crit_edge570.thread
 
 ._crit_edge570.thread:                            ; preds = %._crit_edge570, %.lr.ph573
-  %storemerge398566.lcssa = phi i32 [ %storemerge3985661333, %.lr.ph573 ], [ %storemerge398566, %._crit_edge570 ]
-  store i32 %storemerge398566.lcssa, ptr %393, align 16
+  %storemerge398566.lcssa = phi i32 [ %storemerge3985661330, %.lr.ph573 ], [ %storemerge398566, %._crit_edge570 ]
+  store i32 %storemerge398566.lcssa, ptr %382, align 16
   br label %._crit_edge574
 
 .lr.ph569:                                        ; preds = %.lr.ph573, %._crit_edge570
-  %storemerge3985661335 = phi i32 [ %storemerge398566, %._crit_edge570 ], [ %storemerge3985661333, %.lr.ph573 ]
-  %storemerge3975711334 = phi i32 [ %storemerge3985661335, %._crit_edge570 ], [ %408, %.lr.ph573 ]
-  %413 = shl nsw i32 %storemerge3975711334, 1
-  %414 = shl nuw i32 1, %413
-  br label %415
+  %storemerge3985661332 = phi i32 [ %storemerge398566, %._crit_edge570 ], [ %storemerge3985661330, %.lr.ph573 ]
+  %storemerge3975711331 = phi i32 [ %storemerge3985661332, %._crit_edge570 ], [ %398, %.lr.ph573 ]
+  %403 = shl nsw i32 %storemerge3975711331, 1
+  %404 = shl nuw i32 1, %403
+  br label %405
 
-415:                                              ; preds = %.lr.ph569, %431
-  %storemerge398567 = phi i32 [ %storemerge3985661335, %.lr.ph569 ], [ %storemerge398, %431 ]
-  %416 = shl nsw i32 %storemerge398567, 1
-  %417 = shl nuw i32 1, %416
-  %418 = or i32 %398, %417
-  %419 = or i32 %418, %403
-  %420 = or i32 %419, %406
-  %421 = or i32 %420, %411
-  %422 = or i32 %421, %414
-  br label %424
+405:                                              ; preds = %.lr.ph569, %421
+  %storemerge398567 = phi i32 [ %storemerge3985661332, %.lr.ph569 ], [ %storemerge398, %421 ]
+  %406 = shl nsw i32 %storemerge398567, 1
+  %407 = shl nuw i32 1, %406
+  %408 = or i32 %387, %407
+  %409 = or i32 %408, %392
+  %410 = or i32 %409, %396
+  %411 = or i32 %410, %401
+  %412 = or i32 %411, %404
+  br label %414
 
-423:                                              ; preds = %424
+413:                                              ; preds = %414
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond1056.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond1056.not, label %431, label %424, !llvm.loop !75
+  %exitcond1058.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond1058.not, label %421, label %414, !llvm.loop !75
 
-424:                                              ; preds = %415, %423
-  %indvars.iv = phi i64 [ 0, %415 ], [ %indvars.iv.next, %423 ]
-  %425 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %426 = load i32, ptr %425, align 4
-  %427 = shl nsw i32 %426, 1
-  %428 = shl i32 3, %427
-  %429 = or i32 %428, %422
-  %430 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %429, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not399 = icmp eq i32 %430, 0
-  br i1 %.not399, label %423, label %.loopexit458
+414:                                              ; preds = %405, %413
+  %indvars.iv = phi i64 [ 0, %405 ], [ %indvars.iv.next, %413 ]
+  %415 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %416 = load i32, ptr %415, align 4
+  %417 = shl nsw i32 %416, 1
+  %418 = shl i32 3, %417
+  %419 = or i32 %418, %412
+  %420 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %419, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not399 = icmp eq i32 %420, 0
+  br i1 %.not399, label %413, label %.loopexit458
 
-431:                                              ; preds = %423
+421:                                              ; preds = %413
   %storemerge398 = add nsw i32 %storemerge398567, 1
-  store i32 %storemerge398, ptr %394, align 4
-  %432 = icmp slt i32 %storemerge398, %3
-  br i1 %432, label %415, label %._crit_edge570, !llvm.loop !76
+  store i32 %storemerge398, ptr %383, align 4
+  %422 = icmp slt i32 %storemerge398, %3
+  br i1 %422, label %405, label %._crit_edge570, !llvm.loop !76
 
-._crit_edge570:                                   ; preds = %431
-  store i32 %storemerge3985661335, ptr %393, align 16
-  %storemerge398566 = add nsw i32 %storemerge3985661335, 1
-  store i32 %storemerge398566, ptr %394, align 4
-  %433 = icmp slt i32 %storemerge398566, %3
-  br i1 %433, label %.lr.ph569, label %._crit_edge570.thread, !llvm.loop !77
+._crit_edge570:                                   ; preds = %421
+  store i32 %storemerge3985661332, ptr %382, align 16
+  %storemerge398566 = add nsw i32 %storemerge3985661332, 1
+  store i32 %storemerge398566, ptr %383, align 4
+  %423 = icmp slt i32 %storemerge398566, %3
+  br i1 %423, label %.lr.ph569, label %._crit_edge570.thread, !llvm.loop !77
 
-._crit_edge574:                                   ; preds = %._crit_edge570.thread, %407
+._crit_edge574:                                   ; preds = %._crit_edge570.thread, %397
   %storemerge396 = add nsw i32 %storemerge396577, 1
-  store i32 %storemerge396, ptr %392, align 4
-  %434 = icmp slt i32 %storemerge396, %3
-  br i1 %434, label %407, label %._crit_edge580, !llvm.loop !78
+  store i32 %storemerge396, ptr %381, align 4
+  %exitcond1059.not = icmp eq i32 %storemerge396, %3
+  br i1 %exitcond1059.not, label %._crit_edge580, label %397, !llvm.loop !78
 
-._crit_edge580:                                   ; preds = %._crit_edge574
-  store i32 %storemerge3965751339, ptr %391, align 8
-  %storemerge396575 = add nsw i32 %storemerge3965751339, 1
-  store i32 %storemerge396575, ptr %392, align 4
-  %435 = icmp slt i32 %storemerge396575, %3
-  br i1 %435, label %.lr.ph579, label %._crit_edge580.thread, !llvm.loop !79
+._crit_edge580:                                   ; preds = %._crit_edge574, %393
+  store i32 %storemerge396575, ptr %380, align 8
+  %exitcond1060.not = icmp eq i32 %storemerge396575, %3
+  br i1 %exitcond1060.not, label %._crit_edge584, label %393, !llvm.loop !79
 
-._crit_edge584:                                   ; preds = %._crit_edge580.thread, %399
+._crit_edge584:                                   ; preds = %._crit_edge580, %388
   %storemerge394 = add nuw nsw i32 %storemerge394587, 1
-  store i32 %storemerge394, ptr %390, align 4
-  %exitcond1057.not = icmp eq i32 %storemerge394, %3
-  br i1 %exitcond1057.not, label %._crit_edge590, label %399, !llvm.loop !80
+  store i32 %storemerge394, ptr %379, align 4
+  %exitcond1061.not = icmp eq i32 %storemerge394, %3
+  br i1 %exitcond1061.not, label %._crit_edge590, label %388, !llvm.loop !80
 
-._crit_edge590:                                   ; preds = %._crit_edge584, %395
+._crit_edge590:                                   ; preds = %._crit_edge584, %384
   store i32 %storemerge394585, ptr %6, align 16
-  %exitcond1058.not = icmp eq i32 %storemerge394585, %3
-  br i1 %exitcond1058.not, label %._crit_edge593, label %395, !llvm.loop !81
+  %exitcond1062.not = icmp eq i32 %storemerge394585, %3
+  br i1 %exitcond1062.not, label %._crit_edge593, label %384, !llvm.loop !81
 
 ._crit_edge593:                                   ; preds = %._crit_edge590
-  %.old1261 = icmp eq i32 %9, 1
-  br i1 %.old1261, label %.loopexit458, label %.preheader485
+  %.old1270 = icmp eq i32 %9, 1
+  br i1 %.old1270, label %.loopexit458, label %.preheader485
 
 .preheader485:                                    ; preds = %._crit_edge562.thread, %._crit_edge593
   store i32 0, ptr %6, align 16
   br i1 %10, label %.lr.ph626, label %._crit_edge627.thread
 
 .lr.ph626:                                        ; preds = %.preheader485
-  %436 = getelementptr inbounds i8, ptr %6, i64 4
-  %437 = getelementptr inbounds i8, ptr %6, i64 8
-  %438 = getelementptr inbounds i8, ptr %6, i64 12
-  %439 = getelementptr inbounds i8, ptr %6, i64 16
-  %440 = getelementptr inbounds i8, ptr %6, i64 20
-  br label %441
+  %424 = getelementptr inbounds i8, ptr %6, i64 4
+  %425 = getelementptr inbounds i8, ptr %6, i64 8
+  %426 = getelementptr inbounds i8, ptr %6, i64 12
+  %427 = getelementptr inbounds i8, ptr %6, i64 16
+  %428 = getelementptr inbounds i8, ptr %6, i64 20
+  br label %429
 
-441:                                              ; preds = %.lr.ph626, %._crit_edge624
+429:                                              ; preds = %.lr.ph626, %._crit_edge624
   %storemerge374625 = phi i32 [ 0, %.lr.ph626 ], [ %storemerge388619, %._crit_edge624 ]
   %storemerge388619 = add nuw nsw i32 %storemerge374625, 1
-  store i32 %storemerge388619, ptr %436, align 4
-  %442 = icmp slt i32 %storemerge388619, %3
-  br i1 %442, label %.lr.ph623, label %._crit_edge624
+  store i32 %storemerge388619, ptr %424, align 4
+  %430 = icmp slt i32 %storemerge388619, %3
+  br i1 %430, label %.lr.ph623, label %._crit_edge624
 
-.lr.ph623:                                        ; preds = %441
-  %443 = shl nuw nsw i32 %storemerge374625, 1
-  %444 = shl nuw i32 1, %443
-  br label %445
+.lr.ph623:                                        ; preds = %429
+  %431 = shl nuw nsw i32 %storemerge374625, 1
+  %432 = shl nuw i32 1, %431
+  br label %433
 
-445:                                              ; preds = %.lr.ph623, %._crit_edge618
+433:                                              ; preds = %.lr.ph623, %._crit_edge618
   %storemerge388621 = phi i32 [ %storemerge388619, %.lr.ph623 ], [ %storemerge388, %._crit_edge618 ]
   %storemerge388.in620 = phi i32 [ %storemerge374625, %.lr.ph623 ], [ %storemerge388621, %._crit_edge618 ]
-  %446 = add nuw nsw i32 %storemerge388.in620, 2
-  store i32 %446, ptr %437, align 8
-  %447 = icmp slt i32 %446, %3
-  br i1 %447, label %.lr.ph617, label %._crit_edge618
+  %434 = add nuw nsw i32 %storemerge388.in620, 2
+  store i32 %434, ptr %425, align 8
+  %435 = icmp slt i32 %434, %3
+  br i1 %435, label %.lr.ph617, label %._crit_edge618
 
-.lr.ph617:                                        ; preds = %445
-  %448 = shl nuw nsw i32 %storemerge388621, 1
-  %449 = shl nuw i32 1, %448
-  %storemerge3906091345 = add nsw i32 %storemerge388.in620, 3
-  store i32 %storemerge3906091345, ptr %438, align 4
-  %450 = icmp slt i32 %storemerge3906091345, %3
-  br i1 %450, label %.lr.ph613, label %._crit_edge614.thread
+.lr.ph617:                                        ; preds = %433
+  %436 = shl nuw nsw i32 %storemerge388621, 1
+  %437 = shl nuw i32 1, %436
+  br label %438
 
-._crit_edge614.thread:                            ; preds = %._crit_edge614, %.lr.ph617
-  %storemerge390609.lcssa = phi i32 [ %storemerge3906091345, %.lr.ph617 ], [ %storemerge390609, %._crit_edge614 ]
-  store i32 %storemerge390609.lcssa, ptr %437, align 8
-  br label %._crit_edge618
+438:                                              ; preds = %.lr.ph617, %._crit_edge614
+  %storemerge389615 = phi i32 [ %434, %.lr.ph617 ], [ %storemerge390609, %._crit_edge614 ]
+  %storemerge390609 = add nsw i32 %storemerge389615, 1
+  store i32 %storemerge390609, ptr %426, align 4
+  %439 = icmp slt i32 %storemerge390609, %3
+  br i1 %439, label %.lr.ph613, label %._crit_edge614
 
-.lr.ph613:                                        ; preds = %.lr.ph617, %._crit_edge614
-  %storemerge3906091347 = phi i32 [ %storemerge390609, %._crit_edge614 ], [ %storemerge3906091345, %.lr.ph617 ]
-  %storemerge3896151346 = phi i32 [ %storemerge3906091347, %._crit_edge614 ], [ %446, %.lr.ph617 ]
-  %451 = shl nsw i32 %storemerge3896151346, 1
-  %452 = shl nuw i32 1, %451
-  br label %453
+.lr.ph613:                                        ; preds = %438
+  %440 = shl nsw i32 %storemerge389615, 1
+  %441 = shl nuw i32 1, %440
+  br label %442
 
-453:                                              ; preds = %.lr.ph613, %._crit_edge608
-  %storemerge390611 = phi i32 [ %storemerge3906091347, %.lr.ph613 ], [ %storemerge390, %._crit_edge608 ]
-  %storemerge390.in610 = phi i32 [ %storemerge3896151346, %.lr.ph613 ], [ %storemerge390611, %._crit_edge608 ]
-  %454 = add nsw i32 %storemerge390.in610, 2
-  store i32 %454, ptr %439, align 16
-  %455 = icmp slt i32 %454, %3
-  br i1 %455, label %.lr.ph607, label %._crit_edge608
+442:                                              ; preds = %.lr.ph613, %._crit_edge608
+  %storemerge390611 = phi i32 [ %storemerge390609, %.lr.ph613 ], [ %storemerge390, %._crit_edge608 ]
+  %storemerge390.in610 = phi i32 [ %storemerge389615, %.lr.ph613 ], [ %storemerge390611, %._crit_edge608 ]
+  %443 = add nsw i32 %storemerge390.in610, 2
+  store i32 %443, ptr %427, align 16
+  %444 = icmp slt i32 %443, %3
+  br i1 %444, label %.lr.ph607, label %._crit_edge608
 
-.lr.ph607:                                        ; preds = %453
-  %456 = shl nsw i32 %storemerge390611, 1
-  %457 = shl nuw i32 1, %456
-  %storemerge3926001341 = add nsw i32 %storemerge390.in610, 3
-  store i32 %storemerge3926001341, ptr %440, align 4
-  %458 = icmp slt i32 %storemerge3926001341, %3
-  br i1 %458, label %.lr.ph603, label %._crit_edge604.thread
+.lr.ph607:                                        ; preds = %442
+  %445 = shl nsw i32 %storemerge390611, 1
+  %446 = shl nuw i32 1, %445
+  %storemerge3926001334 = add nsw i32 %storemerge390.in610, 3
+  store i32 %storemerge3926001334, ptr %428, align 4
+  %447 = icmp slt i32 %storemerge3926001334, %3
+  br i1 %447, label %.lr.ph603, label %._crit_edge604.thread
 
 ._crit_edge604.thread:                            ; preds = %._crit_edge604, %.lr.ph607
-  %storemerge392600.lcssa = phi i32 [ %storemerge3926001341, %.lr.ph607 ], [ %storemerge392600, %._crit_edge604 ]
-  store i32 %storemerge392600.lcssa, ptr %439, align 16
+  %storemerge392600.lcssa = phi i32 [ %storemerge3926001334, %.lr.ph607 ], [ %storemerge392600, %._crit_edge604 ]
+  store i32 %storemerge392600.lcssa, ptr %427, align 16
   br label %._crit_edge608
 
 .lr.ph603:                                        ; preds = %.lr.ph607, %._crit_edge604
-  %storemerge3926001343 = phi i32 [ %storemerge392600, %._crit_edge604 ], [ %storemerge3926001341, %.lr.ph607 ]
-  %storemerge3916051342 = phi i32 [ %storemerge3926001343, %._crit_edge604 ], [ %454, %.lr.ph607 ]
-  %459 = shl nsw i32 %storemerge3916051342, 1
-  %460 = shl nuw i32 1, %459
-  br label %461
+  %storemerge3926001336 = phi i32 [ %storemerge392600, %._crit_edge604 ], [ %storemerge3926001334, %.lr.ph607 ]
+  %storemerge3916051335 = phi i32 [ %storemerge3926001336, %._crit_edge604 ], [ %443, %.lr.ph607 ]
+  %448 = shl nsw i32 %storemerge3916051335, 1
+  %449 = shl nuw i32 1, %448
+  br label %450
 
-461:                                              ; preds = %.lr.ph603, %484
-  %storemerge392601 = phi i32 [ %storemerge3926001343, %.lr.ph603 ], [ %storemerge392, %484 ]
-  %462 = shl nsw i32 %storemerge392601, 1
-  %463 = shl nuw i32 1, %462
-  %464 = or i32 %444, %463
-  %465 = or i32 %464, %449
-  %466 = or i32 %465, %452
-  %467 = or i32 %466, %457
-  %468 = or i32 %467, %460
-  br label %469
+450:                                              ; preds = %.lr.ph603, %473
+  %storemerge392601 = phi i32 [ %storemerge3926001336, %.lr.ph603 ], [ %storemerge392, %473 ]
+  %451 = shl nsw i32 %storemerge392601, 1
+  %452 = shl nuw i32 1, %451
+  %453 = or i32 %432, %452
+  %454 = or i32 %453, %437
+  %455 = or i32 %454, %441
+  %456 = or i32 %455, %446
+  %457 = or i32 %456, %449
+  br label %458
 
-.loopexit484:                                     ; preds = %475, %469
-  %indvars.iv.next1060 = add nuw nsw i64 %indvars.iv1059, 1
-  %exitcond1068.not = icmp eq i64 %indvars.iv.next1066, 6
-  br i1 %exitcond1068.not, label %484, label %469, !llvm.loop !82
+.loopexit484:                                     ; preds = %464, %458
+  %indvars.iv.next1064 = add nuw nsw i64 %indvars.iv1063, 1
+  %exitcond1072.not = icmp eq i64 %indvars.iv.next1070, 6
+  br i1 %exitcond1072.not, label %473, label %458, !llvm.loop !82
 
-469:                                              ; preds = %461, %.loopexit484
-  %indvars.iv1065 = phi i64 [ 0, %461 ], [ %indvars.iv.next1066, %.loopexit484 ]
-  %indvars.iv1059 = phi i64 [ 1, %461 ], [ %indvars.iv.next1060, %.loopexit484 ]
+458:                                              ; preds = %450, %.loopexit484
+  %indvars.iv1069 = phi i64 [ 0, %450 ], [ %indvars.iv.next1070, %.loopexit484 ]
+  %indvars.iv1063 = phi i64 [ 1, %450 ], [ %indvars.iv.next1064, %.loopexit484 ]
+  %indvars.iv.next1070 = add nuw nsw i64 %indvars.iv1069, 1
+  %459 = icmp ult i64 %indvars.iv1069, 5
+  br i1 %459, label %.lr.ph598, label %.loopexit484
+
+.lr.ph598:                                        ; preds = %458
+  %460 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1069
+  %461 = load i32, ptr %460, align 4
+  %462 = shl nsw i32 %461, 1
+  %463 = shl i32 3, %462
+  br label %465
+
+464:                                              ; preds = %465
   %indvars.iv.next1066 = add nuw nsw i64 %indvars.iv1065, 1
-  %470 = icmp ult i64 %indvars.iv1065, 5
-  br i1 %470, label %.lr.ph598, label %.loopexit484
+  %exitcond1068.not = icmp eq i64 %indvars.iv.next1066, 6
+  br i1 %exitcond1068.not, label %.loopexit484, label %465, !llvm.loop !83
 
-.lr.ph598:                                        ; preds = %469
-  %471 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1065
-  %472 = load i32, ptr %471, align 4
-  %473 = shl nsw i32 %472, 1
-  %474 = shl i32 3, %473
-  br label %476
+465:                                              ; preds = %.lr.ph598, %464
+  %indvars.iv1065 = phi i64 [ %indvars.iv1063, %.lr.ph598 ], [ %indvars.iv.next1066, %464 ]
+  %466 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1065
+  %467 = load i32, ptr %466, align 4
+  %468 = shl nsw i32 %467, 1
+  %469 = shl i32 3, %468
+  %470 = or i32 %463, %469
+  %471 = or i32 %470, %457
+  %472 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %471, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not393 = icmp eq i32 %472, 0
+  br i1 %.not393, label %464, label %.loopexit458
 
-475:                                              ; preds = %476
-  %indvars.iv.next1062 = add nuw nsw i64 %indvars.iv1061, 1
-  %exitcond1064.not = icmp eq i64 %indvars.iv.next1062, 6
-  br i1 %exitcond1064.not, label %.loopexit484, label %476, !llvm.loop !83
-
-476:                                              ; preds = %.lr.ph598, %475
-  %indvars.iv1061 = phi i64 [ %indvars.iv1059, %.lr.ph598 ], [ %indvars.iv.next1062, %475 ]
-  %477 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1061
-  %478 = load i32, ptr %477, align 4
-  %479 = shl nsw i32 %478, 1
-  %480 = shl i32 3, %479
-  %481 = or i32 %474, %480
-  %482 = or i32 %481, %468
-  %483 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %482, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not393 = icmp eq i32 %483, 0
-  br i1 %.not393, label %475, label %.loopexit458
-
-484:                                              ; preds = %.loopexit484
+473:                                              ; preds = %.loopexit484
   %storemerge392 = add nsw i32 %storemerge392601, 1
-  store i32 %storemerge392, ptr %440, align 4
-  %485 = icmp slt i32 %storemerge392, %3
-  br i1 %485, label %461, label %._crit_edge604, !llvm.loop !84
+  store i32 %storemerge392, ptr %428, align 4
+  %474 = icmp slt i32 %storemerge392, %3
+  br i1 %474, label %450, label %._crit_edge604, !llvm.loop !84
 
-._crit_edge604:                                   ; preds = %484
-  store i32 %storemerge3926001343, ptr %439, align 16
-  %storemerge392600 = add nsw i32 %storemerge3926001343, 1
-  store i32 %storemerge392600, ptr %440, align 4
-  %486 = icmp slt i32 %storemerge392600, %3
-  br i1 %486, label %.lr.ph603, label %._crit_edge604.thread, !llvm.loop !85
+._crit_edge604:                                   ; preds = %473
+  store i32 %storemerge3926001336, ptr %427, align 16
+  %storemerge392600 = add nsw i32 %storemerge3926001336, 1
+  store i32 %storemerge392600, ptr %428, align 4
+  %475 = icmp slt i32 %storemerge392600, %3
+  br i1 %475, label %.lr.ph603, label %._crit_edge604.thread, !llvm.loop !85
 
-._crit_edge608:                                   ; preds = %._crit_edge604.thread, %453
+._crit_edge608:                                   ; preds = %._crit_edge604.thread, %442
   %storemerge390 = add nsw i32 %storemerge390611, 1
-  store i32 %storemerge390, ptr %438, align 4
-  %487 = icmp slt i32 %storemerge390, %3
-  br i1 %487, label %453, label %._crit_edge614, !llvm.loop !86
+  store i32 %storemerge390, ptr %426, align 4
+  %exitcond1073.not = icmp eq i32 %storemerge390, %3
+  br i1 %exitcond1073.not, label %._crit_edge614, label %442, !llvm.loop !86
 
-._crit_edge614:                                   ; preds = %._crit_edge608
-  store i32 %storemerge3906091347, ptr %437, align 8
-  %storemerge390609 = add nsw i32 %storemerge3906091347, 1
-  store i32 %storemerge390609, ptr %438, align 4
-  %488 = icmp slt i32 %storemerge390609, %3
-  br i1 %488, label %.lr.ph613, label %._crit_edge614.thread, !llvm.loop !87
+._crit_edge614:                                   ; preds = %._crit_edge608, %438
+  store i32 %storemerge390609, ptr %425, align 8
+  %exitcond1074.not = icmp eq i32 %storemerge390609, %3
+  br i1 %exitcond1074.not, label %._crit_edge618, label %438, !llvm.loop !87
 
-._crit_edge618:                                   ; preds = %._crit_edge614.thread, %445
+._crit_edge618:                                   ; preds = %._crit_edge614, %433
   %storemerge388 = add nuw nsw i32 %storemerge388621, 1
-  store i32 %storemerge388, ptr %436, align 4
-  %exitcond1069.not = icmp eq i32 %storemerge388, %3
-  br i1 %exitcond1069.not, label %._crit_edge624, label %445, !llvm.loop !88
+  store i32 %storemerge388, ptr %424, align 4
+  %exitcond1075.not = icmp eq i32 %storemerge388, %3
+  br i1 %exitcond1075.not, label %._crit_edge624, label %433, !llvm.loop !88
 
-._crit_edge624:                                   ; preds = %._crit_edge618, %441
+._crit_edge624:                                   ; preds = %._crit_edge618, %429
   store i32 %storemerge388619, ptr %6, align 16
-  %exitcond1070.not = icmp eq i32 %storemerge388619, %3
-  br i1 %exitcond1070.not, label %._crit_edge627, label %441, !llvm.loop !89
+  %exitcond1076.not = icmp eq i32 %storemerge388619, %3
+  br i1 %exitcond1076.not, label %._crit_edge627, label %429, !llvm.loop !89
 
 ._crit_edge627:                                   ; preds = %._crit_edge624
-  %489 = icmp slt i32 %9, 3
-  br i1 %489, label %.loopexit458, label %.preheader483
+  %476 = icmp slt i32 %9, 3
+  br i1 %476, label %.loopexit458, label %.preheader483
 
 ._crit_edge627.thread:                            ; preds = %.preheader485
-  %or.cond1264 = icmp slt i32 %9, 4
-  br i1 %or.cond1264, label %.loopexit458, label %.preheader479
+  %or.cond1273 = icmp slt i32 %9, 4
+  br i1 %or.cond1273, label %.loopexit458, label %.preheader479
 
 .preheader483:                                    ; preds = %._crit_edge627
   store i32 0, ptr %6, align 16
-  %490 = getelementptr inbounds i8, ptr %6, i64 4
-  %491 = getelementptr inbounds i8, ptr %6, i64 8
-  %492 = getelementptr inbounds i8, ptr %6, i64 12
-  %493 = getelementptr inbounds i8, ptr %6, i64 16
-  %494 = getelementptr inbounds i8, ptr %6, i64 20
-  br label %495
+  %477 = getelementptr inbounds i8, ptr %6, i64 4
+  %478 = getelementptr inbounds i8, ptr %6, i64 8
+  %479 = getelementptr inbounds i8, ptr %6, i64 12
+  %480 = getelementptr inbounds i8, ptr %6, i64 16
+  %481 = getelementptr inbounds i8, ptr %6, i64 20
+  br label %482
 
-495:                                              ; preds = %.preheader483, %._crit_edge662
+482:                                              ; preds = %.preheader483, %._crit_edge662
   %storemerge375663 = phi i32 [ 0, %.preheader483 ], [ %storemerge382657, %._crit_edge662 ]
   %storemerge382657 = add nuw nsw i32 %storemerge375663, 1
-  store i32 %storemerge382657, ptr %490, align 4
-  %496 = icmp slt i32 %storemerge382657, %3
-  br i1 %496, label %.lr.ph661, label %._crit_edge662
+  store i32 %storemerge382657, ptr %477, align 4
+  %483 = icmp slt i32 %storemerge382657, %3
+  br i1 %483, label %.lr.ph661, label %._crit_edge662
 
-.lr.ph661:                                        ; preds = %495
-  %497 = shl nuw nsw i32 %storemerge375663, 1
-  %498 = shl nuw i32 1, %497
-  br label %499
+.lr.ph661:                                        ; preds = %482
+  %484 = shl nuw nsw i32 %storemerge375663, 1
+  %485 = shl nuw i32 1, %484
+  br label %486
 
-499:                                              ; preds = %.lr.ph661, %._crit_edge656
+486:                                              ; preds = %.lr.ph661, %._crit_edge656
   %storemerge382659 = phi i32 [ %storemerge382657, %.lr.ph661 ], [ %storemerge382, %._crit_edge656 ]
   %storemerge382.in658 = phi i32 [ %storemerge375663, %.lr.ph661 ], [ %storemerge382659, %._crit_edge656 ]
-  %500 = add nuw nsw i32 %storemerge382.in658, 2
-  store i32 %500, ptr %491, align 8
-  %501 = icmp slt i32 %500, %3
-  br i1 %501, label %.lr.ph655, label %._crit_edge656
+  %487 = add nuw nsw i32 %storemerge382.in658, 2
+  store i32 %487, ptr %478, align 8
+  %488 = icmp slt i32 %487, %3
+  br i1 %488, label %.lr.ph655, label %._crit_edge656
 
-.lr.ph655:                                        ; preds = %499
-  %502 = shl nuw nsw i32 %storemerge382659, 1
-  %503 = shl nuw i32 1, %502
-  %storemerge3846471353 = add nsw i32 %storemerge382.in658, 3
-  store i32 %storemerge3846471353, ptr %492, align 4
-  %504 = icmp slt i32 %storemerge3846471353, %3
-  br i1 %504, label %.lr.ph651, label %._crit_edge652.thread
+.lr.ph655:                                        ; preds = %486
+  %489 = shl nuw nsw i32 %storemerge382659, 1
+  %490 = shl nuw i32 1, %489
+  br label %491
 
-._crit_edge652.thread:                            ; preds = %._crit_edge652, %.lr.ph655
-  %storemerge384647.lcssa = phi i32 [ %storemerge3846471353, %.lr.ph655 ], [ %storemerge384647, %._crit_edge652 ]
-  store i32 %storemerge384647.lcssa, ptr %491, align 8
-  br label %._crit_edge656
+491:                                              ; preds = %.lr.ph655, %._crit_edge652
+  %storemerge383653 = phi i32 [ %487, %.lr.ph655 ], [ %storemerge384647, %._crit_edge652 ]
+  %storemerge384647 = add nsw i32 %storemerge383653, 1
+  store i32 %storemerge384647, ptr %479, align 4
+  %492 = icmp slt i32 %storemerge384647, %3
+  br i1 %492, label %.lr.ph651, label %._crit_edge652
 
-.lr.ph651:                                        ; preds = %.lr.ph655, %._crit_edge652
-  %storemerge3846471355 = phi i32 [ %storemerge384647, %._crit_edge652 ], [ %storemerge3846471353, %.lr.ph655 ]
-  %storemerge3836531354 = phi i32 [ %storemerge3846471355, %._crit_edge652 ], [ %500, %.lr.ph655 ]
-  %505 = shl nsw i32 %storemerge3836531354, 1
-  %506 = shl nuw i32 1, %505
-  br label %507
+.lr.ph651:                                        ; preds = %491
+  %493 = shl nsw i32 %storemerge383653, 1
+  %494 = shl nuw i32 1, %493
+  br label %495
 
-507:                                              ; preds = %.lr.ph651, %._crit_edge646
-  %storemerge384649 = phi i32 [ %storemerge3846471355, %.lr.ph651 ], [ %storemerge384, %._crit_edge646 ]
-  %storemerge384.in648 = phi i32 [ %storemerge3836531354, %.lr.ph651 ], [ %storemerge384649, %._crit_edge646 ]
-  %508 = add nsw i32 %storemerge384.in648, 2
-  store i32 %508, ptr %493, align 16
-  %509 = icmp slt i32 %508, %3
-  br i1 %509, label %.lr.ph645, label %._crit_edge646
+495:                                              ; preds = %.lr.ph651, %._crit_edge646
+  %storemerge384649 = phi i32 [ %storemerge384647, %.lr.ph651 ], [ %storemerge384, %._crit_edge646 ]
+  %storemerge384.in648 = phi i32 [ %storemerge383653, %.lr.ph651 ], [ %storemerge384649, %._crit_edge646 ]
+  %496 = add nsw i32 %storemerge384.in648, 2
+  store i32 %496, ptr %480, align 16
+  %497 = icmp slt i32 %496, %3
+  br i1 %497, label %.lr.ph645, label %._crit_edge646
 
-.lr.ph645:                                        ; preds = %507
-  %510 = shl nsw i32 %storemerge384649, 1
-  %511 = shl nuw i32 1, %510
-  %storemerge3866381349 = add nsw i32 %storemerge384.in648, 3
-  store i32 %storemerge3866381349, ptr %494, align 4
-  %512 = icmp slt i32 %storemerge3866381349, %3
-  br i1 %512, label %.lr.ph641, label %._crit_edge642.thread
+.lr.ph645:                                        ; preds = %495
+  %498 = shl nsw i32 %storemerge384649, 1
+  %499 = shl nuw i32 1, %498
+  %storemerge3866381338 = add nsw i32 %storemerge384.in648, 3
+  store i32 %storemerge3866381338, ptr %481, align 4
+  %500 = icmp slt i32 %storemerge3866381338, %3
+  br i1 %500, label %.lr.ph641, label %._crit_edge642.thread
 
 ._crit_edge642.thread:                            ; preds = %._crit_edge642, %.lr.ph645
-  %storemerge386638.lcssa = phi i32 [ %storemerge3866381349, %.lr.ph645 ], [ %storemerge386638, %._crit_edge642 ]
-  store i32 %storemerge386638.lcssa, ptr %493, align 16
+  %storemerge386638.lcssa = phi i32 [ %storemerge3866381338, %.lr.ph645 ], [ %storemerge386638, %._crit_edge642 ]
+  store i32 %storemerge386638.lcssa, ptr %480, align 16
   br label %._crit_edge646
 
 .lr.ph641:                                        ; preds = %.lr.ph645, %._crit_edge642
-  %storemerge3866381351 = phi i32 [ %storemerge386638, %._crit_edge642 ], [ %storemerge3866381349, %.lr.ph645 ]
-  %storemerge3856431350 = phi i32 [ %storemerge3866381351, %._crit_edge642 ], [ %508, %.lr.ph645 ]
-  %513 = shl nsw i32 %storemerge3856431350, 1
-  %514 = shl nuw i32 1, %513
-  br label %515
+  %storemerge3866381340 = phi i32 [ %storemerge386638, %._crit_edge642 ], [ %storemerge3866381338, %.lr.ph645 ]
+  %storemerge3856431339 = phi i32 [ %storemerge3866381340, %._crit_edge642 ], [ %496, %.lr.ph645 ]
+  %501 = shl nsw i32 %storemerge3856431339, 1
+  %502 = shl nuw i32 1, %501
+  br label %503
 
-515:                                              ; preds = %.lr.ph641, %546
-  %storemerge386639 = phi i32 [ %storemerge3866381351, %.lr.ph641 ], [ %storemerge386, %546 ]
-  %516 = shl nsw i32 %storemerge386639, 1
-  %517 = shl nuw i32 1, %516
-  %518 = or i32 %498, %517
-  %519 = or i32 %518, %503
-  %520 = or i32 %519, %506
-  %521 = or i32 %520, %511
-  %522 = or i32 %521, %514
-  br label %523
+503:                                              ; preds = %.lr.ph641, %533
+  %storemerge386639 = phi i32 [ %storemerge3866381340, %.lr.ph641 ], [ %storemerge386, %533 ]
+  %504 = shl nsw i32 %storemerge386639, 1
+  %505 = shl nuw i32 1, %504
+  %506 = or i32 %485, %505
+  %507 = or i32 %506, %490
+  %508 = or i32 %507, %494
+  %509 = or i32 %508, %499
+  %510 = or i32 %509, %502
+  br label %511
 
-.loopexit482:                                     ; preds = %.loopexit481, %523
-  %indvars.iv.next1072 = add nuw nsw i64 %indvars.iv1071, 1
-  %indvars.iv.next1079 = add nuw nsw i64 %indvars.iv1078, 1
-  %exitcond1087.not = icmp eq i64 %indvars.iv.next1085, 6
-  br i1 %exitcond1087.not, label %546, label %523, !llvm.loop !90
+.loopexit482:                                     ; preds = %.loopexit481, %511
+  %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
+  %indvars.iv.next1086 = add nuw nsw i64 %indvars.iv1085, 1
+  %exitcond1094.not = icmp eq i64 %indvars.iv.next1092, 6
+  br i1 %exitcond1094.not, label %533, label %511, !llvm.loop !90
 
-523:                                              ; preds = %515, %.loopexit482
-  %indvars.iv1084 = phi i64 [ 0, %515 ], [ %indvars.iv.next1085, %.loopexit482 ]
-  %indvars.iv1078 = phi i64 [ 1, %515 ], [ %indvars.iv.next1079, %.loopexit482 ]
-  %indvars.iv1071 = phi i64 [ 2, %515 ], [ %indvars.iv.next1072, %.loopexit482 ]
-  %indvars.iv.next1085 = add nuw nsw i64 %indvars.iv1084, 1
-  %524 = icmp ult i64 %indvars.iv1084, 5
-  br i1 %524, label %.lr.ph636, label %.loopexit482
+511:                                              ; preds = %503, %.loopexit482
+  %indvars.iv1091 = phi i64 [ 0, %503 ], [ %indvars.iv.next1092, %.loopexit482 ]
+  %indvars.iv1085 = phi i64 [ 1, %503 ], [ %indvars.iv.next1086, %.loopexit482 ]
+  %indvars.iv1077 = phi i64 [ 2, %503 ], [ %indvars.iv.next1078, %.loopexit482 ]
+  %indvars.iv.next1092 = add nuw nsw i64 %indvars.iv1091, 1
+  %512 = icmp ult i64 %indvars.iv1091, 5
+  br i1 %512, label %.lr.ph636, label %.loopexit482
 
-.lr.ph636:                                        ; preds = %523
-  %525 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1084
-  br label %526
+.lr.ph636:                                        ; preds = %511
+  %513 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1091
+  br label %514
 
-.loopexit481:                                     ; preds = %536, %526
-  %indvars.iv.next1074 = add nuw nsw i64 %indvars.iv1073, 1
-  %exitcond1083.not = icmp eq i64 %indvars.iv.next1081, 6
-  br i1 %exitcond1083.not, label %.loopexit482, label %526, !llvm.loop !91
+.loopexit481:                                     ; preds = %524, %514
+  %indvars.iv.next1080 = add nuw nsw i64 %indvars.iv1079, 1
+  %exitcond1090.not = icmp eq i64 %indvars.iv.next1088, 6
+  br i1 %exitcond1090.not, label %.loopexit482, label %514, !llvm.loop !91
 
-526:                                              ; preds = %.lr.ph636, %.loopexit481
-  %indvars.iv1080 = phi i64 [ %indvars.iv1078, %.lr.ph636 ], [ %indvars.iv.next1081, %.loopexit481 ]
-  %indvars.iv1073 = phi i64 [ %indvars.iv1071, %.lr.ph636 ], [ %indvars.iv.next1074, %.loopexit481 ]
-  %indvars.iv.next1081 = add nuw nsw i64 %indvars.iv1080, 1
-  %527 = icmp ult i64 %indvars.iv1080, 5
-  br i1 %527, label %.lr.ph633, label %.loopexit481
+514:                                              ; preds = %.lr.ph636, %.loopexit481
+  %indvars.iv1087 = phi i64 [ %indvars.iv1085, %.lr.ph636 ], [ %indvars.iv.next1088, %.loopexit481 ]
+  %indvars.iv1079 = phi i64 [ %indvars.iv1077, %.lr.ph636 ], [ %indvars.iv.next1080, %.loopexit481 ]
+  %indvars.iv.next1088 = add nuw nsw i64 %indvars.iv1087, 1
+  %515 = icmp ult i64 %indvars.iv1087, 5
+  br i1 %515, label %.lr.ph633, label %.loopexit481
 
-.lr.ph633:                                        ; preds = %526
-  %528 = load i32, ptr %525, align 4
-  %529 = shl nsw i32 %528, 1
-  %530 = shl i32 3, %529
-  %531 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1080
-  %532 = load i32, ptr %531, align 4
-  %533 = shl nsw i32 %532, 1
-  %534 = shl i32 3, %533
-  %535 = or i32 %530, %534
-  br label %538
+.lr.ph633:                                        ; preds = %514
+  %516 = load i32, ptr %513, align 4
+  %517 = shl nsw i32 %516, 1
+  %518 = shl i32 3, %517
+  %519 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1087
+  %520 = load i32, ptr %519, align 4
+  %521 = shl nsw i32 %520, 1
+  %522 = shl i32 3, %521
+  %523 = or i32 %518, %522
+  br label %525
 
-536:                                              ; preds = %538
-  %indvars.iv.next1076 = add nuw nsw i64 %indvars.iv1075, 1
-  %537 = icmp ult i64 %indvars.iv1075, 5
-  br i1 %537, label %538, label %.loopexit481, !llvm.loop !92
+524:                                              ; preds = %525
+  %indvars.iv.next1082 = add nuw nsw i64 %indvars.iv1081, 1
+  %exitcond1084.not = icmp eq i64 %indvars.iv.next1082, 6
+  br i1 %exitcond1084.not, label %.loopexit481, label %525, !llvm.loop !92
 
-538:                                              ; preds = %.lr.ph633, %536
-  %indvars.iv1075 = phi i64 [ %indvars.iv1073, %.lr.ph633 ], [ %indvars.iv.next1076, %536 ]
-  %539 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1075
-  %540 = load i32, ptr %539, align 4
-  %541 = shl nsw i32 %540, 1
-  %542 = shl i32 3, %541
-  %543 = or i32 %535, %542
-  %544 = or i32 %543, %522
-  %545 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %544, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not387 = icmp eq i32 %545, 0
-  br i1 %.not387, label %536, label %.loopexit458
+525:                                              ; preds = %.lr.ph633, %524
+  %indvars.iv1081 = phi i64 [ %indvars.iv1079, %.lr.ph633 ], [ %indvars.iv.next1082, %524 ]
+  %526 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1081
+  %527 = load i32, ptr %526, align 4
+  %528 = shl nsw i32 %527, 1
+  %529 = shl i32 3, %528
+  %530 = or i32 %523, %529
+  %531 = or i32 %530, %510
+  %532 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %531, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not387 = icmp eq i32 %532, 0
+  br i1 %.not387, label %524, label %.loopexit458
 
-546:                                              ; preds = %.loopexit482
+533:                                              ; preds = %.loopexit482
   %storemerge386 = add nsw i32 %storemerge386639, 1
-  store i32 %storemerge386, ptr %494, align 4
-  %547 = icmp slt i32 %storemerge386, %3
-  br i1 %547, label %515, label %._crit_edge642, !llvm.loop !93
+  store i32 %storemerge386, ptr %481, align 4
+  %534 = icmp slt i32 %storemerge386, %3
+  br i1 %534, label %503, label %._crit_edge642, !llvm.loop !93
 
-._crit_edge642:                                   ; preds = %546
-  store i32 %storemerge3866381351, ptr %493, align 16
-  %storemerge386638 = add nsw i32 %storemerge3866381351, 1
-  store i32 %storemerge386638, ptr %494, align 4
-  %548 = icmp slt i32 %storemerge386638, %3
-  br i1 %548, label %.lr.ph641, label %._crit_edge642.thread, !llvm.loop !94
+._crit_edge642:                                   ; preds = %533
+  store i32 %storemerge3866381340, ptr %480, align 16
+  %storemerge386638 = add nsw i32 %storemerge3866381340, 1
+  store i32 %storemerge386638, ptr %481, align 4
+  %535 = icmp slt i32 %storemerge386638, %3
+  br i1 %535, label %.lr.ph641, label %._crit_edge642.thread, !llvm.loop !94
 
-._crit_edge646:                                   ; preds = %._crit_edge642.thread, %507
+._crit_edge646:                                   ; preds = %._crit_edge642.thread, %495
   %storemerge384 = add nsw i32 %storemerge384649, 1
-  store i32 %storemerge384, ptr %492, align 4
-  %549 = icmp slt i32 %storemerge384, %3
-  br i1 %549, label %507, label %._crit_edge652, !llvm.loop !95
+  store i32 %storemerge384, ptr %479, align 4
+  %exitcond1095.not = icmp eq i32 %storemerge384, %3
+  br i1 %exitcond1095.not, label %._crit_edge652, label %495, !llvm.loop !95
 
-._crit_edge652:                                   ; preds = %._crit_edge646
-  store i32 %storemerge3846471355, ptr %491, align 8
-  %storemerge384647 = add nsw i32 %storemerge3846471355, 1
-  store i32 %storemerge384647, ptr %492, align 4
-  %550 = icmp slt i32 %storemerge384647, %3
-  br i1 %550, label %.lr.ph651, label %._crit_edge652.thread, !llvm.loop !96
+._crit_edge652:                                   ; preds = %._crit_edge646, %491
+  store i32 %storemerge384647, ptr %478, align 8
+  %exitcond1096.not = icmp eq i32 %storemerge384647, %3
+  br i1 %exitcond1096.not, label %._crit_edge656, label %491, !llvm.loop !96
 
-._crit_edge656:                                   ; preds = %._crit_edge652.thread, %499
+._crit_edge656:                                   ; preds = %._crit_edge652, %486
   %storemerge382 = add nuw nsw i32 %storemerge382659, 1
-  store i32 %storemerge382, ptr %490, align 4
-  %exitcond1088.not = icmp eq i32 %storemerge382, %3
-  br i1 %exitcond1088.not, label %._crit_edge662, label %499, !llvm.loop !97
+  store i32 %storemerge382, ptr %477, align 4
+  %exitcond1097.not = icmp eq i32 %storemerge382, %3
+  br i1 %exitcond1097.not, label %._crit_edge662, label %486, !llvm.loop !97
 
-._crit_edge662:                                   ; preds = %._crit_edge656, %495
+._crit_edge662:                                   ; preds = %._crit_edge656, %482
   store i32 %storemerge382657, ptr %6, align 16
-  %exitcond1089.not = icmp eq i32 %storemerge382657, %3
-  br i1 %exitcond1089.not, label %._crit_edge665, label %495, !llvm.loop !98
+  %exitcond1098.not = icmp eq i32 %storemerge382657, %3
+  br i1 %exitcond1098.not, label %._crit_edge665, label %482, !llvm.loop !98
 
 ._crit_edge665:                                   ; preds = %._crit_edge662
-  %.old1263 = icmp eq i32 %9, 3
-  br i1 %.old1263, label %.loopexit458, label %.preheader479
+  %.old1272 = icmp eq i32 %9, 3
+  br i1 %.old1272, label %.loopexit458, label %.preheader479
 
 .preheader479:                                    ; preds = %._crit_edge627.thread, %._crit_edge665
   store i32 0, ptr %6, align 16
   br i1 %10, label %.lr.ph708, label %.loopexit458
 
 .lr.ph708:                                        ; preds = %.preheader479
-  %551 = getelementptr inbounds i8, ptr %6, i64 4
-  %552 = getelementptr inbounds i8, ptr %6, i64 8
-  %553 = getelementptr inbounds i8, ptr %6, i64 12
-  %554 = getelementptr inbounds i8, ptr %6, i64 16
-  %555 = getelementptr inbounds i8, ptr %6, i64 20
-  br label %556
+  %536 = getelementptr inbounds i8, ptr %6, i64 4
+  %537 = getelementptr inbounds i8, ptr %6, i64 8
+  %538 = getelementptr inbounds i8, ptr %6, i64 12
+  %539 = getelementptr inbounds i8, ptr %6, i64 16
+  %540 = getelementptr inbounds i8, ptr %6, i64 20
+  br label %541
 
-556:                                              ; preds = %.lr.ph708, %._crit_edge706
+541:                                              ; preds = %.lr.ph708, %._crit_edge706
   %storemerge376707 = phi i32 [ 0, %.lr.ph708 ], [ %storemerge377701, %._crit_edge706 ]
   %storemerge377701 = add nuw nsw i32 %storemerge376707, 1
-  store i32 %storemerge377701, ptr %551, align 4
-  %557 = icmp slt i32 %storemerge377701, %3
-  br i1 %557, label %.lr.ph705, label %._crit_edge706
+  store i32 %storemerge377701, ptr %536, align 4
+  %542 = icmp slt i32 %storemerge377701, %3
+  br i1 %542, label %.lr.ph705, label %._crit_edge706
 
-.lr.ph705:                                        ; preds = %556
-  %558 = shl nuw nsw i32 %storemerge376707, 1
-  %559 = shl nuw i32 1, %558
-  br label %560
+.lr.ph705:                                        ; preds = %541
+  %543 = shl nuw nsw i32 %storemerge376707, 1
+  %544 = shl nuw i32 1, %543
+  br label %545
 
-560:                                              ; preds = %.lr.ph705, %._crit_edge700
+545:                                              ; preds = %.lr.ph705, %._crit_edge700
   %storemerge377703 = phi i32 [ %storemerge377701, %.lr.ph705 ], [ %storemerge377, %._crit_edge700 ]
   %storemerge377.in702 = phi i32 [ %storemerge376707, %.lr.ph705 ], [ %storemerge377703, %._crit_edge700 ]
-  %561 = add nuw nsw i32 %storemerge377.in702, 2
-  store i32 %561, ptr %552, align 8
-  %562 = icmp slt i32 %561, %3
-  br i1 %562, label %.lr.ph699, label %._crit_edge700
+  %546 = add nuw nsw i32 %storemerge377.in702, 2
+  store i32 %546, ptr %537, align 8
+  %547 = icmp slt i32 %546, %3
+  br i1 %547, label %.lr.ph699, label %._crit_edge700
 
-.lr.ph699:                                        ; preds = %560
-  %563 = shl nuw nsw i32 %storemerge377703, 1
-  %564 = shl nuw i32 1, %563
-  %storemerge3796911361 = add nsw i32 %storemerge377.in702, 3
-  store i32 %storemerge3796911361, ptr %553, align 4
-  %565 = icmp slt i32 %storemerge3796911361, %3
-  br i1 %565, label %.lr.ph695, label %._crit_edge696.thread
+.lr.ph699:                                        ; preds = %545
+  %548 = shl nuw nsw i32 %storemerge377703, 1
+  %549 = shl nuw i32 1, %548
+  br label %550
 
-._crit_edge696.thread:                            ; preds = %._crit_edge696, %.lr.ph699
-  %storemerge379691.lcssa = phi i32 [ %storemerge3796911361, %.lr.ph699 ], [ %storemerge379691, %._crit_edge696 ]
-  store i32 %storemerge379691.lcssa, ptr %552, align 8
-  br label %._crit_edge700
+550:                                              ; preds = %.lr.ph699, %._crit_edge696
+  %storemerge378697 = phi i32 [ %546, %.lr.ph699 ], [ %storemerge379691, %._crit_edge696 ]
+  %storemerge379691 = add nsw i32 %storemerge378697, 1
+  store i32 %storemerge379691, ptr %538, align 4
+  %551 = icmp slt i32 %storemerge379691, %3
+  br i1 %551, label %.lr.ph695, label %._crit_edge696
 
-.lr.ph695:                                        ; preds = %.lr.ph699, %._crit_edge696
-  %storemerge3796911363 = phi i32 [ %storemerge379691, %._crit_edge696 ], [ %storemerge3796911361, %.lr.ph699 ]
-  %storemerge3786971362 = phi i32 [ %storemerge3796911363, %._crit_edge696 ], [ %561, %.lr.ph699 ]
-  %566 = shl nsw i32 %storemerge3786971362, 1
-  %567 = shl nuw i32 1, %566
-  br label %568
+.lr.ph695:                                        ; preds = %550
+  %552 = shl nsw i32 %storemerge378697, 1
+  %553 = shl nuw i32 1, %552
+  br label %554
 
-568:                                              ; preds = %.lr.ph695, %._crit_edge690
-  %storemerge379693 = phi i32 [ %storemerge3796911363, %.lr.ph695 ], [ %storemerge379, %._crit_edge690 ]
-  %storemerge379.in692 = phi i32 [ %storemerge3786971362, %.lr.ph695 ], [ %storemerge379693, %._crit_edge690 ]
-  %569 = add nsw i32 %storemerge379.in692, 2
-  store i32 %569, ptr %554, align 16
-  %570 = icmp slt i32 %569, %3
-  br i1 %570, label %.lr.ph689, label %._crit_edge690
+554:                                              ; preds = %.lr.ph695, %._crit_edge690
+  %storemerge379693 = phi i32 [ %storemerge379691, %.lr.ph695 ], [ %storemerge379, %._crit_edge690 ]
+  %storemerge379.in692 = phi i32 [ %storemerge378697, %.lr.ph695 ], [ %storemerge379693, %._crit_edge690 ]
+  %555 = add nsw i32 %storemerge379.in692, 2
+  store i32 %555, ptr %539, align 16
+  %556 = icmp slt i32 %555, %3
+  br i1 %556, label %.lr.ph689, label %._crit_edge690
 
-.lr.ph689:                                        ; preds = %568
-  %571 = shl nsw i32 %storemerge379693, 1
-  %572 = shl nuw i32 1, %571
-  %storemerge3816821357 = add nsw i32 %storemerge379.in692, 3
-  store i32 %storemerge3816821357, ptr %555, align 4
-  %573 = icmp slt i32 %storemerge3816821357, %3
-  br i1 %573, label %.lr.ph685, label %._crit_edge686.thread
+.lr.ph689:                                        ; preds = %554
+  %557 = shl nsw i32 %storemerge379693, 1
+  %558 = shl nuw i32 1, %557
+  %storemerge3816821342 = add nsw i32 %storemerge379.in692, 3
+  store i32 %storemerge3816821342, ptr %540, align 4
+  %559 = icmp slt i32 %storemerge3816821342, %3
+  br i1 %559, label %.lr.ph685, label %._crit_edge686.thread
 
 ._crit_edge686.thread:                            ; preds = %._crit_edge686, %.lr.ph689
-  %storemerge381682.lcssa = phi i32 [ %storemerge3816821357, %.lr.ph689 ], [ %storemerge381682, %._crit_edge686 ]
-  store i32 %storemerge381682.lcssa, ptr %554, align 16
+  %storemerge381682.lcssa = phi i32 [ %storemerge3816821342, %.lr.ph689 ], [ %storemerge381682, %._crit_edge686 ]
+  store i32 %storemerge381682.lcssa, ptr %539, align 16
   br label %._crit_edge690
 
 .lr.ph685:                                        ; preds = %.lr.ph689, %._crit_edge686
-  %storemerge3816821359 = phi i32 [ %storemerge381682, %._crit_edge686 ], [ %storemerge3816821357, %.lr.ph689 ]
-  %storemerge3806871358 = phi i32 [ %storemerge3816821359, %._crit_edge686 ], [ %569, %.lr.ph689 ]
-  %574 = shl nsw i32 %storemerge3806871358, 1
-  %575 = shl nuw i32 1, %574
-  br label %576
+  %storemerge3816821344 = phi i32 [ %storemerge381682, %._crit_edge686 ], [ %storemerge3816821342, %.lr.ph689 ]
+  %storemerge3806871343 = phi i32 [ %storemerge3816821344, %._crit_edge686 ], [ %555, %.lr.ph689 ]
+  %560 = shl nsw i32 %storemerge3806871343, 1
+  %561 = shl nuw i32 1, %560
+  br label %562
 
-576:                                              ; preds = %.lr.ph685, %613
-  %storemerge381683 = phi i32 [ %storemerge3816821359, %.lr.ph685 ], [ %storemerge381, %613 ]
-  %577 = shl nsw i32 %storemerge381683, 1
-  %578 = shl nuw i32 1, %577
-  %579 = or i32 %559, %578
-  %580 = or i32 %579, %564
-  %581 = or i32 %580, %567
-  %582 = or i32 %581, %572
-  %583 = or i32 %582, %575
-  br label %584
+562:                                              ; preds = %.lr.ph685, %597
+  %storemerge381683 = phi i32 [ %storemerge3816821344, %.lr.ph685 ], [ %storemerge381, %597 ]
+  %563 = shl nsw i32 %storemerge381683, 1
+  %564 = shl nuw i32 1, %563
+  %565 = or i32 %544, %564
+  %566 = or i32 %565, %549
+  %567 = or i32 %566, %553
+  %568 = or i32 %567, %558
+  %569 = or i32 %568, %561
+  br label %570
 
-.loopexit478:                                     ; preds = %.loopexit477, %584
-  %indvars.iv.next1091 = add nuw nsw i64 %indvars.iv1090, 1
-  %indvars.iv.next1101 = add nuw nsw i64 %indvars.iv1100, 1
-  %exitcond1109.not = icmp eq i64 %indvars.iv.next1107, 6
-  br i1 %exitcond1109.not, label %613, label %584, !llvm.loop !99
+.loopexit478:                                     ; preds = %.loopexit477, %570
+  %indvars.iv.next1100 = add nuw nsw i64 %indvars.iv1099, 1
+  %indvars.iv.next1112 = add nuw nsw i64 %indvars.iv1111, 1
+  %exitcond1120.not = icmp eq i64 %indvars.iv.next1118, 6
+  br i1 %exitcond1120.not, label %597, label %570, !llvm.loop !99
 
-584:                                              ; preds = %576, %.loopexit478
-  %indvars.iv1106 = phi i64 [ 0, %576 ], [ %indvars.iv.next1107, %.loopexit478 ]
-  %indvars.iv1100 = phi i64 [ 1, %576 ], [ %indvars.iv.next1101, %.loopexit478 ]
-  %indvars.iv1090 = phi i64 [ 2, %576 ], [ %indvars.iv.next1091, %.loopexit478 ]
-  %indvars.iv.next1107 = add nuw nsw i64 %indvars.iv1106, 1
-  %585 = icmp ult i64 %indvars.iv1106, 5
-  br i1 %585, label %.lr.ph680, label %.loopexit478
+570:                                              ; preds = %562, %.loopexit478
+  %indvars.iv1117 = phi i64 [ 0, %562 ], [ %indvars.iv.next1118, %.loopexit478 ]
+  %indvars.iv1111 = phi i64 [ 1, %562 ], [ %indvars.iv.next1112, %.loopexit478 ]
+  %indvars.iv1099 = phi i64 [ 2, %562 ], [ %indvars.iv.next1100, %.loopexit478 ]
+  %indvars.iv.next1118 = add nuw nsw i64 %indvars.iv1117, 1
+  %571 = icmp ult i64 %indvars.iv1117, 5
+  br i1 %571, label %.lr.ph680, label %.loopexit478
 
-.lr.ph680:                                        ; preds = %584
-  %586 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1106
-  br label %587
+.lr.ph680:                                        ; preds = %570
+  %572 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1117
+  br label %573
 
-.loopexit477:                                     ; preds = %._crit_edge672.us, %587
-  %indvars.iv.next1093 = add nuw nsw i64 %indvars.iv1092, 1
-  %exitcond1105.not = icmp eq i64 %indvars.iv.next1103, 6
-  br i1 %exitcond1105.not, label %.loopexit478, label %587, !llvm.loop !100
+.loopexit477:                                     ; preds = %._crit_edge672.us, %573
+  %indvars.iv.next1102 = add nuw nsw i64 %indvars.iv1101, 1
+  %exitcond1116.not = icmp eq i64 %indvars.iv.next1114, 6
+  br i1 %exitcond1116.not, label %.loopexit478, label %573, !llvm.loop !100
 
-587:                                              ; preds = %.lr.ph680, %.loopexit477
-  %indvars.iv1102 = phi i64 [ %indvars.iv1100, %.lr.ph680 ], [ %indvars.iv.next1103, %.loopexit477 ]
-  %indvars.iv1092 = phi i64 [ %indvars.iv1090, %.lr.ph680 ], [ %indvars.iv.next1093, %.loopexit477 ]
-  %indvars.iv.next1103 = add nuw nsw i64 %indvars.iv1102, 1
-  %588 = icmp ult i64 %indvars.iv1102, 5
-  br i1 %588, label %.preheader476.lr.ph, label %.loopexit477
+573:                                              ; preds = %.lr.ph680, %.loopexit477
+  %indvars.iv1113 = phi i64 [ %indvars.iv1111, %.lr.ph680 ], [ %indvars.iv.next1114, %.loopexit477 ]
+  %indvars.iv1101 = phi i64 [ %indvars.iv1099, %.lr.ph680 ], [ %indvars.iv.next1102, %.loopexit477 ]
+  %indvars.iv.next1114 = add nuw nsw i64 %indvars.iv1113, 1
+  %574 = icmp ult i64 %indvars.iv1113, 5
+  br i1 %574, label %.preheader476.lr.ph, label %.loopexit477
 
-.preheader476.lr.ph:                              ; preds = %587
-  %589 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1102
-  %590 = load i32, ptr %586, align 4
-  %591 = shl nsw i32 %590, 1
-  %592 = shl i32 3, %591
-  %593 = load i32, ptr %589, align 4
-  %594 = shl nsw i32 %593, 1
-  %595 = shl i32 3, %594
-  %596 = or i32 %592, %595
+.preheader476.lr.ph:                              ; preds = %573
+  %575 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1113
+  %576 = load i32, ptr %572, align 4
+  %577 = shl nsw i32 %576, 1
+  %578 = shl i32 3, %577
+  %579 = load i32, ptr %575, align 4
+  %580 = shl nsw i32 %579, 1
+  %581 = shl i32 3, %580
+  %582 = or i32 %578, %581
   br label %.preheader476.us
 
 .preheader476.us:                                 ; preds = %._crit_edge672.us, %.preheader476.lr.ph
-  %indvars.iv1097 = phi i64 [ %indvars.iv.next1098, %._crit_edge672.us ], [ %indvars.iv1092, %.preheader476.lr.ph ]
-  %597 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1097
-  %598 = load i32, ptr %597, align 4
-  %599 = shl nsw i32 %598, 1
-  %600 = shl i32 3, %599
-  %601 = or i32 %596, %600
-  br label %604
+  %indvars.iv1107 = phi i64 [ %indvars.iv.next1108, %._crit_edge672.us ], [ %indvars.iv1101, %.preheader476.lr.ph ]
+  %583 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1107
+  %584 = load i32, ptr %583, align 4
+  %585 = shl nsw i32 %584, 1
+  %586 = shl i32 3, %585
+  %587 = or i32 %582, %586
+  br label %589
 
-602:                                              ; preds = %604
-  %indvars.iv.next1095 = add nuw nsw i64 %indvars.iv1094, 1
-  %603 = icmp ult i64 %indvars.iv1094, 5
-  br i1 %603, label %604, label %._crit_edge672.us, !llvm.loop !101
+588:                                              ; preds = %589
+  %indvars.iv.next1104 = add nuw nsw i64 %indvars.iv1103, 1
+  %exitcond1106.not = icmp eq i64 %indvars.iv.next1104, 6
+  br i1 %exitcond1106.not, label %._crit_edge672.us, label %589, !llvm.loop !101
 
-604:                                              ; preds = %.preheader476.us, %602
-  %indvars.iv1094 = phi i64 [ %indvars.iv1092, %.preheader476.us ], [ %indvars.iv.next1095, %602 ]
-  %605 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1094
-  %606 = load i32, ptr %605, align 4
-  %607 = shl nsw i32 %606, 1
-  %608 = shl i32 3, %607
-  %609 = or i32 %601, %608
-  %610 = or i32 %609, %583
-  %611 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %610, ptr noundef null, ptr noundef null, ptr noundef %4)
-  %.not.us = icmp eq i32 %611, 0
-  br i1 %.not.us, label %602, label %.loopexit458
+589:                                              ; preds = %.preheader476.us, %588
+  %indvars.iv1103 = phi i64 [ %indvars.iv1101, %.preheader476.us ], [ %indvars.iv.next1104, %588 ]
+  %590 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv1103
+  %591 = load i32, ptr %590, align 4
+  %592 = shl nsw i32 %591, 1
+  %593 = shl i32 3, %592
+  %594 = or i32 %587, %593
+  %595 = or i32 %594, %569
+  %596 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %595, ptr noundef null, ptr noundef null, ptr noundef %4)
+  %.not.us = icmp eq i32 %596, 0
+  br i1 %.not.us, label %588, label %.loopexit458
 
-._crit_edge672.us:                                ; preds = %602
-  %indvars.iv.next1098 = add nuw nsw i64 %indvars.iv1097, 1
-  %612 = icmp ult i64 %indvars.iv1097, 5
-  br i1 %612, label %.preheader476.us, label %.loopexit477, !llvm.loop !102
+._crit_edge672.us:                                ; preds = %588
+  %indvars.iv.next1108 = add nuw nsw i64 %indvars.iv1107, 1
+  %exitcond1110.not = icmp eq i64 %indvars.iv.next1108, 6
+  br i1 %exitcond1110.not, label %.loopexit477, label %.preheader476.us, !llvm.loop !102
 
-613:                                              ; preds = %.loopexit478
+597:                                              ; preds = %.loopexit478
   %storemerge381 = add nsw i32 %storemerge381683, 1
-  store i32 %storemerge381, ptr %555, align 4
-  %614 = icmp slt i32 %storemerge381, %3
-  br i1 %614, label %576, label %._crit_edge686, !llvm.loop !103
+  store i32 %storemerge381, ptr %540, align 4
+  %598 = icmp slt i32 %storemerge381, %3
+  br i1 %598, label %562, label %._crit_edge686, !llvm.loop !103
 
-._crit_edge686:                                   ; preds = %613
-  store i32 %storemerge3816821359, ptr %554, align 16
-  %storemerge381682 = add nsw i32 %storemerge3816821359, 1
-  store i32 %storemerge381682, ptr %555, align 4
-  %615 = icmp slt i32 %storemerge381682, %3
-  br i1 %615, label %.lr.ph685, label %._crit_edge686.thread, !llvm.loop !104
+._crit_edge686:                                   ; preds = %597
+  store i32 %storemerge3816821344, ptr %539, align 16
+  %storemerge381682 = add nsw i32 %storemerge3816821344, 1
+  store i32 %storemerge381682, ptr %540, align 4
+  %599 = icmp slt i32 %storemerge381682, %3
+  br i1 %599, label %.lr.ph685, label %._crit_edge686.thread, !llvm.loop !104
 
-._crit_edge690:                                   ; preds = %._crit_edge686.thread, %568
+._crit_edge690:                                   ; preds = %._crit_edge686.thread, %554
   %storemerge379 = add nsw i32 %storemerge379693, 1
-  store i32 %storemerge379, ptr %553, align 4
-  %616 = icmp slt i32 %storemerge379, %3
-  br i1 %616, label %568, label %._crit_edge696, !llvm.loop !105
+  store i32 %storemerge379, ptr %538, align 4
+  %exitcond1121.not = icmp eq i32 %storemerge379, %3
+  br i1 %exitcond1121.not, label %._crit_edge696, label %554, !llvm.loop !105
 
-._crit_edge696:                                   ; preds = %._crit_edge690
-  store i32 %storemerge3796911363, ptr %552, align 8
-  %storemerge379691 = add nsw i32 %storemerge3796911363, 1
-  store i32 %storemerge379691, ptr %553, align 4
-  %617 = icmp slt i32 %storemerge379691, %3
-  br i1 %617, label %.lr.ph695, label %._crit_edge696.thread, !llvm.loop !106
+._crit_edge696:                                   ; preds = %._crit_edge690, %550
+  store i32 %storemerge379691, ptr %537, align 8
+  %exitcond1122.not = icmp eq i32 %storemerge379691, %3
+  br i1 %exitcond1122.not, label %._crit_edge700, label %550, !llvm.loop !106
 
-._crit_edge700:                                   ; preds = %._crit_edge696.thread, %560
+._crit_edge700:                                   ; preds = %._crit_edge696, %545
   %storemerge377 = add nuw nsw i32 %storemerge377703, 1
-  store i32 %storemerge377, ptr %551, align 4
-  %exitcond1110.not = icmp eq i32 %storemerge377, %3
-  br i1 %exitcond1110.not, label %._crit_edge706, label %560, !llvm.loop !107
+  store i32 %storemerge377, ptr %536, align 4
+  %exitcond1123.not = icmp eq i32 %storemerge377, %3
+  br i1 %exitcond1123.not, label %._crit_edge706, label %545, !llvm.loop !107
 
-._crit_edge706:                                   ; preds = %._crit_edge700, %556
+._crit_edge706:                                   ; preds = %._crit_edge700, %541
   store i32 %storemerge377701, ptr %6, align 16
-  %exitcond1111.not = icmp eq i32 %storemerge377701, %3
-  br i1 %exitcond1111.not, label %.loopexit458, label %556, !llvm.loop !108
+  %exitcond1124.not = icmp eq i32 %storemerge377701, %3
+  br i1 %exitcond1124.not, label %.loopexit458, label %541, !llvm.loop !108
 
-.loopexit458:                                     ; preds = %377, %424, %476, %538, %._crit_edge706, %604, %195, %238, %285, %._crit_edge829, %342, %98, %129, %._crit_edge901, %167, %47, %._crit_edge936, %74, %._crit_edge945, %33, %.preheader472, %.preheader460, %.preheader, %._crit_edge627.thread, %._crit_edge562.thread, %._crit_edge744.thread, %._crit_edge859.thread, %.preheader479, %.preheader462, %5, %._crit_edge665, %._crit_edge627, %._crit_edge593, %._crit_edge562, %._crit_edge799, %._crit_edge770, %._crit_edge744, %._crit_edge880, %._crit_edge859, %._crit_edge923
-  %.0 = phi i32 [ 0, %._crit_edge923 ], [ 0, %._crit_edge859 ], [ 0, %._crit_edge880 ], [ 0, %._crit_edge744 ], [ 0, %._crit_edge770 ], [ 0, %._crit_edge799 ], [ 0, %._crit_edge562 ], [ 0, %._crit_edge593 ], [ 0, %._crit_edge627 ], [ 0, %._crit_edge665 ], [ 0, %5 ], [ 0, %.preheader462 ], [ 0, %.preheader479 ], [ 0, %._crit_edge859.thread ], [ 0, %._crit_edge744.thread ], [ 0, %._crit_edge562.thread ], [ 0, %._crit_edge627.thread ], [ 0, %.preheader ], [ 0, %.preheader460 ], [ 0, %.preheader472 ], [ %36, %33 ], [ 0, %._crit_edge945 ], [ %79, %74 ], [ 0, %._crit_edge936 ], [ %51, %47 ], [ %173, %167 ], [ 0, %._crit_edge901 ], [ %134, %129 ], [ %103, %98 ], [ %348, %342 ], [ 0, %._crit_edge829 ], [ %291, %285 ], [ %243, %238 ], [ %201, %195 ], [ %610, %604 ], [ 0, %._crit_edge706 ], [ %544, %538 ], [ %482, %476 ], [ %429, %424 ], [ %384, %377 ]
+.loopexit458:                                     ; preds = %368, %414, %465, %525, %._crit_edge706, %589, %191, %233, %279, %._crit_edge829, %334, %96, %127, %._crit_edge901, %164, %47, %._crit_edge936, %73, %._crit_edge945, %33, %.preheader472, %.preheader460, %.preheader, %._crit_edge627.thread, %._crit_edge562.thread, %._crit_edge744.thread, %._crit_edge859.thread, %.preheader479, %.preheader462, %5, %._crit_edge665, %._crit_edge627, %._crit_edge593, %._crit_edge562, %._crit_edge799, %._crit_edge770, %._crit_edge744, %._crit_edge880, %._crit_edge859, %._crit_edge923
+  %.0 = phi i32 [ 0, %._crit_edge923 ], [ 0, %._crit_edge859 ], [ 0, %._crit_edge880 ], [ 0, %._crit_edge744 ], [ 0, %._crit_edge770 ], [ 0, %._crit_edge799 ], [ 0, %._crit_edge562 ], [ 0, %._crit_edge593 ], [ 0, %._crit_edge627 ], [ 0, %._crit_edge665 ], [ 0, %5 ], [ 0, %.preheader462 ], [ 0, %.preheader479 ], [ 0, %._crit_edge859.thread ], [ 0, %._crit_edge744.thread ], [ 0, %._crit_edge562.thread ], [ 0, %._crit_edge627.thread ], [ 0, %.preheader ], [ 0, %.preheader460 ], [ 0, %.preheader472 ], [ %36, %33 ], [ 0, %._crit_edge945 ], [ %78, %73 ], [ 0, %._crit_edge936 ], [ %51, %47 ], [ %170, %164 ], [ 0, %._crit_edge901 ], [ %132, %127 ], [ %101, %96 ], [ %340, %334 ], [ 0, %._crit_edge829 ], [ %285, %279 ], [ %238, %233 ], [ %197, %191 ], [ %595, %589 ], [ 0, %._crit_edge706 ], [ %531, %525 ], [ %471, %465 ], [ %419, %414 ], [ %375, %368 ]
   ret i32 %.0
 }
 

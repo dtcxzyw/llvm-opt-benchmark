@@ -1841,9 +1841,9 @@ land.rhs:                                         ; preds = %lor.lhs.false98, %w
   br i1 %tobool111.not, label %lor.lhs.false114, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %inc112 = add nuw i64 %offset.0111, 1
-  %cmp105 = icmp ult i64 %inc112, %size
-  br i1 %cmp105, label %land.rhs, label %return, !llvm.loop !23
+  %inc112 = add i64 %offset.0111, 1
+  %exitcond122.not = icmp eq i64 %inc112, %size
+  br i1 %exitcond122.not, label %return, label %land.rhs, !llvm.loop !23
 
 lor.lhs.false114:                                 ; preds = %land.rhs
   %cmp117.not = icmp eq i8 %16, 61
@@ -1891,9 +1891,9 @@ land.rhs151:                                      ; preds = %if.end147, %while.b
   br i1 %tobool157.not, label %lor.lhs.false163, label %while.body159
 
 while.body159:                                    ; preds = %land.rhs151
-  %inc160 = add nuw i64 %offset.2113, 1
-  %cmp150 = icmp ult i64 %inc160, %size
-  br i1 %cmp150, label %land.rhs151, label %while.end161, !llvm.loop !25
+  %inc160 = add i64 %offset.2113, 1
+  %exitcond123.not = icmp eq i64 %inc160, %size
+  br i1 %exitcond123.not, label %while.end161, label %land.rhs151, !llvm.loop !25
 
 while.end161:                                     ; preds = %while.body159, %if.end147
   %offset.2.lcssa = phi i64 [ %inc148, %if.end147 ], [ %size, %while.body159 ]

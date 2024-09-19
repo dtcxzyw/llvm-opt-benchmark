@@ -3693,8 +3693,8 @@ terminate.lpad.i649:                              ; preds = %if.then13.i.i648
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit650: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit639, %if.then.i.i642, %if.then13.i.i648
   %j.0 = add nuw i64 %j.01030, 1
-  %cmp121 = icmp ult i64 %j.0, %sub.ptr.div.i
-  br i1 %cmp121, label %for.body122, label %invoke.cont208, !llvm.loop !53
+  %exitcond.not = icmp eq i64 %j.0, %sub.ptr.div.i
+  br i1 %exitcond.not, label %invoke.cont208, label %for.body122, !llvm.loop !53
 
 ehcleanup202:                                     ; preds = %ehcleanup200, %ehcleanup174, %lpad153
   %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %ehcleanup200 ], [ %.pn18, %ehcleanup174 ], [ %79, %lpad153 ]
@@ -4441,8 +4441,8 @@ terminate.lpad.i998:                              ; preds = %if.then13.i.i997
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit999: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit988, %if.then.i.i991, %if.then13.i.i997
   %inc317 = add nuw i64 %i.01032, 1
-  %exitcond.not = icmp eq i64 %inc317, %umax
-  br i1 %exitcond.not, label %for.end318, label %for.body, !llvm.loop !66
+  %exitcond1033.not = icmp eq i64 %inc317, %umax
+  br i1 %exitcond1033.not, label %for.end318, label %for.body, !llvm.loop !66
 
 lpad281:                                          ; preds = %invoke.cont280
   %193 = landingpad { ptr, i32 }

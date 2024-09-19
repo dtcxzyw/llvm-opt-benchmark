@@ -535,8 +535,8 @@ for.body14.i.i:                                   ; preds = %uv__stream_queue_fd
   %i.132.i.i = phi i64 [ %inc.i.i, %for.body14.i.i ], [ %i.025.i.i, %uv__stream_queue_fd.exit.i.i ]
   %call15.i.i = call i32 @uv__close(i32 noundef %fd.0.copyload.i.i) #12
   %inc.i.i = add nuw nsw i64 %i.132.i.i, 1
-  %cmp13.i.i = icmp ult i64 %inc.i.i, %div19.i.i
-  br i1 %cmp13.i.i, label %for.body14.i.i, label %if.then99.i
+  %exitcond36.not.i.i = icmp eq i64 %inc.i.i, %div19.i.i
+  br i1 %exitcond36.not.i.i, label %if.then99.i, label %for.body14.i.i
 
 for.inc19.i.i:                                    ; preds = %uv__stream_queue_fd.exit.thread.i.i, %for.body6.i.i
   %arrayidx.i.sink.i.i = phi ptr [ %arrayidx.i.i.i, %uv__stream_queue_fd.exit.thread.i.i ], [ %accepted_fd.i.i, %for.body6.i.i ]

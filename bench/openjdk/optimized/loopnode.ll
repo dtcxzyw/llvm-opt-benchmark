@@ -22463,9 +22463,10 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop23process_expensive_nodesEv
   br label %23
 
 23:                                               ; preds = %29, %16
-  %indvars.iv105.in = phi i32 [ %indvars.iv105, %29 ], [ %.05996, %16 ]
+  %indvars.iv107.in = phi i32 [ %indvars.iv107, %29 ], [ %.05996, %16 ]
+  %indvars.iv105 = phi i32 [ %indvars.iv.next106, %29 ], [ %.05996, %16 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ %20, %16 ]
-  %indvars.iv105 = add i32 %indvars.iv105.in, 1
+  %indvars.iv107 = add i32 %indvars.iv107.in, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 488
@@ -22481,6 +22482,7 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop23process_expensive_nodesEv
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 @_ZN7Compile19cmp_expensive_nodesEP4NodeS1_(ptr noundef %22, ptr noundef %33) #16
   %35 = icmp eq i32 %34, 0
+  %indvars.iv.next106 = add nsw i32 %indvars.iv105, 1
   br i1 %35, label %23, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %23, %29
@@ -22935,15 +22937,16 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit82: ; preds = %_ZN9VectorSet8
 
 _ZN16Unique_Node_List4pushEP4Node.exit75:         ; preds = %67, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i65, %_ZN9Node_List4pushEP4Node.exit.i74, %_ZN9VectorSet8test_setEj.exit.i71, %256, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit82, %_ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit67
   %.4 = phi i1 [ %.389, %_ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit67 ], [ true, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit82 ], [ %.5, %256 ], [ %.389, %_ZN9VectorSet8test_setEj.exit.i71 ], [ %.389, %_ZN9Node_List4pushEP4Node.exit.i74 ], [ %.389, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i65 ], [ %.389, %67 ]
-  %291 = icmp slt i64 %indvars.iv.next104, %38
-  br i1 %291, label %59, label %_ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit.thread, !llvm.loop !86
+  %lftr.wideiv = trunc i64 %indvars.iv.next104 to i32
+  %exitcond.not = icmp eq i32 %indvars.iv105, %lftr.wideiv
+  br i1 %exitcond.not, label %_ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit.thread, label %59, !llvm.loop !86
 
 _ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit.thread: ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit75, %46, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i, %_ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit
   %.2 = phi i1 [ %.193, %_ZNK14PhaseIdealLoop19is_node_unreachableEP4Node.exit ], [ %.193, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i ], [ %.193, %46 ], [ %.4, %_ZN16Unique_Node_List4pushEP4Node.exit75 ]
   %indvars.iv.next102 = add nsw i64 %indvars.iv101, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next102 to i32
-  %exitcond.not = icmp eq i32 %indvars.iv105, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph94, !llvm.loop !87
+  %lftr.wideiv109 = trunc i64 %indvars.iv.next102 to i32
+  %exitcond110.not = icmp eq i32 %indvars.iv107, %lftr.wideiv109
+  br i1 %exitcond110.not, label %.loopexit, label %.lr.ph94, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %.057.lcssa = phi i1 [ false, %1 ], [ %.1.lcssa, %.loopexit ]

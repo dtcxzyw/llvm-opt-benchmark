@@ -2529,8 +2529,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.cond28.for.cond.cleanup32_crit_edge.us, %cond.end
-  %exitcond.not = icmp eq i64 %add, %umax
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !69
+  %exitcond29.not = icmp eq i64 %add, %umax
+  br i1 %exitcond29.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !69
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
   %i.027 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond.loopexit ]
@@ -2571,12 +2571,12 @@ invoke.cont40.us:                                 ; preds = %for.cond28.preheade
   %14 = load double, ptr %arrayidx43.us, align 8, !tbaa !38
   %15 = tail call double @llvm.fmuladd.f64(double %13, double %sub, double %14)
   store double %15, ptr %arrayidx43.us, align 8, !tbaa !38
-  %cmp31.us = icmp ult i64 %add42.us, %sub24
-  br i1 %cmp31.us, label %invoke.cont40.us, label %for.cond28.for.cond.cleanup32_crit_edge.us, !llvm.loop !70
+  %exitcond.not = icmp eq i64 %add42.us, %sub24
+  br i1 %exitcond.not, label %for.cond28.for.cond.cleanup32_crit_edge.us, label %invoke.cont40.us, !llvm.loop !70
 
 for.cond28.for.cond.cleanup32_crit_edge.us:       ; preds = %invoke.cont40.us
-  %cmp25.us = icmp ult i64 %add39.us, %sub24
-  br i1 %cmp25.us, label %for.cond28.preheader.us, label %for.cond.loopexit, !llvm.loop !71
+  %exitcond28.not = icmp eq i64 %add39.us, %sub24
+  br i1 %exitcond28.not, label %for.cond.loopexit, label %for.cond28.preheader.us, !llvm.loop !71
 
 nrvo.skipdtor:                                    ; preds = %for.cond.loopexit, %_ZN8QuantLib6MatrixC2Emmd.exit, %invoke.cont
   ret void

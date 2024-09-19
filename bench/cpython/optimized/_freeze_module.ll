@@ -258,7 +258,9 @@ get_varname.exit.i:                               ; preds = %for.cond.i.i
   br i1 %cmp16.not.i.i, label %write_code.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %get_varname.exit.i, %for.end.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.end.i.i ], [ 16, %get_varname.exit.i ]
   %n.017.i.i = phi i64 [ %add.i.i, %for.end.i.i ], [ 0, %get_varname.exit.i ]
+  %umin.i.i = call i64 @llvm.umin.i64(i64 %marshalled.val.i.i, i64 %indvars.iv.i.i)
   %add.i.i = add i64 %n.017.i.i, 16
   %cond.i.i = call i64 @llvm.umin.i64(i64 %add.i.i, i64 %marshalled.val.i.i)
   %15 = call i64 @fwrite(ptr nonnull @.str.14, i64 4, i64 1, ptr nonnull %call.i27)
@@ -271,13 +273,14 @@ for.body8.i.i:                                    ; preds = %for.body.i.i, %for.
   %16 = load i8, ptr %arrayidx.i9.i, align 1
   %conv.i.i = zext i8 %16 to i32
   %call9.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call.i27, ptr noundef nonnull @.str.15, i32 noundef %conv.i.i)
-  %inc.i.i = add nuw i64 %i.015.i.i, 1
-  %cmp7.i.i = icmp ult i64 %inc.i.i, %cond.i.i
-  br i1 %cmp7.i.i, label %for.body8.i.i, label %for.end.i.i, !llvm.loop !7
+  %inc.i.i = add i64 %i.015.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umin.i.i
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body8.i.i, !llvm.loop !7
 
 for.end.i.i:                                      ; preds = %for.body8.i.i, %for.body.i.i
   %fputc.i.i = call i32 @fputc(i32 10, ptr nonnull %call.i27)
   %cmp.i.i31 = icmp ult i64 %add.i.i, %marshalled.val.i.i
+  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 16
   br i1 %cmp.i.i31, label %for.body.i.i, label %write_code.exit.i, !llvm.loop !8
 
 write_code.exit.i:                                ; preds = %for.end.i.i, %get_varname.exit.i

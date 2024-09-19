@@ -8152,7 +8152,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = getelementptr inbounds i8, ptr %0, i64 640
-  br label %256
+  br label %254
 
 26:                                               ; preds = %1
   %27 = load i64, ptr @_ZN12colvarmodule2itE, align 8
@@ -8188,7 +8188,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = getelementptr inbounds i8, ptr %3, i64 16
   %52 = getelementptr inbounds i8, ptr %0, i64 640
-  br label %160
+  br label %159
 
 .preheader:                                       ; preds = %26
   br i1 %.not85, label %.loopexit62, label %.lr.ph79
@@ -8205,8 +8205,8 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
 
 .loopexit63:                                      ; preds = %_ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %60
   %.160.lcssa = phi ptr [ %.05977, %60 ], [ %113, %_ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ]
-  %exitcond90.not = icmp eq i64 %61, %45
-  br i1 %exitcond90.not, label %.loopexit62, label %60, !llvm.loop !44
+  %exitcond92.not = icmp eq i64 %61, %45
+  br i1 %exitcond92.not, label %.loopexit62, label %60, !llvm.loop !44
 
 60:                                               ; preds = %.lr.ph79, %.loopexit63
   %.078 = phi i64 [ 0, %.lr.ph79 ], [ %61, %.loopexit63 ]
@@ -8376,345 +8376,351 @@ _ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEi
   %157 = fadd double %.0.i, %156
   store double %157, ptr %59, align 8
   %158 = add nuw i64 %.03074, 1
-  %159 = icmp ult i64 %158, %44
-  br i1 %159, label %.lr.ph75, label %.loopexit63, !llvm.loop !45
+  %exitcond91.not = icmp eq i64 %158, %44
+  br i1 %exitcond91.not, label %.loopexit63, label %.lr.ph75, !llvm.loop !45
 
-.loopexit65:                                      ; preds = %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %160
-  %.3.lcssa = phi ptr [ %.26170, %160 ], [ %173, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ]
-  %exitcond.not = icmp eq i64 %161, %45
-  br i1 %exitcond.not, label %.loopexit62, label %160, !llvm.loop !46
+.loopexit65.loopexit:                             ; preds = %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %scevgep = getelementptr i8, ptr %.26170, i64 %indvars.iv
+  br label %.loopexit65
 
-160:                                              ; preds = %.lr.ph72, %.loopexit65
-  %.171 = phi i64 [ 0, %.lr.ph72 ], [ %161, %.loopexit65 ]
+.loopexit65:                                      ; preds = %.loopexit65.loopexit, %159
+  %.3.lcssa = phi ptr [ %.26170, %159 ], [ %scevgep, %.loopexit65.loopexit ]
+  %indvars.iv.next = add i64 %indvars.iv, -1
+  %exitcond90.not = icmp eq i64 %160, %45
+  br i1 %exitcond90.not, label %.loopexit62, label %159, !llvm.loop !46
+
+159:                                              ; preds = %.lr.ph72, %.loopexit65
+  %indvars.iv = phi i64 [ %45, %.lr.ph72 ], [ %indvars.iv.next, %.loopexit65 ]
+  %.171 = phi i64 [ 0, %.lr.ph72 ], [ %160, %.loopexit65 ]
   %.26170 = phi ptr [ %6, %.lr.ph72 ], [ %.3.lcssa, %.loopexit65 ]
-  %161 = add nuw i64 %.171, 1
-  %162 = icmp ult i64 %161, %44
-  br i1 %162, label %.lr.ph, label %.loopexit65
+  %160 = add nuw i64 %.171, 1
+  %161 = icmp ult i64 %160, %44
+  br i1 %161, label %.lr.ph, label %.loopexit65
 
-.lr.ph:                                           ; preds = %160, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
-  %.13169 = phi i64 [ %254, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %161, %160 ]
-  %.368 = phi ptr [ %173, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %.26170, %160 ]
-  %163 = load i32, ptr %46, align 8
-  %164 = load i32, ptr %47, align 4
-  %165 = load ptr, ptr %35, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 504
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds %"class.colvarmodule::atom", ptr %167, i64 %.171
-  %169 = getelementptr inbounds %"class.colvarmodule::atom", ptr %167, i64 %.13169
-  %170 = load double, ptr %48, align 8
+.lr.ph:                                           ; preds = %159, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %.13169 = phi i64 [ %253, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %160, %159 ]
+  %.368 = phi ptr [ %172, %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %.26170, %159 ]
+  %162 = load i32, ptr %46, align 8
+  %163 = load i32, ptr %47, align 4
+  %164 = load ptr, ptr %35, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 504
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds %"class.colvarmodule::atom", ptr %166, i64 %.171
+  %168 = getelementptr inbounds %"class.colvarmodule::atom", ptr %166, i64 %.13169
+  %169 = load double, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %171 = load i8, ptr %.368, align 1
-  %172 = trunc i8 %171 to i1
-  %173 = getelementptr inbounds i8, ptr %.368, i64 1
-  br i1 %172, label %174, label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %170 = load i8, ptr %.368, align 1
+  %171 = trunc i8 %170 to i1
+  %172 = getelementptr inbounds i8, ptr %.368, i64 1
+  br i1 %171, label %173, label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
-174:                                              ; preds = %.lr.ph
+173:                                              ; preds = %.lr.ph
+  %174 = getelementptr inbounds i8, ptr %167, i64 24
   %175 = getelementptr inbounds i8, ptr %168, i64 24
-  %176 = getelementptr inbounds i8, ptr %169, i64 24
-  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %175, ptr noundef nonnull align 8 dereferenceable(24) %176)
-  %177 = load double, ptr %3, align 8
-  %178 = load double, ptr %49, align 8
-  %179 = fdiv double %177, %178
-  %180 = load double, ptr %50, align 8
-  %181 = fdiv double %180, %178
-  %182 = load double, ptr %51, align 8
-  %183 = fdiv double %182, %178
-  %184 = fmul double %181, %181
-  %185 = call double @llvm.fmuladd.f64(double %179, double %179, double %184)
-  %186 = call noundef double @llvm.fmuladd.f64(double %183, double %183, double %185)
+  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %174, ptr noundef nonnull align 8 dereferenceable(24) %175)
+  %176 = load double, ptr %3, align 8
+  %177 = load double, ptr %49, align 8
+  %178 = fdiv double %176, %177
+  %179 = load double, ptr %50, align 8
+  %180 = fdiv double %179, %177
+  %181 = load double, ptr %51, align 8
+  %182 = fdiv double %181, %177
+  %183 = fmul double %180, %180
+  %184 = call double @llvm.fmuladd.f64(double %178, double %178, double %183)
+  %185 = call noundef double @llvm.fmuladd.f64(double %182, double %182, double %184)
+  %186 = sdiv i32 %162, 2
   %187 = sdiv i32 %163, 2
-  %188 = sdiv i32 %164, 2
-  %189 = fcmp oeq double %186, 0.000000e+00
-  br i1 %189, label %_ZN12colvarmodule13integer_powerERKdi.exit54.i, label %190
+  %188 = fcmp oeq double %185, 0.000000e+00
+  br i1 %188, label %_ZN12colvarmodule13integer_powerERKdi.exit54.i, label %189
 
-190:                                              ; preds = %174
-  %191 = icmp sgt i32 %163, 1
-  %.off.i34 = add i32 %163, 1
+189:                                              ; preds = %173
+  %190 = icmp sgt i32 %162, 1
+  %.off.i34 = add i32 %162, 1
   %.not20.i.i35 = icmp ult i32 %.off.i34, 3
   br i1 %.not20.i.i35, label %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i, label %.lr.ph.preheader.i.i36
 
-.lr.ph.preheader.i.i36:                           ; preds = %190
-  %192 = call i32 @llvm.abs.i32(i32 %187, i1 true)
+.lr.ph.preheader.i.i36:                           ; preds = %189
+  %191 = call i32 @llvm.abs.i32(i32 %186, i1 true)
   br label %.lr.ph.i.i37
 
 .lr.ph.i.i37:                                     ; preds = %.lr.ph.i.i37, %.lr.ph.preheader.i.i36
-  %.023.i.i38 = phi i32 [ %195, %.lr.ph.i.i37 ], [ %192, %.lr.ph.preheader.i.i36 ]
-  %.01522.i.i39 = phi double [ %196, %.lr.ph.i.i37 ], [ %186, %.lr.ph.preheader.i.i36 ]
+  %.023.i.i38 = phi i32 [ %194, %.lr.ph.i.i37 ], [ %191, %.lr.ph.preheader.i.i36 ]
+  %.01522.i.i39 = phi double [ %195, %.lr.ph.i.i37 ], [ %185, %.lr.ph.preheader.i.i36 ]
   %.01621.i.i40 = phi double [ %.1.i.i42, %.lr.ph.i.i37 ], [ 1.000000e+00, %.lr.ph.preheader.i.i36 ]
-  %193 = and i32 %.023.i.i38, 1
-  %.not19.i.i41 = icmp eq i32 %193, 0
-  %194 = fmul double %.01522.i.i39, %.01621.i.i40
-  %.1.i.i42 = select i1 %.not19.i.i41, double %.01621.i.i40, double %194
-  %195 = lshr i32 %.023.i.i38, 1
-  %196 = fmul double %.01522.i.i39, %.01522.i.i39
+  %192 = and i32 %.023.i.i38, 1
+  %.not19.i.i41 = icmp eq i32 %192, 0
+  %193 = fmul double %.01522.i.i39, %.01621.i.i40
+  %.1.i.i42 = select i1 %.not19.i.i41, double %.01621.i.i40, double %193
+  %194 = lshr i32 %.023.i.i38, 1
+  %195 = fmul double %.01522.i.i39, %.01522.i.i39
   %.not.i.i43 = icmp ult i32 %.023.i.i38, 2
   br i1 %.not.i.i43, label %_ZN12colvarmodule13integer_powerERKdi.exit.i44, label %.lr.ph.i.i37, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i44:   ; preds = %.lr.ph.i.i37
-  %197 = fdiv double 1.000000e+00, %.1.i.i42
-  %198 = select i1 %191, double %.1.i.i42, double %197
+  %196 = fdiv double 1.000000e+00, %.1.i.i42
+  %197 = select i1 %190, double %.1.i.i42, double %196
   br label %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i
 
-_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i44, %190
-  %199 = phi double [ %198, %_ZN12colvarmodule13integer_powerERKdi.exit.i44 ], [ 1.000000e+00, %190 ]
-  %200 = icmp sgt i32 %164, 1
-  %.off73.i = add i32 %164, 1
+_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i44, %189
+  %198 = phi double [ %197, %_ZN12colvarmodule13integer_powerERKdi.exit.i44 ], [ 1.000000e+00, %189 ]
+  %199 = icmp sgt i32 %163, 1
+  %.off73.i = add i32 %163, 1
   %.not20.i42.i = icmp ult i32 %.off73.i, 3
   br i1 %.not20.i42.i, label %._crit_edge.i51.i, label %.lr.ph.preheader.i43.i
 
 .lr.ph.preheader.i43.i:                           ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i
-  %201 = call i32 @llvm.abs.i32(i32 %188, i1 true)
+  %200 = call i32 @llvm.abs.i32(i32 %187, i1 true)
   br label %.lr.ph.i44.i
 
 .lr.ph.i44.i:                                     ; preds = %.lr.ph.i44.i, %.lr.ph.preheader.i43.i
-  %.023.i45.i = phi i32 [ %204, %.lr.ph.i44.i ], [ %201, %.lr.ph.preheader.i43.i ]
-  %.01522.i46.i = phi double [ %205, %.lr.ph.i44.i ], [ %186, %.lr.ph.preheader.i43.i ]
+  %.023.i45.i = phi i32 [ %203, %.lr.ph.i44.i ], [ %200, %.lr.ph.preheader.i43.i ]
+  %.01522.i46.i = phi double [ %204, %.lr.ph.i44.i ], [ %185, %.lr.ph.preheader.i43.i ]
   %.01621.i47.i = phi double [ %.1.i49.i, %.lr.ph.i44.i ], [ 1.000000e+00, %.lr.ph.preheader.i43.i ]
-  %202 = and i32 %.023.i45.i, 1
-  %.not19.i48.i = icmp eq i32 %202, 0
-  %203 = fmul double %.01522.i46.i, %.01621.i47.i
-  %.1.i49.i = select i1 %.not19.i48.i, double %.01621.i47.i, double %203
-  %204 = lshr i32 %.023.i45.i, 1
-  %205 = fmul double %.01522.i46.i, %.01522.i46.i
+  %201 = and i32 %.023.i45.i, 1
+  %.not19.i48.i = icmp eq i32 %201, 0
+  %202 = fmul double %.01522.i46.i, %.01621.i47.i
+  %.1.i49.i = select i1 %.not19.i48.i, double %.01621.i47.i, double %202
+  %203 = lshr i32 %.023.i45.i, 1
+  %204 = fmul double %.01522.i46.i, %.01522.i46.i
   %.not.i50.i = icmp ult i32 %.023.i45.i, 2
   br i1 %.not.i50.i, label %._crit_edge.i51.i, label %.lr.ph.i44.i, !llvm.loop !5
 
 ._crit_edge.i51.i:                                ; preds = %.lr.ph.i44.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i
   %.016.lcssa.i52.i = phi double [ 1.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit.thread71.i ], [ %.1.i49.i, %.lr.ph.i44.i ]
-  %206 = fdiv double 1.000000e+00, %.016.lcssa.i52.i
-  %207 = select i1 %200, double %.016.lcssa.i52.i, double %206
+  %205 = fdiv double 1.000000e+00, %.016.lcssa.i52.i
+  %206 = select i1 %199, double %.016.lcssa.i52.i, double %205
   br label %_ZN12colvarmodule13integer_powerERKdi.exit54.i
 
-_ZN12colvarmodule13integer_powerERKdi.exit54.i:   ; preds = %._crit_edge.i51.i, %174
-  %.017.i70.i = phi double [ %199, %._crit_edge.i51.i ], [ 0.000000e+00, %174 ]
-  %.017.i53.i = phi double [ %207, %._crit_edge.i51.i ], [ 0.000000e+00, %174 ]
-  %208 = fsub double 1.000000e+00, %.017.i70.i
-  %209 = fsub double 1.000000e+00, %.017.i53.i
-  %210 = fdiv double %208, %209
-  %211 = fsub double %210, %170
-  %212 = fsub double 1.000000e+00, %170
-  %213 = fdiv double %211, %212
-  %214 = fcmp olt double %213, 0.000000e+00
-  br i1 %214, label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %215
+_ZN12colvarmodule13integer_powerERKdi.exit54.i:   ; preds = %._crit_edge.i51.i, %173
+  %.017.i70.i = phi double [ %198, %._crit_edge.i51.i ], [ 0.000000e+00, %173 ]
+  %.017.i53.i = phi double [ %206, %._crit_edge.i51.i ], [ 0.000000e+00, %173 ]
+  %207 = fsub double 1.000000e+00, %.017.i70.i
+  %208 = fsub double 1.000000e+00, %.017.i53.i
+  %209 = fdiv double %207, %208
+  %210 = fsub double %209, %169
+  %211 = fsub double 1.000000e+00, %169
+  %212 = fdiv double %210, %211
+  %213 = fcmp olt double %212, 0.000000e+00
+  br i1 %213, label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %214
 
-215:                                              ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit54.i
-  %216 = sitofp i32 %188 to double
-  %217 = fmul double %.017.i53.i, %216
-  %218 = fmul double %186, %209
-  %219 = fdiv double %217, %218
-  %220 = sitofp i32 %187 to double
-  %221 = fmul double %.017.i70.i, %220
-  %222 = fmul double %186, %208
-  %223 = fdiv double %221, %222
-  %224 = fsub double %219, %223
-  %225 = fmul double %213, %224
-  %226 = fmul double %178, %178
-  %227 = fdiv double 2.000000e+00, %226
-  %228 = fmul double %177, %227
-  %229 = fmul double %180, %227
-  %230 = fmul double %227, %182
-  %231 = getelementptr inbounds i8, ptr %168, i64 96
-  %232 = load double, ptr %231, align 8
-  %233 = fmul double %228, %225
-  %234 = fsub double %232, %233
-  store double %234, ptr %231, align 8
-  %235 = getelementptr inbounds i8, ptr %168, i64 104
-  %236 = load double, ptr %235, align 8
-  %237 = fmul double %229, %225
-  %238 = fsub double %236, %237
-  store double %238, ptr %235, align 8
-  %239 = getelementptr inbounds i8, ptr %168, i64 112
-  %240 = load double, ptr %239, align 8
-  %241 = fmul double %230, %225
-  %242 = fsub double %240, %241
-  store double %242, ptr %239, align 8
-  %243 = getelementptr inbounds i8, ptr %169, i64 96
-  %244 = load double, ptr %243, align 8
-  %245 = fadd double %233, %244
-  store double %245, ptr %243, align 8
-  %246 = getelementptr inbounds i8, ptr %169, i64 104
-  %247 = load double, ptr %246, align 8
-  %248 = fadd double %237, %247
-  store double %248, ptr %246, align 8
-  %249 = getelementptr inbounds i8, ptr %169, i64 112
-  %250 = load double, ptr %249, align 8
-  %251 = fadd double %241, %250
-  store double %251, ptr %249, align 8
+214:                                              ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit54.i
+  %215 = sitofp i32 %187 to double
+  %216 = fmul double %.017.i53.i, %215
+  %217 = fmul double %185, %208
+  %218 = fdiv double %216, %217
+  %219 = sitofp i32 %186 to double
+  %220 = fmul double %.017.i70.i, %219
+  %221 = fmul double %185, %207
+  %222 = fdiv double %220, %221
+  %223 = fsub double %218, %222
+  %224 = fmul double %212, %223
+  %225 = fmul double %177, %177
+  %226 = fdiv double 2.000000e+00, %225
+  %227 = fmul double %176, %226
+  %228 = fmul double %179, %226
+  %229 = fmul double %226, %181
+  %230 = getelementptr inbounds i8, ptr %167, i64 96
+  %231 = load double, ptr %230, align 8
+  %232 = fmul double %227, %224
+  %233 = fsub double %231, %232
+  store double %233, ptr %230, align 8
+  %234 = getelementptr inbounds i8, ptr %167, i64 104
+  %235 = load double, ptr %234, align 8
+  %236 = fmul double %228, %224
+  %237 = fsub double %235, %236
+  store double %237, ptr %234, align 8
+  %238 = getelementptr inbounds i8, ptr %167, i64 112
+  %239 = load double, ptr %238, align 8
+  %240 = fmul double %229, %224
+  %241 = fsub double %239, %240
+  store double %241, ptr %238, align 8
+  %242 = getelementptr inbounds i8, ptr %168, i64 96
+  %243 = load double, ptr %242, align 8
+  %244 = fadd double %232, %243
+  store double %244, ptr %242, align 8
+  %245 = getelementptr inbounds i8, ptr %168, i64 104
+  %246 = load double, ptr %245, align 8
+  %247 = fadd double %236, %246
+  store double %247, ptr %245, align 8
+  %248 = getelementptr inbounds i8, ptr %168, i64 112
+  %249 = load double, ptr %248, align 8
+  %250 = fadd double %240, %249
+  store double %250, ptr %248, align 8
   br label %_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
-_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph, %_ZN12colvarmodule13integer_powerERKdi.exit54.i, %215
-  %.0.i33 = phi double [ %213, %215 ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit54.i ]
+_ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph, %_ZN12colvarmodule13integer_powerERKdi.exit54.i, %214
+  %.0.i33 = phi double [ %212, %214 ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit54.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %252 = load double, ptr %52, align 8
-  %253 = fadd double %.0.i33, %252
-  store double %253, ptr %52, align 8
-  %254 = add nuw i64 %.13169, 1
-  %255 = icmp ult i64 %254, %44
-  br i1 %255, label %.lr.ph, label %.loopexit65, !llvm.loop !47
+  %251 = load double, ptr %52, align 8
+  %252 = fadd double %.0.i33, %251
+  store double %252, ptr %52, align 8
+  %253 = add nuw i64 %.13169, 1
+  %exitcond.not = icmp eq i64 %253, %44
+  br i1 %exitcond.not, label %.loopexit65.loopexit, label %.lr.ph, !llvm.loop !47
 
-.loopexit:                                        ; preds = %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %256
-  %exitcond91.not = icmp eq i64 %257, %18
-  br i1 %exitcond91.not, label %.loopexit62, label %256, !llvm.loop !48
+.loopexit:                                        ; preds = %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %254
+  %exitcond94.not = icmp eq i64 %255, %18
+  br i1 %exitcond94.not, label %.loopexit62, label %254, !llvm.loop !48
 
-256:                                              ; preds = %.lr.ph83, %.loopexit
-  %.282 = phi i64 [ 0, %.lr.ph83 ], [ %257, %.loopexit ]
-  %257 = add nuw i64 %.282, 1
-  %258 = icmp ult i64 %257, %17
-  br i1 %258, label %.lr.ph81, label %.loopexit
+254:                                              ; preds = %.lr.ph83, %.loopexit
+  %.282 = phi i64 [ 0, %.lr.ph83 ], [ %255, %.loopexit ]
+  %255 = add nuw i64 %.282, 1
+  %256 = icmp ult i64 %255, %17
+  br i1 %256, label %.lr.ph81, label %.loopexit
 
-.lr.ph81:                                         ; preds = %256, %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
-  %.23280 = phi i64 [ %346, %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %257, %256 ]
-  %259 = load i32, ptr %20, align 8
-  %260 = load i32, ptr %21, align 4
-  %261 = load ptr, ptr %8, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 504
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds %"class.colvarmodule::atom", ptr %263, i64 %.282
-  %265 = getelementptr inbounds %"class.colvarmodule::atom", ptr %263, i64 %.23280
-  %266 = load double, ptr %22, align 8
+.lr.ph81:                                         ; preds = %254, %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %.23280 = phi i64 [ %344, %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %255, %254 ]
+  %257 = load i32, ptr %20, align 8
+  %258 = load i32, ptr %21, align 4
+  %259 = load ptr, ptr %8, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 504
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr inbounds %"class.colvarmodule::atom", ptr %261, i64 %.282
+  %263 = getelementptr inbounds %"class.colvarmodule::atom", ptr %261, i64 %.23280
+  %264 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %267 = getelementptr inbounds i8, ptr %264, i64 24
-  %268 = getelementptr inbounds i8, ptr %265, i64 24
-  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %267, ptr noundef nonnull align 8 dereferenceable(24) %268)
-  %269 = load double, ptr %2, align 8
-  %270 = load double, ptr %19, align 8
-  %271 = fdiv double %269, %270
-  %272 = load double, ptr %23, align 8
-  %273 = fdiv double %272, %270
-  %274 = load double, ptr %24, align 8
-  %275 = fdiv double %274, %270
-  %276 = fmul double %273, %273
-  %277 = call double @llvm.fmuladd.f64(double %271, double %271, double %276)
-  %278 = call noundef double @llvm.fmuladd.f64(double %275, double %275, double %277)
-  %279 = sdiv i32 %259, 2
-  %280 = sdiv i32 %260, 2
-  %281 = fcmp oeq double %278, 0.000000e+00
-  br i1 %281, label %_ZN12colvarmodule13integer_powerERKdi.exit51.i, label %282
+  %265 = getelementptr inbounds i8, ptr %262, i64 24
+  %266 = getelementptr inbounds i8, ptr %263, i64 24
+  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %265, ptr noundef nonnull align 8 dereferenceable(24) %266)
+  %267 = load double, ptr %2, align 8
+  %268 = load double, ptr %19, align 8
+  %269 = fdiv double %267, %268
+  %270 = load double, ptr %23, align 8
+  %271 = fdiv double %270, %268
+  %272 = load double, ptr %24, align 8
+  %273 = fdiv double %272, %268
+  %274 = fmul double %271, %271
+  %275 = call double @llvm.fmuladd.f64(double %269, double %269, double %274)
+  %276 = call noundef double @llvm.fmuladd.f64(double %273, double %273, double %275)
+  %277 = sdiv i32 %257, 2
+  %278 = sdiv i32 %258, 2
+  %279 = fcmp oeq double %276, 0.000000e+00
+  br i1 %279, label %_ZN12colvarmodule13integer_powerERKdi.exit51.i, label %280
 
-282:                                              ; preds = %.lr.ph81
-  %283 = icmp sgt i32 %259, 1
-  %.off.i45 = add i32 %259, 1
+280:                                              ; preds = %.lr.ph81
+  %281 = icmp sgt i32 %257, 1
+  %.off.i45 = add i32 %257, 1
   %.not20.i.i46 = icmp ult i32 %.off.i45, 3
   br i1 %.not20.i.i46, label %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i, label %.lr.ph.preheader.i.i47
 
-.lr.ph.preheader.i.i47:                           ; preds = %282
-  %284 = call i32 @llvm.abs.i32(i32 %279, i1 true)
+.lr.ph.preheader.i.i47:                           ; preds = %280
+  %282 = call i32 @llvm.abs.i32(i32 %277, i1 true)
   br label %.lr.ph.i.i48
 
 .lr.ph.i.i48:                                     ; preds = %.lr.ph.i.i48, %.lr.ph.preheader.i.i47
-  %.023.i.i49 = phi i32 [ %287, %.lr.ph.i.i48 ], [ %284, %.lr.ph.preheader.i.i47 ]
-  %.01522.i.i50 = phi double [ %288, %.lr.ph.i.i48 ], [ %278, %.lr.ph.preheader.i.i47 ]
+  %.023.i.i49 = phi i32 [ %285, %.lr.ph.i.i48 ], [ %282, %.lr.ph.preheader.i.i47 ]
+  %.01522.i.i50 = phi double [ %286, %.lr.ph.i.i48 ], [ %276, %.lr.ph.preheader.i.i47 ]
   %.01621.i.i51 = phi double [ %.1.i.i53, %.lr.ph.i.i48 ], [ 1.000000e+00, %.lr.ph.preheader.i.i47 ]
-  %285 = and i32 %.023.i.i49, 1
-  %.not19.i.i52 = icmp eq i32 %285, 0
-  %286 = fmul double %.01522.i.i50, %.01621.i.i51
-  %.1.i.i53 = select i1 %.not19.i.i52, double %.01621.i.i51, double %286
-  %287 = lshr i32 %.023.i.i49, 1
-  %288 = fmul double %.01522.i.i50, %.01522.i.i50
+  %283 = and i32 %.023.i.i49, 1
+  %.not19.i.i52 = icmp eq i32 %283, 0
+  %284 = fmul double %.01522.i.i50, %.01621.i.i51
+  %.1.i.i53 = select i1 %.not19.i.i52, double %.01621.i.i51, double %284
+  %285 = lshr i32 %.023.i.i49, 1
+  %286 = fmul double %.01522.i.i50, %.01522.i.i50
   %.not.i.i54 = icmp ult i32 %.023.i.i49, 2
   br i1 %.not.i.i54, label %_ZN12colvarmodule13integer_powerERKdi.exit.i55, label %.lr.ph.i.i48, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i55:   ; preds = %.lr.ph.i.i48
-  %289 = fdiv double 1.000000e+00, %.1.i.i53
-  %290 = select i1 %283, double %.1.i.i53, double %289
+  %287 = fdiv double 1.000000e+00, %.1.i.i53
+  %288 = select i1 %281, double %.1.i.i53, double %287
   br label %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i
 
-_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i55, %282
-  %291 = phi double [ %290, %_ZN12colvarmodule13integer_powerERKdi.exit.i55 ], [ 1.000000e+00, %282 ]
-  %292 = icmp sgt i32 %260, 1
-  %.off70.i = add i32 %260, 1
+_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i55, %280
+  %289 = phi double [ %288, %_ZN12colvarmodule13integer_powerERKdi.exit.i55 ], [ 1.000000e+00, %280 ]
+  %290 = icmp sgt i32 %258, 1
+  %.off70.i = add i32 %258, 1
   %.not20.i39.i = icmp ult i32 %.off70.i, 3
   br i1 %.not20.i39.i, label %._crit_edge.i48.i, label %.lr.ph.preheader.i40.i
 
 .lr.ph.preheader.i40.i:                           ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i
-  %293 = call i32 @llvm.abs.i32(i32 %280, i1 true)
+  %291 = call i32 @llvm.abs.i32(i32 %278, i1 true)
   br label %.lr.ph.i41.i
 
 .lr.ph.i41.i:                                     ; preds = %.lr.ph.i41.i, %.lr.ph.preheader.i40.i
-  %.023.i42.i = phi i32 [ %296, %.lr.ph.i41.i ], [ %293, %.lr.ph.preheader.i40.i ]
-  %.01522.i43.i = phi double [ %297, %.lr.ph.i41.i ], [ %278, %.lr.ph.preheader.i40.i ]
+  %.023.i42.i = phi i32 [ %294, %.lr.ph.i41.i ], [ %291, %.lr.ph.preheader.i40.i ]
+  %.01522.i43.i = phi double [ %295, %.lr.ph.i41.i ], [ %276, %.lr.ph.preheader.i40.i ]
   %.01621.i44.i = phi double [ %.1.i46.i, %.lr.ph.i41.i ], [ 1.000000e+00, %.lr.ph.preheader.i40.i ]
-  %294 = and i32 %.023.i42.i, 1
-  %.not19.i45.i = icmp eq i32 %294, 0
-  %295 = fmul double %.01522.i43.i, %.01621.i44.i
-  %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %295
-  %296 = lshr i32 %.023.i42.i, 1
-  %297 = fmul double %.01522.i43.i, %.01522.i43.i
+  %292 = and i32 %.023.i42.i, 1
+  %.not19.i45.i = icmp eq i32 %292, 0
+  %293 = fmul double %.01522.i43.i, %.01621.i44.i
+  %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %293
+  %294 = lshr i32 %.023.i42.i, 1
+  %295 = fmul double %.01522.i43.i, %.01522.i43.i
   %.not.i47.i = icmp ult i32 %.023.i42.i, 2
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !5
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i
   %.016.lcssa.i49.i = phi double [ 1.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit.thread68.i ], [ %.1.i46.i, %.lr.ph.i41.i ]
-  %298 = fdiv double 1.000000e+00, %.016.lcssa.i49.i
-  %299 = select i1 %292, double %.016.lcssa.i49.i, double %298
+  %296 = fdiv double 1.000000e+00, %.016.lcssa.i49.i
+  %297 = select i1 %290, double %.016.lcssa.i49.i, double %296
   br label %_ZN12colvarmodule13integer_powerERKdi.exit51.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit51.i:   ; preds = %._crit_edge.i48.i, %.lr.ph81
-  %.017.i67.i = phi double [ %291, %._crit_edge.i48.i ], [ 0.000000e+00, %.lr.ph81 ]
-  %.017.i50.i = phi double [ %299, %._crit_edge.i48.i ], [ 0.000000e+00, %.lr.ph81 ]
-  %300 = fsub double 1.000000e+00, %.017.i67.i
-  %301 = fsub double 1.000000e+00, %.017.i50.i
-  %302 = fdiv double %300, %301
-  %303 = fsub double %302, %266
-  %304 = fsub double 1.000000e+00, %266
-  %305 = fdiv double %303, %304
-  %306 = fcmp olt double %305, 0.000000e+00
-  br i1 %306, label %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %307
+  %.017.i67.i = phi double [ %289, %._crit_edge.i48.i ], [ 0.000000e+00, %.lr.ph81 ]
+  %.017.i50.i = phi double [ %297, %._crit_edge.i48.i ], [ 0.000000e+00, %.lr.ph81 ]
+  %298 = fsub double 1.000000e+00, %.017.i67.i
+  %299 = fsub double 1.000000e+00, %.017.i50.i
+  %300 = fdiv double %298, %299
+  %301 = fsub double %300, %264
+  %302 = fsub double 1.000000e+00, %264
+  %303 = fdiv double %301, %302
+  %304 = fcmp olt double %303, 0.000000e+00
+  br i1 %304, label %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %305
 
-307:                                              ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit51.i
-  %308 = sitofp i32 %280 to double
-  %309 = fmul double %.017.i50.i, %308
-  %310 = fmul double %278, %301
-  %311 = fdiv double %309, %310
-  %312 = sitofp i32 %279 to double
-  %313 = fmul double %.017.i67.i, %312
-  %314 = fmul double %278, %300
-  %315 = fdiv double %313, %314
-  %316 = fsub double %311, %315
-  %317 = fmul double %305, %316
-  %318 = fmul double %270, %270
-  %319 = fdiv double 2.000000e+00, %318
-  %320 = fmul double %269, %319
-  %321 = fmul double %272, %319
-  %322 = fmul double %319, %274
-  %323 = getelementptr inbounds i8, ptr %264, i64 96
-  %324 = load double, ptr %323, align 8
-  %325 = fmul double %320, %317
-  %326 = fsub double %324, %325
-  store double %326, ptr %323, align 8
-  %327 = getelementptr inbounds i8, ptr %264, i64 104
-  %328 = load double, ptr %327, align 8
-  %329 = fmul double %321, %317
-  %330 = fsub double %328, %329
-  store double %330, ptr %327, align 8
-  %331 = getelementptr inbounds i8, ptr %264, i64 112
-  %332 = load double, ptr %331, align 8
-  %333 = fmul double %322, %317
-  %334 = fsub double %332, %333
-  store double %334, ptr %331, align 8
-  %335 = getelementptr inbounds i8, ptr %265, i64 96
-  %336 = load double, ptr %335, align 8
-  %337 = fadd double %325, %336
-  store double %337, ptr %335, align 8
-  %338 = getelementptr inbounds i8, ptr %265, i64 104
-  %339 = load double, ptr %338, align 8
-  %340 = fadd double %329, %339
-  store double %340, ptr %338, align 8
-  %341 = getelementptr inbounds i8, ptr %265, i64 112
-  %342 = load double, ptr %341, align 8
-  %343 = fadd double %333, %342
-  store double %343, ptr %341, align 8
+305:                                              ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit51.i
+  %306 = sitofp i32 %278 to double
+  %307 = fmul double %.017.i50.i, %306
+  %308 = fmul double %276, %299
+  %309 = fdiv double %307, %308
+  %310 = sitofp i32 %277 to double
+  %311 = fmul double %.017.i67.i, %310
+  %312 = fmul double %276, %298
+  %313 = fdiv double %311, %312
+  %314 = fsub double %309, %313
+  %315 = fmul double %303, %314
+  %316 = fmul double %268, %268
+  %317 = fdiv double 2.000000e+00, %316
+  %318 = fmul double %267, %317
+  %319 = fmul double %270, %317
+  %320 = fmul double %317, %272
+  %321 = getelementptr inbounds i8, ptr %262, i64 96
+  %322 = load double, ptr %321, align 8
+  %323 = fmul double %318, %315
+  %324 = fsub double %322, %323
+  store double %324, ptr %321, align 8
+  %325 = getelementptr inbounds i8, ptr %262, i64 104
+  %326 = load double, ptr %325, align 8
+  %327 = fmul double %319, %315
+  %328 = fsub double %326, %327
+  store double %328, ptr %325, align 8
+  %329 = getelementptr inbounds i8, ptr %262, i64 112
+  %330 = load double, ptr %329, align 8
+  %331 = fmul double %320, %315
+  %332 = fsub double %330, %331
+  store double %332, ptr %329, align 8
+  %333 = getelementptr inbounds i8, ptr %263, i64 96
+  %334 = load double, ptr %333, align 8
+  %335 = fadd double %323, %334
+  store double %335, ptr %333, align 8
+  %336 = getelementptr inbounds i8, ptr %263, i64 104
+  %337 = load double, ptr %336, align 8
+  %338 = fadd double %327, %337
+  store double %338, ptr %336, align 8
+  %339 = getelementptr inbounds i8, ptr %263, i64 112
+  %340 = load double, ptr %339, align 8
+  %341 = fadd double %331, %340
+  store double %341, ptr %339, align 8
   br label %_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
-_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit51.i, %307
-  %.0.i56 = phi double [ %305, %307 ], [ 0.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit51.i ]
+_ZN6colvar8coordnum18switching_functionILi1EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit51.i, %305
+  %.0.i56 = phi double [ %303, %305 ], [ 0.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit51.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %344 = load double, ptr %25, align 8
-  %345 = fadd double %.0.i56, %344
-  store double %345, ptr %25, align 8
-  %346 = add nuw i64 %.23280, 1
-  %347 = icmp ult i64 %346, %17
-  br i1 %347, label %.lr.ph81, label %.loopexit, !llvm.loop !49
+  %342 = load double, ptr %25, align 8
+  %343 = fadd double %.0.i56, %342
+  store double %343, ptr %25, align 8
+  %344 = add nuw i64 %.23280, 1
+  %exitcond93.not = icmp eq i64 %344, %17
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph81, !llvm.loop !49
 
 .loopexit62:                                      ; preds = %.loopexit65, %.loopexit63, %.loopexit, %.preheader66, %.preheader, %7
   ret i32 0
@@ -8753,7 +8759,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = getelementptr inbounds i8, ptr %0, i64 640
-  br label %174
+  br label %172
 
 26:                                               ; preds = %1
   %27 = load i64, ptr @_ZN12colvarmodule2itE, align 8
@@ -8789,7 +8795,7 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = getelementptr inbounds i8, ptr %3, i64 16
   %52 = getelementptr inbounds i8, ptr %0, i64 640
-  br label %117
+  br label %116
 
 .preheader:                                       ; preds = %26
   br i1 %.not85, label %.loopexit62, label %.lr.ph79
@@ -8806,8 +8812,8 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
 
 .loopexit63:                                      ; preds = %_ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %60
   %.160.lcssa = phi ptr [ %.05977, %60 ], [ %111, %_ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ]
-  %exitcond90.not = icmp eq i64 %61, %45
-  br i1 %exitcond90.not, label %.loopexit62, label %60, !llvm.loop !50
+  %exitcond92.not = icmp eq i64 %61, %45
+  br i1 %exitcond92.not, label %.loopexit62, label %60, !llvm.loop !50
 
 60:                                               ; preds = %.lr.ph79, %.loopexit63
   %.078 = phi i64 [ 0, %.lr.ph79 ], [ %61, %.loopexit63 ]
@@ -8923,249 +8929,255 @@ _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEi
   %114 = fadd double %113, %..i
   store double %114, ptr %59, align 8
   %115 = add nuw i64 %.03074, 1
-  %116 = icmp ult i64 %115, %44
-  br i1 %116, label %.lr.ph75, label %.loopexit63, !llvm.loop !51
+  %exitcond91.not = icmp eq i64 %115, %44
+  br i1 %exitcond91.not, label %.loopexit63, label %.lr.ph75, !llvm.loop !51
 
-.loopexit65:                                      ; preds = %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %117
-  %.3.lcssa = phi ptr [ %.26170, %117 ], [ %128, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ]
-  %exitcond.not = icmp eq i64 %118, %45
-  br i1 %exitcond.not, label %.loopexit62, label %117, !llvm.loop !52
+.loopexit65.loopexit:                             ; preds = %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %scevgep = getelementptr i8, ptr %.26170, i64 %indvars.iv
+  br label %.loopexit65
 
-117:                                              ; preds = %.lr.ph72, %.loopexit65
-  %.171 = phi i64 [ 0, %.lr.ph72 ], [ %118, %.loopexit65 ]
+.loopexit65:                                      ; preds = %.loopexit65.loopexit, %116
+  %.3.lcssa = phi ptr [ %.26170, %116 ], [ %scevgep, %.loopexit65.loopexit ]
+  %indvars.iv.next = add i64 %indvars.iv, -1
+  %exitcond90.not = icmp eq i64 %117, %45
+  br i1 %exitcond90.not, label %.loopexit62, label %116, !llvm.loop !52
+
+116:                                              ; preds = %.lr.ph72, %.loopexit65
+  %indvars.iv = phi i64 [ %45, %.lr.ph72 ], [ %indvars.iv.next, %.loopexit65 ]
+  %.171 = phi i64 [ 0, %.lr.ph72 ], [ %117, %.loopexit65 ]
   %.26170 = phi ptr [ %6, %.lr.ph72 ], [ %.3.lcssa, %.loopexit65 ]
-  %118 = add nuw i64 %.171, 1
-  %119 = icmp ult i64 %118, %44
-  br i1 %119, label %.lr.ph, label %.loopexit65
+  %117 = add nuw i64 %.171, 1
+  %118 = icmp ult i64 %117, %44
+  br i1 %118, label %.lr.ph, label %.loopexit65
 
-.lr.ph:                                           ; preds = %117, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
-  %.13169 = phi i64 [ %172, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %118, %117 ]
-  %.368 = phi ptr [ %128, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %.26170, %117 ]
-  %120 = load i32, ptr %46, align 8
-  %121 = load i32, ptr %47, align 4
-  %122 = load ptr, ptr %35, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 504
-  %124 = load ptr, ptr %123, align 8
-  %125 = load double, ptr %48, align 8
+.lr.ph:                                           ; preds = %116, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %.13169 = phi i64 [ %171, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %117, %116 ]
+  %.368 = phi ptr [ %127, %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %.26170, %116 ]
+  %119 = load i32, ptr %46, align 8
+  %120 = load i32, ptr %47, align 4
+  %121 = load ptr, ptr %35, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 504
+  %123 = load ptr, ptr %122, align 8
+  %124 = load double, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %126 = load i8, ptr %.368, align 1
-  %127 = trunc i8 %126 to i1
-  %128 = getelementptr inbounds i8, ptr %.368, i64 1
-  br i1 %127, label %129, label %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %125 = load i8, ptr %.368, align 1
+  %126 = trunc i8 %125 to i1
+  %127 = getelementptr inbounds i8, ptr %.368, i64 1
+  br i1 %126, label %128, label %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
-129:                                              ; preds = %.lr.ph
-  %130 = getelementptr inbounds %"class.colvarmodule::atom", ptr %124, i64 %.171, i32 4
-  %131 = getelementptr inbounds %"class.colvarmodule::atom", ptr %124, i64 %.13169, i32 4
-  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %131)
-  %132 = load double, ptr %3, align 8
-  %133 = load double, ptr %49, align 8
-  %134 = fdiv double %132, %133
-  %135 = load double, ptr %50, align 8
-  %136 = fdiv double %135, %133
-  %137 = load double, ptr %51, align 8
-  %138 = fdiv double %137, %133
-  %139 = fmul double %136, %136
-  %140 = call double @llvm.fmuladd.f64(double %134, double %134, double %139)
-  %141 = call noundef double @llvm.fmuladd.f64(double %138, double %138, double %140)
+128:                                              ; preds = %.lr.ph
+  %129 = getelementptr inbounds %"class.colvarmodule::atom", ptr %123, i64 %.171, i32 4
+  %130 = getelementptr inbounds %"class.colvarmodule::atom", ptr %123, i64 %.13169, i32 4
+  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %130)
+  %131 = load double, ptr %3, align 8
+  %132 = load double, ptr %49, align 8
+  %133 = fdiv double %131, %132
+  %134 = load double, ptr %50, align 8
+  %135 = fdiv double %134, %132
+  %136 = load double, ptr %51, align 8
+  %137 = fdiv double %136, %132
+  %138 = fmul double %135, %135
+  %139 = call double @llvm.fmuladd.f64(double %133, double %133, double %138)
+  %140 = call noundef double @llvm.fmuladd.f64(double %137, double %137, double %139)
+  %141 = sdiv i32 %119, 2
   %142 = sdiv i32 %120, 2
-  %143 = sdiv i32 %121, 2
-  %144 = fcmp oeq double %141, 0.000000e+00
-  br i1 %144, label %_ZN12colvarmodule13integer_powerERKdi.exit37.i, label %145
+  %143 = fcmp oeq double %140, 0.000000e+00
+  br i1 %143, label %_ZN12colvarmodule13integer_powerERKdi.exit37.i, label %144
 
-145:                                              ; preds = %129
-  %146 = icmp sgt i32 %120, 1
-  %.off.i33 = add i32 %120, 1
+144:                                              ; preds = %128
+  %145 = icmp sgt i32 %119, 1
+  %.off.i33 = add i32 %119, 1
   %.not20.i.i34 = icmp ult i32 %.off.i33, 3
   br i1 %.not20.i.i34, label %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i, label %.lr.ph.preheader.i.i35
 
-.lr.ph.preheader.i.i35:                           ; preds = %145
-  %147 = call i32 @llvm.abs.i32(i32 %142, i1 true)
+.lr.ph.preheader.i.i35:                           ; preds = %144
+  %146 = call i32 @llvm.abs.i32(i32 %141, i1 true)
   br label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %.lr.ph.preheader.i.i35
-  %.023.i.i37 = phi i32 [ %150, %.lr.ph.i.i36 ], [ %147, %.lr.ph.preheader.i.i35 ]
-  %.01522.i.i38 = phi double [ %151, %.lr.ph.i.i36 ], [ %141, %.lr.ph.preheader.i.i35 ]
+  %.023.i.i37 = phi i32 [ %149, %.lr.ph.i.i36 ], [ %146, %.lr.ph.preheader.i.i35 ]
+  %.01522.i.i38 = phi double [ %150, %.lr.ph.i.i36 ], [ %140, %.lr.ph.preheader.i.i35 ]
   %.01621.i.i39 = phi double [ %.1.i.i41, %.lr.ph.i.i36 ], [ 1.000000e+00, %.lr.ph.preheader.i.i35 ]
-  %148 = and i32 %.023.i.i37, 1
-  %.not19.i.i40 = icmp eq i32 %148, 0
-  %149 = fmul double %.01522.i.i38, %.01621.i.i39
-  %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %149
-  %150 = lshr i32 %.023.i.i37, 1
-  %151 = fmul double %.01522.i.i38, %.01522.i.i38
+  %147 = and i32 %.023.i.i37, 1
+  %.not19.i.i40 = icmp eq i32 %147, 0
+  %148 = fmul double %.01522.i.i38, %.01621.i.i39
+  %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %148
+  %149 = lshr i32 %.023.i.i37, 1
+  %150 = fmul double %.01522.i.i38, %.01522.i.i38
   %.not.i.i42 = icmp ult i32 %.023.i.i37, 2
   br i1 %.not.i.i42, label %_ZN12colvarmodule13integer_powerERKdi.exit.i43, label %.lr.ph.i.i36, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i43:   ; preds = %.lr.ph.i.i36
-  %152 = fdiv double 1.000000e+00, %.1.i.i41
-  %153 = select i1 %146, double %.1.i.i41, double %152
+  %151 = fdiv double 1.000000e+00, %.1.i.i41
+  %152 = select i1 %145, double %.1.i.i41, double %151
   br label %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i
 
-_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i43, %145
-  %154 = phi double [ %153, %_ZN12colvarmodule13integer_powerERKdi.exit.i43 ], [ 1.000000e+00, %145 ]
-  %155 = icmp sgt i32 %121, 1
-  %.off45.i = add i32 %121, 1
+_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i43, %144
+  %153 = phi double [ %152, %_ZN12colvarmodule13integer_powerERKdi.exit.i43 ], [ 1.000000e+00, %144 ]
+  %154 = icmp sgt i32 %120, 1
+  %.off45.i = add i32 %120, 1
   %.not20.i25.i = icmp ult i32 %.off45.i, 3
   br i1 %.not20.i25.i, label %._crit_edge.i34.i, label %.lr.ph.preheader.i26.i
 
 .lr.ph.preheader.i26.i:                           ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i
-  %156 = call i32 @llvm.abs.i32(i32 %143, i1 true)
+  %155 = call i32 @llvm.abs.i32(i32 %142, i1 true)
   br label %.lr.ph.i27.i
 
 .lr.ph.i27.i:                                     ; preds = %.lr.ph.i27.i, %.lr.ph.preheader.i26.i
-  %.023.i28.i = phi i32 [ %159, %.lr.ph.i27.i ], [ %156, %.lr.ph.preheader.i26.i ]
-  %.01522.i29.i = phi double [ %160, %.lr.ph.i27.i ], [ %141, %.lr.ph.preheader.i26.i ]
+  %.023.i28.i = phi i32 [ %158, %.lr.ph.i27.i ], [ %155, %.lr.ph.preheader.i26.i ]
+  %.01522.i29.i = phi double [ %159, %.lr.ph.i27.i ], [ %140, %.lr.ph.preheader.i26.i ]
   %.01621.i30.i = phi double [ %.1.i32.i, %.lr.ph.i27.i ], [ 1.000000e+00, %.lr.ph.preheader.i26.i ]
-  %157 = and i32 %.023.i28.i, 1
-  %.not19.i31.i = icmp eq i32 %157, 0
-  %158 = fmul double %.01522.i29.i, %.01621.i30.i
-  %.1.i32.i = select i1 %.not19.i31.i, double %.01621.i30.i, double %158
-  %159 = lshr i32 %.023.i28.i, 1
-  %160 = fmul double %.01522.i29.i, %.01522.i29.i
+  %156 = and i32 %.023.i28.i, 1
+  %.not19.i31.i = icmp eq i32 %156, 0
+  %157 = fmul double %.01522.i29.i, %.01621.i30.i
+  %.1.i32.i = select i1 %.not19.i31.i, double %.01621.i30.i, double %157
+  %158 = lshr i32 %.023.i28.i, 1
+  %159 = fmul double %.01522.i29.i, %.01522.i29.i
   %.not.i33.i = icmp ult i32 %.023.i28.i, 2
   br i1 %.not.i33.i, label %._crit_edge.i34.i, label %.lr.ph.i27.i, !llvm.loop !5
 
 ._crit_edge.i34.i:                                ; preds = %.lr.ph.i27.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i
   %.016.lcssa.i35.i = phi double [ 1.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit.thread43.i ], [ %.1.i32.i, %.lr.ph.i27.i ]
-  %161 = fdiv double 1.000000e+00, %.016.lcssa.i35.i
-  %162 = select i1 %155, double %.016.lcssa.i35.i, double %161
+  %160 = fdiv double 1.000000e+00, %.016.lcssa.i35.i
+  %161 = select i1 %154, double %.016.lcssa.i35.i, double %160
   br label %_ZN12colvarmodule13integer_powerERKdi.exit37.i
 
-_ZN12colvarmodule13integer_powerERKdi.exit37.i:   ; preds = %._crit_edge.i34.i, %129
-  %.017.i42.i = phi double [ %154, %._crit_edge.i34.i ], [ 0.000000e+00, %129 ]
-  %.017.i36.i = phi double [ %162, %._crit_edge.i34.i ], [ 0.000000e+00, %129 ]
-  %163 = fsub double 1.000000e+00, %.017.i42.i
-  %164 = fsub double 1.000000e+00, %.017.i36.i
-  %165 = fdiv double %163, %164
-  %166 = fsub double %165, %125
-  %167 = fsub double 1.000000e+00, %125
-  %168 = fdiv double %166, %167
-  %169 = fcmp olt double %168, 0.000000e+00
-  %..i44 = select i1 %169, double 0.000000e+00, double %168
+_ZN12colvarmodule13integer_powerERKdi.exit37.i:   ; preds = %._crit_edge.i34.i, %128
+  %.017.i42.i = phi double [ %153, %._crit_edge.i34.i ], [ 0.000000e+00, %128 ]
+  %.017.i36.i = phi double [ %161, %._crit_edge.i34.i ], [ 0.000000e+00, %128 ]
+  %162 = fsub double 1.000000e+00, %.017.i42.i
+  %163 = fsub double 1.000000e+00, %.017.i36.i
+  %164 = fdiv double %162, %163
+  %165 = fsub double %164, %124
+  %166 = fsub double 1.000000e+00, %124
+  %167 = fdiv double %165, %166
+  %168 = fcmp olt double %167, 0.000000e+00
+  %..i44 = select i1 %168, double 0.000000e+00, double %167
   br label %_ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph, %_ZN12colvarmodule13integer_powerERKdi.exit37.i
   %.0.i = phi double [ 0.000000e+00, %.lr.ph ], [ %..i44, %_ZN12colvarmodule13integer_powerERKdi.exit37.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %170 = load double, ptr %52, align 8
-  %171 = fadd double %.0.i, %170
-  store double %171, ptr %52, align 8
-  %172 = add nuw i64 %.13169, 1
-  %173 = icmp ult i64 %172, %44
-  br i1 %173, label %.lr.ph, label %.loopexit65, !llvm.loop !53
+  %169 = load double, ptr %52, align 8
+  %170 = fadd double %.0.i, %169
+  store double %170, ptr %52, align 8
+  %171 = add nuw i64 %.13169, 1
+  %exitcond.not = icmp eq i64 %171, %44
+  br i1 %exitcond.not, label %.loopexit65.loopexit, label %.lr.ph, !llvm.loop !53
 
-.loopexit:                                        ; preds = %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %174
-  %exitcond91.not = icmp eq i64 %175, %18
-  br i1 %exitcond91.not, label %.loopexit62, label %174, !llvm.loop !54
+.loopexit:                                        ; preds = %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, %172
+  %exitcond94.not = icmp eq i64 %173, %18
+  br i1 %exitcond94.not, label %.loopexit62, label %172, !llvm.loop !54
 
-174:                                              ; preds = %.lr.ph83, %.loopexit
-  %.282 = phi i64 [ 0, %.lr.ph83 ], [ %175, %.loopexit ]
-  %175 = add nuw i64 %.282, 1
-  %176 = icmp ult i64 %175, %17
-  br i1 %176, label %.lr.ph81, label %.loopexit
+172:                                              ; preds = %.lr.ph83, %.loopexit
+  %.282 = phi i64 [ 0, %.lr.ph83 ], [ %173, %.loopexit ]
+  %173 = add nuw i64 %.282, 1
+  %174 = icmp ult i64 %173, %17
+  br i1 %174, label %.lr.ph81, label %.loopexit
 
-.lr.ph81:                                         ; preds = %174, %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
-  %.23280 = phi i64 [ %225, %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %175, %174 ]
-  %177 = load i32, ptr %20, align 8
-  %178 = load i32, ptr %21, align 4
-  %179 = load ptr, ptr %8, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 504
-  %181 = load ptr, ptr %180, align 8
-  %182 = load double, ptr %22, align 8
+.lr.ph81:                                         ; preds = %172, %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
+  %.23280 = phi i64 [ %223, %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit ], [ %173, %172 ]
+  %175 = load i32, ptr %20, align 8
+  %176 = load i32, ptr %21, align 4
+  %177 = load ptr, ptr %8, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 504
+  %179 = load ptr, ptr %178, align 8
+  %180 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %183 = getelementptr inbounds %"class.colvarmodule::atom", ptr %181, i64 %.282, i32 4
-  %184 = getelementptr inbounds %"class.colvarmodule::atom", ptr %181, i64 %.23280, i32 4
-  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %183, ptr noundef nonnull align 8 dereferenceable(24) %184)
-  %185 = load double, ptr %2, align 8
-  %186 = load double, ptr %19, align 8
-  %187 = fdiv double %185, %186
-  %188 = load double, ptr %23, align 8
-  %189 = fdiv double %188, %186
-  %190 = load double, ptr %24, align 8
-  %191 = fdiv double %190, %186
-  %192 = fmul double %189, %189
-  %193 = call double @llvm.fmuladd.f64(double %187, double %187, double %192)
-  %194 = call noundef double @llvm.fmuladd.f64(double %191, double %191, double %193)
-  %195 = sdiv i32 %177, 2
-  %196 = sdiv i32 %178, 2
-  %197 = fcmp oeq double %194, 0.000000e+00
-  br i1 %197, label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %198
+  %181 = getelementptr inbounds %"class.colvarmodule::atom", ptr %179, i64 %.282, i32 4
+  %182 = getelementptr inbounds %"class.colvarmodule::atom", ptr %179, i64 %.23280, i32 4
+  call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %181, ptr noundef nonnull align 8 dereferenceable(24) %182)
+  %183 = load double, ptr %2, align 8
+  %184 = load double, ptr %19, align 8
+  %185 = fdiv double %183, %184
+  %186 = load double, ptr %23, align 8
+  %187 = fdiv double %186, %184
+  %188 = load double, ptr %24, align 8
+  %189 = fdiv double %188, %184
+  %190 = fmul double %187, %187
+  %191 = call double @llvm.fmuladd.f64(double %185, double %185, double %190)
+  %192 = call noundef double @llvm.fmuladd.f64(double %189, double %189, double %191)
+  %193 = sdiv i32 %175, 2
+  %194 = sdiv i32 %176, 2
+  %195 = fcmp oeq double %192, 0.000000e+00
+  br i1 %195, label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %196
 
-198:                                              ; preds = %.lr.ph81
-  %199 = icmp sgt i32 %177, 1
-  %.off.i45 = add i32 %177, 1
+196:                                              ; preds = %.lr.ph81
+  %197 = icmp sgt i32 %175, 1
+  %.off.i45 = add i32 %175, 1
   %.not20.i.i46 = icmp ult i32 %.off.i45, 3
   br i1 %.not20.i.i46, label %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i, label %.lr.ph.preheader.i.i47
 
-.lr.ph.preheader.i.i47:                           ; preds = %198
-  %200 = call i32 @llvm.abs.i32(i32 %195, i1 true)
+.lr.ph.preheader.i.i47:                           ; preds = %196
+  %198 = call i32 @llvm.abs.i32(i32 %193, i1 true)
   br label %.lr.ph.i.i48
 
 .lr.ph.i.i48:                                     ; preds = %.lr.ph.i.i48, %.lr.ph.preheader.i.i47
-  %.023.i.i49 = phi i32 [ %203, %.lr.ph.i.i48 ], [ %200, %.lr.ph.preheader.i.i47 ]
-  %.01522.i.i50 = phi double [ %204, %.lr.ph.i.i48 ], [ %194, %.lr.ph.preheader.i.i47 ]
+  %.023.i.i49 = phi i32 [ %201, %.lr.ph.i.i48 ], [ %198, %.lr.ph.preheader.i.i47 ]
+  %.01522.i.i50 = phi double [ %202, %.lr.ph.i.i48 ], [ %192, %.lr.ph.preheader.i.i47 ]
   %.01621.i.i51 = phi double [ %.1.i.i53, %.lr.ph.i.i48 ], [ 1.000000e+00, %.lr.ph.preheader.i.i47 ]
-  %201 = and i32 %.023.i.i49, 1
-  %.not19.i.i52 = icmp eq i32 %201, 0
-  %202 = fmul double %.01522.i.i50, %.01621.i.i51
-  %.1.i.i53 = select i1 %.not19.i.i52, double %.01621.i.i51, double %202
-  %203 = lshr i32 %.023.i.i49, 1
-  %204 = fmul double %.01522.i.i50, %.01522.i.i50
+  %199 = and i32 %.023.i.i49, 1
+  %.not19.i.i52 = icmp eq i32 %199, 0
+  %200 = fmul double %.01522.i.i50, %.01621.i.i51
+  %.1.i.i53 = select i1 %.not19.i.i52, double %.01621.i.i51, double %200
+  %201 = lshr i32 %.023.i.i49, 1
+  %202 = fmul double %.01522.i.i50, %.01522.i.i50
   %.not.i.i54 = icmp ult i32 %.023.i.i49, 2
   br i1 %.not.i.i54, label %_ZN12colvarmodule13integer_powerERKdi.exit.i55, label %.lr.ph.i.i48, !llvm.loop !5
 
 _ZN12colvarmodule13integer_powerERKdi.exit.i55:   ; preds = %.lr.ph.i.i48
-  %205 = fdiv double 1.000000e+00, %.1.i.i53
-  %206 = select i1 %199, double %.1.i.i53, double %205
+  %203 = fdiv double 1.000000e+00, %.1.i.i53
+  %204 = select i1 %197, double %.1.i.i53, double %203
   br label %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
 
-_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i55, %198
-  %207 = phi double [ %206, %_ZN12colvarmodule13integer_powerERKdi.exit.i55 ], [ 1.000000e+00, %198 ]
-  %208 = icmp sgt i32 %178, 1
-  %.off42.i = add i32 %178, 1
+_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i: ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.i55, %196
+  %205 = phi double [ %204, %_ZN12colvarmodule13integer_powerERKdi.exit.i55 ], [ 1.000000e+00, %196 ]
+  %206 = icmp sgt i32 %176, 1
+  %.off42.i = add i32 %176, 1
   %.not20.i22.i = icmp ult i32 %.off42.i, 3
   br i1 %.not20.i22.i, label %._crit_edge.i31.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
-  %209 = call i32 @llvm.abs.i32(i32 %196, i1 true)
+  %207 = call i32 @llvm.abs.i32(i32 %194, i1 true)
   br label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i23.i
-  %.023.i25.i = phi i32 [ %212, %.lr.ph.i24.i ], [ %209, %.lr.ph.preheader.i23.i ]
-  %.01522.i26.i = phi double [ %213, %.lr.ph.i24.i ], [ %194, %.lr.ph.preheader.i23.i ]
+  %.023.i25.i = phi i32 [ %210, %.lr.ph.i24.i ], [ %207, %.lr.ph.preheader.i23.i ]
+  %.01522.i26.i = phi double [ %211, %.lr.ph.i24.i ], [ %192, %.lr.ph.preheader.i23.i ]
   %.01621.i27.i = phi double [ %.1.i29.i, %.lr.ph.i24.i ], [ 1.000000e+00, %.lr.ph.preheader.i23.i ]
-  %210 = and i32 %.023.i25.i, 1
-  %.not19.i28.i = icmp eq i32 %210, 0
-  %211 = fmul double %.01522.i26.i, %.01621.i27.i
-  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %211
-  %212 = lshr i32 %.023.i25.i, 1
-  %213 = fmul double %.01522.i26.i, %.01522.i26.i
+  %208 = and i32 %.023.i25.i, 1
+  %.not19.i28.i = icmp eq i32 %208, 0
+  %209 = fmul double %.01522.i26.i, %.01621.i27.i
+  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %209
+  %210 = lshr i32 %.023.i25.i, 1
+  %211 = fmul double %.01522.i26.i, %.01522.i26.i
   %.not.i30.i = icmp ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !5
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i
   %.016.lcssa.i32.i = phi double [ 1.000000e+00, %_ZN12colvarmodule13integer_powerERKdi.exit.thread40.i ], [ %.1.i29.i, %.lr.ph.i24.i ]
-  %214 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
-  %215 = select i1 %208, double %.016.lcssa.i32.i, double %214
+  %212 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
+  %213 = select i1 %206, double %.016.lcssa.i32.i, double %212
   br label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph81, %._crit_edge.i31.i
-  %.017.i39.i = phi double [ %207, %._crit_edge.i31.i ], [ 0.000000e+00, %.lr.ph81 ]
-  %.017.i33.i = phi double [ %215, %._crit_edge.i31.i ], [ 0.000000e+00, %.lr.ph81 ]
-  %216 = fsub double 1.000000e+00, %.017.i39.i
-  %217 = fsub double 1.000000e+00, %.017.i33.i
-  %218 = fdiv double %216, %217
-  %219 = fsub double %218, %182
-  %220 = fsub double 1.000000e+00, %182
-  %221 = fdiv double %219, %220
-  %222 = fcmp olt double %221, 0.000000e+00
-  %..i56 = select i1 %222, double 0.000000e+00, double %221
+  %.017.i39.i = phi double [ %205, %._crit_edge.i31.i ], [ 0.000000e+00, %.lr.ph81 ]
+  %.017.i33.i = phi double [ %213, %._crit_edge.i31.i ], [ 0.000000e+00, %.lr.ph81 ]
+  %214 = fsub double 1.000000e+00, %.017.i39.i
+  %215 = fsub double 1.000000e+00, %.017.i33.i
+  %216 = fdiv double %214, %215
+  %217 = fsub double %216, %180
+  %218 = fsub double 1.000000e+00, %180
+  %219 = fdiv double %217, %218
+  %220 = fcmp olt double %219, 0.000000e+00
+  %..i56 = select i1 %220, double 0.000000e+00, double %219
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %223 = load double, ptr %25, align 8
-  %224 = fadd double %223, %..i56
-  store double %224, ptr %25, align 8
-  %225 = add nuw i64 %.23280, 1
-  %226 = icmp ult i64 %225, %17
-  br i1 %226, label %.lr.ph81, label %.loopexit, !llvm.loop !55
+  %221 = load double, ptr %25, align 8
+  %222 = fadd double %221, %..i56
+  store double %222, ptr %25, align 8
+  %223 = add nuw i64 %.23280, 1
+  %exitcond93.not = icmp eq i64 %223, %17
+  br i1 %exitcond93.not, label %.loopexit, label %.lr.ph81, !llvm.loop !55
 
 .loopexit62:                                      ; preds = %.loopexit65, %.loopexit63, %.loopexit, %.preheader66, %.preheader, %7
   ret i32 0

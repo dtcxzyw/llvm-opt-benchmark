@@ -815,11 +815,11 @@ define void @SUNBandMatrix_Print(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %5, label %.lr.ph44, label %._crit_edge45
 
 .lr.ph44:                                         ; preds = %2, %._crit_edge
-  %6 = phi ptr [ %35, %._crit_edge ], [ %3, %2 ]
-  %.042 = phi i64 [ %34, %._crit_edge ], [ 0, %2 ]
+  %6 = phi ptr [ %34, %._crit_edge ], [ %3, %2 ]
+  %.042 = phi i64 [ %33, %._crit_edge ], [ 0, %2 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = sub nsw i64 %.042, %8
+  %9 = sub i64 %.042, %8
   %spec.select = tail call i64 @llvm.smax.i64(i64 %9, i64 0)
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
@@ -840,34 +840,34 @@ define void @SUNBandMatrix_Print(ptr nocapture noundef readonly %0, ptr nocaptur
   %.03038 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph44 ]
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #16
   %19 = add nuw nsw i64 %.03038, 1
-  %20 = icmp sgt i64 %9, %19
-  br i1 %20, label %.lr.ph, label %.preheader
+  %exitcond.not = icmp eq i64 %19, %9
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 .lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
-  %.140 = phi i64 [ %33, %.lr.ph41 ], [ %spec.select, %.preheader ]
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %.140
-  %25 = load ptr, ptr %24, align 8
-  %26 = sub nsw i64 %.042, %.140
-  %27 = getelementptr inbounds i8, ptr %21, i64 40
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr double, ptr %25, i64 %26
-  %30 = getelementptr double, ptr %29, i64 %28
-  %31 = load double, ptr %30, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %31) #16
-  %33 = add nuw nsw i64 %.140, 1
+  %.140 = phi i64 [ %32, %.lr.ph41 ], [ %spec.select, %.preheader ]
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %.140
+  %24 = load ptr, ptr %23, align 8
+  %25 = sub nsw i64 %.042, %.140
+  %26 = getelementptr inbounds i8, ptr %20, i64 40
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr double, ptr %24, i64 %25
+  %29 = getelementptr double, ptr %28, i64 %27
+  %30 = load double, ptr %29, align 8
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #16
+  %32 = add nuw nsw i64 %.140, 1
   %.not36.not = icmp slt i64 %.140, %16
   br i1 %.not36.not, label %.lr.ph41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph41, %.preheader
   %fputc37 = tail call i32 @fputc(i32 10, ptr %1)
-  %34 = add nuw nsw i64 %.042, 1
-  %35 = load ptr, ptr %0, align 8
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp slt i64 %34, %36
-  br i1 %37, label %.lr.ph44, label %._crit_edge45
+  %33 = add nuw nsw i64 %.042, 1
+  %34 = load ptr, ptr %0, align 8
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp slt i64 %33, %35
+  br i1 %36, label %.lr.ph44, label %._crit_edge45
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %2
   %fputc35 = tail call i32 @fputc(i32 10, ptr %1)
