@@ -23641,7 +23641,7 @@ openjdk/RawNativeLibraries.ll 48580369
 openjdk/Reentrancy.ll 58002387
 openjdk/Reference.ll 39610609
 openjdk/ReferenceTypeImpl.ll 174472431
-openjdk/Reflection.ll 37876516
+openjdk/Reflection.ll 37914464
 openjdk/Region.ll 157649418
 openjdk/ResolverConfigurationImpl.ll 39134627
 openjdk/Runtime.ll 38855308
