@@ -322,7 +322,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit unwind label %9
 
 _ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit: ; preds = %1, %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -366,7 +366,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataIP17MLRenderingActionP7QActionE7destroyEv.exit unwind label %9
 
 _ZN8QMapDataIP17MLRenderingActionP7QActionE7destroyEv.exit: ; preds = %1, %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -524,7 +524,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i unwind label %11
 
 .noexc.i:                                         ; preds = %10, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %7)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerED2Ev.exit unwind label %11
 
 11:                                               ; preds = %.noexc.i, %10
@@ -564,7 +564,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread3.i1:   ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc.i3 unwind label %22
 
 .noexc.i3:                                        ; preds = %21, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i1
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
           to label %_ZN4QMapIP17MLRenderingActionP7QActionED2Ev.exit unwind label %22
 
 22:                                               ; preds = %.noexc.i3, %21
@@ -627,7 +627,7 @@ define void @_ZN18MLRenderingToolbarD0Ev(ptr noundef nonnull align 8 dereference
 define void @_ZThn16_N18MLRenderingToolbarD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN18MLRenderingToolbarD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #25
   ret void
 }
 
@@ -654,7 +654,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 9:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4, !noalias !5
-  %12 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %11)
+  %12 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %11)
   %13 = load ptr, ptr %3, align 8, !alias.scope !5
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %13, i64 8
@@ -1131,7 +1131,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 10:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4, !noalias !18
-  %13 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %12)
+  %13 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %12)
   %14 = load ptr, ptr %3, align 8, !alias.scope !18
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %14, i64 8
@@ -1310,7 +1310,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i32:  ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit.i34 unwind label %144
 
 _ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit.i34: ; preds = %89, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i32
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %86)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %86)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i31 unwind label %144
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i31:   ; preds = %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit.i34, %_ZN9QtPrivate8RefCount5derefEv.exit.i35, %82
@@ -1413,7 +1413,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit.i unwind label %144
 
 _ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit.i: ; preds = %123, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %120)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %120)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i unwind label %144
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i:     ; preds = %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %116
@@ -1688,7 +1688,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit
 
 _ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -1792,7 +1792,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 10:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4, !noalias !32
-  %13 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %12)
+  %13 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %12)
   %14 = load ptr, ptr %3, align 8, !alias.scope !32
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %14, i64 8
@@ -2732,7 +2732,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %11
 17:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 4
   %19 = load i32, ptr %18, align 4, !noalias !46
-  %20 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %19)
+  %20 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %19)
   %21 = load ptr, ptr %3, align 8, !alias.scope !46
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = getelementptr inbounds i8, ptr %21, i64 8
@@ -3024,7 +3024,7 @@ define noundef ptr @_ZN26MLRenderingParametersFrame7factoryEP17MLRenderingAction
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN31MLRenderingSolidParametersFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -1, ptr %4, align 8
@@ -3039,7 +3039,7 @@ define void @_ZN31MLRenderingSolidParametersFrameC2EP7QWidget(ptr noundef nonnul
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %7
 }
 
@@ -3796,7 +3796,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %229
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN31MLRenderingSolidParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %2, i32 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
@@ -3811,7 +3811,7 @@ define void @_ZN31MLRenderingSolidParametersFrameC2EiP7QWidget(ptr noundef nonnu
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %8
 }
 
@@ -4069,7 +4069,7 @@ define void @_ZN31MLRenderingSolidParametersFrameD2Ev(ptr noundef nonnull align 
   br label %34
 
 34:                                               ; preds = %30, %26
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   ret void
 }
 
@@ -4091,7 +4091,7 @@ define void @_ZN31MLRenderingSolidParametersFrameD0Ev(ptr noundef nonnull align 
 define void @_ZThn16_N31MLRenderingSolidParametersFrameD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN31MLRenderingSolidParametersFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %2) #25
   ret void
 }
 
@@ -5112,7 +5112,7 @@ declare void @_ZN33MLRenderingPerVertTextCoordActionC1EN3vcg20GLMeshAttributesIn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN30MLRenderingWireParametersFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -1, ptr %4, align 8
@@ -5127,7 +5127,7 @@ define void @_ZN30MLRenderingWireParametersFrameC2EP7QWidget(ptr noundef nonnull
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %7
 }
 
@@ -5776,7 +5776,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %184
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN30MLRenderingWireParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %2, i32 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
@@ -5791,7 +5791,7 @@ define void @_ZN30MLRenderingWireParametersFrameC2EiP7QWidget(ptr noundef nonnul
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %8
 }
 
@@ -5852,7 +5852,7 @@ define void @_ZN30MLRenderingWireParametersFrameD2Ev(ptr noundef nonnull align 8
   br label %34
 
 34:                                               ; preds = %30, %26
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   ret void
 }
 
@@ -5874,7 +5874,7 @@ define void @_ZN30MLRenderingWireParametersFrameD0Ev(ptr noundef nonnull align 8
 define void @_ZThn16_N30MLRenderingWireParametersFrameD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN30MLRenderingWireParametersFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(112) %2) #25
   ret void
 }
 
@@ -5918,7 +5918,7 @@ define void @_ZN30MLRenderingWireParametersFrame48setPrimitiveButtonStatesAccord
   %31 = getelementptr inbounds i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef float %32(ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  tail call void @_ZN13MLFloatSlider8setValueEf(ptr noundef nonnull align 8 dereferenceable(48) %26, float noundef %33)
+  tail call void @_ZN13MLFloatSlider8setValueEf(ptr noundef nonnull align 8 dereferenceable(60) %26, float noundef %33)
   %34 = load ptr, ptr %27, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   store float %33, ptr %35, align 8
@@ -6467,7 +6467,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %8
 17:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %13, i64 4
   %19 = load i32, ptr %18, align 4, !noalias !58
-  %20 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %19)
+  %20 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef %19)
   %21 = load ptr, ptr %4, align 8, !alias.scope !58
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = getelementptr inbounds i8, ptr %21, i64 8
@@ -6575,7 +6575,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i21:        ; preds = %_ZN9QtPrivate17QFor
 67:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i21
   %68 = getelementptr inbounds i8, ptr %63, i64 4
   %69 = load i32, ptr %68, align 4, !noalias !69
-  %70 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %69)
+  %70 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %69)
   %71 = load ptr, ptr %5, align 8, !alias.scope !69
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = getelementptr inbounds i8, ptr %71, i64 8
@@ -6729,7 +6729,7 @@ declare void @_ZN26MLRenderingParametersFrame37updateRenderingDataAccordingToAct
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32MLRenderingPointsParametersFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -1, ptr %4, align 8
@@ -6744,7 +6744,7 @@ define void @_ZN32MLRenderingPointsParametersFrameC2EP7QWidget(ptr noundef nonnu
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %7
 }
 
@@ -7410,7 +7410,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %191
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32MLRenderingPointsParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %2, i32 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
@@ -7425,7 +7425,7 @@ define void @_ZN32MLRenderingPointsParametersFrameC2EiP7QWidget(ptr noundef nonn
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %8
 }
 
@@ -7486,7 +7486,7 @@ define void @_ZN32MLRenderingPointsParametersFrameD2Ev(ptr noundef nonnull align
   br label %34
 
 34:                                               ; preds = %30, %26
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   ret void
 }
 
@@ -7508,7 +7508,7 @@ define void @_ZN32MLRenderingPointsParametersFrameD0Ev(ptr noundef nonnull align
 define void @_ZThn16_N32MLRenderingPointsParametersFrameD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN32MLRenderingPointsParametersFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(112) %2) #25
   ret void
 }
 
@@ -7675,7 +7675,7 @@ define void @_ZN32MLRenderingPointsParametersFrame48setPrimitiveButtonStatesAcco
   %31 = getelementptr inbounds i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef float %32(ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  tail call void @_ZN13MLFloatSlider8setValueEf(ptr noundef nonnull align 8 dereferenceable(48) %26, float noundef %33)
+  tail call void @_ZN13MLFloatSlider8setValueEf(ptr noundef nonnull align 8 dereferenceable(60) %26, float noundef %33)
   %34 = load ptr, ptr %27, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   store float %33, ptr %35, align 8
@@ -7995,7 +7995,7 @@ _ZN5QListIP7QActionED2Ev.exit28:                  ; preds = %_ZN5QListIP7QAction
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN30MLRenderingBBoxParametersFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -1, ptr %4, align 8
@@ -8010,7 +8010,7 @@ define void @_ZN30MLRenderingBBoxParametersFrameC2EP7QWidget(ptr noundef nonnull
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %7
 }
 
@@ -8348,7 +8348,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %87
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN30MLRenderingBBoxParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %2, i32 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
@@ -8363,7 +8363,7 @@ define void @_ZN30MLRenderingBBoxParametersFrameC2EiP7QWidget(ptr noundef nonnul
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %8
 }
 
@@ -8398,7 +8398,7 @@ define void @_ZN30MLRenderingBBoxParametersFrameD2Ev(ptr noundef nonnull align 8
   br label %18
 
 18:                                               ; preds = %14, %10
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   ret void
 }
 
@@ -8420,7 +8420,7 @@ define void @_ZN30MLRenderingBBoxParametersFrameD0Ev(ptr noundef nonnull align 8
 define void @_ZThn16_N30MLRenderingBBoxParametersFrameD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN30MLRenderingBBoxParametersFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #25
   ret void
 }
 
@@ -8659,7 +8659,7 @@ declare void @_ZN31MLRenderingBBoxQuotedInfoActionC1EiP7QObject(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -1, ptr %4, align 8
@@ -8674,7 +8674,7 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EP7QWidget(ptr nou
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %7
 }
 
@@ -9352,7 +9352,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %164
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %2, i32 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
@@ -9367,7 +9367,7 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EiP7QWidget(ptr no
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %8
 }
 
@@ -9441,7 +9441,7 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameD2Ev(ptr noundef non
   br label %42
 
 42:                                               ; preds = %38, %34
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   ret void
 }
 
@@ -9463,7 +9463,7 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameD0Ev(ptr noundef non
 define void @_ZThn16_N42MLRenderingDefaultDecoratorParametersFrameD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN42MLRenderingDefaultDecoratorParametersFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(96) %2) #25
   ret void
 }
 
@@ -10000,7 +10000,7 @@ declare void @_ZN26MLRenderingTexBorderActionC1EiP7QObject(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN35MLRenderingSelectionParametersFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -1, ptr %4, align 8
@@ -10015,7 +10015,7 @@ define void @_ZN35MLRenderingSelectionParametersFrameC2EP7QWidget(ptr noundef no
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %7
 }
 
@@ -10327,7 +10327,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %71
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN35MLRenderingSelectionParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i32 0)
+  tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %2, i32 0)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
@@ -10342,7 +10342,7 @@ define void @_ZN35MLRenderingSelectionParametersFrameC2EiP7QWidget(ptr noundef n
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   resume { ptr, i32 } %8
 }
 
@@ -10377,7 +10377,7 @@ define void @_ZN35MLRenderingSelectionParametersFrameD2Ev(ptr noundef nonnull al
   br label %18
 
 18:                                               ; preds = %14, %10
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #24
   ret void
 }
 
@@ -10399,7 +10399,7 @@ define void @_ZN35MLRenderingSelectionParametersFrameD0Ev(ptr noundef nonnull al
 define void @_ZThn16_N35MLRenderingSelectionParametersFrameD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN35MLRenderingSelectionParametersFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
   ret void
 }
 
@@ -10700,7 +10700,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
 22:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %23 = getelementptr inbounds i8, ptr %18, i64 4
   %24 = load i32, ptr %23, align 4, !noalias !82
-  %25 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %24)
+  %25 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %24)
   %26 = load ptr, ptr %3, align 8, !alias.scope !82
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = getelementptr inbounds i8, ptr %26, i64 8
@@ -10883,7 +10883,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit.i unwind label %182
 
 _ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit.i: ; preds = %.noexc57, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %95)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %95)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i unwind label %182
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i:     ; preds = %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i54, %91
@@ -10990,7 +10990,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7.i64:  ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit.i66 unwind label %182
 
 _ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit.i66: ; preds = %.noexc73, %_ZN9QtPrivate8RefCount5derefEv.exit.thread7.i64
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %129)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %129)
           to label %_ZN9QtPrivate8RefCount5derefEv.exit.thread.i63 unwind label %182
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread.i63:   ; preds = %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit.i66, %_ZN9QtPrivate8RefCount5derefEv.exit.i67, %125
@@ -11249,7 +11249,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2:      ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge, %1
   %5 = phi ptr [ %.pre, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge ], [ %2, %1 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %5, i64 noundef 8, i64 noundef 8) #24
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 8) #24
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -11291,7 +11291,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4:      ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1 unwind label %10
 
 .noexc1:                                          ; preds = %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %5)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit unwind label %10
 
 _ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit: ; preds = %1, %.noexc1, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -11407,7 +11407,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %15, %19
   %26 = getelementptr inbounds i8, ptr %25, i64 424
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(52) %24, i32 noundef %1)
-  %28 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.0)
+  %28 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0)
   %.pre = load ptr, ptr %4, align 8
   br label %15, !llvm.loop !96
 
@@ -11468,7 +11468,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit
 
 _ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataI7QStringP26MLRenderingParametersFrameE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -11637,7 +11637,7 @@ define linkonce_odr void @_ZN7QVectorIP17MLRenderingActionE7reallocEi6QFlagsIN10
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #24
   tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef null, i64 noundef 8, i64 noundef 8) #24
   invoke void @__cxa_rethrow() #27
-          to label %46 unwind label %39
+          to label %48 unwind label %39
 
 13:                                               ; preds = %3, %8
   %14 = load ptr, ptr %0, align 8
@@ -11682,28 +11682,36 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %13
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %42 unwind label %43
+          to label %44 unwind label %45
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread23:     ; preds = %13, %_ZN9QtPrivate8RefCount5derefEv.exit
+  %.not21 = icmp eq i32 %1, 0
   %41 = load ptr, ptr %0, align 8
+  br i1 %.not21, label %43, label %42
+
+42:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23
   tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %41, i64 noundef 8, i64 noundef 8) #24
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23, %13, %_ZN9QtPrivate8RefCount5derefEv.exit
+43:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %41, i64 noundef 8, i64 noundef 8) #24
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
+
+_ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %13, %43, %42, %_ZN9QtPrivate8RefCount5derefEv.exit
   store ptr %7, ptr %0, align 8
   ret void
 
-42:                                               ; preds = %39
+44:                                               ; preds = %39
   resume { ptr, i32 } %40
 
-43:                                               ; preds = %39
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %39
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #26
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #26
   unreachable
 
-46:                                               ; preds = %9
+48:                                               ; preds = %9
   unreachable
 }
 
@@ -11846,7 +11854,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %14, %18
   %25 = getelementptr inbounds i8, ptr %24, i64 416
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(52) %23, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %27 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.0)
+  %27 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0)
   %.pre = load ptr, ptr %3, align 8
   br label %14, !llvm.loop !97
 
@@ -12090,7 +12098,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %14, %18
   %25 = getelementptr inbounds i8, ptr %24, i64 464
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(52) %23, ptr noundef %1)
-  %27 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.0)
+  %27 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0)
   %.pre = load ptr, ptr %3, align 8
   br label %14, !llvm.loop !98
 
@@ -12349,7 +12357,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %14, %18
   br label %28
 
 28:                                               ; preds = %21, %24
-  %29 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.0)
+  %29 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0)
   %.pre = load ptr, ptr %3, align 8
   br label %14, !llvm.loop !100
 
@@ -12413,7 +12421,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %14, %18
   br label %28
 
 28:                                               ; preds = %21, %24
-  %29 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.0)
+  %29 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0)
   %.pre = load ptr, ptr %3, align 8
   br label %14, !llvm.loop !101
 
@@ -12476,7 +12484,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %14, %18
   br label %27
 
 27:                                               ; preds = %21, %25
-  %28 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0)
+  %28 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.0)
   %.pre = load ptr, ptr %3, align 8
   br label %14, !llvm.loop !102
 
@@ -12551,7 +12559,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE8iteratorppEv.exit: ; preds = %30
   br label %30
 
 30:                                               ; preds = %22, %26
-  %31 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.09.0)
+  %31 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.09.0)
           to label %_ZN4QMapI7QStringP26MLRenderingParametersFrameE8iteratorppEv.exit unwind label %.loopexit
 
 32:                                               ; preds = %19
@@ -12574,7 +12582,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %32
   %37 = phi ptr [ %.pre.i4, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %34, %32 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %37, i64 noundef 8, i64 noundef 8) #24
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %37, i64 noundef 8, i64 noundef 8) #24
   br label %_ZN7QVectorIP17MLRenderingActionED2Ev.exit
 
 _ZN7QVectorIP17MLRenderingActionED2Ev.exit:       ; preds = %32, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -12611,7 +12619,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %46
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %41)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %41)
           to label %_ZN4QMapI7QStringP26MLRenderingParametersFrameED2Ev.exit unwind label %46
 
 46:                                               ; preds = %.noexc1.i, %.noexc.i, %44
@@ -12660,7 +12668,7 @@ define void @_ZN24MLRenderingParametersTabD0Ev(ptr noundef nonnull align 8 deref
 define void @_ZThn16_N24MLRenderingParametersTabD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN24MLRenderingParametersTabD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
   ret void
 }
 
@@ -12720,7 +12728,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %16, %20
   %31 = getelementptr inbounds i8, ptr %30, i64 416
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(52) %29, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %33 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.0)
+  %33 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.04.0)
   %.pre = load ptr, ptr %5, align 8
   br label %16, !llvm.loop !103
 
@@ -12757,7 +12765,7 @@ define void @_ZNK24MLRenderingParametersTab37getCurrentRenderingDataAccordingToG
   br label %16
 
 16:                                               ; preds = %.lr.ph, %12
-  %17 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02.08)
+  %17 = tail call noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02.08)
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %.not6 = icmp eq ptr %17, %19
@@ -12785,7 +12793,7 @@ define void @_ZN22MLRenderingColorPickerC2EiP40MLRenderingUserDefinedGeneralColo
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %9
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %0, ptr noundef nonnull @.str.37, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.37, i32 noundef 0)
           to label %.noexc4 unwind label %11
 
 .noexc4:                                          ; preds = %.noexc
@@ -12844,7 +12852,7 @@ define void @_ZN22MLRenderingColorPickerC2EP40MLRenderingUserDefinedGeneralColor
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %0, ptr noundef nonnull @.str.37, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.37, i32 noundef 0)
           to label %.noexc4 unwind label %10
 
 .noexc4:                                          ; preds = %.noexc
@@ -12886,7 +12894,7 @@ define void @_ZN22MLRenderingColorPickerD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22MLRenderingColorPickerD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22MLRenderingColorPickerD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -13310,7 +13318,7 @@ define void @_ZN23MLRenderingOnOffToolbarD0Ev(ptr noundef nonnull align 8 derefe
 define void @_ZThn16_N23MLRenderingOnOffToolbarD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN23MLRenderingOnOffToolbarD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %2) #25
   ret void
 }
 
@@ -13577,7 +13585,7 @@ define void @_ZN22MLRenderingFloatSliderD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22MLRenderingFloatSliderD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22MLRenderingFloatSliderD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(60) %2) #25
   ret void
 }
 
@@ -14508,7 +14516,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %46
 51:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %52 = getelementptr inbounds i8, ptr %47, i64 4
   %53 = load i32, ptr %52, align 4, !noalias !131
-  %54 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %53)
+  %54 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef %53)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %51
@@ -14599,7 +14607,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i35: ; preds = %_ZN9QtPrivate8RefC
   unreachable
 
 _ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit: ; preds = %.critedge2, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i36, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i35
-  %92 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.054.0)
+  %92 = invoke noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.054.0)
           to label %_ZN4QMapIi15MLRenderingDataE14const_iteratorppEv.exit unwind label %.loopexit
 
 .loopexit:                                        ; preds = %44, %51, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit
@@ -14896,7 +14904,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %52
 57:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %58 = getelementptr inbounds i8, ptr %53, i64 4
   %59 = load i32, ptr %58, align 4, !noalias !153
-  %60 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %59)
+  %60 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %59)
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %57
@@ -15125,7 +15133,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i44:        ; preds = %139
 144:                                              ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i44
   %145 = getelementptr inbounds i8, ptr %140, i64 4
   %146 = load i32, ptr %145, align 4, !noalias !166
-  %147 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %146)
+  %147 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %8, i32 noundef %146)
           to label %.noexc50 unwind label %42
 
 .noexc50:                                         ; preds = %144

@@ -417,11 +417,7 @@ if.then.i.i160:                                   ; preds = %for.cond.cleanup66
 
 _ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %for.cond.cleanup66
   store i64 0, ptr %temp, align 8
-  br i1 %cmp.not.i145, label %_ZNSt12_Vector_baseISt4pairIdSt6vectorIdSaIdEEESaIS4_EEC2EmRKS5_.exit.thread.i, label %for.inc.preheader.i.i.i.i.i
-
-_ZNSt12_Vector_baseISt4pairIdSt6vectorIdSaIdEEESaIS4_EEC2EmRKS5_.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  store i64 0, ptr %temp, align 8
-  br label %invoke.cont296
+  br i1 %cmp.not.i145, label %invoke.cont296, label %for.inc.preheader.i.i.i.i.i
 
 for.inc.preheader.i.i.i.i.i:                      ; preds = %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread, %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %11, 5
@@ -640,10 +636,10 @@ for.inc290:                                       ; preds = %invoke.cont69.for.i
   %cmp65.not = icmp eq i64 %dec291, 0
   br i1 %cmp65.not, label %for.cond.cleanup66, label %invoke.cont69.preheader, !llvm.loop !38
 
-invoke.cont296:                                   ; preds = %call5.i.i.i.i2.i.i.noexc, %_ZNSt12_Vector_baseISt4pairIdSt6vectorIdSaIdEEESaIS4_EEC2EmRKS5_.exit.thread.i
-  %88 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIdSt6vectorIdSaIdEEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %call5.i.i.i.i2.i.i161, %call5.i.i.i.i2.i.i.noexc ]
-  %add.ptr.i.i.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIdSt6vectorIdSaIdEEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
-  %89 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIdSt6vectorIdSaIdEEESaIS4_EEC2EmRKS5_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+invoke.cont296:                                   ; preds = %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %call5.i.i.i.i2.i.i.noexc
+  %88 = phi ptr [ %call5.i.i.i.i2.i.i161, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %89 = phi ptr [ %scevgep.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorISt4pairIdS_IdSaIdEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %temp, i64 16
   store ptr %add.ptr.i.i.sink.i, ptr %90, align 8

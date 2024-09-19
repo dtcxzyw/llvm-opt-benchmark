@@ -1150,9 +1150,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 184:                                              ; preds = %181, %181
   store ptr %182, ptr %5, align 8
-  %185 = call fastcc float @parseFloat(ptr noundef %5)
-  %186 = call fastcc float @parseFloat(ptr noundef %5)
-  %187 = call fastcc float @parseFloat(ptr noundef %5)
+  %185 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %186 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %187 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 188:                                              ; preds = %178
@@ -1165,9 +1165,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 191:                                              ; preds = %188, %188
   store ptr %189, ptr %5, align 8
-  %192 = call fastcc float @parseFloat(ptr noundef %5)
-  %193 = call fastcc float @parseFloat(ptr noundef %5)
-  %194 = call fastcc float @parseFloat(ptr noundef %5)
+  %192 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %193 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %194 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 195:                                              ; preds = %178
@@ -1180,9 +1180,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 198:                                              ; preds = %195, %195
   store ptr %196, ptr %5, align 8
-  %199 = call fastcc float @parseFloat(ptr noundef %5)
-  %200 = call fastcc float @parseFloat(ptr noundef %5)
-  %201 = call fastcc float @parseFloat(ptr noundef %5)
+  %199 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %200 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %201 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 202:                                              ; preds = %178
@@ -1195,9 +1195,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 205:                                              ; preds = %202, %202
   store ptr %203, ptr %5, align 8
-  %206 = call fastcc float @parseFloat(ptr noundef %5)
-  %207 = call fastcc float @parseFloat(ptr noundef %5)
-  %208 = call fastcc float @parseFloat(ptr noundef %5)
+  %206 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %207 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %208 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 209:                                              ; preds = %177
@@ -1231,9 +1231,9 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 220:                                              ; preds = %217, %217
   store ptr %218, ptr %5, align 8
-  %221 = call fastcc float @parseFloat(ptr noundef %5)
-  %222 = call fastcc float @parseFloat(ptr noundef %5)
-  %223 = call fastcc float @parseFloat(ptr noundef %5)
+  %221 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %222 = call fastcc float @parseFloat(ptr noundef nonnull %5)
+  %223 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   br label %.backedge
 
 224:                                              ; preds = %209
@@ -2117,9 +2117,9 @@ skip_space.exit.i:                                ; preds = %94
 .thread485:                                       ; preds = %98, %98
   %101 = getelementptr inbounds i8, ptr %95, i64 2
   store ptr %101, ptr %10, align 8
-  %102 = call fastcc float @parseFloat(ptr noundef %10)
-  %103 = call fastcc float @parseFloat(ptr noundef %10)
-  %104 = call fastcc float @parseFloat(ptr noundef %10)
+  %102 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %103 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %104 = call fastcc float @parseFloat(ptr noundef nonnull %10)
   store float %102, ptr %84, align 8
   %105 = getelementptr inbounds i8, ptr %84, i64 4
   store float %103, ptr %105, align 4
@@ -2144,9 +2144,9 @@ skip_space.exit.i:                                ; preds = %94
 .thread486:                                       ; preds = %107, %107
   %110 = getelementptr inbounds i8, ptr %95, i64 3
   store ptr %110, ptr %10, align 8
-  %111 = call fastcc float @parseFloat(ptr noundef %10)
-  %112 = call fastcc float @parseFloat(ptr noundef %10)
-  %113 = call fastcc float @parseFloat(ptr noundef %10)
+  %111 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %112 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %113 = call fastcc float @parseFloat(ptr noundef nonnull %10)
   %114 = getelementptr inbounds i8, ptr %84, i64 12
   store float %111, ptr %114, align 4
   %115 = getelementptr inbounds i8, ptr %84, i64 16
@@ -2172,8 +2172,8 @@ skip_space.exit.i:                                ; preds = %94
 .thread487:                                       ; preds = %117, %117
   %120 = getelementptr inbounds i8, ptr %95, i64 3
   store ptr %120, ptr %10, align 8
-  %121 = call fastcc float @parseFloat(ptr noundef %10)
-  %122 = call fastcc float @parseFloat(ptr noundef %10)
+  %121 = call fastcc float @parseFloat(ptr noundef nonnull %10)
+  %122 = call fastcc float @parseFloat(ptr noundef nonnull %10)
   %123 = getelementptr inbounds i8, ptr %84, i64 24
   store float %121, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %84, i64 28
@@ -12133,7 +12133,7 @@ define hidden ptr @_m3dstbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef 
   %9 = alloca [4 x i8], align 1
   %10 = alloca %struct._m3dstbi__zbuf, align 8
   %11 = sext i32 %2 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #55
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %11) #55
   %13 = icmp eq ptr %12, null
   br i1 %13, label %696, label %14
 
@@ -14810,7 +14810,7 @@ _m3dstbi__getn.exit.i.i:                          ; preds = %330
   %360 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %spec.select1003.i.i, ptr %360, align 4
   %361 = load i32, ptr %9, align 4
-  %362 = call fastcc i32 @_m3dstbi__create_png_image(ptr noundef %10, ptr noundef nonnull %352, i32 noundef %361, i32 noundef %spec.select1003.i.i, i32 noundef %31, i32 noundef %.0200.i.i, i32 noundef %.0202.i.i)
+  %362 = call fastcc i32 @_m3dstbi__create_png_image(ptr noundef nonnull %10, ptr noundef nonnull %352, i32 noundef %361, i32 noundef %spec.select1003.i.i, i32 noundef %31, i32 noundef %.0200.i.i, i32 noundef %.0202.i.i)
   %.not217.i.i = icmp eq i32 %362, 0
   br i1 %.not217.i.i, label %_m3dstbi__parse_png_file.exit.thread.i, label %363
 
@@ -14847,7 +14847,7 @@ _m3dstbi__getn.exit.i.i:                          ; preds = %330
   %373 = zext i8 %.0186.i.i to i32
   store i32 %373, ptr %18, align 8
   store i32 %373, ptr %360, align 4
-  %374 = call fastcc i32 @_m3dstbi__expand_png_palette(ptr noundef %10, ptr noundef %6, i32 noundef %373)
+  %374 = call fastcc i32 @_m3dstbi__expand_png_palette(ptr noundef nonnull %10, ptr noundef %6, i32 noundef %373)
   %.not219.i.i = icmp eq i32 %374, 0
   br i1 %.not219.i.i, label %_m3dstbi__parse_png_file.exit.thread.i, label %403
 
@@ -45757,7 +45757,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %313, %310
   store i64 %330, ptr %103, align 8
   %331 = load ptr, ptr %104, align 8
   %332 = getelementptr inbounds %struct.cgltf_extension, ptr %331, i64 %329
-  %333 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %2, ptr noundef %332)
+  %333 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %2, ptr noundef %332)
   %334 = icmp slt i32 %333, 0
   %335 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %335, %312
@@ -46228,7 +46228,7 @@ cgltf_json_strcmp.exit164.i.i.i:                  ; preds = %508
 
 580:                                              ; preds = %cgltf_json_strcmp.exit164.i.i.i
   %581 = add nuw nsw i32 %.0136259.i.i.i, 1
-  %582 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %581, ptr noundef readonly %2, ptr noundef nonnull %496, ptr noundef nonnull %497)
+  %582 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %581, ptr noundef readonly %2, ptr noundef nonnull %496, ptr noundef nonnull %497)
   br label %cgltf_parse_json_extras.exit.i.i.i
 
 cgltf_json_strcmp.exit167.i.i.i:                  ; preds = %cgltf_json_strcmp.exit150.i.i.i
@@ -46289,7 +46289,7 @@ cgltf_parse_json_array.exit.i.i.i:                ; preds = %599
   %609 = load ptr, ptr %494, align 8
   %610 = getelementptr inbounds %struct.cgltf_morph_target, ptr %609, i64 %.0134256.i.i.i
   %611 = getelementptr inbounds i8, ptr %610, i64 8
-  %612 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.2255.i.i.i, ptr noundef readonly %2, ptr noundef %610, ptr noundef nonnull %611)
+  %612 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2255.i.i.i, ptr noundef readonly %2, ptr noundef %610, ptr noundef nonnull %611)
   %613 = icmp slt i32 %612, 0
   br i1 %613, label %cgltf_parse_json_asset.exit.thread, label %605
 
@@ -46490,7 +46490,7 @@ cgltf_json_strcmp.exit.i.i.i.i:                   ; preds = %707
 
 717:                                              ; preds = %cgltf_json_strcmp.exit.i.i.i.i
   %718 = add nuw nsw i32 %.03650.i.i.i.i, 1
-  %719 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %718, ptr noundef readonly %2, ptr noundef nonnull %489, ptr noundef nonnull %490)
+  %719 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %718, ptr noundef readonly %2, ptr noundef nonnull %489, ptr noundef nonnull %490)
   br label %cgltf_skip_json.exit.i.i.i.i
 
 cgltf_json_strcmp.exit40.i.i.i.i:                 ; preds = %cgltf_json_strcmp.exit.i.i.i.i
@@ -46640,7 +46640,7 @@ cgltf_json_strcmp.exit.i201.i.i.i:                ; preds = %782
 794:                                              ; preds = %792
   store i64 0, ptr %64, align 8
   %795 = add nuw nsw i32 %.03746.i.i.i.i, 1
-  %796 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef null, ptr noundef %64)
+  %796 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef null, ptr noundef %64)
   %797 = icmp slt i32 %796, 0
   br i1 %797, label %cgltf_parse_json_material_mappings.exit.i.i.i, label %798
 
@@ -46666,7 +46666,7 @@ cgltf_calloc.exit.i.i.i.i:                        ; preds = %805, %800, %798
   %.0.i42.i204.i.i.i = phi ptr [ %804, %805 ], [ null, %798 ], [ null, %800 ]
   store ptr %.0.i42.i204.i.i.i, ptr %485, align 8
   store i64 0, ptr %64, align 8
-  %806 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef %.0.i42.i204.i.i.i, ptr noundef %64)
+  %806 = call fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %795, ptr noundef readonly %2, ptr noundef %.0.i42.i204.i.i.i, ptr noundef %64)
   br label %cgltf_skip_json.exit.i198.i.i.i
 
 cgltf_json_strcmp.exit.thread.i.i.i.i:            ; preds = %cgltf_json_strcmp.exit.i201.i.i.i, %782
@@ -46726,7 +46726,7 @@ cgltf_json_strcmp.exit190.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   %829 = add i64 %828, 1
   store i64 %829, ptr %484, align 8
   %830 = getelementptr inbounds %struct.cgltf_extension, ptr %827, i64 %828
-  %831 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.3253.i.i.i, ptr noundef readonly %2, ptr noundef %830)
+  %831 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.3253.i.i.i, ptr noundef readonly %2, ptr noundef %830)
   br label %cgltf_parse_json_draco_mesh_compression.exit.i.i.i
 
 cgltf_parse_json_draco_mesh_compression.exit.i.i.i: ; preds = %760, %cgltf_json_strcmp.exit190.thread.i.i.i, %cgltf_parse_json_material_mappings.exit.i.i.i
@@ -46960,7 +46960,7 @@ cgltf_json_strcmp.exit153.i.i:                    ; preds = %924
   br i1 %939, label %940, label %cgltf_json_strcmp.exit153.thread.i.i
 
 940:                                              ; preds = %934
-  %941 = call fastcc i32 @cgltf_parse_json_string_array(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %935, ptr noundef readonly %2, ptr noundef nonnull %398, ptr noundef nonnull %399)
+  %941 = call fastcc i32 @cgltf_parse_json_string_array(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %935, ptr noundef readonly %2, ptr noundef nonnull %398, ptr noundef nonnull %399)
   br label %cgltf_skip_json.exit.i.i
 
 cgltf_json_strcmp.exit153.thread.i.i:             ; preds = %934, %cgltf_json_strcmp.exit153.i.i, %924
@@ -47106,7 +47106,7 @@ cgltf_calloc.exit.thread.i172.i.i:                ; preds = %988, %985
   store i64 %1005, ptr %394, align 8
   %1006 = load ptr, ptr %395, align 8
   %1007 = getelementptr inbounds %struct.cgltf_extension, ptr %1006, i64 %1004
-  %1008 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %2, ptr noundef %1007)
+  %1008 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %2, ptr noundef %1007)
   %1009 = icmp slt i32 %1008, 0
   %1010 = add nuw nsw i32 %.03138.i.i.i, 1
   %exitcond.not.i171.i.i = icmp eq i32 %1010, %987
@@ -48392,7 +48392,7 @@ cgltf_calloc.exit.thread.i.i329:                  ; preds = %1622, %1619
   store i64 %1639, ptr %1070, align 8
   %1640 = load ptr, ptr %1071, align 8
   %1641 = getelementptr inbounds %struct.cgltf_extension, ptr %1640, i64 %1638
-  %1642 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i326, ptr noundef readonly %2, ptr noundef %1641)
+  %1642 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i326, ptr noundef readonly %2, ptr noundef %1641)
   %1643 = icmp slt i32 %1642, 0
   %1644 = add nuw nsw i32 %.03138.i.i327, 1
   %exitcond.not.i35.i = icmp eq i32 %1644, %1621
@@ -49355,7 +49355,7 @@ cgltf_json_strcmp.exit176.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %2128 = add i64 %2127, 1
   store i64 %2128, ptr %1706, align 8
   %2129 = getelementptr inbounds %struct.cgltf_extension, ptr %2126, i64 %2127
-  %2130 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.2229.i.i, ptr noundef readonly %2, ptr noundef %2129)
+  %2130 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2229.i.i, ptr noundef readonly %2, ptr noundef %2129)
   br label %cgltf_parse_json_meshopt_compression.exit.i.i
 
 cgltf_parse_json_meshopt_compression.exit.i.i:    ; preds = %cgltf_skip_json.exit.thread.i.i.i359, %cgltf_json_strcmp.exit176.thread.i.i
@@ -49811,7 +49811,7 @@ cgltf_calloc.exit.thread.i.i.i424:                ; preds = %2341, %2338
   store i64 %2358, ptr %2191, align 8
   %2359 = load ptr, ptr %2192, align 8
   %2360 = getelementptr inbounds %struct.cgltf_extension, ptr %2359, i64 %2357
-  %2361 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i419, ptr noundef readonly %2, ptr noundef %2360)
+  %2361 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i419, ptr noundef readonly %2, ptr noundef %2360)
   %2362 = icmp slt i32 %2361, 0
   %2363 = add nuw nsw i32 %.03138.i.i.i420, 1
   %exitcond.not.i.i.i422 = icmp eq i32 %2363, %2340
@@ -50332,7 +50332,7 @@ cgltf_json_strcmp.exit76.i.i.i:                   ; preds = %2554
 
 2627:                                             ; preds = %cgltf_json_strcmp.exit76.i.i.i
   %2628 = add nuw nsw i32 %.05914.i.i.i, 1
-  %2629 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2628, ptr noundef readonly %2, ptr noundef nonnull %2432)
+  %2629 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2628, ptr noundef readonly %2, ptr noundef nonnull %2432)
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit79.i.i.i:                   ; preds = %2554
@@ -50343,7 +50343,7 @@ cgltf_json_strcmp.exit79.i.i.i:                   ; preds = %2554
 
 2633:                                             ; preds = %cgltf_json_strcmp.exit79.i.i.i
   %2634 = add nuw nsw i32 %.05914.i.i.i, 1
-  %2635 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2634, ptr noundef readonly %2, ptr noundef nonnull %2473)
+  %2635 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2634, ptr noundef readonly %2, ptr noundef nonnull %2473)
   br label %cgltf_parse_json_float_array.exit.i.i.i
 
 cgltf_json_strcmp.exit79.thread.i.i.i:            ; preds = %cgltf_json_strcmp.exit79.i.i.i, %cgltf_json_strcmp.exit76.i.i.i, %cgltf_json_strcmp.exit72.i.i.i, %cgltf_json_strcmp.exit.i.i.i485, %2554
@@ -50462,7 +50462,7 @@ cgltf_json_strcmp.exit284.i.i:                    ; preds = %2500
 
 2685:                                             ; preds = %cgltf_json_strcmp.exit284.i.i
   %2686 = add nuw nsw i32 %.0243433.i.i, 1
-  %2687 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2686, ptr noundef readonly %2, ptr noundef nonnull %2470)
+  %2687 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2686, ptr noundef readonly %2, ptr noundef nonnull %2470)
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit287.i.i:                    ; preds = %2500
@@ -50473,7 +50473,7 @@ cgltf_json_strcmp.exit287.i.i:                    ; preds = %2500
 
 2691:                                             ; preds = %cgltf_json_strcmp.exit287.i.i
   %2692 = add nuw nsw i32 %.0243433.i.i, 1
-  %2693 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2692, ptr noundef readonly %2, ptr noundef nonnull %2469)
+  %2693 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2692, ptr noundef readonly %2, ptr noundef nonnull %2469)
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit290.i.i:                    ; preds = %2500
@@ -50484,7 +50484,7 @@ cgltf_json_strcmp.exit290.i.i:                    ; preds = %2500
 
 2697:                                             ; preds = %cgltf_json_strcmp.exit290.i.i
   %2698 = add nuw nsw i32 %.0243433.i.i, 1
-  %2699 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2698, ptr noundef readonly %2, ptr noundef nonnull %2468)
+  %2699 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2698, ptr noundef readonly %2, ptr noundef nonnull %2468)
   br label %cgltf_parse_json_string.exit.i.i446
 
 cgltf_json_strcmp.exit293.i.i:                    ; preds = %2500
@@ -50964,7 +50964,7 @@ cgltf_json_strcmp.exit85.i.i.i:                   ; preds = %cgltf_json_strcmp.e
 
 2936:                                             ; preds = %cgltf_json_strcmp.exit85.i.i.i
   %2937 = add nuw nsw i32 %.05715.i.i.i, 1
-  %2938 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2937, ptr noundef readonly %2, ptr noundef nonnull %2433)
+  %2938 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2937, ptr noundef readonly %2, ptr noundef nonnull %2433)
   br label %cgltf_parse_json_float_array.exit.i332.i.i
 
 cgltf_json_strcmp.exit88.i.i.i:                   ; preds = %2858
@@ -50975,7 +50975,7 @@ cgltf_json_strcmp.exit88.i.i.i:                   ; preds = %2858
 
 2942:                                             ; preds = %cgltf_json_strcmp.exit88.i.i.i
   %2943 = add nuw nsw i32 %.05715.i.i.i, 1
-  %2944 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %2943, ptr noundef readonly %2, ptr noundef nonnull %2462)
+  %2944 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %2943, ptr noundef readonly %2, ptr noundef nonnull %2462)
   br label %cgltf_parse_json_float_array.exit.i332.i.i
 
 cgltf_json_strcmp.exit88.thread.i.i.i:            ; preds = %cgltf_json_strcmp.exit88.i.i.i, %cgltf_json_strcmp.exit85.i.i.i, %cgltf_json_strcmp.exit80.i.i.i, %cgltf_json_strcmp.exit.i338.i.i, %2858
@@ -51264,7 +51264,7 @@ cgltf_json_strcmp.exit79.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 cgltf_skip_json.exit.i180.sink.split.i:           ; preds = %cgltf_json_strcmp.exit79.i175.i, %cgltf_json_strcmp.exit76.i.i, %cgltf_json_strcmp.exit73.i.i
   %.sink502.i = phi ptr [ %2459, %cgltf_json_strcmp.exit73.i.i ], [ %2475, %cgltf_json_strcmp.exit76.i.i ], [ %2474, %cgltf_json_strcmp.exit79.i175.i ]
   %3083 = add nuw nsw i32 %.06011.i.i, 1
-  %3084 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3083, ptr noundef readonly %2, ptr noundef nonnull %.sink502.i)
+  %3084 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3083, ptr noundef readonly %2, ptr noundef nonnull %.sink502.i)
   br label %cgltf_skip_json.exit.i180.i
 
 cgltf_skip_json.exit.i180.i:                      ; preds = %3080, %cgltf_skip_json.exit.i180.sink.split.i
@@ -51595,7 +51595,7 @@ cgltf_json_strcmp.exit65.i.i:                     ; preds = %3181
 
 3235:                                             ; preds = %cgltf_json_strcmp.exit65.i.i
   %3236 = add nuw nsw i32 %.0529.i.i, 1
-  %3237 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3236, ptr noundef readonly %2, ptr noundef nonnull %2455)
+  %3237 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3236, ptr noundef readonly %2, ptr noundef nonnull %2455)
   br label %cgltf_parse_json_float_array.exit.i132.i
 
 cgltf_json_strcmp.exit68.i.i:                     ; preds = %3181
@@ -51606,7 +51606,7 @@ cgltf_json_strcmp.exit68.i.i:                     ; preds = %3181
 
 3241:                                             ; preds = %cgltf_json_strcmp.exit68.i.i
   %3242 = add nuw nsw i32 %.0529.i.i, 1
-  %3243 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3242, ptr noundef readonly %2, ptr noundef nonnull %2490)
+  %3243 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3242, ptr noundef readonly %2, ptr noundef nonnull %2490)
   br label %cgltf_parse_json_float_array.exit.i132.i
 
 cgltf_json_strcmp.exit68.thread.i.i:              ; preds = %cgltf_json_strcmp.exit68.i.i, %cgltf_json_strcmp.exit65.i.i, %cgltf_json_strcmp.exit58.i135.i, %cgltf_json_strcmp.exit.i147.i, %3181
@@ -51752,7 +51752,7 @@ cgltf_json_strcmp.exit41.i.i:                     ; preds = %3285
 
 3314:                                             ; preds = %cgltf_json_strcmp.exit41.i.i
   %3315 = add nuw nsw i32 %.0358.i.i, 1
-  %3316 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3315, ptr noundef readonly %2, ptr noundef nonnull %2453)
+  %3316 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3315, ptr noundef readonly %2, ptr noundef nonnull %2453)
   br label %cgltf_skip_json.exit.i115.i
 
 cgltf_json_strcmp.exit41.thread.i.i:              ; preds = %cgltf_json_strcmp.exit41.i.i, %cgltf_json_strcmp.exit.i118.i, %3285
@@ -51898,7 +51898,7 @@ cgltf_json_strcmp.exit57.i.i:                     ; preds = %3358
 
 3387:                                             ; preds = %cgltf_json_strcmp.exit57.i.i
   %3388 = add nuw nsw i32 %.05113.i.i, 1
-  %3389 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3388, ptr noundef readonly %2, ptr noundef nonnull %2434)
+  %3389 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3388, ptr noundef readonly %2, ptr noundef nonnull %2434)
   br label %cgltf_parse_json_float_array.exit.i86.i
 
 cgltf_json_strcmp.exit60.i.i:                     ; preds = %cgltf_json_strcmp.exit57.i.i
@@ -52158,7 +52158,7 @@ cgltf_json_strcmp.exit55.i.i:                     ; preds = %3475
 
 3509:                                             ; preds = %cgltf_json_strcmp.exit55.i.i
   %3510 = add nuw nsw i32 %.05012.i.i, 1
-  %3511 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3510, ptr noundef readonly %2, ptr noundef nonnull %2450)
+  %3511 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3510, ptr noundef readonly %2, ptr noundef nonnull %2450)
   br label %cgltf_parse_json_float_array.exit.i.i
 
 cgltf_json_strcmp.exit58.i.i:                     ; preds = %3475
@@ -52206,7 +52206,7 @@ cgltf_json_strcmp.exit63.i.i:                     ; preds = %3475
 
 3535:                                             ; preds = %cgltf_json_strcmp.exit63.i.i
   %3536 = add nuw nsw i32 %.05012.i.i, 1
-  %3537 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3536, ptr noundef readonly %2, ptr noundef nonnull %2483)
+  %3537 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3536, ptr noundef readonly %2, ptr noundef nonnull %2483)
   br label %cgltf_parse_json_float_array.exit.i.i
 
 cgltf_json_strcmp.exit63.thread.i.i:              ; preds = %cgltf_json_strcmp.exit63.i.i, %cgltf_json_strcmp.exit58.i.i, %cgltf_json_strcmp.exit55.i.i, %cgltf_json_strcmp.exit.i66.i, %3475
@@ -52646,7 +52646,7 @@ cgltf_json_strcmp.exit103.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 cgltf_skip_json.exit.sink.split.i.i:              ; preds = %cgltf_json_strcmp.exit103.i.i, %cgltf_json_strcmp.exit79.i.i
   %.sink22.i.i = phi ptr [ %2482, %cgltf_json_strcmp.exit79.i.i ], [ %2481, %cgltf_json_strcmp.exit103.i.i ]
   %3756 = add nuw nsw i32 %.07312.i.i, 1
-  %3757 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef %1, i32 noundef %3756, ptr noundef readonly %2, ptr noundef nonnull %.sink22.i.i)
+  %3757 = call fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull %1, i32 noundef %3756, ptr noundef readonly %2, ptr noundef nonnull %.sink22.i.i)
   br label %cgltf_skip_json.exit.i.i454
 
 cgltf_skip_json.exit.i.i454:                      ; preds = %3753, %cgltf_skip_json.exit.sink.split.i.i
@@ -52669,7 +52669,7 @@ cgltf_json_strcmp.exit.i450:                      ; preds = %cgltf_json_strcmp.e
 3763:                                             ; preds = %cgltf_json_strcmp.exit.i450
   store i32 1, ptr %2443, align 8
   %3764 = add nuw nsw i32 %.2431.i.i, 1
-  %3765 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef %1, i32 noundef %3764, ptr noundef readonly %2, ptr noundef nonnull %2444)
+  %3765 = call fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %1, i32 noundef %3764, ptr noundef readonly %2, ptr noundef nonnull %2444)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
 cgltf_json_strcmp.exit.thread.i451:               ; preds = %cgltf_json_strcmp.exit.i450, %cgltf_json_strcmp.exit42.i, %cgltf_json_strcmp.exit56.i, %cgltf_json_strcmp.exit81.i, %cgltf_json_strcmp.exit107.i, %cgltf_json_strcmp.exit122.i, %cgltf_json_strcmp.exit152.i, %cgltf_json_strcmp.exit362.thread.i.i
@@ -52678,7 +52678,7 @@ cgltf_json_strcmp.exit.thread.i451:               ; preds = %cgltf_json_strcmp.e
   %3768 = add i64 %3767, 1
   store i64 %3768, ptr %2442, align 8
   %3769 = getelementptr inbounds %struct.cgltf_extension, ptr %3766, i64 %3767
-  %3770 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef %1, i32 noundef %.2431.i.i, ptr noundef readonly %2, ptr noundef %3769)
+  %3770 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %.2431.i.i, ptr noundef readonly %2, ptr noundef %3769)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
 cgltf_parse_json_pbr_specular_glossiness.exit.i.i: ; preds = %3157, %cgltf_skip_json.exit.thread.i182.i, %2987, %2966, %cgltf_skip_json.exit.thread.i.i, %3626, %3558, %cgltf_parse_json_float_array.exit.thread7.i.i, %3336, %cgltf_parse_json_float_array.exit.i132.i, %cgltf_json_strcmp.exit.thread.i451, %3763, %3636, %3568, %3463, %3346, %3273, %cgltf_fill_float_array.exit.preheader.i.i, %3095, %2998, %2846
@@ -53172,7 +53172,7 @@ cgltf_calloc.exit.thread.i.i.i531:                ; preds = %4012, %4009
   store i64 %4029, ptr %3830, align 8
   %4030 = load ptr, ptr %3831, align 8
   %4031 = getelementptr inbounds %struct.cgltf_extension, ptr %4030, i64 %4028
-  %4032 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i526, ptr noundef readonly %2, ptr noundef %4031)
+  %4032 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i526, ptr noundef readonly %2, ptr noundef %4031)
   %4033 = icmp slt i32 %4032, 0
   %4034 = add nuw nsw i32 %.03138.i.i.i527, 1
   %exitcond.not.i.i.i529 = icmp eq i32 %4034, %4011
@@ -53752,7 +53752,7 @@ cgltf_json_strcmp.exit148.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %4334 = add i64 %4333, 1
   store i64 %4334, ptr %4094, align 8
   %4335 = getelementptr inbounds %struct.cgltf_extension, ptr %4332, i64 %4333
-  %4336 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.2204.i.i, ptr noundef readonly %2, ptr noundef %4335)
+  %4336 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.2204.i.i, ptr noundef readonly %2, ptr noundef %4335)
   %4337 = icmp slt i32 %4336, 0
   br i1 %4337, label %cgltf_parse_json_asset.exit.thread, label %.thread.i.i561
 
@@ -54258,7 +54258,7 @@ cgltf_calloc.exit.thread.i.i.i614:                ; preds = %4572, %4569
   store i64 %4589, ptr %4398, align 8
   %4590 = load ptr, ptr %4399, align 8
   %4591 = getelementptr inbounds %struct.cgltf_extension, ptr %4590, i64 %4588
-  %4592 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i609, ptr noundef readonly %2, ptr noundef %4591)
+  %4592 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i609, ptr noundef readonly %2, ptr noundef %4591)
   %4593 = icmp slt i32 %4592, 0
   %4594 = add nuw nsw i32 %.03138.i.i.i610, 1
   %exitcond.not.i.i.i612 = icmp eq i32 %4594, %4571
@@ -54772,7 +54772,7 @@ cgltf_calloc.exit.thread.i.i.i656:                ; preds = %4840, %4837
   store i64 %4857, ptr %4653, align 8
   %4858 = load ptr, ptr %4654, align 8
   %4859 = getelementptr inbounds %struct.cgltf_extension, ptr %4858, i64 %4856
-  %4860 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i651, ptr noundef readonly %2, ptr noundef %4859)
+  %4860 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i651, ptr noundef readonly %2, ptr noundef %4859)
   %4861 = icmp slt i32 %4860, 0
   %4862 = add nuw nsw i32 %.03138.i.i.i652, 1
   %exitcond.not.i.i.i654 = icmp eq i32 %4862, %4839
@@ -56125,7 +56125,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %488, %485
   store i64 %505, ptr %47, align 8
   %506 = load ptr, ptr %48, align 8
   %507 = getelementptr inbounds %struct.cgltf_extension, ptr %506, i64 %504
-  %508 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %507)
+  %508 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %507)
   %509 = icmp slt i32 %508, 0
   %510 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %510, %487
@@ -57228,7 +57228,7 @@ cgltf_json_strcmp.exit.i39:                       ; preds = %526
 
 536:                                              ; preds = %cgltf_json_strcmp.exit.i39
   %537 = add nuw nsw i32 %.02732.i, 1
-  %538 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %537, ptr noundef readonly %3, ptr noundef nonnull %61, ptr noundef nonnull %78)
+  %538 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %537, ptr noundef readonly %3, ptr noundef nonnull %61, ptr noundef nonnull %78)
   br label %cgltf_skip_json.exit.i36
 
 cgltf_json_strcmp.exit.thread.i:                  ; preds = %cgltf_json_strcmp.exit.i39, %526
@@ -57283,7 +57283,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %433, %cgltf_json_st
   %561 = add i64 %560, 1
   store i64 %561, ptr %59, align 8
   %562 = getelementptr inbounds %struct.cgltf_extension, ptr %559, i64 %560
-  %563 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.3386.i, ptr noundef readonly %3, ptr noundef %562)
+  %563 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.3386.i, ptr noundef readonly %3, ptr noundef %562)
   br label %cgltf_parse_json_mesh_gpu_instancing.exit
 
 cgltf_parse_json_mesh_gpu_instancing.exit:        ; preds = %cgltf_skip_json.exit.i36, %514, %cgltf_json_strcmp.exit.thread
@@ -57760,7 +57760,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %184, %181
   store i64 %201, ptr %40, align 8
   %202 = load ptr, ptr %41, align 8
   %203 = getelementptr inbounds %struct.cgltf_extension, ptr %202, i64 %200
-  %204 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %203)
+  %204 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %203)
   %205 = icmp slt i32 %204, 0
   %206 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %206, %183
@@ -58395,7 +58395,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %270, %267
   store i64 %287, ptr %131, align 8
   %288 = load ptr, ptr %132, align 8
   %289 = getelementptr inbounds %struct.cgltf_extension, ptr %288, i64 %286
-  %290 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %3, ptr noundef %289)
+  %290 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i.i, ptr noundef readonly %3, ptr noundef %289)
   %291 = icmp slt i32 %290, 0
   %292 = add nuw nsw i32 %.03138.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %292, %269
@@ -58888,7 +58888,7 @@ cgltf_calloc.exit.thread.i.i136.i:                ; preds = %519, %516
   store i64 %536, ptr %351, align 8
   %537 = load ptr, ptr %352, align 8
   %538 = getelementptr inbounds %struct.cgltf_extension, ptr %537, i64 %535
-  %539 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i131.i, ptr noundef readonly %3, ptr noundef %538)
+  %539 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i131.i, ptr noundef readonly %3, ptr noundef %538)
   %540 = icmp slt i32 %539, 0
   %541 = add nuw nsw i32 %.03138.i.i132.i, 1
   %exitcond.not.i.i134.i = icmp eq i32 %541, %518
@@ -59135,7 +59135,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %634, %631
   store i64 %651, ptr %43, align 8
   %652 = load ptr, ptr %44, align 8
   %653 = getelementptr inbounds %struct.cgltf_extension, ptr %652, i64 %650
-  %654 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %653)
+  %654 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03039.i.i, ptr noundef readonly %3, ptr noundef %653)
   %655 = icmp slt i32 %654, 0
   %656 = add nuw nsw i32 %.03138.i.i, 1
   %exitcond.not.i163.i = icmp eq i32 %656, %633
@@ -62153,7 +62153,7 @@ _m3dstbi__mul2sizes_valid.exit12.i.i:             ; preds = %24
 _m3dstbi__mad3sizes_valid.exit.i:                 ; preds = %_m3dstbi__mul2sizes_valid.exit12.i.i, %24
   %27 = mul nsw i32 %22, %10
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #55
+  %29 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %28) #55
   br label %_m3dstbi__malloc_mad3.exit
 
 _m3dstbi__malloc_mad3.exit:                       ; preds = %17, %_m3dstbi__mul2sizes_valid.exit.i.i, %_m3dstbi__mul2sizes_valid.exit.thread15.i.i, %_m3dstbi__mul2sizes_valid.exit12.i.i, %_m3dstbi__mad3sizes_valid.exit.i
@@ -62442,7 +62442,7 @@ _m3dstbi__mul2sizes_valid.exit.i.i:               ; preds = %12
 _m3dstbi__malloc_mad2.exit:                       ; preds = %12, %_m3dstbi__mul2sizes_valid.exit.i.i
   %15 = mul nsw i32 %8, %2
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #55
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %16) #55
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_m3dstbi__malloc_mad2.exit.thread, label %19
 
@@ -62584,7 +62584,7 @@ _m3dstbi__malloc_mad3.exit.thread:                ; preds = %_m3dstbi__mul2sizes
 _m3dstbi__malloc_mad3.exit:                       ; preds = %24, %_m3dstbi__mul2sizes_valid.exit12.i.i
   %28 = mul nsw i32 %16, %22
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #55
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -2147483648, 2147483648) %29) #55
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   %.not = icmp eq ptr %30, null

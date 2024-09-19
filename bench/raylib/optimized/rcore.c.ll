@@ -32856,7 +32856,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
 
 12:                                               ; preds = %5
   %13 = tail call noundef i32 @llvm.smin.i32(i32 %3, i32 16)
-  %14 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 1)
+  %14 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 range(i32 1, 3) 1)
   %15 = icmp eq i32 %4, 0
   br i1 %15, label %16, label %._crit_edge
 
@@ -32885,7 +32885,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4
-  %35 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 1)
+  %35 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 range(i32 1, 3) 1)
   %36 = udiv i32 160, %35
   %37 = add nsw i32 %36, %32
   %38 = tail call noundef i32 @llvm.smin.i32(i32 %14, i32 %37)
@@ -36987,7 +36987,7 @@ define hidden void @rprand_set_seed(i64 noundef %0) local_unnamed_addr #1 {
 define hidden i32 @rprand_get_value(i32 noundef %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = load i32, ptr @rprand_state.1, align 16
   %4 = mul i32 %3, 5
-  %5 = tail call noundef i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 7)
+  %5 = tail call noundef i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 range(i32 7, 12) 7)
   %6 = mul i32 %5, 9
   %7 = shl i32 %3, 9
   %8 = load i32, ptr @rprand_state.0, align 16
@@ -37001,7 +37001,7 @@ define hidden i32 @rprand_get_value(i32 noundef %0, i32 noundef %1) local_unname
   store i32 %14, ptr @rprand_state.0, align 16
   %15 = xor i32 %10, %7
   store i32 %15, ptr @rprand_state.2, align 8
-  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 11)
+  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 range(i32 7, 12) 11)
   store i32 %16, ptr @rprand_state.3, align 16
   %17 = sub nsw i32 %1, %0
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -37042,7 +37042,7 @@ define hidden noalias noundef ptr @rprand_load_sequence(i32 noundef %0, i32 noun
   %13 = phi i32 [ %23, %.loopexit ], [ %rprand_state.2.promoted, %.lr.ph31.preheader ]
   %14 = phi i32 [ %24, %.loopexit ], [ %rprand_state.3.promoted, %.lr.ph31.preheader ]
   %15 = mul i32 %11, 5
-  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 7)
+  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 range(i32 7, 12) 7)
   %17 = mul i32 %16, 9
   %18 = shl i32 %11, 9
   %19 = xor i32 %13, %12
@@ -37050,7 +37050,7 @@ define hidden noalias noundef ptr @rprand_load_sequence(i32 noundef %0, i32 noun
   %21 = xor i32 %19, %11
   %22 = xor i32 %20, %12
   %23 = xor i32 %19, %18
-  %24 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 11)
+  %24 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 range(i32 7, 12) 11)
   %25 = urem i32 %17, %6
   %26 = add i32 %25, %1
   %.not35 = icmp eq i32 %.02230, 0
@@ -44259,7 +44259,7 @@ define i32 @GetRandomValue(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1
   %spec.select12 = tail call i32 @llvm.smin.i32(i32 %0, i32 %1)
   %3 = load i32, ptr @rprand_state.1, align 16
   %4 = mul i32 %3, 5
-  %5 = tail call noundef i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 7)
+  %5 = tail call noundef i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 range(i32 7, 12) 7)
   %6 = mul i32 %5, 9
   %7 = shl i32 %3, 9
   %8 = load i32, ptr @rprand_state.0, align 16
@@ -44273,7 +44273,7 @@ define i32 @GetRandomValue(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1
   store i32 %14, ptr @rprand_state.0, align 16
   %15 = xor i32 %10, %7
   store i32 %15, ptr @rprand_state.2, align 8
-  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 11)
+  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 range(i32 7, 12) 11)
   store i32 %16, ptr @rprand_state.3, align 16
   %17 = sub nsw i32 %spec.select, %spec.select12
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -44311,7 +44311,7 @@ define noalias noundef ptr @LoadRandomSequence(i32 noundef %0, i32 noundef %1, i
   %13 = phi i32 [ %23, %.loopexit.i ], [ %rprand_state.2.promoted.i, %.lr.ph31.preheader.i ]
   %14 = phi i32 [ %24, %.loopexit.i ], [ %rprand_state.3.promoted.i, %.lr.ph31.preheader.i ]
   %15 = mul i32 %11, 5
-  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 7)
+  %16 = tail call noundef i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 range(i32 7, 12) 7)
   %17 = mul i32 %16, 9
   %18 = shl i32 %11, 9
   %19 = xor i32 %13, %12
@@ -44319,7 +44319,7 @@ define noalias noundef ptr @LoadRandomSequence(i32 noundef %0, i32 noundef %1, i
   %21 = xor i32 %19, %11
   %22 = xor i32 %20, %12
   %23 = xor i32 %19, %18
-  %24 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 11)
+  %24 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 range(i32 7, 12) 11)
   %25 = urem i32 %17, %6
   %26 = add i32 %25, %1
   %.not35.i = icmp eq i32 %.02230.i, 0

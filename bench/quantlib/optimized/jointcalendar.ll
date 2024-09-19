@@ -50,8 +50,6 @@ $_ZN5boost6detail12shared_countD2Ev = comdat any
 
 $_ZN8QuantLib8CalendarD2Ev = comdat any
 
-$_ZN5boost14checked_deleteIN8QuantLib13JointCalendar4ImplEEEvPT_ = comdat any
-
 $_ZN5boost6detail15sp_counted_baseD2Ev = comdat any
 
 $_ZN5boost6detail17sp_counted_impl_pIN8QuantLib13JointCalendar4ImplEED0Ev = comdat any
@@ -2480,7 +2478,8 @@ lpad.i.i:                                         ; preds = %invoke.cont3
           catch ptr null
   %exn.slot.0.i.i = extractvalue { ptr, i32 } %0, 0
   %1 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i) #22
-  tail call void @_ZN5boost14checked_deleteIN8QuantLib13JointCalendar4ImplEEEvPT_(ptr noundef nonnull %call) #22
+  tail call void @_ZN8QuantLib13JointCalendar4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 136) #24
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i.i unwind label %lpad5.i.i
 
@@ -2644,7 +2643,8 @@ lpad.i.i:                                         ; preds = %invoke.cont3
           catch ptr null
   %exn.slot.0.i.i = extractvalue { ptr, i32 } %0, 0
   %1 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i) #22
-  tail call void @_ZN5boost14checked_deleteIN8QuantLib13JointCalendar4ImplEEEvPT_(ptr noundef nonnull %call) #22
+  tail call void @_ZN8QuantLib13JointCalendar4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 136) #24
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i.i unwind label %lpad5.i.i
 
@@ -2802,7 +2802,8 @@ lpad.i.i:                                         ; preds = %invoke.cont3
           catch ptr null
   %exn.slot.0.i.i = extractvalue { ptr, i32 } %0, 0
   %1 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i) #22
-  tail call void @_ZN5boost14checked_deleteIN8QuantLib13JointCalendar4ImplEEEvPT_(ptr noundef nonnull %call) #22
+  tail call void @_ZN8QuantLib13JointCalendar4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 136) #24
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i.i unwind label %lpad5.i.i
 
@@ -3031,7 +3032,8 @@ lpad.i.i:                                         ; preds = %invoke.cont5
           catch ptr null
   %exn.slot.0.i.i = extractvalue { ptr, i32 } %5, 0
   %6 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i) #22
-  call void @_ZN5boost14checked_deleteIN8QuantLib13JointCalendar4ImplEEEvPT_(ptr noundef nonnull %call) #22
+  call void @_ZN8QuantLib13JointCalendar4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call) #22
+  call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 136) #24
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i.i unwind label %lpad5.i.i
 
@@ -3632,21 +3634,6 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5boost14checked_deleteIN8QuantLib13JointCalendar4ImplEEEvPT_(ptr noundef %x) local_unnamed_addr #4 comdat {
-entry:
-  %isnull = icmp eq ptr %x, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN8QuantLib13JointCalendar4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %x) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %x, i64 noundef 136) #24
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
   ret void
 }
 

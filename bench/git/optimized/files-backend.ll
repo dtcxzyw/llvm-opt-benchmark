@@ -284,7 +284,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -336,7 +336,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.15, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.15, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -657,7 +657,7 @@ sw.default.i.i:                                   ; preds = %sw.bb10.i.i, %retry
 sw.epilog.i.i:                                    ; preds = %retry.i.i
   %33 = load ptr, ptr %buf.i.i, align 8
   %call15.i.i = call i64 @get_files_ref_lock_timeout_ms() #19
-  %call.i.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i.i, ptr noundef %33, i32 noundef 2, i64 noundef %call15.i.i, i32 noundef 438) #19
+  %call.i.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lk.i.i, ptr noundef %33, i32 noundef range(i32 0, 3) 2, i64 noundef %call15.i.i, i32 noundef 438) #19
   %cmp17.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp17.i.i, label %if.then18.i.i, label %if.end27.i80.i
 
@@ -744,7 +744,7 @@ if.then17.i:                                      ; preds = %if.end63.i.i, %if.e
   call void @delete_tempfile(ptr noundef nonnull %lk.i.i) #19
   %40 = load ptr, ptr %call.i78.i, align 8
   call void @free(ptr noundef %40) #19
-  call void @free(ptr noundef %call.i78.i) #19
+  call void @free(ptr noundef nonnull %call.i78.i) #19
   call void @strbuf_release(ptr noundef nonnull %ref_file.i.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref_file.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %failure_errno.i.i)
@@ -1172,7 +1172,7 @@ if.then25:                                        ; preds = %clear_loose_ref_cac
   tail call void @delete_tempfile(ptr noundef nonnull %lk.i69) #19
   %17 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %17) #19
-  tail call void @free(ptr noundef %7) #19
+  tail call void @free(ptr noundef nonnull %7) #19
   br label %cleanup.sink.split
 
 for.inc:                                          ; preds = %if.end18, %clear_loose_ref_cache.exit
@@ -1391,7 +1391,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.53, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.53, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -1576,7 +1576,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i, label %files_downcast.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.57, i32 noundef 6, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.57, i32 noundef range(i32 0, 7) 6, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -1844,7 +1844,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.70, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.70, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2020,7 +2020,7 @@ if.end.i:                                         ; preds = %entry.split
   br i1 %cmp2.not.i.not, label %if.then3.i, label %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.97, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.97, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 if.then.split:                                    ; preds = %entry
@@ -2039,7 +2039,7 @@ if.end.i16:                                       ; preds = %if.then.split
   br i1 %cmp2.not.i19, label %if.end, label %if.then3.i20
 
 if.then3.i20:                                     ; preds = %if.end.i16
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.97, i32 noundef 5, i32 noundef %4) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.97, i32 noundef range(i32 0, 7) 5, i32 noundef %4) #20
   unreachable
 
 if.end:                                           ; preds = %if.end.i16, %if.end.i
@@ -2131,7 +2131,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.100, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.100, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2180,7 +2180,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.104, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.104, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2242,7 +2242,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.106, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.106, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2503,7 +2503,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.110, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.110, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2544,7 +2544,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.111, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.111, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2587,7 +2587,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.112, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.112, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2626,7 +2626,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.113, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.113, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -2678,7 +2678,7 @@ if.end21:                                         ; preds = %if.end
   br i1 %tobool26.not, label %if.then27, label %if.end46
 
 if.then27:                                        ; preds = %if.end21
-  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %reflog_lock, ptr noundef %call22, i32 noundef 0, i64 noundef 0, i32 noundef 438) #19
+  %call.i.i = call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %reflog_lock, ptr noundef %call22, i32 noundef range(i32 0, 3) 0, i64 noundef 0, i32 noundef 438) #19
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %if.then29, label %if.end35
 
@@ -3254,46 +3254,38 @@ if.then2:                                         ; preds = %if.then
   %call3 = tail call ptr @oid_to_hex(ptr noundef %oid) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.38, ptr noundef %1, ptr noundef %call3) #19
   %lk.i = getelementptr inbounds i8, ptr %lock, i64 8
-  tail call void @delete_tempfile(ptr noundef nonnull %lk.i) #19
-  %2 = load ptr, ptr %lock, align 8
-  tail call void @free(ptr noundef %2) #19
-  tail call void @free(ptr noundef %lock) #19
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %if.then
   %bf.load = load i32, ptr %call, align 4
-  %3 = and i32 %bf.load, 14
-  %cmp.not = icmp eq i32 %3, 2
+  %2 = and i32 %bf.load, 14
+  %cmp.not = icmp eq i32 %2, 2
   br i1 %cmp.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %4 = load ptr, ptr %lock, align 8
-  %call5 = tail call i32 @is_branch(ptr noundef %4) #19
+  %3 = load ptr, ptr %lock, align 8
+  %call5 = tail call i32 @is_branch(ptr noundef %3) #19
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   %call8 = tail call ptr @oid_to_hex(ptr noundef %oid) #19
-  %5 = load ptr, ptr %lock, align 8
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.39, ptr noundef %call8, ptr noundef %5) #19
+  %4 = load ptr, ptr %lock, align 8
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.39, ptr noundef %call8, ptr noundef %4) #19
   %lk.i19 = getelementptr inbounds i8, ptr %lock, i64 8
-  tail call void @delete_tempfile(ptr noundef nonnull %lk.i19) #19
-  %6 = load ptr, ptr %lock, align 8
-  tail call void @free(ptr noundef %6) #19
-  tail call void @free(ptr noundef nonnull %lock) #19
-  br label %return
+  br label %return.sink.split
 
 if.end11:                                         ; preds = %if.end, %land.lhs.true, %entry
   %lk = getelementptr inbounds i8, ptr %lock, i64 8
   %lk.val = load ptr, ptr %lk, align 8
   %call.i = tail call i32 @get_tempfile_fd(ptr noundef %lk.val) #19
   %call13 = tail call ptr @oid_to_hex(ptr noundef %oid) #19
-  %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds i8, ptr %7, i64 256
-  %8 = load ptr, ptr %hash_algo, align 8
-  %hexsz = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load i64, ptr %hexsz, align 8
-  %call14 = tail call i64 @write_in_full(i32 noundef %call.i, ptr noundef %call13, i64 noundef %9) #19
+  %5 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds i8, ptr %5, i64 256
+  %6 = load ptr, ptr %hash_algo, align 8
+  %hexsz = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load i64, ptr %hexsz, align 8
+  %call14 = tail call i64 @write_in_full(i32 noundef %call.i, ptr noundef %call13, i64 noundef %7) #19
   %cmp15 = icmp slt i64 %call14, 0
   br i1 %cmp15, label %if.then26, label %lor.lhs.false
 
@@ -3319,14 +3311,18 @@ if.then26:                                        ; preds = %lor.lhs.false23, %l
   %lk.val18 = load ptr, ptr %lk, align 8
   %call.i21 = tail call ptr @get_tempfile_path(ptr noundef %lk.val18) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.40, ptr noundef %call.i21) #19
-  tail call void @delete_tempfile(ptr noundef nonnull %lk) #19
-  %10 = load ptr, ptr %lock, align 8
-  tail call void @free(ptr noundef %10) #19
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then2, %if.then7, %if.then26
+  %lk.sink = phi ptr [ %lk, %if.then26 ], [ %lk.i19, %if.then7 ], [ %lk.i, %if.then2 ]
+  tail call void @delete_tempfile(ptr noundef nonnull %lk.sink) #19
+  %8 = load ptr, ptr %lock, align 8
+  tail call void @free(ptr noundef %8) #19
   tail call void @free(ptr noundef nonnull %lock) #19
   br label %return
 
-return:                                           ; preds = %lor.lhs.false23, %if.then26, %if.then7, %if.then2
-  %retval.0 = phi i32 [ -1, %if.then26 ], [ -1, %if.then7 ], [ -1, %if.then2 ], [ 0, %lor.lhs.false23 ]
+return:                                           ; preds = %return.sink.split, %lor.lhs.false23
+  %retval.0 = phi i32 [ 0, %lor.lhs.false23 ], [ -1, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -3495,7 +3491,7 @@ log_ref_write_fd.exit:                            ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i12.i, align 1
   %15 = load ptr, ptr %buf.i9.i, align 8
   %16 = load i64, ptr %len.i10.i, align 8
-  %call3.i = call i64 @write_in_full(i32 noundef %1, ptr noundef %15, i64 noundef %16) #19
+  %call3.i = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %1, ptr noundef %15, i64 noundef %16) #19
   call void @strbuf_release(ptr noundef nonnull %sb.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %tobool10.not = icmp sgt i64 %call3.i, -1
@@ -4044,7 +4040,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.62, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.62, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -4461,7 +4457,7 @@ out:                                              ; preds = %if.end10, %if.then1
 define internal range(i32 -1, 1) i32 @create_reflock(ptr noundef %path, ptr noundef %cb) #0 {
 entry:
   %call = tail call i64 @get_files_ref_lock_timeout_ms() #19
-  %call.i = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef %cb, ptr noundef %path, i32 noundef 2, i64 noundef %call, i32 noundef 438) #19
+  %call.i = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef %cb, ptr noundef %path, i32 noundef range(i32 0, 3) 2, i64 noundef %call, i32 noundef 438) #19
   %call1.lobit = ashr i32 %call.i, 31
   ret i32 %call1.lobit
 }
@@ -4512,7 +4508,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %files_downcast.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.77, i32 noundef 2, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.77, i32 noundef range(i32 0, 7) 2, i32 noundef %2) #20
   unreachable
 
 files_downcast.exit:                              ; preds = %if.end.i
@@ -5160,7 +5156,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.then3.i, label %strbuf_setlen.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.98, i32 noundef 1, i32 noundef %2) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 147, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.98, i32 noundef range(i32 0, 7) 1, i32 noundef %2) #20
   unreachable
 
 strbuf_setlen.exit:                               ; preds = %if.end.i

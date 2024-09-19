@@ -444,7 +444,7 @@ if.end.i:                                         ; preds = %sw.bb14
 if.then8.i:                                       ; preds = %if.end.i
   store float 1.000000e+00, ptr %a10.i, align 4
   store i32 1, ptr %m_count, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %simplex, ptr noundef nonnull align 4 dereferenceable(36) %m_v2.i, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %simplex, ptr noundef nonnull align 4 dereferenceable(36) %m_v2.i, i64 36, i1 false)
   br label %sw.bb.i
 
 if.end.thread204:                                 ; preds = %if.end.i
@@ -1613,7 +1613,7 @@ if.end.i233:                                      ; preds = %sw.bb73
 if.then8.i:                                       ; preds = %if.end.i233
   store float 1.000000e+00, ptr %a10.i, align 4
   store i32 1, ptr %m_count, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %simplex, ptr noundef nonnull align 4 dereferenceable(36) %m_v2.i, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %simplex, ptr noundef nonnull align 4 dereferenceable(36) %m_v2.i, i64 36, i1 false)
   br label %sw.bb2.i
 
 if.end78.thread362:                               ; preds = %if.end.i233

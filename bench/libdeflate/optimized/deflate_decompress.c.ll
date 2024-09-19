@@ -623,11 +623,11 @@ if.end601:                                        ; preds = %for.body592.prehead
   %in_next.11 = phi ptr [ %in_next.8, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
   %idx.ext.i = zext nneg i32 %num_litlen_syms.0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %d, i64 %idx.ext.i
-  %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
+  %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef range(i32 1, 33) %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
   br i1 %call.i542, label %if.end612, label %return
 
 if.end612:                                        ; preds = %if.end601
-  %call.i544 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
+  %call.i544 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef range(i32 257, 289) %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
   br i1 %call.i544, label %have_decode_tables, label %return
 
 have_decode_tables:                               ; preds = %if.end612, %if.end537
@@ -1819,11 +1819,11 @@ if.end601:                                        ; preds = %for.body592.prehead
   %in_next.11 = phi ptr [ %in_next.8, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
   %idx.ext.i = zext nneg i32 %num_litlen_syms.0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %d, i64 %idx.ext.i
-  %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
+  %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef range(i32 1, 33) %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
   br i1 %call.i542, label %if.end612, label %return
 
 if.end612:                                        ; preds = %if.end601
-  %call.i544 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
+  %call.i544 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %d, ptr noundef nonnull %d, i32 noundef range(i32 257, 289) %num_litlen_syms.0, ptr noundef nonnull @litlen_decode_results, i32 noundef 11, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef nonnull %litlen_tablebits.i)
   br i1 %call.i544, label %have_decode_tables, label %return
 
 have_decode_tables:                               ; preds = %if.end612, %if.end537

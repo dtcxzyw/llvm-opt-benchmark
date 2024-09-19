@@ -113,7 +113,7 @@ bindAction.exit:                                  ; preds = %bindAction.exit.bac
   br label %gv_isspace.exit.i.i.i
 
 gv_isspace.exit.i.i.i:                            ; preds = %gv_isspace.exit.i.i.i.backedge, %bindAction.exit
-  %24 = call fastcc i32 @readc(ptr noundef %.080175, ptr noundef null)
+  %24 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
   switch i32 %24, label %skipWS.exit.i.i [
     i32 9, label %gv_isspace.exit.i.i.i.backedge
     i32 10, label %gv_isspace.exit.i.i.i.backedge
@@ -145,7 +145,7 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   store i32 %30, ptr @kwLine, align 4
   %33 = trunc i32 %24 to i8
   store i8 %33, ptr %3, align 1
-  %34 = call fastcc i32 @readc(ptr noundef %.080175, ptr noundef null)
+  %34 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %parseID.exit.i.i, label %.lr.ph.i.i.i
 
@@ -169,12 +169,12 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx22.i.i.i, 1
   store i8 %44, ptr %.0.ptr23.i.i.i, align 1
   %.0.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
-  %45 = call fastcc i32 @readc(ptr noundef %.080175, ptr noundef null)
+  %45 = call fastcc i32 @readc(ptr noundef nonnull %.080175, ptr noundef null)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %parseID.exit.i.i, label %.lr.ph.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i
-  %48 = call i32 @ungetc(i32 noundef %36, ptr noundef nonnull %.080175)
+  %48 = call i32 @ungetc(i32 noundef range(i32 0, -2147483648) %36, ptr noundef nonnull %.080175)
   %49 = icmp eq i32 %36, 10
   br i1 %49, label %50, label %parseID.exit.i.i
 
@@ -229,7 +229,7 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 65:                                               ; preds = %60, %58, %54, %parseID.exit.i.i
   %.08.i.ph.i = phi i32 [ 0, %parseID.exit.i.i ], [ 2, %54 ], [ 1, %58 ], [ 3, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %66 = call fastcc ptr @parseBracket(ptr noundef %.080175, ptr noundef %4, i32 noundef 123, i32 noundef 125)
+  %66 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
   %67 = load i32, ptr @startLine, align 4
   %68 = call i32 @getErrorErrors() #15
   %.not12.i = icmp eq i32 %68, 0
@@ -239,14 +239,14 @@ parseKind.exit.thread19.i:                        ; preds = %63, %31, %skipWS.ex
 69:                                               ; preds = %62, %56
   %.08.i.i = phi i32 [ 4, %62 ], [ 5, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %70 = call fastcc ptr @parseBracket(ptr noundef %.080175, ptr noundef %4, i32 noundef 91, i32 noundef 93)
+  %70 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 91, i32 noundef 93)
   %71 = load i32, ptr @startLine, align 4
   %72 = call i32 @getErrorErrors() #15
   %.not.i = icmp eq i32 %72, 0
   br i1 %.not.i, label %73, label %76
 
 73:                                               ; preds = %69
-  %74 = call fastcc ptr @parseBracket(ptr noundef %.080175, ptr noundef %4, i32 noundef 123, i32 noundef 125)
+  %74 = call fastcc ptr @parseBracket(ptr noundef nonnull %.080175, ptr noundef nonnull %4, i32 noundef 123, i32 noundef 125)
   %75 = load i32, ptr @startLine, align 4
   br label %76
 
@@ -323,13 +323,13 @@ parseCase.exit:                                   ; preds = %78, %80
   br i1 %or.cond3, label %94, label %bindAction.exit.backedge
 
 94:                                               ; preds = %90
-  %95 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  %95 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 40, 57) 56) #14
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %gv_alloc.exit.i
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr @stderr, align 8
-  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.15, i64 noundef 56) #16
+  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.15, i64 noundef range(i64 40, 57) 56) #16
   call fastcc void @graphviz_exit() #17
   unreachable
 
@@ -439,13 +439,13 @@ bindAction.exit.backedge:                         ; preds = %125, %123, %119, %1
 
 131:                                              ; preds = %126
   %132 = add i64 %.0159248, 1
-  %133 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
+  %133 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef range(i64 40, 57) 40) #14
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %gv_alloc.exit.i108
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr @stderr, align 8
-  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.15, i64 noundef 40) #16
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.15, i64 noundef range(i64 40, 57) 40) #16
   call fastcc void @graphviz_exit() #17
   unreachable
 
@@ -497,13 +497,13 @@ addCase.exit:                                     ; preds = %129, %144, %145
 
 152:                                              ; preds = %147
   %153 = add i64 %.0155249, 1
-  %154 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
+  %154 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef range(i64 40, 57) 40) #14
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %gv_alloc.exit.i112
 
 156:                                              ; preds = %152
   %157 = load ptr, ptr @stderr, align 8
-  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.15, i64 noundef 40) #16
+  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.15, i64 noundef range(i64 40, 57) 40) #16
   call fastcc void @graphviz_exit() #17
   unreachable
 
@@ -554,13 +554,13 @@ default.unreachable265:                           ; preds = %parseCase.exit
   br i1 %or.cond7, label %172, label %186
 
 172:                                              ; preds = %168
-  %173 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  %173 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 40, 57) 56) #14
   %174 = icmp eq ptr %173, null
   br i1 %174, label %175, label %gv_alloc.exit.i115
 
 175:                                              ; preds = %172
   %176 = load ptr, ptr @stderr, align 8
-  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.15, i64 noundef 56) #16
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.15, i64 noundef range(i64 40, 57) 56) #16
   call fastcc void @graphviz_exit() #17
   unreachable
 
@@ -939,7 +939,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
   br label %.thread26
 
 .thread:                                          ; preds = %agxbsizeof.exit.thread
-  %25 = tail call noalias dereferenceable_or_null(62) ptr @calloc(i64 noundef 62, i64 noundef 1) #14
+  %25 = tail call noalias dereferenceable_or_null(62) ptr @calloc(i64 noundef 62, i64 noundef range(i64 1, 57) 1) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit.i
 
@@ -1018,7 +1018,7 @@ define internal fastcc ptr @parseBracket(ptr nocapture noundef nonnull %0, ptr n
   br label %gv_isspace.exit.i
 
 gv_isspace.exit.i:                                ; preds = %gv_isspace.exit.i.backedge, %4
-  %5 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef null)
+  %5 = tail call fastcc i32 @readc(ptr noundef nonnull %0, ptr noundef null)
   switch i32 %5, label %skipWS.exit [
     i32 9, label %gv_isspace.exit.i.backedge
     i32 10, label %gv_isspace.exit.i.backedge
@@ -1040,7 +1040,7 @@ skipWS.exit:                                      ; preds = %gv_isspace.exit.i
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @ungetc(i32 noundef %5, ptr noundef nonnull %0)
+  %9 = tail call i32 @ungetc(i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %0)
   %10 = icmp eq i32 %5, 10
   br i1 %10, label %11, label %unreadc.exit
 
@@ -1089,7 +1089,7 @@ agxblen.exit.i:                                   ; preds = %24
   unreachable
 
 33:                                               ; preds = %24
-  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 0)
+  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext 0)
   %34 = load ptr, ptr %1, align 8
   br label %agxbdisown.exit
 
@@ -1116,79 +1116,92 @@ define internal fastcc i32 @endBracket(ptr nocapture noundef nonnull %0, ptr nou
   %9 = zext nneg i8 %2 to i32
   br label %10
 
-10:                                               ; preds = %.lr.ph, %endString.exit.thread
-  %11 = phi i32 [ %5, %.lr.ph ], [ %36, %endString.exit.thread ]
+10:                                               ; preds = %.lr.ph, %40
+  %11 = phi i32 [ %5, %.lr.ph ], [ %41, %40 ]
   %12 = icmp eq i32 %11, %9
-  br i1 %12, label %13, label %16
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %10
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %2)
   %14 = tail call fastcc i32 @endBracket(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, i8 noundef signext %3)
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %.loopexit, label %endString.exit.thread
+  br i1 %15, label %.loopexit, label %16
 
-16:                                               ; preds = %10
-  switch i32 %11, label %endString.exit.thread [
-    i32 39, label %17
-    i32 34, label %17
+16:                                               ; preds = %13
+  %17 = trunc i32 %14 to i8
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %17)
+  br label %40
+
+18:                                               ; preds = %10
+  switch i32 %11, label %38 [
+    i32 39, label %19
+    i32 34, label %19
   ]
 
-17:                                               ; preds = %16, %16
-  %18 = trunc nuw i32 %11 to i8
-  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %18)
-  %19 = load i32, ptr @lineno, align 4
-  %20 = tail call i32 @getc(ptr noundef nonnull %0)
-  %.not17.i = icmp eq i32 %20, %11
+19:                                               ; preds = %18, %18
+  %20 = trunc nuw i32 %11 to i8
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %20)
+  %21 = load i32, ptr @lineno, align 4
+  %22 = tail call i32 @getc(ptr noundef nonnull %0)
+  %.not17.i = icmp eq i32 %22, %11
   br i1 %.not17.i, label %endString.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %17, %32
-  %21 = phi i32 [ %34, %32 ], [ %20, %17 ]
-  %22 = icmp eq i32 %21, 92
-  br i1 %22, label %23, label %25
+.lr.ph.i:                                         ; preds = %19, %34
+  %23 = phi i32 [ %36, %34 ], [ %22, %19 ]
+  %24 = icmp eq i32 %23, 92
+  br i1 %24, label %25, label %27
 
-23:                                               ; preds = %.lr.ph.i
-  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext 92)
-  %24 = tail call i32 @getc(ptr noundef nonnull %0)
-  br label %25
+25:                                               ; preds = %.lr.ph.i
+  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext 92)
+  %26 = tail call i32 @getc(ptr noundef nonnull %0)
+  br label %27
 
-25:                                               ; preds = %23, %.lr.ph.i
-  %.0.i = phi i32 [ %24, %23 ], [ %21, %.lr.ph.i ]
-  %26 = icmp slt i32 %.0.i, 0
-  br i1 %26, label %endString.exit, label %27
-
-27:                                               ; preds = %25
-  %28 = icmp eq i32 %.0.i, 10
-  br i1 %28, label %29, label %32
+27:                                               ; preds = %25, %.lr.ph.i
+  %.0.i = phi i32 [ %26, %25 ], [ %23, %.lr.ph.i ]
+  %28 = icmp slt i32 %.0.i, 0
+  br i1 %28, label %endString.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = load i32, ptr @lineno, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr @lineno, align 4
-  br label %32
+  %30 = icmp eq i32 %.0.i, 10
+  br i1 %30, label %31, label %34
 
-32:                                               ; preds = %29, %27
-  %33 = trunc i32 %.0.i to i8
-  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %33)
-  %34 = tail call i32 @getc(ptr noundef nonnull %0)
-  %.not.i = icmp eq i32 %34, %11
+31:                                               ; preds = %29
+  %32 = load i32, ptr @lineno, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr @lineno, align 4
+  br label %34
+
+34:                                               ; preds = %31, %29
+  %35 = trunc i32 %.0.i to i8
+  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext %35)
+  %36 = tail call i32 @getc(ptr noundef nonnull %0)
+  %.not.i = icmp eq i32 %36, %11
   br i1 %.not.i, label %endString.exit.thread, label %.lr.ph.i
 
-endString.exit:                                   ; preds = %25
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %19) #15
+endString.exit.thread:                            ; preds = %34, %19
+  %.lcssa.i = phi i32 [ %22, %19 ], [ %11, %34 ]
+  %37 = trunc nsw i32 %.lcssa.i to i8
+  tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext %37)
+  br label %40
+
+endString.exit:                                   ; preds = %27
+  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %21) #15
   br label %.loopexit
 
-endString.exit.thread:                            ; preds = %32, %16, %17, %13
-  %.lcssa.i.sink = phi i32 [ %14, %13 ], [ %20, %17 ], [ %11, %16 ], [ %11, %32 ]
-  %35 = trunc i32 %.lcssa.i.sink to i8
-  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %35)
-  %36 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
-  %37 = icmp slt i32 %36, 0
-  %38 = icmp eq i32 %36, %7
-  %or.cond31 = select i1 %37, i1 true, i1 %38
+38:                                               ; preds = %18
+  %39 = trunc i32 %11 to i8
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %39)
+  br label %40
+
+40:                                               ; preds = %endString.exit.thread, %16, %38
+  %41 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
+  %42 = icmp slt i32 %41, 0
+  %43 = icmp eq i32 %41, %7
+  %or.cond31 = select i1 %42, i1 true, i1 %43
   br i1 %or.cond31, label %.loopexit, label %10
 
-.loopexit:                                        ; preds = %endString.exit.thread, %13, %4, %endString.exit
-  %.0 = phi i32 [ -1, %endString.exit ], [ %5, %4 ], [ %36, %endString.exit.thread ], [ %14, %13 ]
+.loopexit:                                        ; preds = %40, %13, %4, %endString.exit
+  %.0 = phi i32 [ -1, %endString.exit ], [ %5, %4 ], [ %41, %40 ], [ %14, %13 ]
   ret i32 %.0
 }
 

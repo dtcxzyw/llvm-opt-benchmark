@@ -960,7 +960,7 @@ lpad2.i:                                          ; preds = %if.then.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad2.i ], [ %1, %lpad.i ]
-  tail call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #18
+  tail call void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %call2) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call2) #18
   resume { ptr, i32 } %.pn.i
 
@@ -1441,7 +1441,7 @@ if.end4:                                          ; preds = %new.notnull
 
 if.then6:                                         ; preds = %if.end4
   %tailored.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr %call2, ptr %tailored.i, align 8
   %unreversedPrefix.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %unreversedPrefix.i, align 8
@@ -3927,14 +3927,15 @@ invoke.cont164:                                   ; preds = %if.end150
           to label %invoke.cont166 unwind label %lpad165
 
 invoke.cont166:                                   ; preds = %invoke.cont164
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter162) #18
-  br label %return.sink.split
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %rightIter162) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %leftIter161) #18
+  br label %return
 
 lpad165:                                          ; preds = %invoke.cont164
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter162) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter161) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %rightIter162) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %leftIter161) #18
   br label %eh.resume
 
 if.else170:                                       ; preds = %if.end150
@@ -3950,11 +3951,12 @@ invoke.cont176:                                   ; preds = %invoke.cont174
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %rightIter172, align 8
   %str.i = getelementptr inbounds i8, ptr %rightIter172, i64 48
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter172) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %rightIter172) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %leftIter171, align 8
   %str.i151 = getelementptr inbounds i8, ptr %leftIter171, i64 48
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i151) #18
-  br label %return.sink.split
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %leftIter171) #18
+  br label %return
 
 lpad173:                                          ; preds = %if.else170
   %50 = landingpad { ptr, i32 }
@@ -3967,7 +3969,7 @@ lpad175:                                          ; preds = %invoke.cont174
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %rightIter172, align 8
   %str.i152 = getelementptr inbounds i8, ptr %rightIter172, i64 48
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i152) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter172) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %rightIter172) #18
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %lpad175, %lpad173
@@ -3975,17 +3977,11 @@ ehcleanup179:                                     ; preds = %lpad175, %lpad173
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %leftIter171, align 8
   %str.i153 = getelementptr inbounds i8, ptr %leftIter171, i64 48
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i153) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter171) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %leftIter171) #18
   br label %eh.resume
 
-return.sink.split:                                ; preds = %invoke.cont166, %invoke.cont176
-  %leftIter171.sink = phi ptr [ %leftIter171, %invoke.cont176 ], [ %leftIter161, %invoke.cont166 ]
-  %retval.0.ph = phi i32 [ %call177, %invoke.cont176 ], [ %call167, %invoke.cont166 ]
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter171.sink) #18
-  br label %return
-
-return:                                           ; preds = %while.body, %return.sink.split, %if.end140, %lor.lhs.false142, %if.then16, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then16 ], [ 0, %lor.lhs.false142 ], [ %result.1, %if.end140 ], [ %retval.0.ph, %return.sink.split ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %if.end140, %lor.lhs.false142, %if.then16, %entry, %invoke.cont176, %invoke.cont166
+  %retval.0 = phi i32 [ %call167, %invoke.cont166 ], [ %call177, %invoke.cont176 ], [ 0, %entry ], [ 0, %if.then16 ], [ 0, %lor.lhs.false142 ], [ %result.1, %if.end140 ], [ 0, %while.body ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup179, %lpad165, %lpad134, %lpad119
@@ -4916,14 +4912,15 @@ if.then352:                                       ; preds = %if.end337
           to label %invoke.cont358 unwind label %lpad357
 
 invoke.cont358:                                   ; preds = %if.then352
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter354) #18
-  br label %return.sink.split
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %rightIter354) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %leftIter353) #18
+  br label %return
 
 lpad357:                                          ; preds = %if.then352
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter354) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter353) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %rightIter354) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %leftIter353) #18
   br label %eh.resume
 
 invoke.cont368:                                   ; preds = %if.end337
@@ -5022,30 +5019,25 @@ invoke.cont368:                                   ; preds = %if.end337
 invoke.cont370:                                   ; preds = %invoke.cont368
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %rightIter365, align 8
   call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci.i192) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter365) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %rightIter365) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %leftIter363, align 8
   call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci.i) #18
-  br label %return.sink.split
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %leftIter363) #18
+  br label %return
 
 lpad369:                                          ; preds = %invoke.cont368
   %76 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %rightIter365, align 8
   call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci.i192) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter365) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %rightIter365) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %leftIter363, align 8
   call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci.i) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter363) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %leftIter363) #18
   br label %eh.resume
 
-return.sink.split:                                ; preds = %invoke.cont358, %invoke.cont370
-  %leftIter363.sink = phi ptr [ %leftIter363, %invoke.cont370 ], [ %leftIter353, %invoke.cont358 ]
-  %retval.0.ph = phi i32 [ %call371, %invoke.cont370 ], [ %call359, %invoke.cont358 ]
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter363.sink) #18
-  br label %return
-
-return:                                           ; preds = %while.body, %return.sink.split, %if.end327, %lor.lhs.false329, %if.then14, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then14 ], [ 0, %lor.lhs.false329 ], [ %result.1, %if.end327 ], [ %retval.0.ph, %return.sink.split ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %if.end327, %lor.lhs.false329, %if.then14, %entry, %invoke.cont370, %invoke.cont358
+  %retval.0 = phi i32 [ %call359, %invoke.cont358 ], [ %call371, %invoke.cont370 ], [ 0, %entry ], [ 0, %if.then14 ], [ 0, %lor.lhs.false329 ], [ %result.1, %if.end327 ], [ 0, %while.body ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad369, %lpad357, %lpad321, %lpad310
@@ -5359,7 +5351,7 @@ if.else9:                                         ; preds = %if.else
   br i1 %cmp.i44, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else9
-  %call.i46 = tail call noundef ptr @_ZNK6icu_7515Normalizer2Impl16getDecompositionEiPDsRi(ptr noundef nonnull align 8 dereferenceable(80) %nfcImpl, i32 noundef %retval.0.i, ptr noundef nonnull %buffer.i, ptr noundef nonnull align 4 dereferenceable(4) %length.i)
+  %call.i46 = tail call noundef ptr @_ZNK6icu_7515Normalizer2Impl16getDecompositionEiPDsRi(ptr noundef nonnull align 8 dereferenceable(80) %nfcImpl, i32 noundef range(i32 0, -2147483648) %retval.0.i, ptr noundef nonnull %buffer.i, ptr noundef nonnull align 4 dereferenceable(4) %length.i)
   store ptr %call.i46, ptr %decomp.i, align 8
   %cmp3.i48 = icmp eq ptr %call.i46, null
   br i1 %cmp3.i48, label %if.end12, label %if.end5.i
@@ -5397,7 +5389,7 @@ if.else18:                                        ; preds = %if.else15
   br i1 %cmp.i56, label %if.end21, label %if.end.i57
 
 if.end.i57:                                       ; preds = %if.else18
-  %call.i60 = tail call noundef ptr @_ZNK6icu_7515Normalizer2Impl16getDecompositionEiPDsRi(ptr noundef nonnull align 8 dereferenceable(80) %nfcImpl, i32 noundef %retval.0.i21, ptr noundef nonnull %buffer.i58, ptr noundef nonnull align 4 dereferenceable(4) %length.i23)
+  %call.i60 = tail call noundef ptr @_ZNK6icu_7515Normalizer2Impl16getDecompositionEiPDsRi(ptr noundef nonnull align 8 dereferenceable(80) %nfcImpl, i32 noundef range(i32 0, -2147483648) %retval.0.i21, ptr noundef nonnull %buffer.i58, ptr noundef nonnull align 4 dereferenceable(4) %length.i23)
   store ptr %call.i60, ptr %decomp.i26, align 8
   %cmp3.i62 = icmp eq ptr %call.i60, null
   br i1 %cmp3.i62, label %if.end21, label %if.end5.i63
@@ -5437,7 +5429,7 @@ return:                                           ; preds = %if.then, %if.end24,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_116UTF16NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   ret void
 }
 
@@ -5611,7 +5603,7 @@ if.end38:                                         ; preds = %if.end38.sink.split
 ehcleanup:                                        ; preds = %lpad15, %lpad2
   %.pn = phi { ptr, i32 } [ %1, %lpad2 ], [ %9, %lpad15 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -5621,7 +5613,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %this, align 8
   %str = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #18
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #18
   ret void
 }
 
@@ -5638,7 +5630,7 @@ declare void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_115UTF8NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   ret void
 }
 
@@ -5648,7 +5640,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %this, align 8
   %u8ci = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci) #18
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   ret void
 }
 
@@ -5984,14 +5976,15 @@ if.then82:                                        ; preds = %if.end73
           to label %invoke.cont88 unwind label %lpad87
 
 invoke.cont88:                                    ; preds = %if.then82
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter84) #18
-  br label %return.sink.split
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rightIter84) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %leftIter83) #18
+  br label %return
 
 lpad87:                                           ; preds = %if.then82
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter84) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter83) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rightIter84) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %leftIter83) #18
   br label %eh.resume
 
 invoke.cont98:                                    ; preds = %if.end73
@@ -6082,30 +6075,25 @@ invoke.cont98:                                    ; preds = %if.end73
 invoke.cont100:                                   ; preds = %invoke.cont98
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %rightIter95, align 8
   call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici.i104) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter95) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %rightIter95) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %leftIter93, align 8
   call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici.i) #18
-  br label %return.sink.split
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %leftIter93) #18
+  br label %return
 
 lpad99:                                           ; preds = %invoke.cont98
   %36 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %rightIter95, align 8
   call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici.i104) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rightIter95) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %rightIter95) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %leftIter93, align 8
   call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici.i) #18
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter93) #18
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %leftIter93) #18
   br label %eh.resume
 
-return.sink.split:                                ; preds = %invoke.cont88, %invoke.cont100
-  %leftIter93.sink = phi ptr [ %leftIter93, %invoke.cont100 ], [ %leftIter83, %invoke.cont88 ]
-  %retval.0.ph = phi i32 [ %call101, %invoke.cont100 ], [ %call89, %invoke.cont88 ]
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %leftIter93.sink) #18
-  br label %return
-
-return:                                           ; preds = %while.body, %return.sink.split, %if.end63, %lor.lhs.false65, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false65 ], [ %result.0, %if.end63 ], [ %retval.0.ph, %return.sink.split ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %if.end63, %lor.lhs.false65, %entry, %invoke.cont100, %invoke.cont88
+  %retval.0 = phi i32 [ %call89, %invoke.cont88 ], [ %call101, %invoke.cont100 ], [ 0, %entry ], [ 0, %lor.lhs.false65 ], [ %result.0, %if.end63 ], [ 0, %while.body ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad99, %lpad87, %lpad58, %lpad48
@@ -6122,7 +6110,7 @@ declare void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_116UIterNFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   ret void
 }
 
@@ -6132,7 +6120,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %this, align 8
   %uici = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici) #18
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   ret void
 }
 
@@ -6980,17 +6968,17 @@ if.then61:                                        ; preds = %invoke.cont58
 
 cleanup.thread:                                   ; preds = %if.then61, %invoke.cont58
   %level.1.ph = phi i32 [ %3, %invoke.cont58 ], [ 6, %if.then61 ]
-  call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback) #18
+  call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback) #18
   br label %if.end66
 
 cleanup:                                          ; preds = %if.end40, %if.then49
   %retval.2 = phi i32 [ %count, %if.then49 ], [ 0, %if.end40 ]
-  call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback) #18
+  call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback) #18
   br label %cleanup108
 
 ehcleanup:                                        ; preds = %lpad38, %lpad30, %lpad22
   %.pn = phi { ptr, i32 } [ %16, %lpad22 ], [ %17, %lpad30 ], [ %21, %lpad38 ]
-  call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback) #18
+  call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback) #18
   br label %ehcleanup109
 
 if.end66:                                         ; preds = %cleanup.thread, %invoke.cont13
@@ -7454,7 +7442,7 @@ if.end14:                                         ; preds = %if.end9
   %idxprom = sext i32 %call10 to i64
   %arrayidx = getelementptr inbounds [158 x i8], ptr %resultLocale, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %result)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %result)
   %len.i = getelementptr inbounds i8, ptr %result, i64 56
   store i32 0, ptr %len.i, align 8
   %5 = load ptr, ptr %result, align 8
@@ -7485,7 +7473,7 @@ if.then3.i:                                       ; preds = %if.end.i52
           to label %if.end5.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i52
-  %call6.i54 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 65, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i54 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 65, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc:                                    ; preds = %if.end5.i
@@ -7557,7 +7545,7 @@ if.then3.i66:                                     ; preds = %if.end.i63
           to label %if.end5.i67 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i67:                                      ; preds = %if.then3.i66, %if.end.i63
-  %call6.i73 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 67, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i73 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 67, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc72 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc72:                                  ; preds = %if.end5.i67
@@ -7597,7 +7585,7 @@ if.then3.i88:                                     ; preds = %if.end.i85
           to label %if.end5.i89 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i89:                                      ; preds = %if.then3.i88, %if.end.i85
-  %call6.i95 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 68, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i95 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 68, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc94 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc94:                                  ; preds = %if.end5.i89
@@ -7637,7 +7625,7 @@ if.then3.i114:                                    ; preds = %if.end.i111
           to label %if.end5.i115 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i115:                                     ; preds = %if.then3.i114, %if.end.i111
-  %call6.i121 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 69, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i121 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 69, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc120 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc120:                                 ; preds = %if.end5.i115
@@ -7677,7 +7665,7 @@ if.then3.i140:                                    ; preds = %if.end.i137
           to label %if.end5.i141 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i141:                                     ; preds = %if.then3.i140, %if.end.i137
-  %call6.i147 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 70, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i147 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 70, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc146 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc146:                                 ; preds = %if.end5.i141
@@ -7687,7 +7675,7 @@ call6.i.noexc146:                                 ; preds = %if.end5.i141
           to label %if.end53 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end53:                                         ; preds = %call6.i.noexc146, %if.end45
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %collation)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %collation)
           to label %invoke.cont54 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont54:                                    ; preds = %if.end53
@@ -7721,7 +7709,7 @@ if.then3.i157:                                    ; preds = %if.end.i155
           to label %if.end5.i158 unwind label %lpad58.loopexit.split-lp
 
 if.end5.i158:                                     ; preds = %if.then3.i157, %if.end.i155
-  %call6.i163 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i163 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 75, 91) 75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc162 unwind label %lpad58.loopexit.split-lp
 
 call6.i.noexc162:                                 ; preds = %if.end5.i158
@@ -7750,7 +7738,7 @@ call9.i.noexc:                                    ; preds = %call8.i.noexc
 
 invoke.cont64:                                    ; preds = %call9.i.noexc, %call6.i.noexc162, %invoke.cont59
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #18
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %collation) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %collation) #18
   %call68 = invoke i32 @uloc_getLanguage_75(ptr noundef nonnull %resultLocale, ptr noundef nonnull %subtag, i32 noundef 100, ptr noundef nonnull %errorCode)
           to label %invoke.cont67 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7773,7 +7761,7 @@ if.then3.i171:                                    ; preds = %if.end.i168
           to label %if.end5.i172 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i172:                                     ; preds = %if.then3.i171, %if.end.i168
-  %call6.i182 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i182 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 75, 91) 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %for.body.i174 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.body.i174:                                    ; preds = %if.end5.i172, %call9.i.noexc185
@@ -7814,7 +7802,7 @@ lpad58:                                           ; preds = %lpad58.loopexit.spl
 
 ehcleanup:                                        ; preds = %lpad58, %lpad55
   %.pn = phi { ptr, i32 } [ %lpad.phi375, %lpad58 ], [ %49, %lpad55 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %collation) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %collation) #18
   br label %ehcleanup116
 
 if.else:                                          ; preds = %invoke.cont67
@@ -7830,7 +7818,7 @@ if.then3.i194:                                    ; preds = %if.end.i191
           to label %if.end5.i195 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i195:                                     ; preds = %if.then3.i194, %if.end.i191
-  %call6.i207 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i207 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 75, 91) 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc206 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc206:                                 ; preds = %if.end5.i195
@@ -7882,7 +7870,7 @@ if.then3.i228:                                    ; preds = %if.end.i225
           to label %if.end5.i229 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i229:                                     ; preds = %if.then3.i228, %if.end.i225
-  %call6.i235 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 78, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i235 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 78, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc234 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc234:                                 ; preds = %if.end5.i229
@@ -7913,7 +7901,7 @@ if.then3.i245:                                    ; preds = %if.end.i242
           to label %if.end5.i246 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i246:                                     ; preds = %if.then3.i245, %if.end.i242
-  %call6.i258 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 82, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i258 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 75, 91) 82, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc257 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc257:                                 ; preds = %if.end5.i246
@@ -7964,7 +7952,7 @@ if.then3.i274:                                    ; preds = %if.end.i271
           to label %if.end5.i275 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i275:                                     ; preds = %if.then3.i274, %if.end.i271
-  %call6.i281 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 83, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i281 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 65, 84) 83, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc280 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc280:                                 ; preds = %if.end5.i275
@@ -7995,7 +7983,7 @@ if.then3.i291:                                    ; preds = %if.end.i288
           to label %if.end5.i292 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i292:                                     ; preds = %if.then3.i291, %if.end.i288
-  %call6.i304 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 86, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i304 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 75, 91) 86, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc303 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc303:                                 ; preds = %if.end5.i292
@@ -8043,7 +8031,7 @@ if.then3.i316:                                    ; preds = %if.end.i313
           to label %if.end5.i317 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end5.i317:                                     ; preds = %if.then3.i316, %if.end.i313
-  %call6.i329 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 90, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call6.i329 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext range(i8 75, 91) 90, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc328 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc328:                                 ; preds = %if.end5.i317
@@ -8085,12 +8073,12 @@ if.end113:                                        ; preds = %invoke.cont108
 
 cleanup:                                          ; preds = %if.end113, %invoke.cont108
   %retval.1 = phi i32 [ 0, %invoke.cont108 ], [ %call115, %if.end113 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %result) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %result) #18
   br label %return
 
 ehcleanup116:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %ehcleanup
   %.pn42 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit358, %lpad.loopexit ], [ %lpad.loopexit360, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit363, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit366, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit369, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp370, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %result) #18
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %result) #18
   resume { ptr, i32 } %.pn42
 
 return:                                           ; preds = %if.end9, %entry, %cleanup, %if.then4
@@ -8434,7 +8422,7 @@ declare noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_116UTF16NFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8536,7 +8524,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %this, align 8
   %str.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i) #18
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8550,7 +8538,7 @@ declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_115UTF8NFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8702,7 +8690,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %this, align 8
   %u8ci.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci.i) #18
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8722,7 +8710,7 @@ declare noundef i32 @_ZN6icu_7524FCDUTF8CollationIterator13nextCodePointER10UErr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_116UIterNFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8744,7 +8732,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %this, align 8
   %uici.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici.i) #18
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8803,7 +8791,7 @@ declare void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_117PartLevelCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
+  tail call void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
 }

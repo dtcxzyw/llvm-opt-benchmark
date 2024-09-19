@@ -7242,7 +7242,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   %.051111 = phi i32 [ 0, %.lr.ph ], [ %104, %95 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 1, ptr %10, align 8
-  %96 = call i32 @tdefl_compress(ptr noundef %14, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %96 = call i32 @tdefl_compress(ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %97 = xor i32 %.051111, -1
   %98 = add nsw i32 %2, %97
@@ -7252,7 +7252,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   %102 = getelementptr inbounds i8, ptr %0, i64 %101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %94, ptr %9, align 8
-  %103 = call i32 @tdefl_compress(ptr noundef %14, ptr noundef %102, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %103 = call i32 @tdefl_compress(ptr noundef nonnull %14, ptr noundef %102, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %104 = add nuw nsw i32 %.051111, 1
   %exitcond.not = icmp eq i32 %104, %2
@@ -7261,7 +7261,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
 ._crit_edge:                                      ; preds = %95, %tdefl_init.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 0, ptr %8, align 8
-  %105 = call i32 @tdefl_compress(ptr noundef %14, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 4)
+  %105 = call i32 @tdefl_compress(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.not59 = icmp eq i32 %105, 1
   br i1 %.not59, label %108, label %106
@@ -19018,27 +19018,99 @@ define range(i32 0, 65537) i32 @mz_zip_reader_get_filename(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @mz_zip_end(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %9, label %2
+  br i1 %.not, label %mz_zip_reader_end_internal.exit, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %9 [
+  switch i32 %4, label %mz_zip_reader_end_internal.exit [
     i32 1, label %5
-    i32 2, label %7
-    i32 3, label %7
+    i32 2, label %43
+    i32 3, label %43
   ]
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc range(i32 0, 2) i32 @mz_zip_reader_end_internal(ptr noundef nonnull %0, i32 noundef 1)
-  br label %9
+  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = load ptr, ptr %6, align 8
+  %.not43.i = icmp eq ptr %7, null
+  br i1 %.not43.i, label %14, label %8
 
-7:                                                ; preds = %2, %2
-  %8 = tail call fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr noundef nonnull %0, i32 noundef 1)
-  br label %9
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = load ptr, ptr %9, align 8
+  %.not44.i = icmp eq ptr %10, null
+  br i1 %.not44.i, label %14, label %11
 
-9:                                                ; preds = %2, %1, %7, %5
-  %.0 = phi i32 [ %6, %5 ], [ %8, %7 ], [ 0, %1 ], [ 0, %2 ]
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load ptr, ptr %12, align 8
+  %.not45.i = icmp eq ptr %13, null
+  br i1 %.not45.i, label %14, label %16
+
+14:                                               ; preds = %11, %8, %5
+  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 24, ptr %15, align 4
+  br label %mz_zip_reader_end_internal.exit
+
+16:                                               ; preds = %11
+  store ptr null, ptr %6, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %7, align 8
+  tail call void %13(ptr noundef %18, ptr noundef %19) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %21 = load ptr, ptr %12, align 8
+  %22 = load ptr, ptr %17, align 8
+  %23 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef %22, ptr noundef %23) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
+  %24 = getelementptr inbounds i8, ptr %7, i64 64
+  %25 = load ptr, ptr %12, align 8
+  %26 = load ptr, ptr %17, align 8
+  %27 = load ptr, ptr %24, align 8
+  tail call void %25(ptr noundef %26, ptr noundef %27) #30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
+  %28 = getelementptr inbounds i8, ptr %7, i64 112
+  %29 = load ptr, ptr %28, align 8
+  %.not47.i = icmp eq ptr %29, null
+  br i1 %.not47.i, label %40, label %30
+
+30:                                               ; preds = %16
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp eq i32 %32, 4
+  br i1 %33, label %34, label %39
+
+34:                                               ; preds = %30
+  %35 = tail call i32 @fclose(ptr noundef nonnull %29)
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 21, ptr %38, align 4
+  br label %39
+
+39:                                               ; preds = %37, %34, %30
+  %.2.i = phi i32 [ 1, %34 ], [ 1, %30 ], [ 0, %37 ]
+  store ptr null, ptr %28, align 8
+  br label %40
+
+40:                                               ; preds = %39, %16
+  %.1.i = phi i32 [ %.2.i, %39 ], [ 1, %16 ]
+  %41 = load ptr, ptr %12, align 8
+  %42 = load ptr, ptr %17, align 8
+  tail call void %41(ptr noundef %42, ptr noundef nonnull %7) #30
+  store i32 0, ptr %3, align 4
+  br label %mz_zip_reader_end_internal.exit
+
+43:                                               ; preds = %2, %2
+  %44 = tail call fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr noundef nonnull %0, i32 noundef 1)
+  br label %mz_zip_reader_end_internal.exit
+
+mz_zip_reader_end_internal.exit:                  ; preds = %40, %14, %2, %1, %43
+  %.0 = phi i32 [ %44, %43 ], [ 0, %1 ], [ 0, %2 ], [ %.1.i, %40 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -19275,8 +19347,8 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %83
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %4)
   %110 = getelementptr inbounds i8, ptr %0, i64 33738
   store i16 1, ptr %110, align 2
-  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef %0, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
-  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef %0, i32 noundef 1, i32 noundef 32, i32 noundef 15, i32 noundef 0)
+  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
+  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 32, i32 noundef 15, i32 noundef 0)
   %111 = getelementptr inbounds i8, ptr %0, i64 36682
   br label %112
 
@@ -19648,7 +19720,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %83
 
 .loopexit320.i:                                   ; preds = %248, %271, %289, %285, %264, %253, %.split.loop.exit464.i
   %.17.i = phi i32 [ %.6.i, %264 ], [ %261, %253 ], [ %282, %285 ], [ %282, %289 ], [ 0, %.split.loop.exit464.i ], [ %273, %271 ], [ %250, %248 ]
-  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef %0, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
+  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
   %293 = getelementptr inbounds i8, ptr %0, i64 92
   %294 = load i32, ptr %293, align 4
   %295 = shl i32 2, %294

@@ -1455,7 +1455,7 @@ ensure.exit59:                                    ; preds = %156, %120
   %.03747.i = phi i32 [ 4, %.thread.i ], [ %.037.i, %187 ]
   %189 = zext nneg i32 %.03747.i to i64
   %190 = add nuw nsw i64 %189, 1
-  %191 = call fastcc ptr @ensure(ptr noundef %1, i64 noundef %190)
+  %191 = call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %190)
   %192 = icmp eq ptr %191, null
   br i1 %192, label %print_number.exit, label %.preheader.i
 
@@ -1511,7 +1511,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
 213:                                              ; preds = %6
   %214 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %214, align 8
-  %215 = tail call fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %.val, ptr noundef %1)
+  %215 = tail call fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %.val, ptr noundef nonnull %1)
   br label %print_array.exit
 
 216:                                              ; preds = %6
@@ -1632,7 +1632,7 @@ ensure.exit79:                                    ; preds = %265, %229
 
 274:                                              ; preds = %.lr.ph101, %296
   %.0.i62100 = phi ptr [ %218, %.lr.ph101 ], [ %.pre, %296 ]
-  %275 = tail call fastcc i32 @print_value(ptr noundef nonnull %.0.i62100, ptr noundef %1)
+  %275 = tail call fastcc i32 @print_value(ptr noundef nonnull %.0.i62100, ptr noundef nonnull %1)
   %.not34.i = icmp eq i32 %275, 0
   br i1 %.not34.i, label %print_array.exit, label %276
 
@@ -1659,7 +1659,7 @@ update_offset.exit:                               ; preds = %276, %279
   %.not36.i = icmp eq i32 %286, 0
   %287 = select i1 %.not36.i, i64 1, i64 2
   %288 = add nuw nsw i64 %287, 1
-  %289 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %288)
+  %289 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %288)
   %290 = icmp eq ptr %289, null
   br i1 %290, label %print_array.exit, label %291
 
@@ -1686,7 +1686,7 @@ update_offset.exit:                               ; preds = %276, %279
   br i1 %.not.i63, label %._crit_edge102, label %274
 
 ._crit_edge102:                                   ; preds = %update_offset.exit, %296, %ensure.exit79
-  %299 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef 2)
+  %299 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef 2)
   %300 = icmp eq ptr %299, null
   br i1 %300, label %print_array.exit, label %301
 
@@ -1707,7 +1707,7 @@ update_offset.exit:                               ; preds = %276, %279
   %.not.i64 = icmp eq i32 %309, 0
   %310 = select i1 %.not.i64, i64 1, i64 2
   %311 = add nuw nsw i64 %310, 1
-  %312 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %311)
+  %312 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %311)
   %313 = icmp eq ptr %312, null
   br i1 %313, label %print_array.exit, label %314
 
@@ -1742,7 +1742,7 @@ update_offset.exit:                               ; preds = %276, %279
 
 326:                                              ; preds = %.lr.ph93
   %327 = load i64, ptr %315, align 8
-  %328 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %327)
+  %328 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %327)
   %329 = icmp eq ptr %328, null
   br i1 %329, label %print_array.exit, label %.preheader86
 
@@ -1771,7 +1771,7 @@ update_offset.exit:                               ; preds = %276, %279
 337:                                              ; preds = %._crit_edge, %.lr.ph93
   %338 = getelementptr inbounds i8, ptr %.064.i91, i64 56
   %339 = load ptr, ptr %338, align 8
-  %340 = tail call fastcc i32 @print_string_ptr(ptr noundef %339, ptr noundef %1)
+  %340 = tail call fastcc i32 @print_string_ptr(ptr noundef %339, ptr noundef nonnull %1)
   %.not79.i = icmp eq i32 %340, 0
   br i1 %.not79.i, label %print_array.exit, label %341
 
@@ -1792,7 +1792,7 @@ update_offset.exit81:                             ; preds = %341, %344
   %349 = load i32, ptr %308, align 4
   %.not80.i = icmp eq i32 %349, 0
   %350 = select i1 %.not80.i, i64 1, i64 2
-  %351 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %350)
+  %351 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %350)
   %352 = icmp eq ptr %351, null
   br i1 %352, label %print_array.exit, label %353
 
@@ -1811,7 +1811,7 @@ update_offset.exit81:                             ; preds = %341, %344
   %358 = load i64, ptr %322, align 8
   %359 = add i64 %358, %350
   store i64 %359, ptr %322, align 8
-  %360 = tail call fastcc i32 @print_value(ptr noundef nonnull %.064.i91, ptr noundef %1)
+  %360 = tail call fastcc i32 @print_value(ptr noundef nonnull %.064.i91, ptr noundef nonnull %1)
   %.not82.i = icmp eq i32 %360, 0
   br i1 %.not82.i, label %print_array.exit, label %361
 
@@ -1837,7 +1837,7 @@ update_offset.exit80:                             ; preds = %361, %364
   %372 = zext i1 %.not84.i to i64
   %373 = add nuw nsw i64 %372, %370
   %374 = add nuw nsw i64 %373, 1
-  %375 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %374)
+  %375 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %374)
   %376 = icmp eq ptr %375, null
   br i1 %376, label %print_array.exit, label %377
 
@@ -1884,7 +1884,7 @@ update_offset.exit80:                             ; preds = %361, %364
 
 393:                                              ; preds = %390, %._crit_edge94
   %394 = phi i64 [ %392, %390 ], [ 2, %._crit_edge94 ]
-  %395 = tail call fastcc ptr @ensure(ptr noundef %1, i64 noundef %394)
+  %395 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %394)
   %396 = icmp eq ptr %395, null
   br i1 %396, label %print_array.exit, label %397
 

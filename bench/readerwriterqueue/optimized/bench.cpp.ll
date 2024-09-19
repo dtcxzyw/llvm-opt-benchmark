@@ -2284,7 +2284,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
-  %call.i.i.i.i.i = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   %cmp3.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i, label %while.cond2.i.i.i.i.i, label %invoke.cont1, !llvm.loop !21
 
@@ -2334,7 +2334,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   br label %while.cond2.i.i.i.i
 
 while.cond2.i.i.i.i:                              ; preds = %while.cond2.i.i.i.i, %if.then.i.i.i
-  %call.i.i.i.i = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i) #19
+  %call.i.i.i.i = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i) #19
   %cmp3.i.i.i.i = icmp eq i32 %call.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i, label %while.cond2.i.i.i.i, label %invoke.cont5, !llvm.loop !21
 
@@ -2352,7 +2352,7 @@ invoke.cont5:                                     ; preds = %while.cond2.i.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i: ; preds = %invoke.cont5
   %m_sema.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %call.i.i.i.i.i.i = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i) #19
   call void @_ZdlPv(ptr noundef nonnull %22) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i
 
@@ -2413,7 +2413,7 @@ if.then.i.i.i.i61:                                ; preds = %while.end.i.i52
   br label %while.cond2.i.i.i.i.i63
 
 while.cond2.i.i.i.i.i63:                          ; preds = %while.cond2.i.i.i.i.i63, %if.then.i.i.i.i61
-  %call.i.i.i.i.i64 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i62) #19
+  %call.i.i.i.i.i64 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i62) #19
   %cmp3.i.i.i.i.i65 = icmp eq i32 %call.i.i.i.i.i64, -1
   br i1 %cmp3.i.i.i.i.i65, label %while.cond2.i.i.i.i.i63, label %invoke.cont16, !llvm.loop !21
 
@@ -2470,7 +2470,7 @@ if.then.i.i.i81:                                  ; preds = %if.end.i72
   br label %while.cond2.i.i.i.i83
 
 while.cond2.i.i.i.i83:                            ; preds = %while.cond2.i.i.i.i83, %if.then.i.i.i81
-  %call.i.i.i.i84 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i82) #19
+  %call.i.i.i.i84 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i82) #19
   %cmp3.i.i.i.i85 = icmp eq i32 %call.i.i.i.i84, -1
   br i1 %cmp3.i.i.i.i85, label %while.cond2.i.i.i.i83, label %invoke.cont28, !llvm.loop !21
 
@@ -2499,7 +2499,7 @@ invoke.cont34:                                    ; preds = %for.end32
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i90: ; preds = %invoke.cont34
   %m_sema.i.i.i.i.i91 = getelementptr inbounds i8, ptr %46, i64 8
-  %call.i.i.i.i.i.i92 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i91) #19
+  %call.i.i.i.i.i.i92 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i91) #19
   call void @_ZdlPv(ptr noundef nonnull %46) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93
 
@@ -2568,7 +2568,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106: ; preds = %invoke.cont53
   %m_sema.i.i.i.i.i107 = getelementptr inbounds i8, ptr %55, i64 8
-  %call.i.i.i.i.i.i108 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i107) #19
+  %call.i.i.i.i.i.i108 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i107) #19
   call void @_ZdlPv(ptr noundef nonnull %55) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109
 
@@ -2670,7 +2670,7 @@ if.then.i.i.i.i131:                               ; preds = %while.end.i.i122
   br label %while.cond2.i.i.i.i.i133
 
 while.cond2.i.i.i.i.i133:                         ; preds = %while.cond2.i.i.i.i.i133, %if.then.i.i.i.i131
-  %call.i.i.i.i.i134 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i132) #19
+  %call.i.i.i.i.i134 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i132) #19
   %cmp3.i.i.i.i.i135 = icmp eq i32 %call.i.i.i.i.i134, -1
   br i1 %cmp3.i.i.i.i.i135, label %while.cond2.i.i.i.i.i133, label %invoke.cont72, !llvm.loop !21
 
@@ -2714,7 +2714,7 @@ if.then.i.i.i151:                                 ; preds = %if.end.i142
   br label %while.cond2.i.i.i.i153
 
 while.cond2.i.i.i.i153:                           ; preds = %while.cond2.i.i.i.i153, %if.then.i.i.i151
-  %call.i.i.i.i154 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i152) #19
+  %call.i.i.i.i154 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i152) #19
   %cmp3.i.i.i.i155 = icmp eq i32 %call.i.i.i.i154, -1
   br i1 %cmp3.i.i.i.i155, label %while.cond2.i.i.i.i153, label %for.inc76, !llvm.loop !21
 
@@ -2749,7 +2749,7 @@ if.then.i.i.i168:                                 ; preds = %if.end.i159
   br label %while.cond2.i.i.i.i170
 
 while.cond2.i.i.i.i170:                           ; preds = %while.cond2.i.i.i.i170, %if.then.i.i.i168
-  %call.i.i.i.i171 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i169) #19
+  %call.i.i.i.i171 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i169) #19
   %cmp3.i.i.i.i172 = icmp eq i32 %call.i.i.i.i171, -1
   br i1 %cmp3.i.i.i.i172, label %while.cond2.i.i.i.i170, label %invoke.cont82, !llvm.loop !21
 
@@ -2767,7 +2767,7 @@ invoke.cont82:                                    ; preds = %while.cond2.i.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i177: ; preds = %invoke.cont82
   %m_sema.i.i.i.i.i178 = getelementptr inbounds i8, ptr %86, i64 8
-  %call.i.i.i.i.i.i179 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i178) #19
+  %call.i.i.i.i.i.i179 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i178) #19
   call void @_ZdlPv(ptr noundef nonnull %86) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180
 
@@ -2865,7 +2865,7 @@ if.then.i.i.i205:                                 ; preds = %if.end.i196
   br label %while.cond2.i.i.i.i207
 
 while.cond2.i.i.i.i207:                           ; preds = %while.cond2.i.i.i.i207, %if.then.i.i.i205
-  %call.i.i.i.i208 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i206) #19
+  %call.i.i.i.i208 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i206) #19
   %cmp3.i.i.i.i209 = icmp eq i32 %call.i.i.i.i208, -1
   br i1 %cmp3.i.i.i.i209, label %while.cond2.i.i.i.i207, label %invoke.cont110, !llvm.loop !21
 
@@ -2890,7 +2890,7 @@ invoke.cont110:                                   ; preds = %while.cond2.i.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214: ; preds = %invoke.cont110
   %m_sema.i.i.i.i.i215 = getelementptr inbounds i8, ptr %106, i64 8
-  %call.i.i.i.i.i.i216 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i215) #19
+  %call.i.i.i.i.i.i216 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i215) #19
   call void @_ZdlPv(ptr noundef nonnull %106) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217
 
@@ -3009,7 +3009,7 @@ if.then.i.i.i242:                                 ; preds = %if.end.i233
   br label %while.cond2.i.i.i.i244
 
 while.cond2.i.i.i.i244:                           ; preds = %while.cond2.i.i.i.i244, %if.then.i.i.i242
-  %call.i.i.i.i245 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i243) #19
+  %call.i.i.i.i245 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i243) #19
   %cmp3.i.i.i.i246 = icmp eq i32 %call.i.i.i.i245, -1
   br i1 %cmp3.i.i.i.i246, label %while.cond2.i.i.i.i244, label %invoke.cont142, !llvm.loop !21
 
@@ -3034,7 +3034,7 @@ invoke.cont142:                                   ; preds = %while.cond2.i.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251: ; preds = %invoke.cont142
   %m_sema.i.i.i.i.i252 = getelementptr inbounds i8, ptr %128, i64 8
-  %call.i.i.i.i.i.i253 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i252) #19
+  %call.i.i.i.i.i.i253 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i252) #19
   call void @_ZdlPv(ptr noundef nonnull %128) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254
 
@@ -3140,7 +3140,7 @@ if.then.i.i.i276:                                 ; preds = %if.end.i267
   br label %while.cond2.i.i.i.i278
 
 while.cond2.i.i.i.i278:                           ; preds = %while.cond2.i.i.i.i278, %if.then.i.i.i276
-  %call.i.i.i.i279 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i277) #19
+  %call.i.i.i.i279 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i277) #19
   %cmp3.i.i.i.i280 = icmp eq i32 %call.i.i.i.i279, -1
   br i1 %cmp3.i.i.i.i280, label %while.cond2.i.i.i.i278, label %invoke.cont171, !llvm.loop !21
 
@@ -3160,7 +3160,7 @@ invoke.cont171:                                   ; preds = %while.cond2.i.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285: ; preds = %invoke.cont171
   %m_sema.i.i.i.i.i286 = getelementptr inbounds i8, ptr %148, i64 8
-  %call.i.i.i.i.i.i287 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i286) #19
+  %call.i.i.i.i.i.i287 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i286) #19
   call void @_ZdlPv(ptr noundef nonnull %148) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288
 
@@ -3274,7 +3274,7 @@ if.then.i.i.i310:                                 ; preds = %if.end.i301
   br label %while.cond2.i.i.i.i312
 
 while.cond2.i.i.i.i312:                           ; preds = %while.cond2.i.i.i.i312, %if.then.i.i.i310
-  %call.i.i.i.i313 = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i311) #19
+  %call.i.i.i.i313 = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i311) #19
   %cmp3.i.i.i.i314 = icmp eq i32 %call.i.i.i.i313, -1
   br i1 %cmp3.i.i.i.i314, label %while.cond2.i.i.i.i312, label %invoke.cont200, !llvm.loop !21
 
@@ -3299,7 +3299,7 @@ invoke.cont200:                                   ; preds = %while.cond2.i.i.i.i
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319: ; preds = %invoke.cont200
   %m_sema.i.i.i.i.i320 = getelementptr inbounds i8, ptr %169, i64 8
-  %call.i.i.i.i.i.i321 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i320) #19
+  %call.i.i.i.i.i.i321 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i320) #19
   call void @_ZdlPv(ptr noundef nonnull %169) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322
 
@@ -3339,7 +3339,7 @@ sw.epilog.sink.split:                             ; preds = %_ZNSt10unique_ptrIN
   %.sink381 = phi ptr [ %23, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %47, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %56, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %87, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %107, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %129, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %149, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %170, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
   %result.0.ph = phi double [ %call4, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %call35, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %call54, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %call81, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %call109, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %call141, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %call170, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %call199, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
   %m_sema.i.i.i4.i.i326 = getelementptr inbounds i8, ptr %.sink381, i64 8
-  %call.i.i.i.i5.i.i327 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i4.i.i326) #19
+  %call.i.i.i.i5.i.i327 = call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i4.i.i326) #19
   call void @_ZdlPv(ptr noundef nonnull %.sink381) #21
   br label %sw.epilog
 
@@ -5891,7 +5891,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %for.b
   %tail.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
   %next.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 128
   %data.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tail.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i7.i, ptr %data.i.i, align 8
   %sizeMask.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 144
@@ -5941,7 +5941,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit23: ; preds = %if.
   %tail.i.i16 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 64
   %next.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 128
   %data.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i.i11, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tail.i.i16, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i7.i15, ptr %data.i.i18, align 8
   %sizeMask.i.i19 = getelementptr inbounds i8, ptr %add.ptr.i.i11, i64 144
@@ -6913,7 +6913,7 @@ entry:
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i: ; preds = %entry
   %m_sema.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %call.i.i.i.i.i = tail call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = tail call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i
 
@@ -6926,7 +6926,7 @@ _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_dele
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i3.i: ; preds = %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i
   %m_sema.i.i.i4.i = getelementptr inbounds i8, ptr %4, i64 8
-  %call.i.i.i.i5.i = tail call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i4.i) #19
+  %call.i.i.i.i5.i = tail call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i4.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit
 
@@ -6946,7 +6946,7 @@ invoke.cont:
   store i64 %capacity, ptr %call, align 8
   %m_sema.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i, i8 0, i64 32, i1 false)
-  %call.i.i = tail call i32 @sem_init(ptr noundef nonnull %m_sema.i, i32 noundef 0, i32 noundef 0) #19
+  %call.i.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i, i32 noundef 0, i32 noundef 0) #19
   store ptr %call, ptr %slots_, align 8
   %call4 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
           to label %invoke.cont6 unwind label %lpad2
@@ -6955,7 +6955,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   %items = getelementptr inbounds i8, ptr %this, i64 40
   %m_sema.i17 = getelementptr inbounds i8, ptr %call4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call4, i8 0, i64 40, i1 false)
-  %call.i.i18 = tail call i32 @sem_init(ptr noundef nonnull %m_sema.i17, i32 noundef 0, i32 noundef 0) #19
+  %call.i.i18 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i17, i32 noundef 0, i32 noundef 0) #19
   store ptr %call4, ptr %items, align 8
   %nextSlot = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %nextSlot, align 8
@@ -7011,7 +7011,7 @@ entry:
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit: ; preds = %entry
   %m_sema.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call.i.i.i = tail call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i) #19
+  %call.i.i.i = tail call i32 @sem_destroy(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %if.end
 
@@ -7062,7 +7062,7 @@ if.then11:                                        ; preds = %if.end9
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.then11
-  %call.i = tail call i32 @sem_wait(ptr noundef nonnull %m_sema)
+  %call.i = tail call i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema)
   switch i32 %call.i, label %if.end15 [
     i32 -1, label %land.rhs.i
     i32 0, label %return
@@ -7106,7 +7106,7 @@ do.body.i7.preheader:                             ; preds = %if.then.i, %land.lh
   br label %do.body.i7
 
 do.body.i7:                                       ; preds = %do.body.i7.preheader, %land.rhs.i8
-  %call6.i = call i32 @sem_timedwait(ptr noundef nonnull %m_sema17, ptr noundef nonnull %ts.i)
+  %call6.i = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema17, ptr noundef nonnull %ts.i)
   %cmp7.i = icmp eq i32 %call6.i, -1
   br i1 %cmp7.i, label %land.rhs.i8, label %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit
 
@@ -7140,7 +7140,7 @@ if.end27:                                         ; preds = %if.end27.lr.ph, %if
   br i1 %cmp30, label %do.body.i9, label %if.end35
 
 do.body.i9:                                       ; preds = %if.end27, %land.rhs.i13
-  %call.i10 = call i32 @sem_trywait(ptr noundef nonnull %m_sema32) #19
+  %call.i10 = call i32 @sem_trywait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema32) #19
   switch i32 %call.i10, label %if.end35 [
     i32 -1, label %land.rhs.i13
     i32 0, label %return
@@ -7217,7 +7217,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i) #19
   %cmp3.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i.i, label %while.cond2.i.i.i.i.i.i, label %if.then.i.i, !llvm.loop !21
 
@@ -7292,7 +7292,7 @@ if.end9.i:                                        ; preds = %while.end.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
-  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull %m_sema.i)
+  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i)
   switch i32 %call.i.i, label %if.end15.i [
     i32 -1, label %land.rhs.i.i
     i32 0, label %while.end.i.i
@@ -7315,7 +7315,7 @@ if.end27.i:                                       ; preds = %if.end15.i, %if.end
   br i1 %cmp30.i, label %do.body.i9.i, label %if.end35.i
 
 do.body.i9.i:                                     ; preds = %if.end27.i, %land.rhs.i13.i
-  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull %m_sema.i) #19
+  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i) #19
   switch i32 %call.i10.i, label %if.end35.i [
     i32 -1, label %land.rhs.i13.i
     i32 0, label %while.end.i.i
@@ -7366,7 +7366,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
-  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   %cmp3.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i, label %while.cond2.i.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit, !llvm.loop !21
 
@@ -7435,7 +7435,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i) #19
   %cmp3.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i.i, label %while.cond2.i.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, !llvm.loop !21
 
@@ -7505,7 +7505,7 @@ if.end9.i:                                        ; preds = %while.end.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
-  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull %m_sema.i)
+  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i)
   switch i32 %call.i.i, label %if.end15.i [
     i32 -1, label %land.rhs.i.i
     i32 0, label %while.end.i.i
@@ -7528,7 +7528,7 @@ if.end27.i:                                       ; preds = %if.end15.i, %if.end
   br i1 %cmp30.i, label %do.body.i9.i, label %if.end35.i
 
 do.body.i9.i:                                     ; preds = %if.end27.i, %land.rhs.i13.i
-  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull %m_sema.i) #19
+  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i) #19
   switch i32 %call.i10.i, label %if.end35.i [
     i32 -1, label %land.rhs.i13.i
     i32 0, label %while.end.i.i
@@ -7579,7 +7579,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
-  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   %cmp3.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i, label %while.cond2.i.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit, !llvm.loop !21
 
@@ -7633,7 +7633,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i) #19
   %cmp3.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i.i, label %while.cond2.i.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, !llvm.loop !21
 
@@ -7705,7 +7705,7 @@ if.end9.i:                                        ; preds = %while.end.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
-  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull %m_sema.i)
+  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i)
   switch i32 %call.i.i, label %if.end15.i [
     i32 -1, label %land.rhs.i.i
     i32 0, label %while.end.i.i
@@ -7728,7 +7728,7 @@ if.end27.i:                                       ; preds = %if.end15.i, %if.end
   br i1 %cmp30.i, label %do.body.i9.i, label %if.end35.i
 
 do.body.i9.i:                                     ; preds = %if.end27.i, %land.rhs.i13.i
-  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull %m_sema.i) #19
+  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i) #19
   switch i32 %call.i10.i, label %if.end35.i [
     i32 -1, label %land.rhs.i13.i
     i32 0, label %while.end.i.i
@@ -7779,7 +7779,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
-  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   %cmp3.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i, label %while.cond2.i.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit, !llvm.loop !21
 
@@ -7841,7 +7841,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i) #19
   %cmp3.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i.i, label %while.cond2.i.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, !llvm.loop !21
 
@@ -7904,7 +7904,7 @@ if.end9.i:                                        ; preds = %while.end.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
-  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull %m_sema.i)
+  %call.i.i = tail call i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i)
   switch i32 %call.i.i, label %if.end15.i [
     i32 -1, label %land.rhs.i.i
     i32 0, label %while.end.i.i
@@ -7927,7 +7927,7 @@ if.end27.i:                                       ; preds = %if.end15.i, %if.end
   br i1 %cmp30.i, label %do.body.i9.i, label %if.end35.i
 
 do.body.i9.i:                                     ; preds = %if.end27.i, %land.rhs.i13.i
-  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull %m_sema.i) #19
+  %call.i10.i = tail call i32 @sem_trywait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i) #19
   switch i32 %call.i10.i, label %if.end35.i [
     i32 -1, label %land.rhs.i13.i
     i32 0, label %while.end.i.i
@@ -7978,7 +7978,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
-  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = tail call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   %cmp3.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i, label %while.cond2.i.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit, !llvm.loop !21
 
@@ -8052,7 +8052,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   br label %while.cond2.i.i.i.i.i.i
 
 while.cond2.i.i.i.i.i.i:                          ; preds = %while.cond2.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i.i) #19
   %cmp3.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i.i, label %while.cond2.i.i.i.i.i.i, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, !llvm.loop !21
 
@@ -8143,7 +8143,7 @@ if.end9.i:                                        ; preds = %while.end.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
-  %call.i.i = call i32 @sem_wait(ptr noundef nonnull %m_sema.i)
+  %call.i.i = call i32 @sem_wait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i)
   switch i32 %call.i.i, label %if.end15.i [
     i32 -1, label %land.rhs.i.i
     i32 0, label %while.end.i.i
@@ -8166,7 +8166,7 @@ if.end27.i:                                       ; preds = %if.end15.i, %if.end
   br i1 %cmp30.i, label %do.body.i9.i, label %if.end35.i
 
 do.body.i9.i:                                     ; preds = %if.end27.i, %land.rhs.i13.i
-  %call.i10.i = call i32 @sem_trywait(ptr noundef nonnull %m_sema.i) #19
+  %call.i10.i = call i32 @sem_trywait(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i) #19
   switch i32 %call.i10.i, label %if.end35.i [
     i32 -1, label %land.rhs.i13.i
     i32 0, label %while.end.i.i
@@ -8217,7 +8217,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
   br label %while.cond2.i.i.i.i.i
 
 while.cond2.i.i.i.i.i:                            ; preds = %while.cond2.i.i.i.i.i, %if.then.i.i.i.i
-  %call.i.i.i.i.i = call i32 @sem_post(ptr noundef nonnull %m_sema.i.i.i.i) #19
+  %call.i.i.i.i.i = call i32 @sem_post(ptr noundef nonnull align 8 dereferenceable(32) %m_sema.i.i.i.i) #19
   %cmp3.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, -1
   br i1 %cmp3.i.i.i.i.i, label %while.cond2.i.i.i.i.i, label %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit, !llvm.loop !21
 

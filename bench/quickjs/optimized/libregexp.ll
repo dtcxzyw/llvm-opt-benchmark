@@ -415,18 +415,13 @@ define dso_local ptr @lre_compile(ptr nocapture noundef writeonly %0, ptr nounde
   %.not74 = icmp eq i32 %43, 0
   br i1 %.not74, label %46, label %44
 
-.sink.split:                                      ; preds = %72, %compute_stack_size.exit, %52, %46
-  %.str.1.sink = phi ptr [ @.str, %46 ], [ @.str.33, %52 ], [ @.str.1, %compute_stack_size.exit ], [ @.str.1, %72 ]
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %11, ptr noundef nonnull %.str.1.sink)
-  br label %44
-
-44:                                               ; preds = %.sink.split, %40
+44:                                               ; preds = %40, %compute_stack_size.exit.thread, %55, %52
   call void @dbuf_free(ptr noundef nonnull %11) #17
   call void @dbuf_free(ptr noundef nonnull %28) #17
   %45 = getelementptr inbounds i8, ptr %11, i64 160
   call void @pstrcpy(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %45) #17
   store i32 0, ptr %0, align 4
-  br label %117
+  br label %119
 
 46:                                               ; preds = %40
   %47 = call i32 @dbuf_putc(ptr noundef nonnull %11, i8 noundef zeroext 12) #17
@@ -435,129 +430,141 @@ define dso_local ptr @lre_compile(ptr nocapture noundef writeonly %0, ptr nounde
   %50 = load ptr, ptr %13, align 8
   %51 = load i8, ptr %50, align 1
   %.not75 = icmp eq i8 %51, 0
-  br i1 %.not75, label %52, label %.sink.split
+  br i1 %.not75, label %53, label %52
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %11, i64 24
-  %.val = load i32, ptr %53, align 8
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %11, ptr noundef nonnull @.str)
+  br label %44
+
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds i8, ptr %11, i64 24
+  %.val = load i32, ptr %54, align 8
   %.not76 = icmp eq i32 %.val, 0
-  br i1 %.not76, label %54, label %.sink.split
+  br i1 %.not76, label %56, label %55
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %11, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = trunc i64 %57 to i32
-  %59 = getelementptr i8, ptr %55, i64 7
-  %60 = add i32 %58, -7
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph.i, label %compute_stack_size.exit.thread78
+55:                                               ; preds = %53
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %11, ptr noundef nonnull @.str.33)
+  br label %44
 
-.lr.ph.i:                                         ; preds = %54, %86
-  %.02635.i = phi i32 [ %87, %86 ], [ 0, %54 ]
-  %.02734.i = phi i32 [ %.1.i, %86 ], [ 0, %54 ]
-  %.02833.i = phi i32 [ %.129.i, %86 ], [ 0, %54 ]
-  %62 = sext i32 %.02635.i to i64
-  %63 = getelementptr i8, ptr %59, i64 %62
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i64
-  %66 = getelementptr [29 x %struct.REOpCode], ptr @reopcode_info, i64 0, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  switch i8 %64, label %86 [
-    i8 15, label %69
-    i8 25, label %69
-    i8 16, label %74
-    i8 26, label %74
-    i8 21, label %76
-    i8 22, label %81
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %11, align 8
+  %58 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = trunc i64 %59 to i32
+  %61 = getelementptr i8, ptr %57, i64 7
+  %62 = add i32 %60, -7
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph.i, label %compute_stack_size.exit.thread78
+
+.lr.ph.i:                                         ; preds = %56, %88
+  %.02635.i = phi i32 [ %89, %88 ], [ 0, %56 ]
+  %.02734.i = phi i32 [ %.1.i, %88 ], [ 0, %56 ]
+  %.02833.i = phi i32 [ %.129.i, %88 ], [ 0, %56 ]
+  %64 = sext i32 %.02635.i to i64
+  %65 = getelementptr i8, ptr %61, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr [29 x %struct.REOpCode], ptr @reopcode_info, i64 0, i64 %67
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  switch i8 %66, label %88 [
+    i8 15, label %71
+    i8 25, label %71
+    i8 16, label %76
+    i8 26, label %76
+    i8 21, label %78
+    i8 22, label %83
   ]
 
-69:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %70 = add i32 %.02833.i, 1
-  %71 = icmp sgt i32 %70, %.02734.i
-  br i1 %71, label %72, label %86
+71:                                               ; preds = %.lr.ph.i, %.lr.ph.i
+  %72 = add i32 %.02833.i, 1
+  %73 = icmp sgt i32 %72, %.02734.i
+  br i1 %73, label %74, label %88
 
-72:                                               ; preds = %69
-  %73 = icmp sgt i32 %70, 255
-  br i1 %73, label %.sink.split, label %86
+74:                                               ; preds = %71
+  %75 = icmp sgt i32 %72, 255
+  br i1 %75, label %compute_stack_size.exit.thread, label %88
 
-74:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %75 = add i32 %.02833.i, -1
-  br label %86
+76:                                               ; preds = %.lr.ph.i, %.lr.ph.i
+  %77 = add i32 %.02833.i, -1
+  br label %88
 
-76:                                               ; preds = %.lr.ph.i
-  %77 = getelementptr i8, ptr %63, i64 1
-  %.val.i = load i16, ptr %77, align 1
-  %78 = zext i16 %.val.i to i32
-  %79 = shl nuw nsw i32 %78, 2
-  %80 = add nuw nsw i32 %79, %68
-  br label %86
+78:                                               ; preds = %.lr.ph.i
+  %79 = getelementptr i8, ptr %65, i64 1
+  %.val.i = load i16, ptr %79, align 1
+  %80 = zext i16 %.val.i to i32
+  %81 = shl nuw nsw i32 %80, 2
+  %82 = add nuw nsw i32 %81, %70
+  br label %88
 
-81:                                               ; preds = %.lr.ph.i
-  %82 = getelementptr i8, ptr %63, i64 1
-  %.val32.i = load i16, ptr %82, align 1
-  %83 = zext i16 %.val32.i to i32
-  %84 = shl nuw nsw i32 %83, 3
-  %85 = add nuw nsw i32 %84, %68
-  br label %86
+83:                                               ; preds = %.lr.ph.i
+  %84 = getelementptr i8, ptr %65, i64 1
+  %.val32.i = load i16, ptr %84, align 1
+  %85 = zext i16 %.val32.i to i32
+  %86 = shl nuw nsw i32 %85, 3
+  %87 = add nuw nsw i32 %86, %70
+  br label %88
 
-86:                                               ; preds = %81, %76, %74, %72, %69, %.lr.ph.i
-  %.129.i = phi i32 [ %.02833.i, %.lr.ph.i ], [ %.02833.i, %81 ], [ %.02833.i, %76 ], [ %75, %74 ], [ %70, %69 ], [ %70, %72 ]
-  %.1.i = phi i32 [ %.02734.i, %.lr.ph.i ], [ %.02734.i, %81 ], [ %.02734.i, %76 ], [ %.02734.i, %74 ], [ %.02734.i, %69 ], [ %70, %72 ]
-  %.0.i = phi i32 [ %68, %.lr.ph.i ], [ %85, %81 ], [ %80, %76 ], [ %68, %74 ], [ %68, %69 ], [ %68, %72 ]
-  %87 = add i32 %.0.i, %.02635.i
-  %88 = icmp slt i32 %87, %60
-  br i1 %88, label %.lr.ph.i, label %compute_stack_size.exit, !llvm.loop !11
+88:                                               ; preds = %83, %78, %76, %74, %71, %.lr.ph.i
+  %.129.i = phi i32 [ %.02833.i, %.lr.ph.i ], [ %.02833.i, %83 ], [ %.02833.i, %78 ], [ %77, %76 ], [ %72, %71 ], [ %72, %74 ]
+  %.1.i = phi i32 [ %.02734.i, %.lr.ph.i ], [ %.02734.i, %83 ], [ %.02734.i, %78 ], [ %.02734.i, %76 ], [ %.02734.i, %71 ], [ %72, %74 ]
+  %.0.i = phi i32 [ %70, %.lr.ph.i ], [ %87, %83 ], [ %82, %78 ], [ %70, %76 ], [ %70, %71 ], [ %70, %74 ]
+  %89 = add i32 %.0.i, %.02635.i
+  %90 = icmp slt i32 %89, %62
+  br i1 %90, label %.lr.ph.i, label %compute_stack_size.exit, !llvm.loop !11
 
-compute_stack_size.exit:                          ; preds = %86
-  %89 = icmp slt i32 %.1.i, 0
-  br i1 %89, label %.sink.split, label %compute_stack_size.exit.thread78
+compute_stack_size.exit:                          ; preds = %88
+  %91 = icmp slt i32 %.1.i, 0
+  br i1 %91, label %compute_stack_size.exit.thread, label %compute_stack_size.exit.thread78
 
-compute_stack_size.exit.thread78:                 ; preds = %54, %compute_stack_size.exit
-  %.025.i80 = phi i32 [ %.1.i, %compute_stack_size.exit ], [ 0, %54 ]
-  %90 = load i32, ptr %25, align 8
-  %91 = trunc i32 %90 to i8
-  %92 = getelementptr i8, ptr %55, i64 1
-  store i8 %91, ptr %92, align 1
-  %93 = trunc i32 %.025.i80 to i8
-  %94 = load ptr, ptr %11, align 8
-  %95 = getelementptr i8, ptr %94, i64 2
-  store i8 %93, ptr %95, align 1
+compute_stack_size.exit.thread:                   ; preds = %74, %compute_stack_size.exit
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %11, ptr noundef nonnull @.str.1)
+  br label %44
+
+compute_stack_size.exit.thread78:                 ; preds = %56, %compute_stack_size.exit
+  %.025.i80 = phi i32 [ %.1.i, %compute_stack_size.exit ], [ 0, %56 ]
+  %92 = load i32, ptr %25, align 8
+  %93 = trunc i32 %92 to i8
+  %94 = getelementptr i8, ptr %57, i64 1
+  store i8 %93, ptr %94, align 1
+  %95 = trunc i32 %.025.i80 to i8
   %96 = load ptr, ptr %11, align 8
-  %97 = getelementptr i8, ptr %96, i64 3
-  %98 = load i64, ptr %56, align 8
-  %99 = trunc i64 %98 to i32
-  %100 = add i32 %99, -7
-  store i32 %100, ptr %97, align 1
-  %101 = getelementptr inbounds i8, ptr %11, i64 120
-  %102 = load i64, ptr %101, align 8
-  %103 = load i32, ptr %25, align 8
-  %104 = add i32 %103, -1
-  %105 = sext i32 %104 to i64
-  %106 = icmp ugt i64 %102, %105
-  br i1 %106, label %107, label %113
+  %97 = getelementptr i8, ptr %96, i64 2
+  store i8 %95, ptr %97, align 1
+  %98 = load ptr, ptr %11, align 8
+  %99 = getelementptr i8, ptr %98, i64 3
+  %100 = load i64, ptr %58, align 8
+  %101 = trunc i64 %100 to i32
+  %102 = add i32 %101, -7
+  store i32 %102, ptr %99, align 1
+  %103 = getelementptr inbounds i8, ptr %11, i64 120
+  %104 = load i64, ptr %103, align 8
+  %105 = load i32, ptr %25, align 8
+  %106 = add i32 %105, -1
+  %107 = sext i32 %106 to i64
+  %108 = icmp ugt i64 %104, %107
+  br i1 %108, label %109, label %115
 
-107:                                              ; preds = %compute_stack_size.exit.thread78
-  %108 = load ptr, ptr %28, align 8
-  %109 = call i32 @dbuf_put(ptr noundef nonnull %11, ptr noundef %108, i64 noundef %102) #17
-  %110 = load ptr, ptr %11, align 8
-  %111 = load i8, ptr %110, align 1
-  %112 = or i8 %111, -128
-  store i8 %112, ptr %110, align 1
-  br label %113
+109:                                              ; preds = %compute_stack_size.exit.thread78
+  %110 = load ptr, ptr %28, align 8
+  %111 = call i32 @dbuf_put(ptr noundef nonnull %11, ptr noundef %110, i64 noundef %104) #17
+  %112 = load ptr, ptr %11, align 8
+  %113 = load i8, ptr %112, align 1
+  %114 = or i8 %113, -128
+  store i8 %114, ptr %112, align 1
+  br label %115
 
-113:                                              ; preds = %107, %compute_stack_size.exit.thread78
+115:                                              ; preds = %109, %compute_stack_size.exit.thread78
   call void @dbuf_free(ptr noundef nonnull %28) #17
   store i8 0, ptr %1, align 1
-  %114 = load i64, ptr %56, align 8
-  %115 = trunc i64 %114 to i32
-  store i32 %115, ptr %0, align 4
-  %116 = load ptr, ptr %11, align 8
-  br label %117
+  %116 = load i64, ptr %58, align 8
+  %117 = trunc i64 %116 to i32
+  store i32 %117, ptr %0, align 4
+  %118 = load ptr, ptr %11, align 8
+  br label %119
 
-117:                                              ; preds = %113, %44
-  %.0 = phi ptr [ null, %44 ], [ %116, %113 ]
+119:                                              ; preds = %115, %44
+  %.0 = phi ptr [ null, %44 ], [ %118, %115 ]
   ret ptr %.0
 }
 
@@ -618,7 +625,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_disjunction(ptr noundef no
   ]
 
 17:                                               ; preds = %.lr.ph.split.us
-  %18 = tail call fastcc i32 @re_parse_term(ptr noundef %0, i32 noundef 0)
+  %18 = tail call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) 0)
   %.not33.i.us = icmp eq i32 %18, 0
   br i1 %.not33.i.us, label %19, label %re_parse_alternative.exit35
 
@@ -638,7 +645,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_disjunction(ptr noundef no
 
 24:                                               ; preds = %.lr.ph.split
   %25 = load i64, ptr %9, align 8
-  %26 = tail call fastcc i32 @re_parse_term(ptr noundef %0, i32 noundef %1)
+  %26 = tail call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
   %.not33.i = icmp eq i32 %26, 0
   br i1 %.not33.i, label %27, label %re_parse_alternative.exit35
 
@@ -693,7 +700,7 @@ re_parse_alternative.exit:                        ; preds = %.lr.ph.split, %.lr.
   br i1 %.not.i28, label %52, label %dbuf_insert.exit
 
 dbuf_insert.exit:                                 ; preds = %46
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33)
   br label %re_parse_alternative.exit35
 
 52:                                               ; preds = %46
@@ -741,7 +748,7 @@ dbuf_insert.exit:                                 ; preds = %46
   ]
 
 77:                                               ; preds = %.lr.ph54.split.us
-  %78 = call fastcc i32 @re_parse_term(ptr noundef %0, i32 noundef 0)
+  %78 = call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) 0)
   %.not33.i32.us = icmp eq i32 %78, 0
   br i1 %.not33.i32.us, label %79, label %re_parse_alternative.exit35
 
@@ -761,7 +768,7 @@ dbuf_insert.exit:                                 ; preds = %46
 
 84:                                               ; preds = %.lr.ph54.split
   %85 = load i64, ptr %9, align 8
-  %86 = call fastcc i32 @re_parse_term(ptr noundef %0, i32 noundef %1)
+  %86 = call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
   %.not33.i32 = icmp eq i32 %86, 0
   br i1 %.not33.i32, label %87, label %re_parse_alternative.exit35
 
@@ -2632,7 +2639,7 @@ re_parse_expect.exit.thread:                      ; preds = %84
   br label %409
 
 re_parse_expect.exit:                             ; preds = %84
-  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef range(i32 41, 126) 41)
   br label %664
 
 89:                                               ; preds = %74
@@ -2690,7 +2697,7 @@ re_parse_expect.exit:                             ; preds = %84
   br i1 %.not.i407, label %114, label %re_parse_expect.exit409
 
 re_parse_expect.exit409:                          ; preds = %111
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef range(i32 41, 126) 41)
   br label %664
 
 114:                                              ; preds = %111
@@ -2795,7 +2802,7 @@ re_parse_expect.exit412.thread:                   ; preds = %159
   br label %409
 
 re_parse_expect.exit412:                          ; preds = %159
-  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 41)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef range(i32 41, 126) 41)
   br label %664
 
 167:                                              ; preds = %2
@@ -3101,7 +3108,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   br label %313
 
 313:                                              ; preds = %348, %.lr.ph.i419
-  %314 = call fastcc i32 @get_class_atom(ptr noundef %0, ptr noundef %10, ptr noundef %8, i32 noundef 1)
+  %314 = call fastcc i32 @get_class_atom(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %8, i32 noundef 1)
   %315 = icmp slt i32 %314, 0
   br i1 %315, label %re_parse_char_class.exit, label %316
 
@@ -3129,10 +3136,10 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
 
 327:                                              ; preds = %325
   call void @cr_free(ptr noundef nonnull %10) #17
-  br label %.loopexit.sink.split.i
+  br label %re_parse_char_class.exit.sink.split
 
 328:                                              ; preds = %323
-  %329 = call fastcc i32 @get_class_atom(ptr noundef %0, ptr noundef %10, ptr noundef %11, i32 noundef 1)
+  %329 = call fastcc i32 @get_class_atom(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, i32 noundef 1)
   %330 = icmp slt i32 %329, 0
   br i1 %330, label %re_parse_char_class.exit, label %331
 
@@ -3144,13 +3151,13 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   call void @cr_free(ptr noundef nonnull %10) #17
   %334 = load i32, ptr %310, align 4
   %.not45.i = icmp eq i32 %334, 0
-  br i1 %.not45.i, label %.thread55.i, label %.loopexit.sink.split.i
+  br i1 %.not45.i, label %.thread55.i, label %re_parse_char_class.exit.sink.split
 
 335:                                              ; preds = %331
   %336 = load ptr, ptr %11, align 8
   store ptr %336, ptr %8, align 8
   %337 = icmp ult i32 %329, %314
-  br i1 %337, label %.loopexit.sink.split.i, label %338
+  br i1 %337, label %re_parse_char_class.exit.sink.split, label %338
 
 338:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -3160,7 +3167,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   %340 = call i32 @cr_union1(ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef 2) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not44.i = icmp eq i32 %340, 0
-  br i1 %.not44.i, label %348, label %.loopexit.sink.split.i
+  br i1 %.not44.i, label %348, label %re_parse_char_class.exit.sink.split
 
 341:                                              ; preds = %320, %316
   %342 = icmp ugt i32 %314, 1073741823
@@ -3172,7 +3179,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   %345 = call i32 @cr_union1(ptr noundef nonnull %9, ptr noundef %343, i32 noundef %344) #17
   call void @cr_free(ptr noundef nonnull %10) #17
   %.not48.i = icmp eq i32 %345, 0
-  br i1 %.not48.i, label %348, label %.loopexit.sink.split.i
+  br i1 %.not48.i, label %348, label %re_parse_char_class.exit.sink.split
 
 .thread55.i:                                      ; preds = %341, %333
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3182,7 +3189,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   %347 = call i32 @cr_union1(ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 2) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not47.i = icmp eq i32 %347, 0
-  br i1 %.not47.i, label %348, label %.loopexit.sink.split.i
+  br i1 %.not47.i, label %348, label %re_parse_char_class.exit.sink.split
 
 348:                                              ; preds = %.thread55.i, %.thread.i, %338
   %349 = phi ptr [ %317, %.thread.i ], [ %317, %.thread55.i ], [ %336, %338 ]
@@ -3202,7 +3209,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   %356 = load i32, ptr %355, align 4
   %357 = call i32 @cr_regexp_canonicalize(ptr noundef nonnull %9, i32 noundef %356) #17
   %.not50.i = icmp eq i32 %357, 0
-  br i1 %.not50.i, label %358, label %.loopexit.sink.split.i
+  br i1 %.not50.i, label %358, label %re_parse_char_class.exit.sink.split
 
 358:                                              ; preds = %354, %._crit_edge.i421
   br i1 %.not52.i, label %359, label %361
@@ -3210,19 +3217,19 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
 359:                                              ; preds = %358
   %360 = call i32 @cr_invert(ptr noundef nonnull %9) #17
   %.not53.i = icmp eq i32 %360, 0
-  br i1 %.not53.i, label %361, label %.loopexit.sink.split.i
+  br i1 %.not53.i, label %361, label %re_parse_char_class.exit.sink.split
 
 361:                                              ; preds = %359, %358
-  %362 = call fastcc i32 @re_emit_range(ptr noundef %0, ptr noundef %9)
+  %362 = call fastcc i32 @re_emit_range(ptr noundef nonnull %0, ptr noundef %9)
   %.not54.i = icmp eq i32 %362, 0
   br i1 %.not54.i, label %363, label %re_parse_char_class.exit
 
-.loopexit.sink.split.i:                           ; preds = %.thread55.i, %.thread.i, %338, %335, %333, %359, %354, %327
-  %.str.33.sink.i = phi ptr [ @.str.15, %327 ], [ @.str.33, %359 ], [ @.str.33, %354 ], [ @.str.33, %338 ], [ @.str.33, %.thread.i ], [ @.str.33, %.thread55.i ], [ @.str.15, %333 ], [ @.str.15, %335 ]
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull %.str.33.sink.i)
+re_parse_char_class.exit.sink.split:              ; preds = %338, %.thread.i, %.thread55.i, %333, %335, %354, %359, %327
+  %.str.15.sink = phi ptr [ @.str.15, %327 ], [ @.str.33, %359 ], [ @.str.33, %354 ], [ @.str.15, %335 ], [ @.str.15, %333 ], [ @.str.33, %.thread55.i ], [ @.str.33, %.thread.i ], [ @.str.33, %338 ]
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.15.sink)
   br label %re_parse_char_class.exit
 
-re_parse_char_class.exit:                         ; preds = %313, %328, %361, %.loopexit.sink.split.i
+re_parse_char_class.exit:                         ; preds = %313, %328, %re_parse_char_class.exit.sink.split, %361
   call void @cr_free(ptr noundef nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -3455,7 +3462,7 @@ parse_digits.exit448._crit_edge:                  ; preds = %parse_digits.exit44
   br i1 %.not371, label %.thread479, label %re_parse_expect.exit451
 
 re_parse_expect.exit451:                          ; preds = %459
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 125)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef range(i32 41, 126) 125)
   br label %664
 
 re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %413
@@ -3812,7 +3819,7 @@ re_parse_expect.exit451.thread:                   ; preds = %456, %411, %414, %4
   br label %664
 
 663:                                              ; preds = %613, %568, %544, %520, %504, %479, %468
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33)
   br label %664
 
 664:                                              ; preds = %re_parse_expect.exit451, %re_parse_char_class.exit, %re_parse_expect.exit412, %re_parse_expect.exit409, %re_parse_expect.exit, %384, %371, %148, %114, %103, %77, %663, %.thread479, %455, %370, %278, %216, %204, %192, %182, %147, %139, %132, %128, %69, %43
@@ -3917,7 +3924,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_group_name(ptr noundef non
   br label %lre_js_is_ident_first.exit
 
 42:                                               ; preds = %33
-  %43 = call i32 @lre_is_id_start(i32 noundef %.02837) #17
+  %43 = call i32 @lre_is_id_start(i32 noundef range(i32 0, 1114112) %.02837) #17
   br label %lre_js_is_ident_first.exit
 
 lre_js_is_ident_first.exit:                       ; preds = %34, %42
@@ -3939,7 +3946,7 @@ lre_js_is_ident_first.exit:                       ; preds = %34, %42
   br label %lre_js_is_ident_next.exit
 
 53:                                               ; preds = %44
-  %54 = call i32 @lre_is_id_continue(i32 noundef %.02837) #17
+  %54 = call i32 @lre_is_id_continue(i32 noundef range(i32 0, 1114112) %.02837) #17
   %55 = icmp ne i32 %54, 0
   %56 = and i32 %.02837, 2097150
   %57 = icmp eq i32 %56, 8204
@@ -4656,7 +4663,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br label %81
 
 80:                                               ; preds = %71
-  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.20)
+  tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20)
   br label %parse_unicode_property.exit.thread
 
 81:                                               ; preds = %86, %.lr.ph.i65
@@ -4724,7 +4731,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %103
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.21)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
   br label %parse_unicode_property.exit.thread
 
 109:                                              ; preds = %103
@@ -4754,7 +4761,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br i1 %.not63.i, label %119, label %118
 
 118:                                              ; preds = %.loopexit.i
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.22)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22)
   br label %parse_unicode_property.exit.thread
 
 119:                                              ; preds = %.loopexit.i
@@ -4791,7 +4798,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br i1 %128, label %129, label %158
 
 129:                                              ; preds = %127
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.27)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.27)
   br label %parse_unicode_property.exit.thread
 
 130:                                              ; preds = %122
@@ -4818,7 +4825,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br i1 %137, label %138, label %158
 
 138:                                              ; preds = %136
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.30)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30)
   br label %parse_unicode_property.exit.thread
 
 139:                                              ; preds = %131
@@ -4853,7 +4860,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br i1 %153, label %.loopexit93.i, label %158
 
 .loopexit93.i:                                    ; preds = %81, %152, %139
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.31)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.31)
   br label %parse_unicode_property.exit.thread
 
 154:                                              ; preds = %150, %148, %132, %123
@@ -4869,7 +4876,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br label %parse_unicode_property.exit.thread
 
 158:                                              ; preds = %152, %147, %136, %127
-  call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.33)
+  call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33)
   br label %parse_unicode_property.exit.thread
 
 parse_unicode_property.exit.thread:               ; preds = %80, %.loopexit93.i, %108, %118, %158, %157, %138, %129

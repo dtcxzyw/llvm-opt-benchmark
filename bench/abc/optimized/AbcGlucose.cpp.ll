@@ -1310,7 +1310,7 @@ _ZN5Gluco10SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit: ; preds = %.lr.ph.i.i
 
 46:                                               ; preds = %.loopexit
   %47 = add nsw i32 %23, -1
-  %48 = tail call noundef range(i32 0, -1) i32 @llvm.smax.i32(i32 %.0, i32 %47)
+  %48 = tail call noundef range(i32 0, -1) i32 @llvm.smax.i32(i32 range(i32 0, -1) %.0, i32 range(i32 0, -1) %47)
   %49 = shl nsw i32 %47, 1
   %50 = or disjoint i32 %49, %.039
   %51 = load i32, ptr %7, align 8

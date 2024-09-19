@@ -2613,7 +2613,7 @@ add_op.exit213:                                   ; preds = %442, %443, %.sink.s
   %613 = load i32, ptr %612, align 4
   %614 = getelementptr inbounds i8, ptr %.tr, i64 16
   %615 = load ptr, ptr %614, align 8
-  %616 = tail call fastcc i32 @compile_length_tree(ptr noundef %615, ptr noundef %1, ptr noundef %2)
+  %616 = tail call fastcc i32 @compile_length_tree(ptr noundef %615, ptr noundef %1, ptr noundef nonnull %2)
   %617 = icmp slt i32 %616, 0
   br i1 %617, label %.critedge, label %618
 
@@ -2672,7 +2672,7 @@ len_multiply_cmp.exit245:                         ; preds = %is_anychar_infinite
 
 .lr.ph387:                                        ; preds = %.lr.ph387.preheader, %643
   %.08.i239386 = phi i32 [ %644, %643 ], [ 0, %.lr.ph387.preheader ]
-  %645 = tail call fastcc i32 @compile_tree(ptr noundef nonnull %627, ptr noundef %1, ptr noundef %2)
+  %645 = tail call fastcc i32 @compile_tree(ptr noundef nonnull %627, ptr noundef %1, ptr noundef nonnull %2)
   %.not.i241 = icmp eq i32 %645, 0
   br i1 %.not.i241, label %643, label %.critedge
 
@@ -2773,7 +2773,7 @@ compile_tree_n_times.exit235.thread.sink.split:   ; preds = %679
 
 .lr.ph398:                                        ; preds = %.lr.ph398.preheader, %687
   %.08.i232397 = phi i32 [ %688, %687 ], [ 0, %.lr.ph398.preheader ]
-  %689 = tail call fastcc i32 @compile_tree(ptr noundef %686, ptr noundef %1, ptr noundef %2)
+  %689 = tail call fastcc i32 @compile_tree(ptr noundef %686, ptr noundef %1, ptr noundef nonnull %2)
   %.not.i234 = icmp eq i32 %689, 0
   br i1 %.not.i234, label %687, label %.critedge
 
@@ -2807,7 +2807,7 @@ compile_tree_n_times.exit235.thread:              ; preds = %687, %compile_tree_
   %705 = load ptr, ptr %5, align 8
   %706 = getelementptr inbounds i8, ptr %705, i64 12
   store i8 %704, ptr %706, align 4
-  %707 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %2)
+  %707 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef nonnull %2)
   %.not236.i = icmp eq i32 %707, 0
   br i1 %.not236.i, label %731, label %.critedge
 
@@ -2834,7 +2834,7 @@ compile_tree_n_times.exit235.thread:              ; preds = %687, %compile_tree_
   %721 = load ptr, ptr %5, align 8
   %722 = getelementptr inbounds i8, ptr %721, i64 12
   store i8 %720, ptr %722, align 4
-  %723 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %2)
+  %723 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef nonnull %2)
   %.not234.i = icmp eq i32 %723, 0
   br i1 %.not234.i, label %731, label %.critedge
 
@@ -2848,7 +2848,7 @@ compile_tree_n_times.exit235.thread:              ; preds = %687, %compile_tree_
   %728 = load ptr, ptr %5, align 8
   %729 = getelementptr inbounds i8, ptr %728, i64 8
   store i32 %727, ptr %729, align 8
-  %730 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %2)
+  %730 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef nonnull %2)
   %.not232.i = icmp eq i32 %730, 0
   br i1 %.not232.i, label %731, label %.critedge
 
@@ -2874,7 +2874,7 @@ compile_tree_n_times.exit235.thread:              ; preds = %687, %compile_tree_
   %740 = load ptr, ptr %5, align 8
   %741 = getelementptr inbounds i8, ptr %740, i64 8
   store i32 %739, ptr %741, align 8
-  %742 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %2)
+  %742 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef nonnull %2)
   %.not227.i = icmp eq i32 %742, 0
   br i1 %.not227.i, label %743, label %.critedge
 
@@ -3019,7 +3019,7 @@ compile_tree_n_times.exit.preheader:              ; preds = %808, %len_multiply_
 
 .lr.ph390:                                        ; preds = %len_multiply_cmp.exit, %808
   %.08.i389 = phi i32 [ %809, %808 ], [ 0, %len_multiply_cmp.exit ]
-  %813 = tail call fastcc i32 @compile_tree(ptr noundef %806, ptr noundef %1, ptr noundef %2)
+  %813 = tail call fastcc i32 @compile_tree(ptr noundef %806, ptr noundef %1, ptr noundef nonnull %2)
   %.not.i230 = icmp eq i32 %813, 0
   br i1 %.not.i230, label %808, label %.critedge
 
@@ -3096,7 +3096,7 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %815
   %854 = getelementptr inbounds i8, ptr %853, i64 8
   store i32 %818, ptr %854, align 8
   %855 = load ptr, ptr %614, align 8
-  %856 = tail call fastcc i32 @compile_tree(ptr noundef %855, ptr noundef nonnull %1, ptr noundef %2)
+  %856 = tail call fastcc i32 @compile_tree(ptr noundef %855, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not214.i = icmp eq i32 %856, 0
   br i1 %.not214.i, label %compile_tree_n_times.exit, label %.critedge
 
@@ -3364,7 +3364,7 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %815
   store i32 %1010, ptr %1011, align 4
   %1012 = getelementptr inbounds i8, ptr %1008, i64 8
   store i32 %984, ptr %1012, align 8
-  %1013 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull readonly %.tr, ptr noundef nonnull %1, ptr noundef %2)
+  %1013 = tail call fastcc i32 @compile_quant_body_with_empty_check(ptr noundef nonnull readonly %.tr, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not34.i = icmp eq i32 %1013, 0
   br i1 %.not34.i, label %1014, label %.critedge
 
@@ -3518,7 +3518,7 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %815
   %1102 = icmp eq i32 %1101, 0
   %1103 = getelementptr inbounds i8, ptr %.tr, i64 16
   %1104 = load ptr, ptr %1103, align 8
-  %1105 = tail call fastcc i32 @compile_length_tree(ptr noundef %1104, ptr noundef nonnull %1, ptr noundef %2)
+  %1105 = tail call fastcc i32 @compile_length_tree(ptr noundef %1104, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %1106 = load i32, ptr %6, align 8
   %1107 = load i32, ptr %7, align 4
   %.not.i.i104.i = icmp ult i32 %1106, %1107
@@ -3581,7 +3581,7 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %815
   %1142 = getelementptr inbounds i8, ptr %1141, i64 8
   store i32 %1140, ptr %1142, align 8
   %1143 = load ptr, ptr %1103, align 8
-  %1144 = tail call fastcc i32 @compile_tree(ptr noundef %1143, ptr noundef nonnull %1, ptr noundef %2)
+  %1144 = tail call fastcc i32 @compile_tree(ptr noundef %1143, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not101.i575 = icmp eq i32 %1144, 0
   br i1 %.not101.i575, label %add_op.exit.thread.sink.split.i, label %.critedge
 
@@ -3759,7 +3759,7 @@ add_op.exit115.i:                                 ; preds = %add_op.exit115.sink
   store i32 %1242, ptr %1244, align 8
   %1245 = getelementptr inbounds i8, ptr %.tr, i64 16
   %1246 = load ptr, ptr %1245, align 8
-  %1247 = tail call fastcc i32 @compile_tree(ptr noundef %1246, ptr noundef nonnull %1, ptr noundef %2)
+  %1247 = tail call fastcc i32 @compile_tree(ptr noundef %1246, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not93.i = icmp eq i32 %1247, 0
   br i1 %.not93.i, label %1248, label %.critedge
 
@@ -3921,7 +3921,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
 
 .lr.ph:                                           ; preds = %1327, %1335
   %.08.i248385 = phi i32 [ %1336, %1335 ], [ 0, %1327 ]
-  %1337 = tail call fastcc i32 @compile_tree(ptr noundef %1331, ptr noundef %1, ptr noundef %2)
+  %1337 = tail call fastcc i32 @compile_tree(ptr noundef %1331, ptr noundef %1, ptr noundef nonnull %2)
   %.not.i250 = icmp eq i32 %1337, 0
   br i1 %.not.i250, label %1335, label %.critedge
 
@@ -3931,7 +3931,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1327
   %1338 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1331, %1327 ]
-  %1339 = tail call fastcc i32 @compile_length_tree(ptr noundef %1338, ptr noundef %1, ptr noundef %2)
+  %1339 = tail call fastcc i32 @compile_length_tree(ptr noundef %1338, ptr noundef %1, ptr noundef nonnull %2)
   %1340 = icmp slt i32 %1339, 0
   br i1 %1340, label %.critedge, label %1341
 
@@ -3946,7 +3946,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1346 = getelementptr inbounds i8, ptr %1345, i64 8
   store i32 %1344, ptr %1346, align 8
   %1347 = load ptr, ptr %1330, align 8
-  %1348 = tail call fastcc i32 @compile_tree(ptr noundef %1347, ptr noundef %1, ptr noundef %2)
+  %1348 = tail call fastcc i32 @compile_tree(ptr noundef %1347, ptr noundef %1, ptr noundef nonnull %2)
   %.not169.i = icmp eq i32 %1348, 0
   br i1 %.not169.i, label %1349, label %.critedge
 
@@ -3984,7 +3984,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   store i32 0, ptr %1365, align 4
   %1366 = getelementptr inbounds i8, ptr %.tr, i64 16
   %1367 = load ptr, ptr %1366, align 8
-  %1368 = tail call fastcc i32 @compile_tree(ptr noundef %1367, ptr noundef %1, ptr noundef %2)
+  %1368 = tail call fastcc i32 @compile_tree(ptr noundef %1367, ptr noundef %1, ptr noundef nonnull %2)
   %.not165.i = icmp eq i32 %1368, 0
   br i1 %.not165.i, label %1369, label %.critedge
 
@@ -4072,7 +4072,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1420 = load ptr, ptr %5, align 8
   %1421 = getelementptr inbounds i8, ptr %1420, i64 12
   store i32 0, ptr %1421, align 4
-  %1422 = tail call fastcc i32 @compile_length_tree(ptr noundef %1378, ptr noundef nonnull %1, ptr noundef %2)
+  %1422 = tail call fastcc i32 @compile_length_tree(ptr noundef %1378, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %1423 = icmp slt i32 %1422, 0
   br i1 %1423, label %.critedge, label %1424
 
@@ -4081,7 +4081,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   br i1 %.not155.i, label %1428, label %1425
 
 1425:                                             ; preds = %1424
-  %1426 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %1380, ptr noundef nonnull %1, ptr noundef %2)
+  %1426 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %1380, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %1427 = icmp slt i32 %1426, 0
   br i1 %1427, label %.critedge, label %1428
 
@@ -4146,7 +4146,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1464 = load ptr, ptr %5, align 8
   %1465 = getelementptr inbounds i8, ptr %1464, i64 8
   store i32 %1463, ptr %1465, align 8
-  %1466 = tail call fastcc i32 @compile_tree(ptr noundef %1378, ptr noundef nonnull %1, ptr noundef %2)
+  %1466 = tail call fastcc i32 @compile_tree(ptr noundef %1378, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not157.i = icmp eq i32 %1466, 0
   br i1 %.not157.i, label %1467, label %.critedge
 
@@ -4214,7 +4214,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   br i1 %.not155.i, label %1507, label %1505
 
 1505:                                             ; preds = %1487
-  %1506 = tail call fastcc i32 @compile_tree(ptr noundef nonnull %1380, ptr noundef nonnull %1, ptr noundef %2)
+  %1506 = tail call fastcc i32 @compile_tree(ptr noundef nonnull %1380, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not159.i = icmp eq i32 %1506, 0
   br i1 %.not159.i, label %1507, label %.critedge
 
@@ -4223,7 +4223,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   br i1 %.not160.i, label %1511, label %1508
 
 1508:                                             ; preds = %1507
-  %1509 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %1382, ptr noundef nonnull %1, ptr noundef %2)
+  %1509 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %1382, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %1510 = icmp slt i32 %1509, 0
   br i1 %1510, label %.critedge, label %1511
 
@@ -4463,7 +4463,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   store i32 1, ptr %1634, align 4
   %1635 = getelementptr inbounds i8, ptr %.tr, i64 16
   %1636 = load ptr, ptr %1635, align 8
-  %1637 = tail call fastcc i32 @compile_tree(ptr noundef %1636, ptr noundef %1, ptr noundef %2)
+  %1637 = tail call fastcc i32 @compile_tree(ptr noundef %1636, ptr noundef %1, ptr noundef nonnull %2)
   %.not103.i = icmp eq i32 %1637, 0
   br i1 %.not103.i, label %1638, label %.critedge
 
@@ -4484,7 +4484,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
 1645:                                             ; preds = %1585
   %1646 = getelementptr inbounds i8, ptr %.tr, i64 16
   %1647 = load ptr, ptr %1646, align 8
-  %1648 = tail call fastcc i32 @compile_length_tree(ptr noundef %1647, ptr noundef %1, ptr noundef %2)
+  %1648 = tail call fastcc i32 @compile_length_tree(ptr noundef %1647, ptr noundef %1, ptr noundef nonnull %2)
   %1649 = icmp slt i32 %1648, 0
   br i1 %1649, label %.critedge, label %1650
 
@@ -4513,7 +4513,7 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   %1663 = getelementptr inbounds i8, ptr %1662, i64 12
   store i32 0, ptr %1663, align 4
   %1664 = load ptr, ptr %1646, align 8
-  %1665 = tail call fastcc i32 @compile_tree(ptr noundef %1664, ptr noundef nonnull %1, ptr noundef %2)
+  %1665 = tail call fastcc i32 @compile_tree(ptr noundef %1664, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %.not99.i = icmp eq i32 %1665, 0
   br i1 %.not99.i, label %1666, label %.critedge
 
@@ -4535,11 +4535,11 @@ add_op.exit.thread.sink.split.i:                  ; preds = %add_op.exit123.i, %
   br label %.critedge
 
 1674:                                             ; preds = %1585
-  %1675 = tail call fastcc i32 @compile_anchor_look_behind_node(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %2)
+  %1675 = tail call fastcc i32 @compile_anchor_look_behind_node(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef nonnull %2)
   br label %.critedge
 
 1676:                                             ; preds = %1585
-  %1677 = tail call fastcc i32 @compile_anchor_look_behind_not_node(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %2)
+  %1677 = tail call fastcc i32 @compile_anchor_look_behind_not_node(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef nonnull %2)
   br label %.critedge
 
 1678:                                             ; preds = %tailrecurse
@@ -8893,7 +8893,7 @@ is_strict_real_node.exit.thread188:               ; preds = %518, %518, %is_stri
   %.not71.i = icmp eq i32 %579, %574
   %580 = or i32 %.059.i, 8
   %.1.i159 = select i1 %.not71.i, i32 %.059.i, i32 %580
-  %581 = tail call fastcc i32 @tune_tree(ptr noundef %550, ptr noundef %1, i32 noundef %.1.i159, ptr noundef %3)
+  %581 = tail call fastcc i32 @tune_tree(ptr noundef %550, ptr noundef %1, i32 noundef %.1.i159, ptr noundef nonnull %3)
   %.not72.i = icmp eq i32 %581, 0
   br i1 %.not72.i, label %582, label %common.ret588
 
@@ -9051,7 +9051,7 @@ node_str_node_cat.exit:                           ; preds = %616
   %.060.i167.v = select i1 %660, i32 130, i32 128
   %.060.i167 = or i32 %.060.i167.v, %.tr197
   %661 = load ptr, ptr %653, align 8
-  %662 = call fastcc i32 @tune_tree(ptr noundef %661, ptr noundef %1, i32 noundef %.060.i167, ptr noundef %3)
+  %662 = call fastcc i32 @tune_tree(ptr noundef %661, ptr noundef %1, i32 noundef %.060.i167, ptr noundef nonnull %3)
   %.not71.i168 = icmp eq i32 %662, 0
   br i1 %.not71.i168, label %663, label %tune_look_behind.exit
 
@@ -9166,7 +9166,7 @@ node_reduce_in_look_behind.exit13.i13.i.i:        ; preds = %707
   br i1 %.not.i14.i.i, label %tune_look_behind.exit, label %.preheader.i8.i.i, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.preheader.i8.i.i, %707, %703, %.loopexit.i.i180, %692, %696, %663
-  %714 = call fastcc range(i32 -122, 2) i32 @node_char_len1(ptr noundef nonnull %661, ptr noundef %1, ptr noundef %6, ptr noundef %3, i32 noundef 0)
+  %714 = call fastcc range(i32 -122, 2) i32 @node_char_len1(ptr noundef nonnull %661, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 0)
   %715 = icmp sgt i32 %714, -1
   br i1 %715, label %716, label %tune_look_behind.exit
 
@@ -9223,7 +9223,7 @@ node_reduce_in_look_behind.exit13.i13.i.i:        ; preds = %707
   br i1 %746, label %747, label %tune_look_behind.exit
 
 747:                                              ; preds = %744
-  %748 = call fastcc i32 @tune_tree(ptr noundef nonnull %.tr, ptr noundef %1, i32 noundef %.tr197, ptr noundef %3)
+  %748 = call fastcc i32 @tune_tree(ptr noundef nonnull %.tr, ptr noundef %1, i32 noundef %.tr197, ptr noundef nonnull %3)
   br label %tune_look_behind.exit
 
 749:                                              ; preds = %738
@@ -15149,7 +15149,7 @@ tailrecurse:                                      ; preds = %134, %3
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds i8, ptr %.tr, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call fastcc i32 @compile_length_tree(ptr noundef %58, ptr noundef %1, ptr noundef %2)
+  %59 = tail call fastcc i32 @compile_length_tree(ptr noundef %58, ptr noundef %1, ptr noundef nonnull %2)
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %common.ret161, label %61
 
@@ -15313,7 +15313,7 @@ len_multiply_cmp.exit:                            ; preds = %109, %111
   br i1 %.not.i53, label %144, label %141
 
 141:                                              ; preds = %137
-  %142 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %140, ptr noundef %1, ptr noundef %2)
+  %142 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %140, ptr noundef %1, ptr noundef nonnull %2)
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %common.ret161, label %._crit_edge
 
@@ -15392,7 +15392,7 @@ len_multiply_cmp.exit:                            ; preds = %109, %111
   %176 = load ptr, ptr %139, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 16
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call fastcc i32 @compile_length_tree(ptr noundef %178, ptr noundef %1, ptr noundef %2)
+  %179 = tail call fastcc i32 @compile_length_tree(ptr noundef %178, ptr noundef %1, ptr noundef nonnull %2)
   %180 = icmp slt i32 %179, 0
   br i1 %180, label %common.ret161, label %181
 
@@ -15428,7 +15428,7 @@ onig_positive_int_multiply.exit.thread83:         ; preds = %186, %181
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %.tr, i64 40
   %200 = load ptr, ptr %199, align 8
-  %201 = tail call fastcc i32 @compile_length_tree(ptr noundef %196, ptr noundef %1, ptr noundef %2)
+  %201 = tail call fastcc i32 @compile_length_tree(ptr noundef %196, ptr noundef %1, ptr noundef nonnull %2)
   %202 = icmp slt i32 %201, 0
   br i1 %202, label %common.ret161, label %203
 
@@ -15438,7 +15438,7 @@ onig_positive_int_multiply.exit.thread83:         ; preds = %186, %181
   br i1 %.not106.i, label %210, label %205
 
 205:                                              ; preds = %203
-  %206 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %198, ptr noundef %1, ptr noundef %2)
+  %206 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %198, ptr noundef %1, ptr noundef nonnull %2)
   %207 = icmp slt i32 %206, 0
   br i1 %207, label %common.ret161, label %208
 
@@ -15460,7 +15460,7 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   ret i32 %common.ret161.op
 
 212:                                              ; preds = %210
-  %213 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %200, ptr noundef %1, ptr noundef %2)
+  %213 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %200, ptr noundef %1, ptr noundef nonnull %2)
   %214 = icmp slt i32 %213, 0
   %215 = select i1 %214, i32 0, i32 %211
   %spec.select.i55 = add nuw nsw i32 %215, %213
@@ -15476,7 +15476,7 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   br i1 %.not.i57, label %223, label %220
 
 220:                                              ; preds = %217
-  %221 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %219, ptr noundef %1, ptr noundef %2)
+  %221 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %219, ptr noundef %1, ptr noundef nonnull %2)
   %222 = icmp slt i32 %221, 0
   br i1 %222, label %common.ret161, label %223
 
@@ -15519,7 +15519,7 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   br i1 %.not51.i, label %248, label %242
 
 242:                                              ; preds = %238
-  %243 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %241, ptr noundef %1, ptr noundef %2)
+  %243 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %241, ptr noundef %1, ptr noundef nonnull %2)
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %common.ret161, label %245
 
@@ -15557,7 +15557,7 @@ common.ret161:                                    ; preds = %186, %283, %279, %2
   br i1 %.not49.i, label %271, label %265
 
 265:                                              ; preds = %261
-  %266 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %264, ptr noundef %1, ptr noundef %2)
+  %266 = tail call fastcc i32 @compile_length_tree(ptr noundef nonnull %264, ptr noundef %1, ptr noundef nonnull %2)
   %267 = icmp slt i32 %266, 0
   br i1 %267, label %common.ret161, label %268
 
@@ -16335,7 +16335,7 @@ define internal fastcc i32 @compile_anchor_look_behind_node(ptr nocapture nounde
   br i1 %.not, label %188, label %140
 
 140:                                              ; preds = %137
-  %141 = call fastcc range(i32 -122, 2) i32 @node_char_len1(ptr noundef nonnull %139, ptr noundef %1, ptr noundef %4, ptr noundef %2, i32 noundef 0)
+  %141 = call fastcc range(i32 -122, 2) i32 @node_char_len1(ptr noundef nonnull %139, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0)
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %add_op.exit.thread, label %143
 
@@ -17595,7 +17595,7 @@ define internal fastcc i32 @compile_anchor_look_behind_not_node(ptr nocapture no
   %405 = add nsw i32 %401, %404
   store i32 %405, ptr %403, align 8
   %406 = load ptr, ptr %397, align 8
-  %407 = call fastcc range(i32 -122, 2) i32 @node_char_len1(ptr noundef %406, ptr noundef nonnull %1, ptr noundef %4, ptr noundef %2, i32 noundef 0)
+  %407 = call fastcc range(i32 -122, 2) i32 @node_char_len1(ptr noundef %406, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0)
   %408 = icmp slt i32 %407, 0
   br i1 %408, label %add_op.exit.thread, label %409
 

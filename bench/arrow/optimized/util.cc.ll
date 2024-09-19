@@ -2151,7 +2151,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -2161,7 +2161,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #17
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -7005,11 +7005,11 @@ sw.bb70.i:                                        ; preds = %entry
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb76.i:                                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_9UnionTypeE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_9UnionTypeE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
   br label %_ZN5arrow6StatusD2Ev.exitthread-pre-split
 
 sw.bb78.i:                                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_9UnionTypeE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_9UnionTypeE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
   br label %_ZN5arrow6StatusD2Ev.exitthread-pre-split
 
 _ZN5arrow6StatusD2Ev.exit.i140:                   ; preds = %entry
@@ -7843,7 +7843,7 @@ sw.bb4:                                           ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i122, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !380
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i125, align 8, !noalias !380
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i125, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i125, ptr noundef nonnull align 8 dereferenceable(16) %29)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i, !noalias !380
 
 .noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb4
@@ -7869,7 +7869,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb4
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i125) #17, !noalias !380
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i125) #17, !noalias !380
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i122) #18, !noalias !380
   br label %common.resume
 
@@ -7972,7 +7972,7 @@ sw.bb6:                                           ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i158, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i162, i8 0, i64 24, i1 false), !noalias !389
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i161, align 8, !noalias !389
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i161, ptr noundef nonnull align 8 dereferenceable(16) %48)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i161, ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i164 unwind label %lpad.i.i.i.i.i.i.i.i.i.i163, !noalias !389
 
 .noexc.i.i.i.i.i.i.i.i.i.i164:                    ; preds = %sw.bb6
@@ -7998,7 +7998,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i205:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i163:                      ; preds = %sw.bb6
   %54 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i161) #17, !noalias !389
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i161) #17, !noalias !389
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i158) #18, !noalias !389
   br label %common.resume
 
@@ -8101,7 +8101,7 @@ sw.bb8:                                           ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i211 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i207, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i211, i8 0, i64 24, i1 false), !noalias !398
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i210, align 8, !noalias !398
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(16) %67)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(16) %67)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i213 unwind label %lpad.i.i.i.i.i.i.i.i.i.i212, !noalias !398
 
 .noexc.i.i.i.i.i.i.i.i.i.i213:                    ; preds = %sw.bb8
@@ -8127,7 +8127,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i254:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i212:                      ; preds = %sw.bb8
   %73 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i210) #17, !noalias !398
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i210) #17, !noalias !398
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i207) #18, !noalias !398
   br label %common.resume
 
@@ -8230,7 +8230,7 @@ sw.bb10:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i260 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i256, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i260, i8 0, i64 24, i1 false), !noalias !407
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i259, align 8, !noalias !407
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i259, ptr noundef nonnull align 8 dereferenceable(16) %86)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i259, ptr noundef nonnull align 8 dereferenceable(16) %86)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i262 unwind label %lpad.i.i.i.i.i.i.i.i.i.i261, !noalias !407
 
 .noexc.i.i.i.i.i.i.i.i.i.i262:                    ; preds = %sw.bb10
@@ -8256,7 +8256,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i303:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i261:                      ; preds = %sw.bb10
   %92 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i259) #17, !noalias !407
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i259) #17, !noalias !407
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i256) #18, !noalias !407
   br label %common.resume
 
@@ -8359,7 +8359,7 @@ sw.bb12:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i309 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i305, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i309, i8 0, i64 24, i1 false), !noalias !416
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i308, align 8, !noalias !416
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i308, ptr noundef nonnull align 8 dereferenceable(16) %105)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i308, ptr noundef nonnull align 8 dereferenceable(16) %105)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i311 unwind label %lpad.i.i.i.i.i.i.i.i.i.i310, !noalias !416
 
 .noexc.i.i.i.i.i.i.i.i.i.i311:                    ; preds = %sw.bb12
@@ -8385,7 +8385,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i352:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i310:                      ; preds = %sw.bb12
   %111 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i308) #17, !noalias !416
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i308) #17, !noalias !416
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i305) #18, !noalias !416
   br label %common.resume
 
@@ -8488,7 +8488,7 @@ sw.bb14:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i358 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i354, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i358, i8 0, i64 24, i1 false), !noalias !425
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i357, align 8, !noalias !425
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i357, ptr noundef nonnull align 8 dereferenceable(16) %124)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i357, ptr noundef nonnull align 8 dereferenceable(16) %124)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i360 unwind label %lpad.i.i.i.i.i.i.i.i.i.i359, !noalias !425
 
 .noexc.i.i.i.i.i.i.i.i.i.i360:                    ; preds = %sw.bb14
@@ -8514,7 +8514,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i401:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i359:                      ; preds = %sw.bb14
   %130 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i357) #17, !noalias !425
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i357) #17, !noalias !425
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i354) #18, !noalias !425
   br label %common.resume
 
@@ -8617,7 +8617,7 @@ sw.bb16:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i407 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i403, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i407, i8 0, i64 24, i1 false), !noalias !434
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i406, align 8, !noalias !434
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i406, ptr noundef nonnull align 8 dereferenceable(16) %143)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i406, ptr noundef nonnull align 8 dereferenceable(16) %143)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i409 unwind label %lpad.i.i.i.i.i.i.i.i.i.i408, !noalias !434
 
 .noexc.i.i.i.i.i.i.i.i.i.i409:                    ; preds = %sw.bb16
@@ -8643,7 +8643,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i450:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i408:                      ; preds = %sw.bb16
   %149 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i406) #17, !noalias !434
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i406) #17, !noalias !434
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i403) #18, !noalias !434
   br label %common.resume
 
@@ -8746,7 +8746,7 @@ sw.bb18:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i456 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i452, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i456, i8 0, i64 24, i1 false), !noalias !443
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i455, align 8, !noalias !443
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i455, ptr noundef nonnull align 8 dereferenceable(16) %162)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i455, ptr noundef nonnull align 8 dereferenceable(16) %162)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i458 unwind label %lpad.i.i.i.i.i.i.i.i.i.i457, !noalias !443
 
 .noexc.i.i.i.i.i.i.i.i.i.i458:                    ; preds = %sw.bb18
@@ -8772,7 +8772,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i499:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i457:                      ; preds = %sw.bb18
   %168 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i455) #17, !noalias !443
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i455) #17, !noalias !443
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i452) #18, !noalias !443
   br label %common.resume
 
@@ -8875,7 +8875,7 @@ sw.bb20:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i505 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i501, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i505, i8 0, i64 24, i1 false), !noalias !452
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i504, align 8, !noalias !452
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i504, ptr noundef nonnull align 8 dereferenceable(16) %181)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i504, ptr noundef nonnull align 8 dereferenceable(16) %181)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i507 unwind label %lpad.i.i.i.i.i.i.i.i.i.i506, !noalias !452
 
 .noexc.i.i.i.i.i.i.i.i.i.i507:                    ; preds = %sw.bb20
@@ -8901,7 +8901,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i548:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i506:                      ; preds = %sw.bb20
   %187 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i504) #17, !noalias !452
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i504) #17, !noalias !452
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i501) #18, !noalias !452
   br label %common.resume
 
@@ -9004,7 +9004,7 @@ sw.bb22:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i554 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i550, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i554, i8 0, i64 24, i1 false), !noalias !461
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i553, align 8, !noalias !461
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i553, ptr noundef nonnull align 8 dereferenceable(16) %200)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i553, ptr noundef nonnull align 8 dereferenceable(16) %200)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i556 unwind label %lpad.i.i.i.i.i.i.i.i.i.i555, !noalias !461
 
 .noexc.i.i.i.i.i.i.i.i.i.i556:                    ; preds = %sw.bb22
@@ -9030,7 +9030,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i597:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i555:                      ; preds = %sw.bb22
   %206 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i553) #17, !noalias !461
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i553) #17, !noalias !461
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i550) #18, !noalias !461
   br label %common.resume
 
@@ -9133,7 +9133,7 @@ sw.bb24:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i603 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i599, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i603, i8 0, i64 24, i1 false), !noalias !470
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i602, align 8, !noalias !470
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i602, ptr noundef nonnull align 8 dereferenceable(16) %219)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i602, ptr noundef nonnull align 8 dereferenceable(16) %219)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i605 unwind label %lpad.i.i.i.i.i.i.i.i.i.i604, !noalias !470
 
 .noexc.i.i.i.i.i.i.i.i.i.i605:                    ; preds = %sw.bb24
@@ -9159,7 +9159,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i646:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i604:                      ; preds = %sw.bb24
   %225 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i602) #17, !noalias !470
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i602) #17, !noalias !470
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i599) #18, !noalias !470
   br label %common.resume
 
@@ -9969,7 +9969,7 @@ sw.bb40:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i904 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i900, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i904, i8 0, i64 24, i1 false), !noalias !542
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i903, align 8, !noalias !542
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i903, ptr noundef nonnull align 8 dereferenceable(16) %336)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i903, ptr noundef nonnull align 8 dereferenceable(16) %336)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i906 unwind label %lpad.i.i.i.i.i.i.i.i.i.i905, !noalias !542
 
 .noexc.i.i.i.i.i.i.i.i.i.i906:                    ; preds = %sw.bb40
@@ -9995,7 +9995,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i947:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i905:                      ; preds = %sw.bb40
   %342 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i903) #17, !noalias !542
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i903) #17, !noalias !542
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i900) #18, !noalias !542
   br label %common.resume
 
@@ -10098,7 +10098,7 @@ sw.bb42:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i953 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i949, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i953, i8 0, i64 24, i1 false), !noalias !551
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i952, align 8, !noalias !551
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i952, ptr noundef nonnull align 8 dereferenceable(16) %355)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i952, ptr noundef nonnull align 8 dereferenceable(16) %355)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i955 unwind label %lpad.i.i.i.i.i.i.i.i.i.i954, !noalias !551
 
 .noexc.i.i.i.i.i.i.i.i.i.i955:                    ; preds = %sw.bb42
@@ -10124,7 +10124,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i996:               ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i954:                      ; preds = %sw.bb42
   %361 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i952) #17, !noalias !551
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i952) #17, !noalias !551
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i949) #18, !noalias !551
   br label %common.resume
 
@@ -10227,7 +10227,7 @@ sw.bb44:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i1002 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i998, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i1002, i8 0, i64 24, i1 false), !noalias !560
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1001, align 8, !noalias !560
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1001, ptr noundef nonnull align 8 dereferenceable(16) %374)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1001, ptr noundef nonnull align 8 dereferenceable(16) %374)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i1004 unwind label %lpad.i.i.i.i.i.i.i.i.i.i1003, !noalias !560
 
 .noexc.i.i.i.i.i.i.i.i.i.i1004:                   ; preds = %sw.bb44
@@ -10253,7 +10253,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i1045:              ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i1003:                     ; preds = %sw.bb44
   %380 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1001) #17, !noalias !560
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1001) #17, !noalias !560
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i998) #18, !noalias !560
   br label %common.resume
 
@@ -10356,7 +10356,7 @@ sw.bb46:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i1051 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1047, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i1051, i8 0, i64 24, i1 false), !noalias !569
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1050, align 8, !noalias !569
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1050, ptr noundef nonnull align 8 dereferenceable(16) %393)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1050, ptr noundef nonnull align 8 dereferenceable(16) %393)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i1053 unwind label %lpad.i.i.i.i.i.i.i.i.i.i1052, !noalias !569
 
 .noexc.i.i.i.i.i.i.i.i.i.i1053:                   ; preds = %sw.bb46
@@ -10382,7 +10382,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i1094:              ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i1052:                     ; preds = %sw.bb46
   %399 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1050) #17, !noalias !569
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1050) #17, !noalias !569
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i1047) #18, !noalias !569
   br label %common.resume
 
@@ -10485,7 +10485,7 @@ sw.bb48:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i1100 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1096, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i1100, i8 0, i64 24, i1 false), !noalias !578
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1099, align 8, !noalias !578
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1099, ptr noundef nonnull align 8 dereferenceable(16) %412)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1099, ptr noundef nonnull align 8 dereferenceable(16) %412)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i1102 unwind label %lpad.i.i.i.i.i.i.i.i.i.i1101, !noalias !578
 
 .noexc.i.i.i.i.i.i.i.i.i.i1102:                   ; preds = %sw.bb48
@@ -10511,7 +10511,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i1143:              ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i1101:                     ; preds = %sw.bb48
   %418 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1099) #17, !noalias !578
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1099) #17, !noalias !578
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i1096) #18, !noalias !578
   br label %common.resume
 
@@ -10614,7 +10614,7 @@ sw.bb50:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i1149 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1145, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i1149, i8 0, i64 24, i1 false), !noalias !587
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1148, align 8, !noalias !587
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1148, ptr noundef nonnull align 8 dereferenceable(16) %431)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1148, ptr noundef nonnull align 8 dereferenceable(16) %431)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i1151 unwind label %lpad.i.i.i.i.i.i.i.i.i.i1150, !noalias !587
 
 .noexc.i.i.i.i.i.i.i.i.i.i1151:                   ; preds = %sw.bb50
@@ -10640,7 +10640,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i1192:              ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i1150:                     ; preds = %sw.bb50
   %437 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1148) #17, !noalias !587
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1148) #17, !noalias !587
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i1145) #18, !noalias !587
   br label %common.resume
 
@@ -10844,7 +10844,7 @@ sw.bb54:                                          ; preds = %entry
   %data_.i.i.i.i.i.i.i.i.i.i.i.i1234 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1230, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i.i.i.i.i.i.i.i1234, i8 0, i64 24, i1 false), !noalias !605
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow14PrimitiveArrayE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i1233, align 8, !noalias !605
-  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1233, ptr noundef nonnull align 8 dereferenceable(16) %464)
+  invoke void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1233, ptr noundef nonnull align 8 dereferenceable(16) %464)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i1236 unwind label %lpad.i.i.i.i.i.i.i.i.i.i1235, !noalias !605
 
 .noexc.i.i.i.i.i.i.i.i.i.i1236:                   ; preds = %sw.bb54
@@ -10870,7 +10870,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i1277:              ; preds = %land.lhs.true.i.i.i
 lpad.i.i.i.i.i.i.i.i.i.i1235:                     ; preds = %sw.bb54
   %470 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i.i.i.i.i.i.i1233) #17, !noalias !605
+  tail call void @_ZN5arrow9FlatArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i.i.i.i.i.i.i1233) #17, !noalias !605
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i.i1230) #18, !noalias !605
   br label %common.resume
 
@@ -13502,11 +13502,7 @@ if.then.i.i:                                      ; preds = %if.end9
 _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %if.end9
   store i64 0, ptr %child_data, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
-
-_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  store i64 0, ptr %child_data, align 8
-  br label %invoke.cont
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 4
@@ -13517,9 +13513,9 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt10sh
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i63, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %for.body.preheader.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i
-  %add.ptr.i.i.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i ], [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %for.body.preheader.i.i.i.i.i
+  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %child_data, i64 8
   %89 = getelementptr inbounds i8, ptr %child_data, i64 16
   store ptr %add.ptr.i.i.sink.i, ptr %89, align 8
@@ -14804,7 +14800,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -14814,7 +14810,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #17
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -15156,7 +15152,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out_.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__s.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_120RepeatedArrayFactoryEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %.pre, ptr noundef %ref.tmp)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_120RepeatedArrayFactoryEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %.pre, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %_ZN5arrow6StatusD2Ev.exit63 unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit63:                      ; preds = %if.end
@@ -18797,7 +18793,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -18807,7 +18803,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #17
   br label %terminate.lpad.body
 
 invoke.cont6:                                     ; preds = %.noexc
@@ -19845,7 +19841,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !867
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !867
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(24) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !867
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -20403,7 +20399,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !878
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !878
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(45) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !878
 
 invoke.cont.i:                                    ; preds = %entry
@@ -20446,7 +20442,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !881
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !881
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !881
 
 invoke.cont.i:                                    ; preds = %entry
@@ -21167,7 +21163,7 @@ sw.bb70:                                          ; preds = %entry
   %buffers.i231 = getelementptr inbounds i8, ptr %72, i64 40
   %buffer_.i232 = getelementptr inbounds i8, ptr %visitor, i64 40
   tail call void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %buffers.i231, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i232), !noalias !1126
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory11CreateChildERKNS_8DataTypeEil(ptr noalias align 8 %ref.tmp.i227, ptr noundef nonnull align 8 dereferenceable(56) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type, i32 noundef 0, i64 noundef 0), !noalias !1126
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory11CreateChildERKNS_8DataTypeEil(ptr noalias align 8 %ref.tmp.i227, ptr noundef nonnull align 8 dereferenceable(56) %visitor, ptr noundef nonnull align 8 dereferenceable(73) %type, i32 noundef 0, i64 noundef 0), !noalias !1126
   %73 = load ptr, ptr %ref.tmp.i227, align 8, !noalias !1126
   %cmp.i.i321 = icmp eq ptr %73, null
   br i1 %cmp.i.i321, label %invoke.cont9.i238, label %if.then.i234
@@ -21217,7 +21213,7 @@ sw.bb72:                                          ; preds = %entry
   %80 = load i32, ptr %list_size_.i, align 8, !noalias !1140
   %conv.i = sext i32 %80 to i64
   %mul.i = mul nsw i64 %79, %conv.i
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory11CreateChildERKNS_8DataTypeEil(ptr noalias align 8 %ref.tmp.i243, ptr noundef nonnull align 8 dereferenceable(56) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type, i32 noundef 0, i64 noundef %mul.i), !noalias !1140
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory11CreateChildERKNS_8DataTypeEil(ptr noalias align 8 %ref.tmp.i243, ptr noundef nonnull align 8 dereferenceable(56) %visitor, ptr noundef nonnull align 8 dereferenceable(76) %type, i32 noundef 0, i64 noundef %mul.i), !noalias !1140
   %81 = load ptr, ptr %ref.tmp.i243, align 8, !noalias !1140
   %cmp.i.i325 = icmp eq ptr %81, null
   br i1 %cmp.i.i325, label %invoke.cont10.i, label %if.then.i246
@@ -21287,7 +21283,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.inc.i ]
   %91 = load i64, ptr %length_.i258, align 8, !noalias !1154
   %92 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory11CreateChildERKNS_8DataTypeEil(ptr noalias align 8 %ref.tmp.i254, ptr noundef nonnull align 8 dereferenceable(56) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %type, i32 noundef %92, i64 noundef %91)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory11CreateChildERKNS_8DataTypeEil(ptr noalias align 8 %ref.tmp.i254, ptr noundef nonnull align 8 dereferenceable(56) %visitor, ptr noundef nonnull align 8 dereferenceable(80) %type, i32 noundef %92, i64 noundef %91)
   %93 = load ptr, ptr %ref.tmp.i254, align 8
   %cmp.i.i369 = icmp eq ptr %93, null
   br i1 %cmp.i.i369, label %invoke.cont10.i263, label %cond.false.i
@@ -22050,7 +22046,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %conv.i302 = ashr i64 %sext, 32
   tail call void @_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %child_data.i298, i64 noundef %conv.i302), !noalias !1226
   %206 = load ptr, ptr %storage_type_.i506, align 8, !noalias !1226
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116NullArrayFactoryEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp.i295, ptr noundef nonnull align 8 dereferenceable(72) %206, ptr noundef %visitor), !noalias !1226
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116NullArrayFactoryEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %ref.tmp.i295, ptr noundef nonnull align 8 dereferenceable(72) %206, ptr noundef nonnull align 8 dereferenceable(56) %visitor), !noalias !1226
   call void @llvm.experimental.noalias.scope.decl(metadata !1229)
   %207 = load ptr, ptr %ref.tmp.i295, align 8, !noalias !1229
   store ptr %207, ptr %agg.result, align 8, !alias.scope !1229
@@ -22752,7 +22748,7 @@ sw.bb72.i:                                        ; preds = %entry
   %conv.i.i.i225 = zext i1 %cmp.i.i.i224 to i64
   %add.i.i.i226 = add nsw i64 %shr.i.i.i222, %conv.i.i.i225
   store i64 %add.i.i.i226, ptr %buffer_length_.i.i221, align 8, !noalias !1468
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5MaxOfEOS2_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i215)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5MaxOfEOS2_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i215)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i215)
   br label %_ZN5arrow6StatusD2Ev.exit
 
@@ -22964,7 +22960,7 @@ do.end8.i:                                        ; preds = %_ZN5arrow6StatusD2E
   %conv.i.i43.i = zext i1 %cmp.i.i42.i to i64
   %add.i.i44.i = add nsw i64 %shr.i.i40.i, %conv.i.i43.i
   store i64 %add.i.i44.i, ptr %buffer_length_.i39.i, align 8, !noalias !1492
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5MaxOfEOS2_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5MaxOfEOS2_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9.i)
   br label %_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5VisitERKNS_14DictionaryTypeE.exit
 
 _ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5VisitERKNS_14DictionaryTypeE.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %do.end8.i
@@ -22994,7 +22990,7 @@ sw.bb84.i:                                        ; preds = %entry
   %conv.i.i.i = zext i1 %cmp.i.i.i to i64
   %add.i.i.i = add nsw i64 %shr.i.i.i, %conv.i.i.i
   store i64 %add.i.i.i, ptr %buffer_length_.i.i, align 8, !noalias !1502
-  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5MaxOfEOS2_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_116NullArrayFactory15GetBufferLength5MaxOfEOS2_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %_ZN5arrow6StatusD2Ev.exit
 
@@ -23277,7 +23273,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -23287,7 +23283,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #17
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -27140,7 +27136,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %call.i.noexc5 unwind label %terminate.lpad
 
 call.i.noexc5:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
@@ -27150,7 +27146,7 @@ call.i.noexc5:                                    ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #17
   br label %terminate.lpad.body
 
 invoke.cont5:                                     ; preds = %.noexc
@@ -27215,7 +27211,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !1545
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !1545
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(55) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !1545
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -29443,7 +29439,7 @@ sw.bb4:                                           ; preds = %entry
   %value2.i = getelementptr inbounds i8, ptr %this.val.i, i64 41
   %46 = load i8, ptr %value2.i, align 1, !noalias !1585
   store i8 %46, ptr %value.i86, align 1, !noalias !1585
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i86, i64 noundef 1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i86, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.i86)
   br label %return
 
@@ -29454,7 +29450,7 @@ sw.bb6:                                           ; preds = %entry
   %value2.i89 = getelementptr inbounds i8, ptr %this.val.i88, i64 41
   %48 = load i8, ptr %value2.i89, align 1, !noalias !1588
   store i8 %48, ptr %value.i87, align 1, !noalias !1588
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i87, i64 noundef 1)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i87, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.i87)
   br label %return
 
@@ -29465,7 +29461,7 @@ sw.bb8:                                           ; preds = %entry
   %value2.i92 = getelementptr inbounds i8, ptr %this.val.i91, i64 42
   %50 = load i16, ptr %value2.i92, align 2, !noalias !1591
   store i16 %50, ptr %value.i90, align 2, !noalias !1591
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i90, i64 noundef 2)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i90, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.i90)
   br label %return
 
@@ -29476,7 +29472,7 @@ sw.bb10:                                          ; preds = %entry
   %value2.i95 = getelementptr inbounds i8, ptr %this.val.i94, i64 42
   %52 = load i16, ptr %value2.i95, align 2, !noalias !1594
   store i16 %52, ptr %value.i93, align 2, !noalias !1594
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i93, i64 noundef 2)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i93, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.i93)
   br label %return
 
@@ -29487,7 +29483,7 @@ sw.bb12:                                          ; preds = %entry
   %value2.i98 = getelementptr inbounds i8, ptr %this.val.i97, i64 44
   %54 = load i32, ptr %value2.i98, align 4, !noalias !1597
   store i32 %54, ptr %value.i96, align 4, !noalias !1597
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i96, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i96, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i96)
   br label %return
 
@@ -29498,7 +29494,7 @@ sw.bb14:                                          ; preds = %entry
   %value2.i101 = getelementptr inbounds i8, ptr %this.val.i100, i64 44
   %56 = load i32, ptr %value2.i101, align 4, !noalias !1600
   store i32 %56, ptr %value.i99, align 4, !noalias !1600
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i99, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i99, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i99)
   br label %return
 
@@ -29509,7 +29505,7 @@ sw.bb16:                                          ; preds = %entry
   %value2.i104 = getelementptr inbounds i8, ptr %this.val.i103, i64 48
   %58 = load i64, ptr %value2.i104, align 8, !noalias !1603
   store i64 %58, ptr %value.i102, align 8, !noalias !1603
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i102, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i102, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i102)
   br label %return
 
@@ -29520,7 +29516,7 @@ sw.bb18:                                          ; preds = %entry
   %value2.i107 = getelementptr inbounds i8, ptr %this.val.i106, i64 48
   %60 = load i64, ptr %value2.i107, align 8, !noalias !1606
   store i64 %60, ptr %value.i105, align 8, !noalias !1606
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i105, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i105, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i105)
   br label %return
 
@@ -29531,7 +29527,7 @@ sw.bb20:                                          ; preds = %entry
   %value2.i110 = getelementptr inbounds i8, ptr %this.val.i109, i64 42
   %62 = load i16, ptr %value2.i110, align 2, !noalias !1609
   store i16 %62, ptr %value.i108, align 2, !noalias !1609
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i108, i64 noundef 2)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i108, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.i108)
   br label %return
 
@@ -29542,7 +29538,7 @@ sw.bb22:                                          ; preds = %entry
   %value2.i113 = getelementptr inbounds i8, ptr %this.val.i112, i64 44
   %64 = load float, ptr %value2.i113, align 4, !noalias !1612
   store float %64, ptr %value.i111, align 4, !noalias !1612
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i111, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i111, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i111)
   br label %return
 
@@ -29553,7 +29549,7 @@ sw.bb24:                                          ; preds = %entry
   %value2.i116 = getelementptr inbounds i8, ptr %this.val.i115, i64 48
   %66 = load double, ptr %value2.i116, align 8, !noalias !1615
   store double %66, ptr %value.i114, align 8, !noalias !1615
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i114, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i114, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i114)
   br label %return
 
@@ -31104,7 +31100,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt10shared_ptrIN
   %tobool.i.i591 = trunc i8 %284 to i1
   %cond.i.i592 = select i1 %tobool.i.i591, ptr %285, ptr null
   %conv.i593 = sext i32 %call5.i to i64
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef %cond.i.i592, i64 noundef %conv.i593)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef %cond.i.i592, i64 noundef %conv.i593)
           to label %invoke.cont6.i594 unwind label %lpad.i590
 
 invoke.cont6.i594:                                ; preds = %invoke.cont.i
@@ -31197,7 +31193,7 @@ sw.bb40:                                          ; preds = %entry
   %value2.i603 = getelementptr inbounds i8, ptr %this.val.i602, i64 48
   %300 = load i64, ptr %value2.i603, align 8, !noalias !1709
   store i64 %300, ptr %value.i601, align 8, !noalias !1709
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i601, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i601, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i601)
   br label %return
 
@@ -31208,7 +31204,7 @@ sw.bb42:                                          ; preds = %entry
   %value2.i606 = getelementptr inbounds i8, ptr %this.val.i605, i64 44
   %302 = load i32, ptr %value2.i606, align 4, !noalias !1712
   store i32 %302, ptr %value.i604, align 4, !noalias !1712
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i604, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i604, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i604)
   br label %return
 
@@ -31219,7 +31215,7 @@ sw.bb44:                                          ; preds = %entry
   %value2.i609 = getelementptr inbounds i8, ptr %this.val.i608, i64 48
   %304 = load i64, ptr %value2.i609, align 8, !noalias !1715
   store i64 %304, ptr %value.i607, align 8, !noalias !1715
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i607, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i607, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i607)
   br label %return
 
@@ -31230,7 +31226,7 @@ sw.bb46:                                          ; preds = %entry
   %value2.i612 = getelementptr inbounds i8, ptr %this.val.i611, i64 48
   %306 = load i64, ptr %value2.i612, align 8, !noalias !1718
   store i64 %306, ptr %value.i610, align 8, !noalias !1718
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i610, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i610, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i610)
   br label %return
 
@@ -31241,7 +31237,7 @@ sw.bb48:                                          ; preds = %entry
   %value2.i615 = getelementptr inbounds i8, ptr %this.val.i614, i64 44
   %308 = load i32, ptr %value2.i615, align 4, !noalias !1721
   store i32 %308, ptr %value.i613, align 4, !noalias !1721
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i613, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i613, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i613)
   br label %return
 
@@ -31252,7 +31248,7 @@ sw.bb50:                                          ; preds = %entry
   %value2.i618 = getelementptr inbounds i8, ptr %this.val.i617, i64 48
   %310 = load i64, ptr %value2.i618, align 8, !noalias !1724
   store i64 %310, ptr %value.i616, align 8, !noalias !1724
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i616, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i616, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i616)
   br label %return
 
@@ -31262,7 +31258,7 @@ sw.bb52:                                          ; preds = %entry
   %this.val.i620 = load ptr, ptr %311, align 8, !noalias !1727
   %value2.i621 = getelementptr inbounds i8, ptr %this.val.i620, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i619, ptr noundef nonnull align 8 dereferenceable(16) %value2.i621, i64 16, i1 false), !noalias !1727
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i619, i64 noundef 16)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i619, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i619)
   br label %return
 
@@ -31273,7 +31269,7 @@ sw.bb54:                                          ; preds = %entry
   %value2.i624 = getelementptr inbounds i8, ptr %this.val.i623, i64 44
   %313 = load i32, ptr %value2.i624, align 4, !noalias !1730
   store i32 %313, ptr %value.i622, align 4, !noalias !1730
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i622, i64 noundef 4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i622, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i622)
   br label %return
 
@@ -31284,7 +31280,7 @@ sw.bb56:                                          ; preds = %entry
   %value2.i627 = getelementptr inbounds i8, ptr %this.val.i626, i64 44
   %315 = load i64, ptr %value2.i627, align 4, !noalias !1733
   store i64 %315, ptr %value.i625, align 8, !noalias !1733
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i625, i64 noundef 8)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i625, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i625)
   br label %return
 
@@ -31299,7 +31295,7 @@ sw.bb58:                                          ; preds = %entry
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %value.i628, align 8, !noalias !1736
   %317 = getelementptr inbounds i8, ptr %value.i628, i64 8
   store i64 %retval.sroa.3.0.copyload.i.i, ptr %317, align 8, !noalias !1736
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i628, i64 noundef 16)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i628, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i628)
   br label %return
 
@@ -31309,7 +31305,7 @@ sw.bb60:                                          ; preds = %entry
   %318 = load ptr, ptr %scalar_.i632, align 8, !noalias !1739
   %value2.i633 = getelementptr inbounds i8, ptr %318, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %value.i631, ptr noundef nonnull align 8 dereferenceable(32) %value2.i633, i64 32, i1 false), !noalias !1739
-  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i631, i64 noundef 32)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_120RepeatedArrayFactory16FinishFixedWidthEPKvm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %visitor, ptr noundef nonnull %value.i631, i64 noundef 32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i631)
   br label %return
 
@@ -38179,7 +38175,7 @@ entry:
   %builder = alloca %"class.arrow::BufferBuilder", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %builder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %builder, i8 0, i64 16, i1 false)
   %pool_.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %0, ptr %pool_.i, align 8
   %data_.i = getelementptr inbounds i8, ptr %builder, i64 24
@@ -39474,7 +39470,7 @@ entry:
   %builder = alloca %"class.arrow::TypedBufferBuilder.286", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %builder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %builder, i8 0, i64 16, i1 false)
   %pool_.i.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %0, ptr %pool_.i.i, align 8
   %data_.i.i = getelementptr inbounds i8, ptr %builder, i64 24
@@ -40138,7 +40134,7 @@ entry:
   %builder = alloca %"class.arrow::TypedBufferBuilder.308", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %builder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %builder, i8 0, i64 16, i1 false)
   %pool_.i.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %0, ptr %pool_.i.i, align 8
   %data_.i.i = getelementptr inbounds i8, ptr %builder, i64 24
@@ -41405,7 +41401,7 @@ do.body:
   %__s10 = alloca %"class.arrow::Status", align 8
   %ref.tmp11 = alloca %"class.arrow::Status", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %builder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %builder, i8 0, i64 16, i1 false)
   %pool_.i.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %this.0.val, ptr %pool_.i.i, align 8
   %data_.i.i = getelementptr inbounds i8, ptr %builder, i64 24
@@ -42352,7 +42348,7 @@ do.body:
   %__s10 = alloca %"class.arrow::Status", align 8
   %ref.tmp11 = alloca %"class.arrow::Status", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %builder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %builder, i8 0, i64 16, i1 false)
   %pool_.i.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %this.0.val, ptr %pool_.i.i, align 8
   %data_.i.i = getelementptr inbounds i8, ptr %builder, i64 24
@@ -44276,7 +44272,7 @@ entry:
   %__s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %builder, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %builder, i8 0, i64 16, i1 false)
   %pool_.i.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %0, ptr %pool_.i.i, align 8
   %data_.i.i = getelementptr inbounds i8, ptr %builder, i64 24
@@ -46606,7 +46602,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !2106
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !2106
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(34) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !2106
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -46653,7 +46649,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !2109
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !2109
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(42) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !2109
 
 invoke.cont.i:                                    ; preds = %entry

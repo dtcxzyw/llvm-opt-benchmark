@@ -2509,12 +2509,36 @@ if.end:                                           ; preds = %lor.lhs.false
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %algctx, align 8
   %cmp3 = icmp eq ptr %1, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+  br i1 %cmp3, label %if.end.i, label %if.end5
 
-if.then4:                                         ; preds = %if.end
+if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i)
   store i64 %val, ptr %value.addr.i, align 8
-  %call.i = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef 2048, i32 noundef %ctrl, i32 noundef 0, ptr noundef nonnull %value.addr.i)
+  %call.i6 = tail call i32 @ERR_set_mark() #10
+  %call1.i = call fastcc i32 @evp_pkey_ctx_store_cached_data(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef 2048, i32 noundef %ctrl, ptr noundef null, ptr noundef nonnull %value.addr.i, i64 noundef 0)
+  %cmp2.i = icmp eq i32 %call1.i, -2
+  br i1 %cmp2.i, label %if.then4.i, label %if.else.i
+
+if.then4.i:                                       ; preds = %if.end.i
+  %call5.i = call i32 @ERR_pop_to_mark() #10
+  br label %if.end13.i
+
+if.else.i:                                        ; preds = %if.end.i
+  %call6.i = call i32 @ERR_clear_last_mark() #10
+  %cmp7.i = icmp slt i32 %call1.i, 1
+  br i1 %cmp7.i, label %EVP_PKEY_CTX_ctrl.exit, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.else.i
+  %2 = load i32, ptr %ctx, align 8
+  %cmp9.i = icmp eq i32 %2, 0
+  br i1 %cmp9.i, label %EVP_PKEY_CTX_ctrl.exit, label %if.end13.i
+
+if.end13.i:                                       ; preds = %lor.lhs.false.i, %if.then4.i
+  %call14.i = call fastcc i32 @evp_pkey_ctx_ctrl_int(ptr noundef nonnull %ctx, i32 noundef -1, i32 noundef 2048, i32 noundef %ctrl, i32 noundef 0, ptr noundef nonnull %value.addr.i)
+  br label %EVP_PKEY_CTX_ctrl.exit
+
+EVP_PKEY_CTX_ctrl.exit:                           ; preds = %if.else.i, %lor.lhs.false.i, %if.end13.i
+  %retval.0.i = phi i32 [ %call14.i, %if.end13.i ], [ 1, %lor.lhs.false.i ], [ %call1.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
   br label %return
 
@@ -2527,8 +2551,8 @@ if.end5:                                          ; preds = %if.end
   %call8 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %ctx, ptr noundef nonnull %uint64_params)
   br label %return
 
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %retval.0 = phi i32 [ -2, %if.then ], [ %call.i, %if.then4 ], [ %call8, %if.end5 ]
+return:                                           ; preds = %if.end5, %EVP_PKEY_CTX_ctrl.exit, %if.then
+  %retval.0 = phi i32 [ -2, %if.then ], [ %retval.0.i, %EVP_PKEY_CTX_ctrl.exit ], [ %call8, %if.end5 ]
   ret i32 %retval.0
 }
 
